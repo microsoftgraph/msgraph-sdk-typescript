@@ -1,0 +1,7 @@
+import {ConfigurationManagerCollectionAssignmentTargetImpl} from './index';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createConfigurationManagerCollectionAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConfigurationManagerCollectionAssignmentTargetImpl {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new ConfigurationManagerCollectionAssignmentTargetImpl();
+}

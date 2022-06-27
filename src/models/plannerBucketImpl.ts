@@ -2,10 +2,12 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {EntityImpl, PlannerTaskImpl} from './index';
 import {PlannerBucket} from './plannerBucket';
 import {PlannerTask} from './plannerTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Name of the bucket. */
     public name?: string | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
@@ -20,6 +22,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
      */
     public constructor(plannerBucketParameterValue?: PlannerBucket | undefined) {
         super(plannerBucketParameterValue);
+        this.additionalData = plannerBucketParameterValue?.additionalData ? plannerBucketParameterValue?.additionalData! : {};
         this.name = plannerBucketParameterValue?.name;
         this.orderHint = plannerBucketParameterValue?.orderHint;
         this.planId = plannerBucketParameterValue?.planId;
@@ -57,5 +60,6 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

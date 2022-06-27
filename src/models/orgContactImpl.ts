@@ -8,10 +8,12 @@ import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
 import {OrgContact} from './orgContact';
 import {Phone} from './phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of orgContact entities. */
 export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
     public addresses?: PhysicalOfficeAddress[] | undefined;
     /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
@@ -54,6 +56,7 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
      */
     public constructor(orgContactParameterValue?: OrgContact | undefined) {
         super(orgContactParameterValue);
+        this.additionalData = orgContactParameterValue?.additionalData ? orgContactParameterValue?.additionalData! : {};
         const addressesArrValue: PhysicalOfficeAddressImpl[] = []; orgContactParameterValue.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalOfficeAddressImpl? element : new PhysicalOfficeAddressImpl(element));});
         this.addresses = addressesArrValue;
         this.companyName = orgContactParameterValue?.companyName;
@@ -166,5 +169,6 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

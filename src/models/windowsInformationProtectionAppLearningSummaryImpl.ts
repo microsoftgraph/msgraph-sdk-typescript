@@ -1,10 +1,12 @@
 import {ApplicationType} from './applicationType';
 import {EntityImpl} from './index';
 import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection AppLearning Summary entity. */
 export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityImpl implements WindowsInformationProtectionAppLearningSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Application Name */
     public applicationName?: string | undefined;
     /** Application Type. Possible values are: universal, desktop. */
@@ -17,6 +19,7 @@ export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityIm
      */
     public constructor(windowsInformationProtectionAppLearningSummaryParameterValue?: WindowsInformationProtectionAppLearningSummary | undefined) {
         super(windowsInformationProtectionAppLearningSummaryParameterValue);
+        this.additionalData = windowsInformationProtectionAppLearningSummaryParameterValue?.additionalData ? windowsInformationProtectionAppLearningSummaryParameterValue?.additionalData! : {};
         this.applicationName = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationName;
         this.applicationType = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationType;
         this.deviceCount = windowsInformationProtectionAppLearningSummaryParameterValue?.deviceCount;
@@ -48,5 +51,6 @@ export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityIm
         if(this.deviceCount){
             writer.writeNumberValue("deviceCount", this.deviceCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

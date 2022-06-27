@@ -2,10 +2,12 @@ import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device compliance policy assignment. */
 export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements DeviceCompliancePolicyAssignment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Target for the compliance policy assignment. */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -14,6 +16,7 @@ export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements 
      */
     public constructor(deviceCompliancePolicyAssignmentParameterValue?: DeviceCompliancePolicyAssignment | undefined) {
         super(deviceCompliancePolicyAssignmentParameterValue);
+        this.additionalData = deviceCompliancePolicyAssignmentParameterValue?.additionalData ? deviceCompliancePolicyAssignmentParameterValue?.additionalData! : {};
         this.target = deviceCompliancePolicyAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? deviceCompliancePolicyAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(deviceCompliancePolicyAssignmentParameterValue?.target);
     };
     /**
@@ -35,5 +38,6 @@ export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements 
         if(this.target){
             writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

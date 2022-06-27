@@ -1,17 +1,19 @@
 import {EducationAssignmentPointsGrade} from './educationAssignmentPointsGrade';
 import {EducationAssignmentGradeImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentPointsGradeImpl extends EducationAssignmentGradeImpl implements EducationAssignmentPointsGrade {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Number of points a teacher is giving this submission object. */
     public points?: number | undefined;
     /**
-     * Instantiates a new educationAssignmentPointsGrade and sets the default values.
+     * Instantiates a new EducationAssignmentPointsGrade and sets the default values.
      * @param educationAssignmentPointsGradeParameterValue 
      */
     public constructor(educationAssignmentPointsGradeParameterValue?: EducationAssignmentPointsGrade | undefined) {
         super(educationAssignmentPointsGradeParameterValue);
+        this.additionalData = educationAssignmentPointsGradeParameterValue?.additionalData ? educationAssignmentPointsGradeParameterValue?.additionalData! : {};
         this.points = educationAssignmentPointsGradeParameterValue?.points;
     };
     /**
@@ -33,5 +35,6 @@ export class EducationAssignmentPointsGradeImpl extends EducationAssignmentGrade
         if(this.points){
             writer.writeNumberValue("points", this.points);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

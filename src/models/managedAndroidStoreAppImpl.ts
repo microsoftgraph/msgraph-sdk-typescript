@@ -2,9 +2,11 @@ import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {AndroidMinimumOperatingSystemImpl, ManagedAppImpl} from './index';
 import {ManagedAndroidStoreApp} from './managedAndroidStoreApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAndroidStoreAppImpl extends ManagedAppImpl implements ManagedAndroidStoreApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The Android AppStoreUrl. */
     public appStoreUrl?: string | undefined;
     /** Contains properties for the minimum operating system required for an Android mobile app. */
@@ -17,6 +19,7 @@ export class ManagedAndroidStoreAppImpl extends ManagedAppImpl implements Manage
      */
     public constructor(managedAndroidStoreAppParameterValue?: ManagedAndroidStoreApp | undefined) {
         super(managedAndroidStoreAppParameterValue);
+        this.additionalData = managedAndroidStoreAppParameterValue?.additionalData ? managedAndroidStoreAppParameterValue?.additionalData! : {};
         this.appStoreUrl = managedAndroidStoreAppParameterValue?.appStoreUrl;
         this.minimumSupportedOperatingSystem = managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem);
         this.packageId = managedAndroidStoreAppParameterValue?.packageId;
@@ -48,5 +51,6 @@ export class ManagedAndroidStoreAppImpl extends ManagedAppImpl implements Manage
         if(this.packageId){
             writer.writeStringValue("packageId", this.packageId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

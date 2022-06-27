@@ -2,9 +2,11 @@ import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorVal
 import {JsonImpl, ManagedAppStatusImpl} from './index';
 import {Json} from './json';
 import {ManagedAppStatusRaw} from './managedAppStatusRaw';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements ManagedAppStatusRaw {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Status report content. */
     public content?: Json | undefined;
     /**
@@ -13,6 +15,7 @@ export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements Man
      */
     public constructor(managedAppStatusRawParameterValue?: ManagedAppStatusRaw | undefined) {
         super(managedAppStatusRawParameterValue);
+        this.additionalData = managedAppStatusRawParameterValue?.additionalData ? managedAppStatusRawParameterValue?.additionalData! : {};
         this.content = managedAppStatusRawParameterValue?.content instanceof JsonImpl? managedAppStatusRawParameterValue?.content:new JsonImpl(managedAppStatusRawParameterValue?.content);
     };
     /**
@@ -34,5 +37,6 @@ export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements Man
         if(this.content){
             writer.writeObjectValue<JsonImpl>("content", new JsonImpl(this.content));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

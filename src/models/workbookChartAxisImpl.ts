@@ -8,10 +8,12 @@ import {WorkbookChartAxis} from './workbookChartAxis';
 import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
 import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAxis {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     public format?: WorkbookChartAxisFormat | undefined;
     /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */
@@ -34,6 +36,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public constructor(workbookChartAxisParameterValue?: WorkbookChartAxis | undefined) {
         super(workbookChartAxisParameterValue);
+        this.additionalData = workbookChartAxisParameterValue?.additionalData ? workbookChartAxisParameterValue?.additionalData! : {};
         this.format = workbookChartAxisParameterValue?.format instanceof WorkbookChartAxisFormatImpl? workbookChartAxisParameterValue?.format:new WorkbookChartAxisFormatImpl(workbookChartAxisParameterValue?.format);
         this.majorGridlines = workbookChartAxisParameterValue?.majorGridlines instanceof WorkbookChartGridlinesImpl? workbookChartAxisParameterValue?.majorGridlines:new WorkbookChartGridlinesImpl(workbookChartAxisParameterValue?.majorGridlines);
         this.majorUnit = workbookChartAxisParameterValue?.majorUnit instanceof JsonImpl? workbookChartAxisParameterValue?.majorUnit:new JsonImpl(workbookChartAxisParameterValue?.majorUnit);
@@ -90,5 +93,6 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
         if(this.title){
             writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", new WorkbookChartAxisTitleImpl(this.title));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

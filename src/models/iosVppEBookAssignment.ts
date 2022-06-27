@@ -1,5 +1,7 @@
 import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosVppEBookAssignment extends ManagedEBookAssignment, Partial<Parsable> {
+export interface IosVppEBookAssignment extends Partial<AdditionalDataHolder>, ManagedEBookAssignment, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
 }

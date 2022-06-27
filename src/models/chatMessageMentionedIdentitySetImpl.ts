@@ -2,18 +2,20 @@ import {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet
 import {createTeamworkConversationIdentityFromDiscriminatorValue} from './createTeamworkConversationIdentityFromDiscriminatorValue';
 import {IdentitySetImpl, TeamworkConversationIdentityImpl} from './index';
 import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl implements ChatMessageMentionedIdentitySet {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** If present, represents a conversation (for example, team or channel) @mentioned in a message. */
     public conversation?: TeamworkConversationIdentity | undefined;
     /**
-     * Instantiates a new chatMessageMentionedIdentitySet and sets the default values.
+     * Instantiates a new ChatMessageMentionedIdentitySet and sets the default values.
      * @param chatMessageMentionedIdentitySetParameterValue 
      */
     public constructor(chatMessageMentionedIdentitySetParameterValue?: ChatMessageMentionedIdentitySet | undefined) {
         super(chatMessageMentionedIdentitySetParameterValue);
+        this.additionalData = chatMessageMentionedIdentitySetParameterValue?.additionalData ? chatMessageMentionedIdentitySetParameterValue?.additionalData! : {};
         this.conversation = chatMessageMentionedIdentitySetParameterValue?.conversation instanceof TeamworkConversationIdentityImpl? chatMessageMentionedIdentitySetParameterValue?.conversation:new TeamworkConversationIdentityImpl(chatMessageMentionedIdentitySetParameterValue?.conversation);
     };
     /**
@@ -35,5 +37,6 @@ export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl impleme
         if(this.conversation){
             writer.writeObjectValue<TeamworkConversationIdentityImpl>("conversation", new TeamworkConversationIdentityImpl(this.conversation));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,9 +5,11 @@ import {ConnectionState} from './connectionState';
 import {ExternalGroup} from './externalGroup';
 import {ExternalItem} from './externalItem';
 import {Schema} from './schema';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ExternalConnection extends Entity, Partial<Parsable> {
+export interface ExternalConnection extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
     configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */

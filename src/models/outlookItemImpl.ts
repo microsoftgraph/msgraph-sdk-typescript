@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {OutlookItem} from './outlookItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class OutlookItemImpl extends EntityImpl implements OutlookItem {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The categories associated with the item */
     public categories?: string[] | undefined;
     /** Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
@@ -18,6 +20,7 @@ export class OutlookItemImpl extends EntityImpl implements OutlookItem {
      */
     public constructor(outlookItemParameterValue?: OutlookItem | undefined) {
         super(outlookItemParameterValue);
+        this.additionalData = outlookItemParameterValue?.additionalData ? outlookItemParameterValue?.additionalData! : {};
         this.categories = outlookItemParameterValue?.categories;
         this.changeKey = outlookItemParameterValue?.changeKey;
         this.createdDateTime = outlookItemParameterValue?.createdDateTime;
@@ -54,5 +57,6 @@ export class OutlookItemImpl extends EntityImpl implements OutlookItem {
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

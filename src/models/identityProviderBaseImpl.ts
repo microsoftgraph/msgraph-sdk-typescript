@@ -1,9 +1,11 @@
 import {IdentityProviderBase} from './identityProviderBase';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the directory singleton. */
 export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProviderBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The display name of the identity provider. */
     public displayName?: string | undefined;
     /**
@@ -12,6 +14,7 @@ export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProv
      */
     public constructor(identityProviderBaseParameterValue?: IdentityProviderBase | undefined) {
         super(identityProviderBaseParameterValue);
+        this.additionalData = identityProviderBaseParameterValue?.additionalData ? identityProviderBaseParameterValue?.additionalData! : {};
         this.displayName = identityProviderBaseParameterValue?.displayName;
     };
     /**
@@ -33,5 +36,6 @@ export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProv
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

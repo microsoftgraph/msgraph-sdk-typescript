@@ -32,10 +32,12 @@ import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
 import {ResultInfo} from './resultInfo';
 import {ToneInfo} from './toneInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CallImpl extends EntityImpl implements Call {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The audioRoutingGroups property */
     public audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
@@ -88,6 +90,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public constructor(callParameterValue?: Call | undefined) {
         super(callParameterValue);
+        this.additionalData = callParameterValue?.additionalData ? callParameterValue?.additionalData! : {};
         const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = []; callParameterValue.audioRoutingGroups?.forEach(element => {audioRoutingGroupsArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
         this.audioRoutingGroups = audioRoutingGroupsArrValue;
         this.callbackUri = callParameterValue?.callbackUri;
@@ -224,5 +227,6 @@ export class CallImpl extends EntityImpl implements Call {
         if(this.transcription){
             writer.writeObjectValue<CallTranscriptionInfoImpl>("transcription", new CallTranscriptionInfoImpl(this.transcription));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

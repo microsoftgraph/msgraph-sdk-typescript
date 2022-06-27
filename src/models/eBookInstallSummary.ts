@@ -1,7 +1,9 @@
 import {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EBookInstallSummary extends Entity, Partial<Parsable> {
+export interface EBookInstallSummary extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Number of Devices that have failed to install this book. */
     failedDeviceCount?: number | undefined;
     /** Number of Users that have 1 or more device that failed to install this book. */

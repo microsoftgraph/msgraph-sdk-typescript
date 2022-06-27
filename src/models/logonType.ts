@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum LogonType {
     Unknown = "unknown",
     Interactive = "interactive",

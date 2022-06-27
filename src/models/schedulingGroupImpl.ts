@@ -1,8 +1,10 @@
 import {ChangeTrackedEntityImpl} from './index';
 import {SchedulingGroup} from './schedulingGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements SchedulingGroup {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The display name for the schedulingGroup. Required. */
     public displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
@@ -15,6 +17,7 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Sche
      */
     public constructor(schedulingGroupParameterValue?: SchedulingGroup | undefined) {
         super(schedulingGroupParameterValue);
+        this.additionalData = schedulingGroupParameterValue?.additionalData ? schedulingGroupParameterValue?.additionalData! : {};
         this.displayName = schedulingGroupParameterValue?.displayName;
         this.isActive = schedulingGroupParameterValue?.isActive;
         this.userIds = schedulingGroupParameterValue?.userIds;
@@ -46,5 +49,6 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Sche
         if(this.userIds){
             writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

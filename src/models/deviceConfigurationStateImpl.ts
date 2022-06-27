@@ -4,10 +4,12 @@ import {DeviceConfigurationSettingState} from './deviceConfigurationSettingState
 import {DeviceConfigurationState} from './deviceConfigurationState';
 import {DeviceConfigurationSettingStateImpl, EntityImpl} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration State for a given device. */
 export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceConfigurationState {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The name of the policy for this policyBase */
     public displayName?: string | undefined;
     /** Platform type that the policy applies to */
@@ -26,6 +28,7 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
      */
     public constructor(deviceConfigurationStateParameterValue?: DeviceConfigurationState | undefined) {
         super(deviceConfigurationStateParameterValue);
+        this.additionalData = deviceConfigurationStateParameterValue?.additionalData ? deviceConfigurationStateParameterValue?.additionalData! : {};
         this.displayName = deviceConfigurationStateParameterValue?.displayName;
         this.platformType = deviceConfigurationStateParameterValue?.platformType;
         this.settingCount = deviceConfigurationStateParameterValue?.settingCount;
@@ -73,5 +76,6 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

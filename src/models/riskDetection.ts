@@ -6,13 +6,15 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface RiskDetection extends Entity, Partial<Parsable> {
+export interface RiskDetection extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue. */
     activity?: ActivityType | undefined;
     /** Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     activityDateTime?: Date | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Additional information associated with the risk detection in JSON format. */
     additionalInfo?: string | undefined;
     /** Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in. */

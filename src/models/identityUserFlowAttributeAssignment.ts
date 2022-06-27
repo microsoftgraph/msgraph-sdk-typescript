@@ -2,9 +2,11 @@ import {Entity} from './entity';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
 import {UserAttributeValuesItem} from './userAttributeValuesItem';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IdentityUserFlowAttributeAssignment extends Entity, Partial<Parsable> {
+export interface IdentityUserFlowAttributeAssignment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The display name of the identityUserFlowAttribute within a user flow. */
     displayName?: string | undefined;
     /** Determines whether the identityUserFlowAttribute is optional. true means the user doesn't have to provide a value. false means the user cannot complete sign-up without providing a value. */

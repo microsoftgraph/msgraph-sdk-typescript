@@ -4,10 +4,12 @@ import {EntityImpl, RoleAssignmentImpl, RolePermissionImpl} from './index';
 import {RoleAssignment} from './roleAssignment';
 import {RoleDefinition} from './roleDefinition';
 import {RolePermission} from './rolePermission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Role Definition resource. The role definition is the foundation of role based access in Intune. The role combines an Intune resource such as a Mobile App and associated role permissions such as Create or Read for the resource. There are two types of roles, built-in and custom. Built-in roles cannot be modified. Both built-in roles and custom roles must have assignments to be enforced. Create custom roles if you want to define a role that allows any of the available resources and role permissions to be combined into a single role. */
 export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Description of the Role definition. */
     public description?: string | undefined;
     /** Display Name of the Role definition. */
@@ -24,6 +26,7 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
      */
     public constructor(roleDefinitionParameterValue?: RoleDefinition | undefined) {
         super(roleDefinitionParameterValue);
+        this.additionalData = roleDefinitionParameterValue?.additionalData ? roleDefinitionParameterValue?.additionalData! : {};
         this.description = roleDefinitionParameterValue?.description;
         this.displayName = roleDefinitionParameterValue?.displayName;
         this.isBuiltIn = roleDefinitionParameterValue?.isBuiltIn;
@@ -67,5 +70,6 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: RolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
             writer.writeCollectionOfObjectValues<RolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

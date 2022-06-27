@@ -1,12 +1,14 @@
 import {DeviceConfigurationImpl} from './index';
 import {IosUpdateConfiguration} from './iosUpdateConfiguration';
-import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class IosUpdateConfigurationImpl extends DeviceConfigurationImpl implements IosUpdateConfiguration {
     /** Active Hours End (active hours mean the time window when updates install should not happen) */
     public activeHoursEnd?: TimeOnly | undefined;
     /** Active Hours Start (active hours mean the time window when updates install should not happen) */
     public activeHoursStart?: TimeOnly | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Days in week for which active hours are configured. This collection can contain a maximum of 7 elements. */
     public scheduledInstallDays?: string[] | undefined;
     /** UTC Time Offset indicated in minutes */
@@ -19,6 +21,7 @@ export class IosUpdateConfigurationImpl extends DeviceConfigurationImpl implemen
         super(iosUpdateConfigurationParameterValue);
         this.activeHoursEnd = iosUpdateConfigurationParameterValue?.activeHoursEnd;
         this.activeHoursStart = iosUpdateConfigurationParameterValue?.activeHoursStart;
+        this.additionalData = iosUpdateConfigurationParameterValue?.additionalData ? iosUpdateConfigurationParameterValue?.additionalData! : {};
         this.scheduledInstallDays = iosUpdateConfigurationParameterValue?.scheduledInstallDays;
         this.utcTimeOffsetInMinutes = iosUpdateConfigurationParameterValue?.utcTimeOffsetInMinutes;
     };
@@ -53,5 +56,6 @@ export class IosUpdateConfigurationImpl extends DeviceConfigurationImpl implemen
         if(this.utcTimeOffsetInMinutes){
             writer.writeNumberValue("utcTimeOffsetInMinutes", this.utcTimeOffsetInMinutes);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

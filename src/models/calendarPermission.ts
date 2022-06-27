@@ -1,9 +1,11 @@
 import {CalendarRoleType} from './calendarRoleType';
 import {EmailAddress} from './emailAddress';
 import {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CalendarPermission extends Entity, Partial<Parsable> {
+export interface CalendarPermission extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     allowedRoles?: string[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */

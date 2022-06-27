@@ -1,8 +1,10 @@
 import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DataPolicyOperation extends Entity, Partial<Parsable> {
+export interface DataPolicyOperation extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes. */
     completedDateTime?: Date | undefined;
     /** Specifies the progress of an operation. */

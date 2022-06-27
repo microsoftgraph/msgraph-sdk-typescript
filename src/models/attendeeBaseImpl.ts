@@ -1,18 +1,20 @@
 import {AttendeeBase} from './attendeeBase';
 import {AttendeeType} from './attendeeType';
 import {RecipientImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
     public type?: AttendeeType | undefined;
     /**
-     * Instantiates a new attendeeBase and sets the default values.
+     * Instantiates a new AttendeeBase and sets the default values.
      * @param attendeeBaseParameterValue 
      */
     public constructor(attendeeBaseParameterValue?: AttendeeBase | undefined) {
         super(attendeeBaseParameterValue);
+        this.additionalData = attendeeBaseParameterValue?.additionalData ? attendeeBaseParameterValue?.additionalData! : {};
         this.type = attendeeBaseParameterValue?.type;
     };
     /**
@@ -34,5 +36,6 @@ export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase {
         if(this.type){
             writer.writeEnumValue<AttendeeType>("type", this.type);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

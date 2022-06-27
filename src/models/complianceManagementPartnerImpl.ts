@@ -3,10 +3,12 @@ import {ComplianceManagementPartnerAssignment} from './complianceManagementPartn
 import {createComplianceManagementPartnerAssignmentFromDiscriminatorValue} from './createComplianceManagementPartnerAssignmentFromDiscriminatorValue';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {ComplianceManagementPartnerAssignmentImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Compliance management partner for all platforms */
 export class ComplianceManagementPartnerImpl extends EntityImpl implements ComplianceManagementPartner {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** User groups which enroll Android devices through partner. */
     public androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
     /** Partner onboarded for Android devices. */
@@ -31,6 +33,7 @@ export class ComplianceManagementPartnerImpl extends EntityImpl implements Compl
      */
     public constructor(complianceManagementPartnerParameterValue?: ComplianceManagementPartner | undefined) {
         super(complianceManagementPartnerParameterValue);
+        this.additionalData = complianceManagementPartnerParameterValue?.additionalData ? complianceManagementPartnerParameterValue?.additionalData! : {};
         const androidEnrollmentAssignmentsArrValue: ComplianceManagementPartnerAssignmentImpl[] = []; complianceManagementPartnerParameterValue.androidEnrollmentAssignments?.forEach(element => {androidEnrollmentAssignmentsArrValue.push(element instanceof ComplianceManagementPartnerAssignmentImpl? element : new ComplianceManagementPartnerAssignmentImpl(element));});
         this.androidEnrollmentAssignments = androidEnrollmentAssignmentsArrValue;
         this.androidOnboarded = complianceManagementPartnerParameterValue?.androidOnboarded;
@@ -95,5 +98,6 @@ export class ComplianceManagementPartnerImpl extends EntityImpl implements Compl
         if(this.partnerState){
             writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

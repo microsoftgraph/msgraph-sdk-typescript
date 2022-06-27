@@ -2,9 +2,11 @@ import {Entity} from '../entity';
 import {Endpoint} from './endpoint';
 import {FailureInfo} from './failureInfo';
 import {Media} from './media';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Segment extends Entity, Partial<Parsable> {
+export interface Segment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Endpoint that answered this segment. */
     callee?: Endpoint | undefined;
     /** Endpoint that initiated this segment. */

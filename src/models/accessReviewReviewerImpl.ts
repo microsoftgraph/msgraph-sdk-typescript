@@ -1,9 +1,11 @@
 import {AccessReviewReviewer} from './accessReviewReviewer';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AccessReviewReviewerImpl extends EntityImpl implements AccessReviewReviewer {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The date when the reviewer was added for the access review. */
     public createdDateTime?: Date | undefined;
     /** Name of reviewer. */
@@ -16,6 +18,7 @@ export class AccessReviewReviewerImpl extends EntityImpl implements AccessReview
      */
     public constructor(accessReviewReviewerParameterValue?: AccessReviewReviewer | undefined) {
         super(accessReviewReviewerParameterValue);
+        this.additionalData = accessReviewReviewerParameterValue?.additionalData ? accessReviewReviewerParameterValue?.additionalData! : {};
         this.createdDateTime = accessReviewReviewerParameterValue?.createdDateTime;
         this.displayName = accessReviewReviewerParameterValue?.displayName;
         this.userPrincipalName = accessReviewReviewerParameterValue?.userPrincipalName;
@@ -47,5 +50,6 @@ export class AccessReviewReviewerImpl extends EntityImpl implements AccessReview
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

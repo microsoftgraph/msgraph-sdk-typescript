@@ -2,10 +2,11 @@ import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocati
 import {EntityImpl, PrinterLocationImpl} from './index';
 import {PrintConnector} from './printConnector';
 import {PrinterLocation} from './printerLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintConnectorImpl extends EntityImpl implements PrintConnector {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The connector's version. */
     public appVersion?: string | undefined;
     /** The name of the connector. */
@@ -19,11 +20,12 @@ export class PrintConnectorImpl extends EntityImpl implements PrintConnector {
     /** The DateTimeOffset when the connector was registered. */
     public registeredDateTime?: Date | undefined;
     /**
-     * Instantiates a new printConnector and sets the default values.
+     * Instantiates a new PrintConnector and sets the default values.
      * @param printConnectorParameterValue 
      */
     public constructor(printConnectorParameterValue?: PrintConnector | undefined) {
         super(printConnectorParameterValue);
+        this.additionalData = printConnectorParameterValue?.additionalData ? printConnectorParameterValue?.additionalData! : {};
         this.appVersion = printConnectorParameterValue?.appVersion;
         this.displayName = printConnectorParameterValue?.displayName;
         this.fullyQualifiedDomainName = printConnectorParameterValue?.fullyQualifiedDomainName;
@@ -70,5 +72,6 @@ export class PrintConnectorImpl extends EntityImpl implements PrintConnector {
         if(this.registeredDateTime){
             writer.writeDateValue("registeredDateTime", this.registeredDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -34,7 +34,7 @@ import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
 import {ServicePrincipal} from './servicePrincipal';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class ServicePrincipalImpl extends DirectoryObjectImpl implements ServicePrincipal {
@@ -42,6 +42,8 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
     public accountEnabled?: boolean | undefined;
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on. */
     public addIns?: AddIn[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith). */
     public alternativeNames?: string[] | undefined;
     /** The description exposed by the associated application. */
@@ -139,6 +141,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         this.accountEnabled = servicePrincipalParameterValue?.accountEnabled;
         const addInsArrValue: AddInImpl[] = []; servicePrincipalParameterValue.addIns?.forEach(element => {addInsArrValue.push(element instanceof AddInImpl? element : new AddInImpl(element));});
         this.addIns = addInsArrValue;
+        this.additionalData = servicePrincipalParameterValue?.additionalData ? servicePrincipalParameterValue?.additionalData! : {};
         this.alternativeNames = servicePrincipalParameterValue?.alternativeNames;
         this.appDescription = servicePrincipalParameterValue?.appDescription;
         this.appDisplayName = servicePrincipalParameterValue?.appDisplayName;
@@ -402,5 +405,6 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

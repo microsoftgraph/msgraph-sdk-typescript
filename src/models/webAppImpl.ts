@@ -1,8 +1,10 @@
 import {MobileAppImpl} from './index';
 import {WebApp} from './webApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WebAppImpl extends MobileAppImpl implements WebApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The web app URL. This property cannot be PATCHed. */
     public appUrl?: string | undefined;
     /** Whether or not to use managed browser. This property is only applicable for Android and IOS. */
@@ -13,6 +15,7 @@ export class WebAppImpl extends MobileAppImpl implements WebApp {
      */
     public constructor(webAppParameterValue?: WebApp | undefined) {
         super(webAppParameterValue);
+        this.additionalData = webAppParameterValue?.additionalData ? webAppParameterValue?.additionalData! : {};
         this.appUrl = webAppParameterValue?.appUrl;
         this.useManagedBrowser = webAppParameterValue?.useManagedBrowser;
     };
@@ -39,5 +42,6 @@ export class WebAppImpl extends MobileAppImpl implements WebApp {
         if(this.useManagedBrowser){
             writer.writeBooleanValue("useManagedBrowser", this.useManagedBrowser);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

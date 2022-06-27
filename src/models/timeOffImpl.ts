@@ -2,9 +2,11 @@ import {createTimeOffItemFromDiscriminatorValue} from './createTimeOffItemFromDi
 import {ChangeTrackedEntityImpl, TimeOffItemImpl} from './index';
 import {TimeOff} from './timeOff';
 import {TimeOffItem} from './timeOffItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The draft version of this timeOff that is viewable by managers. Required. */
     public draftTimeOff?: TimeOffItem | undefined;
     /** The shared version of this timeOff that is viewable by both employees and managers. Required. */
@@ -17,6 +19,7 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
      */
     public constructor(timeOffParameterValue?: TimeOff | undefined) {
         super(timeOffParameterValue);
+        this.additionalData = timeOffParameterValue?.additionalData ? timeOffParameterValue?.additionalData! : {};
         this.draftTimeOff = timeOffParameterValue?.draftTimeOff instanceof TimeOffItemImpl? timeOffParameterValue?.draftTimeOff:new TimeOffItemImpl(timeOffParameterValue?.draftTimeOff);
         this.sharedTimeOff = timeOffParameterValue?.sharedTimeOff instanceof TimeOffItemImpl? timeOffParameterValue?.sharedTimeOff:new TimeOffItemImpl(timeOffParameterValue?.sharedTimeOff);
         this.userId = timeOffParameterValue?.userId;
@@ -48,5 +51,6 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

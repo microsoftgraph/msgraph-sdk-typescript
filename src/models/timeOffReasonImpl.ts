@@ -1,9 +1,11 @@
 import {ChangeTrackedEntityImpl} from './index';
 import {TimeOffReason} from './timeOffReason';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements TimeOffReason {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The name of the timeOffReason. Required. */
     public displayName?: string | undefined;
     /** Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required. */
@@ -16,6 +18,7 @@ export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements TimeOf
      */
     public constructor(timeOffReasonParameterValue?: TimeOffReason | undefined) {
         super(timeOffReasonParameterValue);
+        this.additionalData = timeOffReasonParameterValue?.additionalData ? timeOffReasonParameterValue?.additionalData! : {};
         this.displayName = timeOffReasonParameterValue?.displayName;
         this.iconType = timeOffReasonParameterValue?.iconType;
         this.isActive = timeOffReasonParameterValue?.isActive;
@@ -47,5 +50,6 @@ export class TimeOffReasonImpl extends ChangeTrackedEntityImpl implements TimeOf
         if(this.isActive){
             writer.writeBooleanValue("isActive", this.isActive);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,9 +5,11 @@ import {OutlookItem} from './outlookItem';
 import {PhysicalAddress} from './physicalAddress';
 import {ProfilePhoto} from './profilePhoto';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Contact extends OutlookItem, Partial<Parsable> {
+export interface Contact extends Partial<AdditionalDataHolder>, OutlookItem, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The name of the contact's assistant. */
     assistantName?: string | undefined;
     /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */

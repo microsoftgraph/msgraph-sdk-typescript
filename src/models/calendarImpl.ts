@@ -12,10 +12,11 @@ import {CalendarPermissionImpl, EmailAddressImpl, EntityImpl, EventImpl, MultiVa
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class CalendarImpl extends EntityImpl implements Calendar {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     public allowedOnlineMeetingProviders?: string[] | undefined;
     /** The permissions of the users with whom the calendar is shared. */
@@ -53,11 +54,12 @@ export class CalendarImpl extends EntityImpl implements Calendar {
     /** The collection of single-value extended properties defined for the calendar. Read-only. Nullable. */
     public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
-     * Instantiates a new calendar and sets the default values.
+     * Instantiates a new Calendar and sets the default values.
      * @param calendarParameterValue 
      */
     public constructor(calendarParameterValue?: Calendar | undefined) {
         super(calendarParameterValue);
+        this.additionalData = calendarParameterValue?.additionalData ? calendarParameterValue?.additionalData! : {};
         this.allowedOnlineMeetingProviders = calendarParameterValue?.allowedOnlineMeetingProviders;
         const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; calendarParameterValue.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
         this.calendarPermissions = calendarPermissionsArrValue;
@@ -169,5 +171,6 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

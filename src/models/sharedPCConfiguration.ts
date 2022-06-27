@@ -1,11 +1,13 @@
 import {DeviceConfiguration} from './deviceConfiguration';
 import {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
 import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
-import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export interface SharedPCConfiguration extends DeviceConfiguration, Partial<Parsable> {
+export interface SharedPCConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
     /** Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false. */
     accountManagerPolicy?: SharedPCAccountManagerPolicy | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain. */
     allowedAccounts?: SharedPCAllowedAccountType | undefined;
     /** Specifies whether local storage is allowed on a shared PC. */

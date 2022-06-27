@@ -2,9 +2,11 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {TeamworkBot} from './teamworkBot';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TeamsAppDefinition extends Entity, Partial<Parsable> {
+export interface TeamsAppDefinition extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The details of the bot specified in the Teams app manifest. */
     bot?: TeamworkBot | undefined;
     /** The createdBy property */

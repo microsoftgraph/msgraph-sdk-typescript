@@ -1,10 +1,11 @@
 import {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewHistoryInstanceImpl extends EntityImpl implements AccessReviewHistoryInstance {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required. */
     public downloadUri?: string | undefined;
     /** Timestamp when this instance and associated data expires and the history is deleted. Required. */
@@ -20,11 +21,12 @@ export class AccessReviewHistoryInstanceImpl extends EntityImpl implements Acces
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method. */
     public status?: AccessReviewHistoryStatus | undefined;
     /**
-     * Instantiates a new accessReviewHistoryInstance and sets the default values.
+     * Instantiates a new AccessReviewHistoryInstance and sets the default values.
      * @param accessReviewHistoryInstanceParameterValue 
      */
     public constructor(accessReviewHistoryInstanceParameterValue?: AccessReviewHistoryInstance | undefined) {
         super(accessReviewHistoryInstanceParameterValue);
+        this.additionalData = accessReviewHistoryInstanceParameterValue?.additionalData ? accessReviewHistoryInstanceParameterValue?.additionalData! : {};
         this.downloadUri = accessReviewHistoryInstanceParameterValue?.downloadUri;
         this.expirationDateTime = accessReviewHistoryInstanceParameterValue?.expirationDateTime;
         this.fulfilledDateTime = accessReviewHistoryInstanceParameterValue?.fulfilledDateTime;
@@ -76,5 +78,6 @@ export class AccessReviewHistoryInstanceImpl extends EntityImpl implements Acces
         if(this.status){
             writer.writeEnumValue<AccessReviewHistoryStatus>("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

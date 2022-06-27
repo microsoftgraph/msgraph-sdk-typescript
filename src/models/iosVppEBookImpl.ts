@@ -1,8 +1,10 @@
 import {ManagedEBookImpl} from './index';
 import {IosVppEBook} from './iosVppEBook';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosVppEBookImpl extends ManagedEBookImpl implements IosVppEBook {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The Apple ID associated with Vpp token. */
     public appleId?: string | undefined;
     /** Genres. */
@@ -25,6 +27,7 @@ export class IosVppEBookImpl extends ManagedEBookImpl implements IosVppEBook {
      */
     public constructor(iosVppEBookParameterValue?: IosVppEBook | undefined) {
         super(iosVppEBookParameterValue);
+        this.additionalData = iosVppEBookParameterValue?.additionalData ? iosVppEBookParameterValue?.additionalData! : {};
         this.appleId = iosVppEBookParameterValue?.appleId;
         this.genres = iosVppEBookParameterValue?.genres;
         this.language = iosVppEBookParameterValue?.language;
@@ -81,5 +84,6 @@ export class IosVppEBookImpl extends ManagedEBookImpl implements IosVppEBook {
         if(this.vppTokenId){
             writer.writeStringValue("vppTokenId", this.vppTokenId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

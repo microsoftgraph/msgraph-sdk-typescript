@@ -1,7 +1,9 @@
 import {DeviceConfiguration} from './deviceConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Windows10SecureAssessmentConfiguration extends DeviceConfiguration, Partial<Parsable> {
+export interface Windows10SecureAssessmentConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates whether or not to allow the app from printing during the test. */
     allowPrinting?: boolean | undefined;
     /** Indicates whether or not to allow screen capture capability during a test. */

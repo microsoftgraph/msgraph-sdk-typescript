@@ -90,7 +90,7 @@ import {User} from './user';
 import {UserActivity} from './userActivity';
 import {UserSettings} from './userSettings';
 import {UserTeamwork} from './userTeamwork';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserImpl extends DirectoryObjectImpl implements User {
     /** A freeform text entry field for the user to describe themselves. Returned only on $select. */
@@ -99,6 +99,8 @@ export class UserImpl extends DirectoryObjectImpl implements User {
     public accountEnabled?: boolean | undefined;
     /** The user's activities across devices. Read-only. Nullable. */
     public activities?: UserActivity[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Sets the age group of the user. Allowed values: null, Minor, NotAdult and Adult. Refer to the legal age group property definitions for further information. Supports $filter (eq, ne, not, and in). */
     public ageGroup?: string | undefined;
     /** The user's terms of use acceptance statuses. Read-only. Nullable. */
@@ -205,7 +207,7 @@ export class UserImpl extends DirectoryObjectImpl implements User {
     public licenseAssignmentStates?: LicenseAssignmentState[] | undefined;
     /** A collection of this user's license details. Read-only. */
     public licenseDetails?: LicenseDetails[] | undefined;
-    /** The SMTP address for the user, for example, admin@contoso.com. Changes to this property will also update the user's proxyAddresses collection to include the value as an SMTP address. For Azure AD B2C accounts, this property can be updated up to only ten times with unique SMTP addresses. This property cannot contain accent characters.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values). */
+    /** The SMTP address for the user, for example, admin@contoso.com. Changes to this property will also update the user's proxyAddresses collection to include the value as an SMTP address. This property cannot contain accent characters.  NOTE: We do not recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead.  Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values). */
     public mail?: string | undefined;
     /** Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. For more information, see User preferences for languages and regional formats. Returned only on $select. */
     public mailboxSettings?: MailboxSettings | undefined;
@@ -335,6 +337,7 @@ export class UserImpl extends DirectoryObjectImpl implements User {
         this.accountEnabled = userParameterValue?.accountEnabled;
         const activitiesArrValue: UserActivityImpl[] = []; userParameterValue.activities?.forEach(element => {activitiesArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
         this.activities = activitiesArrValue;
+        this.additionalData = userParameterValue?.additionalData ? userParameterValue?.additionalData! : {};
         this.ageGroup = userParameterValue?.ageGroup;
         const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; userParameterValue.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
         this.agreementAcceptances = agreementAcceptancesArrValue;
@@ -965,5 +968,6 @@ export class UserImpl extends DirectoryObjectImpl implements User {
         if(this.userType){
             writer.writeStringValue("userType", this.userType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

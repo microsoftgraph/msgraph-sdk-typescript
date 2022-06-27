@@ -1,10 +1,12 @@
 import {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export class AuthenticationMethodTargetImpl extends EntityImpl implements AuthenticationMethodTarget {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Determines if the user is enforced to register the authentication method. */
     public isRegistrationRequired?: boolean | undefined;
     /** Possible values are: user, group, and unknownFutureValue. */
@@ -15,6 +17,7 @@ export class AuthenticationMethodTargetImpl extends EntityImpl implements Authen
      */
     public constructor(authenticationMethodTargetParameterValue?: AuthenticationMethodTarget | undefined) {
         super(authenticationMethodTargetParameterValue);
+        this.additionalData = authenticationMethodTargetParameterValue?.additionalData ? authenticationMethodTargetParameterValue?.additionalData! : {};
         this.isRegistrationRequired = authenticationMethodTargetParameterValue?.isRegistrationRequired;
         this.targetType = authenticationMethodTargetParameterValue?.targetType;
     };
@@ -41,5 +44,6 @@ export class AuthenticationMethodTargetImpl extends EntityImpl implements Authen
         if(this.targetType){
             writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

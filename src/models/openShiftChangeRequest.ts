@@ -1,7 +1,9 @@
 import {ScheduleChangeRequest} from './scheduleChangeRequest';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OpenShiftChangeRequest extends Partial<Parsable>, ScheduleChangeRequest {
+export interface OpenShiftChangeRequest extends Partial<AdditionalDataHolder>, Partial<Parsable>, ScheduleChangeRequest {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** ID for the open shift. */
     openShiftId?: string | undefined;
 }

@@ -1,8 +1,10 @@
 import {DomainDnsUnavailableRecord} from './domainDnsUnavailableRecord';
 import {DomainDnsRecordImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsUnavailableRecordImpl extends DomainDnsRecordImpl implements DomainDnsUnavailableRecord {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Provides the reason why the DomainDnsUnavailableRecord entity is returned. */
     public description?: string | undefined;
     /**
@@ -11,6 +13,7 @@ export class DomainDnsUnavailableRecordImpl extends DomainDnsRecordImpl implemen
      */
     public constructor(domainDnsUnavailableRecordParameterValue?: DomainDnsUnavailableRecord | undefined) {
         super(domainDnsUnavailableRecordParameterValue);
+        this.additionalData = domainDnsUnavailableRecordParameterValue?.additionalData ? domainDnsUnavailableRecordParameterValue?.additionalData! : {};
         this.description = domainDnsUnavailableRecordParameterValue?.description;
     };
     /**
@@ -32,5 +35,6 @@ export class DomainDnsUnavailableRecordImpl extends DomainDnsRecordImpl implemen
         if(this.description){
             writer.writeStringValue("description", this.description);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

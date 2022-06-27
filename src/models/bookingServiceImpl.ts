@@ -9,10 +9,12 @@ import {createBookingSchedulingPolicyFromDiscriminatorValue} from './createBooki
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
 import {BookingQuestionAssignmentImpl, BookingReminderImpl, BookingSchedulingPolicyImpl, EntityImpl, LocationImpl} from './index';
 import {Location} from './location';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents a particular service offered by a booking business. */
 export class BookingServiceImpl extends EntityImpl implements BookingService {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     public additionalInformation?: string | undefined;
     /** Contains the set of custom questions associated with a particular service. */
@@ -57,6 +59,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
      */
     public constructor(bookingServiceParameterValue?: BookingService | undefined) {
         super(bookingServiceParameterValue);
+        this.additionalData = bookingServiceParameterValue?.additionalData ? bookingServiceParameterValue?.additionalData! : {};
         this.additionalInformation = bookingServiceParameterValue?.additionalInformation;
         const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = []; bookingServiceParameterValue.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingQuestionAssignmentImpl? element : new BookingQuestionAssignmentImpl(element));});
         this.customQuestions = customQuestionsArrValue;
@@ -170,5 +173,6 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

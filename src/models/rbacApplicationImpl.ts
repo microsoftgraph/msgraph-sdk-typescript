@@ -16,10 +16,11 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
 import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Resource to grant access to users or groups. */
     public roleAssignments?: UnifiedRoleAssignment[] | undefined;
     /** Instances for active role assignments. */
@@ -37,11 +38,12 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
     /** Schedules for role eligibility operations. */
     public roleEligibilitySchedules?: UnifiedRoleEligibilitySchedule[] | undefined;
     /**
-     * Instantiates a new rbacApplication and sets the default values.
+     * Instantiates a new RbacApplication and sets the default values.
      * @param rbacApplicationParameterValue 
      */
     public constructor(rbacApplicationParameterValue?: RbacApplication | undefined) {
         super(rbacApplicationParameterValue);
+        this.additionalData = rbacApplicationParameterValue?.additionalData ? rbacApplicationParameterValue?.additionalData! : {};
         const roleAssignmentsArrValue: UnifiedRoleAssignmentImpl[] = []; rbacApplicationParameterValue.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof UnifiedRoleAssignmentImpl? element : new UnifiedRoleAssignmentImpl(element));});
         this.roleAssignments = roleAssignmentsArrValue;
         const roleAssignmentScheduleInstancesArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = []; rbacApplicationParameterValue.roleAssignmentScheduleInstances?.forEach(element => {roleAssignmentScheduleInstancesArrValue.push(element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element : new UnifiedRoleAssignmentScheduleInstanceImpl(element));});
@@ -106,5 +108,6 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(this.roleEligibilitySchedules && this.roleEligibilitySchedules.length != 0){        const roleEligibilitySchedulesArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.roleEligibilitySchedules?.forEach(element => {roleEligibilitySchedulesArrValue.push(element instanceof UnifiedRoleEligibilityScheduleImpl? element : new UnifiedRoleEligibilityScheduleImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("roleEligibilitySchedules", roleEligibilitySchedulesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

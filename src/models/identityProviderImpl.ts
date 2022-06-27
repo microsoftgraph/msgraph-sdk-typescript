@@ -1,9 +1,11 @@
 import {IdentityProvider} from './identityProvider';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class IdentityProviderImpl extends EntityImpl implements IdentityProvider {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable. */
     public clientId?: string | undefined;
     /** The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable. */
@@ -18,6 +20,7 @@ export class IdentityProviderImpl extends EntityImpl implements IdentityProvider
      */
     public constructor(identityProviderParameterValue?: IdentityProvider | undefined) {
         super(identityProviderParameterValue);
+        this.additionalData = identityProviderParameterValue?.additionalData ? identityProviderParameterValue?.additionalData! : {};
         this.clientId = identityProviderParameterValue?.clientId;
         this.clientSecret = identityProviderParameterValue?.clientSecret;
         this.name = identityProviderParameterValue?.name;
@@ -54,5 +57,6 @@ export class IdentityProviderImpl extends EntityImpl implements IdentityProvider
         if(this.type){
             writer.writeStringValue("type", this.type);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

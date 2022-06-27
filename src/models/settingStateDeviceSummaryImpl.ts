@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compilance Policy and Configuration for a Setting State summary */
 export class SettingStateDeviceSummaryImpl extends EntityImpl implements SettingStateDeviceSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Device Compliant count for the setting */
     public compliantDeviceCount?: number | undefined;
     /** Device conflict error count for the setting */
@@ -28,6 +30,7 @@ export class SettingStateDeviceSummaryImpl extends EntityImpl implements Setting
      */
     public constructor(settingStateDeviceSummaryParameterValue?: SettingStateDeviceSummary | undefined) {
         super(settingStateDeviceSummaryParameterValue);
+        this.additionalData = settingStateDeviceSummaryParameterValue?.additionalData ? settingStateDeviceSummaryParameterValue?.additionalData! : {};
         this.compliantDeviceCount = settingStateDeviceSummaryParameterValue?.compliantDeviceCount;
         this.conflictDeviceCount = settingStateDeviceSummaryParameterValue?.conflictDeviceCount;
         this.errorDeviceCount = settingStateDeviceSummaryParameterValue?.errorDeviceCount;
@@ -89,5 +92,6 @@ export class SettingStateDeviceSummaryImpl extends EntityImpl implements Setting
         if(this.unknownDeviceCount){
             writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

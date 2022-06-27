@@ -1,9 +1,11 @@
 import {DirectoryObjectImpl} from './index';
 import {PolicyBase} from './policyBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class PolicyBaseImpl extends DirectoryObjectImpl implements PolicyBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Description for this policy. Required. */
     public description?: string | undefined;
     /** Display name for this policy. Required. */
@@ -14,6 +16,7 @@ export class PolicyBaseImpl extends DirectoryObjectImpl implements PolicyBase {
      */
     public constructor(policyBaseParameterValue?: PolicyBase | undefined) {
         super(policyBaseParameterValue);
+        this.additionalData = policyBaseParameterValue?.additionalData ? policyBaseParameterValue?.additionalData! : {};
         this.description = policyBaseParameterValue?.description;
         this.displayName = policyBaseParameterValue?.displayName;
     };
@@ -40,5 +43,6 @@ export class PolicyBaseImpl extends DirectoryObjectImpl implements PolicyBase {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

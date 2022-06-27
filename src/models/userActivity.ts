@@ -3,13 +3,15 @@ import {Entity} from './entity';
 import {Json} from './json';
 import {Status} from './status';
 import {VisualInfo} from './visualInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UserActivity extends Entity, Partial<Parsable> {
+export interface UserActivity extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists. */
     activationUrl?: string | undefined;
     /** Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint. */
     activitySourceHost?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter. */
     appActivityId?: string | undefined;
     /** Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device. */

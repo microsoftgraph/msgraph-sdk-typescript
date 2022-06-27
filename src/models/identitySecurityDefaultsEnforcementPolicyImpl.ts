@@ -1,8 +1,10 @@
 import {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefaultsEnforcementPolicy';
 import {PolicyBaseImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImpl implements IdentitySecurityDefaultsEnforcementPolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** If set to true, Azure Active Directory security defaults is enabled for the tenant. */
     public isEnabled?: boolean | undefined;
     /**
@@ -11,6 +13,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImp
      */
     public constructor(identitySecurityDefaultsEnforcementPolicyParameterValue?: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
         super(identitySecurityDefaultsEnforcementPolicyParameterValue);
+        this.additionalData = identitySecurityDefaultsEnforcementPolicyParameterValue?.additionalData ? identitySecurityDefaultsEnforcementPolicyParameterValue?.additionalData! : {};
         this.isEnabled = identitySecurityDefaultsEnforcementPolicyParameterValue?.isEnabled;
     };
     /**
@@ -32,5 +35,6 @@ export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImp
         if(this.isEnabled){
             writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

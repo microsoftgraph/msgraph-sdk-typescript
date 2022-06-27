@@ -33,9 +33,11 @@ import {TermsAndConditions} from './termsAndConditions';
 import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
 import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
 import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceManagement extends Entity, Partial<Parsable> {
+export interface DeviceManagement extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Apple push notification certificate. */
     applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
     /** The list of Compliance Management Partners configured by the tenant. */

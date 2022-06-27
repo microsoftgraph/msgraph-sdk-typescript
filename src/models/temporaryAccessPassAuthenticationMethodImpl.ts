@@ -1,8 +1,10 @@
 import {AuthenticationMethodImpl} from './index';
 import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TemporaryAccessPassAuthenticationMethodImpl extends AuthenticationMethodImpl implements TemporaryAccessPassAuthenticationMethod {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The date and time when the Temporary Access Pass was created. */
     public createdDateTime?: Date | undefined;
     /** The state of the authentication method that indicates whether it's currently usable by the user. */
@@ -23,6 +25,7 @@ export class TemporaryAccessPassAuthenticationMethodImpl extends AuthenticationM
      */
     public constructor(temporaryAccessPassAuthenticationMethodParameterValue?: TemporaryAccessPassAuthenticationMethod | undefined) {
         super(temporaryAccessPassAuthenticationMethodParameterValue);
+        this.additionalData = temporaryAccessPassAuthenticationMethodParameterValue?.additionalData ? temporaryAccessPassAuthenticationMethodParameterValue?.additionalData! : {};
         this.createdDateTime = temporaryAccessPassAuthenticationMethodParameterValue?.createdDateTime;
         this.isUsable = temporaryAccessPassAuthenticationMethodParameterValue?.isUsable;
         this.isUsableOnce = temporaryAccessPassAuthenticationMethodParameterValue?.isUsableOnce;
@@ -74,5 +77,6 @@ export class TemporaryAccessPassAuthenticationMethodImpl extends AuthenticationM
         if(this.temporaryAccessPass){
             writer.writeStringValue("temporaryAccessPass", this.temporaryAccessPass);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

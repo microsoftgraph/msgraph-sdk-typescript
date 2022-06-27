@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implements PlannerProgressTaskBoardTaskFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
     public orderHint?: string | undefined;
     /**
@@ -12,6 +14,7 @@ export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implement
      */
     public constructor(plannerProgressTaskBoardTaskFormatParameterValue?: PlannerProgressTaskBoardTaskFormat | undefined) {
         super(plannerProgressTaskBoardTaskFormatParameterValue);
+        this.additionalData = plannerProgressTaskBoardTaskFormatParameterValue?.additionalData ? plannerProgressTaskBoardTaskFormatParameterValue?.additionalData! : {};
         this.orderHint = plannerProgressTaskBoardTaskFormatParameterValue?.orderHint;
     };
     /**
@@ -33,5 +36,6 @@ export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implement
         if(this.orderHint){
             writer.writeStringValue("orderHint", this.orderHint);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

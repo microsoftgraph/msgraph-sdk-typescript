@@ -4,10 +4,11 @@ import {AccessReviewStage} from './accessReviewStage';
 import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from './createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {AccessReviewInstanceDecisionItemImpl, AccessReviewReviewerScopeImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewStageImpl extends EntityImpl implements AccessReviewStage {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed. */
     public decisions?: AccessReviewInstanceDecisionItem[] | undefined;
     /** DateTime when review stage is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This property is the cumulative total of the durationInDays for all stages. Read-only. */
@@ -21,11 +22,12 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
     /** Specifies the status of an accessReviewStage. Possible values: Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. Supports $orderby, and $filter (eq only). Read-only. */
     public status?: string | undefined;
     /**
-     * Instantiates a new accessReviewStage and sets the default values.
+     * Instantiates a new AccessReviewStage and sets the default values.
      * @param accessReviewStageParameterValue 
      */
     public constructor(accessReviewStageParameterValue?: AccessReviewStage | undefined) {
         super(accessReviewStageParameterValue);
+        this.additionalData = accessReviewStageParameterValue?.additionalData ? accessReviewStageParameterValue?.additionalData! : {};
         const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewStageParameterValue.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
         this.decisions = decisionsArrValue;
         this.endDateTime = accessReviewStageParameterValue?.endDateTime;
@@ -75,5 +77,6 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {WorkbookChartFont} from './workbookChartFont';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFont {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the bold status of font. */
     public bold?: boolean | undefined;
     /** HTML color code representation of the text color. E.g. #FF0000 represents Red. */
@@ -22,6 +24,7 @@ export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFo
      */
     public constructor(workbookChartFontParameterValue?: WorkbookChartFont | undefined) {
         super(workbookChartFontParameterValue);
+        this.additionalData = workbookChartFontParameterValue?.additionalData ? workbookChartFontParameterValue?.additionalData! : {};
         this.bold = workbookChartFontParameterValue?.bold;
         this.color = workbookChartFontParameterValue?.color;
         this.italic = workbookChartFontParameterValue?.italic;
@@ -68,5 +71,6 @@ export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFo
         if(this.underline){
             writer.writeStringValue("underline", this.underline);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,10 +1,12 @@
 import {DeviceInstallState} from './deviceInstallState';
 import {EntityImpl} from './index';
 import {InstallState} from './installState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for the installation state for a device. */
 export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallState {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Device Id. */
     public deviceId?: string | undefined;
     /** Device name. */
@@ -27,6 +29,7 @@ export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallS
      */
     public constructor(deviceInstallStateParameterValue?: DeviceInstallState | undefined) {
         super(deviceInstallStateParameterValue);
+        this.additionalData = deviceInstallStateParameterValue?.additionalData ? deviceInstallStateParameterValue?.additionalData! : {};
         this.deviceId = deviceInstallStateParameterValue?.deviceId;
         this.deviceName = deviceInstallStateParameterValue?.deviceName;
         this.errorCode = deviceInstallStateParameterValue?.errorCode;
@@ -83,5 +86,6 @@ export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallS
         if(this.userName){
             writer.writeStringValue("userName", this.userName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

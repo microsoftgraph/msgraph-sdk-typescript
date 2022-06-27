@@ -10,10 +10,12 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMo
 import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
 import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
 import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class for Mobile app configuration for enrolled devices. */
 export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implements ManagedDeviceMobileAppConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The list of group assignemenets for app configration. */
     public assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
@@ -42,6 +44,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
      */
     public constructor(managedDeviceMobileAppConfigurationParameterValue?: ManagedDeviceMobileAppConfiguration | undefined) {
         super(managedDeviceMobileAppConfigurationParameterValue);
+        this.additionalData = managedDeviceMobileAppConfigurationParameterValue?.additionalData ? managedDeviceMobileAppConfigurationParameterValue?.additionalData! : {};
         const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; managedDeviceMobileAppConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = managedDeviceMobileAppConfigurationParameterValue?.createdDateTime;
@@ -116,5 +119,6 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

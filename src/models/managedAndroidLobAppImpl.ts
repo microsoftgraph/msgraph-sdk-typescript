@@ -2,9 +2,11 @@ import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {AndroidMinimumOperatingSystemImpl, ManagedMobileLobAppImpl} from './index';
 import {ManagedAndroidLobApp} from './managedAndroidLobApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements ManagedAndroidLobApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The value for the minimum applicable operating system. */
     public minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
     /** The package identifier. */
@@ -19,6 +21,7 @@ export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements
      */
     public constructor(managedAndroidLobAppParameterValue?: ManagedAndroidLobApp | undefined) {
         super(managedAndroidLobAppParameterValue);
+        this.additionalData = managedAndroidLobAppParameterValue?.additionalData ? managedAndroidLobAppParameterValue?.additionalData! : {};
         this.minimumSupportedOperatingSystem = managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem);
         this.packageId = managedAndroidLobAppParameterValue?.packageId;
         this.versionCode = managedAndroidLobAppParameterValue?.versionCode;
@@ -55,5 +58,6 @@ export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements
         if(this.versionName){
             writer.writeStringValue("versionName", this.versionName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

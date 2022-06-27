@@ -2,9 +2,11 @@ import {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAuthenticationMethodTargetFromDiscriminatorValue';
 import {AuthenticationMethodConfigurationImpl, AuthenticationMethodTargetImpl} from './index';
 import {TemporaryAccessPassAuthenticationMethodConfiguration} from './temporaryAccessPassAuthenticationMethodConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements TemporaryAccessPassAuthenticationMethodConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters. */
     public defaultLength?: number | undefined;
     /** Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */
@@ -23,6 +25,7 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
      */
     public constructor(temporaryAccessPassAuthenticationMethodConfigurationParameterValue?: TemporaryAccessPassAuthenticationMethodConfiguration | undefined) {
         super(temporaryAccessPassAuthenticationMethodConfigurationParameterValue);
+        this.additionalData = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.additionalData ? temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.additionalData! : {};
         this.defaultLength = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLength;
         this.defaultLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLifetimeInMinutes;
         const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; temporaryAccessPassAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
@@ -70,5 +73,6 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         if(this.minimumLifetimeInMinutes){
             writer.writeNumberValue("minimumLifetimeInMinutes", this.minimumLifetimeInMinutes);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

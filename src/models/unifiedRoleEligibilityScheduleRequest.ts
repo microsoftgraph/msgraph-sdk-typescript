@@ -6,11 +6,13 @@ import {TicketInfo} from './ticketInfo';
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleEligibilityScheduleRequest extends Partial<Parsable>, Request {
+export interface UnifiedRoleEligibilityScheduleRequest extends Partial<AdditionalDataHolder>, Partial<Parsable>, Request {
     /** Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
     action?: UnifiedRoleScheduleRequestActions | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity. */
     appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */

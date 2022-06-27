@@ -1,8 +1,10 @@
 import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AdminConsentRequestPolicy extends Entity, Partial<Parsable> {
+export interface AdminConsentRequestPolicy extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     isEnabled?: boolean | undefined;
     /** Specifies whether reviewers will receive notifications. Required. */

@@ -1,9 +1,11 @@
 import {AuthenticationMethod} from './authenticationMethod';
 import {AuthenticationMethodKeyStrength} from './authenticationMethodKeyStrength';
 import {Device} from './device';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WindowsHelloForBusinessAuthenticationMethod extends AuthenticationMethod, Partial<Parsable> {
+export interface WindowsHelloForBusinessAuthenticationMethod extends Partial<AdditionalDataHolder>, AuthenticationMethod, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The date and time that this Windows Hello for Business key was registered. */
     createdDateTime?: Date | undefined;
     /** The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user's Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device. */

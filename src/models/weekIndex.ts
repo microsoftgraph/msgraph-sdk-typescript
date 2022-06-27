@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum WeekIndex {
     First = "first",
     Second = "second",

@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEntityBaseModel {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The endpoint where you can get details about the page. Read-only. */
     public self?: string | undefined;
     /**
@@ -12,6 +14,7 @@ export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEnt
      */
     public constructor(onenoteEntityBaseModelParameterValue?: OnenoteEntityBaseModel | undefined) {
         super(onenoteEntityBaseModelParameterValue);
+        this.additionalData = onenoteEntityBaseModelParameterValue?.additionalData ? onenoteEntityBaseModelParameterValue?.additionalData! : {};
         this.self = onenoteEntityBaseModelParameterValue?.self;
     };
     /**
@@ -33,5 +36,6 @@ export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEnt
         if(this.self){
             writer.writeStringValue("self", this.self);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,10 +2,12 @@ import {AttendanceRecord} from './attendanceRecord';
 import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRecordFromDiscriminatorValue';
 import {AttendanceRecordImpl, EntityImpl} from './index';
 import {MeetingAttendanceReport} from './meetingAttendanceReport';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAttendanceReport {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** List of attendance records of an attendance report. Read-only. */
     public attendanceRecords?: AttendanceRecord[] | undefined;
     /** UTC time when the meeting ended. Read-only. */
@@ -20,6 +22,7 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
      */
     public constructor(meetingAttendanceReportParameterValue?: MeetingAttendanceReport | undefined) {
         super(meetingAttendanceReportParameterValue);
+        this.additionalData = meetingAttendanceReportParameterValue?.additionalData ? meetingAttendanceReportParameterValue?.additionalData! : {};
         const attendanceRecordsArrValue: AttendanceRecordImpl[] = []; meetingAttendanceReportParameterValue.attendanceRecords?.forEach(element => {attendanceRecordsArrValue.push(element instanceof AttendanceRecordImpl? element : new AttendanceRecordImpl(element));});
         this.attendanceRecords = attendanceRecordsArrValue;
         this.meetingEndDateTime = meetingAttendanceReportParameterValue?.meetingEndDateTime;
@@ -57,5 +60,6 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
         if(this.totalParticipantCount){
             writer.writeNumberValue("totalParticipantCount", this.totalParticipantCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

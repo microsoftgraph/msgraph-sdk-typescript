@@ -2,10 +2,12 @@ import {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy';
 import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue} from './createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue';
 import {EntityImpl, SelfServiceSignUpAuthenticationFlowConfigurationImpl} from './index';
 import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AuthenticationFlowsPolicyImpl extends EntityImpl implements AuthenticationFlowsPolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
     public description?: string | undefined;
     /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only. */
@@ -18,6 +20,7 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
      */
     public constructor(authenticationFlowsPolicyParameterValue?: AuthenticationFlowsPolicy | undefined) {
         super(authenticationFlowsPolicyParameterValue);
+        this.additionalData = authenticationFlowsPolicyParameterValue?.additionalData ? authenticationFlowsPolicyParameterValue?.additionalData! : {};
         this.description = authenticationFlowsPolicyParameterValue?.description;
         this.displayName = authenticationFlowsPolicyParameterValue?.displayName;
         this.selfServiceSignUp = authenticationFlowsPolicyParameterValue?.selfServiceSignUp instanceof SelfServiceSignUpAuthenticationFlowConfigurationImpl? authenticationFlowsPolicyParameterValue?.selfServiceSignUp:new SelfServiceSignUpAuthenticationFlowConfigurationImpl(authenticationFlowsPolicyParameterValue?.selfServiceSignUp);
@@ -49,5 +52,6 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
         if(this.selfServiceSignUp){
             writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfigurationImpl>("selfServiceSignUp", new SelfServiceSignUpAuthenticationFlowConfigurationImpl(this.selfServiceSignUp));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

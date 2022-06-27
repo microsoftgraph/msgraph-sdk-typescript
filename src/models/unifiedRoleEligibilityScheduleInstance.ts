@@ -1,7 +1,9 @@
 import {UnifiedRoleScheduleInstanceBase} from './unifiedRoleScheduleInstanceBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleEligibilityScheduleInstance extends Partial<Parsable>, UnifiedRoleScheduleInstanceBase {
+export interface UnifiedRoleEligibilityScheduleInstance extends Partial<AdditionalDataHolder>, Partial<Parsable>, UnifiedRoleScheduleInstanceBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Time that the roleEligibilityScheduleInstance will expire. */
     endDateTime?: Date | undefined;
     /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */

@@ -3,9 +3,11 @@ import {BookingStaffRole} from './bookingStaffRole';
 import {BookingWorkHours} from './bookingWorkHours';
 import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
 import {BookingStaffMemberBaseImpl, BookingWorkHoursImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implements BookingStaffMember {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking. */
     public availabilityIsAffectedByPersonalCalendar?: boolean | undefined;
     /** The name of the staff member, as displayed to customers. Required. */
@@ -26,6 +28,7 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
      */
     public constructor(bookingStaffMemberParameterValue?: BookingStaffMember | undefined) {
         super(bookingStaffMemberParameterValue);
+        this.additionalData = bookingStaffMemberParameterValue?.additionalData ? bookingStaffMemberParameterValue?.additionalData! : {};
         this.availabilityIsAffectedByPersonalCalendar = bookingStaffMemberParameterValue?.availabilityIsAffectedByPersonalCalendar;
         this.displayName = bookingStaffMemberParameterValue?.displayName;
         this.emailAddress = bookingStaffMemberParameterValue?.emailAddress;
@@ -78,5 +81,6 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = []; this.workingHours?.forEach(element => {workingHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("workingHours", workingHoursArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

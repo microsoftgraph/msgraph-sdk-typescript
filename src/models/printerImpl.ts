@@ -6,9 +6,11 @@ import {PrintConnector} from './printConnector';
 import {Printer} from './printer';
 import {PrinterShare} from './printerShare';
 import {PrintTaskTrigger} from './printTaskTrigger';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterImpl extends PrinterBaseImpl implements Printer {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The connectors that are associated with the printer. */
     public connectors?: PrintConnector[] | undefined;
     /** True if the printer has a physical device for printing. Read-only. */
@@ -29,6 +31,7 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
      */
     public constructor(printerParameterValue?: Printer | undefined) {
         super(printerParameterValue);
+        this.additionalData = printerParameterValue?.additionalData ? printerParameterValue?.additionalData! : {};
         const connectorsArrValue: PrintConnectorImpl[] = []; printerParameterValue.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
         this.connectors = connectorsArrValue;
         this.hasPhysicalDevice = printerParameterValue?.hasPhysicalDevice;
@@ -83,5 +86,6 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
         if(this.taskTriggers && this.taskTriggers.length != 0){        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("taskTriggers", taskTriggersArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

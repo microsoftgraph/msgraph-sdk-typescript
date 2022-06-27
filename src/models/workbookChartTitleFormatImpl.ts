@@ -4,10 +4,12 @@ import {EntityImpl, WorkbookChartFillImpl, WorkbookChartFontImpl} from './index'
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartTitleFormatImpl extends EntityImpl implements WorkbookChartTitleFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the fill format of an object, which includes background formatting information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only. */
@@ -18,6 +20,7 @@ export class WorkbookChartTitleFormatImpl extends EntityImpl implements Workbook
      */
     public constructor(workbookChartTitleFormatParameterValue?: WorkbookChartTitleFormat | undefined) {
         super(workbookChartTitleFormatParameterValue);
+        this.additionalData = workbookChartTitleFormatParameterValue?.additionalData ? workbookChartTitleFormatParameterValue?.additionalData! : {};
         this.fill = workbookChartTitleFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartTitleFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartTitleFormatParameterValue?.fill);
         this.font = workbookChartTitleFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartTitleFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartTitleFormatParameterValue?.font);
     };
@@ -44,5 +47,6 @@ export class WorkbookChartTitleFormatImpl extends EntityImpl implements Workbook
         if(this.font){
             writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

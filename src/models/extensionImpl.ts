@@ -1,15 +1,18 @@
 import {Extension} from './extension';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class ExtensionImpl extends EntityImpl implements Extension {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new extension and sets the default values.
      * @param extensionParameterValue 
      */
     public constructor(extensionParameterValue?: Extension | undefined) {
         super(extensionParameterValue);
+        this.additionalData = extensionParameterValue?.additionalData ? extensionParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -26,5 +29,6 @@ export class ExtensionImpl extends EntityImpl implements Extension {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

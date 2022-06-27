@@ -8,10 +8,11 @@ import {DirectoryAuditImpl, EntityImpl, ProvisioningObjectSummaryImpl, Restricte
 import {ProvisioningObjectSummary} from './provisioningObjectSummary';
 import {RestrictedSignIn} from './restrictedSignIn';
 import {SignIn} from './signIn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The directoryAudits property */
     public directoryAudits?: DirectoryAudit[] | undefined;
     /** The provisioning property */
@@ -21,11 +22,12 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
     /** The signIns property */
     public signIns?: SignIn[] | undefined;
     /**
-     * Instantiates a new auditLogRoot and sets the default values.
+     * Instantiates a new AuditLogRoot and sets the default values.
      * @param auditLogRootParameterValue 
      */
     public constructor(auditLogRootParameterValue?: AuditLogRoot | undefined) {
         super(auditLogRootParameterValue);
+        this.additionalData = auditLogRootParameterValue?.additionalData ? auditLogRootParameterValue?.additionalData! : {};
         const directoryAuditsArrValue: DirectoryAuditImpl[] = []; auditLogRootParameterValue.directoryAudits?.forEach(element => {directoryAuditsArrValue.push(element instanceof DirectoryAuditImpl? element : new DirectoryAuditImpl(element));});
         this.directoryAudits = directoryAuditsArrValue;
         const provisioningArrValue: ProvisioningObjectSummaryImpl[] = []; auditLogRootParameterValue.provisioning?.forEach(element => {provisioningArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
@@ -66,5 +68,6 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
         if(this.signIns && this.signIns.length != 0){        const signInsArrValue: SignInImpl[] = []; this.signIns?.forEach(element => {signInsArrValue.push(element instanceof SignInImpl? element : new SignInImpl(element));});
             writer.writeCollectionOfObjectValues<SignInImpl>("signIns", signInsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

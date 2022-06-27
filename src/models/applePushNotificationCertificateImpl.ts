@@ -1,9 +1,11 @@
 import {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Apple push notification certificate. */
 export class ApplePushNotificationCertificateImpl extends EntityImpl implements ApplePushNotificationCertificate {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Apple Id of the account used to create the MDM push certificate. */
     public appleIdentifier?: string | undefined;
     /** Not yet documented */
@@ -22,6 +24,7 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
      */
     public constructor(applePushNotificationCertificateParameterValue?: ApplePushNotificationCertificate | undefined) {
         super(applePushNotificationCertificateParameterValue);
+        this.additionalData = applePushNotificationCertificateParameterValue?.additionalData ? applePushNotificationCertificateParameterValue?.additionalData! : {};
         this.appleIdentifier = applePushNotificationCertificateParameterValue?.appleIdentifier;
         this.certificate = applePushNotificationCertificateParameterValue?.certificate;
         this.certificateSerialNumber = applePushNotificationCertificateParameterValue?.certificateSerialNumber;
@@ -68,5 +71,6 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
         if(this.topicIdentifier){
             writer.writeStringValue("topicIdentifier", this.topicIdentifier);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

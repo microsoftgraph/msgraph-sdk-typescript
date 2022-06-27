@@ -1,8 +1,10 @@
 import {DeviceConfigurationImpl} from './index';
 import {IosCustomConfiguration} from './iosCustomConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosCustomConfigurationImpl extends DeviceConfigurationImpl implements IosCustomConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Payload. (UTF8 encoded byte array) */
     public payload?: string | undefined;
     /** Payload file name (.mobileconfig */
@@ -15,6 +17,7 @@ export class IosCustomConfigurationImpl extends DeviceConfigurationImpl implemen
      */
     public constructor(iosCustomConfigurationParameterValue?: IosCustomConfiguration | undefined) {
         super(iosCustomConfigurationParameterValue);
+        this.additionalData = iosCustomConfigurationParameterValue?.additionalData ? iosCustomConfigurationParameterValue?.additionalData! : {};
         this.payload = iosCustomConfigurationParameterValue?.payload;
         this.payloadFileName = iosCustomConfigurationParameterValue?.payloadFileName;
         this.payloadName = iosCustomConfigurationParameterValue?.payloadName;
@@ -46,5 +49,6 @@ export class IosCustomConfigurationImpl extends DeviceConfigurationImpl implemen
         if(this.payloadName){
             writer.writeStringValue("payloadName", this.payloadName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

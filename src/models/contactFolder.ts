@@ -2,9 +2,11 @@ import {Contact} from './contact';
 import {Entity} from './entity';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ContactFolder extends Entity, Partial<Parsable> {
+export interface ContactFolder extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
     childFolders?: ContactFolder[] | undefined;
     /** The contacts in the folder. Navigation property. Read-only. Nullable. */

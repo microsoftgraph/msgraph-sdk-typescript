@@ -3,9 +3,11 @@ import {ChangeTrackedEntityImpl, WorkforceIntegrationEncryptionImpl} from './ind
 import {WorkforceIntegration} from './workforceIntegration';
 import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements WorkforceIntegration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** API version for the call back URL. Start with 1. */
     public apiVersion?: number | undefined;
     /** Name of the workforce integration. */
@@ -24,6 +26,7 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
      */
     public constructor(workforceIntegrationParameterValue?: WorkforceIntegration | undefined) {
         super(workforceIntegrationParameterValue);
+        this.additionalData = workforceIntegrationParameterValue?.additionalData ? workforceIntegrationParameterValue?.additionalData! : {};
         this.apiVersion = workforceIntegrationParameterValue?.apiVersion;
         this.displayName = workforceIntegrationParameterValue?.displayName;
         this.encryption = workforceIntegrationParameterValue?.encryption instanceof WorkforceIntegrationEncryptionImpl? workforceIntegrationParameterValue?.encryption:new WorkforceIntegrationEncryptionImpl(workforceIntegrationParameterValue?.encryption);
@@ -70,5 +73,6 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
         if(this.url){
             writer.writeStringValue("url", this.url);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

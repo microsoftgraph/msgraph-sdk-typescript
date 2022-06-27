@@ -2,9 +2,11 @@ import {createFieldValueSetFromDiscriminatorValue} from './createFieldValueSetFr
 import {FieldValueSet} from './fieldValueSet';
 import {BaseItemVersionImpl, FieldValueSetImpl} from './index';
 import {ListItemVersion} from './listItemVersion';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItemVersion {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of the fields and values for this version of the list item. */
     public fields?: FieldValueSet | undefined;
     /**
@@ -13,6 +15,7 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
      */
     public constructor(listItemVersionParameterValue?: ListItemVersion | undefined) {
         super(listItemVersionParameterValue);
+        this.additionalData = listItemVersionParameterValue?.additionalData ? listItemVersionParameterValue?.additionalData! : {};
         this.fields = listItemVersionParameterValue?.fields instanceof FieldValueSetImpl? listItemVersionParameterValue?.fields:new FieldValueSetImpl(listItemVersionParameterValue?.fields);
     };
     /**
@@ -34,5 +37,6 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
         if(this.fields){
             writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

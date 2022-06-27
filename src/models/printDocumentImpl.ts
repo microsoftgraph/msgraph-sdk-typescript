@@ -1,9 +1,10 @@
 import {EntityImpl} from './index';
 import {PrintDocument} from './printDocument';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintDocumentImpl extends EntityImpl implements PrintDocument {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The document's content (MIME) type. Read-only. */
     public contentType?: string | undefined;
     /** The document's name. Read-only. */
@@ -11,11 +12,12 @@ export class PrintDocumentImpl extends EntityImpl implements PrintDocument {
     /** The document's size in bytes. Read-only. */
     public size?: number | undefined;
     /**
-     * Instantiates a new printDocument and sets the default values.
+     * Instantiates a new PrintDocument and sets the default values.
      * @param printDocumentParameterValue 
      */
     public constructor(printDocumentParameterValue?: PrintDocument | undefined) {
         super(printDocumentParameterValue);
+        this.additionalData = printDocumentParameterValue?.additionalData ? printDocumentParameterValue?.additionalData! : {};
         this.contentType = printDocumentParameterValue?.contentType;
         this.displayName = printDocumentParameterValue?.displayName;
         this.size = printDocumentParameterValue?.size;
@@ -47,5 +49,6 @@ export class PrintDocumentImpl extends EntityImpl implements PrintDocument {
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

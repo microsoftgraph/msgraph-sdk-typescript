@@ -4,10 +4,12 @@ import {EntityImpl, WorkbookChartFillImpl, WorkbookChartLineFormatImpl} from './
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartSeriesFormatImpl extends EntityImpl implements WorkbookChartSeriesFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /** Represents line formatting. Read-only. */
@@ -18,6 +20,7 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
      */
     public constructor(workbookChartSeriesFormatParameterValue?: WorkbookChartSeriesFormat | undefined) {
         super(workbookChartSeriesFormatParameterValue);
+        this.additionalData = workbookChartSeriesFormatParameterValue?.additionalData ? workbookChartSeriesFormatParameterValue?.additionalData! : {};
         this.fill = workbookChartSeriesFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartSeriesFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartSeriesFormatParameterValue?.fill);
         this.line = workbookChartSeriesFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartSeriesFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartSeriesFormatParameterValue?.line);
     };
@@ -44,5 +47,6 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
         if(this.line){
             writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

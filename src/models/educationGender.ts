@@ -1,4 +1,4 @@
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum EducationGender {
     Female = "female",
     Male = "male",

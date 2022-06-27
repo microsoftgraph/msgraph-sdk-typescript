@@ -3,9 +3,11 @@ import {MimeContent} from './mimeContent';
 import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppCategory} from './mobileAppCategory';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MobileApp extends Entity, Partial<Parsable> {
+export interface MobileApp extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The list of group assignments for this mobile app. */
     assignments?: MobileAppAssignment[] | undefined;
     /** The list of categories for this app. */

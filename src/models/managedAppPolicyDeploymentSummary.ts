@@ -1,8 +1,10 @@
 import {Entity} from './entity';
 import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedAppPolicyDeploymentSummary extends Entity, Partial<Parsable> {
+export interface ManagedAppPolicyDeploymentSummary extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Not yet documented */
     configurationDeployedUserCount?: number | undefined;
     /** Not yet documented */

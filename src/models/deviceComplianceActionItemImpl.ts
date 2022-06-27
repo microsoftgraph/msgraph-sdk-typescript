@@ -1,12 +1,14 @@
 import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
 import {DeviceComplianceActionType} from './deviceComplianceActionType';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Scheduled Action Configuration */
 export class DeviceComplianceActionItemImpl extends EntityImpl implements DeviceComplianceActionItem {
     /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
     public actionType?: DeviceComplianceActionType | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
     public gracePeriodHours?: number | undefined;
     /** A list of group IDs to speicify who to CC this notification message to. */
@@ -20,6 +22,7 @@ export class DeviceComplianceActionItemImpl extends EntityImpl implements Device
     public constructor(deviceComplianceActionItemParameterValue?: DeviceComplianceActionItem | undefined) {
         super(deviceComplianceActionItemParameterValue);
         this.actionType = deviceComplianceActionItemParameterValue?.actionType;
+        this.additionalData = deviceComplianceActionItemParameterValue?.additionalData ? deviceComplianceActionItemParameterValue?.additionalData! : {};
         this.gracePeriodHours = deviceComplianceActionItemParameterValue?.gracePeriodHours;
         this.notificationMessageCCList = deviceComplianceActionItemParameterValue?.notificationMessageCCList;
         this.notificationTemplateId = deviceComplianceActionItemParameterValue?.notificationTemplateId;
@@ -55,5 +58,6 @@ export class DeviceComplianceActionItemImpl extends EntityImpl implements Device
         if(this.notificationTemplateId){
             writer.writeStringValue("notificationTemplateId", this.notificationTemplateId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

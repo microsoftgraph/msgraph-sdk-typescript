@@ -1,17 +1,19 @@
 import {EducationAssignmentSettings} from './educationAssignmentSettings';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentSettingsImpl extends EntityImpl implements EducationAssignmentSettings {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
     public submissionAnimationDisabled?: boolean | undefined;
     /**
-     * Instantiates a new educationAssignmentSettings and sets the default values.
+     * Instantiates a new EducationAssignmentSettings and sets the default values.
      * @param educationAssignmentSettingsParameterValue 
      */
     public constructor(educationAssignmentSettingsParameterValue?: EducationAssignmentSettings | undefined) {
         super(educationAssignmentSettingsParameterValue);
+        this.additionalData = educationAssignmentSettingsParameterValue?.additionalData ? educationAssignmentSettingsParameterValue?.additionalData! : {};
         this.submissionAnimationDisabled = educationAssignmentSettingsParameterValue?.submissionAnimationDisabled;
     };
     /**
@@ -33,5 +35,6 @@ export class EducationAssignmentSettingsImpl extends EntityImpl implements Educa
         if(this.submissionAnimationDisabled){
             writer.writeBooleanValue("submissionAnimationDisabled", this.submissionAnimationDisabled);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

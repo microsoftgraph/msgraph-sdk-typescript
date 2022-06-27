@@ -4,10 +4,12 @@ import {createAppConsentRequestScopeFromDiscriminatorValue} from './createAppCon
 import {createUserConsentRequestFromDiscriminatorValue} from './createUserConsentRequestFromDiscriminatorValue';
 import {AppConsentRequestScopeImpl, EntityImpl, UserConsentRequestImpl} from './index';
 import {UserConsentRequest} from './userConsentRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class AppConsentRequestImpl extends EntityImpl implements AppConsentRequest {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
     public appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */
@@ -22,6 +24,7 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
      */
     public constructor(appConsentRequestParameterValue?: AppConsentRequest | undefined) {
         super(appConsentRequestParameterValue);
+        this.additionalData = appConsentRequestParameterValue?.additionalData ? appConsentRequestParameterValue?.additionalData! : {};
         this.appDisplayName = appConsentRequestParameterValue?.appDisplayName;
         this.appId = appConsentRequestParameterValue?.appId;
         const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; appConsentRequestParameterValue.pendingScopes?.forEach(element => {pendingScopesArrValue.push(element instanceof AppConsentRequestScopeImpl? element : new AppConsentRequestScopeImpl(element));});
@@ -60,5 +63,6 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; this.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("userConsentRequests", userConsentRequestsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

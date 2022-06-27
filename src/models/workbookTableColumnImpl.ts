@@ -4,10 +4,12 @@ import {EntityImpl, JsonImpl, WorkbookFilterImpl} from './index';
 import {Json} from './json';
 import {WorkbookFilter} from './workbookFilter';
 import {WorkbookTableColumn} from './workbookTableColumn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTableColumn {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Retrieve the filter applied to the column. Read-only. */
     public filter?: WorkbookFilter | undefined;
     /** Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only. */
@@ -22,6 +24,7 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
      */
     public constructor(workbookTableColumnParameterValue?: WorkbookTableColumn | undefined) {
         super(workbookTableColumnParameterValue);
+        this.additionalData = workbookTableColumnParameterValue?.additionalData ? workbookTableColumnParameterValue?.additionalData! : {};
         this.filter = workbookTableColumnParameterValue?.filter instanceof WorkbookFilterImpl? workbookTableColumnParameterValue?.filter:new WorkbookFilterImpl(workbookTableColumnParameterValue?.filter);
         this.index = workbookTableColumnParameterValue?.index;
         this.name = workbookTableColumnParameterValue?.name;
@@ -58,5 +61,6 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
         if(this.values){
             writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

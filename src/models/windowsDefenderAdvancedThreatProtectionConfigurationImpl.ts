@@ -1,8 +1,10 @@
 import {DeviceConfigurationImpl} from './index';
 import {WindowsDefenderAdvancedThreatProtectionConfiguration} from './windowsDefenderAdvancedThreatProtectionConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsDefenderAdvancedThreatProtectionConfigurationImpl extends DeviceConfigurationImpl implements WindowsDefenderAdvancedThreatProtectionConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule */
     public allowSampleSharing?: boolean | undefined;
     /** Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency. */
@@ -13,6 +15,7 @@ export class WindowsDefenderAdvancedThreatProtectionConfigurationImpl extends De
      */
     public constructor(windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?: WindowsDefenderAdvancedThreatProtectionConfiguration | undefined) {
         super(windowsDefenderAdvancedThreatProtectionConfigurationParameterValue);
+        this.additionalData = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.additionalData ? windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.additionalData! : {};
         this.allowSampleSharing = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.allowSampleSharing;
         this.enableExpeditedTelemetryReporting = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.enableExpeditedTelemetryReporting;
     };
@@ -39,5 +42,6 @@ export class WindowsDefenderAdvancedThreatProtectionConfigurationImpl extends De
         if(this.enableExpeditedTelemetryReporting){
             writer.writeBooleanValue("enableExpeditedTelemetryReporting", this.enableExpeditedTelemetryReporting);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

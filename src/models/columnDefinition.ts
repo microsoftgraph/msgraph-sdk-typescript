@@ -17,9 +17,11 @@ import {PersonOrGroupColumn} from './personOrGroupColumn';
 import {TermColumn} from './termColumn';
 import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ColumnDefinition extends Entity, Partial<Parsable> {
+export interface ColumnDefinition extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** This column stores boolean values. */
     boolean?: BooleanColumn | undefined;
     /** This column's data is calculated based on other columns. */

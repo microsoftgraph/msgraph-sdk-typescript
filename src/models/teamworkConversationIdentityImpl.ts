@@ -1,18 +1,20 @@
 import {IdentityImpl} from './index';
 import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {TeamworkConversationIdentityType} from './teamworkConversationIdentityType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class TeamworkConversationIdentityImpl extends IdentityImpl implements TeamworkConversationIdentity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Type of conversation. Possible values are: team, channel, and chat. */
     public conversationIdentityType?: TeamworkConversationIdentityType | undefined;
     /**
-     * Instantiates a new teamworkConversationIdentity and sets the default values.
+     * Instantiates a new TeamworkConversationIdentity and sets the default values.
      * @param teamworkConversationIdentityParameterValue 
      */
     public constructor(teamworkConversationIdentityParameterValue?: TeamworkConversationIdentity | undefined) {
         super(teamworkConversationIdentityParameterValue);
+        this.additionalData = teamworkConversationIdentityParameterValue?.additionalData ? teamworkConversationIdentityParameterValue?.additionalData! : {};
         this.conversationIdentityType = teamworkConversationIdentityParameterValue?.conversationIdentityType;
     };
     /**
@@ -34,5 +36,6 @@ export class TeamworkConversationIdentityImpl extends IdentityImpl implements Te
         if(this.conversationIdentityType){
             writer.writeEnumValue<TeamworkConversationIdentityType>("conversationIdentityType", this.conversationIdentityType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

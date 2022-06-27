@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {LocalizedNotificationMessage} from './localizedNotificationMessage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The text content of a Notification Message Template for the specified locale. */
 export class LocalizedNotificationMessageImpl extends EntityImpl implements LocalizedNotificationMessage {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message. */
     public isDefault?: boolean | undefined;
     /** DateTime the object was last modified. */
@@ -20,6 +22,7 @@ export class LocalizedNotificationMessageImpl extends EntityImpl implements Loca
      */
     public constructor(localizedNotificationMessageParameterValue?: LocalizedNotificationMessage | undefined) {
         super(localizedNotificationMessageParameterValue);
+        this.additionalData = localizedNotificationMessageParameterValue?.additionalData ? localizedNotificationMessageParameterValue?.additionalData! : {};
         this.isDefault = localizedNotificationMessageParameterValue?.isDefault;
         this.lastModifiedDateTime = localizedNotificationMessageParameterValue?.lastModifiedDateTime;
         this.locale = localizedNotificationMessageParameterValue?.locale;
@@ -61,5 +64,6 @@ export class LocalizedNotificationMessageImpl extends EntityImpl implements Loca
         if(this.subject){
             writer.writeStringValue("subject", this.subject);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

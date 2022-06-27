@@ -15,9 +15,11 @@ import {OrganizationalBranding} from './organizationalBranding';
 import {PrivacyProfile} from './privacyProfile';
 import {ProvisionedPlan} from './provisionedPlan';
 import {VerifiedDomain} from './verifiedDomain';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrganizationImpl extends DirectoryObjectImpl implements Organization {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The collection of service plans associated with the tenant. Not nullable. */
     public assignedPlans?: AssignedPlan[] | undefined;
     /** Resource to manage the default branding for the organization. Nullable. */
@@ -74,6 +76,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
      */
     public constructor(organizationParameterValue?: Organization | undefined) {
         super(organizationParameterValue);
+        this.additionalData = organizationParameterValue?.additionalData ? organizationParameterValue?.additionalData! : {};
         const assignedPlansArrValue: AssignedPlanImpl[] = []; organizationParameterValue.assignedPlans?.forEach(element => {assignedPlansArrValue.push(element instanceof AssignedPlanImpl? element : new AssignedPlanImpl(element));});
         this.assignedPlans = assignedPlansArrValue;
         this.branding = organizationParameterValue?.branding instanceof OrganizationalBrandingImpl? organizationParameterValue?.branding:new OrganizationalBrandingImpl(organizationParameterValue?.branding);
@@ -220,5 +223,6 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(element instanceof VerifiedDomainImpl? element : new VerifiedDomainImpl(element));});
             writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -8,14 +8,15 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
     /** Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue. */
     public activity?: ActivityType | undefined;
     /** Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public activityDateTime?: Date | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Additional information associated with the risk detection in JSON format. */
     public additionalInfo?: string | undefined;
     /** Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in. */
@@ -51,13 +52,14 @@ export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
     /** The user principal name (UPN) of the user. */
     public userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new riskDetection and sets the default values.
+     * Instantiates a new RiskDetection and sets the default values.
      * @param riskDetectionParameterValue 
      */
     public constructor(riskDetectionParameterValue?: RiskDetection | undefined) {
         super(riskDetectionParameterValue);
         this.activity = riskDetectionParameterValue?.activity;
         this.activityDateTime = riskDetectionParameterValue?.activityDateTime;
+        this.additionalData = riskDetectionParameterValue?.additionalData ? riskDetectionParameterValue?.additionalData! : {};
         this.additionalInfo = riskDetectionParameterValue?.additionalInfo;
         this.correlationId = riskDetectionParameterValue?.correlationId;
         this.detectedDateTime = riskDetectionParameterValue?.detectedDateTime;
@@ -167,5 +169,6 @@ export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

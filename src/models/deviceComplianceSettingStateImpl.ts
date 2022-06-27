@@ -1,10 +1,12 @@
 import {ComplianceStatus} from './complianceStatus';
 import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device compliance setting State for a given device. */
 export class DeviceComplianceSettingStateImpl extends EntityImpl implements DeviceComplianceSettingState {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** The Device Id that is being reported */
@@ -33,6 +35,7 @@ export class DeviceComplianceSettingStateImpl extends EntityImpl implements Devi
      */
     public constructor(deviceComplianceSettingStateParameterValue?: DeviceComplianceSettingState | undefined) {
         super(deviceComplianceSettingStateParameterValue);
+        this.additionalData = deviceComplianceSettingStateParameterValue?.additionalData ? deviceComplianceSettingStateParameterValue?.additionalData! : {};
         this.complianceGracePeriodExpirationDateTime = deviceComplianceSettingStateParameterValue?.complianceGracePeriodExpirationDateTime;
         this.deviceId = deviceComplianceSettingStateParameterValue?.deviceId;
         this.deviceModel = deviceComplianceSettingStateParameterValue?.deviceModel;
@@ -104,5 +107,6 @@ export class DeviceComplianceSettingStateImpl extends EntityImpl implements Devi
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

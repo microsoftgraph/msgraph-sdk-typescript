@@ -2,10 +2,12 @@ import {createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue} fro
 import {EntityImpl, ManagedAppPolicyDeploymentSummaryPerAppImpl} from './index';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
 export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements ManagedAppPolicyDeploymentSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Not yet documented */
     public configurationDeployedUserCount?: number | undefined;
     /** Not yet documented */
@@ -22,6 +24,7 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
      */
     public constructor(managedAppPolicyDeploymentSummaryParameterValue?: ManagedAppPolicyDeploymentSummary | undefined) {
         super(managedAppPolicyDeploymentSummaryParameterValue);
+        this.additionalData = managedAppPolicyDeploymentSummaryParameterValue?.additionalData ? managedAppPolicyDeploymentSummaryParameterValue?.additionalData! : {};
         this.configurationDeployedUserCount = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeployedUserCount;
         const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; managedAppPolicyDeploymentSummaryParameterValue.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element : new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
         this.configurationDeploymentSummaryPerApp = configurationDeploymentSummaryPerAppArrValue;
@@ -64,5 +67,6 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

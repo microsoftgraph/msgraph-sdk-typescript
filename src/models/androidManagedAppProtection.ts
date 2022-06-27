@@ -1,9 +1,11 @@
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AndroidManagedAppProtection extends Partial<Parsable>, TargetedManagedAppProtection {
+export interface AndroidManagedAppProtection extends Partial<AdditionalDataHolder>, Partial<Parsable>, TargetedManagedAppProtection {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** List of apps to which the policy is deployed. */
     apps?: ManagedMobileApp[] | undefined;
     /** Friendly name of the preferred custom browser to open weblink on Android. */

@@ -2,18 +2,20 @@ import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
 import {AppConsentRequest} from './appConsentRequest';
 import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentRequestFromDiscriminatorValue';
 import {AppConsentRequestImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsentApprovalRoute {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of userConsentRequest objects for a specific application. */
     public appConsentRequests?: AppConsentRequest[] | undefined;
     /**
-     * Instantiates a new appConsentApprovalRoute and sets the default values.
+     * Instantiates a new AppConsentApprovalRoute and sets the default values.
      * @param appConsentApprovalRouteParameterValue 
      */
     public constructor(appConsentApprovalRouteParameterValue?: AppConsentApprovalRoute | undefined) {
         super(appConsentApprovalRouteParameterValue);
+        this.additionalData = appConsentApprovalRouteParameterValue?.additionalData ? appConsentApprovalRouteParameterValue?.additionalData! : {};
         const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; appConsentApprovalRouteParameterValue.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
         this.appConsentRequests = appConsentRequestsArrValue;
     };
@@ -36,5 +38,6 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
         if(this.appConsentRequests && this.appConsentRequests.length != 0){        const appConsentRequestsArrValue: AppConsentRequestImpl[] = []; this.appConsentRequests?.forEach(element => {appConsentRequestsArrValue.push(element instanceof AppConsentRequestImpl? element : new AppConsentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("appConsentRequests", appConsentRequestsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

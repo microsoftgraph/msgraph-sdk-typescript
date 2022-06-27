@@ -2,9 +2,11 @@ import {createRoomFromDiscriminatorValue} from './createRoomFromDiscriminatorVal
 import {PlaceImpl, RoomImpl} from './index';
 import {Room} from './room';
 import {RoomList} from './roomList';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoomListImpl extends PlaceImpl implements RoomList {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The email address of the room list. */
     public emailAddress?: string | undefined;
     /** The rooms property */
@@ -15,6 +17,7 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
      */
     public constructor(roomListParameterValue?: RoomList | undefined) {
         super(roomListParameterValue);
+        this.additionalData = roomListParameterValue?.additionalData ? roomListParameterValue?.additionalData! : {};
         this.emailAddress = roomListParameterValue?.emailAddress;
         const roomsArrValue: RoomImpl[] = []; roomListParameterValue.rooms?.forEach(element => {roomsArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
         this.rooms = roomsArrValue;
@@ -42,5 +45,6 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
         if(this.rooms && this.rooms.length != 0){        const roomsArrValue: RoomImpl[] = []; this.rooms?.forEach(element => {roomsArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
             writer.writeCollectionOfObjectValues<RoomImpl>("rooms", roomsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,9 +1,11 @@
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
 import {StagedFeatureName} from './stagedFeatureName';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface FeatureRolloutPolicy extends Entity, Partial<Parsable> {
+export interface FeatureRolloutPolicy extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     appliesTo?: DirectoryObject[] | undefined;
     /** A description for this feature rollout policy. */

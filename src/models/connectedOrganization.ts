@@ -2,9 +2,11 @@ import {ConnectedOrganizationState} from './connectedOrganizationState';
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
 import {IdentitySource} from './identitySource';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ConnectedOrganization extends Entity, Partial<Parsable> {
+export interface ConnectedOrganization extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     createdDateTime?: Date | undefined;
     /** The description of the connected organization. */

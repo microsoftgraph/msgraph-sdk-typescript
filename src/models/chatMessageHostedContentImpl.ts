@@ -1,14 +1,17 @@
 import {ChatMessageHostedContent} from './chatMessageHostedContent';
 import {TeamworkHostedContentImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageHostedContentImpl extends TeamworkHostedContentImpl implements ChatMessageHostedContent {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new ChatMessageHostedContent and sets the default values.
      * @param chatMessageHostedContentParameterValue 
      */
     public constructor(chatMessageHostedContentParameterValue?: ChatMessageHostedContent | undefined) {
         super(chatMessageHostedContentParameterValue);
+        this.additionalData = chatMessageHostedContentParameterValue?.additionalData ? chatMessageHostedContentParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -25,5 +28,6 @@ export class ChatMessageHostedContentImpl extends TeamworkHostedContentImpl impl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

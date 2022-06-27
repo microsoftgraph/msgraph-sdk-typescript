@@ -4,10 +4,11 @@ import {AccessPackageCatalog} from './accessPackageCatalog';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {AccessPackageAssignmentPolicyImpl, AccessPackageCatalogImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageImpl extends EntityImpl implements AccessPackage {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The assignmentPolicies property */
     public assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /** The catalog property */
@@ -23,11 +24,12 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public modifiedDateTime?: Date | undefined;
     /**
-     * Instantiates a new accessPackage and sets the default values.
+     * Instantiates a new AccessPackage and sets the default values.
      * @param accessPackageParameterValue 
      */
     public constructor(accessPackageParameterValue?: AccessPackage | undefined) {
         super(accessPackageParameterValue);
+        this.additionalData = accessPackageParameterValue?.additionalData ? accessPackageParameterValue?.additionalData! : {};
         const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; accessPackageParameterValue.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
         this.assignmentPolicies = assignmentPoliciesArrValue;
         this.catalog = accessPackageParameterValue?.catalog instanceof AccessPackageCatalogImpl? accessPackageParameterValue?.catalog:new AccessPackageCatalogImpl(accessPackageParameterValue?.catalog);
@@ -80,5 +82,6 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
         if(this.modifiedDateTime){
             writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

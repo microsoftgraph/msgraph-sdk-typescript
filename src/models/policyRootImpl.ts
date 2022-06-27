@@ -30,12 +30,13 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
     /** The policy that controls the idle time out for web sessions for applications. */
     public activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The policy by which consent requests are created and managed for the entire tenant. */
     public adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */
@@ -65,13 +66,14 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
     /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD. */
     public tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /**
-     * Instantiates a new policyRoot and sets the default values.
+     * Instantiates a new PolicyRoot and sets the default values.
      * @param policyRootParameterValue 
      */
     public constructor(policyRootParameterValue?: PolicyRoot | undefined) {
         super(policyRootParameterValue);
         const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; policyRootParameterValue.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(element instanceof ActivityBasedTimeoutPolicyImpl? element : new ActivityBasedTimeoutPolicyImpl(element));});
         this.activityBasedTimeoutPolicies = activityBasedTimeoutPoliciesArrValue;
+        this.additionalData = policyRootParameterValue?.additionalData ? policyRootParameterValue?.additionalData! : {};
         this.adminConsentRequestPolicy = policyRootParameterValue?.adminConsentRequestPolicy instanceof AdminConsentRequestPolicyImpl? policyRootParameterValue?.adminConsentRequestPolicy:new AdminConsentRequestPolicyImpl(policyRootParameterValue?.adminConsentRequestPolicy);
         this.authenticationFlowsPolicy = policyRootParameterValue?.authenticationFlowsPolicy instanceof AuthenticationFlowsPolicyImpl? policyRootParameterValue?.authenticationFlowsPolicy:new AuthenticationFlowsPolicyImpl(policyRootParameterValue?.authenticationFlowsPolicy);
         this.authenticationMethodsPolicy = policyRootParameterValue?.authenticationMethodsPolicy instanceof AuthenticationMethodsPolicyImpl? policyRootParameterValue?.authenticationMethodsPolicy:new AuthenticationMethodsPolicyImpl(policyRootParameterValue?.authenticationMethodsPolicy);
@@ -171,5 +173,6 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(element instanceof TokenLifetimePolicyImpl? element : new TokenLifetimePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

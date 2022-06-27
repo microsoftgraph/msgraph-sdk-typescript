@@ -1,8 +1,10 @@
 import {OnenoteEntityBaseModelImpl} from './index';
 import {OnenoteResource} from './onenoteResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements OnenoteResource {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The content stream */
     public content?: string | undefined;
     /** The URL for downloading the content */
@@ -13,6 +15,7 @@ export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements O
      */
     public constructor(onenoteResourceParameterValue?: OnenoteResource | undefined) {
         super(onenoteResourceParameterValue);
+        this.additionalData = onenoteResourceParameterValue?.additionalData ? onenoteResourceParameterValue?.additionalData! : {};
         this.content = onenoteResourceParameterValue?.content;
         this.contentUrl = onenoteResourceParameterValue?.contentUrl;
     };
@@ -39,5 +42,6 @@ export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements O
         if(this.contentUrl){
             writer.writeStringValue("contentUrl", this.contentUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -6,9 +6,11 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookOperation} from './workbookOperation';
 import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Workbook extends Entity, Partial<Parsable> {
+export interface Workbook extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The application property */
     application?: WorkbookApplication | undefined;
     /** The comments property */

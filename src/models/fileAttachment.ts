@@ -1,7 +1,9 @@
 import {Attachment} from './attachment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface FileAttachment extends Attachment, Partial<Parsable> {
+export interface FileAttachment extends Partial<AdditionalDataHolder>, Attachment, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The base64-encoded contents of the file. */
     contentBytes?: string | undefined;
     /** The ID of the attachment in the Exchange store. */

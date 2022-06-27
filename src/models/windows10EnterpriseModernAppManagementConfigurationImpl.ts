@@ -1,8 +1,10 @@
 import {DeviceConfigurationImpl} from './index';
 import {Windows10EnterpriseModernAppManagementConfiguration} from './windows10EnterpriseModernAppManagementConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10EnterpriseModernAppManagementConfigurationImpl extends DeviceConfigurationImpl implements Windows10EnterpriseModernAppManagementConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to uninstall a fixed list of built-in Windows apps. */
     public uninstallBuiltInApps?: boolean | undefined;
     /**
@@ -11,6 +13,7 @@ export class Windows10EnterpriseModernAppManagementConfigurationImpl extends Dev
      */
     public constructor(windows10EnterpriseModernAppManagementConfigurationParameterValue?: Windows10EnterpriseModernAppManagementConfiguration | undefined) {
         super(windows10EnterpriseModernAppManagementConfigurationParameterValue);
+        this.additionalData = windows10EnterpriseModernAppManagementConfigurationParameterValue?.additionalData ? windows10EnterpriseModernAppManagementConfigurationParameterValue?.additionalData! : {};
         this.uninstallBuiltInApps = windows10EnterpriseModernAppManagementConfigurationParameterValue?.uninstallBuiltInApps;
     };
     /**
@@ -32,5 +35,6 @@ export class Windows10EnterpriseModernAppManagementConfigurationImpl extends Dev
         if(this.uninstallBuiltInApps){
             writer.writeBooleanValue("uninstallBuiltInApps", this.uninstallBuiltInApps);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

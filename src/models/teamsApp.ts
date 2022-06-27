@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TeamsApp extends Entity, Partial<Parsable> {
+export interface TeamsApp extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The details for each version of the app. */
     appDefinitions?: TeamsAppDefinition[] | undefined;
     /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */

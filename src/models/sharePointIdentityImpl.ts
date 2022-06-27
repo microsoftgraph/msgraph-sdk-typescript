@@ -1,17 +1,19 @@
 import {IdentityImpl} from './index';
 import {SharePointIdentity} from './sharePointIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class SharePointIdentityImpl extends IdentityImpl implements SharePointIdentity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The sign in name of the SharePoint identity. */
     public loginName?: string | undefined;
     /**
-     * Instantiates a new sharePointIdentity and sets the default values.
+     * Instantiates a new SharePointIdentity and sets the default values.
      * @param sharePointIdentityParameterValue 
      */
     public constructor(sharePointIdentityParameterValue?: SharePointIdentity | undefined) {
         super(sharePointIdentityParameterValue);
+        this.additionalData = sharePointIdentityParameterValue?.additionalData ? sharePointIdentityParameterValue?.additionalData! : {};
         this.loginName = sharePointIdentityParameterValue?.loginName;
     };
     /**
@@ -33,5 +35,6 @@ export class SharePointIdentityImpl extends IdentityImpl implements SharePointId
         if(this.loginName){
             writer.writeStringValue("loginName", this.loginName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

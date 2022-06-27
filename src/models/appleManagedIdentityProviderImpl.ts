@@ -1,8 +1,10 @@
 import {AppleManagedIdentityProvider} from './appleManagedIdentityProvider';
 import {IdentityProviderBaseImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppleManagedIdentityProviderImpl extends IdentityProviderBaseImpl implements AppleManagedIdentityProvider {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The certificate data which is a long string of text from the certificate, can be null. */
     public certificateData?: string | undefined;
     /** The Apple developer identifier. Required. */
@@ -17,6 +19,7 @@ export class AppleManagedIdentityProviderImpl extends IdentityProviderBaseImpl i
      */
     public constructor(appleManagedIdentityProviderParameterValue?: AppleManagedIdentityProvider | undefined) {
         super(appleManagedIdentityProviderParameterValue);
+        this.additionalData = appleManagedIdentityProviderParameterValue?.additionalData ? appleManagedIdentityProviderParameterValue?.additionalData! : {};
         this.certificateData = appleManagedIdentityProviderParameterValue?.certificateData;
         this.developerId = appleManagedIdentityProviderParameterValue?.developerId;
         this.keyId = appleManagedIdentityProviderParameterValue?.keyId;
@@ -53,5 +56,6 @@ export class AppleManagedIdentityProviderImpl extends IdentityProviderBaseImpl i
         if(this.serviceId){
             writer.writeStringValue("serviceId", this.serviceId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,10 +2,12 @@ import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The device configuration assignment entity assigns an AAD group to a specific device configuration. */
 export class DeviceConfigurationAssignmentImpl extends EntityImpl implements DeviceConfigurationAssignment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The assignment target for the device configuration. */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -14,6 +16,7 @@ export class DeviceConfigurationAssignmentImpl extends EntityImpl implements Dev
      */
     public constructor(deviceConfigurationAssignmentParameterValue?: DeviceConfigurationAssignment | undefined) {
         super(deviceConfigurationAssignmentParameterValue);
+        this.additionalData = deviceConfigurationAssignmentParameterValue?.additionalData ? deviceConfigurationAssignmentParameterValue?.additionalData! : {};
         this.target = deviceConfigurationAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? deviceConfigurationAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(deviceConfigurationAssignmentParameterValue?.target);
     };
     /**
@@ -35,5 +38,6 @@ export class DeviceConfigurationAssignmentImpl extends EntityImpl implements Dev
         if(this.target){
             writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

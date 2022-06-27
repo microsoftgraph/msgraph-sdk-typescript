@@ -1,10 +1,12 @@
 import {EntityImpl} from './index';
 import {LongRunningOperation} from './longRunningOperation';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class LongRunningOperationImpl extends EntityImpl implements LongRunningOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The createdDateTime property */
     public createdDateTime?: Date | undefined;
     /** The lastActionDateTime property */
@@ -21,6 +23,7 @@ export class LongRunningOperationImpl extends EntityImpl implements LongRunningO
      */
     public constructor(longRunningOperationParameterValue?: LongRunningOperation | undefined) {
         super(longRunningOperationParameterValue);
+        this.additionalData = longRunningOperationParameterValue?.additionalData ? longRunningOperationParameterValue?.additionalData! : {};
         this.createdDateTime = longRunningOperationParameterValue?.createdDateTime;
         this.lastActionDateTime = longRunningOperationParameterValue?.lastActionDateTime;
         this.resourceLocation = longRunningOperationParameterValue?.resourceLocation;
@@ -62,5 +65,6 @@ export class LongRunningOperationImpl extends EntityImpl implements LongRunningO
         if(this.statusDetail){
             writer.writeStringValue("statusDetail", this.statusDetail);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

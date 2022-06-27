@@ -2,10 +2,12 @@ import {createPlannerPlanFromDiscriminatorValue} from './createPlannerPlanFromDi
 import {EntityImpl, PlannerPlanImpl} from './index';
 import {PlannerGroup} from './plannerGroup';
 import {PlannerPlan} from './plannerPlan';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
 export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
     public plans?: PlannerPlan[] | undefined;
     /**
@@ -14,6 +16,7 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
      */
     public constructor(plannerGroupParameterValue?: PlannerGroup | undefined) {
         super(plannerGroupParameterValue);
+        this.additionalData = plannerGroupParameterValue?.additionalData ? plannerGroupParameterValue?.additionalData! : {};
         const plansArrValue: PlannerPlanImpl[] = []; plannerGroupParameterValue.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
         this.plans = plansArrValue;
     };
@@ -36,5 +39,6 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
         if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

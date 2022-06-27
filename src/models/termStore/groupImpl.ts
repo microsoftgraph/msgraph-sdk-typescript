@@ -4,10 +4,12 @@ import {Group} from './group';
 import {SetImpl} from './index';
 import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class GroupImpl extends EntityImpl implements Group {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Date and time of the group creation. Read-only. */
     public createdDateTime?: Date | undefined;
     /** Description that gives details on the term usage. */
@@ -26,6 +28,7 @@ export class GroupImpl extends EntityImpl implements Group {
      */
     public constructor(groupParameterValue?: Group | undefined) {
         super(groupParameterValue);
+        this.additionalData = groupParameterValue?.additionalData ? groupParameterValue?.additionalData! : {};
         this.createdDateTime = groupParameterValue?.createdDateTime;
         this.description = groupParameterValue?.description;
         this.displayName = groupParameterValue?.displayName;
@@ -73,5 +76,6 @@ export class GroupImpl extends EntityImpl implements Group {
         if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

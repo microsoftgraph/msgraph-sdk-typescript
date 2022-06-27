@@ -2,10 +2,12 @@ import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorVal
 import {EntityImpl, JsonImpl} from './index';
 import {Json} from './json';
 import {WorkbookTableRow} from './workbookTableRow';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only. */
     public index?: number | undefined;
     /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string. */
@@ -16,6 +18,7 @@ export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow
      */
     public constructor(workbookTableRowParameterValue?: WorkbookTableRow | undefined) {
         super(workbookTableRowParameterValue);
+        this.additionalData = workbookTableRowParameterValue?.additionalData ? workbookTableRowParameterValue?.additionalData! : {};
         this.index = workbookTableRowParameterValue?.index;
         this.values = workbookTableRowParameterValue?.values instanceof JsonImpl? workbookTableRowParameterValue?.values:new JsonImpl(workbookTableRowParameterValue?.values);
     };
@@ -42,5 +45,6 @@ export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow
         if(this.values){
             writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

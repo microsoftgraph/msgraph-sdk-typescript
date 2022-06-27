@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of place entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum BookingType {
     Unknown = "unknown",
     Standard = "standard",

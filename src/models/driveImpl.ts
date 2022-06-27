@@ -12,9 +12,11 @@ import {List} from './list';
 import {Quota} from './quota';
 import {SharepointIds} from './sharepointIds';
 import {SystemFacet} from './systemFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveImpl extends BaseItemImpl implements Drive {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
     public bundles?: DriveItem[] | undefined;
     /** Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only. */
@@ -43,6 +45,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public constructor(driveParameterValue?: Drive | undefined) {
         super(driveParameterValue);
+        this.additionalData = driveParameterValue?.additionalData ? driveParameterValue?.additionalData! : {};
         const bundlesArrValue: DriveItemImpl[] = []; driveParameterValue.bundles?.forEach(element => {bundlesArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.bundles = bundlesArrValue;
         this.driveType = driveParameterValue?.driveType;
@@ -118,5 +121,6 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         if(this.system){
             writer.writeObjectValue<SystemFacetImpl>("system", new SystemFacetImpl(this.system));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

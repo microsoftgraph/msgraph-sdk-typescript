@@ -1,9 +1,11 @@
 import {DeviceCompliancePolicyImpl} from './index';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {WindowsPhone81CompliancePolicy} from './windowsPhone81CompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsPhone81CompliancePolicyImpl extends DeviceCompliancePolicyImpl implements WindowsPhone81CompliancePolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Maximum Windows Phone version. */
     public osMaximumVersion?: string | undefined;
     /** Minimum Windows Phone version. */
@@ -32,6 +34,7 @@ export class WindowsPhone81CompliancePolicyImpl extends DeviceCompliancePolicyIm
      */
     public constructor(windowsPhone81CompliancePolicyParameterValue?: WindowsPhone81CompliancePolicy | undefined) {
         super(windowsPhone81CompliancePolicyParameterValue);
+        this.additionalData = windowsPhone81CompliancePolicyParameterValue?.additionalData ? windowsPhone81CompliancePolicyParameterValue?.additionalData! : {};
         this.osMaximumVersion = windowsPhone81CompliancePolicyParameterValue?.osMaximumVersion;
         this.osMinimumVersion = windowsPhone81CompliancePolicyParameterValue?.osMinimumVersion;
         this.passwordBlockSimple = windowsPhone81CompliancePolicyParameterValue?.passwordBlockSimple;
@@ -103,5 +106,6 @@ export class WindowsPhone81CompliancePolicyImpl extends DeviceCompliancePolicyIm
         if(this.storageRequireEncryption){
             writer.writeBooleanValue("storageRequireEncryption", this.storageRequireEncryption);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

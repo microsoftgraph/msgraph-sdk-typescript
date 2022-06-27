@@ -3,10 +3,12 @@ import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAs
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {InstallIntent} from './installIntent';
 import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties used to assign a eBook to a group. */
 export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBookAssignment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     public installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
@@ -17,6 +19,7 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
      */
     public constructor(managedEBookAssignmentParameterValue?: ManagedEBookAssignment | undefined) {
         super(managedEBookAssignmentParameterValue);
+        this.additionalData = managedEBookAssignmentParameterValue?.additionalData ? managedEBookAssignmentParameterValue?.additionalData! : {};
         this.installIntent = managedEBookAssignmentParameterValue?.installIntent;
         this.target = managedEBookAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? managedEBookAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(managedEBookAssignmentParameterValue?.target);
     };
@@ -43,5 +46,6 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
         if(this.target){
             writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

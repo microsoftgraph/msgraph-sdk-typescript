@@ -4,20 +4,22 @@ import {createUserScopeTeamsAppInstallationFromDiscriminatorValue} from './creat
 import {AssociatedTeamInfoImpl, EntityImpl, UserScopeTeamsAppInstallationImpl} from './index';
 import {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
 import {UserTeamwork} from './userTeamwork';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The list of associatedTeamInfo objects that a user is associated with. */
     public associatedTeams?: AssociatedTeamInfo[] | undefined;
     /** The apps installed in the personal scope of this user. */
     public installedApps?: UserScopeTeamsAppInstallation[] | undefined;
     /**
-     * Instantiates a new userTeamwork and sets the default values.
+     * Instantiates a new UserTeamwork and sets the default values.
      * @param userTeamworkParameterValue 
      */
     public constructor(userTeamworkParameterValue?: UserTeamwork | undefined) {
         super(userTeamworkParameterValue);
+        this.additionalData = userTeamworkParameterValue?.additionalData ? userTeamworkParameterValue?.additionalData! : {};
         const associatedTeamsArrValue: AssociatedTeamInfoImpl[] = []; userTeamworkParameterValue.associatedTeams?.forEach(element => {associatedTeamsArrValue.push(element instanceof AssociatedTeamInfoImpl? element : new AssociatedTeamInfoImpl(element));});
         this.associatedTeams = associatedTeamsArrValue;
         const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; userTeamworkParameterValue.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
@@ -46,5 +48,6 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

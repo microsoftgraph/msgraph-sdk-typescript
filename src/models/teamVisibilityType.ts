@@ -1,4 +1,4 @@
-/** Casts the previous resource to group. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum TeamVisibilityType {
     Private = "private",
     Public = "public",

@@ -6,10 +6,12 @@ import {ServiceAnnouncement} from './serviceAnnouncement';
 import {ServiceHealth} from './serviceHealth';
 import {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceUpdateMessage} from './serviceUpdateMessage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnouncement {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
     public healthOverviews?: ServiceHealth[] | undefined;
     /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
@@ -22,6 +24,7 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
      */
     public constructor(serviceAnnouncementParameterValue?: ServiceAnnouncement | undefined) {
         super(serviceAnnouncementParameterValue);
+        this.additionalData = serviceAnnouncementParameterValue?.additionalData ? serviceAnnouncementParameterValue?.additionalData! : {};
         const healthOverviewsArrValue: ServiceHealthImpl[] = []; serviceAnnouncementParameterValue.healthOverviews?.forEach(element => {healthOverviewsArrValue.push(element instanceof ServiceHealthImpl? element : new ServiceHealthImpl(element));});
         this.healthOverviews = healthOverviewsArrValue;
         const issuesArrValue: ServiceHealthIssueImpl[] = []; serviceAnnouncementParameterValue.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
@@ -56,5 +59,6 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ServiceUpdateMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof ServiceUpdateMessageImpl? element : new ServiceUpdateMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("messages", messagesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -4,10 +4,12 @@ import {Identity} from './identity';
 import {EntityImpl, IdentityImpl, UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements UnifiedRoleManagementPolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Description for the policy. */
     public description?: string | undefined;
     /** Display name for the policy. */
@@ -32,6 +34,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
      */
     public constructor(unifiedRoleManagementPolicyParameterValue?: UnifiedRoleManagementPolicy | undefined) {
         super(unifiedRoleManagementPolicyParameterValue);
+        this.additionalData = unifiedRoleManagementPolicyParameterValue?.additionalData ? unifiedRoleManagementPolicyParameterValue?.additionalData! : {};
         this.description = unifiedRoleManagementPolicyParameterValue?.description;
         this.displayName = unifiedRoleManagementPolicyParameterValue?.displayName;
         const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = []; unifiedRoleManagementPolicyParameterValue.effectiveRules?.forEach(element => {effectiveRulesArrValue.push(element instanceof UnifiedRoleManagementPolicyRuleImpl? element : new UnifiedRoleManagementPolicyRuleImpl(element));});
@@ -95,5 +98,6 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         if(this.scopeType){
             writer.writeStringValue("scopeType", this.scopeType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

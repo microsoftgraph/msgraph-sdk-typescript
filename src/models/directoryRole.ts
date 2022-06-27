@@ -1,8 +1,10 @@
 import {DirectoryObject} from './directoryObject';
 import {ScopedRoleMembership} from './scopedRoleMembership';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DirectoryRole extends DirectoryObject, Partial<Parsable> {
+export interface DirectoryRole extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The description for the directory role. Read-only. Supports $filter (eq), $search, $select. */
     description?: string | undefined;
     /** The display name for the directory role. Read-only. Supports $filter (eq), $search, $select. */

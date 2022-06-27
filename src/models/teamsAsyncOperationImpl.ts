@@ -4,10 +4,12 @@ import {OperationError} from './operationError';
 import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Number of times the operation was attempted before being marked successful or failed. */
     public attemptsCount?: number | undefined;
     /** Time when the operation was created. */
@@ -30,6 +32,7 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOpe
      */
     public constructor(teamsAsyncOperationParameterValue?: TeamsAsyncOperation | undefined) {
         super(teamsAsyncOperationParameterValue);
+        this.additionalData = teamsAsyncOperationParameterValue?.additionalData ? teamsAsyncOperationParameterValue?.additionalData! : {};
         this.attemptsCount = teamsAsyncOperationParameterValue?.attemptsCount;
         this.createdDateTime = teamsAsyncOperationParameterValue?.createdDateTime;
         this.error_escaped = teamsAsyncOperationParameterValue?.error_escaped instanceof OperationErrorImpl? teamsAsyncOperationParameterValue?.error_escaped:new OperationErrorImpl(teamsAsyncOperationParameterValue?.error_escaped);
@@ -86,5 +89,6 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOpe
         if(this.targetResourceLocation){
             writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

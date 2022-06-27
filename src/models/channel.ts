@@ -5,9 +5,11 @@ import {DriveItem} from './driveItem';
 import {Entity} from './entity';
 import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import {TeamsTab} from './teamsTab';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Channel extends Entity, Partial<Parsable> {
+export interface Channel extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Read only. Timestamp at which the channel was created. */
     createdDateTime?: Date | undefined;
     /** Optional textual description for the channel. */

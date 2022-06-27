@@ -10,10 +10,12 @@ import {IdentitySet} from './identitySet';
 import {EducationAssignmentGradeTypeImpl, EducationItemBodyImpl, EntityImpl, IdentitySetImpl, RubricLevelImpl, RubricQualityImpl} from './index';
 import {RubricLevel} from './rubricLevel';
 import {RubricQuality} from './rubricQuality';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class EducationRubricImpl extends EntityImpl implements EducationRubric {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The user who created this resource. */
     public createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -38,6 +40,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
      */
     public constructor(educationRubricParameterValue?: EducationRubric | undefined) {
         super(educationRubricParameterValue);
+        this.additionalData = educationRubricParameterValue?.additionalData ? educationRubricParameterValue?.additionalData! : {};
         this.createdBy = educationRubricParameterValue?.createdBy instanceof IdentitySetImpl? educationRubricParameterValue?.createdBy:new IdentitySetImpl(educationRubricParameterValue?.createdBy);
         this.createdDateTime = educationRubricParameterValue?.createdDateTime;
         this.description = educationRubricParameterValue?.description instanceof EducationItemBodyImpl? educationRubricParameterValue?.description:new EducationItemBodyImpl(educationRubricParameterValue?.description);
@@ -101,5 +104,6 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
         if(this.qualities && this.qualities.length != 0){        const qualitiesArrValue: RubricQualityImpl[] = []; this.qualities?.forEach(element => {qualitiesArrValue.push(element instanceof RubricQualityImpl? element : new RubricQualityImpl(element));});
             writer.writeCollectionOfObjectValues<RubricQualityImpl>("qualities", qualitiesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

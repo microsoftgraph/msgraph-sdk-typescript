@@ -10,10 +10,11 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessReviewScopeFromDiscriminatorValue';
 import {createAccessReviewStageFromDiscriminatorValue} from './createAccessReviewStageFromDiscriminatorValue';
 import {AccessReviewInstanceDecisionItemImpl, AccessReviewReviewerImpl, AccessReviewReviewerScopeImpl, AccessReviewScopeImpl, AccessReviewStageImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewInstanceImpl extends EntityImpl implements AccessReviewInstance {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only. */
     public contactedReviewers?: AccessReviewReviewer[] | undefined;
     /** Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed. */
@@ -33,11 +34,12 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
     /** Specifies the status of an accessReview. Possible values: Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. Supports $select, $orderby, and $filter (eq only). Read-only. */
     public status?: string | undefined;
     /**
-     * Instantiates a new accessReviewInstance and sets the default values.
+     * Instantiates a new AccessReviewInstance and sets the default values.
      * @param accessReviewInstanceParameterValue 
      */
     public constructor(accessReviewInstanceParameterValue?: AccessReviewInstance | undefined) {
         super(accessReviewInstanceParameterValue);
+        this.additionalData = accessReviewInstanceParameterValue?.additionalData ? accessReviewInstanceParameterValue?.additionalData! : {};
         const contactedReviewersArrValue: AccessReviewReviewerImpl[] = []; accessReviewInstanceParameterValue.contactedReviewers?.forEach(element => {contactedReviewersArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
         this.contactedReviewers = contactedReviewersArrValue;
         const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceParameterValue.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
@@ -104,5 +106,6 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

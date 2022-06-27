@@ -2,11 +2,13 @@ import {createRiskUserActivityFromDiscriminatorValue} from './createRiskUserActi
 import {RiskUserActivityImpl, RiskyUserImpl} from './index';
 import {RiskUserActivity} from './riskUserActivity';
 import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUserHistoryItem {
     /** The activity related to user risk level change. */
     public activity?: RiskUserActivity | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The id of actor that does the operation. */
     public initiatedBy?: string | undefined;
     /** The id of the user. */
@@ -18,6 +20,7 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUser
     public constructor(riskyUserHistoryItemParameterValue?: RiskyUserHistoryItem | undefined) {
         super(riskyUserHistoryItemParameterValue);
         this.activity = riskyUserHistoryItemParameterValue?.activity instanceof RiskUserActivityImpl? riskyUserHistoryItemParameterValue?.activity:new RiskUserActivityImpl(riskyUserHistoryItemParameterValue?.activity);
+        this.additionalData = riskyUserHistoryItemParameterValue?.additionalData ? riskyUserHistoryItemParameterValue?.additionalData! : {};
         this.initiatedBy = riskyUserHistoryItemParameterValue?.initiatedBy;
         this.userId = riskyUserHistoryItemParameterValue?.userId;
     };
@@ -48,5 +51,6 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUser
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

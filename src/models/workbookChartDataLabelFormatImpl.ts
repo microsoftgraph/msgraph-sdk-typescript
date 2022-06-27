@@ -4,10 +4,12 @@ import {EntityImpl, WorkbookChartFillImpl, WorkbookChartFontImpl} from './index'
 import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartFont} from './workbookChartFont';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartDataLabelFormatImpl extends EntityImpl implements WorkbookChartDataLabelFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the fill format of the current chart data label. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only. */
@@ -18,6 +20,7 @@ export class WorkbookChartDataLabelFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartDataLabelFormatParameterValue?: WorkbookChartDataLabelFormat | undefined) {
         super(workbookChartDataLabelFormatParameterValue);
+        this.additionalData = workbookChartDataLabelFormatParameterValue?.additionalData ? workbookChartDataLabelFormatParameterValue?.additionalData! : {};
         this.fill = workbookChartDataLabelFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartDataLabelFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartDataLabelFormatParameterValue?.fill);
         this.font = workbookChartDataLabelFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartDataLabelFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartDataLabelFormatParameterValue?.font);
     };
@@ -44,5 +47,6 @@ export class WorkbookChartDataLabelFormatImpl extends EntityImpl implements Work
         if(this.font){
             writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

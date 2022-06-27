@@ -2,9 +2,11 @@ import {AppScope} from './appScope';
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleScheduleInstanceBase extends Entity, Partial<Parsable> {
+export interface UnifiedRoleScheduleInstanceBase extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable. */
     appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment or role eligibility is scoped to an app. The scope of an assignment or role eligibility determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */

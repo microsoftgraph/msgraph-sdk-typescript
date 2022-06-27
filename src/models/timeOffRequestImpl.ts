@@ -1,8 +1,10 @@
 import {ScheduleChangeRequestImpl} from './index';
 import {TimeOffRequest} from './timeOffRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements TimeOffRequest {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public endDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -15,6 +17,7 @@ export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Tim
      */
     public constructor(timeOffRequestParameterValue?: TimeOffRequest | undefined) {
         super(timeOffRequestParameterValue);
+        this.additionalData = timeOffRequestParameterValue?.additionalData ? timeOffRequestParameterValue?.additionalData! : {};
         this.endDateTime = timeOffRequestParameterValue?.endDateTime;
         this.startDateTime = timeOffRequestParameterValue?.startDateTime;
         this.timeOffReasonId = timeOffRequestParameterValue?.timeOffReasonId;
@@ -46,5 +49,6 @@ export class TimeOffRequestImpl extends ScheduleChangeRequestImpl implements Tim
         if(this.timeOffReasonId){
             writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

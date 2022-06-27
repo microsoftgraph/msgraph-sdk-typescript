@@ -1,9 +1,11 @@
 import {UnifiedRoleScheduleInstanceBaseImpl} from './index';
 import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements UnifiedRoleEligibilityScheduleInstance {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Time that the roleEligibilityScheduleInstance will expire. */
     public endDateTime?: Date | undefined;
     /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
@@ -18,6 +20,7 @@ export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleSched
      */
     public constructor(unifiedRoleEligibilityScheduleInstanceParameterValue?: UnifiedRoleEligibilityScheduleInstance | undefined) {
         super(unifiedRoleEligibilityScheduleInstanceParameterValue);
+        this.additionalData = unifiedRoleEligibilityScheduleInstanceParameterValue?.additionalData ? unifiedRoleEligibilityScheduleInstanceParameterValue?.additionalData! : {};
         this.endDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.endDateTime;
         this.memberType = unifiedRoleEligibilityScheduleInstanceParameterValue?.memberType;
         this.roleEligibilityScheduleId = unifiedRoleEligibilityScheduleInstanceParameterValue?.roleEligibilityScheduleId;
@@ -54,5 +57,6 @@ export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleSched
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -10,9 +10,11 @@ import {EducationUser} from './educationUser';
 import {Entity} from './entity';
 import {Group} from './group';
 import {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationClass extends Entity, Partial<Parsable> {
+export interface EducationClass extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** All categories associated with this class. Nullable. */
     assignmentCategories?: EducationCategory[] | undefined;
     /** Specifies class-level defaults respected by new assignments created in the class. */

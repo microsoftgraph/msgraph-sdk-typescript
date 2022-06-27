@@ -4,10 +4,12 @@ import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscri
 import {EntityImpl, PostImpl, RecipientImpl} from './index';
 import {Post} from './post';
 import {Recipient} from './recipient';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
 export class ConversationThreadImpl extends EntityImpl implements ConversationThread {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The Cc: recipients for the thread. Returned only on $select. */
     public ccRecipients?: Recipient[] | undefined;
     /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default. */
@@ -32,6 +34,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
      */
     public constructor(conversationThreadParameterValue?: ConversationThread | undefined) {
         super(conversationThreadParameterValue);
+        this.additionalData = conversationThreadParameterValue?.additionalData ? conversationThreadParameterValue?.additionalData! : {};
         const ccRecipientsArrValue: RecipientImpl[] = []; conversationThreadParameterValue.ccRecipients?.forEach(element => {ccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
         this.ccRecipients = ccRecipientsArrValue;
         this.hasAttachments = conversationThreadParameterValue?.hasAttachments;
@@ -96,5 +99,6 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(this.uniqueSenders){
             writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

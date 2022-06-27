@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Trending extends Entity, Partial<Parsable> {
+export interface Trending extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The lastModifiedDateTime property */
     lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */

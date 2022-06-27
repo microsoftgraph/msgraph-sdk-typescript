@@ -1,9 +1,11 @@
 import {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class DeviceComplianceUserOverviewImpl extends EntityImpl implements DeviceComplianceUserOverview {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Version of the policy for that overview */
     public configurationVersion?: number | undefined;
     /** Number of error Users */
@@ -24,6 +26,7 @@ export class DeviceComplianceUserOverviewImpl extends EntityImpl implements Devi
      */
     public constructor(deviceComplianceUserOverviewParameterValue?: DeviceComplianceUserOverview | undefined) {
         super(deviceComplianceUserOverviewParameterValue);
+        this.additionalData = deviceComplianceUserOverviewParameterValue?.additionalData ? deviceComplianceUserOverviewParameterValue?.additionalData! : {};
         this.configurationVersion = deviceComplianceUserOverviewParameterValue?.configurationVersion;
         this.errorCount = deviceComplianceUserOverviewParameterValue?.errorCount;
         this.failedCount = deviceComplianceUserOverviewParameterValue?.failedCount;
@@ -75,5 +78,6 @@ export class DeviceComplianceUserOverviewImpl extends EntityImpl implements Devi
         if(this.successCount){
             writer.writeNumberValue("successCount", this.successCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

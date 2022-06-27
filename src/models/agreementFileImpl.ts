@@ -2,9 +2,11 @@ import {AgreementFile} from './agreementFile';
 import {AgreementFileLocalization} from './agreementFileLocalization';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
 import {AgreementFileLocalizationImpl, AgreementFilePropertiesImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The localized version of the terms of use agreement files attached to the agreement. */
     public localizations?: AgreementFileLocalization[] | undefined;
     /**
@@ -13,6 +15,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
      */
     public constructor(agreementFileParameterValue?: AgreementFile | undefined) {
         super(agreementFileParameterValue);
+        this.additionalData = agreementFileParameterValue?.additionalData ? agreementFileParameterValue?.additionalData! : {};
         const localizationsArrValue: AgreementFileLocalizationImpl[] = []; agreementFileParameterValue.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
         this.localizations = localizationsArrValue;
     };
@@ -35,5 +38,6 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
         if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -3,9 +3,11 @@ import {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import {DeviceConfiguration} from './deviceConfiguration';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AndroidGeneralDeviceConfiguration extends DeviceConfiguration, Partial<Parsable> {
+export interface AndroidGeneralDeviceConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates whether or not to block clipboard sharing to copy and paste between applications. */
     appsBlockClipboardSharing?: boolean | undefined;
     /** Indicates whether or not to block copy and paste within applications. */

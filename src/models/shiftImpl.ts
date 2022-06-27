@@ -2,9 +2,11 @@ import {createShiftItemFromDiscriminatorValue} from './createShiftItemFromDiscri
 import {ChangeTrackedEntityImpl, ShiftItemImpl} from './index';
 import {Shift} from './shift';
 import {ShiftItem} from './shiftItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The draft version of this shift that is viewable by managers. Required. */
     public draftShift?: ShiftItem | undefined;
     /** ID of the scheduling group the shift is part of. Required. */
@@ -19,6 +21,7 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
      */
     public constructor(shiftParameterValue?: Shift | undefined) {
         super(shiftParameterValue);
+        this.additionalData = shiftParameterValue?.additionalData ? shiftParameterValue?.additionalData! : {};
         this.draftShift = shiftParameterValue?.draftShift instanceof ShiftItemImpl? shiftParameterValue?.draftShift:new ShiftItemImpl(shiftParameterValue?.draftShift);
         this.schedulingGroupId = shiftParameterValue?.schedulingGroupId;
         this.sharedShift = shiftParameterValue?.sharedShift instanceof ShiftItemImpl? shiftParameterValue?.sharedShift:new ShiftItemImpl(shiftParameterValue?.sharedShift);
@@ -55,5 +58,6 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

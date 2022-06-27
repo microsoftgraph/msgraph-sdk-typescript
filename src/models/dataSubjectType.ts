@@ -1,4 +1,4 @@
-/** Provides operations to manage the privacy singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum DataSubjectType {
     Customer = "customer",
     CurrentEmployee = "currentEmployee",

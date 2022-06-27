@@ -1,8 +1,10 @@
 import {DeviceEnrollmentLimitConfiguration} from './deviceEnrollmentLimitConfiguration';
 import {DeviceEnrollmentConfigurationImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentLimitConfigurationImpl extends DeviceEnrollmentConfigurationImpl implements DeviceEnrollmentLimitConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The maximum number of devices that a user can enroll */
     public limit?: number | undefined;
     /**
@@ -11,6 +13,7 @@ export class DeviceEnrollmentLimitConfigurationImpl extends DeviceEnrollmentConf
      */
     public constructor(deviceEnrollmentLimitConfigurationParameterValue?: DeviceEnrollmentLimitConfiguration | undefined) {
         super(deviceEnrollmentLimitConfigurationParameterValue);
+        this.additionalData = deviceEnrollmentLimitConfigurationParameterValue?.additionalData ? deviceEnrollmentLimitConfigurationParameterValue?.additionalData! : {};
         this.limit = deviceEnrollmentLimitConfigurationParameterValue?.limit;
     };
     /**
@@ -32,5 +35,6 @@ export class DeviceEnrollmentLimitConfigurationImpl extends DeviceEnrollmentConf
         if(this.limit){
             writer.writeNumberValue("limit", this.limit);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

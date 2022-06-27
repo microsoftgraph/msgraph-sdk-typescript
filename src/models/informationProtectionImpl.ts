@@ -4,20 +4,22 @@ import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThrea
 import {BitlockerImpl, EntityImpl, ThreatAssessmentRequestImpl} from './index';
 import {InformationProtection} from './informationProtection';
 import {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton. */
 export class InformationProtectionImpl extends EntityImpl implements InformationProtection {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The bitlocker property */
     public bitlocker?: Bitlocker | undefined;
     /** The threatAssessmentRequests property */
     public threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
-     * Instantiates a new informationProtection and sets the default values.
+     * Instantiates a new InformationProtection and sets the default values.
      * @param informationProtectionParameterValue 
      */
     public constructor(informationProtectionParameterValue?: InformationProtection | undefined) {
         super(informationProtectionParameterValue);
+        this.additionalData = informationProtectionParameterValue?.additionalData ? informationProtectionParameterValue?.additionalData! : {};
         this.bitlocker = informationProtectionParameterValue?.bitlocker instanceof BitlockerImpl? informationProtectionParameterValue?.bitlocker:new BitlockerImpl(informationProtectionParameterValue?.bitlocker);
         const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; informationProtectionParameterValue.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
         this.threatAssessmentRequests = threatAssessmentRequestsArrValue;
@@ -45,5 +47,6 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(element instanceof ThreatAssessmentRequestImpl? element : new ThreatAssessmentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

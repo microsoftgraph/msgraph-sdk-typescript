@@ -3,9 +3,11 @@ import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenotePage} from './onenotePage';
 import {SectionGroup} from './sectionGroup';
 import {SectionLinks} from './sectionLinks';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OnenoteSection extends OnenoteEntityHierarchyModel, Partial<Parsable> {
+export interface OnenoteSection extends Partial<AdditionalDataHolder>, OnenoteEntityHierarchyModel, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates whether this is the user's default section. Read-only. */
     isDefault?: boolean | undefined;
     /** Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web. */

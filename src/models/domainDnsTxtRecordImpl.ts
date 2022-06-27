@@ -1,8 +1,10 @@
 import {DomainDnsTxtRecord} from './domainDnsTxtRecord';
 import {DomainDnsRecordImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsTxtRecordImpl extends DomainDnsRecordImpl implements DomainDnsTxtRecord {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Value used when configuring the text property at the DNS host. */
     public text?: string | undefined;
     /**
@@ -11,6 +13,7 @@ export class DomainDnsTxtRecordImpl extends DomainDnsRecordImpl implements Domai
      */
     public constructor(domainDnsTxtRecordParameterValue?: DomainDnsTxtRecord | undefined) {
         super(domainDnsTxtRecordParameterValue);
+        this.additionalData = domainDnsTxtRecordParameterValue?.additionalData ? domainDnsTxtRecordParameterValue?.additionalData! : {};
         this.text = domainDnsTxtRecordParameterValue?.text;
     };
     /**
@@ -32,5 +35,6 @@ export class DomainDnsTxtRecordImpl extends DomainDnsRecordImpl implements Domai
         if(this.text){
             writer.writeStringValue("text", this.text);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

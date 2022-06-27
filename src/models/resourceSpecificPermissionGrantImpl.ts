@@ -1,9 +1,11 @@
 import {DirectoryObjectImpl} from './index';
 import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
 export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl implements ResourceSpecificPermissionGrant {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** ID of the service principal of the Azure AD app that has been granted access. Read-only. */
     public clientAppId?: string | undefined;
     /** ID of the Azure AD app that has been granted access. Read-only. */
@@ -20,6 +22,7 @@ export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl imp
      */
     public constructor(resourceSpecificPermissionGrantParameterValue?: ResourceSpecificPermissionGrant | undefined) {
         super(resourceSpecificPermissionGrantParameterValue);
+        this.additionalData = resourceSpecificPermissionGrantParameterValue?.additionalData ? resourceSpecificPermissionGrantParameterValue?.additionalData! : {};
         this.clientAppId = resourceSpecificPermissionGrantParameterValue?.clientAppId;
         this.clientId = resourceSpecificPermissionGrantParameterValue?.clientId;
         this.permission = resourceSpecificPermissionGrantParameterValue?.permission;
@@ -61,5 +64,6 @@ export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl imp
         if(this.resourceAppId){
             writer.writeStringValue("resourceAppId", this.resourceAppId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

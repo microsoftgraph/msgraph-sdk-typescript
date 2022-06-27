@@ -2,10 +2,12 @@ import {createMobileAppContentFileFromDiscriminatorValue} from './createMobileAp
 import {EntityImpl, MobileAppContentFileImpl} from './index';
 import {MobileAppContent} from './mobileAppContent';
 import {MobileAppContentFile} from './mobileAppContentFile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile. */
 export class MobileAppContentImpl extends EntityImpl implements MobileAppContent {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The list of files for this app content version. */
     public files?: MobileAppContentFile[] | undefined;
     /**
@@ -14,6 +16,7 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
      */
     public constructor(mobileAppContentParameterValue?: MobileAppContent | undefined) {
         super(mobileAppContentParameterValue);
+        this.additionalData = mobileAppContentParameterValue?.additionalData ? mobileAppContentParameterValue?.additionalData! : {};
         const filesArrValue: MobileAppContentFileImpl[] = []; mobileAppContentParameterValue.files?.forEach(element => {filesArrValue.push(element instanceof MobileAppContentFileImpl? element : new MobileAppContentFileImpl(element));});
         this.files = filesArrValue;
     };
@@ -36,5 +39,6 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
         if(this.files && this.files.length != 0){        const filesArrValue: MobileAppContentFileImpl[] = []; this.files?.forEach(element => {filesArrValue.push(element instanceof MobileAppContentFileImpl? element : new MobileAppContentFileImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppContentFileImpl>("files", filesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,10 +2,12 @@ import {AgreementFileData} from './agreementFileData';
 import {AgreementFileProperties} from './agreementFileProperties';
 import {createAgreementFileDataFromDiscriminatorValue} from './createAgreementFileDataFromDiscriminatorValue';
 import {AgreementFileDataImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
 export class AgreementFilePropertiesImpl extends EntityImpl implements AgreementFileProperties {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The date time representing when the file was created.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public createdDateTime?: Date | undefined;
     /** Localized display name of the policy file of an agreement. The localized display name is shown to end users who view the agreement. */
@@ -26,6 +28,7 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
      */
     public constructor(agreementFilePropertiesParameterValue?: AgreementFileProperties | undefined) {
         super(agreementFilePropertiesParameterValue);
+        this.additionalData = agreementFilePropertiesParameterValue?.additionalData ? agreementFilePropertiesParameterValue?.additionalData! : {};
         this.createdDateTime = agreementFilePropertiesParameterValue?.createdDateTime;
         this.displayName = agreementFilePropertiesParameterValue?.displayName;
         this.fileData = agreementFilePropertiesParameterValue?.fileData instanceof AgreementFileDataImpl? agreementFilePropertiesParameterValue?.fileData:new AgreementFileDataImpl(agreementFilePropertiesParameterValue?.fileData);
@@ -77,5 +80,6 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
         if(this.language){
             writer.writeStringValue("language", this.language);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

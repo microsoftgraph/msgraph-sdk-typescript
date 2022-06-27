@@ -4,10 +4,12 @@ import {EntityImpl, JsonImpl, WorkbookWorksheetImpl} from './index';
 import {Json} from './json';
 import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedItem {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the comment associated with this name. */
     public comment?: string | undefined;
     /** The name of the object. Read-only. */
@@ -28,6 +30,7 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
      */
     public constructor(workbookNamedItemParameterValue?: WorkbookNamedItem | undefined) {
         super(workbookNamedItemParameterValue);
+        this.additionalData = workbookNamedItemParameterValue?.additionalData ? workbookNamedItemParameterValue?.additionalData! : {};
         this.comment = workbookNamedItemParameterValue?.comment;
         this.name = workbookNamedItemParameterValue?.name;
         this.scope = workbookNamedItemParameterValue?.scope;
@@ -79,5 +82,6 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
         if(this.worksheet){
             writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

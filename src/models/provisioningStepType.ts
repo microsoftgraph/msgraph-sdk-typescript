@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum ProvisioningStepType {
     Import_escaped = "import",
     Scoping = "scoping",

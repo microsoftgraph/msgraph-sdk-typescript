@@ -2,9 +2,11 @@ import {createEducationAssignmentPointsGradeFromDiscriminatorValue} from './crea
 import {EducationAssignmentPointsGrade} from './educationAssignmentPointsGrade';
 import {EducationPointsOutcome} from './educationPointsOutcome';
 import {EducationAssignmentPointsGradeImpl, EducationOutcomeImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements EducationPointsOutcome {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The numeric grade the teacher has given the student for this assignment. */
     public points?: EducationAssignmentPointsGrade | undefined;
     /** A copy of the points property that is made when the grade is released to the student. */
@@ -15,6 +17,7 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
      */
     public constructor(educationPointsOutcomeParameterValue?: EducationPointsOutcome | undefined) {
         super(educationPointsOutcomeParameterValue);
+        this.additionalData = educationPointsOutcomeParameterValue?.additionalData ? educationPointsOutcomeParameterValue?.additionalData! : {};
         this.points = educationPointsOutcomeParameterValue?.points instanceof EducationAssignmentPointsGradeImpl? educationPointsOutcomeParameterValue?.points:new EducationAssignmentPointsGradeImpl(educationPointsOutcomeParameterValue?.points);
         this.publishedPoints = educationPointsOutcomeParameterValue?.publishedPoints instanceof EducationAssignmentPointsGradeImpl? educationPointsOutcomeParameterValue?.publishedPoints:new EducationAssignmentPointsGradeImpl(educationPointsOutcomeParameterValue?.publishedPoints);
     };
@@ -41,5 +44,6 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
         if(this.publishedPoints){
             writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("publishedPoints", new EducationAssignmentPointsGradeImpl(this.publishedPoints));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

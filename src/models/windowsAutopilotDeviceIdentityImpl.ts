@@ -1,10 +1,12 @@
 import {EnrollmentState} from './enrollmentState';
 import {EntityImpl} from './index';
 import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device. */
 export class WindowsAutopilotDeviceIdentityImpl extends EntityImpl implements WindowsAutopilotDeviceIdentity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Addressable user name. */
     public addressableUserName?: string | undefined;
     /** AAD Device ID - to be deprecated */
@@ -43,6 +45,7 @@ export class WindowsAutopilotDeviceIdentityImpl extends EntityImpl implements Wi
      */
     public constructor(windowsAutopilotDeviceIdentityParameterValue?: WindowsAutopilotDeviceIdentity | undefined) {
         super(windowsAutopilotDeviceIdentityParameterValue);
+        this.additionalData = windowsAutopilotDeviceIdentityParameterValue?.additionalData ? windowsAutopilotDeviceIdentityParameterValue?.additionalData! : {};
         this.addressableUserName = windowsAutopilotDeviceIdentityParameterValue?.addressableUserName;
         this.azureActiveDirectoryDeviceId = windowsAutopilotDeviceIdentityParameterValue?.azureActiveDirectoryDeviceId;
         this.displayName = windowsAutopilotDeviceIdentityParameterValue?.displayName;
@@ -139,5 +142,6 @@ export class WindowsAutopilotDeviceIdentityImpl extends EntityImpl implements Wi
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

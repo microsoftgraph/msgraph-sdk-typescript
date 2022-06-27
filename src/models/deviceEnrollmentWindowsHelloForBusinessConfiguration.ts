@@ -1,9 +1,11 @@
 import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
 import {Enablement} from './enablement';
 import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollmentConfiguration, Partial<Parsable> {
+export interface DeviceEnrollmentWindowsHelloForBusinessConfiguration extends Partial<AdditionalDataHolder>, DeviceEnrollmentConfiguration, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Controls the ability to use the anti-spoofing features for facial recognition on devices which support it. If set to disabled, anti-spoofing features are not allowed. If set to Not Configured, the user can choose whether they want to use anti-spoofing. Possible values are: notConfigured, enabled, disabled. */
     enhancedBiometricsState?: Enablement | undefined;
     /** Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user's PIN will never expire */

@@ -2,10 +2,12 @@ import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The type for deployment of groups or apps. */
 export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implements TargetedManagedAppPolicyAssignment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Identifier for deployment to a group or app */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -14,6 +16,7 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
      */
     public constructor(targetedManagedAppPolicyAssignmentParameterValue?: TargetedManagedAppPolicyAssignment | undefined) {
         super(targetedManagedAppPolicyAssignmentParameterValue);
+        this.additionalData = targetedManagedAppPolicyAssignmentParameterValue?.additionalData ? targetedManagedAppPolicyAssignmentParameterValue?.additionalData! : {};
         this.target = targetedManagedAppPolicyAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? targetedManagedAppPolicyAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(targetedManagedAppPolicyAssignmentParameterValue?.target);
     };
     /**
@@ -35,5 +38,6 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
         if(this.target){
             writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

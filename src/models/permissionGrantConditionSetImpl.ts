@@ -1,10 +1,12 @@
 import {EntityImpl} from './index';
 import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionType} from './permissionType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class PermissionGrantConditionSetImpl extends EntityImpl implements PermissionGrantConditionSet {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
     public clientApplicationIds?: string[] | undefined;
     /** A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all. */
@@ -27,6 +29,7 @@ export class PermissionGrantConditionSetImpl extends EntityImpl implements Permi
      */
     public constructor(permissionGrantConditionSetParameterValue?: PermissionGrantConditionSet | undefined) {
         super(permissionGrantConditionSetParameterValue);
+        this.additionalData = permissionGrantConditionSetParameterValue?.additionalData ? permissionGrantConditionSetParameterValue?.additionalData! : {};
         this.clientApplicationIds = permissionGrantConditionSetParameterValue?.clientApplicationIds;
         this.clientApplicationPublisherIds = permissionGrantConditionSetParameterValue?.clientApplicationPublisherIds;
         this.clientApplicationsFromVerifiedPublisherOnly = permissionGrantConditionSetParameterValue?.clientApplicationsFromVerifiedPublisherOnly;
@@ -83,5 +86,6 @@ export class PermissionGrantConditionSetImpl extends EntityImpl implements Permi
         if(this.resourceApplication){
             writer.writeStringValue("resourceApplication", this.resourceApplication);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

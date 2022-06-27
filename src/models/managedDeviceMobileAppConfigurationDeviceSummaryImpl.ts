@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration device status summary. */
 export class ManagedDeviceMobileAppConfigurationDeviceSummaryImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationDeviceSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Version of the policy for that overview */
     public configurationVersion?: number | undefined;
     /** Number of error devices */
@@ -24,6 +26,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceSummaryImpl extends Entity
      */
     public constructor(managedDeviceMobileAppConfigurationDeviceSummaryParameterValue?: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined) {
         super(managedDeviceMobileAppConfigurationDeviceSummaryParameterValue);
+        this.additionalData = managedDeviceMobileAppConfigurationDeviceSummaryParameterValue?.additionalData ? managedDeviceMobileAppConfigurationDeviceSummaryParameterValue?.additionalData! : {};
         this.configurationVersion = managedDeviceMobileAppConfigurationDeviceSummaryParameterValue?.configurationVersion;
         this.errorCount = managedDeviceMobileAppConfigurationDeviceSummaryParameterValue?.errorCount;
         this.failedCount = managedDeviceMobileAppConfigurationDeviceSummaryParameterValue?.failedCount;
@@ -75,5 +78,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceSummaryImpl extends Entity
         if(this.successCount){
             writer.writeNumberValue("successCount", this.successCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,7 +1,9 @@
 import {DirectoryObject} from './directoryObject';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Endpoint extends DirectoryObject, Partial<Parsable> {
+export interface Endpoint extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only. */
     capability?: string | undefined;
     /** Application id of the publishing underlying service. Not nullable. Read-only. */

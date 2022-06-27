@@ -1,13 +1,15 @@
 import {Entity} from './entity';
 import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
 import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TermsAndConditions extends Entity, Partial<Parsable> {
+export interface TermsAndConditions extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Administrator-supplied explanation of the terms and conditions, typically describing what it means to accept the terms and conditions set out in the T&C policy. This is shown to the user on prompts to accept the T&C policy. */
     acceptanceStatement?: string | undefined;
     /** The list of acceptance statuses for this T&C policy. */
     acceptanceStatuses?: TermsAndConditionsAcceptanceStatus[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The list of assignments for this T&C policy. */
     assignments?: TermsAndConditionsAssignment[] | undefined;
     /** Administrator-supplied body text of the terms and conditions, typically the terms themselves. This is shown to the user on prompts to accept the T&C policy. */

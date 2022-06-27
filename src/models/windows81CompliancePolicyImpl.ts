@@ -1,9 +1,11 @@
 import {DeviceCompliancePolicyImpl} from './index';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {Windows81CompliancePolicy} from './windows81CompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows81CompliancePolicyImpl extends DeviceCompliancePolicyImpl implements Windows81CompliancePolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Maximum Windows 8.1 version. */
     public osMaximumVersion?: string | undefined;
     /** Minimum Windows 8.1 version. */
@@ -32,6 +34,7 @@ export class Windows81CompliancePolicyImpl extends DeviceCompliancePolicyImpl im
      */
     public constructor(windows81CompliancePolicyParameterValue?: Windows81CompliancePolicy | undefined) {
         super(windows81CompliancePolicyParameterValue);
+        this.additionalData = windows81CompliancePolicyParameterValue?.additionalData ? windows81CompliancePolicyParameterValue?.additionalData! : {};
         this.osMaximumVersion = windows81CompliancePolicyParameterValue?.osMaximumVersion;
         this.osMinimumVersion = windows81CompliancePolicyParameterValue?.osMinimumVersion;
         this.passwordBlockSimple = windows81CompliancePolicyParameterValue?.passwordBlockSimple;
@@ -103,5 +106,6 @@ export class Windows81CompliancePolicyImpl extends DeviceCompliancePolicyImpl im
         if(this.storageRequireEncryption){
             writer.writeBooleanValue("storageRequireEncryption", this.storageRequireEncryption);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

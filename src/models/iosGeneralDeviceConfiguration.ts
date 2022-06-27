@@ -14,13 +14,15 @@ import {MediaContentRatingUnitedStates} from './mediaContentRatingUnitedStates';
 import {RatingAppsType} from './ratingAppsType';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosGeneralDeviceConfiguration extends DeviceConfiguration, Partial<Parsable> {
+export interface IosGeneralDeviceConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
     /** Indicates whether or not to allow account modification when the device is in supervised mode. */
     accountBlockModification?: boolean | undefined;
     /** Indicates whether or not to allow activation lock when the device is in the supervised mode. */
     activationLockAllowWhenSupervised?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates whether or not to allow AirDrop when the device is in supervised mode. */
     airDropBlocked?: boolean | undefined;
     /** Indicates whether or not to cause AirDrop to be considered an unmanaged drop target (iOS 9.0 and later). */

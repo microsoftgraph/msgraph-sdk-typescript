@@ -7,10 +7,12 @@ import {FailureInfo} from './failureInfo';
 import {EndpointImpl, FailureInfoImpl, MediaImpl} from './index';
 import {Media} from './media';
 import {Segment} from './segment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class SegmentImpl extends EntityImpl implements Segment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Endpoint that answered this segment. */
     public callee?: Endpoint | undefined;
     /** Endpoint that initiated this segment. */
@@ -29,6 +31,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
      */
     public constructor(segmentParameterValue?: Segment | undefined) {
         super(segmentParameterValue);
+        this.additionalData = segmentParameterValue?.additionalData ? segmentParameterValue?.additionalData! : {};
         this.callee = segmentParameterValue?.callee instanceof EndpointImpl? segmentParameterValue?.callee:new EndpointImpl(segmentParameterValue?.callee);
         this.caller = segmentParameterValue?.caller instanceof EndpointImpl? segmentParameterValue?.caller:new EndpointImpl(segmentParameterValue?.caller);
         this.endDateTime = segmentParameterValue?.endDateTime;
@@ -76,5 +79,6 @@ export class SegmentImpl extends EntityImpl implements Segment {
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

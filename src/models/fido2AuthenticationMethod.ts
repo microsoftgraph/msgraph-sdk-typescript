@@ -1,10 +1,12 @@
 import {AttestationLevel} from './attestationLevel';
 import {AuthenticationMethod} from './authenticationMethod';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Fido2AuthenticationMethod extends AuthenticationMethod, Partial<Parsable> {
+export interface Fido2AuthenticationMethod extends Partial<AdditionalDataHolder>, AuthenticationMethod, Partial<Parsable> {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     aaGuid?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The attestation certificate(s) attached to this security key. */
     attestationCertificates?: string[] | undefined;
     /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue. */

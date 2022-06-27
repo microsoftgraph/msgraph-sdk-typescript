@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant. */
 export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implements OnPremisesConditionalAccessSettings {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates if on premises conditional access is enabled for this organization */
     public enabled?: boolean | undefined;
     /** User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy. */
@@ -18,6 +20,7 @@ export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implemen
      */
     public constructor(onPremisesConditionalAccessSettingsParameterValue?: OnPremisesConditionalAccessSettings | undefined) {
         super(onPremisesConditionalAccessSettingsParameterValue);
+        this.additionalData = onPremisesConditionalAccessSettingsParameterValue?.additionalData ? onPremisesConditionalAccessSettingsParameterValue?.additionalData! : {};
         this.enabled = onPremisesConditionalAccessSettingsParameterValue?.enabled;
         this.excludedGroups = onPremisesConditionalAccessSettingsParameterValue?.excludedGroups;
         this.includedGroups = onPremisesConditionalAccessSettingsParameterValue?.includedGroups;
@@ -54,5 +57,6 @@ export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implemen
         if(this.overrideDefaultRule){
             writer.writeBooleanValue("overrideDefaultRule", this.overrideDefaultRule);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

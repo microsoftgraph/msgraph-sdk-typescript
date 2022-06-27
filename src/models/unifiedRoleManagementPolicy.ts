@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {Identity} from './identity';
 import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleManagementPolicy extends Entity, Partial<Parsable> {
+export interface UnifiedRoleManagementPolicy extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Description for the policy. */
     description?: string | undefined;
     /** Display name for the policy. */

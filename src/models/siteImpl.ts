@@ -30,10 +30,12 @@ import {SiteCollection} from './siteCollection';
 import {StoreImpl} from './termStore/';
 import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDiscriminatorValue';
 import {Store} from './termStore/store';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class SiteImpl extends BaseItemImpl implements Site {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Analytics about the view activities that took place in this site. */
     public analytics?: ItemAnalytics | undefined;
     /** The collection of column definitions reusable across lists under this site. */
@@ -78,6 +80,7 @@ export class SiteImpl extends BaseItemImpl implements Site {
      */
     public constructor(siteParameterValue?: Site | undefined) {
         super(siteParameterValue);
+        this.additionalData = siteParameterValue?.additionalData ? siteParameterValue?.additionalData! : {};
         this.analytics = siteParameterValue?.analytics instanceof ItemAnalyticsImpl? siteParameterValue?.analytics:new ItemAnalyticsImpl(siteParameterValue?.analytics);
         const columnsArrValue: ColumnDefinitionImpl[] = []; siteParameterValue.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.columns = columnsArrValue;
@@ -199,5 +202,6 @@ export class SiteImpl extends BaseItemImpl implements Site {
         if(this.termStores && this.termStores.length != 0){        const termStoresArrValue: StoreImpl[] = []; this.termStores?.forEach(element => {termStoresArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
             writer.writeCollectionOfObjectValues<StoreImpl>("termStores", termStoresArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,9 +2,11 @@ import {createOnenoteOperationErrorFromDiscriminatorValue} from './createOnenote
 import {OnenoteOperationErrorImpl, OperationImpl} from './index';
 import {OnenoteOperation} from './onenoteOperation';
 import {OnenoteOperationError} from './onenoteOperationError';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The error returned by the operation. */
     public error_escaped?: OnenoteOperationError | undefined;
     /** The operation percent complete if the operation is still in running status. */
@@ -19,6 +21,7 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
      */
     public constructor(onenoteOperationParameterValue?: OnenoteOperation | undefined) {
         super(onenoteOperationParameterValue);
+        this.additionalData = onenoteOperationParameterValue?.additionalData ? onenoteOperationParameterValue?.additionalData! : {};
         this.error_escaped = onenoteOperationParameterValue?.error_escaped instanceof OnenoteOperationErrorImpl? onenoteOperationParameterValue?.error_escaped:new OnenoteOperationErrorImpl(onenoteOperationParameterValue?.error_escaped);
         this.percentComplete = onenoteOperationParameterValue?.percentComplete;
         this.resourceId = onenoteOperationParameterValue?.resourceId;
@@ -55,5 +58,6 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
         if(this.resourceLocation){
             writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

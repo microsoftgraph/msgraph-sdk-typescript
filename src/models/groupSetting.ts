@@ -1,8 +1,10 @@
 import {Entity} from './entity';
 import {SettingValue} from './settingValue';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface GroupSetting extends Entity, Partial<Parsable> {
+export interface GroupSetting extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Display name of this group of settings, which comes from the associated template. */
     displayName?: string | undefined;
     /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only. */

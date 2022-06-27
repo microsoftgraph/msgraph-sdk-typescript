@@ -1,7 +1,9 @@
 import {ScheduleEntity} from './scheduleEntity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TimeOffItem extends Partial<Parsable>, ScheduleEntity {
+export interface TimeOffItem extends Partial<AdditionalDataHolder>, Partial<Parsable>, ScheduleEntity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** ID of the timeOffReason for this timeOffItem. Required. */
     timeOffReasonId?: string | undefined;
 }

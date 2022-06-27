@@ -2,9 +2,11 @@ import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFrom
 import {KeyValuePairImpl, ManagedAppPolicyImpl} from './index';
 import {KeyValuePair} from './keyValuePair';
 import {ManagedAppConfiguration} from './managedAppConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements ManagedAppConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service */
     public customSettings?: KeyValuePair[] | undefined;
     /**
@@ -13,6 +15,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
      */
     public constructor(managedAppConfigurationParameterValue?: ManagedAppConfiguration | undefined) {
         super(managedAppConfigurationParameterValue);
+        this.additionalData = managedAppConfigurationParameterValue?.additionalData ? managedAppConfigurationParameterValue?.additionalData! : {};
         const customSettingsArrValue: KeyValuePairImpl[] = []; managedAppConfigurationParameterValue.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.customSettings = customSettingsArrValue;
     };
@@ -35,5 +38,6 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
         if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

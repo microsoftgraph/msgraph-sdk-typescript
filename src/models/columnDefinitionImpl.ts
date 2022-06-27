@@ -36,10 +36,12 @@ import {PersonOrGroupColumn} from './personOrGroupColumn';
 import {TermColumn} from './termColumn';
 import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** This column stores boolean values. */
     public boolean?: BooleanColumn | undefined;
     /** This column's data is calculated based on other columns. */
@@ -110,6 +112,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public constructor(columnDefinitionParameterValue?: ColumnDefinition | undefined) {
         super(columnDefinitionParameterValue);
+        this.additionalData = columnDefinitionParameterValue?.additionalData ? columnDefinitionParameterValue?.additionalData! : {};
         this.boolean = columnDefinitionParameterValue?.boolean instanceof BooleanColumnImpl? columnDefinitionParameterValue?.boolean:new BooleanColumnImpl(columnDefinitionParameterValue?.boolean);
         this.calculated = columnDefinitionParameterValue?.calculated instanceof CalculatedColumnImpl? columnDefinitionParameterValue?.calculated:new CalculatedColumnImpl(columnDefinitionParameterValue?.calculated);
         this.choice = columnDefinitionParameterValue?.choice instanceof ChoiceColumnImpl? columnDefinitionParameterValue?.choice:new ChoiceColumnImpl(columnDefinitionParameterValue?.choice);
@@ -286,5 +289,6 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
         if(this.validation){
             writer.writeObjectValue<ColumnValidationImpl>("validation", new ColumnValidationImpl(this.validation));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

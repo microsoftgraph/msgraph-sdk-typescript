@@ -1,10 +1,12 @@
 import {DataPolicyOperation} from './dataPolicyOperation';
 import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of dataPolicyOperation entities. */
 export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes. */
     public completedDateTime?: Date | undefined;
     /** Specifies the progress of an operation. */
@@ -23,6 +25,7 @@ export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOpe
      */
     public constructor(dataPolicyOperationParameterValue?: DataPolicyOperation | undefined) {
         super(dataPolicyOperationParameterValue);
+        this.additionalData = dataPolicyOperationParameterValue?.additionalData ? dataPolicyOperationParameterValue?.additionalData! : {};
         this.completedDateTime = dataPolicyOperationParameterValue?.completedDateTime;
         this.progress = dataPolicyOperationParameterValue?.progress;
         this.status = dataPolicyOperationParameterValue?.status;
@@ -69,5 +72,6 @@ export class DataPolicyOperationImpl extends EntityImpl implements DataPolicyOpe
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

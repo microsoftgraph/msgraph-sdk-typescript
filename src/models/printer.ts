@@ -2,9 +2,11 @@ import {PrintConnector} from './printConnector';
 import {PrinterBase} from './printerBase';
 import {PrinterShare} from './printerShare';
 import {PrintTaskTrigger} from './printTaskTrigger';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Printer extends Partial<Parsable>, PrinterBase {
+export interface Printer extends Partial<AdditionalDataHolder>, Partial<Parsable>, PrinterBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The connectors that are associated with the printer. */
     connectors?: PrintConnector[] | undefined;
     /** True if the printer has a physical device for printing. Read-only. */

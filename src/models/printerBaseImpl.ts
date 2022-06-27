@@ -10,10 +10,12 @@ import {PrinterDefaults} from './printerDefaults';
 import {PrinterLocation} from './printerLocation';
 import {PrinterStatus} from './printerStatus';
 import {PrintJob} from './printJob';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The capabilities of the printer/printerShare. */
     public capabilities?: PrinterCapabilities | undefined;
     /** The default print settings of printer/printerShare. */
@@ -38,6 +40,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
      */
     public constructor(printerBaseParameterValue?: PrinterBase | undefined) {
         super(printerBaseParameterValue);
+        this.additionalData = printerBaseParameterValue?.additionalData ? printerBaseParameterValue?.additionalData! : {};
         this.capabilities = printerBaseParameterValue?.capabilities instanceof PrinterCapabilitiesImpl? printerBaseParameterValue?.capabilities:new PrinterCapabilitiesImpl(printerBaseParameterValue?.capabilities);
         this.defaults = printerBaseParameterValue?.defaults instanceof PrinterDefaultsImpl? printerBaseParameterValue?.defaults:new PrinterDefaultsImpl(printerBaseParameterValue?.defaults);
         this.displayName = printerBaseParameterValue?.displayName;
@@ -100,5 +103,6 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         if(this.status){
             writer.writeObjectValue<PrinterStatusImpl>("status", new PrinterStatusImpl(this.status));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

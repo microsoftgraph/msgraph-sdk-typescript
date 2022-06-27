@@ -8,10 +8,11 @@ import {DomainDnsRecord} from './domainDnsRecord';
 import {DomainState} from './domainState';
 import {DirectoryObjectImpl, DomainDnsRecordImpl, DomainStateImpl, EntityImpl, InternalDomainFederationImpl} from './index';
 import {InternalDomainFederation} from './internalDomainFederation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class DomainImpl extends EntityImpl implements Domain {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     public authenticationType?: string | undefined;
     /** This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled. */
@@ -47,11 +48,12 @@ export class DomainImpl extends EntityImpl implements Domain {
     /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand. */
     public verificationDnsRecords?: DomainDnsRecord[] | undefined;
     /**
-     * Instantiates a new domain and sets the default values.
+     * Instantiates a new Domain and sets the default values.
      * @param domainParameterValue 
      */
     public constructor(domainParameterValue?: Domain | undefined) {
         super(domainParameterValue);
+        this.additionalData = domainParameterValue?.additionalData ? domainParameterValue?.additionalData! : {};
         this.authenticationType = domainParameterValue?.authenticationType;
         this.availabilityStatus = domainParameterValue?.availabilityStatus;
         const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; domainParameterValue.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
@@ -157,5 +159,6 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(this.verificationDnsRecords && this.verificationDnsRecords.length != 0){        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; this.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(element instanceof DomainDnsRecordImpl? element : new DomainDnsRecordImpl(element));});
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("verificationDnsRecords", verificationDnsRecordsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

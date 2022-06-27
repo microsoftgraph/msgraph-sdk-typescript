@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary. */
 export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Version of the policy for that overview */
     public configurationVersion?: number | undefined;
     /** Number of error Users */
@@ -24,6 +26,7 @@ export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityIm
      */
     public constructor(managedDeviceMobileAppConfigurationUserSummaryParameterValue?: ManagedDeviceMobileAppConfigurationUserSummary | undefined) {
         super(managedDeviceMobileAppConfigurationUserSummaryParameterValue);
+        this.additionalData = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.additionalData ? managedDeviceMobileAppConfigurationUserSummaryParameterValue?.additionalData! : {};
         this.configurationVersion = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.configurationVersion;
         this.errorCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.errorCount;
         this.failedCount = managedDeviceMobileAppConfigurationUserSummaryParameterValue?.failedCount;
@@ -75,5 +78,6 @@ export class ManagedDeviceMobileAppConfigurationUserSummaryImpl extends EntityIm
         if(this.successCount){
             writer.writeNumberValue("successCount", this.successCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

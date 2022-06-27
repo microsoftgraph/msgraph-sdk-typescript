@@ -16,14 +16,15 @@ import {createEntitlementManagementSettingsFromDiscriminatorValue} from './creat
 import {EntitlementManagement} from './entitlementManagement';
 import {EntitlementManagementSettings} from './entitlementManagementSettings';
 import {AccessPackageAssignmentImpl, AccessPackageAssignmentPolicyImpl, AccessPackageAssignmentRequestImpl, AccessPackageCatalogImpl, AccessPackageImpl, ApprovalImpl, ConnectedOrganizationImpl, EntitlementManagementSettingsImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagementImpl extends EntityImpl implements EntitlementManagement {
     /** Approval stages for decisions associated with access package assignment requests. */
     public accessPackageAssignmentApprovals?: Approval[] | undefined;
     /** Represents access package objects. */
     public accessPackages?: AccessPackage[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
     public assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /** Access package assignment requests created by or on behalf of a subject. */
@@ -37,7 +38,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
     /** Represents the settings that control the behavior of Azure AD entitlement management. */
     public settings?: EntitlementManagementSettings | undefined;
     /**
-     * Instantiates a new entitlementManagement and sets the default values.
+     * Instantiates a new EntitlementManagement and sets the default values.
      * @param entitlementManagementParameterValue 
      */
     public constructor(entitlementManagementParameterValue?: EntitlementManagement | undefined) {
@@ -46,6 +47,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         this.accessPackageAssignmentApprovals = accessPackageAssignmentApprovalsArrValue;
         const accessPackagesArrValue: AccessPackageImpl[] = []; entitlementManagementParameterValue.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
         this.accessPackages = accessPackagesArrValue;
+        this.additionalData = entitlementManagementParameterValue?.additionalData ? entitlementManagementParameterValue?.additionalData! : {};
         const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; entitlementManagementParameterValue.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
         this.assignmentPolicies = assignmentPoliciesArrValue;
         const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = []; entitlementManagementParameterValue.assignmentRequests?.forEach(element => {assignmentRequestsArrValue.push(element instanceof AccessPackageAssignmentRequestImpl? element : new AccessPackageAssignmentRequestImpl(element));});
@@ -105,5 +107,6 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(this.settings){
             writer.writeObjectValue<EntitlementManagementSettingsImpl>("settings", new EntitlementManagementSettingsImpl(this.settings));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

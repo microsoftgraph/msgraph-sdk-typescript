@@ -10,9 +10,11 @@ import {ChatMessageType} from './chatMessageType';
 import {Entity} from './entity';
 import {EventMessageDetail} from './eventMessageDetail';
 import {ItemBody} from './itemBody';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ChatMessage extends Entity, Partial<Parsable> {
+export interface ChatMessage extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** References to attached objects like files, tabs, meetings etc. */
     attachments?: ChatMessageAttachment[] | undefined;
     /** The body property */

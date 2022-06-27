@@ -20,11 +20,13 @@ import {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
 import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
 import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
 import {WindowsStartMenuModeType} from './windowsStartMenuModeType';
-import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl implements Windows10GeneralConfiguration {
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     public accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only). */
     public antiTheftModeBlocked?: boolean | undefined;
     /** Indicates whether apps from AppX packages signed with a trusted certificate can be side loaded. Possible values are: notConfigured, blocked, allowed. */
@@ -432,6 +434,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
     public constructor(windows10GeneralConfigurationParameterValue?: Windows10GeneralConfiguration | undefined) {
         super(windows10GeneralConfigurationParameterValue);
         this.accountsBlockAddingNonMicrosoftAccountEmail = windows10GeneralConfigurationParameterValue?.accountsBlockAddingNonMicrosoftAccountEmail;
+        this.additionalData = windows10GeneralConfigurationParameterValue?.additionalData ? windows10GeneralConfigurationParameterValue?.additionalData! : {};
         this.antiTheftModeBlocked = windows10GeneralConfigurationParameterValue?.antiTheftModeBlocked;
         this.appsAllowTrustedAppsSideloading = windows10GeneralConfigurationParameterValue?.appsAllowTrustedAppsSideloading;
         this.appsBlockWindowsStoreOriginatedApps = windows10GeneralConfigurationParameterValue?.appsBlockWindowsStoreOriginatedApps;
@@ -1452,5 +1455,6 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
         if(this.wirelessDisplayRequirePinForPairing){
             writer.writeBooleanValue("wirelessDisplayRequirePinForPairing", this.wirelessDisplayRequirePinForPairing);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

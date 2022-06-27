@@ -9,10 +9,11 @@ import {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
 import {IdentitySet} from './identitySet';
 import {EducationOutcomeImpl, EducationSubmissionRecipientImpl, EducationSubmissionResourceImpl, EntityImpl, IdentitySetImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationSubmissionImpl extends EntityImpl implements EducationSubmission {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The outcomes property */
     public outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */
@@ -42,11 +43,12 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
     /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public unsubmittedDateTime?: Date | undefined;
     /**
-     * Instantiates a new educationSubmission and sets the default values.
+     * Instantiates a new EducationSubmission and sets the default values.
      * @param educationSubmissionParameterValue 
      */
     public constructor(educationSubmissionParameterValue?: EducationSubmission | undefined) {
         super(educationSubmissionParameterValue);
+        this.additionalData = educationSubmissionParameterValue?.additionalData ? educationSubmissionParameterValue?.additionalData! : {};
         const outcomesArrValue: EducationOutcomeImpl[] = []; educationSubmissionParameterValue.outcomes?.forEach(element => {outcomesArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
         this.outcomes = outcomesArrValue;
         this.reassignedBy = educationSubmissionParameterValue?.reassignedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.reassignedBy:new IdentitySetImpl(educationSubmissionParameterValue?.reassignedBy);
@@ -136,5 +138,6 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
         if(this.unsubmittedDateTime){
             writer.writeDateValue("unsubmittedDateTime", this.unsubmittedDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,9 +2,11 @@ import {createPermissionGrantConditionSetFromDiscriminatorValue} from './createP
 import {PermissionGrantConditionSetImpl, PolicyBaseImpl} from './index';
 import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionGrantPolicy} from './permissionGrantPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements PermissionGrantPolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Condition sets which are excluded in this permission grant policy. Automatically expanded on GET. */
     public excludes?: PermissionGrantConditionSet[] | undefined;
     /** Condition sets which are included in this permission grant policy. Automatically expanded on GET. */
@@ -15,6 +17,7 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
      */
     public constructor(permissionGrantPolicyParameterValue?: PermissionGrantPolicy | undefined) {
         super(permissionGrantPolicyParameterValue);
+        this.additionalData = permissionGrantPolicyParameterValue?.additionalData ? permissionGrantPolicyParameterValue?.additionalData! : {};
         const excludesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue.excludes?.forEach(element => {excludesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
         this.excludes = excludesArrValue;
         const includesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue.includes?.forEach(element => {includesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
@@ -43,5 +46,6 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
         if(this.includes && this.includes.length != 0){        const includesArrValue: PermissionGrantConditionSetImpl[] = []; this.includes?.forEach(element => {includesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("includes", includesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

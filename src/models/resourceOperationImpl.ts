@@ -1,11 +1,13 @@
 import {EntityImpl} from './index';
 import {ResourceOperation} from './resourceOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC). */
 export class ResourceOperationImpl extends EntityImpl implements ResourceOperation {
     /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible. */
     public actionName?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
     public description?: string | undefined;
     /** Name of the Resource this operation is performed on. */
@@ -17,6 +19,7 @@ export class ResourceOperationImpl extends EntityImpl implements ResourceOperati
     public constructor(resourceOperationParameterValue?: ResourceOperation | undefined) {
         super(resourceOperationParameterValue);
         this.actionName = resourceOperationParameterValue?.actionName;
+        this.additionalData = resourceOperationParameterValue?.additionalData ? resourceOperationParameterValue?.additionalData! : {};
         this.description = resourceOperationParameterValue?.description;
         this.resourceName = resourceOperationParameterValue?.resourceName;
     };
@@ -47,5 +50,6 @@ export class ResourceOperationImpl extends EntityImpl implements ResourceOperati
         if(this.resourceName){
             writer.writeStringValue("resourceName", this.resourceName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

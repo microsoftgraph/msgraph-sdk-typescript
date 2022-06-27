@@ -8,10 +8,12 @@ import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {UsageDetails} from './usageDetails';
 import {UsedInsight} from './usedInsight';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class UsedInsightImpl extends EntityImpl implements UsedInsight {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Information about when the item was last viewed or modified by the user. Read only. */
     public lastUsed?: UsageDetails | undefined;
     /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
@@ -26,6 +28,7 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public constructor(usedInsightParameterValue?: UsedInsight | undefined) {
         super(usedInsightParameterValue);
+        this.additionalData = usedInsightParameterValue?.additionalData ? usedInsightParameterValue?.additionalData! : {};
         this.lastUsed = usedInsightParameterValue?.lastUsed instanceof UsageDetailsImpl? usedInsightParameterValue?.lastUsed:new UsageDetailsImpl(usedInsightParameterValue?.lastUsed);
         this.resource = usedInsightParameterValue?.resource instanceof EntityImpl? usedInsightParameterValue?.resource:new EntityImpl(usedInsightParameterValue?.resource);
         this.resourceReference = usedInsightParameterValue?.resourceReference instanceof ResourceReferenceImpl? usedInsightParameterValue?.resourceReference:new ResourceReferenceImpl(usedInsightParameterValue?.resourceReference);
@@ -62,5 +65,6 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
         if(this.resourceVisualization){
             writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,9 +5,11 @@ import {Location} from './location';
 import {MeetingMessageType} from './meetingMessageType';
 import {Message} from './message';
 import {PatternedRecurrence} from './patternedRecurrence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EventMessage extends Message, Partial<Parsable> {
+export interface EventMessage extends Partial<AdditionalDataHolder>, Message, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The end time of the requested meeting. */
     endDateTime?: DateTimeTimeZone | undefined;
     /** The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only. */

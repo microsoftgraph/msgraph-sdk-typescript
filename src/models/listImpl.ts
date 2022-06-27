@@ -18,10 +18,12 @@ import {RichLongRunningOperation} from './richLongRunningOperation';
 import {SharepointIds} from './sharepointIds';
 import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ListImpl extends BaseItemImpl implements List {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The collection of field definitions for this list. */
     public columns?: ColumnDefinition[] | undefined;
     /** The collection of content types present in this list. */
@@ -48,6 +50,7 @@ export class ListImpl extends BaseItemImpl implements List {
      */
     public constructor(listParameterValue?: List | undefined) {
         super(listParameterValue);
+        this.additionalData = listParameterValue?.additionalData ? listParameterValue?.additionalData! : {};
         const columnsArrValue: ColumnDefinitionImpl[] = []; listParameterValue.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
         this.columns = columnsArrValue;
         const contentTypesArrValue: ContentTypeImpl[] = []; listParameterValue.contentTypes?.forEach(element => {contentTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
@@ -119,5 +122,6 @@ export class ListImpl extends BaseItemImpl implements List {
         if(this.system){
             writer.writeObjectValue<SystemFacetImpl>("system", new SystemFacetImpl(this.system));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

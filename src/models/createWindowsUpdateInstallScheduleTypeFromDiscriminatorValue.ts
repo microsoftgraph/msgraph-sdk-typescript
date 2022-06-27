@@ -1,7 +1,19 @@
-import {WindowsUpdateInstallScheduleTypeImpl} from './index';
+import {WindowsUpdateActiveHoursInstallImpl, WindowsUpdateInstallScheduleTypeImpl, WindowsUpdateScheduledInstallImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsUpdateInstallScheduleTypeImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.windowsUpdateActiveHoursInstall":
+                    return new WindowsUpdateActiveHoursInstallImpl();
+                case "#microsoft.graph.windowsUpdateScheduledInstall":
+                    return new WindowsUpdateScheduledInstallImpl();
+            }
+        }
+    }
     return new WindowsUpdateInstallScheduleTypeImpl();
 }

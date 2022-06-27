@@ -2,9 +2,11 @@ import {Approval} from './approval';
 import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
 import {ApprovalImpl, RequestImpl} from './index';
 import {UserConsentRequest} from './userConsentRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserConsentRequestImpl extends RequestImpl implements UserConsentRequest {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Approval decisions associated with a request. */
     public approval?: Approval | undefined;
     /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
@@ -15,6 +17,7 @@ export class UserConsentRequestImpl extends RequestImpl implements UserConsentRe
      */
     public constructor(userConsentRequestParameterValue?: UserConsentRequest | undefined) {
         super(userConsentRequestParameterValue);
+        this.additionalData = userConsentRequestParameterValue?.additionalData ? userConsentRequestParameterValue?.additionalData! : {};
         this.approval = userConsentRequestParameterValue?.approval instanceof ApprovalImpl? userConsentRequestParameterValue?.approval:new ApprovalImpl(userConsentRequestParameterValue?.approval);
         this.reason = userConsentRequestParameterValue?.reason;
     };
@@ -41,5 +44,6 @@ export class UserConsentRequestImpl extends RequestImpl implements UserConsentRe
         if(this.reason){
             writer.writeStringValue("reason", this.reason);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

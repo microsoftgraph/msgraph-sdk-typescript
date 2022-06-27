@@ -5,10 +5,12 @@ import {PlannerChecklistItems} from './plannerChecklistItems';
 import {PlannerExternalReferences} from './plannerExternalReferences';
 import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerTaskDetails} from './plannerTaskDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDetails {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The collection of checklist items on the task. */
     public checklist?: PlannerChecklistItems | undefined;
     /** Description of the task. */
@@ -23,6 +25,7 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
      */
     public constructor(plannerTaskDetailsParameterValue?: PlannerTaskDetails | undefined) {
         super(plannerTaskDetailsParameterValue);
+        this.additionalData = plannerTaskDetailsParameterValue?.additionalData ? plannerTaskDetailsParameterValue?.additionalData! : {};
         this.checklist = plannerTaskDetailsParameterValue?.checklist instanceof PlannerChecklistItemsImpl? plannerTaskDetailsParameterValue?.checklist:new PlannerChecklistItemsImpl(plannerTaskDetailsParameterValue?.checklist);
         this.description = plannerTaskDetailsParameterValue?.description;
         this.previewType = plannerTaskDetailsParameterValue?.previewType;
@@ -59,5 +62,6 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
         if(this.references){
             writer.writeObjectValue<PlannerExternalReferencesImpl>("references", new PlannerExternalReferencesImpl(this.references));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

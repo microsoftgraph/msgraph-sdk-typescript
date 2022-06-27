@@ -1,9 +1,11 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ScheduleChangeRequest extends ChangeTrackedEntity, Partial<Parsable> {
+export interface ScheduleChangeRequest extends Partial<AdditionalDataHolder>, ChangeTrackedEntity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The assignedTo property */
     assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */

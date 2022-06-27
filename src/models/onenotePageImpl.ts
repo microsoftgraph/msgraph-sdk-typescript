@@ -6,10 +6,12 @@ import {Notebook} from './notebook';
 import {OnenotePage} from './onenotePage';
 import {OnenoteSection} from './onenoteSection';
 import {PageLinks} from './pageLinks';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenotePage {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The page's HTML content. */
     public content?: string | undefined;
     /** The URL for the page's HTML content.  Read-only. */
@@ -38,6 +40,7 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
      */
     public constructor(onenotePageParameterValue?: OnenotePage | undefined) {
         super(onenotePageParameterValue);
+        this.additionalData = onenotePageParameterValue?.additionalData ? onenotePageParameterValue?.additionalData! : {};
         this.content = onenotePageParameterValue?.content;
         this.contentUrl = onenotePageParameterValue?.contentUrl;
         this.createdByAppId = onenotePageParameterValue?.createdByAppId;
@@ -109,5 +112,6 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
         if(this.userTags){
             writer.writeCollectionOfPrimitiveValues<string>("userTags", this.userTags);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,5 +1,7 @@
 import {RoleDefinition} from './roleDefinition';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceAndAppManagementRoleDefinition extends Partial<Parsable>, RoleDefinition {
+export interface DeviceAndAppManagementRoleDefinition extends Partial<AdditionalDataHolder>, Partial<Parsable>, RoleDefinition {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
 }

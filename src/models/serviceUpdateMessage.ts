@@ -4,11 +4,13 @@ import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ServiceUpdateMessage extends Partial<Parsable>, ServiceAnnouncementBase {
+export interface ServiceUpdateMessage extends Partial<AdditionalDataHolder>, Partial<Parsable>, ServiceAnnouncementBase {
     /** The expected deadline of the action for the message. */
     actionRequiredByDateTime?: Date | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** A collection of serviceAnnouncementAttachments. */
     attachments?: ServiceAnnouncementAttachment[] | undefined;
     /** The zip file of all attachments for a message. */

@@ -5,9 +5,11 @@ import {Entity} from './entity';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsTab} from './teamsTab';
 import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Chat extends Entity, Partial<Parsable> {
+export interface Chat extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
     chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */

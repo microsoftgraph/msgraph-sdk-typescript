@@ -2,9 +2,11 @@ import {AndroidLobApp} from './androidLobApp';
 import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {AndroidMinimumOperatingSystemImpl, MobileLobAppImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidLobAppImpl extends MobileLobAppImpl implements AndroidLobApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The value for the minimum applicable operating system. */
     public minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
     /** The package identifier. */
@@ -19,6 +21,7 @@ export class AndroidLobAppImpl extends MobileLobAppImpl implements AndroidLobApp
      */
     public constructor(androidLobAppParameterValue?: AndroidLobApp | undefined) {
         super(androidLobAppParameterValue);
+        this.additionalData = androidLobAppParameterValue?.additionalData ? androidLobAppParameterValue?.additionalData! : {};
         this.minimumSupportedOperatingSystem = androidLobAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? androidLobAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(androidLobAppParameterValue?.minimumSupportedOperatingSystem);
         this.packageId = androidLobAppParameterValue?.packageId;
         this.versionCode = androidLobAppParameterValue?.versionCode;
@@ -55,5 +58,6 @@ export class AndroidLobAppImpl extends MobileLobAppImpl implements AndroidLobApp
         if(this.versionName){
             writer.writeStringValue("versionName", this.versionName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

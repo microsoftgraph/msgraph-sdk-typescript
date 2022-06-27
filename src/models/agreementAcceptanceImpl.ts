@@ -1,10 +1,12 @@
 import {AgreementAcceptance} from './agreementAcceptance';
 import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcceptance {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** ID of the agreement file accepted by the user. */
     public agreementFileId?: string | undefined;
     /** ID of the agreement. */
@@ -37,6 +39,7 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
      */
     public constructor(agreementAcceptanceParameterValue?: AgreementAcceptance | undefined) {
         super(agreementAcceptanceParameterValue);
+        this.additionalData = agreementAcceptanceParameterValue?.additionalData ? agreementAcceptanceParameterValue?.additionalData! : {};
         this.agreementFileId = agreementAcceptanceParameterValue?.agreementFileId;
         this.agreementId = agreementAcceptanceParameterValue?.agreementId;
         this.deviceDisplayName = agreementAcceptanceParameterValue?.deviceDisplayName;
@@ -118,5 +121,6 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

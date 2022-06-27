@@ -2,9 +2,11 @@ import {Entity} from './entity';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface VppToken extends Entity, Partial<Parsable> {
+export interface VppToken extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The apple Id associated with the given Apple Volume Purchase Program Token. */
     appleId?: string | undefined;
     /** Whether or not apps for the VPP token will be automatically updated. */

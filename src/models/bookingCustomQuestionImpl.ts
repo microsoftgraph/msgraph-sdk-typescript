@@ -1,10 +1,11 @@
 import {AnswerInputType} from './answerInputType';
 import {BookingCustomQuestion} from './bookingCustomQuestion';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents a custom question of the business. */
 export class BookingCustomQuestionImpl extends EntityImpl implements BookingCustomQuestion {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
     public answerInputType?: AnswerInputType | undefined;
     /** List of possible answer values. */
@@ -12,11 +13,12 @@ export class BookingCustomQuestionImpl extends EntityImpl implements BookingCust
     /** Display name of this entity. */
     public displayName?: string | undefined;
     /**
-     * Instantiates a new bookingCustomQuestion and sets the default values.
+     * Instantiates a new BookingCustomQuestion and sets the default values.
      * @param bookingCustomQuestionParameterValue 
      */
     public constructor(bookingCustomQuestionParameterValue?: BookingCustomQuestion | undefined) {
         super(bookingCustomQuestionParameterValue);
+        this.additionalData = bookingCustomQuestionParameterValue?.additionalData ? bookingCustomQuestionParameterValue?.additionalData! : {};
         this.answerInputType = bookingCustomQuestionParameterValue?.answerInputType;
         this.answerOptions = bookingCustomQuestionParameterValue?.answerOptions;
         this.displayName = bookingCustomQuestionParameterValue?.displayName;
@@ -48,5 +50,6 @@ export class BookingCustomQuestionImpl extends EntityImpl implements BookingCust
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

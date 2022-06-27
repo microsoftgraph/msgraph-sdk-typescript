@@ -1,7 +1,9 @@
 import {AuthenticationMethod} from './authenticationMethod';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod, Partial<Parsable> {
+export interface TemporaryAccessPassAuthenticationMethod extends Partial<AdditionalDataHolder>, AuthenticationMethod, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The date and time when the Temporary Access Pass was created. */
     createdDateTime?: Date | undefined;
     /** The state of the authentication method that indicates whether it's currently usable by the user. */

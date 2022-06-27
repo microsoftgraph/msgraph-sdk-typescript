@@ -3,9 +3,11 @@ import {EventMessageResponse} from './eventMessageResponse';
 import {EventMessageImpl, TimeSlotImpl} from './index';
 import {ResponseType} from './responseType';
 import {TimeSlot} from './timeSlot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventMessageResponseImpl extends EventMessageImpl implements EventMessageResponse {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The proposedNewTime property */
     public proposedNewTime?: TimeSlot | undefined;
     /** The responseType property */
@@ -16,6 +18,7 @@ export class EventMessageResponseImpl extends EventMessageImpl implements EventM
      */
     public constructor(eventMessageResponseParameterValue?: EventMessageResponse | undefined) {
         super(eventMessageResponseParameterValue);
+        this.additionalData = eventMessageResponseParameterValue?.additionalData ? eventMessageResponseParameterValue?.additionalData! : {};
         this.proposedNewTime = eventMessageResponseParameterValue?.proposedNewTime instanceof TimeSlotImpl? eventMessageResponseParameterValue?.proposedNewTime:new TimeSlotImpl(eventMessageResponseParameterValue?.proposedNewTime);
         this.responseType = eventMessageResponseParameterValue?.responseType;
     };
@@ -42,5 +45,6 @@ export class EventMessageResponseImpl extends EventMessageImpl implements EventM
         if(this.responseType){
             writer.writeEnumValue<ResponseType>("responseType", this.responseType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

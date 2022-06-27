@@ -10,9 +10,11 @@ import {FirewallPreSharedKeyEncodingMethodType} from './firewallPreSharedKeyEnco
 import {BitLockerRemovableDrivePolicyImpl, DeviceConfigurationImpl, WindowsFirewallNetworkProfileImpl} from './index';
 import {Windows10EndpointProtectionConfiguration} from './windows10EndpointProtectionConfiguration';
 import {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigurationImpl implements Windows10EndpointProtectionConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.) */
     public applicationGuardAllowPersistence?: boolean | undefined;
     /** Allow printing to Local Printers from Container */
@@ -91,6 +93,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
      */
     public constructor(windows10EndpointProtectionConfigurationParameterValue?: Windows10EndpointProtectionConfiguration | undefined) {
         super(windows10EndpointProtectionConfigurationParameterValue);
+        this.additionalData = windows10EndpointProtectionConfigurationParameterValue?.additionalData ? windows10EndpointProtectionConfigurationParameterValue?.additionalData! : {};
         this.applicationGuardAllowPersistence = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPersistence;
         this.applicationGuardAllowPrintToLocalPrinters = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToLocalPrinters;
         this.applicationGuardAllowPrintToNetworkPrinters = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToNetworkPrinters;
@@ -287,5 +290,6 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
         if(this.smartScreenEnableInShell){
             writer.writeBooleanValue("smartScreenEnableInShell", this.smartScreenEnableInShell);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

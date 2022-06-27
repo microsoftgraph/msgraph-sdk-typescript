@@ -1,0 +1,11 @@
+import {WindowsDeviceAccount} from './windowsDeviceAccount';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+
+export interface WindowsDeviceADAccount extends Partial<AdditionalDataHolder>, Partial<Parsable>, WindowsDeviceAccount {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
+    /** Not yet documented */
+    domainName?: string | undefined;
+    /** Not yet documented */
+    userName?: string | undefined;
+}

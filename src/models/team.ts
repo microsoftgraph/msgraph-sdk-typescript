@@ -12,9 +12,11 @@ import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamsTemplate} from './teamsTemplate';
 import {TeamVisibilityType} from './teamVisibilityType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Team extends Entity, Partial<Parsable> {
+export interface Team extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** List of channels either hosted in or shared with the team (incoming channels). */
     allChannels?: Channel[] | undefined;
     /** The collection of channels and messages associated with the team. */

@@ -15,12 +15,14 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
 import {PlannerTask} from './plannerTask';
 import {PlannerTaskDetails} from './plannerTaskDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     /** Number of checklist items with value set to false, representing incomplete items. */
     public activeChecklistItemCount?: number | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The categories to which the task has been applied. See applied Categories for possible values. */
     public appliedCategories?: PlannerAppliedCategories | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo. */
@@ -76,6 +78,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     public constructor(plannerTaskParameterValue?: PlannerTask | undefined) {
         super(plannerTaskParameterValue);
         this.activeChecklistItemCount = plannerTaskParameterValue?.activeChecklistItemCount;
+        this.additionalData = plannerTaskParameterValue?.additionalData ? plannerTaskParameterValue?.additionalData! : {};
         this.appliedCategories = plannerTaskParameterValue?.appliedCategories instanceof PlannerAppliedCategoriesImpl? plannerTaskParameterValue?.appliedCategories:new PlannerAppliedCategoriesImpl(plannerTaskParameterValue?.appliedCategories);
         this.assignedToTaskBoardFormat = plannerTaskParameterValue?.assignedToTaskBoardFormat instanceof PlannerAssignedToTaskBoardTaskFormatImpl? plannerTaskParameterValue?.assignedToTaskBoardFormat:new PlannerAssignedToTaskBoardTaskFormatImpl(plannerTaskParameterValue?.assignedToTaskBoardFormat);
         this.assigneePriority = plannerTaskParameterValue?.assigneePriority;
@@ -216,5 +219,6 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
         if(this.title){
             writer.writeStringValue("title", this.title);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,9 +2,11 @@ import {createMicrosoftAuthenticatorAuthenticationMethodTargetFromDiscriminatorV
 import {AuthenticationMethodConfigurationImpl, MicrosoftAuthenticatorAuthenticationMethodTargetImpl} from './index';
 import {MicrosoftAuthenticatorAuthenticationMethodConfiguration} from './microsoftAuthenticatorAuthenticationMethodConfiguration';
 import {MicrosoftAuthenticatorAuthenticationMethodTarget} from './microsoftAuthenticatorAuthenticationMethodTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements MicrosoftAuthenticatorAuthenticationMethodConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of users or groups who are enabled to use the authentication method. */
     public includeTargets?: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined;
     /**
@@ -13,6 +15,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?: MicrosoftAuthenticatorAuthenticationMethodConfiguration | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue);
+        this.additionalData = microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?.additionalData ? microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?.additionalData! : {};
         const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element : new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
     };
@@ -35,5 +38,6 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
         if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element : new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

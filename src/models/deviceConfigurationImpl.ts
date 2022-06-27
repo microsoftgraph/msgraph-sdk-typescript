@@ -12,10 +12,12 @@ import {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview
 import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import {DeviceConfigurationAssignmentImpl, DeviceConfigurationDeviceOverviewImpl, DeviceConfigurationDeviceStatusImpl, DeviceConfigurationUserOverviewImpl, DeviceConfigurationUserStatusImpl, EntityImpl, SettingStateDeviceSummaryImpl} from './index';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration. */
 export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The list of assignments for the device configuration profile. */
     public assignments?: DeviceConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */
@@ -44,6 +46,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
      */
     public constructor(deviceConfigurationParameterValue?: DeviceConfiguration | undefined) {
         super(deviceConfigurationParameterValue);
+        this.additionalData = deviceConfigurationParameterValue?.additionalData ? deviceConfigurationParameterValue?.additionalData! : {};
         const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = []; deviceConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = deviceConfigurationParameterValue?.createdDateTime;
@@ -119,5 +122,6 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

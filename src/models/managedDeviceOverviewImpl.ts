@@ -4,10 +4,12 @@ import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSumma
 import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {DeviceExchangeAccessStateSummaryImpl, DeviceOperatingSystemSummaryImpl, EntityImpl} from './index';
 import {ManagedDeviceOverview} from './managedDeviceOverview';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Summary data for managed devices */
 export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDeviceOverview {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Distribution of Exchange Access State in Intune */
     public deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
     /** Device operating system summary. */
@@ -24,6 +26,7 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
      */
     public constructor(managedDeviceOverviewParameterValue?: ManagedDeviceOverview | undefined) {
         super(managedDeviceOverviewParameterValue);
+        this.additionalData = managedDeviceOverviewParameterValue?.additionalData ? managedDeviceOverviewParameterValue?.additionalData! : {};
         this.deviceExchangeAccessStateSummary = managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary instanceof DeviceExchangeAccessStateSummaryImpl? managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary:new DeviceExchangeAccessStateSummaryImpl(managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary);
         this.deviceOperatingSystemSummary = managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary instanceof DeviceOperatingSystemSummaryImpl? managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary:new DeviceOperatingSystemSummaryImpl(managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary);
         this.dualEnrolledDeviceCount = managedDeviceOverviewParameterValue?.dualEnrolledDeviceCount;
@@ -65,5 +68,6 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
         if(this.mdmEnrolledCount){
             writer.writeNumberValue("mdmEnrolledCount", this.mdmEnrolledCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

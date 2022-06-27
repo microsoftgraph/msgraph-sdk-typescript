@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection AppLocker File */
 export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl implements WindowsInformationProtectionAppLockerFile {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The friendly name */
     public displayName?: string | undefined;
     /** File as a byte array */
@@ -18,6 +20,7 @@ export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl im
      */
     public constructor(windowsInformationProtectionAppLockerFileParameterValue?: WindowsInformationProtectionAppLockerFile | undefined) {
         super(windowsInformationProtectionAppLockerFileParameterValue);
+        this.additionalData = windowsInformationProtectionAppLockerFileParameterValue?.additionalData ? windowsInformationProtectionAppLockerFileParameterValue?.additionalData! : {};
         this.displayName = windowsInformationProtectionAppLockerFileParameterValue?.displayName;
         this.file = windowsInformationProtectionAppLockerFileParameterValue?.file;
         this.fileHash = windowsInformationProtectionAppLockerFileParameterValue?.fileHash;
@@ -54,5 +57,6 @@ export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl im
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

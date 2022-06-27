@@ -1,8 +1,10 @@
 import {IdentitySet} from './identitySet';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel, Partial<Parsable> {
+export interface OnenoteEntityHierarchyModel extends Partial<AdditionalDataHolder>, OnenoteEntitySchemaObjectModel, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Identity of the user, device, and application which created the item. Read-only. */
     createdBy?: IdentitySet | undefined;
     /** The name of the notebook. */

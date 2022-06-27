@@ -6,9 +6,11 @@ import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode
 import {WindowsUpdateForBusinessConfiguration} from './windowsUpdateForBusinessConfiguration';
 import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
 import {WindowsUpdateType} from './windowsUpdateType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurationImpl implements WindowsUpdateForBusinessConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault. */
     public automaticUpdateMode?: AutomaticUpdateMode | undefined;
     /** Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease. */
@@ -41,6 +43,7 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
      */
     public constructor(windowsUpdateForBusinessConfigurationParameterValue?: WindowsUpdateForBusinessConfiguration | undefined) {
         super(windowsUpdateForBusinessConfigurationParameterValue);
+        this.additionalData = windowsUpdateForBusinessConfigurationParameterValue?.additionalData ? windowsUpdateForBusinessConfigurationParameterValue?.additionalData! : {};
         this.automaticUpdateMode = windowsUpdateForBusinessConfigurationParameterValue?.automaticUpdateMode;
         this.businessReadyUpdatesOnly = windowsUpdateForBusinessConfigurationParameterValue?.businessReadyUpdatesOnly;
         this.deliveryOptimizationMode = windowsUpdateForBusinessConfigurationParameterValue?.deliveryOptimizationMode;
@@ -122,5 +125,6 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
         if(this.qualityUpdatesPauseExpiryDateTime){
             writer.writeDateValue("qualityUpdatesPauseExpiryDateTime", this.qualityUpdatesPauseExpiryDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

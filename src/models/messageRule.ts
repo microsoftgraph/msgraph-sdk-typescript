@@ -1,11 +1,13 @@
 import {Entity} from './entity';
 import {MessageRuleActions} from './messageRuleActions';
 import {MessageRulePredicates} from './messageRulePredicates';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MessageRule extends Entity, Partial<Parsable> {
+export interface MessageRule extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
     actions?: MessageRuleActions | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
     conditions?: MessageRulePredicates | undefined;
     /** The display name of the rule. */

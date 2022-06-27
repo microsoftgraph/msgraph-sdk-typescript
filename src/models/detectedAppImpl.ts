@@ -2,10 +2,12 @@ import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFr
 import {DetectedApp} from './detectedApp';
 import {EntityImpl, ManagedDeviceImpl} from './index';
 import {ManagedDevice} from './managedDevice';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
 export class DetectedAppImpl extends EntityImpl implements DetectedApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The number of devices that have installed this application */
     public deviceCount?: number | undefined;
     /** Name of the discovered application. Read-only */
@@ -22,6 +24,7 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp {
      */
     public constructor(detectedAppParameterValue?: DetectedApp | undefined) {
         super(detectedAppParameterValue);
+        this.additionalData = detectedAppParameterValue?.additionalData ? detectedAppParameterValue?.additionalData! : {};
         this.deviceCount = detectedAppParameterValue?.deviceCount;
         this.displayName = detectedAppParameterValue?.displayName;
         const managedDevicesArrValue: ManagedDeviceImpl[] = []; detectedAppParameterValue.managedDevices?.forEach(element => {managedDevicesArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
@@ -64,5 +67,6 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp {
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

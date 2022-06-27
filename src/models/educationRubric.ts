@@ -4,9 +4,11 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {RubricLevel} from './rubricLevel';
 import {RubricQuality} from './rubricQuality';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationRubric extends Entity, Partial<Parsable> {
+export interface EducationRubric extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The user who created this resource. */
     createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */

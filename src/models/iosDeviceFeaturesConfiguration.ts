@@ -2,9 +2,11 @@ import {AppleDeviceFeaturesConfigurationBase} from './appleDeviceFeaturesConfigu
 import {IosHomeScreenItem} from './iosHomeScreenItem';
 import {IosHomeScreenPage} from './iosHomeScreenPage';
 import {IosNotificationSettings} from './iosNotificationSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase, Partial<Parsable> {
+export interface IosDeviceFeaturesConfiguration extends Partial<AdditionalDataHolder>, AppleDeviceFeaturesConfigurationBase, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Asset tag information for the device, displayed on the login window and lock screen. */
     assetTagTemplate?: string | undefined;
     /** A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements. */

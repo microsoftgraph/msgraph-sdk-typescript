@@ -1,9 +1,11 @@
 import {GroupLifecyclePolicy} from './groupLifecyclePolicy';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
 export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyclePolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon. */
     public alternateNotificationEmails?: string | undefined;
     /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined. */
@@ -16,6 +18,7 @@ export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyc
      */
     public constructor(groupLifecyclePolicyParameterValue?: GroupLifecyclePolicy | undefined) {
         super(groupLifecyclePolicyParameterValue);
+        this.additionalData = groupLifecyclePolicyParameterValue?.additionalData ? groupLifecyclePolicyParameterValue?.additionalData! : {};
         this.alternateNotificationEmails = groupLifecyclePolicyParameterValue?.alternateNotificationEmails;
         this.groupLifetimeInDays = groupLifecyclePolicyParameterValue?.groupLifetimeInDays;
         this.managedGroupTypes = groupLifecyclePolicyParameterValue?.managedGroupTypes;
@@ -47,5 +50,6 @@ export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyc
         if(this.managedGroupTypes){
             writer.writeStringValue("managedGroupTypes", this.managedGroupTypes);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

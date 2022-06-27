@@ -2,10 +2,12 @@ import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFrom
 import {EntityImpl, KeyValuePairImpl} from './index';
 import {KeyValuePair} from './keyValuePair';
 import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAnnouncementBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Additional details about service event. This property doesn't support filters. */
     public details?: KeyValuePair[] | undefined;
     /** The end time of the service event. */
@@ -22,6 +24,7 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
      */
     public constructor(serviceAnnouncementBaseParameterValue?: ServiceAnnouncementBase | undefined) {
         super(serviceAnnouncementBaseParameterValue);
+        this.additionalData = serviceAnnouncementBaseParameterValue?.additionalData ? serviceAnnouncementBaseParameterValue?.additionalData! : {};
         const detailsArrValue: KeyValuePairImpl[] = []; serviceAnnouncementBaseParameterValue.details?.forEach(element => {detailsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
         this.details = detailsArrValue;
         this.endDateTime = serviceAnnouncementBaseParameterValue?.endDateTime;
@@ -64,5 +67,6 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
         if(this.title){
             writer.writeStringValue("title", this.title);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

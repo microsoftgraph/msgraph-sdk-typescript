@@ -28,10 +28,12 @@ import {MobileAppCategory} from './mobileAppCategory';
 import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import {VppToken} from './vppToken';
 import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Singleton entity that acts as a container for all device app management functionality. */
 export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppManagement {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Android managed app policies. */
     public androidManagedAppProtections?: AndroidManagedAppProtection[] | undefined;
     /** Default managed app policies. */
@@ -74,6 +76,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
      */
     public constructor(deviceAppManagementParameterValue?: DeviceAppManagement | undefined) {
         super(deviceAppManagementParameterValue);
+        this.additionalData = deviceAppManagementParameterValue?.additionalData ? deviceAppManagementParameterValue?.additionalData! : {};
         const androidManagedAppProtectionsArrValue: AndroidManagedAppProtectionImpl[] = []; deviceAppManagementParameterValue.androidManagedAppProtections?.forEach(element => {androidManagedAppProtectionsArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
         this.androidManagedAppProtections = androidManagedAppProtectionsArrValue;
         const defaultManagedAppProtectionsArrValue: DefaultManagedAppProtectionImpl[] = []; deviceAppManagementParameterValue.defaultManagedAppProtections?.forEach(element => {defaultManagedAppProtectionsArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
@@ -194,5 +197,6 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(this.windowsInformationProtectionPolicies && this.windowsInformationProtectionPolicies.length != 0){        const windowsInformationProtectionPoliciesArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.windowsInformationProtectionPolicies?.forEach(element => {windowsInformationProtectionPoliciesArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("windowsInformationProtectionPolicies", windowsInformationProtectionPoliciesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

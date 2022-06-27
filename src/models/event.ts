@@ -17,9 +17,11 @@ import {Recipient} from './recipient';
 import {ResponseStatus} from './responseStatus';
 import {Sensitivity} from './sensitivity';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Event extends OutlookItem, Partial<Parsable> {
+export interface Event extends Partial<AdditionalDataHolder>, OutlookItem, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
     allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */

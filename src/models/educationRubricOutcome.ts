@@ -1,9 +1,11 @@
 import {EducationOutcome} from './educationOutcome';
 import {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
 import {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationRubricOutcome extends EducationOutcome, Partial<Parsable> {
+export interface EducationRubricOutcome extends Partial<AdditionalDataHolder>, EducationOutcome, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** A copy of the rubricQualityFeedback property that is made when the grade is released to the student. */
     publishedRubricQualityFeedback?: RubricQualityFeedbackModel[] | undefined;
     /** A copy of the rubricQualitySelectedLevels property that is made when the grade is released to the student. */

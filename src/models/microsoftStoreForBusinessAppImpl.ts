@@ -1,9 +1,11 @@
 import {MobileAppImpl} from './index';
 import {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
 import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftStoreForBusinessAppImpl extends MobileAppImpl implements MicrosoftStoreForBusinessApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The app license type. Possible values are: offline, online. */
     public licenseType?: MicrosoftStoreForBusinessLicenseType | undefined;
     /** The app package identifier */
@@ -20,6 +22,7 @@ export class MicrosoftStoreForBusinessAppImpl extends MobileAppImpl implements M
      */
     public constructor(microsoftStoreForBusinessAppParameterValue?: MicrosoftStoreForBusinessApp | undefined) {
         super(microsoftStoreForBusinessAppParameterValue);
+        this.additionalData = microsoftStoreForBusinessAppParameterValue?.additionalData ? microsoftStoreForBusinessAppParameterValue?.additionalData! : {};
         this.licenseType = microsoftStoreForBusinessAppParameterValue?.licenseType;
         this.packageIdentityName = microsoftStoreForBusinessAppParameterValue?.packageIdentityName;
         this.productKey = microsoftStoreForBusinessAppParameterValue?.productKey;
@@ -61,5 +64,6 @@ export class MicrosoftStoreForBusinessAppImpl extends MobileAppImpl implements M
         if(this.usedLicenseCount){
             writer.writeNumberValue("usedLicenseCount", this.usedLicenseCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,9 +1,11 @@
 import {BookingType} from './bookingType';
 import {PlaceImpl} from './index';
 import {Room} from './room';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoomImpl extends PlaceImpl implements Room {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Specifies the name of the audio device in the room. */
     public audioDeviceName?: string | undefined;
     /** Type of room. Possible values are standard, and reserved. */
@@ -36,6 +38,7 @@ export class RoomImpl extends PlaceImpl implements Room {
      */
     public constructor(roomParameterValue?: Room | undefined) {
         super(roomParameterValue);
+        this.additionalData = roomParameterValue?.additionalData ? roomParameterValue?.additionalData! : {};
         this.audioDeviceName = roomParameterValue?.audioDeviceName;
         this.bookingType = roomParameterValue?.bookingType;
         this.building = roomParameterValue?.building;
@@ -117,5 +120,6 @@ export class RoomImpl extends PlaceImpl implements Room {
         if(this.videoDeviceName){
             writer.writeStringValue("videoDeviceName", this.videoDeviceName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

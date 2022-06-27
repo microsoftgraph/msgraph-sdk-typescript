@@ -6,10 +6,11 @@ import {DirectoryObject} from './directoryObject';
 import {Extension} from './extension';
 import {DirectoryObjectImpl, ExtensionImpl, ScopedRoleMembershipImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton. */
 export class AdministrativeUnitImpl extends DirectoryObjectImpl implements AdministrativeUnit {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     public description?: string | undefined;
     /** Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
@@ -20,14 +21,15 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
     public members?: DirectoryObject[] | undefined;
     /** Scoped-role members of this administrative unit. */
     public scopedRoleMembers?: ScopedRoleMembership[] | undefined;
-    /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
+    /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
     public visibility?: string | undefined;
     /**
-     * Instantiates a new administrativeUnit and sets the default values.
+     * Instantiates a new AdministrativeUnit and sets the default values.
      * @param administrativeUnitParameterValue 
      */
     public constructor(administrativeUnitParameterValue?: AdministrativeUnit | undefined) {
         super(administrativeUnitParameterValue);
+        this.additionalData = administrativeUnitParameterValue?.additionalData ? administrativeUnitParameterValue?.additionalData! : {};
         this.description = administrativeUnitParameterValue?.description;
         this.displayName = administrativeUnitParameterValue?.displayName;
         const extensionsArrValue: ExtensionImpl[] = []; administrativeUnitParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
@@ -77,5 +79,6 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
         if(this.visibility){
             writer.writeStringValue("visibility", this.visibility);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

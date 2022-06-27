@@ -2,20 +2,22 @@ import {createPrintOperationStatusFromDiscriminatorValue} from './createPrintOpe
 import {EntityImpl, PrintOperationStatusImpl} from './index';
 import {PrintOperation} from './printOperation';
 import {PrintOperationStatus} from './printOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintOperationImpl extends EntityImpl implements PrintOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The DateTimeOffset when the operation was created. Read-only. */
     public createdDateTime?: Date | undefined;
     /** The status property */
     public status?: PrintOperationStatus | undefined;
     /**
-     * Instantiates a new printOperation and sets the default values.
+     * Instantiates a new PrintOperation and sets the default values.
      * @param printOperationParameterValue 
      */
     public constructor(printOperationParameterValue?: PrintOperation | undefined) {
         super(printOperationParameterValue);
+        this.additionalData = printOperationParameterValue?.additionalData ? printOperationParameterValue?.additionalData! : {};
         this.createdDateTime = printOperationParameterValue?.createdDateTime;
         this.status = printOperationParameterValue?.status instanceof PrintOperationStatusImpl? printOperationParameterValue?.status:new PrintOperationStatusImpl(printOperationParameterValue?.status);
     };
@@ -42,5 +44,6 @@ export class PrintOperationImpl extends EntityImpl implements PrintOperation {
         if(this.status){
             writer.writeObjectValue<PrintOperationStatusImpl>("status", new PrintOperationStatusImpl(this.status));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

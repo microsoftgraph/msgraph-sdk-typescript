@@ -10,12 +10,14 @@ import {createAccessPackageSubjectFromDiscriminatorValue} from './createAccessPa
 import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
 import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {AccessPackageAssignmentImpl, AccessPackageImpl, AccessPackageSubjectImpl, EntitlementManagementScheduleImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AccessPackageAssignmentRequestImpl extends EntityImpl implements AccessPackageAssignmentRequest {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
     public accessPackage?: AccessPackage | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
     public assignment?: AccessPackageAssignment | undefined;
     /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
@@ -39,6 +41,7 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
     public constructor(accessPackageAssignmentRequestParameterValue?: AccessPackageAssignmentRequest | undefined) {
         super(accessPackageAssignmentRequestParameterValue);
         this.accessPackage = accessPackageAssignmentRequestParameterValue?.accessPackage instanceof AccessPackageImpl? accessPackageAssignmentRequestParameterValue?.accessPackage:new AccessPackageImpl(accessPackageAssignmentRequestParameterValue?.accessPackage);
+        this.additionalData = accessPackageAssignmentRequestParameterValue?.additionalData ? accessPackageAssignmentRequestParameterValue?.additionalData! : {};
         this.assignment = accessPackageAssignmentRequestParameterValue?.assignment instanceof AccessPackageAssignmentImpl? accessPackageAssignmentRequestParameterValue?.assignment:new AccessPackageAssignmentImpl(accessPackageAssignmentRequestParameterValue?.assignment);
         this.completedDateTime = accessPackageAssignmentRequestParameterValue?.completedDateTime;
         this.createdDateTime = accessPackageAssignmentRequestParameterValue?.createdDateTime;
@@ -99,5 +102,6 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,7 +1,9 @@
 import {DirectoryObject} from './directoryObject';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DirectoryObjectPartnerReference extends DirectoryObject, Partial<Parsable> {
+export interface DirectoryObjectPartnerReference extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Description of the object returned. Read-only. */
     description?: string | undefined;
     /** Name of directory object being returned, like group or application. Read-only. */

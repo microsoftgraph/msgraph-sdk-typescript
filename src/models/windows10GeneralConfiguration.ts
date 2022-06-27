@@ -16,11 +16,13 @@ import {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
 import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
 import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
 import {WindowsStartMenuModeType} from './windowsStartMenuModeType';
-import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export interface Windows10GeneralConfiguration extends DeviceConfiguration, Partial<Parsable> {
+export interface Windows10GeneralConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only). */
     antiTheftModeBlocked?: boolean | undefined;
     /** Indicates whether apps from AppX packages signed with a trusted certificate can be side loaded. Possible values are: notConfigured, blocked, allowed. */

@@ -1,0 +1,52 @@
+import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
+import {createTeamworkUserIdentityFromDiscriminatorValue} from './createTeamworkUserIdentityFromDiscriminatorValue';
+import {IdentitySet} from './identitySet';
+import {EventMessageDetailImpl, IdentitySetImpl, TeamworkUserIdentityImpl} from './index';
+import {MembersLeftEventMessageDetail} from './membersLeftEventMessageDetail';
+import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export class MembersLeftEventMessageDetailImpl extends EventMessageDetailImpl implements MembersLeftEventMessageDetail {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
+    /** Initiator of the event. */
+    public initiator?: IdentitySet | undefined;
+    /** List of members who left the chat. */
+    public members?: TeamworkUserIdentity[] | undefined;
+    /**
+     * Instantiates a new MembersLeftEventMessageDetail and sets the default values.
+     * @param membersLeftEventMessageDetailParameterValue 
+     */
+    public constructor(membersLeftEventMessageDetailParameterValue?: MembersLeftEventMessageDetail | undefined) {
+        super(membersLeftEventMessageDetailParameterValue);
+        this.additionalData = membersLeftEventMessageDetailParameterValue?.additionalData ? membersLeftEventMessageDetailParameterValue?.additionalData! : {};
+        this.initiator = membersLeftEventMessageDetailParameterValue?.initiator instanceof IdentitySetImpl? membersLeftEventMessageDetailParameterValue?.initiator:new IdentitySetImpl(membersLeftEventMessageDetailParameterValue?.initiator);
+        const membersArrValue: TeamworkUserIdentityImpl[] = []; membersLeftEventMessageDetailParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof TeamworkUserIdentityImpl? element : new TeamworkUserIdentityImpl(element));});
+        this.members = membersArrValue;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (node: ParseNode) => void>
+     */
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
+        return {...super.getFieldDeserializers(),
+            "initiator": n => { this.initiator = n.getObjectValue<IdentitySetImpl>(createIdentitySetFromDiscriminatorValue); },
+            "members": n => { this.members = n.getCollectionOfObjectValues<TeamworkUserIdentityImpl>(createTeamworkUserIdentityFromDiscriminatorValue); },
+        };
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        if(this.initiator){
+            writer.writeObjectValue<IdentitySetImpl>("initiator", new IdentitySetImpl(this.initiator));
+        }
+        if(this.members && this.members.length != 0){        const membersArrValue: TeamworkUserIdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof TeamworkUserIdentityImpl? element : new TeamworkUserIdentityImpl(element));});
+            writer.writeCollectionOfObjectValues<TeamworkUserIdentityImpl>("members", membersArrValue);
+        }
+        writer.writeAdditionalData(this.additionalData);
+    };
+}

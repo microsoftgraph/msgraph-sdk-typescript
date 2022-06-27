@@ -1,7 +1,9 @@
 import {DirectoryObject} from './directoryObject';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ResourceSpecificPermissionGrant extends DirectoryObject, Partial<Parsable> {
+export interface ResourceSpecificPermissionGrant extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** ID of the service principal of the Azure AD app that has been granted access. Read-only. */
     clientAppId?: string | undefined;
     /** ID of the Azure AD app that has been granted access. Read-only. */

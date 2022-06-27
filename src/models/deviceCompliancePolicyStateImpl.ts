@@ -4,10 +4,12 @@ import {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettin
 import {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
 import {DeviceCompliancePolicySettingStateImpl, EntityImpl} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compliance Policy State for a given device. */
 export class DeviceCompliancePolicyStateImpl extends EntityImpl implements DeviceCompliancePolicyState {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The name of the policy for this policyBase */
     public displayName?: string | undefined;
     /** Platform type that the policy applies to */
@@ -26,6 +28,7 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
      */
     public constructor(deviceCompliancePolicyStateParameterValue?: DeviceCompliancePolicyState | undefined) {
         super(deviceCompliancePolicyStateParameterValue);
+        this.additionalData = deviceCompliancePolicyStateParameterValue?.additionalData ? deviceCompliancePolicyStateParameterValue?.additionalData! : {};
         this.displayName = deviceCompliancePolicyStateParameterValue?.displayName;
         this.platformType = deviceCompliancePolicyStateParameterValue?.platformType;
         this.settingCount = deviceCompliancePolicyStateParameterValue?.settingCount;
@@ -73,5 +76,6 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

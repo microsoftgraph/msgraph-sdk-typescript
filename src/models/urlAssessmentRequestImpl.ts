@@ -1,8 +1,10 @@
 import {ThreatAssessmentRequestImpl} from './index';
 import {UrlAssessmentRequest} from './urlAssessmentRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UrlAssessmentRequestImpl extends ThreatAssessmentRequestImpl implements UrlAssessmentRequest {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The URL string. */
     public url?: string | undefined;
     /**
@@ -11,6 +13,7 @@ export class UrlAssessmentRequestImpl extends ThreatAssessmentRequestImpl implem
      */
     public constructor(urlAssessmentRequestParameterValue?: UrlAssessmentRequest | undefined) {
         super(urlAssessmentRequestParameterValue);
+        this.additionalData = urlAssessmentRequestParameterValue?.additionalData ? urlAssessmentRequestParameterValue?.additionalData! : {};
         this.url = urlAssessmentRequestParameterValue?.url;
     };
     /**
@@ -32,5 +35,6 @@ export class UrlAssessmentRequestImpl extends ThreatAssessmentRequestImpl implem
         if(this.url){
             writer.writeStringValue("url", this.url);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

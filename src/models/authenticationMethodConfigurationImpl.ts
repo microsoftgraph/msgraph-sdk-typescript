@@ -1,10 +1,12 @@
 import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
 import {AuthenticationMethodState} from './authenticationMethodState';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export class AuthenticationMethodConfigurationImpl extends EntityImpl implements AuthenticationMethodConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The state of the policy. Possible values are: enabled, disabled. */
     public state?: AuthenticationMethodState | undefined;
     /**
@@ -13,6 +15,7 @@ export class AuthenticationMethodConfigurationImpl extends EntityImpl implements
      */
     public constructor(authenticationMethodConfigurationParameterValue?: AuthenticationMethodConfiguration | undefined) {
         super(authenticationMethodConfigurationParameterValue);
+        this.additionalData = authenticationMethodConfigurationParameterValue?.additionalData ? authenticationMethodConfigurationParameterValue?.additionalData! : {};
         this.state = authenticationMethodConfigurationParameterValue?.state;
     };
     /**
@@ -34,5 +37,6 @@ export class AuthenticationMethodConfigurationImpl extends EntityImpl implements
         if(this.state){
             writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

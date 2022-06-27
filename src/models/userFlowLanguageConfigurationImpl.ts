@@ -2,10 +2,12 @@ import {createUserFlowLanguagePageFromDiscriminatorValue} from './createUserFlow
 import {EntityImpl, UserFlowLanguagePageImpl} from './index';
 import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {UserFlowLanguagePage} from './userFlowLanguagePage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UserFlowLanguageConfigurationImpl extends EntityImpl implements UserFlowLanguageConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification. */
     public defaultPages?: UserFlowLanguagePage[] | undefined;
     /** The language name to display. This property is read-only. */
@@ -20,6 +22,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
      */
     public constructor(userFlowLanguageConfigurationParameterValue?: UserFlowLanguageConfiguration | undefined) {
         super(userFlowLanguageConfigurationParameterValue);
+        this.additionalData = userFlowLanguageConfigurationParameterValue?.additionalData ? userFlowLanguageConfigurationParameterValue?.additionalData! : {};
         const defaultPagesArrValue: UserFlowLanguagePageImpl[] = []; userFlowLanguageConfigurationParameterValue.defaultPages?.forEach(element => {defaultPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
         this.defaultPages = defaultPagesArrValue;
         this.displayName = userFlowLanguageConfigurationParameterValue?.displayName;
@@ -58,5 +61,6 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
         if(this.overridesPages && this.overridesPages.length != 0){        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = []; this.overridesPages?.forEach(element => {overridesPagesArrValue.push(element instanceof UserFlowLanguagePageImpl? element : new UserFlowLanguagePageImpl(element));});
             writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("overridesPages", overridesPagesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

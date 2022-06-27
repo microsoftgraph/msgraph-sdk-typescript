@@ -13,11 +13,13 @@ import {Entity} from './entity';
 import {ManagedDeviceOwnerType} from './managedDeviceOwnerType';
 import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerReportedHealthState';
 import {ManagementAgentType} from './managementAgentType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedDevice extends Entity, Partial<Parsable> {
+export interface ManagedDevice extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
     activationLockBypassCode?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Android security patch level. This property is read-only. */
     androidSecurityPatchLevel?: string | undefined;
     /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */

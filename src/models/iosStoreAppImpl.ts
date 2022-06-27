@@ -4,9 +4,11 @@ import {IosDeviceTypeImpl, IosMinimumOperatingSystemImpl, MobileAppImpl} from '.
 import {IosDeviceType} from './iosDeviceType';
 import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {IosStoreApp} from './iosStoreApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosStoreAppImpl extends MobileAppImpl implements IosStoreApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Contains properties of the possible iOS device types the mobile app can run on. */
     public applicableDeviceType?: IosDeviceType | undefined;
     /** The Apple App Store URL */
@@ -21,6 +23,7 @@ export class IosStoreAppImpl extends MobileAppImpl implements IosStoreApp {
      */
     public constructor(iosStoreAppParameterValue?: IosStoreApp | undefined) {
         super(iosStoreAppParameterValue);
+        this.additionalData = iosStoreAppParameterValue?.additionalData ? iosStoreAppParameterValue?.additionalData! : {};
         this.applicableDeviceType = iosStoreAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? iosStoreAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(iosStoreAppParameterValue?.applicableDeviceType);
         this.appStoreUrl = iosStoreAppParameterValue?.appStoreUrl;
         this.bundleId = iosStoreAppParameterValue?.bundleId;
@@ -57,5 +60,6 @@ export class IosStoreAppImpl extends MobileAppImpl implements IosStoreApp {
         if(this.minimumSupportedOperatingSystem){
             writer.writeObjectValue<IosMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", new IosMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

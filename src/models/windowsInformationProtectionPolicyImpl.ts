@@ -1,9 +1,11 @@
 import {WindowsInformationProtectionImpl} from './index';
 import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
 import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionPolicyImpl extends WindowsInformationProtectionImpl implements WindowsInformationProtectionPolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Offline interval before app data is wiped (days) */
     public daysWithoutContactBeforeUnenroll?: number | undefined;
     /** Enrollment url for the MDM */
@@ -34,6 +36,7 @@ export class WindowsInformationProtectionPolicyImpl extends WindowsInformationPr
      */
     public constructor(windowsInformationProtectionPolicyParameterValue?: WindowsInformationProtectionPolicy | undefined) {
         super(windowsInformationProtectionPolicyParameterValue);
+        this.additionalData = windowsInformationProtectionPolicyParameterValue?.additionalData ? windowsInformationProtectionPolicyParameterValue?.additionalData! : {};
         this.daysWithoutContactBeforeUnenroll = windowsInformationProtectionPolicyParameterValue?.daysWithoutContactBeforeUnenroll;
         this.mdmEnrollmentUrl = windowsInformationProtectionPolicyParameterValue?.mdmEnrollmentUrl;
         this.minutesOfInactivityBeforeDeviceLock = windowsInformationProtectionPolicyParameterValue?.minutesOfInactivityBeforeDeviceLock;
@@ -110,5 +113,6 @@ export class WindowsInformationProtectionPolicyImpl extends WindowsInformationPr
         if(this.windowsHelloForBusinessBlocked){
             writer.writeBooleanValue("windowsHelloForBusinessBlocked", this.windowsHelloForBusinessBlocked);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,8 +1,10 @@
 import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceComplianceUserStatus extends Entity, Partial<Parsable> {
+export interface DeviceComplianceUserStatus extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Devices count for that user. */
     devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */

@@ -1,9 +1,11 @@
 import {Notebook} from './notebook';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SectionGroup extends OnenoteEntityHierarchyModel, Partial<Parsable> {
+export interface SectionGroup extends Partial<AdditionalDataHolder>, OnenoteEntityHierarchyModel, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The notebook that contains the section group. Read-only. */
     parentNotebook?: Notebook | undefined;
     /** The section group that contains the section group. Read-only. */

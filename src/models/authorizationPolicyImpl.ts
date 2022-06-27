@@ -3,9 +3,11 @@ import {AuthorizationPolicy} from './authorizationPolicy';
 import {createDefaultUserRolePermissionsFromDiscriminatorValue} from './createDefaultUserRolePermissionsFromDiscriminatorValue';
 import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {DefaultUserRolePermissionsImpl, PolicyBaseImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthorizationPolicyImpl extends PolicyBaseImpl implements AuthorizationPolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether users can sign up for email based subscriptions. */
     public allowedToSignUpEmailBasedSubscriptions?: boolean | undefined;
     /** Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant. */
@@ -26,6 +28,7 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
      */
     public constructor(authorizationPolicyParameterValue?: AuthorizationPolicy | undefined) {
         super(authorizationPolicyParameterValue);
+        this.additionalData = authorizationPolicyParameterValue?.additionalData ? authorizationPolicyParameterValue?.additionalData! : {};
         this.allowedToSignUpEmailBasedSubscriptions = authorizationPolicyParameterValue?.allowedToSignUpEmailBasedSubscriptions;
         this.allowedToUseSSPR = authorizationPolicyParameterValue?.allowedToUseSSPR;
         this.allowEmailVerifiedUsersToJoinOrganization = authorizationPolicyParameterValue?.allowEmailVerifiedUsersToJoinOrganization;
@@ -77,5 +80,6 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
         if(this.guestUserRoleId){
             writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

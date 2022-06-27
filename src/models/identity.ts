@@ -3,8 +3,8 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 export interface Identity extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData?: Record<string, unknown>;
-    /** The display name of the identity. This property is read-only. */
+    /** The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta. */
     displayName?: string | undefined;
-    /** The identifier of the identity. This property is read-only. */
+    /** Unique identifier for the identity. */
     id?: string | undefined;
 }

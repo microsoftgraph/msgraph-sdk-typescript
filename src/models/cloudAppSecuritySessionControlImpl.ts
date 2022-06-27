@@ -1,18 +1,20 @@
 import {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
 import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionControlType';
 import {ConditionalAccessSessionControlImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSessionControlImpl implements CloudAppSecuritySessionControl {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
     public cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
     /**
-     * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
+     * Instantiates a new CloudAppSecuritySessionControl and sets the default values.
      * @param cloudAppSecuritySessionControlParameterValue 
      */
     public constructor(cloudAppSecuritySessionControlParameterValue?: CloudAppSecuritySessionControl | undefined) {
         super(cloudAppSecuritySessionControlParameterValue);
+        this.additionalData = cloudAppSecuritySessionControlParameterValue?.additionalData ? cloudAppSecuritySessionControlParameterValue?.additionalData! : {};
         this.cloudAppSecurityType = cloudAppSecuritySessionControlParameterValue?.cloudAppSecurityType;
     };
     /**
@@ -34,5 +36,6 @@ export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSession
         if(this.cloudAppSecurityType){
             writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

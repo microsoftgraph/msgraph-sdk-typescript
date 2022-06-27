@@ -9,9 +9,11 @@ import {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
 import {Win32LobAppReturnCode} from './win32LobAppReturnCode';
 import {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Win32LobAppImpl extends MobileLobAppImpl implements Win32LobApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64. */
     public applicableArchitectures?: WindowsArchitecture | undefined;
     /** The command line to install this app */
@@ -44,6 +46,7 @@ export class Win32LobAppImpl extends MobileLobAppImpl implements Win32LobApp {
      */
     public constructor(win32LobAppParameterValue?: Win32LobApp | undefined) {
         super(win32LobAppParameterValue);
+        this.additionalData = win32LobAppParameterValue?.additionalData ? win32LobAppParameterValue?.additionalData! : {};
         this.applicableArchitectures = win32LobAppParameterValue?.applicableArchitectures;
         this.installCommandLine = win32LobAppParameterValue?.installCommandLine;
         this.installExperience = win32LobAppParameterValue?.installExperience instanceof Win32LobAppInstallExperienceImpl? win32LobAppParameterValue?.installExperience:new Win32LobAppInstallExperienceImpl(win32LobAppParameterValue?.installExperience);
@@ -127,5 +130,6 @@ export class Win32LobAppImpl extends MobileLobAppImpl implements Win32LobApp {
         if(this.uninstallCommandLine){
             writer.writeStringValue("uninstallCommandLine", this.uninstallCommandLine);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

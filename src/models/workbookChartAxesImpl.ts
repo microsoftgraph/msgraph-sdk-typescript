@@ -2,10 +2,12 @@ import {createWorkbookChartAxisFromDiscriminatorValue} from './createWorkbookCha
 import {EntityImpl, WorkbookChartAxisImpl} from './index';
 import {WorkbookChartAxes} from './workbookChartAxes';
 import {WorkbookChartAxis} from './workbookChartAxis';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAxes {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the category axis in a chart. Read-only. */
     public categoryAxis?: WorkbookChartAxis | undefined;
     /** Represents the series axis of a 3-dimensional chart. Read-only. */
@@ -18,6 +20,7 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
      */
     public constructor(workbookChartAxesParameterValue?: WorkbookChartAxes | undefined) {
         super(workbookChartAxesParameterValue);
+        this.additionalData = workbookChartAxesParameterValue?.additionalData ? workbookChartAxesParameterValue?.additionalData! : {};
         this.categoryAxis = workbookChartAxesParameterValue?.categoryAxis instanceof WorkbookChartAxisImpl? workbookChartAxesParameterValue?.categoryAxis:new WorkbookChartAxisImpl(workbookChartAxesParameterValue?.categoryAxis);
         this.seriesAxis = workbookChartAxesParameterValue?.seriesAxis instanceof WorkbookChartAxisImpl? workbookChartAxesParameterValue?.seriesAxis:new WorkbookChartAxisImpl(workbookChartAxesParameterValue?.seriesAxis);
         this.valueAxis = workbookChartAxesParameterValue?.valueAxis instanceof WorkbookChartAxisImpl? workbookChartAxesParameterValue?.valueAxis:new WorkbookChartAxisImpl(workbookChartAxesParameterValue?.valueAxis);
@@ -49,5 +52,6 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
         if(this.valueAxis){
             writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", new WorkbookChartAxisImpl(this.valueAxis));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

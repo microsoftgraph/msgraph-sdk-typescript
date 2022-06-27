@@ -1,9 +1,11 @@
 import {IosDeviceType} from './iosDeviceType';
 import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {ManagedMobileLobApp} from './managedMobileLobApp';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedIOSLobApp extends ManagedMobileLobApp, Partial<Parsable> {
+export interface ManagedIOSLobApp extends Partial<AdditionalDataHolder>, ManagedMobileLobApp, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Contains properties of the possible iOS device types the mobile app can run on. */
     applicableDeviceType?: IosDeviceType | undefined;
     /** The build number of managed iOS Line of Business (LoB) app. */

@@ -6,10 +6,11 @@ import {ManagedAppOperation} from './managedAppOperation';
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedAppRegistration} from './managedAppRegistration';
 import {MobileAppIdentifier} from './mobileAppIdentifier';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
 export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedAppRegistration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The app package Identifier */
     public appIdentifier?: MobileAppIdentifier | undefined;
     /** App version */
@@ -41,11 +42,12 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
     /** Version of the entity. */
     public version?: string | undefined;
     /**
-     * Instantiates a new managedAppRegistration and sets the default values.
+     * Instantiates a new ManagedAppRegistration and sets the default values.
      * @param managedAppRegistrationParameterValue 
      */
     public constructor(managedAppRegistrationParameterValue?: ManagedAppRegistration | undefined) {
         super(managedAppRegistrationParameterValue);
+        this.additionalData = managedAppRegistrationParameterValue?.additionalData ? managedAppRegistrationParameterValue?.additionalData! : {};
         this.appIdentifier = managedAppRegistrationParameterValue?.appIdentifier instanceof MobileAppIdentifierImpl? managedAppRegistrationParameterValue?.appIdentifier:new MobileAppIdentifierImpl(managedAppRegistrationParameterValue?.appIdentifier);
         this.applicationVersion = managedAppRegistrationParameterValue?.applicationVersion;
         const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = []; managedAppRegistrationParameterValue.appliedPolicies?.forEach(element => {appliedPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
@@ -140,5 +142,6 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -9,10 +9,11 @@ import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessRevie
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
 import {AccessReviewHistoryInstanceImpl, AccessReviewHistoryScheduleSettingsImpl, AccessReviewScopeImpl, EntityImpl, UserIdentityImpl} from './index';
 import {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements AccessReviewHistoryDefinition {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The createdBy property */
     public createdBy?: UserIdentity | undefined;
     /** Timestamp when the access review definition was created. */
@@ -34,11 +35,12 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
     public status?: AccessReviewHistoryStatus | undefined;
     /**
-     * Instantiates a new accessReviewHistoryDefinition and sets the default values.
+     * Instantiates a new AccessReviewHistoryDefinition and sets the default values.
      * @param accessReviewHistoryDefinitionParameterValue 
      */
     public constructor(accessReviewHistoryDefinitionParameterValue?: AccessReviewHistoryDefinition | undefined) {
         super(accessReviewHistoryDefinitionParameterValue);
+        this.additionalData = accessReviewHistoryDefinitionParameterValue?.additionalData ? accessReviewHistoryDefinitionParameterValue?.additionalData! : {};
         this.createdBy = accessReviewHistoryDefinitionParameterValue?.createdBy instanceof UserIdentityImpl? accessReviewHistoryDefinitionParameterValue?.createdBy:new UserIdentityImpl(accessReviewHistoryDefinitionParameterValue?.createdBy);
         this.createdDateTime = accessReviewHistoryDefinitionParameterValue?.createdDateTime;
         this.decisions = accessReviewHistoryDefinitionParameterValue?.decisions;
@@ -107,5 +109,6 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(this.status){
             writer.writeEnumValue<AccessReviewHistoryStatus>("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

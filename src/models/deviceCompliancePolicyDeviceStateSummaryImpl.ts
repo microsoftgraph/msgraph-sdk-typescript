@@ -1,9 +1,11 @@
 import {DeviceCompliancePolicyDeviceStateSummary} from './deviceCompliancePolicyDeviceStateSummary';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicyDeviceStateSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Number of compliant devices */
     public compliantDeviceCount?: number | undefined;
     /** Number of devices that have compliance managed by System Center Configuration Manager */
@@ -28,6 +30,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl imp
      */
     public constructor(deviceCompliancePolicyDeviceStateSummaryParameterValue?: DeviceCompliancePolicyDeviceStateSummary | undefined) {
         super(deviceCompliancePolicyDeviceStateSummaryParameterValue);
+        this.additionalData = deviceCompliancePolicyDeviceStateSummaryParameterValue?.additionalData ? deviceCompliancePolicyDeviceStateSummaryParameterValue?.additionalData! : {};
         this.compliantDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.compliantDeviceCount;
         this.configManagerCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.configManagerCount;
         this.conflictDeviceCount = deviceCompliancePolicyDeviceStateSummaryParameterValue?.conflictDeviceCount;
@@ -89,5 +92,6 @@ export class DeviceCompliancePolicyDeviceStateSummaryImpl extends EntityImpl imp
         if(this.unknownDeviceCount){
             writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

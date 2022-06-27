@@ -16,10 +16,11 @@ import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkH
 import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
 import {BookingAppointmentImpl, BookingCustomerBaseImpl, BookingCustomQuestionImpl, BookingSchedulingPolicyImpl, BookingServiceImpl, BookingStaffMemberBaseImpl, BookingWorkHoursImpl, EntityImpl, PhysicalAddressImpl} from './index';
 import {PhysicalAddress} from './physicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents a Microsot Bookings Business. */
 export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
     public address?: PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable. */
@@ -55,11 +56,12 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
     /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
     public webSiteUrl?: string | undefined;
     /**
-     * Instantiates a new bookingBusiness and sets the default values.
+     * Instantiates a new BookingBusiness and sets the default values.
      * @param bookingBusinessParameterValue 
      */
     public constructor(bookingBusinessParameterValue?: BookingBusiness | undefined) {
         super(bookingBusinessParameterValue);
+        this.additionalData = bookingBusinessParameterValue?.additionalData ? bookingBusinessParameterValue?.additionalData! : {};
         this.address = bookingBusinessParameterValue?.address instanceof PhysicalAddressImpl? bookingBusinessParameterValue?.address:new PhysicalAddressImpl(bookingBusinessParameterValue?.address);
         const appointmentsArrValue: BookingAppointmentImpl[] = []; bookingBusinessParameterValue.appointments?.forEach(element => {appointmentsArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
         this.appointments = appointmentsArrValue;
@@ -168,5 +170,6 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(this.webSiteUrl){
             writer.writeStringValue("webSiteUrl", this.webSiteUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

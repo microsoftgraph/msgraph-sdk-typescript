@@ -2,24 +2,26 @@ import {createShiftActivityFromDiscriminatorValue} from './createShiftActivityFr
 import {ScheduleEntityImpl, ShiftActivityImpl} from './index';
 import {ShiftActivity} from './shiftActivity';
 import {ShiftItem} from './shiftItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
     public activities?: ShiftActivity[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The shift label of the shiftItem. */
     public displayName?: string | undefined;
     /** The shift notes for the shiftItem. */
     public notes?: string | undefined;
     /**
-     * Instantiates a new shiftItem and sets the default values.
+     * Instantiates a new ShiftItem and sets the default values.
      * @param shiftItemParameterValue 
      */
     public constructor(shiftItemParameterValue?: ShiftItem | undefined) {
         super(shiftItemParameterValue);
         const activitiesArrValue: ShiftActivityImpl[] = []; shiftItemParameterValue.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
         this.activities = activitiesArrValue;
+        this.additionalData = shiftItemParameterValue?.additionalData ? shiftItemParameterValue?.additionalData! : {};
         this.displayName = shiftItemParameterValue?.displayName;
         this.notes = shiftItemParameterValue?.notes;
     };
@@ -50,5 +52,6 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
         if(this.notes){
             writer.writeStringValue("notes", this.notes);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

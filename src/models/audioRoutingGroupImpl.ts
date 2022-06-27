@@ -1,10 +1,12 @@
 import {AudioRoutingGroup} from './audioRoutingGroup';
 import {EntityImpl} from './index';
 import {RoutingMode} from './routingMode';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGroup {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** List of receiving participant ids. */
     public receivers?: string[] | undefined;
     /** Routing group mode.  Possible values are: oneToOne, multicast. */
@@ -17,6 +19,7 @@ export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGro
      */
     public constructor(audioRoutingGroupParameterValue?: AudioRoutingGroup | undefined) {
         super(audioRoutingGroupParameterValue);
+        this.additionalData = audioRoutingGroupParameterValue?.additionalData ? audioRoutingGroupParameterValue?.additionalData! : {};
         this.receivers = audioRoutingGroupParameterValue?.receivers;
         this.routingMode = audioRoutingGroupParameterValue?.routingMode;
         this.sources = audioRoutingGroupParameterValue?.sources;
@@ -48,5 +51,6 @@ export class AudioRoutingGroupImpl extends EntityImpl implements AudioRoutingGro
         if(this.sources){
             writer.writeCollectionOfPrimitiveValues<string>("sources", this.sources);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

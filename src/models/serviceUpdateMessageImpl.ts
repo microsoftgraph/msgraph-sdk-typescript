@@ -8,11 +8,13 @@ import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import {ServiceUpdateMessage} from './serviceUpdateMessage';
 import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implements ServiceUpdateMessage {
     /** The expected deadline of the action for the message. */
     public actionRequiredByDateTime?: Date | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of serviceAnnouncementAttachments. */
     public attachments?: ServiceAnnouncementAttachment[] | undefined;
     /** The zip file of all attachments for a message. */
@@ -40,6 +42,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
     public constructor(serviceUpdateMessageParameterValue?: ServiceUpdateMessage | undefined) {
         super(serviceUpdateMessageParameterValue);
         this.actionRequiredByDateTime = serviceUpdateMessageParameterValue?.actionRequiredByDateTime;
+        this.additionalData = serviceUpdateMessageParameterValue?.additionalData ? serviceUpdateMessageParameterValue?.additionalData! : {};
         const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; serviceUpdateMessageParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         this.attachmentsArchive = serviceUpdateMessageParameterValue?.attachmentsArchive;
@@ -111,5 +114,6 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
         if(this.viewPoint){
             writer.writeObjectValue<ServiceUpdateMessageViewpointImpl>("viewPoint", new ServiceUpdateMessageViewpointImpl(this.viewPoint));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,8 +1,10 @@
 import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
 import {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TemporaryAccessPassAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Partial<Parsable> {
+export interface TemporaryAccessPassAuthenticationMethodConfiguration extends Partial<AdditionalDataHolder>, AuthenticationMethodConfiguration, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters. */
     defaultLength?: number | undefined;
     /** Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */

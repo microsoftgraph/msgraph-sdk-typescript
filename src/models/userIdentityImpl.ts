@@ -1,19 +1,21 @@
 import {IdentityImpl} from './index';
 import {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class UserIdentityImpl extends IdentityImpl implements UserIdentity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates the client IP address used by user performing the activity (audit log only). */
     public ipAddress?: string | undefined;
     /** The userPrincipalName attribute of the user. */
     public userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new userIdentity and sets the default values.
+     * Instantiates a new UserIdentity and sets the default values.
      * @param userIdentityParameterValue 
      */
     public constructor(userIdentityParameterValue?: UserIdentity | undefined) {
         super(userIdentityParameterValue);
+        this.additionalData = userIdentityParameterValue?.additionalData ? userIdentityParameterValue?.additionalData! : {};
         this.ipAddress = userIdentityParameterValue?.ipAddress;
         this.userPrincipalName = userIdentityParameterValue?.userPrincipalName;
     };
@@ -40,5 +42,6 @@ export class UserIdentityImpl extends IdentityImpl implements UserIdentity {
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

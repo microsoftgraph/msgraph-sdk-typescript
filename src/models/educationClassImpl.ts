@@ -21,10 +21,11 @@ import {EducationUser} from './educationUser';
 import {Group} from './group';
 import {IdentitySet} from './identitySet';
 import {EducationAssignmentDefaultsImpl, EducationAssignmentImpl, EducationAssignmentSettingsImpl, EducationCategoryImpl, EducationCourseImpl, EducationSchoolImpl, EducationTermImpl, EducationUserImpl, EntityImpl, GroupImpl, IdentitySetImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationClassImpl extends EntityImpl implements EducationClass {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** All categories associated with this class. Nullable. */
     public assignmentCategories?: EducationCategory[] | undefined;
     /** Specifies class-level defaults respected by new assignments created in the class. */
@@ -66,11 +67,12 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
     /** Term for the class. */
     public term?: EducationTerm | undefined;
     /**
-     * Instantiates a new educationClass and sets the default values.
+     * Instantiates a new EducationClass and sets the default values.
      * @param educationClassParameterValue 
      */
     public constructor(educationClassParameterValue?: EducationClass | undefined) {
         super(educationClassParameterValue);
+        this.additionalData = educationClassParameterValue?.additionalData ? educationClassParameterValue?.additionalData! : {};
         const assignmentCategoriesArrValue: EducationCategoryImpl[] = []; educationClassParameterValue.assignmentCategories?.forEach(element => {assignmentCategoriesArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
         this.assignmentCategories = assignmentCategoriesArrValue;
         this.assignmentDefaults = educationClassParameterValue?.assignmentDefaults instanceof EducationAssignmentDefaultsImpl? educationClassParameterValue?.assignmentDefaults:new EducationAssignmentDefaultsImpl(educationClassParameterValue?.assignmentDefaults);
@@ -192,5 +194,6 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         if(this.term){
             writer.writeObjectValue<EducationTermImpl>("term", new EducationTermImpl(this.term));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

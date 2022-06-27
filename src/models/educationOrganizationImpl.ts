@@ -1,10 +1,12 @@
 import {EducationExternalSource} from './educationExternalSource';
 import {EducationOrganization} from './educationOrganization';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class EducationOrganizationImpl extends EntityImpl implements EducationOrganization {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Organization description. */
     public description?: string | undefined;
     /** Organization display name. */
@@ -19,6 +21,7 @@ export class EducationOrganizationImpl extends EntityImpl implements EducationOr
      */
     public constructor(educationOrganizationParameterValue?: EducationOrganization | undefined) {
         super(educationOrganizationParameterValue);
+        this.additionalData = educationOrganizationParameterValue?.additionalData ? educationOrganizationParameterValue?.additionalData! : {};
         this.description = educationOrganizationParameterValue?.description;
         this.displayName = educationOrganizationParameterValue?.displayName;
         this.externalSource = educationOrganizationParameterValue?.externalSource;
@@ -55,5 +58,6 @@ export class EducationOrganizationImpl extends EntityImpl implements EducationOr
         if(this.externalSourceDetail){
             writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,4 +1,4 @@
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum PrintTaskProcessingState {
     Pending = "pending",
     Processing = "processing",

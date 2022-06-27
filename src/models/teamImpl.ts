@@ -24,10 +24,11 @@ import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamsTemplate} from './teamsTemplate';
 import {TeamVisibilityType} from './teamVisibilityType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class TeamImpl extends EntityImpl implements Team {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** List of channels either hosted in or shared with the team (incoming channels). */
     public allChannels?: Channel[] | undefined;
     /** The collection of channels and messages associated with the team. */
@@ -77,11 +78,12 @@ export class TeamImpl extends EntityImpl implements Team {
     /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */
     public webUrl?: string | undefined;
     /**
-     * Instantiates a new team and sets the default values.
+     * Instantiates a new Team and sets the default values.
      * @param teamParameterValue 
      */
     public constructor(teamParameterValue?: Team | undefined) {
         super(teamParameterValue);
+        this.additionalData = teamParameterValue?.additionalData ? teamParameterValue?.additionalData! : {};
         const allChannelsArrValue: ChannelImpl[] = []; teamParameterValue.allChannels?.forEach(element => {allChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
         this.allChannels = allChannelsArrValue;
         const channelsArrValue: ChannelImpl[] = []; teamParameterValue.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
@@ -224,5 +226,6 @@ export class TeamImpl extends EntityImpl implements Team {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

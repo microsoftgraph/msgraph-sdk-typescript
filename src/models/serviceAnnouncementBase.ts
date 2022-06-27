@@ -1,8 +1,10 @@
 import {Entity} from './entity';
 import {KeyValuePair} from './keyValuePair';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ServiceAnnouncementBase extends Entity, Partial<Parsable> {
+export interface ServiceAnnouncementBase extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Additional details about service event. This property doesn't support filters. */
     details?: KeyValuePair[] | undefined;
     /** The end time of the service event. */

@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {ManagedAppStatus} from './managedAppStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents app protection and configuration status for the organization. */
 export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Friendly name of the status report. */
     public displayName?: string | undefined;
     /** Version of the entity. */
@@ -14,6 +16,7 @@ export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus
      */
     public constructor(managedAppStatusParameterValue?: ManagedAppStatus | undefined) {
         super(managedAppStatusParameterValue);
+        this.additionalData = managedAppStatusParameterValue?.additionalData ? managedAppStatusParameterValue?.additionalData! : {};
         this.displayName = managedAppStatusParameterValue?.displayName;
         this.version = managedAppStatusParameterValue?.version;
     };
@@ -40,5 +43,6 @@ export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

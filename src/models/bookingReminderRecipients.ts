@@ -1,4 +1,4 @@
-/** Provides operations to manage the solutionsRoot singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum BookingReminderRecipients {
     AllAttendees = "allAttendees",
     Staff = "staff",

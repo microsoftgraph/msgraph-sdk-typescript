@@ -3,10 +3,12 @@ import {EntityImpl, ServiceHealthIssueImpl} from './index';
 import {ServiceHealth} from './serviceHealth';
 import {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthStatus} from './serviceHealthStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
 export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of issues that happened on the service, with detailed information for each issue. */
     public issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
@@ -19,6 +21,7 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
      */
     public constructor(serviceHealthParameterValue?: ServiceHealth | undefined) {
         super(serviceHealthParameterValue);
+        this.additionalData = serviceHealthParameterValue?.additionalData ? serviceHealthParameterValue?.additionalData! : {};
         const issuesArrValue: ServiceHealthIssueImpl[] = []; serviceHealthParameterValue.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
         this.issues = issuesArrValue;
         this.service = serviceHealthParameterValue?.service;
@@ -51,5 +54,6 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
         if(this.status){
             writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

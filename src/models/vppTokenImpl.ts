@@ -3,10 +3,12 @@ import {VppToken} from './vppToken';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens. */
 export class VppTokenImpl extends EntityImpl implements VppToken {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The apple Id associated with the given Apple Volume Purchase Program Token. */
     public appleId?: string | undefined;
     /** Whether or not apps for the VPP token will be automatically updated. */
@@ -35,6 +37,7 @@ export class VppTokenImpl extends EntityImpl implements VppToken {
      */
     public constructor(vppTokenParameterValue?: VppToken | undefined) {
         super(vppTokenParameterValue);
+        this.additionalData = vppTokenParameterValue?.additionalData ? vppTokenParameterValue?.additionalData! : {};
         this.appleId = vppTokenParameterValue?.appleId;
         this.automaticallyUpdateApps = vppTokenParameterValue?.automaticallyUpdateApps;
         this.countryOrRegion = vppTokenParameterValue?.countryOrRegion;
@@ -106,5 +109,6 @@ export class VppTokenImpl extends EntityImpl implements VppToken {
         if(this.vppTokenAccountType){
             writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

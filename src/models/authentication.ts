@@ -4,9 +4,11 @@ import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Authentication extends Entity, Partial<Parsable> {
+export interface Authentication extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Represents the FIDO2 security keys registered to a user for authentication. */
     fido2Methods?: Fido2AuthenticationMethod[] | undefined;
     /** Represents all authentication methods registered to a user. */

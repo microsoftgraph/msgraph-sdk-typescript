@@ -1,13 +1,15 @@
 import {Entity} from './entity';
 import {Status} from './status';
 import {UserActivity} from './userActivity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ActivityHistoryItem extends Entity, Partial<Parsable> {
+export interface ActivityHistoryItem extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     activeDurationSeconds?: number | undefined;
     /** The activity property */
     activity?: UserActivity | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Set by the server. DateTime in UTC when the object was created on the server. */
     createdDateTime?: Date | undefined;
     /** Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client. */

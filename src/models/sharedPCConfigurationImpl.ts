@@ -3,11 +3,13 @@ import {DeviceConfigurationImpl, SharedPCAccountManagerPolicyImpl} from './index
 import {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
 import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
 import {SharedPCConfiguration} from './sharedPCConfiguration';
-import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class SharedPCConfigurationImpl extends DeviceConfigurationImpl implements SharedPCConfiguration {
     /** Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false. */
     public accountManagerPolicy?: SharedPCAccountManagerPolicy | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain. */
     public allowedAccounts?: SharedPCAllowedAccountType | undefined;
     /** Specifies whether local storage is allowed on a shared PC. */
@@ -37,6 +39,7 @@ export class SharedPCConfigurationImpl extends DeviceConfigurationImpl implement
     public constructor(sharedPCConfigurationParameterValue?: SharedPCConfiguration | undefined) {
         super(sharedPCConfigurationParameterValue);
         this.accountManagerPolicy = sharedPCConfigurationParameterValue?.accountManagerPolicy instanceof SharedPCAccountManagerPolicyImpl? sharedPCConfigurationParameterValue?.accountManagerPolicy:new SharedPCAccountManagerPolicyImpl(sharedPCConfigurationParameterValue?.accountManagerPolicy);
+        this.additionalData = sharedPCConfigurationParameterValue?.additionalData ? sharedPCConfigurationParameterValue?.additionalData! : {};
         this.allowedAccounts = sharedPCConfigurationParameterValue?.allowedAccounts;
         this.allowLocalStorage = sharedPCConfigurationParameterValue?.allowLocalStorage;
         this.disableAccountManager = sharedPCConfigurationParameterValue?.disableAccountManager;
@@ -112,5 +115,6 @@ export class SharedPCConfigurationImpl extends DeviceConfigurationImpl implement
         if(this.maintenanceStartTime){
             writer.writeTimeOnlyValue("maintenanceStartTime", this.maintenanceStartTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

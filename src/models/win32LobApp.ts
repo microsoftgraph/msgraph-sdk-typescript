@@ -4,9 +4,11 @@ import {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
 import {Win32LobAppReturnCode} from './win32LobAppReturnCode';
 import {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Win32LobApp extends MobileLobApp, Partial<Parsable> {
+export interface Win32LobApp extends Partial<AdditionalDataHolder>, MobileLobApp, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64. */
     applicableArchitectures?: WindowsArchitecture | undefined;
     /** The command line to install this app */

@@ -1,8 +1,10 @@
 import {Entity} from './entity';
 import {Identity} from './identity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ApprovalStage extends Entity, Partial<Parsable> {
+export interface ApprovalStage extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
     assignedToMe?: boolean | undefined;
     /** The label provided by the policy creator to identify an approval stage. Read-only. */

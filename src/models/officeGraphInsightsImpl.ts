@@ -6,10 +6,11 @@ import {OfficeGraphInsights} from './officeGraphInsights';
 import {SharedInsight} from './sharedInsight';
 import {Trending} from './trending';
 import {UsedInsight} from './usedInsight';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphInsights {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Access this property from the derived type itemInsights. */
     public shared?: SharedInsight[] | undefined;
     /** Access this property from the derived type itemInsights. */
@@ -17,11 +18,12 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
     /** Access this property from the derived type itemInsights. */
     public used?: UsedInsight[] | undefined;
     /**
-     * Instantiates a new officeGraphInsights and sets the default values.
+     * Instantiates a new OfficeGraphInsights and sets the default values.
      * @param officeGraphInsightsParameterValue 
      */
     public constructor(officeGraphInsightsParameterValue?: OfficeGraphInsights | undefined) {
         super(officeGraphInsightsParameterValue);
+        this.additionalData = officeGraphInsightsParameterValue?.additionalData ? officeGraphInsightsParameterValue?.additionalData! : {};
         const sharedArrValue: SharedInsightImpl[] = []; officeGraphInsightsParameterValue.shared?.forEach(element => {sharedArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
         this.shared = sharedArrValue;
         const trendingArrValue: TrendingImpl[] = []; officeGraphInsightsParameterValue.trending?.forEach(element => {trendingArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
@@ -56,5 +58,6 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
         if(this.used && this.used.length != 0){        const usedArrValue: UsedInsightImpl[] = []; this.used?.forEach(element => {usedArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
             writer.writeCollectionOfObjectValues<UsedInsightImpl>("used", usedArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

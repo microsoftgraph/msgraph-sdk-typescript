@@ -1,10 +1,12 @@
 import {EntityImpl} from './index';
 import {MobileAppContentFile} from './mobileAppContentFile';
 import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for a single installer file that is associated with a given mobileAppContent version. */
 export class MobileAppContentFileImpl extends EntityImpl implements MobileAppContentFile {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The Azure Storage URI. */
     public azureStorageUri?: string | undefined;
     /** The time the Azure storage Uri expires. */
@@ -29,6 +31,7 @@ export class MobileAppContentFileImpl extends EntityImpl implements MobileAppCon
      */
     public constructor(mobileAppContentFileParameterValue?: MobileAppContentFile | undefined) {
         super(mobileAppContentFileParameterValue);
+        this.additionalData = mobileAppContentFileParameterValue?.additionalData ? mobileAppContentFileParameterValue?.additionalData! : {};
         this.azureStorageUri = mobileAppContentFileParameterValue?.azureStorageUri;
         this.azureStorageUriExpirationDateTime = mobileAppContentFileParameterValue?.azureStorageUriExpirationDateTime;
         this.createdDateTime = mobileAppContentFileParameterValue?.createdDateTime;
@@ -90,5 +93,6 @@ export class MobileAppContentFileImpl extends EntityImpl implements MobileAppCon
         if(this.uploadState){
             writer.writeEnumValue<MobileAppContentFileUploadState>("uploadState", this.uploadState);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

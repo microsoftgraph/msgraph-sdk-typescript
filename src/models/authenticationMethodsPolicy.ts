@@ -1,9 +1,11 @@
 import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
 import {Entity} from './entity';
 import {RegistrationEnforcement} from './registrationEnforcement';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationMethodsPolicy extends Entity, Partial<Parsable> {
+export interface AuthenticationMethodsPolicy extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
     authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
     /** A description of the policy. */

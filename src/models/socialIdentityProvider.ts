@@ -1,7 +1,9 @@
 import {IdentityProviderBase} from './identityProviderBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SocialIdentityProvider extends IdentityProviderBase, Partial<Parsable> {
+export interface SocialIdentityProvider extends Partial<AdditionalDataHolder>, IdentityProviderBase, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The client identifier for the application obtained when registering the application with the identity provider. Required. */
     clientId?: string | undefined;
     /** The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns ****. Required. */

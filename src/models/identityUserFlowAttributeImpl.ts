@@ -2,10 +2,11 @@ import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {IdentityUserFlowAttributeDataType} from './identityUserFlowAttributeDataType';
 import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowAttributeImpl extends EntityImpl implements IdentityUserFlowAttribute {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime. */
     public dataType?: IdentityUserFlowAttributeDataType | undefined;
     /** The description of the user flow attribute that's shown to the user at the time of sign-up. */
@@ -15,11 +16,12 @@ export class IdentityUserFlowAttributeImpl extends EntityImpl implements Identit
     /** The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required. */
     public userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
     /**
-     * Instantiates a new identityUserFlowAttribute and sets the default values.
+     * Instantiates a new IdentityUserFlowAttribute and sets the default values.
      * @param identityUserFlowAttributeParameterValue 
      */
     public constructor(identityUserFlowAttributeParameterValue?: IdentityUserFlowAttribute | undefined) {
         super(identityUserFlowAttributeParameterValue);
+        this.additionalData = identityUserFlowAttributeParameterValue?.additionalData ? identityUserFlowAttributeParameterValue?.additionalData! : {};
         this.dataType = identityUserFlowAttributeParameterValue?.dataType;
         this.description = identityUserFlowAttributeParameterValue?.description;
         this.displayName = identityUserFlowAttributeParameterValue?.displayName;
@@ -56,5 +58,6 @@ export class IdentityUserFlowAttributeImpl extends EntityImpl implements Identit
         if(this.userFlowAttributeType){
             writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

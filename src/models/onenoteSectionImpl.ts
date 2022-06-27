@@ -8,10 +8,12 @@ import {OnenotePage} from './onenotePage';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
 import {SectionLinks} from './sectionLinks';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implements OnenoteSection {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether this is the user's default section. Read-only. */
     public isDefault?: boolean | undefined;
     /** Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web. */
@@ -30,6 +32,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
      */
     public constructor(onenoteSectionParameterValue?: OnenoteSection | undefined) {
         super(onenoteSectionParameterValue);
+        this.additionalData = onenoteSectionParameterValue?.additionalData ? onenoteSectionParameterValue?.additionalData! : {};
         this.isDefault = onenoteSectionParameterValue?.isDefault;
         this.links = onenoteSectionParameterValue?.links instanceof SectionLinksImpl? onenoteSectionParameterValue?.links:new SectionLinksImpl(onenoteSectionParameterValue?.links);
         const pagesArrValue: OnenotePageImpl[] = []; onenoteSectionParameterValue.pages?.forEach(element => {pagesArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
@@ -77,5 +80,6 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
         if(this.parentSectionGroup){
             writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", new SectionGroupImpl(this.parentSectionGroup));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

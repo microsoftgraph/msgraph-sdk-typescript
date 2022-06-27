@@ -12,9 +12,11 @@ import {Root} from './root';
 import {SharepointIds} from './sharepointIds';
 import {SiteCollection} from './siteCollection';
 import {Store} from './termStore/store';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Site extends BaseItem, Partial<Parsable> {
+export interface Site extends Partial<AdditionalDataHolder>, BaseItem, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Analytics about the view activities that took place in this site. */
     analytics?: ItemAnalytics | undefined;
     /** The collection of column definitions reusable across lists under this site. */

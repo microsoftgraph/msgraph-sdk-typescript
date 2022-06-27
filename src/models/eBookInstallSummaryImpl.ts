@@ -1,9 +1,11 @@
 import {EBookInstallSummary} from './eBookInstallSummary';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for the installation summary of a book for a device. */
 export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallSummary {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Number of Devices that have failed to install this book. */
     public failedDeviceCount?: number | undefined;
     /** Number of Users that have 1 or more device that failed to install this book. */
@@ -22,6 +24,7 @@ export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallS
      */
     public constructor(eBookInstallSummaryParameterValue?: EBookInstallSummary | undefined) {
         super(eBookInstallSummaryParameterValue);
+        this.additionalData = eBookInstallSummaryParameterValue?.additionalData ? eBookInstallSummaryParameterValue?.additionalData! : {};
         this.failedDeviceCount = eBookInstallSummaryParameterValue?.failedDeviceCount;
         this.failedUserCount = eBookInstallSummaryParameterValue?.failedUserCount;
         this.installedDeviceCount = eBookInstallSummaryParameterValue?.installedDeviceCount;
@@ -68,5 +71,6 @@ export class EBookInstallSummaryImpl extends EntityImpl implements EBookInstallS
         if(this.notInstalledUserCount){
             writer.writeNumberValue("notInstalledUserCount", this.notInstalledUserCount);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

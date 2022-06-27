@@ -2,20 +2,22 @@ import {createEducationResourceFromDiscriminatorValue} from './createEducationRe
 import {EducationAssignmentResource} from './educationAssignmentResource';
 import {EducationResource} from './educationResource';
 import {EducationResourceImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentResourceImpl extends EntityImpl implements EducationAssignmentResource {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether this resource should be copied to each student submission for modification and submission. Required */
     public distributeForStudentWork?: boolean | undefined;
     /** Resource object that has been associated with this assignment. */
     public resource?: EducationResource | undefined;
     /**
-     * Instantiates a new educationAssignmentResource and sets the default values.
+     * Instantiates a new EducationAssignmentResource and sets the default values.
      * @param educationAssignmentResourceParameterValue 
      */
     public constructor(educationAssignmentResourceParameterValue?: EducationAssignmentResource | undefined) {
         super(educationAssignmentResourceParameterValue);
+        this.additionalData = educationAssignmentResourceParameterValue?.additionalData ? educationAssignmentResourceParameterValue?.additionalData! : {};
         this.distributeForStudentWork = educationAssignmentResourceParameterValue?.distributeForStudentWork;
         this.resource = educationAssignmentResourceParameterValue?.resource instanceof EducationResourceImpl? educationAssignmentResourceParameterValue?.resource:new EducationResourceImpl(educationAssignmentResourceParameterValue?.resource);
     };
@@ -42,5 +44,6 @@ export class EducationAssignmentResourceImpl extends EntityImpl implements Educa
         if(this.resource){
             writer.writeObjectValue<EducationResourceImpl>("resource", new EducationResourceImpl(this.resource));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

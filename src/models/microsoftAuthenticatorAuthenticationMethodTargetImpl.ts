@@ -1,9 +1,11 @@
 import {AuthenticationMethodTargetImpl} from './index';
 import {MicrosoftAuthenticatorAuthenticationMethodTarget} from './microsoftAuthenticatorAuthenticationMethodTarget';
 import {MicrosoftAuthenticatorAuthenticationMode} from './microsoftAuthenticatorAuthenticationMode';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethodTargetImpl extends AuthenticationMethodTargetImpl implements MicrosoftAuthenticatorAuthenticationMethodTarget {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any. */
     public authenticationMode?: MicrosoftAuthenticatorAuthenticationMode | undefined;
     /**
@@ -12,6 +14,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodTargetImpl extends Authen
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodTargetParameterValue?: MicrosoftAuthenticatorAuthenticationMethodTarget | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodTargetParameterValue);
+        this.additionalData = microsoftAuthenticatorAuthenticationMethodTargetParameterValue?.additionalData ? microsoftAuthenticatorAuthenticationMethodTargetParameterValue?.additionalData! : {};
         this.authenticationMode = microsoftAuthenticatorAuthenticationMethodTargetParameterValue?.authenticationMode;
     };
     /**
@@ -33,5 +36,6 @@ export class MicrosoftAuthenticatorAuthenticationMethodTargetImpl extends Authen
         if(this.authenticationMode){
             writer.writeEnumValue<MicrosoftAuthenticatorAuthenticationMode>("authenticationMode", this.authenticationMode);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

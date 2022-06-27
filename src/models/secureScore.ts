@@ -2,11 +2,13 @@ import {AverageComparativeScore} from './averageComparativeScore';
 import {ControlScore} from './controlScore';
 import {Entity} from './entity';
 import {SecurityVendorInformation} from './securityVendorInformation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SecureScore extends Entity, Partial<Parsable> {
+export interface SecureScore extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Active user count of the given tenant. */
     activeUserCount?: number | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope. */
     averageComparativeScores?: AverageComparativeScore[] | undefined;
     /** GUID string for tenant ID. */

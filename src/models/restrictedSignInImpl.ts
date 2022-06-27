@@ -1,8 +1,10 @@
 import {SignInImpl} from './index';
 import {RestrictedSignIn} from './restrictedSignIn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RestrictedSignInImpl extends SignInImpl implements RestrictedSignIn {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The targetTenantId property */
     public targetTenantId?: string | undefined;
     /**
@@ -11,6 +13,7 @@ export class RestrictedSignInImpl extends SignInImpl implements RestrictedSignIn
      */
     public constructor(restrictedSignInParameterValue?: RestrictedSignIn | undefined) {
         super(restrictedSignInParameterValue);
+        this.additionalData = restrictedSignInParameterValue?.additionalData ? restrictedSignInParameterValue?.additionalData! : {};
         this.targetTenantId = restrictedSignInParameterValue?.targetTenantId;
     };
     /**
@@ -32,5 +35,6 @@ export class RestrictedSignInImpl extends SignInImpl implements RestrictedSignIn
         if(this.targetTenantId){
             writer.writeStringValue("targetTenantId", this.targetTenantId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

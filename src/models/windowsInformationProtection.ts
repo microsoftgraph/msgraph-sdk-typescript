@@ -7,9 +7,11 @@ import {WindowsInformationProtectionEnforcementLevel} from './windowsInformation
 import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WindowsInformationProtection extends ManagedAppPolicy, Partial<Parsable> {
+export interface WindowsInformationProtection extends Partial<AdditionalDataHolder>, ManagedAppPolicy, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Navigation property to list of security groups targeted for policy. */
     assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Specifies whether to allow Azure RMS encryption for WIP */

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum WindowsInformationProtectionPinCharacterRequirements {
     /** Not allow */
     NotAllow = "notAllow",

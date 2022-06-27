@@ -2,10 +2,12 @@ import {createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue}
 import {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
 import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
 import {EntityImpl, ImportedWindowsAutopilotDeviceIdentityStateImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Imported windows autopilot devices. */
 export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl implements ImportedWindowsAutopilotDeviceIdentity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** UPN of the user the device will be assigned */
     public assignedUserPrincipalName?: string | undefined;
     /** Group Tag of the Windows autopilot device. */
@@ -26,6 +28,7 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
      */
     public constructor(importedWindowsAutopilotDeviceIdentityParameterValue?: ImportedWindowsAutopilotDeviceIdentity | undefined) {
         super(importedWindowsAutopilotDeviceIdentityParameterValue);
+        this.additionalData = importedWindowsAutopilotDeviceIdentityParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityParameterValue?.additionalData! : {};
         this.assignedUserPrincipalName = importedWindowsAutopilotDeviceIdentityParameterValue?.assignedUserPrincipalName;
         this.groupTag = importedWindowsAutopilotDeviceIdentityParameterValue?.groupTag;
         this.hardwareIdentifier = importedWindowsAutopilotDeviceIdentityParameterValue?.hardwareIdentifier;
@@ -77,5 +80,6 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
         if(this.state){
             writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

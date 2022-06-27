@@ -1,9 +1,11 @@
 import {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {BookingStaffRole} from './bookingStaffRole';
 import {BookingWorkHours} from './bookingWorkHours';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BookingStaffMember extends BookingStaffMemberBase, Partial<Parsable> {
+export interface BookingStaffMember extends Partial<AdditionalDataHolder>, BookingStaffMemberBase, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking. */
     availabilityIsAffectedByPersonalCalendar?: boolean | undefined;
     /** The name of the staff member, as displayed to customers. Required. */

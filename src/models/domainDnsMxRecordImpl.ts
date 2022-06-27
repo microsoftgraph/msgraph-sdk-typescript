@@ -1,8 +1,10 @@
 import {DomainDnsMxRecord} from './domainDnsMxRecord';
 import {DomainDnsRecordImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsMxRecordImpl extends DomainDnsRecordImpl implements DomainDnsMxRecord {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Value used when configuring the answer/destination/value of the MX record at the DNS host. */
     public mailExchange?: string | undefined;
     /** Value used when configuring the Preference/Priority property of the MX record at the DNS host. */
@@ -13,6 +15,7 @@ export class DomainDnsMxRecordImpl extends DomainDnsRecordImpl implements Domain
      */
     public constructor(domainDnsMxRecordParameterValue?: DomainDnsMxRecord | undefined) {
         super(domainDnsMxRecordParameterValue);
+        this.additionalData = domainDnsMxRecordParameterValue?.additionalData ? domainDnsMxRecordParameterValue?.additionalData! : {};
         this.mailExchange = domainDnsMxRecordParameterValue?.mailExchange;
         this.preference = domainDnsMxRecordParameterValue?.preference;
     };
@@ -39,5 +42,6 @@ export class DomainDnsMxRecordImpl extends DomainDnsRecordImpl implements Domain
         if(this.preference){
             writer.writeNumberValue("preference", this.preference);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

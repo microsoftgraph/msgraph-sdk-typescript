@@ -2,10 +2,12 @@ import {DeviceManagementExchangeConnector} from './deviceManagementExchangeConne
 import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
 import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity which represents a connection to an Exchange environment. */
 export class DeviceManagementExchangeConnectorImpl extends EntityImpl implements DeviceManagementExchangeConnector {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The name of the server hosting the Exchange Connector. */
     public connectorServerName?: string | undefined;
     /** An alias assigned to the Exchange server */
@@ -30,6 +32,7 @@ export class DeviceManagementExchangeConnectorImpl extends EntityImpl implements
      */
     public constructor(deviceManagementExchangeConnectorParameterValue?: DeviceManagementExchangeConnector | undefined) {
         super(deviceManagementExchangeConnectorParameterValue);
+        this.additionalData = deviceManagementExchangeConnectorParameterValue?.additionalData ? deviceManagementExchangeConnectorParameterValue?.additionalData! : {};
         this.connectorServerName = deviceManagementExchangeConnectorParameterValue?.connectorServerName;
         this.exchangeAlias = deviceManagementExchangeConnectorParameterValue?.exchangeAlias;
         this.exchangeConnectorType = deviceManagementExchangeConnectorParameterValue?.exchangeConnectorType;
@@ -91,5 +94,6 @@ export class DeviceManagementExchangeConnectorImpl extends EntityImpl implements
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

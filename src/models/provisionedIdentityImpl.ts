@@ -2,20 +2,22 @@ import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDi
 import {DetailsInfo} from './detailsInfo';
 import {DetailsInfoImpl, IdentityImpl} from './index';
 import {ProvisionedIdentity} from './provisionedIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisionedIdentityImpl extends IdentityImpl implements ProvisionedIdentity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Details of the identity. */
     public details?: DetailsInfo | undefined;
     /** Type of identity that has been provisioned, such as 'user' or 'group'. */
     public identityType?: string | undefined;
     /**
-     * Instantiates a new provisionedIdentity and sets the default values.
+     * Instantiates a new ProvisionedIdentity and sets the default values.
      * @param provisionedIdentityParameterValue 
      */
     public constructor(provisionedIdentityParameterValue?: ProvisionedIdentity | undefined) {
         super(provisionedIdentityParameterValue);
+        this.additionalData = provisionedIdentityParameterValue?.additionalData ? provisionedIdentityParameterValue?.additionalData! : {};
         this.details = provisionedIdentityParameterValue?.details instanceof DetailsInfoImpl? provisionedIdentityParameterValue?.details:new DetailsInfoImpl(provisionedIdentityParameterValue?.details);
         this.identityType = provisionedIdentityParameterValue?.identityType;
     };
@@ -42,5 +44,6 @@ export class ProvisionedIdentityImpl extends IdentityImpl implements Provisioned
         if(this.identityType){
             writer.writeStringValue("identityType", this.identityType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

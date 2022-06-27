@@ -1,9 +1,11 @@
 import {DeviceCompliancePolicyImpl} from './index';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {Windows10MobileCompliancePolicy} from './windows10MobileCompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10MobileCompliancePolicyImpl extends DeviceCompliancePolicyImpl implements Windows10MobileCompliancePolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled */
     public bitLockerEnabled?: boolean | undefined;
     /** Require devices to be reported as healthy by Windows Device Health Attestation. */
@@ -42,6 +44,7 @@ export class Windows10MobileCompliancePolicyImpl extends DeviceCompliancePolicyI
      */
     public constructor(windows10MobileCompliancePolicyParameterValue?: Windows10MobileCompliancePolicy | undefined) {
         super(windows10MobileCompliancePolicyParameterValue);
+        this.additionalData = windows10MobileCompliancePolicyParameterValue?.additionalData ? windows10MobileCompliancePolicyParameterValue?.additionalData! : {};
         this.bitLockerEnabled = windows10MobileCompliancePolicyParameterValue?.bitLockerEnabled;
         this.codeIntegrityEnabled = windows10MobileCompliancePolicyParameterValue?.codeIntegrityEnabled;
         this.earlyLaunchAntiMalwareDriverEnabled = windows10MobileCompliancePolicyParameterValue?.earlyLaunchAntiMalwareDriverEnabled;
@@ -138,5 +141,6 @@ export class Windows10MobileCompliancePolicyImpl extends DeviceCompliancePolicyI
         if(this.storageRequireEncryption){
             writer.writeBooleanValue("storageRequireEncryption", this.storageRequireEncryption);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

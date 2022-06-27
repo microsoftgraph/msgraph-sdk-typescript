@@ -2,9 +2,11 @@ import {DeviceEnrollmentFailureReason} from './deviceEnrollmentFailureReason';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
 import {EnrollmentTroubleshootingEvent} from './enrollmentTroubleshootingEvent';
 import {DeviceManagementTroubleshootingEventImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EnrollmentTroubleshootingEventImpl extends DeviceManagementTroubleshootingEventImpl implements EnrollmentTroubleshootingEvent {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Azure AD device identifier. */
     public deviceId?: string | undefined;
     /** Type of the enrollment. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile. */
@@ -27,6 +29,7 @@ export class EnrollmentTroubleshootingEventImpl extends DeviceManagementTroubles
      */
     public constructor(enrollmentTroubleshootingEventParameterValue?: EnrollmentTroubleshootingEvent | undefined) {
         super(enrollmentTroubleshootingEventParameterValue);
+        this.additionalData = enrollmentTroubleshootingEventParameterValue?.additionalData ? enrollmentTroubleshootingEventParameterValue?.additionalData! : {};
         this.deviceId = enrollmentTroubleshootingEventParameterValue?.deviceId;
         this.enrollmentType = enrollmentTroubleshootingEventParameterValue?.enrollmentType;
         this.failureCategory = enrollmentTroubleshootingEventParameterValue?.failureCategory;
@@ -83,5 +86,6 @@ export class EnrollmentTroubleshootingEventImpl extends DeviceManagementTroubles
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

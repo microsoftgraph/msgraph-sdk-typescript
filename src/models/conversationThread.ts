@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {Post} from './post';
 import {Recipient} from './recipient';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ConversationThread extends Entity, Partial<Parsable> {
+export interface ConversationThread extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The Cc: recipients for the thread. Returned only on $select. */
     ccRecipients?: Recipient[] | undefined;
     /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default. */

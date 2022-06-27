@@ -7,9 +7,11 @@ import {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {BookingWorkHours} from './bookingWorkHours';
 import {Entity} from './entity';
 import {PhysicalAddress} from './physicalAddress';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BookingBusiness extends Entity, Partial<Parsable> {
+export interface BookingBusiness extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
     address?: PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable. */

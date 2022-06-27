@@ -12,10 +12,12 @@ import {OnenotePage} from './onenotePage';
 import {OnenoteResource} from './onenoteResource';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class OnenoteImpl extends EntityImpl implements Onenote {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable. */
     public notebooks?: Notebook[] | undefined;
     /** The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable. */
@@ -34,6 +36,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
      */
     public constructor(onenoteParameterValue?: Onenote | undefined) {
         super(onenoteParameterValue);
+        this.additionalData = onenoteParameterValue?.additionalData ? onenoteParameterValue?.additionalData! : {};
         const notebooksArrValue: NotebookImpl[] = []; onenoteParameterValue.notebooks?.forEach(element => {notebooksArrValue.push(element instanceof NotebookImpl? element : new NotebookImpl(element));});
         this.notebooks = notebooksArrValue;
         const operationsArrValue: OnenoteOperationImpl[] = []; onenoteParameterValue.operations?.forEach(element => {operationsArrValue.push(element instanceof OnenoteOperationImpl? element : new OnenoteOperationImpl(element));});
@@ -86,5 +89,6 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

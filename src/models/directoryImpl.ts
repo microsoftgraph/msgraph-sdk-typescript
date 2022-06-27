@@ -6,10 +6,12 @@ import {Directory} from './directory';
 import {DirectoryObject} from './directoryObject';
 import {IdentityProviderBase} from './identityProviderBase';
 import {AdministrativeUnitImpl, DirectoryObjectImpl, EntityImpl, IdentityProviderBaseImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the directory singleton. */
 export class DirectoryImpl extends EntityImpl implements Directory {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Conceptual container for user and group directory objects. */
     public administrativeUnits?: AdministrativeUnit[] | undefined;
     /** Recently deleted items. Read-only. Nullable. */
@@ -22,6 +24,7 @@ export class DirectoryImpl extends EntityImpl implements Directory {
      */
     public constructor(directoryParameterValue?: Directory | undefined) {
         super(directoryParameterValue);
+        this.additionalData = directoryParameterValue?.additionalData ? directoryParameterValue?.additionalData! : {};
         const administrativeUnitsArrValue: AdministrativeUnitImpl[] = []; directoryParameterValue.administrativeUnits?.forEach(element => {administrativeUnitsArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
         this.administrativeUnits = administrativeUnitsArrValue;
         const deletedItemsArrValue: DirectoryObjectImpl[] = []; directoryParameterValue.deletedItems?.forEach(element => {deletedItemsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
@@ -56,5 +59,6 @@ export class DirectoryImpl extends EntityImpl implements Directory {
         if(this.federationConfigurations && this.federationConfigurations.length != 0){        const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = []; this.federationConfigurations?.forEach(element => {federationConfigurationsArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("federationConfigurations", federationConfigurationsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

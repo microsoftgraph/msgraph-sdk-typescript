@@ -5,9 +5,11 @@ import {FieldValueSet} from './fieldValueSet';
 import {ItemAnalytics} from './itemAnalytics';
 import {ListItemVersion} from './listItemVersion';
 import {SharepointIds} from './sharepointIds';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ListItem extends BaseItem, Partial<Parsable> {
+export interface ListItem extends Partial<AdditionalDataHolder>, BaseItem, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Analytics about the view activities that took place on this item. */
     analytics?: ItemAnalytics | undefined;
     /** The content type of this list item */

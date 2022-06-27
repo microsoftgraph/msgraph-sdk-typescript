@@ -4,9 +4,11 @@ import {createFido2KeyRestrictionsFromDiscriminatorValue} from './createFido2Key
 import {Fido2AuthenticationMethodConfiguration} from './fido2AuthenticationMethodConfiguration';
 import {Fido2KeyRestrictions} from './fido2KeyRestrictions';
 import {AuthenticationMethodConfigurationImpl, AuthenticationMethodTargetImpl, Fido2KeyRestrictionsImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements Fido2AuthenticationMethodConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of users or groups who are enabled to use the authentication method. */
     public includeTargets?: AuthenticationMethodTarget[] | undefined;
     /** Determines whether attestation must be enforced for FIDO2 security key registration. */
@@ -21,6 +23,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
      */
     public constructor(fido2AuthenticationMethodConfigurationParameterValue?: Fido2AuthenticationMethodConfiguration | undefined) {
         super(fido2AuthenticationMethodConfigurationParameterValue);
+        this.additionalData = fido2AuthenticationMethodConfigurationParameterValue?.additionalData ? fido2AuthenticationMethodConfigurationParameterValue?.additionalData! : {};
         const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; fido2AuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
         this.isAttestationEnforced = fido2AuthenticationMethodConfigurationParameterValue?.isAttestationEnforced;
@@ -58,5 +61,6 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
         if(this.keyRestrictions){
             writer.writeObjectValue<Fido2KeyRestrictionsImpl>("keyRestrictions", new Fido2KeyRestrictionsImpl(this.keyRestrictions));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,15 +1,17 @@
 import {IdentityImpl} from './index';
 import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisioningServicePrincipalImpl extends IdentityImpl implements ProvisioningServicePrincipal {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /**
-     * Instantiates a new provisioningServicePrincipal and sets the default values.
+     * Instantiates a new ProvisioningServicePrincipal and sets the default values.
      * @param provisioningServicePrincipalParameterValue 
      */
     public constructor(provisioningServicePrincipalParameterValue?: ProvisioningServicePrincipal | undefined) {
         super(provisioningServicePrincipalParameterValue);
+        this.additionalData = provisioningServicePrincipalParameterValue?.additionalData ? provisioningServicePrincipalParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -26,5 +28,6 @@ export class ProvisioningServicePrincipalImpl extends IdentityImpl implements Pr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

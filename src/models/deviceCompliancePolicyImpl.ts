@@ -14,10 +14,12 @@ import {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
 import {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
 import {DeviceComplianceDeviceOverviewImpl, DeviceComplianceDeviceStatusImpl, DeviceCompliancePolicyAssignmentImpl, DeviceComplianceScheduledActionForRuleImpl, DeviceComplianceUserOverviewImpl, DeviceComplianceUserStatusImpl, EntityImpl, SettingStateDeviceSummaryImpl} from './index';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
 export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceCompliancePolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The collection of assignments for this compliance policy. */
     public assignments?: DeviceCompliancePolicyAssignment[] | undefined;
     /** DateTime the object was created. */
@@ -48,6 +50,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
      */
     public constructor(deviceCompliancePolicyParameterValue?: DeviceCompliancePolicy | undefined) {
         super(deviceCompliancePolicyParameterValue);
+        this.additionalData = deviceCompliancePolicyParameterValue?.additionalData ? deviceCompliancePolicyParameterValue?.additionalData! : {};
         const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = []; deviceCompliancePolicyParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof DeviceCompliancePolicyAssignmentImpl? element : new DeviceCompliancePolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = deviceCompliancePolicyParameterValue?.createdDateTime;
@@ -129,5 +132,6 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

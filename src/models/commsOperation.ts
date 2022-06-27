@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {OperationStatus} from './operationStatus';
 import {ResultInfo} from './resultInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CommsOperation extends Entity, Partial<Parsable> {
+export interface CommsOperation extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Unique Client Context string. Max limit is 256 chars. */
     clientContext?: string | undefined;
     /** The result information. Read-only. */

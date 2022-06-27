@@ -1,10 +1,12 @@
 import {ComplianceStatus} from './complianceStatus';
 import {EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device. */
 export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationDeviceStatus {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -25,6 +27,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityI
      */
     public constructor(managedDeviceMobileAppConfigurationDeviceStatusParameterValue?: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined) {
         super(managedDeviceMobileAppConfigurationDeviceStatusParameterValue);
+        this.additionalData = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.additionalData ? managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.additionalData! : {};
         this.complianceGracePeriodExpirationDateTime = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
         this.deviceDisplayName = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.deviceDisplayName;
         this.deviceModel = managedDeviceMobileAppConfigurationDeviceStatusParameterValue?.deviceModel;
@@ -76,5 +79,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusImpl extends EntityI
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

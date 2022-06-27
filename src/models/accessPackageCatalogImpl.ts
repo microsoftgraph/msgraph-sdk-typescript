@@ -4,12 +4,14 @@ import {AccessPackageCatalogState} from './accessPackageCatalogState';
 import {AccessPackageCatalogType} from './accessPackageCatalogType';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
 import {AccessPackageImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackageCatalog {
     /** The access packages in this catalog. Read-only. Nullable. Supports $expand. */
     public accessPackages?: AccessPackage[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** One of UserManaged or ServiceDefault. */
     public catalogType?: AccessPackageCatalogType | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
@@ -32,6 +34,7 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
         super(accessPackageCatalogParameterValue);
         const accessPackagesArrValue: AccessPackageImpl[] = []; accessPackageCatalogParameterValue.accessPackages?.forEach(element => {accessPackagesArrValue.push(element instanceof AccessPackageImpl? element : new AccessPackageImpl(element));});
         this.accessPackages = accessPackagesArrValue;
+        this.additionalData = accessPackageCatalogParameterValue?.additionalData ? accessPackageCatalogParameterValue?.additionalData! : {};
         this.catalogType = accessPackageCatalogParameterValue?.catalogType;
         this.createdDateTime = accessPackageCatalogParameterValue?.createdDateTime;
         this.description = accessPackageCatalogParameterValue?.description;
@@ -87,5 +90,6 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
         if(this.state){
             writer.writeEnumValue<AccessPackageCatalogState>("state", this.state);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

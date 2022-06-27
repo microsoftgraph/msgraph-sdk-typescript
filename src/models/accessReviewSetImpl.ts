@@ -4,20 +4,22 @@ import {AccessReviewSet} from './accessReviewSet';
 import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from './createAccessReviewHistoryDefinitionFromDiscriminatorValue';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from './createAccessReviewScheduleDefinitionFromDiscriminatorValue';
 import {AccessReviewHistoryDefinitionImpl, AccessReviewScheduleDefinitionImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the template and scheduling for an access review. */
     public definitions?: AccessReviewScheduleDefinition[] | undefined;
     /** Represents a collection of access review history data and the scopes used to collect that data. */
     public historyDefinitions?: AccessReviewHistoryDefinition[] | undefined;
     /**
-     * Instantiates a new accessReviewSet and sets the default values.
+     * Instantiates a new AccessReviewSet and sets the default values.
      * @param accessReviewSetParameterValue 
      */
     public constructor(accessReviewSetParameterValue?: AccessReviewSet | undefined) {
         super(accessReviewSetParameterValue);
+        this.additionalData = accessReviewSetParameterValue?.additionalData ? accessReviewSetParameterValue?.additionalData! : {};
         const definitionsArrValue: AccessReviewScheduleDefinitionImpl[] = []; accessReviewSetParameterValue.definitions?.forEach(element => {definitionsArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
         this.definitions = definitionsArrValue;
         const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; accessReviewSetParameterValue.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
@@ -46,5 +48,6 @@ export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet {
         if(this.historyDefinitions && this.historyDefinitions.length != 0){        const historyDefinitionsArrValue: AccessReviewHistoryDefinitionImpl[] = []; this.historyDefinitions?.forEach(element => {historyDefinitionsArrValue.push(element instanceof AccessReviewHistoryDefinitionImpl? element : new AccessReviewHistoryDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("historyDefinitions", historyDefinitionsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

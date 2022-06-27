@@ -4,10 +4,12 @@ import {EntityImpl, WorkbookChartFontImpl, WorkbookChartLineFormatImpl} from './
 import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
 import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookChartAxisFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
     public font?: WorkbookChartFont | undefined;
     /** Represents chart line formatting. Read-only. */
@@ -18,6 +20,7 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartAxisFormatParameterValue?: WorkbookChartAxisFormat | undefined) {
         super(workbookChartAxisFormatParameterValue);
+        this.additionalData = workbookChartAxisFormatParameterValue?.additionalData ? workbookChartAxisFormatParameterValue?.additionalData! : {};
         this.font = workbookChartAxisFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartAxisFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartAxisFormatParameterValue?.font);
         this.line = workbookChartAxisFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartAxisFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartAxisFormatParameterValue?.line);
     };
@@ -44,5 +47,6 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
         if(this.line){
             writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

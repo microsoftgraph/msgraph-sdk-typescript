@@ -5,9 +5,11 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {OutlookItem} from './outlookItem';
 import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Post extends OutlookItem, Partial<Parsable> {
+export interface Post extends Partial<AdditionalDataHolder>, OutlookItem, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand. */
     attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null. */

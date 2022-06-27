@@ -14,10 +14,12 @@ import {LinkedResource} from './linkedResource';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {TaskStatus} from './taskStatus';
 import {TodoTask} from './todoTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class TodoTaskImpl extends EntityImpl implements TodoTask {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The task body that typically contains information about the task. */
     public body?: ItemBody | undefined;
     /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
@@ -56,6 +58,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public constructor(todoTaskParameterValue?: TodoTask | undefined) {
         super(todoTaskParameterValue);
+        this.additionalData = todoTaskParameterValue?.additionalData ? todoTaskParameterValue?.additionalData! : {};
         this.body = todoTaskParameterValue?.body instanceof ItemBodyImpl? todoTaskParameterValue?.body:new ItemBodyImpl(todoTaskParameterValue?.body);
         this.bodyLastModifiedDateTime = todoTaskParameterValue?.bodyLastModifiedDateTime;
         this.categories = todoTaskParameterValue?.categories;
@@ -155,5 +158,6 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(this.title){
             writer.writeStringValue("title", this.title);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,18 +2,20 @@ import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDi
 import {DetailsInfo} from './detailsInfo';
 import {DetailsInfoImpl, IdentityImpl} from './index';
 import {ProvisioningSystem} from './provisioningSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisioningSystemImpl extends IdentityImpl implements ProvisioningSystem {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Details of the system. */
     public details?: DetailsInfo | undefined;
     /**
-     * Instantiates a new provisioningSystem and sets the default values.
+     * Instantiates a new ProvisioningSystem and sets the default values.
      * @param provisioningSystemParameterValue 
      */
     public constructor(provisioningSystemParameterValue?: ProvisioningSystem | undefined) {
         super(provisioningSystemParameterValue);
+        this.additionalData = provisioningSystemParameterValue?.additionalData ? provisioningSystemParameterValue?.additionalData! : {};
         this.details = provisioningSystemParameterValue?.details instanceof DetailsInfoImpl? provisioningSystemParameterValue?.details:new DetailsInfoImpl(provisioningSystemParameterValue?.details);
     };
     /**
@@ -35,5 +37,6 @@ export class ProvisioningSystemImpl extends IdentityImpl implements Provisioning
         if(this.details){
             writer.writeObjectValue<DetailsInfoImpl>("details", new DetailsInfoImpl(this.details));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

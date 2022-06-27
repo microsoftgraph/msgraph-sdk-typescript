@@ -6,14 +6,15 @@ import {ComplianceInformationImpl, EntityImpl, SecureScoreControlStateUpdateImpl
 import {SecureScoreControlProfile} from './secureScoreControlProfile';
 import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {SecurityVendorInformation} from './securityVendorInformation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton. */
 export class SecureScoreControlProfileImpl extends EntityImpl implements SecureScoreControlProfile {
     /** Control action type (Config, Review, Behavior). */
     public actionType?: string | undefined;
     /** URL to where the control can be actioned. */
     public actionUrl?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** GUID string for tenant ID. */
     public azureTenantId?: string | undefined;
     /** The collection of compliance information associated with secure score control */
@@ -49,13 +50,14 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
     /** The vendorInformation property */
     public vendorInformation?: SecurityVendorInformation | undefined;
     /**
-     * Instantiates a new secureScoreControlProfile and sets the default values.
+     * Instantiates a new SecureScoreControlProfile and sets the default values.
      * @param secureScoreControlProfileParameterValue 
      */
     public constructor(secureScoreControlProfileParameterValue?: SecureScoreControlProfile | undefined) {
         super(secureScoreControlProfileParameterValue);
         this.actionType = secureScoreControlProfileParameterValue?.actionType;
         this.actionUrl = secureScoreControlProfileParameterValue?.actionUrl;
+        this.additionalData = secureScoreControlProfileParameterValue?.additionalData ? secureScoreControlProfileParameterValue?.additionalData! : {};
         this.azureTenantId = secureScoreControlProfileParameterValue?.azureTenantId;
         const complianceInformationArrValue: ComplianceInformationImpl[] = []; secureScoreControlProfileParameterValue.complianceInformation?.forEach(element => {complianceInformationArrValue.push(element instanceof ComplianceInformationImpl? element : new ComplianceInformationImpl(element));});
         this.complianceInformation = complianceInformationArrValue;
@@ -167,5 +169,6 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         if(this.vendorInformation){
             writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

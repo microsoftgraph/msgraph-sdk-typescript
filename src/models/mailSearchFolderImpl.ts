@@ -1,8 +1,10 @@
 import {MailFolderImpl} from './index';
 import {MailSearchFolder} from './mailSearchFolder';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailSearchFolderImpl extends MailFolderImpl implements MailSearchFolder {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The OData query to filter the messages. */
     public filterQuery?: string | undefined;
     /** Indicates how the mailbox folder hierarchy should be traversed in the search. true means that a deep search should be done to include child folders in the hierarchy of each folder explicitly specified in sourceFolderIds. false means a shallow search of only each of the folders explicitly specified in sourceFolderIds. */
@@ -17,6 +19,7 @@ export class MailSearchFolderImpl extends MailFolderImpl implements MailSearchFo
      */
     public constructor(mailSearchFolderParameterValue?: MailSearchFolder | undefined) {
         super(mailSearchFolderParameterValue);
+        this.additionalData = mailSearchFolderParameterValue?.additionalData ? mailSearchFolderParameterValue?.additionalData! : {};
         this.filterQuery = mailSearchFolderParameterValue?.filterQuery;
         this.includeNestedFolders = mailSearchFolderParameterValue?.includeNestedFolders;
         this.isSupported = mailSearchFolderParameterValue?.isSupported;
@@ -53,5 +56,6 @@ export class MailSearchFolderImpl extends MailFolderImpl implements MailSearchFo
         if(this.sourceFolderIds){
             writer.writeCollectionOfPrimitiveValues<string>("sourceFolderIds", this.sourceFolderIds);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

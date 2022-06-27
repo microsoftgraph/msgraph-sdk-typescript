@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum AccessPackageAssignmentState {
     Delivering = "delivering",
     PartiallyDelivered = "partiallyDelivered",

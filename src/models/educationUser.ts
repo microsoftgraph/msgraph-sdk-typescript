@@ -16,11 +16,13 @@ import {PhysicalAddress} from './physicalAddress';
 import {ProvisionedPlan} from './provisionedPlan';
 import {RelatedContact} from './relatedContact';
 import {User} from './user';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationUser extends Entity, Partial<Parsable> {
+export interface EducationUser extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter. */
     accountEnabled?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The licenses that are assigned to the user. Not nullable. */
     assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable. */

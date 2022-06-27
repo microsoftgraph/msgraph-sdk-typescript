@@ -26,13 +26,15 @@ import {MediaContentRatingUnitedStates} from './mediaContentRatingUnitedStates';
 import {RatingAppsType} from './ratingAppsType';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl implements IosGeneralDeviceConfiguration {
     /** Indicates whether or not to allow account modification when the device is in supervised mode. */
     public accountBlockModification?: boolean | undefined;
     /** Indicates whether or not to allow activation lock when the device is in the supervised mode. */
     public activationLockAllowWhenSupervised?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to allow AirDrop when the device is in supervised mode. */
     public airDropBlocked?: boolean | undefined;
     /** Indicates whether or not to cause AirDrop to be considered an unmanaged drop target (iOS 9.0 and later). */
@@ -299,6 +301,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         super(iosGeneralDeviceConfigurationParameterValue);
         this.accountBlockModification = iosGeneralDeviceConfigurationParameterValue?.accountBlockModification;
         this.activationLockAllowWhenSupervised = iosGeneralDeviceConfigurationParameterValue?.activationLockAllowWhenSupervised;
+        this.additionalData = iosGeneralDeviceConfigurationParameterValue?.additionalData ? iosGeneralDeviceConfigurationParameterValue?.additionalData! : {};
         this.airDropBlocked = iosGeneralDeviceConfigurationParameterValue?.airDropBlocked;
         this.airDropForceUnmanagedDropTarget = iosGeneralDeviceConfigurationParameterValue?.airDropForceUnmanagedDropTarget;
         this.airPlayForcePairingPasswordForOutgoingRequests = iosGeneralDeviceConfigurationParameterValue?.airPlayForcePairingPasswordForOutgoingRequests;
@@ -972,5 +975,6 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(this.wiFiConnectOnlyToConfiguredNetworks){
             writer.writeBooleanValue("wiFiConnectOnlyToConfiguredNetworks", this.wiFiConnectOnlyToConfiguredNetworks);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

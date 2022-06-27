@@ -1,3 +1,3 @@
 export * from './findMeetingTimesPostRequestBodyImpl'
-export * from './findMeetingTimesPostRequestBody'
 export * from './findMeetingTimesRequestBuilderPostRequestConfiguration'
+export * from './findMeetingTimesPostRequestBody'

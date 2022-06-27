@@ -11,10 +11,12 @@ import {DriveItem} from './driveItem';
 import {ChatMessageImpl, ConversationMemberImpl, DriveItemImpl, EntityImpl, SharedWithChannelTeamInfoImpl, TeamsTabImpl} from './index';
 import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import {TeamsTab} from './teamsTab';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class ChannelImpl extends EntityImpl implements Channel {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Read only. Timestamp at which the channel was created. */
     public createdDateTime?: Date | undefined;
     /** Optional textual description for the channel. */
@@ -47,6 +49,7 @@ export class ChannelImpl extends EntityImpl implements Channel {
      */
     public constructor(channelParameterValue?: Channel | undefined) {
         super(channelParameterValue);
+        this.additionalData = channelParameterValue?.additionalData ? channelParameterValue?.additionalData! : {};
         this.createdDateTime = channelParameterValue?.createdDateTime;
         this.description = channelParameterValue?.description;
         this.displayName = channelParameterValue?.displayName;
@@ -132,5 +135,6 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

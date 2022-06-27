@@ -4,9 +4,11 @@ import {PrintJobConfiguration} from './printJobConfiguration';
 import {PrintJobStatus} from './printJobStatus';
 import {PrintTask} from './printTask';
 import {UserIdentity} from './userIdentity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrintJob extends Entity, Partial<Parsable> {
+export interface PrintJob extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The configuration property */
     configuration?: PrintJobConfiguration | undefined;
     /** The createdBy property */

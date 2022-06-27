@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {ManagedAppOperation} from './managedAppOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents an operation applied against an app registration. */
 export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The operation name. */
     public displayName?: string | undefined;
     /** The last time the app operation was modified. */
@@ -18,6 +20,7 @@ export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOpe
      */
     public constructor(managedAppOperationParameterValue?: ManagedAppOperation | undefined) {
         super(managedAppOperationParameterValue);
+        this.additionalData = managedAppOperationParameterValue?.additionalData ? managedAppOperationParameterValue?.additionalData! : {};
         this.displayName = managedAppOperationParameterValue?.displayName;
         this.lastModifiedDateTime = managedAppOperationParameterValue?.lastModifiedDateTime;
         this.state = managedAppOperationParameterValue?.state;
@@ -54,5 +57,6 @@ export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOpe
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

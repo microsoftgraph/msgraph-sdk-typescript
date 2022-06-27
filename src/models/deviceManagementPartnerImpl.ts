@@ -2,10 +2,12 @@ import {DeviceManagementPartner} from './deviceManagementPartner';
 import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity which represents a connection to device management partner. */
 export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceManagementPartner {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Partner display name */
     public displayName?: string | undefined;
     /** Whether device management partner is configured or not */
@@ -28,6 +30,7 @@ export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceMan
      */
     public constructor(deviceManagementPartnerParameterValue?: DeviceManagementPartner | undefined) {
         super(deviceManagementPartnerParameterValue);
+        this.additionalData = deviceManagementPartnerParameterValue?.additionalData ? deviceManagementPartnerParameterValue?.additionalData! : {};
         this.displayName = deviceManagementPartnerParameterValue?.displayName;
         this.isConfigured = deviceManagementPartnerParameterValue?.isConfigured;
         this.lastHeartbeatDateTime = deviceManagementPartnerParameterValue?.lastHeartbeatDateTime;
@@ -84,5 +87,6 @@ export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceMan
         if(this.whenPartnerDevicesWillBeRemovedDateTime){
             writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", this.whenPartnerDevicesWillBeRemovedDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

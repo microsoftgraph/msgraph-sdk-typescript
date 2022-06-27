@@ -2,9 +2,11 @@ import {IosDeviceType} from './iosDeviceType';
 import {MobileApp} from './mobileApp';
 import {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosVppApp extends MobileApp, Partial<Parsable> {
+export interface IosVppApp extends Partial<AdditionalDataHolder>, MobileApp, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The applicable iOS Device Type. */
     applicableDeviceType?: IosDeviceType | undefined;
     /** The store URL. */

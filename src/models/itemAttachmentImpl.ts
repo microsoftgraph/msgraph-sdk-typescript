@@ -2,9 +2,11 @@ import {createOutlookItemFromDiscriminatorValue} from './createOutlookItemFromDi
 import {AttachmentImpl, OutlookItemImpl} from './index';
 import {ItemAttachment} from './itemAttachment';
 import {OutlookItem} from './outlookItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemAttachmentImpl extends AttachmentImpl implements ItemAttachment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The attached contact, message or event. Navigation property. */
     public item?: OutlookItem | undefined;
     /**
@@ -13,6 +15,7 @@ export class ItemAttachmentImpl extends AttachmentImpl implements ItemAttachment
      */
     public constructor(itemAttachmentParameterValue?: ItemAttachment | undefined) {
         super(itemAttachmentParameterValue);
+        this.additionalData = itemAttachmentParameterValue?.additionalData ? itemAttachmentParameterValue?.additionalData! : {};
         this.item = itemAttachmentParameterValue?.item instanceof OutlookItemImpl? itemAttachmentParameterValue?.item:new OutlookItemImpl(itemAttachmentParameterValue?.item);
     };
     /**
@@ -34,5 +37,6 @@ export class ItemAttachmentImpl extends AttachmentImpl implements ItemAttachment
         if(this.item){
             writer.writeObjectValue<OutlookItemImpl>("item", new OutlookItemImpl(this.item));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

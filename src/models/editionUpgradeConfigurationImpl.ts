@@ -2,9 +2,11 @@ import {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {DeviceConfigurationImpl} from './index';
 import {Windows10EditionType} from './windows10EditionType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EditionUpgradeConfigurationImpl extends DeviceConfigurationImpl implements EditionUpgradeConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Edition Upgrade License File Content. */
     public license?: string | undefined;
     /** Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured. */
@@ -19,6 +21,7 @@ export class EditionUpgradeConfigurationImpl extends DeviceConfigurationImpl imp
      */
     public constructor(editionUpgradeConfigurationParameterValue?: EditionUpgradeConfiguration | undefined) {
         super(editionUpgradeConfigurationParameterValue);
+        this.additionalData = editionUpgradeConfigurationParameterValue?.additionalData ? editionUpgradeConfigurationParameterValue?.additionalData! : {};
         this.license = editionUpgradeConfigurationParameterValue?.license;
         this.licenseType = editionUpgradeConfigurationParameterValue?.licenseType;
         this.productKey = editionUpgradeConfigurationParameterValue?.productKey;
@@ -55,5 +58,6 @@ export class EditionUpgradeConfigurationImpl extends DeviceConfigurationImpl imp
         if(this.targetEdition){
             writer.writeEnumValue<Windows10EditionType>("targetEdition", this.targetEdition);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

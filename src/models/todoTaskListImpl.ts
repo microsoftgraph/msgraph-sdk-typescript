@@ -5,10 +5,12 @@ import {EntityImpl, ExtensionImpl, TodoTaskImpl} from './index';
 import {TodoTask} from './todoTask';
 import {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The name of the task list. */
     public displayName?: string | undefined;
     /** The collection of open extensions defined for the task list. Nullable. */
@@ -27,6 +29,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
      */
     public constructor(todoTaskListParameterValue?: TodoTaskList | undefined) {
         super(todoTaskListParameterValue);
+        this.additionalData = todoTaskListParameterValue?.additionalData ? todoTaskListParameterValue?.additionalData! : {};
         this.displayName = todoTaskListParameterValue?.displayName;
         const extensionsArrValue: ExtensionImpl[] = []; todoTaskListParameterValue.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
         this.extensions = extensionsArrValue;
@@ -75,5 +78,6 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         if(this.wellknownListName){
             writer.writeEnumValue<WellknownListName>("wellknownListName", this.wellknownListName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

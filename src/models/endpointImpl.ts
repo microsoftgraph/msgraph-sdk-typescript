@@ -1,9 +1,11 @@
 import {Endpoint} from './endpoint';
 import {DirectoryObjectImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class EndpointImpl extends DirectoryObjectImpl implements Endpoint {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only. */
     public capability?: string | undefined;
     /** Application id of the publishing underlying service. Not nullable. Read-only. */
@@ -20,6 +22,7 @@ export class EndpointImpl extends DirectoryObjectImpl implements Endpoint {
      */
     public constructor(endpointParameterValue?: Endpoint | undefined) {
         super(endpointParameterValue);
+        this.additionalData = endpointParameterValue?.additionalData ? endpointParameterValue?.additionalData! : {};
         this.capability = endpointParameterValue?.capability;
         this.providerId = endpointParameterValue?.providerId;
         this.providerName = endpointParameterValue?.providerName;
@@ -61,5 +64,6 @@ export class EndpointImpl extends DirectoryObjectImpl implements Endpoint {
         if(this.uri){
             writer.writeStringValue("uri", this.uri);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

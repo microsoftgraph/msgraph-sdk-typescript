@@ -2,10 +2,12 @@ import {createInferenceClassificationOverrideFromDiscriminatorValue} from './cre
 import {EntityImpl, InferenceClassificationOverrideImpl} from './index';
 import {InferenceClassification} from './inferenceClassification';
 import {InferenceClassificationOverride} from './inferenceClassificationOverride';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class InferenceClassificationImpl extends EntityImpl implements InferenceClassification {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable. */
     public overrides?: InferenceClassificationOverride[] | undefined;
     /**
@@ -14,6 +16,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
      */
     public constructor(inferenceClassificationParameterValue?: InferenceClassification | undefined) {
         super(inferenceClassificationParameterValue);
+        this.additionalData = inferenceClassificationParameterValue?.additionalData ? inferenceClassificationParameterValue?.additionalData! : {};
         const overridesArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationParameterValue.overrides?.forEach(element => {overridesArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
         this.overrides = overridesArrValue;
     };
@@ -36,5 +39,6 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
         if(this.overrides && this.overrides.length != 0){        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; this.overrides?.forEach(element => {overridesArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
             writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("overrides", overridesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

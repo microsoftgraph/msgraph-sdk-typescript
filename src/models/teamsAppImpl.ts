@@ -3,10 +3,12 @@ import {EntityImpl, TeamsAppDefinitionImpl} from './index';
 import {TeamsApp} from './teamsApp';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
 export class TeamsAppImpl extends EntityImpl implements TeamsApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The details for each version of the app. */
     public appDefinitions?: TeamsAppDefinition[] | undefined;
     /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */
@@ -21,6 +23,7 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
      */
     public constructor(teamsAppParameterValue?: TeamsApp | undefined) {
         super(teamsAppParameterValue);
+        this.additionalData = teamsAppParameterValue?.additionalData ? teamsAppParameterValue?.additionalData! : {};
         const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = []; teamsAppParameterValue.appDefinitions?.forEach(element => {appDefinitionsArrValue.push(element instanceof TeamsAppDefinitionImpl? element : new TeamsAppDefinitionImpl(element));});
         this.appDefinitions = appDefinitionsArrValue;
         this.displayName = teamsAppParameterValue?.displayName;
@@ -58,5 +61,6 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
         if(this.externalId){
             writer.writeStringValue("externalId", this.externalId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

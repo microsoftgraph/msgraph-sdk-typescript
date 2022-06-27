@@ -6,12 +6,14 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {Identity} from './identity';
 import {AccessReviewInstanceDecisionItemResourceImpl, EntityImpl, IdentityImpl, UserIdentityImpl} from './index';
 import {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements AccessReviewInstanceDecisionItem {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
     public accessReviewId?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The identifier of the user who applied the decision. Read-only. */
     public appliedBy?: UserIdentity | undefined;
     /** The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only. */
@@ -43,6 +45,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
     public constructor(accessReviewInstanceDecisionItemParameterValue?: AccessReviewInstanceDecisionItem | undefined) {
         super(accessReviewInstanceDecisionItemParameterValue);
         this.accessReviewId = accessReviewInstanceDecisionItemParameterValue?.accessReviewId;
+        this.additionalData = accessReviewInstanceDecisionItemParameterValue?.additionalData ? accessReviewInstanceDecisionItemParameterValue?.additionalData! : {};
         this.appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy instanceof UserIdentityImpl? accessReviewInstanceDecisionItemParameterValue?.appliedBy:new UserIdentityImpl(accessReviewInstanceDecisionItemParameterValue?.appliedBy);
         this.appliedDateTime = accessReviewInstanceDecisionItemParameterValue?.appliedDateTime;
         this.applyResult = accessReviewInstanceDecisionItemParameterValue?.applyResult;
@@ -123,5 +126,6 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
         if(this.reviewedDateTime){
             writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

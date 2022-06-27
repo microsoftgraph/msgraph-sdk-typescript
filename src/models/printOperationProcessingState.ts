@@ -1,4 +1,4 @@
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum PrintOperationProcessingState {
     NotStarted = "notStarted",
     Running = "running",

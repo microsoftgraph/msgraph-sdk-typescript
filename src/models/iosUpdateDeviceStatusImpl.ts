@@ -2,10 +2,12 @@ import {ComplianceStatus} from './complianceStatus';
 import {EntityImpl} from './index';
 import {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDeviceStatus {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -34,6 +36,7 @@ export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDe
      */
     public constructor(iosUpdateDeviceStatusParameterValue?: IosUpdateDeviceStatus | undefined) {
         super(iosUpdateDeviceStatusParameterValue);
+        this.additionalData = iosUpdateDeviceStatusParameterValue?.additionalData ? iosUpdateDeviceStatusParameterValue?.additionalData! : {};
         this.complianceGracePeriodExpirationDateTime = iosUpdateDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
         this.deviceDisplayName = iosUpdateDeviceStatusParameterValue?.deviceDisplayName;
         this.deviceId = iosUpdateDeviceStatusParameterValue?.deviceId;
@@ -105,5 +108,6 @@ export class IosUpdateDeviceStatusImpl extends EntityImpl implements IosUpdateDe
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

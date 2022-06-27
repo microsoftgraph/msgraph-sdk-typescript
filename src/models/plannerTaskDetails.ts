@@ -2,9 +2,11 @@ import {Entity} from './entity';
 import {PlannerChecklistItems} from './plannerChecklistItems';
 import {PlannerExternalReferences} from './plannerExternalReferences';
 import {PlannerPreviewType} from './plannerPreviewType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PlannerTaskDetails extends Entity, Partial<Parsable> {
+export interface PlannerTaskDetails extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The collection of checklist items on the task. */
     checklist?: PlannerChecklistItems | undefined;
     /** Description of the task. */

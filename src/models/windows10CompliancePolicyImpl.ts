@@ -1,9 +1,11 @@
 import {DeviceCompliancePolicyImpl} from './index';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {Windows10CompliancePolicy} from './windows10CompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10CompliancePolicyImpl extends DeviceCompliancePolicyImpl implements Windows10CompliancePolicy {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled */
     public bitLockerEnabled?: boolean | undefined;
     /** Require devices to be reported as healthy by Windows Device Health Attestation. */
@@ -48,6 +50,7 @@ export class Windows10CompliancePolicyImpl extends DeviceCompliancePolicyImpl im
      */
     public constructor(windows10CompliancePolicyParameterValue?: Windows10CompliancePolicy | undefined) {
         super(windows10CompliancePolicyParameterValue);
+        this.additionalData = windows10CompliancePolicyParameterValue?.additionalData ? windows10CompliancePolicyParameterValue?.additionalData! : {};
         this.bitLockerEnabled = windows10CompliancePolicyParameterValue?.bitLockerEnabled;
         this.codeIntegrityEnabled = windows10CompliancePolicyParameterValue?.codeIntegrityEnabled;
         this.earlyLaunchAntiMalwareDriverEnabled = windows10CompliancePolicyParameterValue?.earlyLaunchAntiMalwareDriverEnabled;
@@ -159,5 +162,6 @@ export class Windows10CompliancePolicyImpl extends DeviceCompliancePolicyImpl im
         if(this.storageRequireEncryption){
             writer.writeBooleanValue("storageRequireEncryption", this.storageRequireEncryption);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

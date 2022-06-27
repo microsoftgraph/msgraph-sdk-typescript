@@ -1,15 +1,18 @@
 import {AgreementFileVersion} from './agreementFileVersion';
 import {AgreementFilePropertiesImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileVersionImpl extends AgreementFilePropertiesImpl implements AgreementFileVersion {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new agreementFileVersion and sets the default values.
      * @param agreementFileVersionParameterValue 
      */
     public constructor(agreementFileVersionParameterValue?: AgreementFileVersion | undefined) {
         super(agreementFileVersionParameterValue);
+        this.additionalData = agreementFileVersionParameterValue?.additionalData ? agreementFileVersionParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -26,5 +29,6 @@ export class AgreementFileVersionImpl extends AgreementFilePropertiesImpl implem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

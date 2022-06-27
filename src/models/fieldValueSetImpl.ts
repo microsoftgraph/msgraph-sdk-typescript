@@ -1,15 +1,18 @@
 import {FieldValueSet} from './fieldValueSet';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class FieldValueSetImpl extends EntityImpl implements FieldValueSet {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new fieldValueSet and sets the default values.
      * @param fieldValueSetParameterValue 
      */
     public constructor(fieldValueSetParameterValue?: FieldValueSet | undefined) {
         super(fieldValueSetParameterValue);
+        this.additionalData = fieldValueSetParameterValue?.additionalData ? fieldValueSetParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -26,5 +29,6 @@ export class FieldValueSetImpl extends EntityImpl implements FieldValueSet {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

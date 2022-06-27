@@ -19,11 +19,13 @@ import {SecurityVendorInformation} from './securityVendorInformation';
 import {UriClickSecurityState} from './uriClickSecurityState';
 import {UserSecurityState} from './userSecurityState';
 import {VulnerabilityState} from './vulnerabilityState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Alert extends Entity, Partial<Parsable> {
+export interface Alert extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
     activityGroupName?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The alertDetections property */
     alertDetections?: AlertDetection[] | undefined;
     /** Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update). */

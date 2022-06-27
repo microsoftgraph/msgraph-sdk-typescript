@@ -4,9 +4,11 @@ import {PrinterDefaults} from './printerDefaults';
 import {PrinterLocation} from './printerLocation';
 import {PrinterStatus} from './printerStatus';
 import {PrintJob} from './printJob';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrinterBase extends Entity, Partial<Parsable> {
+export interface PrinterBase extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The capabilities of the printer/printerShare. */
     capabilities?: PrinterCapabilities | undefined;
     /** The default print settings of printer/printerShare. */

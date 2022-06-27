@@ -4,10 +4,11 @@ import {createPrintTaskFromDiscriminatorValue} from './createPrintTaskFromDiscri
 import {AppIdentityImpl, EntityImpl, PrintTaskImpl} from './index';
 import {PrintTask} from './printTask';
 import {PrintTaskDefinition} from './printTaskDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefinition {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The createdBy property */
     public createdBy?: AppIdentity | undefined;
     /** The name of the printTaskDefinition. */
@@ -15,11 +16,12 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
     /** A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only. */
     public tasks?: PrintTask[] | undefined;
     /**
-     * Instantiates a new printTaskDefinition and sets the default values.
+     * Instantiates a new PrintTaskDefinition and sets the default values.
      * @param printTaskDefinitionParameterValue 
      */
     public constructor(printTaskDefinitionParameterValue?: PrintTaskDefinition | undefined) {
         super(printTaskDefinitionParameterValue);
+        this.additionalData = printTaskDefinitionParameterValue?.additionalData ? printTaskDefinitionParameterValue?.additionalData! : {};
         this.createdBy = printTaskDefinitionParameterValue?.createdBy instanceof AppIdentityImpl? printTaskDefinitionParameterValue?.createdBy:new AppIdentityImpl(printTaskDefinitionParameterValue?.createdBy);
         this.displayName = printTaskDefinitionParameterValue?.displayName;
         const tasksArrValue: PrintTaskImpl[] = []; printTaskDefinitionParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
@@ -52,5 +54,6 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

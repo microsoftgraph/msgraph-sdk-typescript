@@ -2,9 +2,11 @@ import {ConversationMember} from './conversationMember';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
 import {ConversationMemberImpl, TeamInfoImpl} from './index';
 import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharedWithChannelTeamInfoImpl extends TeamInfoImpl implements SharedWithChannelTeamInfo {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** A collection of team members who have access to the shared channel. */
     public allowedMembers?: ConversationMember[] | undefined;
     /** Indicates whether the team is the host of the channel. */
@@ -15,6 +17,7 @@ export class SharedWithChannelTeamInfoImpl extends TeamInfoImpl implements Share
      */
     public constructor(sharedWithChannelTeamInfoParameterValue?: SharedWithChannelTeamInfo | undefined) {
         super(sharedWithChannelTeamInfoParameterValue);
+        this.additionalData = sharedWithChannelTeamInfoParameterValue?.additionalData ? sharedWithChannelTeamInfoParameterValue?.additionalData! : {};
         const allowedMembersArrValue: ConversationMemberImpl[] = []; sharedWithChannelTeamInfoParameterValue.allowedMembers?.forEach(element => {allowedMembersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
         this.allowedMembers = allowedMembersArrValue;
         this.isHostTeam = sharedWithChannelTeamInfoParameterValue?.isHostTeam;
@@ -42,5 +45,6 @@ export class SharedWithChannelTeamInfoImpl extends TeamInfoImpl implements Share
         if(this.isHostTeam){
             writer.writeBooleanValue("isHostTeam", this.isHostTeam);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,9 +2,11 @@ import {Entity} from './entity';
 import {Extension} from './extension';
 import {TodoTask} from './todoTask';
 import {WellknownListName} from './wellknownListName';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TodoTaskList extends Entity, Partial<Parsable> {
+export interface TodoTaskList extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The name of the task list. */
     displayName?: string | undefined;
     /** The collection of open extensions defined for the task list. Nullable. */

@@ -4,10 +4,12 @@ import {createPublicationFacetFromDiscriminatorValue} from './createPublicationF
 import {IdentitySet} from './identitySet';
 import {EntityImpl, IdentitySetImpl, PublicationFacetImpl} from './index';
 import {PublicationFacet} from './publicationFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Identity of the user which last modified the version. Read-only. */
     public lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the version was last modified. Read-only. */
@@ -20,6 +22,7 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
      */
     public constructor(baseItemVersionParameterValue?: BaseItemVersion | undefined) {
         super(baseItemVersionParameterValue);
+        this.additionalData = baseItemVersionParameterValue?.additionalData ? baseItemVersionParameterValue?.additionalData! : {};
         this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy instanceof IdentitySetImpl? baseItemVersionParameterValue?.lastModifiedBy:new IdentitySetImpl(baseItemVersionParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime;
         this.publication = baseItemVersionParameterValue?.publication instanceof PublicationFacetImpl? baseItemVersionParameterValue?.publication:new PublicationFacetImpl(baseItemVersionParameterValue?.publication);
@@ -51,5 +54,6 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
         if(this.publication){
             writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

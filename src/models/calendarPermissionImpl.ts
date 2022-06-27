@@ -3,10 +3,12 @@ import {CalendarRoleType} from './calendarRoleType';
 import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
 import {EmailAddress} from './emailAddress';
 import {EmailAddressImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class CalendarPermissionImpl extends EntityImpl implements CalendarPermission {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     public allowedRoles?: string[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
@@ -23,6 +25,7 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
      */
     public constructor(calendarPermissionParameterValue?: CalendarPermission | undefined) {
         super(calendarPermissionParameterValue);
+        this.additionalData = calendarPermissionParameterValue?.additionalData ? calendarPermissionParameterValue?.additionalData! : {};
         this.allowedRoles = calendarPermissionParameterValue?.allowedRoles;
         this.emailAddress = calendarPermissionParameterValue?.emailAddress instanceof EmailAddressImpl? calendarPermissionParameterValue?.emailAddress:new EmailAddressImpl(calendarPermissionParameterValue?.emailAddress);
         this.isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization;
@@ -64,5 +67,6 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
         if(this.role){
             writer.writeEnumValue<CalendarRoleType>("role", this.role);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,10 +2,12 @@ import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorVal
 import {EntityImpl, TeamImpl} from './index';
 import {Team} from './team';
 import {TeamInfo} from './teamInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class TeamInfoImpl extends EntityImpl implements TeamInfo {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The name of the team. */
     public displayName?: string | undefined;
     /** The team property */
@@ -18,6 +20,7 @@ export class TeamInfoImpl extends EntityImpl implements TeamInfo {
      */
     public constructor(teamInfoParameterValue?: TeamInfo | undefined) {
         super(teamInfoParameterValue);
+        this.additionalData = teamInfoParameterValue?.additionalData ? teamInfoParameterValue?.additionalData! : {};
         this.displayName = teamInfoParameterValue?.displayName;
         this.team = teamInfoParameterValue?.team instanceof TeamImpl? teamInfoParameterValue?.team:new TeamImpl(teamInfoParameterValue?.team);
         this.tenantId = teamInfoParameterValue?.tenantId;
@@ -49,5 +52,6 @@ export class TeamInfoImpl extends EntityImpl implements TeamInfo {
         if(this.tenantId){
             writer.writeStringValue("tenantId", this.tenantId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

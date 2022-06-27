@@ -55,10 +55,12 @@ import {Subscription} from './subscription';
 import {ThumbnailSet} from './thumbnailSet';
 import {Video} from './video';
 import {Workbook} from './workbook';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class DriveItemImpl extends BaseItemImpl implements DriveItem {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Analytics about the view activities that took place on this item. */
     public analytics?: ItemAnalytics | undefined;
     /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
@@ -129,6 +131,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public constructor(driveItemParameterValue?: DriveItem | undefined) {
         super(driveItemParameterValue);
+        this.additionalData = driveItemParameterValue?.additionalData ? driveItemParameterValue?.additionalData! : {};
         this.analytics = driveItemParameterValue?.analytics instanceof ItemAnalyticsImpl? driveItemParameterValue?.analytics:new ItemAnalyticsImpl(driveItemParameterValue?.analytics);
         this.audio = driveItemParameterValue?.audio instanceof AudioImpl? driveItemParameterValue?.audio:new AudioImpl(driveItemParameterValue?.audio);
         this.bundle = driveItemParameterValue?.bundle instanceof BundleImpl? driveItemParameterValue?.bundle:new BundleImpl(driveItemParameterValue?.bundle);
@@ -310,5 +313,6 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(this.workbook){
             writer.writeObjectValue<WorkbookImpl>("workbook", new WorkbookImpl(this.workbook));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

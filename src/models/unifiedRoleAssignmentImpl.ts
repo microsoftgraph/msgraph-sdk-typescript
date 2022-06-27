@@ -6,10 +6,12 @@ import {DirectoryObject} from './directoryObject';
 import {AppScopeImpl, DirectoryObjectImpl, EntityImpl, UnifiedRoleDefinitionImpl} from './index';
 import {UnifiedRoleAssignment} from './unifiedRoleAssignment';
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRoleAssignment {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Details of the app specific scope when the assignment scope is app specific. Containment entity. */
     public appScope?: AppScope | undefined;
     /** Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.  For the entitlement management provider, use app scopes to specify a catalog, for example /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. */
@@ -34,6 +36,7 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
      */
     public constructor(unifiedRoleAssignmentParameterValue?: UnifiedRoleAssignment | undefined) {
         super(unifiedRoleAssignmentParameterValue);
+        this.additionalData = unifiedRoleAssignmentParameterValue?.additionalData ? unifiedRoleAssignmentParameterValue?.additionalData! : {};
         this.appScope = unifiedRoleAssignmentParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleAssignmentParameterValue?.appScope:new AppScopeImpl(unifiedRoleAssignmentParameterValue?.appScope);
         this.appScopeId = unifiedRoleAssignmentParameterValue?.appScopeId;
         this.condition = unifiedRoleAssignmentParameterValue?.condition;
@@ -95,5 +98,6 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
         if(this.roleDefinitionId){
             writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

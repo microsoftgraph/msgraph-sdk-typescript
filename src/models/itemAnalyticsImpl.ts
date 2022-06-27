@@ -2,10 +2,12 @@ import {createItemActivityStatFromDiscriminatorValue} from './createItemActivity
 import {EntityImpl, ItemActivityStatImpl} from './index';
 import {ItemActivityStat} from './itemActivityStat';
 import {ItemAnalytics} from './itemAnalytics';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The allTime property */
     public allTime?: ItemActivityStat | undefined;
     /** The itemActivityStats property */
@@ -18,6 +20,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
      */
     public constructor(itemAnalyticsParameterValue?: ItemAnalytics | undefined) {
         super(itemAnalyticsParameterValue);
+        this.additionalData = itemAnalyticsParameterValue?.additionalData ? itemAnalyticsParameterValue?.additionalData! : {};
         this.allTime = itemAnalyticsParameterValue?.allTime instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.allTime:new ItemActivityStatImpl(itemAnalyticsParameterValue?.allTime);
         const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; itemAnalyticsParameterValue.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
         this.itemActivityStats = itemActivityStatsArrValue;
@@ -50,5 +53,6 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
         if(this.lastSevenDays){
             writer.writeObjectValue<ItemActivityStatImpl>("lastSevenDays", new ItemActivityStatImpl(this.lastSevenDays));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

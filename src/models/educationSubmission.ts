@@ -4,9 +4,11 @@ import {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationSubmission extends Entity, Partial<Parsable> {
+export interface EducationSubmission extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The outcomes property */
     outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */

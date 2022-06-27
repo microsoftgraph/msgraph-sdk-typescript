@@ -2,18 +2,20 @@ import {createPrintServiceEndpointFromDiscriminatorValue} from './createPrintSer
 import {EntityImpl, PrintServiceEndpointImpl} from './index';
 import {PrintService} from './printService';
 import {PrintServiceEndpoint} from './printServiceEndpoint';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintServiceImpl extends EntityImpl implements PrintService {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Endpoints that can be used to access the service. Read-only. Nullable. */
     public endpoints?: PrintServiceEndpoint[] | undefined;
     /**
-     * Instantiates a new printService and sets the default values.
+     * Instantiates a new PrintService and sets the default values.
      * @param printServiceParameterValue 
      */
     public constructor(printServiceParameterValue?: PrintService | undefined) {
         super(printServiceParameterValue);
+        this.additionalData = printServiceParameterValue?.additionalData ? printServiceParameterValue?.additionalData! : {};
         const endpointsArrValue: PrintServiceEndpointImpl[] = []; printServiceParameterValue.endpoints?.forEach(element => {endpointsArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
         this.endpoints = endpointsArrValue;
     };
@@ -36,5 +38,6 @@ export class PrintServiceImpl extends EntityImpl implements PrintService {
         if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: PrintServiceEndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
             writer.writeCollectionOfObjectValues<PrintServiceEndpointImpl>("endpoints", endpointsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

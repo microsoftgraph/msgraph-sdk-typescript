@@ -3,11 +3,13 @@ import {AgreementFile} from './agreementFile';
 import {AgreementFileLocalization} from './agreementFileLocalization';
 import {Entity} from './entity';
 import {TermsExpiration} from './termsExpiration';
-import {Duration, Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Agreement extends Entity, Partial<Parsable> {
+export interface Agreement extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Read-only. Information about acceptances of this agreement. */
     acceptances?: AgreementAcceptance[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq). */
     displayName?: string | undefined;
     /** Default PDF linked to this agreement. */

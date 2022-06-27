@@ -4,10 +4,12 @@ import {EntityImpl, WorkbookChartFillImpl, WorkbookChartFontImpl} from './index'
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartLegendFormatImpl extends EntityImpl implements WorkbookChartLegendFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the fill format of an object, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
@@ -18,6 +20,7 @@ export class WorkbookChartLegendFormatImpl extends EntityImpl implements Workboo
      */
     public constructor(workbookChartLegendFormatParameterValue?: WorkbookChartLegendFormat | undefined) {
         super(workbookChartLegendFormatParameterValue);
+        this.additionalData = workbookChartLegendFormatParameterValue?.additionalData ? workbookChartLegendFormatParameterValue?.additionalData! : {};
         this.fill = workbookChartLegendFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartLegendFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartLegendFormatParameterValue?.fill);
         this.font = workbookChartLegendFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartLegendFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartLegendFormatParameterValue?.font);
     };
@@ -44,5 +47,6 @@ export class WorkbookChartLegendFormatImpl extends EntityImpl implements Workboo
         if(this.font){
             writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

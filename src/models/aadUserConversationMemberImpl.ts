@@ -2,9 +2,11 @@ import {AadUserConversationMember} from './aadUserConversationMember';
 import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
 import {ConversationMemberImpl, UserImpl} from './index';
 import {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AadUserConversationMemberImpl extends ConversationMemberImpl implements AadUserConversationMember {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The email address of the user. */
     public email?: string | undefined;
     /** TenantId which the Azure AD user belongs to. */
@@ -19,6 +21,7 @@ export class AadUserConversationMemberImpl extends ConversationMemberImpl implem
      */
     public constructor(aadUserConversationMemberParameterValue?: AadUserConversationMember | undefined) {
         super(aadUserConversationMemberParameterValue);
+        this.additionalData = aadUserConversationMemberParameterValue?.additionalData ? aadUserConversationMemberParameterValue?.additionalData! : {};
         this.email = aadUserConversationMemberParameterValue?.email;
         this.tenantId = aadUserConversationMemberParameterValue?.tenantId;
         this.user = aadUserConversationMemberParameterValue?.user instanceof UserImpl? aadUserConversationMemberParameterValue?.user:new UserImpl(aadUserConversationMemberParameterValue?.user);
@@ -55,5 +58,6 @@ export class AadUserConversationMemberImpl extends ConversationMemberImpl implem
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

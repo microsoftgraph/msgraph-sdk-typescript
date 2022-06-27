@@ -38,12 +38,14 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class ApplicationImpl extends DirectoryObjectImpl implements Application {
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on. */
     public addIns?: AddIn[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Specifies settings for an application that implements a web API. */
     public api?: ApiApplication | undefined;
     /** The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. */
@@ -126,6 +128,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         super(applicationParameterValue);
         const addInsArrValue: AddInImpl[] = []; applicationParameterValue.addIns?.forEach(element => {addInsArrValue.push(element instanceof AddInImpl? element : new AddInImpl(element));});
         this.addIns = addInsArrValue;
+        this.additionalData = applicationParameterValue?.additionalData ? applicationParameterValue?.additionalData! : {};
         this.api = applicationParameterValue?.api instanceof ApiApplicationImpl? applicationParameterValue?.api:new ApiApplicationImpl(applicationParameterValue?.api);
         this.appId = applicationParameterValue?.appId;
         this.applicationTemplateId = applicationParameterValue?.applicationTemplateId;
@@ -340,5 +343,6 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(this.web){
             writer.writeObjectValue<WebApplicationImpl>("web", new WebApplicationImpl(this.web));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

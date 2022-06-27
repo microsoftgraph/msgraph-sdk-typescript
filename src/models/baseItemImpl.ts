@@ -6,10 +6,11 @@ import {IdentitySet} from './identitySet';
 import {EntityImpl, IdentitySetImpl, ItemReferenceImpl, UserImpl} from './index';
 import {ItemReference} from './itemReference';
 import {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class BaseItemImpl extends EntityImpl implements BaseItem {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Identity of the user, device, or application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;
     /** Identity of the user who created the item. Read-only. */
@@ -33,11 +34,12 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
     /** URL that displays the resource in the browser. Read-only. */
     public webUrl?: string | undefined;
     /**
-     * Instantiates a new baseItem and sets the default values.
+     * Instantiates a new BaseItem and sets the default values.
      * @param baseItemParameterValue 
      */
     public constructor(baseItemParameterValue?: BaseItem | undefined) {
         super(baseItemParameterValue);
+        this.additionalData = baseItemParameterValue?.additionalData ? baseItemParameterValue?.additionalData! : {};
         this.createdBy = baseItemParameterValue?.createdBy instanceof IdentitySetImpl? baseItemParameterValue?.createdBy:new IdentitySetImpl(baseItemParameterValue?.createdBy);
         this.createdByUser = baseItemParameterValue?.createdByUser instanceof UserImpl? baseItemParameterValue?.createdByUser:new UserImpl(baseItemParameterValue?.createdByUser);
         this.createdDateTime = baseItemParameterValue?.createdDateTime;
@@ -109,5 +111,6 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

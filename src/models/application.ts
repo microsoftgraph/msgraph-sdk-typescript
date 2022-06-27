@@ -17,11 +17,13 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Application extends DirectoryObject, Partial<Parsable> {
+export interface Application extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on. */
     addIns?: AddIn[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Specifies settings for an application that implements a web API. */
     api?: ApiApplication | undefined;
     /** The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. */

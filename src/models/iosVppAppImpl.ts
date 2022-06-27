@@ -5,9 +5,11 @@ import {IosDeviceType} from './iosDeviceType';
 import {IosVppApp} from './iosVppApp';
 import {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The applicable iOS Device Type. */
     public applicableDeviceType?: IosDeviceType | undefined;
     /** The store URL. */
@@ -34,6 +36,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
      */
     public constructor(iosVppAppParameterValue?: IosVppApp | undefined) {
         super(iosVppAppParameterValue);
+        this.additionalData = iosVppAppParameterValue?.additionalData ? iosVppAppParameterValue?.additionalData! : {};
         this.applicableDeviceType = iosVppAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? iosVppAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(iosVppAppParameterValue?.applicableDeviceType);
         this.appStoreUrl = iosVppAppParameterValue?.appStoreUrl;
         this.bundleId = iosVppAppParameterValue?.bundleId;
@@ -100,5 +103,6 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
         if(this.vppTokenOrganizationName){
             writer.writeStringValue("vppTokenOrganizationName", this.vppTokenOrganizationName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

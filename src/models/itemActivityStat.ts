@@ -2,13 +2,15 @@ import {Entity} from './entity';
 import {IncompleteData} from './incompleteData';
 import {ItemActionStat} from './itemActionStat';
 import {ItemActivity} from './itemActivity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ItemActivityStat extends Entity, Partial<Parsable> {
+export interface ItemActivityStat extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Statistics about the access actions in this interval. Read-only. */
     access?: ItemActionStat | undefined;
     /** Exposes the itemActivities represented in this itemActivityStat resource. */
     activities?: ItemActivity[] | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Statistics about the create actions in this interval. Read-only. */
     create?: ItemActionStat | undefined;
     /** Statistics about the delete actions in this interval. Read-only. */

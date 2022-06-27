@@ -19,10 +19,11 @@ import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Team} from './team';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRightsRequest {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Identity that the request is assigned to. */
     public assignedTo?: Identity | undefined;
     /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
@@ -62,11 +63,12 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
     /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue. */
     public type?: SubjectRightsRequestType | undefined;
     /**
-     * Instantiates a new subjectRightsRequest and sets the default values.
+     * Instantiates a new SubjectRightsRequest and sets the default values.
      * @param subjectRightsRequestParameterValue 
      */
     public constructor(subjectRightsRequestParameterValue?: SubjectRightsRequest | undefined) {
         super(subjectRightsRequestParameterValue);
+        this.additionalData = subjectRightsRequestParameterValue?.additionalData ? subjectRightsRequestParameterValue?.additionalData! : {};
         this.assignedTo = subjectRightsRequestParameterValue?.assignedTo instanceof IdentityImpl? subjectRightsRequestParameterValue?.assignedTo:new IdentityImpl(subjectRightsRequestParameterValue?.assignedTo);
         this.closedDateTime = subjectRightsRequestParameterValue?.closedDateTime;
         this.createdBy = subjectRightsRequestParameterValue?.createdBy instanceof IdentitySetImpl? subjectRightsRequestParameterValue?.createdBy:new IdentitySetImpl(subjectRightsRequestParameterValue?.createdBy);
@@ -181,5 +183,6 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
         if(this.type){
             writer.writeEnumValue<SubjectRightsRequestType>("type", this.type);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

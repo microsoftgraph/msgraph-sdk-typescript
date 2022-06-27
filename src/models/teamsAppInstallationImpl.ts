@@ -4,10 +4,12 @@ import {EntityImpl, TeamsAppDefinitionImpl, TeamsAppImpl} from './index';
 import {TeamsApp} from './teamsApp';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppInstallation} from './teamsAppInstallation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInstallation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The app that is installed. */
     public teamsApp?: TeamsApp | undefined;
     /** The details of this version of the app. */
@@ -18,6 +20,7 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
      */
     public constructor(teamsAppInstallationParameterValue?: TeamsAppInstallation | undefined) {
         super(teamsAppInstallationParameterValue);
+        this.additionalData = teamsAppInstallationParameterValue?.additionalData ? teamsAppInstallationParameterValue?.additionalData! : {};
         this.teamsApp = teamsAppInstallationParameterValue?.teamsApp instanceof TeamsAppImpl? teamsAppInstallationParameterValue?.teamsApp:new TeamsAppImpl(teamsAppInstallationParameterValue?.teamsApp);
         this.teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition instanceof TeamsAppDefinitionImpl? teamsAppInstallationParameterValue?.teamsAppDefinition:new TeamsAppDefinitionImpl(teamsAppInstallationParameterValue?.teamsAppDefinition);
     };
@@ -44,5 +47,6 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
         if(this.teamsAppDefinition){
             writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", new TeamsAppDefinitionImpl(this.teamsAppDefinition));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

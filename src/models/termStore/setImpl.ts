@@ -11,10 +11,12 @@ import {LocalizedName} from './localizedName';
 import {Relation} from './relation';
 import {Set} from './set';
 import {Term} from './term';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class SetImpl extends EntityImpl implements Set {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Children terms of set in term [store]. */
     public children?: Term[] | undefined;
     /** Date and time of set creation. Read-only. */
@@ -37,6 +39,7 @@ export class SetImpl extends EntityImpl implements Set {
      */
     public constructor(setParameterValue?: Set | undefined) {
         super(setParameterValue);
+        this.additionalData = setParameterValue?.additionalData ? setParameterValue?.additionalData! : {};
         const childrenArrValue: TermImpl[] = []; setParameterValue.children?.forEach(element => {childrenArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
         this.children = childrenArrValue;
         this.createdDateTime = setParameterValue?.createdDateTime;
@@ -98,5 +101,6 @@ export class SetImpl extends EntityImpl implements Set {
         if(this.terms && this.terms.length != 0){        const termsArrValue: TermImpl[] = []; this.terms?.forEach(element => {termsArrValue.push(element instanceof TermImpl? element : new TermImpl(element));});
             writer.writeCollectionOfObjectValues<TermImpl>("terms", termsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

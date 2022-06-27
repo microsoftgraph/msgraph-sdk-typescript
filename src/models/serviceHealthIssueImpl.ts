@@ -5,9 +5,11 @@ import {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implements ServiceHealthIssue {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The type of service health issue. Possible values are: advisory, incident, unknownFutureValue. */
     public classification?: ServiceHealthClassificationType | undefined;
     /** The feature name of the service issue. */
@@ -32,6 +34,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
      */
     public constructor(serviceHealthIssueParameterValue?: ServiceHealthIssue | undefined) {
         super(serviceHealthIssueParameterValue);
+        this.additionalData = serviceHealthIssueParameterValue?.additionalData ? serviceHealthIssueParameterValue?.additionalData! : {};
         this.classification = serviceHealthIssueParameterValue?.classification;
         this.feature = serviceHealthIssueParameterValue?.feature;
         this.featureGroup = serviceHealthIssueParameterValue?.featureGroup;
@@ -94,5 +97,6 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         if(this.status){
             writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

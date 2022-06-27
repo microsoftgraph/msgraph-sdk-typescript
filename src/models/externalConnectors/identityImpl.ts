@@ -1,10 +1,12 @@
 import {EntityImpl} from '../';
 import {Identity} from './identity';
 import {IdentityType} from './identityType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class IdentityImpl extends EntityImpl implements Identity {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system. */
     public type?: IdentityType | undefined;
     /**
@@ -13,6 +15,7 @@ export class IdentityImpl extends EntityImpl implements Identity {
      */
     public constructor(identityParameterValue?: Identity | undefined) {
         super(identityParameterValue);
+        this.additionalData = identityParameterValue?.additionalData ? identityParameterValue?.additionalData! : {};
         this.type = identityParameterValue?.type;
     };
     /**
@@ -34,5 +37,6 @@ export class IdentityImpl extends EntityImpl implements Identity {
         if(this.type){
             writer.writeEnumValue<IdentityType>("type", this.type);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

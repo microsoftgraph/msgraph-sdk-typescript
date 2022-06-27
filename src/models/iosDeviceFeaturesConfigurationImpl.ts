@@ -6,9 +6,11 @@ import {IosDeviceFeaturesConfiguration} from './iosDeviceFeaturesConfiguration';
 import {IosHomeScreenItem} from './iosHomeScreenItem';
 import {IosHomeScreenPage} from './iosHomeScreenPage';
 import {IosNotificationSettings} from './iosNotificationSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfigurationBaseImpl implements IosDeviceFeaturesConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Asset tag information for the device, displayed on the login window and lock screen. */
     public assetTagTemplate?: string | undefined;
     /** A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements. */
@@ -25,6 +27,7 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
      */
     public constructor(iosDeviceFeaturesConfigurationParameterValue?: IosDeviceFeaturesConfiguration | undefined) {
         super(iosDeviceFeaturesConfigurationParameterValue);
+        this.additionalData = iosDeviceFeaturesConfigurationParameterValue?.additionalData ? iosDeviceFeaturesConfigurationParameterValue?.additionalData! : {};
         this.assetTagTemplate = iosDeviceFeaturesConfigurationParameterValue?.assetTagTemplate;
         const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = []; iosDeviceFeaturesConfigurationParameterValue.homeScreenDockIcons?.forEach(element => {homeScreenDockIconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
         this.homeScreenDockIcons = homeScreenDockIconsArrValue;
@@ -69,5 +72,6 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         if(this.notificationSettings && this.notificationSettings.length != 0){        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = []; this.notificationSettings?.forEach(element => {notificationSettingsArrValue.push(element instanceof IosNotificationSettingsImpl? element : new IosNotificationSettingsImpl(element));});
             writer.writeCollectionOfObjectValues<IosNotificationSettingsImpl>("notificationSettings", notificationSettingsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

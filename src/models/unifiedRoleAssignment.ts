@@ -2,9 +2,11 @@ import {AppScope} from './appScope';
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleAssignment extends Entity, Partial<Parsable> {
+export interface UnifiedRoleAssignment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Details of the app specific scope when the assignment scope is app specific. Containment entity. */
     appScope?: AppScope | undefined;
     /** Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.  For the entitlement management provider, use app scopes to specify a catalog, for example /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. */

@@ -1,8 +1,10 @@
 import {DomainDnsCnameRecord} from './domainDnsCnameRecord';
 import {DomainDnsRecordImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsCnameRecordImpl extends DomainDnsRecordImpl implements DomainDnsCnameRecord {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host. */
     public canonicalName?: string | undefined;
     /**
@@ -11,6 +13,7 @@ export class DomainDnsCnameRecordImpl extends DomainDnsRecordImpl implements Dom
      */
     public constructor(domainDnsCnameRecordParameterValue?: DomainDnsCnameRecord | undefined) {
         super(domainDnsCnameRecordParameterValue);
+        this.additionalData = domainDnsCnameRecordParameterValue?.additionalData ? domainDnsCnameRecordParameterValue?.additionalData! : {};
         this.canonicalName = domainDnsCnameRecordParameterValue?.canonicalName;
     };
     /**
@@ -32,5 +35,6 @@ export class DomainDnsCnameRecordImpl extends DomainDnsRecordImpl implements Dom
         if(this.canonicalName){
             writer.writeStringValue("canonicalName", this.canonicalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

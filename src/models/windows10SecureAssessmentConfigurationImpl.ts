@@ -1,8 +1,10 @@
 import {DeviceConfigurationImpl} from './index';
 import {Windows10SecureAssessmentConfiguration} from './windows10SecureAssessmentConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10SecureAssessmentConfigurationImpl extends DeviceConfigurationImpl implements Windows10SecureAssessmentConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to allow the app from printing during the test. */
     public allowPrinting?: boolean | undefined;
     /** Indicates whether or not to allow screen capture capability during a test. */
@@ -19,6 +21,7 @@ export class Windows10SecureAssessmentConfigurationImpl extends DeviceConfigurat
      */
     public constructor(windows10SecureAssessmentConfigurationParameterValue?: Windows10SecureAssessmentConfiguration | undefined) {
         super(windows10SecureAssessmentConfigurationParameterValue);
+        this.additionalData = windows10SecureAssessmentConfigurationParameterValue?.additionalData ? windows10SecureAssessmentConfigurationParameterValue?.additionalData! : {};
         this.allowPrinting = windows10SecureAssessmentConfigurationParameterValue?.allowPrinting;
         this.allowScreenCapture = windows10SecureAssessmentConfigurationParameterValue?.allowScreenCapture;
         this.allowTextSuggestion = windows10SecureAssessmentConfigurationParameterValue?.allowTextSuggestion;
@@ -60,5 +63,6 @@ export class Windows10SecureAssessmentConfigurationImpl extends DeviceConfigurat
         if(this.launchUri){
             writer.writeStringValue("launchUri", this.launchUri);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

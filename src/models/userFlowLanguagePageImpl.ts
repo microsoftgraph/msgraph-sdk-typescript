@@ -1,15 +1,18 @@
 import {EntityImpl} from './index';
 import {UserFlowLanguagePage} from './userFlowLanguagePage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UserFlowLanguagePageImpl extends EntityImpl implements UserFlowLanguagePage {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new userFlowLanguagePage and sets the default values.
      * @param userFlowLanguagePageParameterValue 
      */
     public constructor(userFlowLanguagePageParameterValue?: UserFlowLanguagePage | undefined) {
         super(userFlowLanguagePageParameterValue);
+        this.additionalData = userFlowLanguagePageParameterValue?.additionalData ? userFlowLanguagePageParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -26,5 +29,6 @@ export class UserFlowLanguagePageImpl extends EntityImpl implements UserFlowLang
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

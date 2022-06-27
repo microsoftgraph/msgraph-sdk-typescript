@@ -5,9 +5,11 @@ import {List} from './list';
 import {ListItem} from './listItem';
 import {Permission} from './permission';
 import {Site} from './site';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SharedDriveItem extends BaseItem, Partial<Parsable> {
+export interface SharedDriveItem extends Partial<AdditionalDataHolder>, BaseItem, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Used to access the underlying driveItem */
     driveItem?: DriveItem | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */

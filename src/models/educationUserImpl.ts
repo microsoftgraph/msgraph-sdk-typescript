@@ -32,12 +32,14 @@ import {PhysicalAddress} from './physicalAddress';
 import {ProvisionedPlan} from './provisionedPlan';
 import {RelatedContact} from './relatedContact';
 import {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class EducationUserImpl extends EntityImpl implements EducationUser {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter. */
     public accountEnabled?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The licenses that are assigned to the user. Not nullable. */
     public assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable. */
@@ -119,6 +121,7 @@ export class EducationUserImpl extends EntityImpl implements EducationUser {
     public constructor(educationUserParameterValue?: EducationUser | undefined) {
         super(educationUserParameterValue);
         this.accountEnabled = educationUserParameterValue?.accountEnabled;
+        this.additionalData = educationUserParameterValue?.additionalData ? educationUserParameterValue?.additionalData! : {};
         const assignedLicensesArrValue: AssignedLicenseImpl[] = []; educationUserParameterValue.assignedLicenses?.forEach(element => {assignedLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
         this.assignedLicenses = assignedLicensesArrValue;
         const assignedPlansArrValue: AssignedPlanImpl[] = []; educationUserParameterValue.assignedPlans?.forEach(element => {assignedPlansArrValue.push(element instanceof AssignedPlanImpl? element : new AssignedPlanImpl(element));});
@@ -333,5 +336,6 @@ export class EducationUserImpl extends EntityImpl implements EducationUser {
         if(this.userType){
             writer.writeStringValue("userType", this.userType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

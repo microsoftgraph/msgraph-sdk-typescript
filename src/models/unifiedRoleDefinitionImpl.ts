@@ -3,10 +3,12 @@ import {createUnifiedRolePermissionFromDiscriminatorValue} from './createUnified
 import {EntityImpl, UnifiedRolePermissionImpl} from './index';
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRolePermission} from './unifiedRolePermission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRoleDefinition {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     public description?: string | undefined;
     /** The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only). */
@@ -31,6 +33,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
      */
     public constructor(unifiedRoleDefinitionParameterValue?: UnifiedRoleDefinition | undefined) {
         super(unifiedRoleDefinitionParameterValue);
+        this.additionalData = unifiedRoleDefinitionParameterValue?.additionalData ? unifiedRoleDefinitionParameterValue?.additionalData! : {};
         this.description = unifiedRoleDefinitionParameterValue?.description;
         this.displayName = unifiedRoleDefinitionParameterValue?.displayName;
         const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; unifiedRoleDefinitionParameterValue.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
@@ -94,5 +97,6 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

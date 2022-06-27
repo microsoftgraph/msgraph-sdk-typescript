@@ -4,10 +4,12 @@ import {createConditionalAccessPolicyFromDiscriminatorValue} from './createCondi
 import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFromDiscriminatorValue';
 import {ConditionalAccessPolicyImpl, EntityImpl, NamedLocationImpl} from './index';
 import {NamedLocation} from './namedLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class ConditionalAccessRootImpl extends EntityImpl implements ConditionalAccessRoot {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Read-only. Nullable. Returns a collection of the specified named locations. */
     public namedLocations?: NamedLocation[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified Conditional Access policies. */
@@ -18,6 +20,7 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
      */
     public constructor(conditionalAccessRootParameterValue?: ConditionalAccessRoot | undefined) {
         super(conditionalAccessRootParameterValue);
+        this.additionalData = conditionalAccessRootParameterValue?.additionalData ? conditionalAccessRootParameterValue?.additionalData! : {};
         const namedLocationsArrValue: NamedLocationImpl[] = []; conditionalAccessRootParameterValue.namedLocations?.forEach(element => {namedLocationsArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
         this.namedLocations = namedLocationsArrValue;
         const policiesArrValue: ConditionalAccessPolicyImpl[] = []; conditionalAccessRootParameterValue.policies?.forEach(element => {policiesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
@@ -46,5 +49,6 @@ export class ConditionalAccessRootImpl extends EntityImpl implements Conditional
         if(this.policies && this.policies.length != 0){        const policiesArrValue: ConditionalAccessPolicyImpl[] = []; this.policies?.forEach(element => {policiesArrValue.push(element instanceof ConditionalAccessPolicyImpl? element : new ConditionalAccessPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("policies", policiesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

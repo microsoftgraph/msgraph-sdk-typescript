@@ -4,9 +4,11 @@ import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AccessReviewScope} from './accessReviewScope';
 import {AccessReviewStage} from './accessReviewStage';
 import {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewInstance extends Entity, Partial<Parsable> {
+export interface AccessReviewInstance extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only. */
     contactedReviewers?: AccessReviewReviewer[] | undefined;
     /** Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed. */

@@ -6,10 +6,12 @@ import {DirectoryObject} from './directoryObject';
 import {AppScopeImpl, DirectoryObjectImpl, EntityImpl, UnifiedRoleDefinitionImpl} from './index';
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRoleScheduleBase {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable. */
     public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment or eligibility is scoped to an app. The scope of an assignment or eligibility determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
@@ -40,6 +42,7 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRo
      */
     public constructor(unifiedRoleScheduleBaseParameterValue?: UnifiedRoleScheduleBase | undefined) {
         super(unifiedRoleScheduleBaseParameterValue);
+        this.additionalData = unifiedRoleScheduleBaseParameterValue?.additionalData ? unifiedRoleScheduleBaseParameterValue?.additionalData! : {};
         this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleScheduleBaseParameterValue?.appScope:new AppScopeImpl(unifiedRoleScheduleBaseParameterValue?.appScope);
         this.appScopeId = unifiedRoleScheduleBaseParameterValue?.appScopeId;
         this.createdDateTime = unifiedRoleScheduleBaseParameterValue?.createdDateTime;
@@ -116,5 +119,6 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRo
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

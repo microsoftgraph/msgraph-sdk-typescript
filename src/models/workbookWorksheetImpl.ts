@@ -10,10 +10,12 @@ import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorksheet {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Returns collection of charts that are part of the worksheet. Read-only. */
     public charts?: WorkbookChart[] | undefined;
     /** The display name of the worksheet. */
@@ -36,6 +38,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
      */
     public constructor(workbookWorksheetParameterValue?: WorkbookWorksheet | undefined) {
         super(workbookWorksheetParameterValue);
+        this.additionalData = workbookWorksheetParameterValue?.additionalData ? workbookWorksheetParameterValue?.additionalData! : {};
         const chartsArrValue: WorkbookChartImpl[] = []; workbookWorksheetParameterValue.charts?.forEach(element => {chartsArrValue.push(element instanceof WorkbookChartImpl? element : new WorkbookChartImpl(element));});
         this.charts = chartsArrValue;
         this.name = workbookWorksheetParameterValue?.name;
@@ -96,5 +99,6 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         if(this.visibility){
             writer.writeStringValue("visibility", this.visibility);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

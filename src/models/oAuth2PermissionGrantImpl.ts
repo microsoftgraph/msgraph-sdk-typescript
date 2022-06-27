@@ -1,9 +1,10 @@
 import {EntityImpl} from './index';
 import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2PermissionGrant {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only). */
     public clientId?: string | undefined;
     /** Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only). */
@@ -15,11 +16,12 @@ export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2Permi
     /** A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal. */
     public scope?: string | undefined;
     /**
-     * Instantiates a new oAuth2PermissionGrant and sets the default values.
+     * Instantiates a new OAuth2PermissionGrant and sets the default values.
      * @param oAuth2PermissionGrantParameterValue 
      */
     public constructor(oAuth2PermissionGrantParameterValue?: OAuth2PermissionGrant | undefined) {
         super(oAuth2PermissionGrantParameterValue);
+        this.additionalData = oAuth2PermissionGrantParameterValue?.additionalData ? oAuth2PermissionGrantParameterValue?.additionalData! : {};
         this.clientId = oAuth2PermissionGrantParameterValue?.clientId;
         this.consentType = oAuth2PermissionGrantParameterValue?.consentType;
         this.principalId = oAuth2PermissionGrantParameterValue?.principalId;
@@ -61,5 +63,6 @@ export class OAuth2PermissionGrantImpl extends EntityImpl implements OAuth2Permi
         if(this.scope){
             writer.writeStringValue("scope", this.scope);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -4,10 +4,11 @@ import {Identity} from './identity';
 import {IdentityImpl, IdentitySetImpl, SharePointIdentityImpl} from './index';
 import {SharePointIdentity} from './sharePointIdentity';
 import {SharePointIdentitySet} from './sharePointIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class SharePointIdentitySetImpl extends IdentitySetImpl implements SharePointIdentitySet {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The group associated with this action. Optional. */
     public group?: Identity | undefined;
     /** The SharePoint group associated with this action. Optional. */
@@ -15,11 +16,12 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
     /** The SharePoint user associated with this action. Optional. */
     public siteUser?: SharePointIdentity | undefined;
     /**
-     * Instantiates a new sharePointIdentitySet and sets the default values.
+     * Instantiates a new SharePointIdentitySet and sets the default values.
      * @param sharePointIdentitySetParameterValue 
      */
     public constructor(sharePointIdentitySetParameterValue?: SharePointIdentitySet | undefined) {
         super(sharePointIdentitySetParameterValue);
+        this.additionalData = sharePointIdentitySetParameterValue?.additionalData ? sharePointIdentitySetParameterValue?.additionalData! : {};
         this.group = sharePointIdentitySetParameterValue?.group instanceof IdentityImpl? sharePointIdentitySetParameterValue?.group:new IdentityImpl(sharePointIdentitySetParameterValue?.group);
         this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup instanceof SharePointIdentityImpl? sharePointIdentitySetParameterValue?.siteGroup:new SharePointIdentityImpl(sharePointIdentitySetParameterValue?.siteGroup);
         this.siteUser = sharePointIdentitySetParameterValue?.siteUser instanceof SharePointIdentityImpl? sharePointIdentitySetParameterValue?.siteUser:new SharePointIdentityImpl(sharePointIdentitySetParameterValue?.siteUser);
@@ -51,5 +53,6 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
         if(this.siteUser){
             writer.writeObjectValue<SharePointIdentityImpl>("siteUser", new SharePointIdentityImpl(this.siteUser));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

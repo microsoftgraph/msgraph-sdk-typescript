@@ -4,11 +4,13 @@ import {RequiredPasswordType} from './requiredPasswordType';
 import {SiteSecurityLevel} from './siteSecurityLevel';
 import {Windows81GeneralConfiguration} from './windows81GeneralConfiguration';
 import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows81GeneralConfigurationImpl extends DeviceConfigurationImpl implements Windows81GeneralConfiguration {
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     public accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Value indicating whether this policy only applies to Windows 8.1. This property is read-only. */
     public applyOnlyToWindows81?: boolean | undefined;
     /** Indicates whether or not to block auto fill. */
@@ -80,6 +82,7 @@ export class Windows81GeneralConfigurationImpl extends DeviceConfigurationImpl i
     public constructor(windows81GeneralConfigurationParameterValue?: Windows81GeneralConfiguration | undefined) {
         super(windows81GeneralConfigurationParameterValue);
         this.accountsBlockAddingNonMicrosoftAccountEmail = windows81GeneralConfigurationParameterValue?.accountsBlockAddingNonMicrosoftAccountEmail;
+        this.additionalData = windows81GeneralConfigurationParameterValue?.additionalData ? windows81GeneralConfigurationParameterValue?.additionalData! : {};
         this.applyOnlyToWindows81 = windows81GeneralConfigurationParameterValue?.applyOnlyToWindows81;
         this.browserBlockAutofill = windows81GeneralConfigurationParameterValue?.browserBlockAutofill;
         this.browserBlockAutomaticDetectionOfIntranetSites = windows81GeneralConfigurationParameterValue?.browserBlockAutomaticDetectionOfIntranetSites;
@@ -260,5 +263,6 @@ export class Windows81GeneralConfigurationImpl extends DeviceConfigurationImpl i
         if(this.workFoldersUrl){
             writer.writeStringValue("workFoldersUrl", this.workFoldersUrl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

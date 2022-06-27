@@ -2,10 +2,11 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Identity} from './identity';
 import {EntityImpl, IdentityImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMembership {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Unique identifier for the administrative unit that the directory role is scoped to */
     public administrativeUnitId?: string | undefined;
     /** Unique identifier for the directory role that the member is in. */
@@ -13,11 +14,12 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMe
     /** The roleMemberInfo property */
     public roleMemberInfo?: Identity | undefined;
     /**
-     * Instantiates a new scopedRoleMembership and sets the default values.
+     * Instantiates a new ScopedRoleMembership and sets the default values.
      * @param scopedRoleMembershipParameterValue 
      */
     public constructor(scopedRoleMembershipParameterValue?: ScopedRoleMembership | undefined) {
         super(scopedRoleMembershipParameterValue);
+        this.additionalData = scopedRoleMembershipParameterValue?.additionalData ? scopedRoleMembershipParameterValue?.additionalData! : {};
         this.administrativeUnitId = scopedRoleMembershipParameterValue?.administrativeUnitId;
         this.roleId = scopedRoleMembershipParameterValue?.roleId;
         this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo instanceof IdentityImpl? scopedRoleMembershipParameterValue?.roleMemberInfo:new IdentityImpl(scopedRoleMembershipParameterValue?.roleMemberInfo);
@@ -49,5 +51,6 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMe
         if(this.roleMemberInfo){
             writer.writeObjectValue<IdentityImpl>("roleMemberInfo", new IdentityImpl(this.roleMemberInfo));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

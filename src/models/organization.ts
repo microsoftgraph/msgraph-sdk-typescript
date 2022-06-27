@@ -7,9 +7,11 @@ import {OrganizationalBranding} from './organizationalBranding';
 import {PrivacyProfile} from './privacyProfile';
 import {ProvisionedPlan} from './provisionedPlan';
 import {VerifiedDomain} from './verifiedDomain';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Organization extends DirectoryObject, Partial<Parsable> {
+export interface Organization extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The collection of service plans associated with the tenant. Not nullable. */
     assignedPlans?: AssignedPlan[] | undefined;
     /** Resource to manage the default branding for the organization. Nullable. */

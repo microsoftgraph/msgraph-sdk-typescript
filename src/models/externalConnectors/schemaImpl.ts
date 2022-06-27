@@ -3,10 +3,12 @@ import {createPropertyFromDiscriminatorValue} from './createPropertyFromDiscrimi
 import {PropertyImpl} from './index';
 import {Property} from './property';
 import {Schema} from './schema';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class SchemaImpl extends EntityImpl implements Schema {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Must be set to microsoft.graph.externalItem. Required. */
     public baseType?: string | undefined;
     /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
@@ -17,6 +19,7 @@ export class SchemaImpl extends EntityImpl implements Schema {
      */
     public constructor(schemaParameterValue?: Schema | undefined) {
         super(schemaParameterValue);
+        this.additionalData = schemaParameterValue?.additionalData ? schemaParameterValue?.additionalData! : {};
         this.baseType = schemaParameterValue?.baseType;
         const propertiesArrValue: PropertyImpl[] = []; schemaParameterValue.properties?.forEach(element => {propertiesArrValue.push(element instanceof PropertyImpl? element : new PropertyImpl(element));});
         this.properties = propertiesArrValue;
@@ -44,5 +47,6 @@ export class SchemaImpl extends EntityImpl implements Schema {
         if(this.properties && this.properties.length != 0){        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof PropertyImpl? element : new PropertyImpl(element));});
             writer.writeCollectionOfObjectValues<PropertyImpl>("properties", propertiesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

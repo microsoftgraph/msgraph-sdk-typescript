@@ -2,9 +2,11 @@ import {Chat} from './chat';
 import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorValue';
 import {ChatImpl, TeamsAppInstallationImpl} from './index';
 import {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl implements UserScopeTeamsAppInstallation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The chat between the user and Teams app. */
     public chat?: Chat | undefined;
     /**
@@ -13,6 +15,7 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
      */
     public constructor(userScopeTeamsAppInstallationParameterValue?: UserScopeTeamsAppInstallation | undefined) {
         super(userScopeTeamsAppInstallationParameterValue);
+        this.additionalData = userScopeTeamsAppInstallationParameterValue?.additionalData ? userScopeTeamsAppInstallationParameterValue?.additionalData! : {};
         this.chat = userScopeTeamsAppInstallationParameterValue?.chat instanceof ChatImpl? userScopeTeamsAppInstallationParameterValue?.chat:new ChatImpl(userScopeTeamsAppInstallationParameterValue?.chat);
     };
     /**
@@ -34,5 +37,6 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
         if(this.chat){
             writer.writeObjectValue<ChatImpl>("chat", new ChatImpl(this.chat));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

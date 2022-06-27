@@ -4,9 +4,11 @@ import {EducationOrganization} from './educationOrganization';
 import {EducationUser} from './educationUser';
 import {IdentitySet} from './identitySet';
 import {PhysicalAddress} from './physicalAddress';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EducationSchool extends EducationOrganization, Partial<Parsable> {
+export interface EducationSchool extends Partial<AdditionalDataHolder>, EducationOrganization, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Address of the school. */
     address?: PhysicalAddress | undefined;
     /** The underlying administrativeUnit for this school. */

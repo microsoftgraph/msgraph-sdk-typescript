@@ -1,8 +1,10 @@
 import {WindowsInformationProtection} from './windowsInformationProtection';
 import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WindowsInformationProtectionPolicy extends Partial<Parsable>, WindowsInformationProtection {
+export interface WindowsInformationProtectionPolicy extends Partial<AdditionalDataHolder>, Partial<Parsable>, WindowsInformationProtection {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Offline interval before app data is wiped (days) */
     daysWithoutContactBeforeUnenroll?: number | undefined;
     /** Enrollment url for the MDM */

@@ -7,10 +7,11 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {ContactImpl, EntityImpl, MultiValueLegacyExtendedPropertyImpl, SingleValueLegacyExtendedPropertyImpl} from './index';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class ContactFolderImpl extends EntityImpl implements ContactFolder {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
     public childFolders?: ContactFolder[] | undefined;
     /** The contacts in the folder. Navigation property. Read-only. Nullable. */
@@ -24,11 +25,12 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
     /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
     public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
-     * Instantiates a new contactFolder and sets the default values.
+     * Instantiates a new ContactFolder and sets the default values.
      * @param contactFolderParameterValue 
      */
     public constructor(contactFolderParameterValue?: ContactFolder | undefined) {
         super(contactFolderParameterValue);
+        this.additionalData = contactFolderParameterValue?.additionalData ? contactFolderParameterValue?.additionalData! : {};
         const childFoldersArrValue: ContactFolderImpl[] = []; contactFolderParameterValue.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
         this.childFolders = childFoldersArrValue;
         const contactsArrValue: ContactImpl[] = []; contactFolderParameterValue.contacts?.forEach(element => {contactsArrValue.push(element instanceof ContactImpl? element : new ContactImpl(element));});
@@ -79,5 +81,6 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

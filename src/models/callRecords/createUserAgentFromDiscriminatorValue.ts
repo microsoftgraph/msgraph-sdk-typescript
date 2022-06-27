@@ -1,7 +1,19 @@
-import {UserAgentImpl} from './index';
+import {ClientUserAgentImpl, ServiceUserAgentImpl, UserAgentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserAgentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.callRecords.clientUserAgent":
+                    return new ClientUserAgentImpl();
+                case "#microsoft.graph.callRecords.serviceUserAgent":
+                    return new ServiceUserAgentImpl();
+            }
+        }
+    }
     return new UserAgentImpl();
 }

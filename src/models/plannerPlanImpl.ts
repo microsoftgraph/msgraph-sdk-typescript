@@ -10,10 +10,12 @@ import {PlannerPlan} from './plannerPlan';
 import {PlannerPlanContainer} from './plannerPlanContainer';
 import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Collection of buckets in the plan. Read-only. Nullable. */
     public buckets?: PlannerBucket[] | undefined;
     /** Identifies the container of the plan. After it is set, this property can’t be updated. Required. */
@@ -36,6 +38,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
      */
     public constructor(plannerPlanParameterValue?: PlannerPlan | undefined) {
         super(plannerPlanParameterValue);
+        this.additionalData = plannerPlanParameterValue?.additionalData ? plannerPlanParameterValue?.additionalData! : {};
         const bucketsArrValue: PlannerBucketImpl[] = []; plannerPlanParameterValue.buckets?.forEach(element => {bucketsArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
         this.buckets = bucketsArrValue;
         this.container = plannerPlanParameterValue?.container instanceof PlannerPlanContainerImpl? plannerPlanParameterValue?.container:new PlannerPlanContainerImpl(plannerPlanParameterValue?.container);
@@ -94,5 +97,6 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
         if(this.title){
             writer.writeStringValue("title", this.title);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

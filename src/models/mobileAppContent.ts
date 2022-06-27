@@ -1,8 +1,10 @@
 import {Entity} from './entity';
 import {MobileAppContentFile} from './mobileAppContentFile';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MobileAppContent extends Entity, Partial<Parsable> {
+export interface MobileAppContent extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The list of files for this app content version. */
     files?: MobileAppContentFile[] | undefined;
 }

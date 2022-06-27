@@ -1,18 +1,20 @@
 import {IdentityImpl} from './index';
 import {Initiator} from './initiator';
 import {InitiatorType} from './initiatorType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class InitiatorImpl extends IdentityImpl implements Initiator {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
     public initiatorType?: InitiatorType | undefined;
     /**
-     * Instantiates a new initiator and sets the default values.
+     * Instantiates a new Initiator and sets the default values.
      * @param initiatorParameterValue 
      */
     public constructor(initiatorParameterValue?: Initiator | undefined) {
         super(initiatorParameterValue);
+        this.additionalData = initiatorParameterValue?.additionalData ? initiatorParameterValue?.additionalData! : {};
         this.initiatorType = initiatorParameterValue?.initiatorType;
     };
     /**
@@ -34,5 +36,6 @@ export class InitiatorImpl extends IdentityImpl implements Initiator {
         if(this.initiatorType){
             writer.writeEnumValue<InitiatorType>("initiatorType", this.initiatorType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

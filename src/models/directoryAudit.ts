@@ -3,13 +3,15 @@ import {Entity} from './entity';
 import {KeyValue} from './keyValue';
 import {OperationResult} from './operationResult';
 import {TargetResource} from './targetResource';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DirectoryAudit extends Entity, Partial<Parsable> {
+export interface DirectoryAudit extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     activityDateTime?: Date | undefined;
     /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
     activityDisplayName?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Indicates additional details on the activity. */
     additionalDetails?: KeyValue[] | undefined;
     /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */

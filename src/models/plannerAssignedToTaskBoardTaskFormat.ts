@@ -1,8 +1,10 @@
 import {Entity} from './entity';
 import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PlannerAssignedToTaskBoardTaskFormat extends Entity, Partial<Parsable> {
+export interface PlannerAssignedToTaskBoardTaskFormat extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here. */
     orderHintsByAssignee?: PlannerOrderHintsByAssignee | undefined;
     /** Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here. */

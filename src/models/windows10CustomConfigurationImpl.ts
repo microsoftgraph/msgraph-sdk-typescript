@@ -2,9 +2,11 @@ import {createOmaSettingFromDiscriminatorValue} from './createOmaSettingFromDisc
 import {DeviceConfigurationImpl, OmaSettingImpl} from './index';
 import {OmaSetting} from './omaSetting';
 import {Windows10CustomConfiguration} from './windows10CustomConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10CustomConfigurationImpl extends DeviceConfigurationImpl implements Windows10CustomConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** OMA settings. This collection can contain a maximum of 1000 elements. */
     public omaSettings?: OmaSetting[] | undefined;
     /**
@@ -13,6 +15,7 @@ export class Windows10CustomConfigurationImpl extends DeviceConfigurationImpl im
      */
     public constructor(windows10CustomConfigurationParameterValue?: Windows10CustomConfiguration | undefined) {
         super(windows10CustomConfigurationParameterValue);
+        this.additionalData = windows10CustomConfigurationParameterValue?.additionalData ? windows10CustomConfigurationParameterValue?.additionalData! : {};
         const omaSettingsArrValue: OmaSettingImpl[] = []; windows10CustomConfigurationParameterValue.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
         this.omaSettings = omaSettingsArrValue;
     };
@@ -35,5 +38,6 @@ export class Windows10CustomConfigurationImpl extends DeviceConfigurationImpl im
         if(this.omaSettings && this.omaSettings.length != 0){        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
             writer.writeCollectionOfObjectValues<OmaSettingImpl>("omaSettings", omaSettingsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

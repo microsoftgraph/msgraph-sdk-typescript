@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {PrintUsageByUser} from './printUsageByUser';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ReportRoot extends Entity, Partial<Parsable> {
+export interface ReportRoot extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The dailyPrintUsageByPrinter property */
     dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */

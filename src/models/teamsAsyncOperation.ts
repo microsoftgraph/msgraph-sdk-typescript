@@ -2,9 +2,11 @@ import {Entity} from './entity';
 import {OperationError} from './operationError';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TeamsAsyncOperation extends Entity, Partial<Parsable> {
+export interface TeamsAsyncOperation extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Number of times the operation was attempted before being marked successful or failed. */
     attemptsCount?: number | undefined;
     /** Time when the operation was created. */

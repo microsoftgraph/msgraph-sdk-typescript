@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum CountryLookupMethodType {
     ClientIpAddress = "clientIpAddress",
     AuthenticatorAppGps = "authenticatorAppGps",

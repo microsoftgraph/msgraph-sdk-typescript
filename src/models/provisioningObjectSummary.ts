@@ -7,11 +7,13 @@ import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
 import {ProvisioningStatusInfo} from './provisioningStatusInfo';
 import {ProvisioningStep} from './provisioningStep';
 import {ProvisioningSystem} from './provisioningSystem';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ProvisioningObjectSummary extends Entity, Partial<Parsable> {
+export interface ProvisioningObjectSummary extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     activityDateTime?: Date | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Unique ID of this change in this cycle. */
     changeId?: string | undefined;
     /** Unique ID per job iteration. */

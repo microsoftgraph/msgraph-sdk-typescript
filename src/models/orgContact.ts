@@ -2,9 +2,11 @@ import {DirectoryObject} from './directoryObject';
 import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
 import {Phone} from './phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OrgContact extends DirectoryObject, Partial<Parsable> {
+export interface OrgContact extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
     addresses?: PhysicalOfficeAddress[] | undefined;
     /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */

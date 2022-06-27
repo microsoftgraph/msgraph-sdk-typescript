@@ -2,9 +2,11 @@ import {createShiftAvailabilityFromDiscriminatorValue} from './createShiftAvaila
 import {ChangeTrackedEntityImpl, ShiftAvailabilityImpl} from './index';
 import {ShiftAvailability} from './shiftAvailability';
 import {ShiftPreferences} from './shiftPreferences';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements ShiftPreferences {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Availability of the user to be scheduled for work and its recurrence pattern. */
     public availability?: ShiftAvailability[] | undefined;
     /**
@@ -13,6 +15,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
      */
     public constructor(shiftPreferencesParameterValue?: ShiftPreferences | undefined) {
         super(shiftPreferencesParameterValue);
+        this.additionalData = shiftPreferencesParameterValue?.additionalData ? shiftPreferencesParameterValue?.additionalData! : {};
         const availabilityArrValue: ShiftAvailabilityImpl[] = []; shiftPreferencesParameterValue.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
         this.availability = availabilityArrValue;
     };
@@ -35,5 +38,6 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
         if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
             writer.writeCollectionOfObjectValues<ShiftAvailabilityImpl>("availability", availabilityArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

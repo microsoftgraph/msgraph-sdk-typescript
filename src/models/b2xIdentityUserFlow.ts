@@ -4,9 +4,11 @@ import {IdentityUserFlow} from './identityUserFlow';
 import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
 import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface B2xIdentityUserFlow extends IdentityUserFlow, Partial<Parsable> {
+export interface B2xIdentityUserFlow extends Partial<AdditionalDataHolder>, IdentityUserFlow, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
     apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
     /** The identity providers included in the user flow. */

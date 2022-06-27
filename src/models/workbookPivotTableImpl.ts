@@ -2,10 +2,12 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {EntityImpl, WorkbookWorksheetImpl} from './index';
 import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotTable {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Name of the PivotTable. */
     public name?: string | undefined;
     /** The worksheet containing the current PivotTable. Read-only. */
@@ -16,6 +18,7 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
      */
     public constructor(workbookPivotTableParameterValue?: WorkbookPivotTable | undefined) {
         super(workbookPivotTableParameterValue);
+        this.additionalData = workbookPivotTableParameterValue?.additionalData ? workbookPivotTableParameterValue?.additionalData! : {};
         this.name = workbookPivotTableParameterValue?.name;
         this.worksheet = workbookPivotTableParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookPivotTableParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookPivotTableParameterValue?.worksheet);
     };
@@ -42,5 +45,6 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
         if(this.worksheet){
             writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

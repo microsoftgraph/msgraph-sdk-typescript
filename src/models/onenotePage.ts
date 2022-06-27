@@ -2,9 +2,11 @@ import {Notebook} from './notebook';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import {OnenoteSection} from './onenoteSection';
 import {PageLinks} from './pageLinks';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OnenotePage extends OnenoteEntitySchemaObjectModel, Partial<Parsable> {
+export interface OnenotePage extends Partial<AdditionalDataHolder>, OnenoteEntitySchemaObjectModel, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** The page's HTML content. */
     content?: string | undefined;
     /** The URL for the page's HTML content.  Read-only. */

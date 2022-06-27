@@ -1,10 +1,12 @@
 import {EntityImpl} from './index';
 import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity which represents a connection to Mobile threat defense partner. */
 export class MobileThreatDefenseConnectorImpl extends EntityImpl implements MobileThreatDefenseConnector {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     public androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
     /** For Android, set whether data from the data sync partner should be used during compliance evaluations */
@@ -27,6 +29,7 @@ export class MobileThreatDefenseConnectorImpl extends EntityImpl implements Mobi
      */
     public constructor(mobileThreatDefenseConnectorParameterValue?: MobileThreatDefenseConnector | undefined) {
         super(mobileThreatDefenseConnectorParameterValue);
+        this.additionalData = mobileThreatDefenseConnectorParameterValue?.additionalData ? mobileThreatDefenseConnectorParameterValue?.additionalData! : {};
         this.androidDeviceBlockedOnMissingPartnerData = mobileThreatDefenseConnectorParameterValue?.androidDeviceBlockedOnMissingPartnerData;
         this.androidEnabled = mobileThreatDefenseConnectorParameterValue?.androidEnabled;
         this.iosDeviceBlockedOnMissingPartnerData = mobileThreatDefenseConnectorParameterValue?.iosDeviceBlockedOnMissingPartnerData;
@@ -83,5 +86,6 @@ export class MobileThreatDefenseConnectorImpl extends EntityImpl implements Mobi
         if(this.partnerUnsupportedOsVersionBlocked){
             writer.writeBooleanValue("partnerUnsupportedOsVersionBlocked", this.partnerUnsupportedOsVersionBlocked);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

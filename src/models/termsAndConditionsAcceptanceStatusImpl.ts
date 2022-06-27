@@ -2,7 +2,7 @@ import {createTermsAndConditionsFromDiscriminatorValue} from './createTermsAndCo
 import {EntityImpl, TermsAndConditionsImpl} from './index';
 import {TermsAndConditions} from './termsAndConditions';
 import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal. */
 export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implements TermsAndConditionsAcceptanceStatus {
@@ -10,6 +10,8 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
     public acceptedDateTime?: Date | undefined;
     /** Most recent version number of the T&C accepted by the user. */
     public acceptedVersion?: number | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Navigation link to the terms and conditions that are assigned. */
     public termsAndConditions?: TermsAndConditions | undefined;
     /** Display name of the user whose acceptance the entity represents. */
@@ -24,6 +26,7 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
         super(termsAndConditionsAcceptanceStatusParameterValue);
         this.acceptedDateTime = termsAndConditionsAcceptanceStatusParameterValue?.acceptedDateTime;
         this.acceptedVersion = termsAndConditionsAcceptanceStatusParameterValue?.acceptedVersion;
+        this.additionalData = termsAndConditionsAcceptanceStatusParameterValue?.additionalData ? termsAndConditionsAcceptanceStatusParameterValue?.additionalData! : {};
         this.termsAndConditions = termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions instanceof TermsAndConditionsImpl? termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions:new TermsAndConditionsImpl(termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions);
         this.userDisplayName = termsAndConditionsAcceptanceStatusParameterValue?.userDisplayName;
         this.userPrincipalName = termsAndConditionsAcceptanceStatusParameterValue?.userPrincipalName;
@@ -63,5 +66,6 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

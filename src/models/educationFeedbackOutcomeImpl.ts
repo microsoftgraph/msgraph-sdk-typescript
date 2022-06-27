@@ -2,9 +2,11 @@ import {createEducationFeedbackFromDiscriminatorValue} from './createEducationFe
 import {EducationFeedback} from './educationFeedback';
 import {EducationFeedbackOutcome} from './educationFeedbackOutcome';
 import {EducationFeedbackImpl, EducationOutcomeImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implements EducationFeedbackOutcome {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Teacher's written feedback to the student. */
     public feedback?: EducationFeedback | undefined;
     /** A copy of the feedback property that is made when the grade is released to the student. */
@@ -15,6 +17,7 @@ export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implement
      */
     public constructor(educationFeedbackOutcomeParameterValue?: EducationFeedbackOutcome | undefined) {
         super(educationFeedbackOutcomeParameterValue);
+        this.additionalData = educationFeedbackOutcomeParameterValue?.additionalData ? educationFeedbackOutcomeParameterValue?.additionalData! : {};
         this.feedback = educationFeedbackOutcomeParameterValue?.feedback instanceof EducationFeedbackImpl? educationFeedbackOutcomeParameterValue?.feedback:new EducationFeedbackImpl(educationFeedbackOutcomeParameterValue?.feedback);
         this.publishedFeedback = educationFeedbackOutcomeParameterValue?.publishedFeedback instanceof EducationFeedbackImpl? educationFeedbackOutcomeParameterValue?.publishedFeedback:new EducationFeedbackImpl(educationFeedbackOutcomeParameterValue?.publishedFeedback);
     };
@@ -41,5 +44,6 @@ export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implement
         if(this.publishedFeedback){
             writer.writeObjectValue<EducationFeedbackImpl>("publishedFeedback", new EducationFeedbackImpl(this.publishedFeedback));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

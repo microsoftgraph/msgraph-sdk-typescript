@@ -2,13 +2,15 @@ import {ComplianceInformation} from './complianceInformation';
 import {Entity} from './entity';
 import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {SecurityVendorInformation} from './securityVendorInformation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SecureScoreControlProfile extends Entity, Partial<Parsable> {
+export interface SecureScoreControlProfile extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
     /** Control action type (Config, Review, Behavior). */
     actionType?: string | undefined;
     /** URL to where the control can be actioned. */
     actionUrl?: string | undefined;
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** GUID string for tenant ID. */
     azureTenantId?: string | undefined;
     /** The collection of compliance information associated with secure score control */

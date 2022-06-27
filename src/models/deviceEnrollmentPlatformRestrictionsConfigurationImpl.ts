@@ -2,9 +2,11 @@ import {createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue} from '.
 import {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
 import {DeviceEnrollmentPlatformRestrictionsConfiguration} from './deviceEnrollmentPlatformRestrictionsConfiguration';
 import {DeviceEnrollmentConfigurationImpl, DeviceEnrollmentPlatformRestrictionImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends DeviceEnrollmentConfigurationImpl implements DeviceEnrollmentPlatformRestrictionsConfiguration {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Android restrictions based on platform, platform operating system version, and device ownership */
     public androidRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
     /** Ios restrictions based on platform, platform operating system version, and device ownership */
@@ -21,6 +23,7 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public constructor(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined) {
         super(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue);
+        this.additionalData = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.additionalData ? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.additionalData! : {};
         this.androidRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction);
         this.iosRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction);
         this.macOSRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction);
@@ -62,5 +65,6 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
         if(this.windowsRestriction){
             writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsRestriction", new DeviceEnrollmentPlatformRestrictionImpl(this.windowsRestriction));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,9 +1,11 @@
 import {DomainDnsRecord} from './domainDnsRecord';
 import {EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domainDnsRecord entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     public isOptional?: boolean | undefined;
     /** Value used when configuring the name of the DNS record at the DNS host. */
@@ -20,6 +22,7 @@ export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord {
      */
     public constructor(domainDnsRecordParameterValue?: DomainDnsRecord | undefined) {
         super(domainDnsRecordParameterValue);
+        this.additionalData = domainDnsRecordParameterValue?.additionalData ? domainDnsRecordParameterValue?.additionalData! : {};
         this.isOptional = domainDnsRecordParameterValue?.isOptional;
         this.label = domainDnsRecordParameterValue?.label;
         this.recordType = domainDnsRecordParameterValue?.recordType;
@@ -61,5 +64,6 @@ export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord {
         if(this.ttl){
             writer.writeNumberValue("ttl", this.ttl);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,9 +1,11 @@
 import {EntityImpl} from './index';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class WorkbookChartLineFormatImpl extends EntityImpl implements WorkbookChartLineFormat {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** HTML color code representing the color of lines in the chart. */
     public color?: string | undefined;
     /**
@@ -12,6 +14,7 @@ export class WorkbookChartLineFormatImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartLineFormatParameterValue?: WorkbookChartLineFormat | undefined) {
         super(workbookChartLineFormatParameterValue);
+        this.additionalData = workbookChartLineFormatParameterValue?.additionalData ? workbookChartLineFormatParameterValue?.additionalData! : {};
         this.color = workbookChartLineFormatParameterValue?.color;
     };
     /**
@@ -33,5 +36,6 @@ export class WorkbookChartLineFormatImpl extends EntityImpl implements WorkbookC
         if(this.color){
             writer.writeStringValue("color", this.color);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -4,9 +4,11 @@ import {Entity} from './entity';
 import {IdentityApiConnector} from './identityApiConnector';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IdentityContainer extends Entity, Partial<Parsable> {
+export interface IdentityContainer extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Represents entry point for API connectors. */
     apiConnectors?: IdentityApiConnector[] | undefined;
     /** Represents entry point for B2X and self-service sign-up identity userflows. */

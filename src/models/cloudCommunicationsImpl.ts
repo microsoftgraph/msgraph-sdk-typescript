@@ -9,10 +9,12 @@ import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscrimi
 import {CallImpl, EntityImpl, OnlineMeetingImpl, PresenceImpl} from './index';
 import {OnlineMeeting} from './onlineMeeting';
 import {Presence} from './presence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunications {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The callRecords property */
     public callRecords?: CallRecord[] | undefined;
     /** The calls property */
@@ -27,6 +29,7 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
      */
     public constructor(cloudCommunicationsParameterValue?: CloudCommunications | undefined) {
         super(cloudCommunicationsParameterValue);
+        this.additionalData = cloudCommunicationsParameterValue?.additionalData ? cloudCommunicationsParameterValue?.additionalData! : {};
         const callRecordsArrValue: CallRecordImpl[] = []; cloudCommunicationsParameterValue.callRecords?.forEach(element => {callRecordsArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
         this.callRecords = callRecordsArrValue;
         const callsArrValue: CallImpl[] = []; cloudCommunicationsParameterValue.calls?.forEach(element => {callsArrValue.push(element instanceof CallImpl? element : new CallImpl(element));});
@@ -67,5 +70,6 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
         if(this.presences && this.presences.length != 0){        const presencesArrValue: PresenceImpl[] = []; this.presences?.forEach(element => {presencesArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
             writer.writeCollectionOfObjectValues<PresenceImpl>("presences", presencesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

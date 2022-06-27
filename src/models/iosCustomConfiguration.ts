@@ -1,7 +1,9 @@
 import {DeviceConfiguration} from './deviceConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosCustomConfiguration extends DeviceConfiguration, Partial<Parsable> {
+export interface IosCustomConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    additionalData?: Record<string, unknown>;
     /** Payload. (UTF8 encoded byte array) */
     payload?: string | undefined;
     /** Payload file name (.mobileconfig */

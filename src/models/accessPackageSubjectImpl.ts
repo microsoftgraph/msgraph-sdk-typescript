@@ -3,10 +3,12 @@ import {AccessPackageSubjectType} from './accessPackageSubjectType';
 import {ConnectedOrganization} from './connectedOrganization';
 import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
 import {ConnectedOrganizationImpl, EntityImpl} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackageSubject {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The connected organization of the subject. Read-only. Nullable. */
     public connectedOrganization?: ConnectedOrganization | undefined;
     /** The display name of the subject. */
@@ -27,6 +29,7 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
      */
     public constructor(accessPackageSubjectParameterValue?: AccessPackageSubject | undefined) {
         super(accessPackageSubjectParameterValue);
+        this.additionalData = accessPackageSubjectParameterValue?.additionalData ? accessPackageSubjectParameterValue?.additionalData! : {};
         this.connectedOrganization = accessPackageSubjectParameterValue?.connectedOrganization instanceof ConnectedOrganizationImpl? accessPackageSubjectParameterValue?.connectedOrganization:new ConnectedOrganizationImpl(accessPackageSubjectParameterValue?.connectedOrganization);
         this.displayName = accessPackageSubjectParameterValue?.displayName;
         this.email = accessPackageSubjectParameterValue?.email;
@@ -78,5 +81,6 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
         if(this.subjectType){
             writer.writeEnumValue<AccessPackageSubjectType>("subjectType", this.subjectType);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -67,10 +67,12 @@ import {TermsAndConditions} from './termsAndConditions';
 import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
 import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
 import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Singleton entity that acts as a container for all device management functionality. */
 export class DeviceManagementImpl extends EntityImpl implements DeviceManagement {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Apple push notification certificate. */
     public applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
     /** The list of Compliance Management Partners configured by the tenant. */
@@ -147,6 +149,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public constructor(deviceManagementParameterValue?: DeviceManagement | undefined) {
         super(deviceManagementParameterValue);
+        this.additionalData = deviceManagementParameterValue?.additionalData ? deviceManagementParameterValue?.additionalData! : {};
         this.applePushNotificationCertificate = deviceManagementParameterValue?.applePushNotificationCertificate instanceof ApplePushNotificationCertificateImpl? deviceManagementParameterValue?.applePushNotificationCertificate:new ApplePushNotificationCertificateImpl(deviceManagementParameterValue?.applePushNotificationCertificate);
         const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = []; deviceManagementParameterValue.complianceManagementPartners?.forEach(element => {complianceManagementPartnersArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
         this.complianceManagementPartners = complianceManagementPartnersArrValue;
@@ -362,5 +365,6 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(this.windowsInformationProtectionNetworkLearningSummaries && this.windowsInformationProtectionNetworkLearningSummaries.length != 0){        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {windowsInformationProtectionNetworkLearningSummariesArrValue.push(element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element : new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummaryImpl>("windowsInformationProtectionNetworkLearningSummaries", windowsInformationProtectionNetworkLearningSummariesArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

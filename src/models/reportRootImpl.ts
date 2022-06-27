@@ -4,10 +4,11 @@ import {EntityImpl, PrintUsageByPrinterImpl, PrintUsageByUserImpl} from './index
 import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {PrintUsageByUser} from './printUsageByUser';
 import {ReportRoot} from './reportRoot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The resource that represents an instance of Enrollment Failure Reports. */
 export class ReportRootImpl extends EntityImpl implements ReportRoot {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** The dailyPrintUsageByPrinter property */
     public dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */
@@ -17,11 +18,12 @@ export class ReportRootImpl extends EntityImpl implements ReportRoot {
     /** The monthlyPrintUsageByUser property */
     public monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /**
-     * Instantiates a new reportRoot and sets the default values.
+     * Instantiates a new ReportRoot and sets the default values.
      * @param reportRootParameterValue 
      */
     public constructor(reportRootParameterValue?: ReportRoot | undefined) {
         super(reportRootParameterValue);
+        this.additionalData = reportRootParameterValue?.additionalData ? reportRootParameterValue?.additionalData! : {};
         const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
         this.dailyPrintUsageByPrinter = dailyPrintUsageByPrinterArrValue;
         const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
@@ -62,5 +64,6 @@ export class ReportRootImpl extends EntityImpl implements ReportRoot {
         if(this.monthlyPrintUsageByUser && this.monthlyPrintUsageByUser.length != 0){        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
             writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("monthlyPrintUsageByUser", monthlyPrintUsageByUserArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

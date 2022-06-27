@@ -2,10 +2,12 @@ import {createUnifiedRoleManagementPolicyRuleTargetFromDiscriminatorValue} from 
 import {EntityImpl, UnifiedRoleManagementPolicyRuleTargetImpl} from './index';
 import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
 import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPolicyRuleTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements UnifiedRoleManagementPolicyRule {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
     public target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
@@ -14,6 +16,7 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements U
      */
     public constructor(unifiedRoleManagementPolicyRuleParameterValue?: UnifiedRoleManagementPolicyRule | undefined) {
         super(unifiedRoleManagementPolicyRuleParameterValue);
+        this.additionalData = unifiedRoleManagementPolicyRuleParameterValue?.additionalData ? unifiedRoleManagementPolicyRuleParameterValue?.additionalData! : {};
         this.target = unifiedRoleManagementPolicyRuleParameterValue?.target instanceof UnifiedRoleManagementPolicyRuleTargetImpl? unifiedRoleManagementPolicyRuleParameterValue?.target:new UnifiedRoleManagementPolicyRuleTargetImpl(unifiedRoleManagementPolicyRuleParameterValue?.target);
     };
     /**
@@ -35,5 +38,6 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements U
         if(this.target){
             writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTargetImpl>("target", new UnifiedRoleManagementPolicyRuleTargetImpl(this.target));
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -3,10 +3,12 @@ import {createPublicErrorFromDiscriminatorValue} from '../createPublicErrorFromD
 import {PublicError} from '../publicError';
 import {ConnectionOperation} from './connectionOperation';
 import {ConnectionOperationStatus} from './connectionOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ConnectionOperationImpl extends EntityImpl implements ConnectionOperation {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** If status is failed, provides more information about the error that caused the failure. */
     public error_escaped?: PublicError | undefined;
     /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed. */
@@ -17,6 +19,7 @@ export class ConnectionOperationImpl extends EntityImpl implements ConnectionOpe
      */
     public constructor(connectionOperationParameterValue?: ConnectionOperation | undefined) {
         super(connectionOperationParameterValue);
+        this.additionalData = connectionOperationParameterValue?.additionalData ? connectionOperationParameterValue?.additionalData! : {};
         this.error_escaped = connectionOperationParameterValue?.error_escaped instanceof PublicErrorImpl? connectionOperationParameterValue?.error_escaped:new PublicErrorImpl(connectionOperationParameterValue?.error_escaped);
         this.status = connectionOperationParameterValue?.status;
     };
@@ -43,5 +46,6 @@ export class ConnectionOperationImpl extends EntityImpl implements ConnectionOpe
         if(this.status){
             writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,4 +1,4 @@
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum EducationSubmissionStatus {
     Working = "working",
     Submitted = "submitted",

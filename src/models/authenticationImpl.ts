@@ -10,10 +10,11 @@ import {AuthenticationMethodImpl, EntityImpl, Fido2AuthenticationMethodImpl, Mic
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class AuthenticationImpl extends EntityImpl implements Authentication {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    public additionalData: Record<string, unknown>;
     /** Represents the FIDO2 security keys registered to a user for authentication. */
     public fido2Methods?: Fido2AuthenticationMethod[] | undefined;
     /** Represents all authentication methods registered to a user. */
@@ -25,11 +26,12 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
     /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
     public windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
-     * Instantiates a new authentication and sets the default values.
+     * Instantiates a new Authentication and sets the default values.
      * @param authenticationParameterValue 
      */
     public constructor(authenticationParameterValue?: Authentication | undefined) {
         super(authenticationParameterValue);
+        this.additionalData = authenticationParameterValue?.additionalData ? authenticationParameterValue?.additionalData! : {};
         const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = []; authenticationParameterValue.fido2Methods?.forEach(element => {fido2MethodsArrValue.push(element instanceof Fido2AuthenticationMethodImpl? element : new Fido2AuthenticationMethodImpl(element));});
         this.fido2Methods = fido2MethodsArrValue;
         const methodsArrValue: AuthenticationMethodImpl[] = []; authenticationParameterValue.methods?.forEach(element => {methodsArrValue.push(element instanceof AuthenticationMethodImpl? element : new AuthenticationMethodImpl(element));});
@@ -76,5 +78,6 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         if(this.windowsHelloForBusinessMethods && this.windowsHelloForBusinessMethods.length != 0){        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.windowsHelloForBusinessMethods?.forEach(element => {windowsHelloForBusinessMethodsArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethodImpl>("windowsHelloForBusinessMethods", windowsHelloForBusinessMethodsArrValue);
         }
+        writer.writeAdditionalData(this.additionalData);
     };
 }
