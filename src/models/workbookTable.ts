@@ -3,11 +3,9 @@ import {WorkbookTableColumn} from './workbookTableColumn';
 import {WorkbookTableRow} from './workbookTableRow';
 import {WorkbookTableSort} from './workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookTable extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookTable extends Entity, Partial<Parsable> {
     /** Represents a collection of all the columns in the table. Read-only. */
     columns?: WorkbookTableColumn[] | undefined;
     /** Indicates whether the first column contains special formatting. */

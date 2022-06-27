@@ -4,12 +4,10 @@ import {EntityImpl, JsonImpl, WorkbookChartPointFormatImpl} from './index';
 import {Json} from './json';
 import {WorkbookChartPoint} from './workbookChartPoint';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartPoint {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Encapsulates the format properties chart point. Read-only. */
     public format?: WorkbookChartPointFormat | undefined;
     /** Returns the value of a chart point. Read-only. */
@@ -20,7 +18,6 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
      */
     public constructor(workbookChartPointParameterValue?: WorkbookChartPoint | undefined) {
         super(workbookChartPointParameterValue);
-        this.additionalData = workbookChartPointParameterValue?.additionalData ? workbookChartPointParameterValue?.additionalData! : {};
         this.format = workbookChartPointParameterValue?.format instanceof WorkbookChartPointFormatImpl? workbookChartPointParameterValue?.format:new WorkbookChartPointFormatImpl(workbookChartPointParameterValue?.format);
         this.value = workbookChartPointParameterValue?.value instanceof JsonImpl? workbookChartPointParameterValue?.value:new JsonImpl(workbookChartPointParameterValue?.value);
     };
@@ -47,6 +44,5 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
         if(this.value){
             writer.writeObjectValue<JsonImpl>("value", new JsonImpl(this.value));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

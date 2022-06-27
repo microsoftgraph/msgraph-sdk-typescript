@@ -9,11 +9,10 @@ import {createLocationFromDiscriminatorValue} from './createLocationFromDiscrimi
 import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {BookingCustomerInformationBaseImpl, BookingReminderImpl, DateTimeTimeZoneImpl, EntityImpl, LocationImpl} from './index';
 import {Location} from './location';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents a booked appointment of a service by a customer in a business. */
 export class BookingAppointmentImpl extends EntityImpl implements BookingAppointment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     public additionalInformation?: string | undefined;
     /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
@@ -61,12 +60,11 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
     /** The startDateTime property */
     public startDateTime?: DateTimeTimeZone | undefined;
     /**
-     * Instantiates a new BookingAppointment and sets the default values.
+     * Instantiates a new bookingAppointment and sets the default values.
      * @param bookingAppointmentParameterValue 
      */
     public constructor(bookingAppointmentParameterValue?: BookingAppointment | undefined) {
         super(bookingAppointmentParameterValue);
-        this.additionalData = bookingAppointmentParameterValue?.additionalData ? bookingAppointmentParameterValue?.additionalData! : {};
         this.additionalInformation = bookingAppointmentParameterValue?.additionalInformation;
         const customersArrValue: BookingCustomerInformationBaseImpl[] = []; bookingAppointmentParameterValue.customers?.forEach(element => {customersArrValue.push(element instanceof BookingCustomerInformationBaseImpl? element : new BookingCustomerInformationBaseImpl(element));});
         this.customers = customersArrValue;
@@ -200,6 +198,5 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(this.startDateTime){
             writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

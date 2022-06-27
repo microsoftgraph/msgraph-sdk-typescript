@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Casts the previous resource to group. */
 export enum TeamSpecialization {
     None = "none",
     EducationStandard = "educationStandard",

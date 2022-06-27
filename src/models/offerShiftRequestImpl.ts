@@ -1,10 +1,8 @@
 import {ScheduleChangeRequestImpl} from './index';
 import {OfferShiftRequest} from './offerShiftRequest';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements OfferShiftRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request. */
@@ -19,7 +17,6 @@ export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements 
      */
     public constructor(offerShiftRequestParameterValue?: OfferShiftRequest | undefined) {
         super(offerShiftRequestParameterValue);
-        this.additionalData = offerShiftRequestParameterValue?.additionalData ? offerShiftRequestParameterValue?.additionalData! : {};
         this.recipientActionDateTime = offerShiftRequestParameterValue?.recipientActionDateTime;
         this.recipientActionMessage = offerShiftRequestParameterValue?.recipientActionMessage;
         this.recipientUserId = offerShiftRequestParameterValue?.recipientUserId;
@@ -56,6 +53,5 @@ export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements 
         if(this.senderShiftId){
             writer.writeStringValue("senderShiftId", this.senderShiftId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

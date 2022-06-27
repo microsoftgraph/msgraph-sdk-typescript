@@ -13,11 +13,9 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {Post} from './post';
 import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PostImpl extends OutlookItemImpl implements Post {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand. */
     public attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null. */
@@ -50,7 +48,6 @@ export class PostImpl extends OutlookItemImpl implements Post {
      */
     public constructor(postParameterValue?: Post | undefined) {
         super(postParameterValue);
-        this.additionalData = postParameterValue?.additionalData ? postParameterValue?.additionalData! : {};
         const attachmentsArrValue: AttachmentImpl[] = []; postParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         this.body = postParameterValue?.body instanceof ItemBodyImpl? postParameterValue?.body:new ItemBodyImpl(postParameterValue?.body);
@@ -137,6 +134,5 @@ export class PostImpl extends OutlookItemImpl implements Post {
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

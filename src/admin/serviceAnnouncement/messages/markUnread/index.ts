@@ -1,5 +1,5 @@
 export * from './markUnreadPostRequestBodyImpl'
 export * from './markUnreadResponseImpl'
+export * from './markUnreadRequestBuilderPostRequestConfiguration'
 export * from './markUnreadPostRequestBody'
 export * from './markUnreadResponse'
-export * from './markUnreadRequestBuilderPostRequestConfiguration'

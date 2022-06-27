@@ -6,11 +6,10 @@ import {Planner} from './planner';
 import {PlannerBucket} from './plannerBucket';
 import {PlannerPlan} from './plannerPlan';
 import {PlannerTask} from './plannerTask';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the planner singleton. */
 export class PlannerImpl extends EntityImpl implements Planner {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Read-only. Nullable. Returns a collection of the specified buckets */
     public buckets?: PlannerBucket[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified plans */
@@ -18,12 +17,11 @@ export class PlannerImpl extends EntityImpl implements Planner {
     /** Read-only. Nullable. Returns a collection of the specified tasks */
     public tasks?: PlannerTask[] | undefined;
     /**
-     * Instantiates a new Planner and sets the default values.
+     * Instantiates a new planner and sets the default values.
      * @param plannerParameterValue 
      */
     public constructor(plannerParameterValue?: Planner | undefined) {
         super(plannerParameterValue);
-        this.additionalData = plannerParameterValue?.additionalData ? plannerParameterValue?.additionalData! : {};
         const bucketsArrValue: PlannerBucketImpl[] = []; plannerParameterValue.buckets?.forEach(element => {bucketsArrValue.push(element instanceof PlannerBucketImpl? element : new PlannerBucketImpl(element));});
         this.buckets = bucketsArrValue;
         const plansArrValue: PlannerPlanImpl[] = []; plannerParameterValue.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
@@ -58,6 +56,5 @@ export class PlannerImpl extends EntityImpl implements Planner {
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

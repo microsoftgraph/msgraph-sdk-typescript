@@ -2,12 +2,10 @@ import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from './c
 import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
 import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
 import {EnrollmentConfigurationAssignmentImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Base Class of Device Enrollment Configuration */
 export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements DeviceEnrollmentConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The list of group assignments for the device configuration profile */
     public assignments?: EnrollmentConfigurationAssignment[] | undefined;
     /** Created date time in UTC of the device enrollment configuration */
@@ -28,7 +26,6 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
      */
     public constructor(deviceEnrollmentConfigurationParameterValue?: DeviceEnrollmentConfiguration | undefined) {
         super(deviceEnrollmentConfigurationParameterValue);
-        this.additionalData = deviceEnrollmentConfigurationParameterValue?.additionalData ? deviceEnrollmentConfigurationParameterValue?.additionalData! : {};
         const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; deviceEnrollmentConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = deviceEnrollmentConfigurationParameterValue?.createdDateTime;
@@ -81,6 +78,5 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

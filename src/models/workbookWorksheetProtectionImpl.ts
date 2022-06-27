@@ -2,12 +2,10 @@ import {createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue} from './
 import {EntityImpl, WorkbookWorksheetProtectionOptionsImpl} from './index';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookWorksheetProtectionImpl extends EntityImpl implements WorkbookWorksheetProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Sheet protection options. Read-only. */
     public options?: WorkbookWorksheetProtectionOptions | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
@@ -18,7 +16,6 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
      */
     public constructor(workbookWorksheetProtectionParameterValue?: WorkbookWorksheetProtection | undefined) {
         super(workbookWorksheetProtectionParameterValue);
-        this.additionalData = workbookWorksheetProtectionParameterValue?.additionalData ? workbookWorksheetProtectionParameterValue?.additionalData! : {};
         this.options = workbookWorksheetProtectionParameterValue?.options instanceof WorkbookWorksheetProtectionOptionsImpl? workbookWorksheetProtectionParameterValue?.options:new WorkbookWorksheetProtectionOptionsImpl(workbookWorksheetProtectionParameterValue?.options);
         this.protected = workbookWorksheetProtectionParameterValue?.protected;
     };
@@ -45,6 +42,5 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
         if(this.protected){
             writer.writeBooleanValue("protected", this.protected);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

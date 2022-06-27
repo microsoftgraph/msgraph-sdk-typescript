@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MobileThreatDefenseConnector extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface MobileThreatDefenseConnector extends Entity, Partial<Parsable> {
     /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
     /** For Android, set whether data from the data sync partner should be used during compliance evaluations */

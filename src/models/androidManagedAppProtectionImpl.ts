@@ -4,11 +4,9 @@ import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobil
 import {ManagedAppPolicyDeploymentSummaryImpl, ManagedMobileAppImpl, TargetedManagedAppProtectionImpl} from './index';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements AndroidManagedAppProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List of apps to which the policy is deployed. */
     public apps?: ManagedMobileApp[] | undefined;
     /** Friendly name of the preferred custom browser to open weblink on Android. */
@@ -35,7 +33,6 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
      */
     public constructor(androidManagedAppProtectionParameterValue?: AndroidManagedAppProtection | undefined) {
         super(androidManagedAppProtectionParameterValue);
-        this.additionalData = androidManagedAppProtectionParameterValue?.additionalData ? androidManagedAppProtectionParameterValue?.additionalData! : {};
         const appsArrValue: ManagedMobileAppImpl[] = []; androidManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
         this.customBrowserDisplayName = androidManagedAppProtectionParameterValue?.customBrowserDisplayName;
@@ -103,6 +100,5 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
         if(this.screenCaptureBlocked){
             writer.writeBooleanValue("screenCaptureBlocked", this.screenCaptureBlocked);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

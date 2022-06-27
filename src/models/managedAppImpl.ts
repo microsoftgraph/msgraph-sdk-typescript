@@ -1,11 +1,9 @@
 import {MobileAppImpl} from './index';
 import {ManagedApp} from './managedApp';
 import {ManagedAppAvailability} from './managedAppAvailability';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Application's availability. Possible values are: global, lineOfBusiness. */
     public appAvailability?: ManagedAppAvailability | undefined;
     /** The Application's version. */
@@ -16,7 +14,6 @@ export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
      */
     public constructor(managedAppParameterValue?: ManagedApp | undefined) {
         super(managedAppParameterValue);
-        this.additionalData = managedAppParameterValue?.additionalData ? managedAppParameterValue?.additionalData! : {};
         this.appAvailability = managedAppParameterValue?.appAvailability;
         this.version = managedAppParameterValue?.version;
     };
@@ -43,6 +40,5 @@ export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

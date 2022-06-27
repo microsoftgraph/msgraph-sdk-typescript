@@ -10,11 +10,9 @@ import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Team} from './team';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SubjectRightsRequest extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface SubjectRightsRequest extends Entity, Partial<Parsable> {
     /** Identity that the request is assigned to. */
     assignedTo?: Identity | undefined;
     /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */

@@ -5,12 +5,10 @@ import {Group} from './group';
 import {GroupImpl, SetImpl} from './index';
 import {Set} from './set';
 import {Store} from './store';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class StoreImpl extends EntityImpl implements Store {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Default language of the term store. */
     public defaultLanguageTag?: string | undefined;
     /** Collection of all groups available in the term store. */
@@ -25,7 +23,6 @@ export class StoreImpl extends EntityImpl implements Store {
      */
     public constructor(storeParameterValue?: Store | undefined) {
         super(storeParameterValue);
-        this.additionalData = storeParameterValue?.additionalData ? storeParameterValue?.additionalData! : {};
         this.defaultLanguageTag = storeParameterValue?.defaultLanguageTag;
         const groupsArrValue: GroupImpl[] = []; storeParameterValue.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
         this.groups = groupsArrValue;
@@ -64,6 +61,5 @@ export class StoreImpl extends EntityImpl implements Store {
         if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,11 +2,10 @@ import {createExtensionSchemaPropertyFromDiscriminatorValue} from './createExten
 import {ExtensionSchemaProperty} from './extensionSchemaProperty';
 import {EntityImpl, ExtensionSchemaPropertyImpl} from './index';
 import {SchemaExtension} from './schemaExtension';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of schemaExtension entities. */
 export class SchemaExtensionImpl extends EntityImpl implements SchemaExtension {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Description for the schema extension. Supports $filter (eq). */
     public description?: string | undefined;
     /** The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq). */
@@ -18,12 +17,11 @@ export class SchemaExtensionImpl extends EntityImpl implements SchemaExtension {
     /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user. */
     public targetTypes?: string[] | undefined;
     /**
-     * Instantiates a new SchemaExtension and sets the default values.
+     * Instantiates a new schemaExtension and sets the default values.
      * @param schemaExtensionParameterValue 
      */
     public constructor(schemaExtensionParameterValue?: SchemaExtension | undefined) {
         super(schemaExtensionParameterValue);
-        this.additionalData = schemaExtensionParameterValue?.additionalData ? schemaExtensionParameterValue?.additionalData! : {};
         this.description = schemaExtensionParameterValue?.description;
         this.owner = schemaExtensionParameterValue?.owner;
         const propertiesArrValue: ExtensionSchemaPropertyImpl[] = []; schemaExtensionParameterValue.properties?.forEach(element => {propertiesArrValue.push(element instanceof ExtensionSchemaPropertyImpl? element : new ExtensionSchemaPropertyImpl(element));});
@@ -66,6 +64,5 @@ export class SchemaExtensionImpl extends EntityImpl implements SchemaExtension {
         if(this.targetTypes){
             writer.writeCollectionOfPrimitiveValues<string>("targetTypes", this.targetTypes);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

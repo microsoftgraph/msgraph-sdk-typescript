@@ -12,11 +12,9 @@ import {ListItem} from './listItem';
 import {Permission} from './permission';
 import {SharedDriveItem} from './sharedDriveItem';
 import {Site} from './site';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Used to access the underlying driveItem */
     public driveItem?: DriveItem | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */
@@ -39,7 +37,6 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public constructor(sharedDriveItemParameterValue?: SharedDriveItem | undefined) {
         super(sharedDriveItemParameterValue);
-        this.additionalData = sharedDriveItemParameterValue?.additionalData ? sharedDriveItemParameterValue?.additionalData! : {};
         this.driveItem = sharedDriveItemParameterValue?.driveItem instanceof DriveItemImpl? sharedDriveItemParameterValue?.driveItem:new DriveItemImpl(sharedDriveItemParameterValue?.driveItem);
         const itemsArrValue: DriveItemImpl[] = []; sharedDriveItemParameterValue.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
         this.items = itemsArrValue;
@@ -97,6 +94,5 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
         if(this.site){
             writer.writeObjectValue<SiteImpl>("site", new SiteImpl(this.site));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

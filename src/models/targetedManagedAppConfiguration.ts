@@ -2,11 +2,9 @@ import {ManagedAppConfiguration} from './managedAppConfiguration';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TargetedManagedAppConfiguration extends Partial<AdditionalDataHolder>, ManagedAppConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface TargetedManagedAppConfiguration extends ManagedAppConfiguration, Partial<Parsable> {
     /** List of apps to which the policy is deployed. */
     apps?: ManagedMobileApp[] | undefined;
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */

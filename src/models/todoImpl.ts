@@ -2,20 +2,18 @@ import {createTodoTaskListFromDiscriminatorValue} from './createTodoTaskListFrom
 import {EntityImpl, TodoTaskListImpl} from './index';
 import {Todo} from './todo';
 import {TodoTaskList} from './todoTaskList';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class TodoImpl extends EntityImpl implements Todo {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The task lists in the users mailbox. */
     public lists?: TodoTaskList[] | undefined;
     /**
-     * Instantiates a new Todo and sets the default values.
+     * Instantiates a new todo and sets the default values.
      * @param todoParameterValue 
      */
     public constructor(todoParameterValue?: Todo | undefined) {
         super(todoParameterValue);
-        this.additionalData = todoParameterValue?.additionalData ? todoParameterValue?.additionalData! : {};
         const listsArrValue: TodoTaskListImpl[] = []; todoParameterValue.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
         this.lists = listsArrValue;
     };
@@ -38,6 +36,5 @@ export class TodoImpl extends EntityImpl implements Todo {
         if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
             writer.writeCollectionOfObjectValues<TodoTaskListImpl>("lists", listsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

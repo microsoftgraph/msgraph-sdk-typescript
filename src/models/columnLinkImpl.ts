@@ -1,11 +1,9 @@
 import {ColumnLink} from './columnLink';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The name of the column  in this content type. */
     public name?: string | undefined;
     /**
@@ -14,7 +12,6 @@ export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
      */
     public constructor(columnLinkParameterValue?: ColumnLink | undefined) {
         super(columnLinkParameterValue);
-        this.additionalData = columnLinkParameterValue?.additionalData ? columnLinkParameterValue?.additionalData! : {};
         this.name = columnLinkParameterValue?.name;
     };
     /**
@@ -36,6 +33,5 @@ export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

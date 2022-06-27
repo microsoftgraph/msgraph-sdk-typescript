@@ -1,11 +1,9 @@
 import {DeviceConfiguration} from './deviceConfiguration';
 import {MiracastChannel} from './miracastChannel';
 import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
-import {AdditionalDataHolder, Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export interface Windows10TeamGeneralConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Windows10TeamGeneralConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Indicates whether or not to Block Azure Operational Insights. */
     azureOperationalInsightsBlockTelemetry?: boolean | undefined;
     /** The Azure Operational Insights workspace id. */

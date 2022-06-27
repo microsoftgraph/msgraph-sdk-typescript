@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {OperationStatus} from './operationStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Operation extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Operation extends Entity, Partial<Parsable> {
     /** The start time of the operation. */
     createdDateTime?: Date | undefined;
     /** The time of the last action of the operation. */

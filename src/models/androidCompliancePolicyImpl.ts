@@ -2,11 +2,9 @@ import {AndroidCompliancePolicy} from './androidCompliancePolicy';
 import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {DeviceCompliancePolicyImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidCompliancePolicyImpl extends DeviceCompliancePolicyImpl implements AndroidCompliancePolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Require that devices have enabled device threat protection. */
     public deviceThreatProtectionEnabled?: boolean | undefined;
     /** Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. */
@@ -55,7 +53,6 @@ export class AndroidCompliancePolicyImpl extends DeviceCompliancePolicyImpl impl
      */
     public constructor(androidCompliancePolicyParameterValue?: AndroidCompliancePolicy | undefined) {
         super(androidCompliancePolicyParameterValue);
-        this.additionalData = androidCompliancePolicyParameterValue?.additionalData ? androidCompliancePolicyParameterValue?.additionalData! : {};
         this.deviceThreatProtectionEnabled = androidCompliancePolicyParameterValue?.deviceThreatProtectionEnabled;
         this.deviceThreatProtectionRequiredSecurityLevel = androidCompliancePolicyParameterValue?.deviceThreatProtectionRequiredSecurityLevel;
         this.minAndroidSecurityPatchLevel = androidCompliancePolicyParameterValue?.minAndroidSecurityPatchLevel;
@@ -177,6 +174,5 @@ export class AndroidCompliancePolicyImpl extends DeviceCompliancePolicyImpl impl
         if(this.storageRequireEncryption){
             writer.writeBooleanValue("storageRequireEncryption", this.storageRequireEncryption);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

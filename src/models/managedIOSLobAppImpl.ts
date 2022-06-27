@@ -4,11 +4,9 @@ import {IosDeviceTypeImpl, IosMinimumOperatingSystemImpl, ManagedMobileLobAppImp
 import {IosDeviceType} from './iosDeviceType';
 import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {ManagedIOSLobApp} from './managedIOSLobApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedIOSLobAppImpl extends ManagedMobileLobAppImpl implements ManagedIOSLobApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Contains properties of the possible iOS device types the mobile app can run on. */
     public applicableDeviceType?: IosDeviceType | undefined;
     /** The build number of managed iOS Line of Business (LoB) app. */
@@ -27,7 +25,6 @@ export class ManagedIOSLobAppImpl extends ManagedMobileLobAppImpl implements Man
      */
     public constructor(managedIOSLobAppParameterValue?: ManagedIOSLobApp | undefined) {
         super(managedIOSLobAppParameterValue);
-        this.additionalData = managedIOSLobAppParameterValue?.additionalData ? managedIOSLobAppParameterValue?.additionalData! : {};
         this.applicableDeviceType = managedIOSLobAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? managedIOSLobAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(managedIOSLobAppParameterValue?.applicableDeviceType);
         this.buildNumber = managedIOSLobAppParameterValue?.buildNumber;
         this.bundleId = managedIOSLobAppParameterValue?.bundleId;
@@ -74,6 +71,5 @@ export class ManagedIOSLobAppImpl extends ManagedMobileLobAppImpl implements Man
         if(this.versionNumber){
             writer.writeStringValue("versionNumber", this.versionNumber);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

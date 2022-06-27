@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the informationProtection singleton. */
 export enum ThreatAssessmentResultType {
     CheckPolicy = "checkPolicy",
     Rescan = "rescan",

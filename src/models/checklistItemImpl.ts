@@ -1,11 +1,9 @@
 import {ChecklistItem} from './checklistItem';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class ChecklistItemImpl extends EntityImpl implements ChecklistItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The date and time when the checklistItem was finished. */
     public checkedDateTime?: Date | undefined;
     /** The date and time when the checklistItem was created. */
@@ -20,7 +18,6 @@ export class ChecklistItemImpl extends EntityImpl implements ChecklistItem {
      */
     public constructor(checklistItemParameterValue?: ChecklistItem | undefined) {
         super(checklistItemParameterValue);
-        this.additionalData = checklistItemParameterValue?.additionalData ? checklistItemParameterValue?.additionalData! : {};
         this.checkedDateTime = checklistItemParameterValue?.checkedDateTime;
         this.createdDateTime = checklistItemParameterValue?.createdDateTime;
         this.displayName = checklistItemParameterValue?.displayName;
@@ -57,6 +54,5 @@ export class ChecklistItemImpl extends EntityImpl implements ChecklistItem {
         if(this.isChecked){
             writer.writeBooleanValue("isChecked", this.isChecked);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

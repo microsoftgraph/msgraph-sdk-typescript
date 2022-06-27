@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the educationRoot singleton. */
 export enum EducationUserRole {
     Student = "student",
     Teacher = "teacher",

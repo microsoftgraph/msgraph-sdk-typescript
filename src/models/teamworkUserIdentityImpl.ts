@@ -1,20 +1,18 @@
 import {IdentityImpl} from './index';
 import {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class TeamworkUserIdentityImpl extends IdentityImpl implements TeamworkUserIdentity {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
     public userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
-     * Instantiates a new TeamworkUserIdentity and sets the default values.
+     * Instantiates a new teamworkUserIdentity and sets the default values.
      * @param teamworkUserIdentityParameterValue 
      */
     public constructor(teamworkUserIdentityParameterValue?: TeamworkUserIdentity | undefined) {
         super(teamworkUserIdentityParameterValue);
-        this.additionalData = teamworkUserIdentityParameterValue?.additionalData ? teamworkUserIdentityParameterValue?.additionalData! : {};
         this.userIdentityType = teamworkUserIdentityParameterValue?.userIdentityType;
     };
     /**
@@ -36,6 +34,5 @@ export class TeamworkUserIdentityImpl extends IdentityImpl implements TeamworkUs
         if(this.userIdentityType){
             writer.writeEnumValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

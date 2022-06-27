@@ -1,10 +1,8 @@
 import {DirectoryObject} from './directoryObject';
 import {SettingTemplateValue} from './settingTemplateValue';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface GroupSettingTemplate extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface GroupSettingTemplate extends DirectoryObject, Partial<Parsable> {
     /** Description of the template. */
     description?: string | undefined;
     /** Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings. */

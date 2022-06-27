@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the organizationalBranding singleton. */
 export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements OrganizationalBrandingProperties {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Color that appears in place of the background image in low-bandwidth connections. We recommend that you use the primary color of your banner logo or your organization color. Specify this in hexadecimal format, for example, white is #FFFFFF. */
     public backgroundColor?: string | undefined;
     /** Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster. */
@@ -32,7 +30,6 @@ export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements 
      */
     public constructor(organizationalBrandingPropertiesParameterValue?: OrganizationalBrandingProperties | undefined) {
         super(organizationalBrandingPropertiesParameterValue);
-        this.additionalData = organizationalBrandingPropertiesParameterValue?.additionalData ? organizationalBrandingPropertiesParameterValue?.additionalData! : {};
         this.backgroundColor = organizationalBrandingPropertiesParameterValue?.backgroundColor;
         this.backgroundImage = organizationalBrandingPropertiesParameterValue?.backgroundImage;
         this.backgroundImageRelativeUrl = organizationalBrandingPropertiesParameterValue?.backgroundImageRelativeUrl;
@@ -99,6 +96,5 @@ export class OrganizationalBrandingPropertiesImpl extends EntityImpl implements 
         if(this.usernameHintText){
             writer.writeStringValue("usernameHintText", this.usernameHintText);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

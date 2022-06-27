@@ -1,10 +1,9 @@
 import {EntityImpl} from './index';
 import {PrintUsage} from './printUsage';
-import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the reportRoot singleton. */
 export class PrintUsageImpl extends EntityImpl implements PrintUsage {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The completedBlackAndWhiteJobCount property */
     public completedBlackAndWhiteJobCount?: number | undefined;
     /** The completedColorJobCount property */
@@ -14,12 +13,11 @@ export class PrintUsageImpl extends EntityImpl implements PrintUsage {
     /** The usageDate property */
     public usageDate?: DateOnly | undefined;
     /**
-     * Instantiates a new PrintUsage and sets the default values.
+     * Instantiates a new printUsage and sets the default values.
      * @param printUsageParameterValue 
      */
     public constructor(printUsageParameterValue?: PrintUsage | undefined) {
         super(printUsageParameterValue);
-        this.additionalData = printUsageParameterValue?.additionalData ? printUsageParameterValue?.additionalData! : {};
         this.completedBlackAndWhiteJobCount = printUsageParameterValue?.completedBlackAndWhiteJobCount;
         this.completedColorJobCount = printUsageParameterValue?.completedColorJobCount;
         this.incompleteJobCount = printUsageParameterValue?.incompleteJobCount;
@@ -56,6 +54,5 @@ export class PrintUsageImpl extends EntityImpl implements PrintUsage {
         if(this.usageDate){
             writer.writeDateOnlyValue("usageDate", this.usageDate);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,11 +2,9 @@ import {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import {DeviceConfiguration} from './deviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WindowsPhone81GeneralConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WindowsPhone81GeneralConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only. */
     applyOnlyToWindowsPhone81?: boolean | undefined;
     /** Indicates whether or not to block copy paste. */

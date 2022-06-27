@@ -3,11 +3,9 @@ import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminato
 import {Device} from './device';
 import {AuthenticationMethodImpl, DeviceImpl} from './index';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsHelloForBusinessAuthenticationMethodImpl extends AuthenticationMethodImpl implements WindowsHelloForBusinessAuthenticationMethod {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The date and time that this Windows Hello for Business key was registered. */
     public createdDateTime?: Date | undefined;
     /** The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user's Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device. */
@@ -22,7 +20,6 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
      */
     public constructor(windowsHelloForBusinessAuthenticationMethodParameterValue?: WindowsHelloForBusinessAuthenticationMethod | undefined) {
         super(windowsHelloForBusinessAuthenticationMethodParameterValue);
-        this.additionalData = windowsHelloForBusinessAuthenticationMethodParameterValue?.additionalData ? windowsHelloForBusinessAuthenticationMethodParameterValue?.additionalData! : {};
         this.createdDateTime = windowsHelloForBusinessAuthenticationMethodParameterValue?.createdDateTime;
         this.device = windowsHelloForBusinessAuthenticationMethodParameterValue?.device instanceof DeviceImpl? windowsHelloForBusinessAuthenticationMethodParameterValue?.device:new DeviceImpl(windowsHelloForBusinessAuthenticationMethodParameterValue?.device);
         this.displayName = windowsHelloForBusinessAuthenticationMethodParameterValue?.displayName;
@@ -59,6 +56,5 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
         if(this.keyStrength){
             writer.writeEnumValue<AuthenticationMethodKeyStrength>("keyStrength", this.keyStrength);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

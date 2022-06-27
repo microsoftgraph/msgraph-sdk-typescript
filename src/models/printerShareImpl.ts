@@ -6,12 +6,10 @@ import {GroupImpl, PrinterBaseImpl, PrinterImpl, UserImpl} from './index';
 import {Printer} from './printer';
 import {PrinterShare} from './printerShare';
 import {User} from './user';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the print singleton. */
 export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties. */
     public allowAllUsers?: boolean | undefined;
     /** The groups whose users have access to print using the printer. */
@@ -28,7 +26,6 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
      */
     public constructor(printerShareParameterValue?: PrinterShare | undefined) {
         super(printerShareParameterValue);
-        this.additionalData = printerShareParameterValue?.additionalData ? printerShareParameterValue?.additionalData! : {};
         this.allowAllUsers = printerShareParameterValue?.allowAllUsers;
         const allowedGroupsArrValue: GroupImpl[] = []; printerShareParameterValue.allowedGroups?.forEach(element => {allowedGroupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
         this.allowedGroups = allowedGroupsArrValue;
@@ -72,6 +69,5 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
         if(this.printer){
             writer.writeObjectValue<PrinterImpl>("printer", new PrinterImpl(this.printer));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

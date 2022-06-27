@@ -1,11 +1,9 @@
 import {Bitlocker} from './bitlocker';
 import {Entity} from './entity';
 import {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface InformationProtection extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface InformationProtection extends Entity, Partial<Parsable> {
     /** The bitlocker property */
     bitlocker?: Bitlocker | undefined;
     /** The threatAssessmentRequests property */

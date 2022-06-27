@@ -6,11 +6,9 @@ import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSum
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppConfigurationImpl extends ManagedAppConfigurationImpl implements TargetedManagedAppConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List of apps to which the policy is deployed. */
     public apps?: ManagedMobileApp[] | undefined;
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
@@ -27,7 +25,6 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
      */
     public constructor(targetedManagedAppConfigurationParameterValue?: TargetedManagedAppConfiguration | undefined) {
         super(targetedManagedAppConfigurationParameterValue);
-        this.additionalData = targetedManagedAppConfigurationParameterValue?.additionalData ? targetedManagedAppConfigurationParameterValue?.additionalData! : {};
         const appsArrValue: ManagedMobileAppImpl[] = []; targetedManagedAppConfigurationParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
         const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppConfigurationParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
@@ -71,6 +68,5 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
         if(this.isAssigned){
             writer.writeBooleanValue("isAssigned", this.isAssigned);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

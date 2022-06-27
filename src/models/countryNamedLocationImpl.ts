@@ -1,11 +1,9 @@
 import {CountryLookupMethodType} from './countryLookupMethodType';
 import {CountryNamedLocation} from './countryNamedLocation';
 import {NamedLocationImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CountryNamedLocationImpl extends NamedLocationImpl implements CountryNamedLocation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List of countries and/or regions in two-letter format specified by ISO 3166-2. */
     public countriesAndRegions?: string[] | undefined;
     /** Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps. */
@@ -18,7 +16,6 @@ export class CountryNamedLocationImpl extends NamedLocationImpl implements Count
      */
     public constructor(countryNamedLocationParameterValue?: CountryNamedLocation | undefined) {
         super(countryNamedLocationParameterValue);
-        this.additionalData = countryNamedLocationParameterValue?.additionalData ? countryNamedLocationParameterValue?.additionalData! : {};
         this.countriesAndRegions = countryNamedLocationParameterValue?.countriesAndRegions;
         this.countryLookupMethod = countryNamedLocationParameterValue?.countryLookupMethod;
         this.includeUnknownCountriesAndRegions = countryNamedLocationParameterValue?.includeUnknownCountriesAndRegions;
@@ -50,6 +47,5 @@ export class CountryNamedLocationImpl extends NamedLocationImpl implements Count
         if(this.includeUnknownCountriesAndRegions){
             writer.writeBooleanValue("includeUnknownCountriesAndRegions", this.includeUnknownCountriesAndRegions);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

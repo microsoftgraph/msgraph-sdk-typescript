@@ -1,12 +1,10 @@
 import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
 import {UnifiedRoleScheduleInstanceBase} from './unifiedRoleScheduleInstanceBase';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleAssignmentScheduleInstance extends Partial<AdditionalDataHolder>, Partial<Parsable>, UnifiedRoleScheduleInstanceBase {
+export interface UnifiedRoleAssignmentScheduleInstance extends Partial<Parsable>, UnifiedRoleScheduleInstanceBase {
     /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
     activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
     assignmentType?: string | undefined;
     /** The end date of the schedule instance. */

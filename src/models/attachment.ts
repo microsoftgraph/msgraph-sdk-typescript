@@ -1,9 +1,7 @@
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Attachment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Attachment extends Entity, Partial<Parsable> {
     /** The MIME type. */
     contentType?: string | undefined;
     /** true if the attachment is an inline attachment; otherwise, false. */

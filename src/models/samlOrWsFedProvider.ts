@@ -1,10 +1,8 @@
 import {AuthenticationProtocol} from './authenticationProtocol';
 import {IdentityProviderBase} from './identityProviderBase';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SamlOrWsFedProvider extends Partial<AdditionalDataHolder>, IdentityProviderBase, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface SamlOrWsFedProvider extends IdentityProviderBase, Partial<Parsable> {
     /** Issuer URI of the federation server. */
     issuerUri?: string | undefined;
     /** URI of the metadata exchange endpoint used for authentication from rich client applications. */

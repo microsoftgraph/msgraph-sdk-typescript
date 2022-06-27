@@ -1,9 +1,7 @@
 import {IdentityProviderBase} from './identityProviderBase';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AppleManagedIdentityProvider extends Partial<AdditionalDataHolder>, IdentityProviderBase, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AppleManagedIdentityProvider extends IdentityProviderBase, Partial<Parsable> {
     /** The certificate data which is a long string of text from the certificate, can be null. */
     certificateData?: string | undefined;
     /** The Apple developer identifier. Required. */

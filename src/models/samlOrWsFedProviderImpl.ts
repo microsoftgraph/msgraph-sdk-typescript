@@ -1,11 +1,9 @@
 import {AuthenticationProtocol} from './authenticationProtocol';
 import {IdentityProviderBaseImpl} from './index';
 import {SamlOrWsFedProvider} from './samlOrWsFedProvider';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements SamlOrWsFedProvider {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Issuer URI of the federation server. */
     public issuerUri?: string | undefined;
     /** URI of the metadata exchange endpoint used for authentication from rich client applications. */
@@ -22,7 +20,6 @@ export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements
      */
     public constructor(samlOrWsFedProviderParameterValue?: SamlOrWsFedProvider | undefined) {
         super(samlOrWsFedProviderParameterValue);
-        this.additionalData = samlOrWsFedProviderParameterValue?.additionalData ? samlOrWsFedProviderParameterValue?.additionalData! : {};
         this.issuerUri = samlOrWsFedProviderParameterValue?.issuerUri;
         this.metadataExchangeUri = samlOrWsFedProviderParameterValue?.metadataExchangeUri;
         this.passiveSignInUri = samlOrWsFedProviderParameterValue?.passiveSignInUri;
@@ -64,6 +61,5 @@ export class SamlOrWsFedProviderImpl extends IdentityProviderBaseImpl implements
         if(this.signingCertificate){
             writer.writeStringValue("signingCertificate", this.signingCertificate);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

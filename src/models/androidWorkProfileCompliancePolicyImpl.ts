@@ -2,11 +2,9 @@ import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
 import {AndroidWorkProfileCompliancePolicy} from './androidWorkProfileCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {DeviceCompliancePolicyImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidWorkProfileCompliancePolicyImpl extends DeviceCompliancePolicyImpl implements AndroidWorkProfileCompliancePolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Require that devices have enabled device threat protection. */
     public deviceThreatProtectionEnabled?: boolean | undefined;
     /** Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. */
@@ -55,7 +53,6 @@ export class AndroidWorkProfileCompliancePolicyImpl extends DeviceCompliancePoli
      */
     public constructor(androidWorkProfileCompliancePolicyParameterValue?: AndroidWorkProfileCompliancePolicy | undefined) {
         super(androidWorkProfileCompliancePolicyParameterValue);
-        this.additionalData = androidWorkProfileCompliancePolicyParameterValue?.additionalData ? androidWorkProfileCompliancePolicyParameterValue?.additionalData! : {};
         this.deviceThreatProtectionEnabled = androidWorkProfileCompliancePolicyParameterValue?.deviceThreatProtectionEnabled;
         this.deviceThreatProtectionRequiredSecurityLevel = androidWorkProfileCompliancePolicyParameterValue?.deviceThreatProtectionRequiredSecurityLevel;
         this.minAndroidSecurityPatchLevel = androidWorkProfileCompliancePolicyParameterValue?.minAndroidSecurityPatchLevel;
@@ -177,6 +174,5 @@ export class AndroidWorkProfileCompliancePolicyImpl extends DeviceCompliancePoli
         if(this.storageRequireEncryption){
             writer.writeBooleanValue("storageRequireEncryption", this.storageRequireEncryption);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

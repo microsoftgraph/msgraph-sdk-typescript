@@ -6,14 +6,12 @@ import {Device} from './device';
 import {DirectoryObject} from './directoryObject';
 import {Extension} from './extension';
 import {AlternativeSecurityIdImpl, DirectoryObjectImpl, ExtensionImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to device. */
+/** Provides operations to manage the collection of device entities. */
 export class DeviceImpl extends DirectoryObjectImpl implements Device {
     /** true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
     public accountEnabled?: boolean | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le). */
     public alternativeSecurityIds?: AlternativeSecurityId[] | undefined;
     /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy. */
@@ -67,7 +65,6 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
     public constructor(deviceParameterValue?: Device | undefined) {
         super(deviceParameterValue);
         this.accountEnabled = deviceParameterValue?.accountEnabled;
-        this.additionalData = deviceParameterValue?.additionalData ? deviceParameterValue?.additionalData! : {};
         const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = []; deviceParameterValue.alternativeSecurityIds?.forEach(element => {alternativeSecurityIdsArrValue.push(element instanceof AlternativeSecurityIdImpl? element : new AlternativeSecurityIdImpl(element));});
         this.alternativeSecurityIds = alternativeSecurityIdsArrValue;
         this.approximateLastSignInDateTime = deviceParameterValue?.approximateLastSignInDateTime;
@@ -209,6 +206,5 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(this.trustType){
             writer.writeStringValue("trustType", this.trustType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

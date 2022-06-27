@@ -2,11 +2,9 @@ import {AndroidWorkProfileCrossProfileDataSharingType} from './androidWorkProfil
 import {AndroidWorkProfileDefaultAppPermissionPolicyType} from './androidWorkProfileDefaultAppPermissionPolicyType';
 import {AndroidWorkProfileRequiredPasswordType} from './androidWorkProfileRequiredPasswordType';
 import {DeviceConfiguration} from './deviceConfiguration';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AndroidWorkProfileGeneralDeviceConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Indicates whether or not to block fingerprint unlock. */
     passwordBlockFingerprintUnlock?: boolean | undefined;
     /** Indicates whether or not to block Smart Lock and other trust agents. */

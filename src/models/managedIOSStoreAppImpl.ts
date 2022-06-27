@@ -4,11 +4,9 @@ import {IosDeviceTypeImpl, IosMinimumOperatingSystemImpl, ManagedAppImpl} from '
 import {IosDeviceType} from './iosDeviceType';
 import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {ManagedIOSStoreApp} from './managedIOSStoreApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOSStoreApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Contains properties of the possible iOS device types the mobile app can run on. */
     public applicableDeviceType?: IosDeviceType | undefined;
     /** The Apple AppStoreUrl. */
@@ -23,7 +21,6 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
      */
     public constructor(managedIOSStoreAppParameterValue?: ManagedIOSStoreApp | undefined) {
         super(managedIOSStoreAppParameterValue);
-        this.additionalData = managedIOSStoreAppParameterValue?.additionalData ? managedIOSStoreAppParameterValue?.additionalData! : {};
         this.applicableDeviceType = managedIOSStoreAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? managedIOSStoreAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(managedIOSStoreAppParameterValue?.applicableDeviceType);
         this.appStoreUrl = managedIOSStoreAppParameterValue?.appStoreUrl;
         this.bundleId = managedIOSStoreAppParameterValue?.bundleId;
@@ -60,6 +57,5 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
         if(this.minimumSupportedOperatingSystem){
             writer.writeObjectValue<IosMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", new IosMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

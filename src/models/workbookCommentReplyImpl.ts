@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {WorkbookCommentReply} from './workbookCommentReply';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookCommentReplyImpl extends EntityImpl implements WorkbookCommentReply {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The content of replied comment. */
     public content?: string | undefined;
     /** Indicates the type for the replied comment. */
@@ -16,7 +14,6 @@ export class WorkbookCommentReplyImpl extends EntityImpl implements WorkbookComm
      */
     public constructor(workbookCommentReplyParameterValue?: WorkbookCommentReply | undefined) {
         super(workbookCommentReplyParameterValue);
-        this.additionalData = workbookCommentReplyParameterValue?.additionalData ? workbookCommentReplyParameterValue?.additionalData! : {};
         this.content = workbookCommentReplyParameterValue?.content;
         this.contentType = workbookCommentReplyParameterValue?.contentType;
     };
@@ -43,6 +40,5 @@ export class WorkbookCommentReplyImpl extends EntityImpl implements WorkbookComm
         if(this.contentType){
             writer.writeStringValue("contentType", this.contentType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

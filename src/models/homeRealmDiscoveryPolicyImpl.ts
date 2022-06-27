@@ -1,17 +1,14 @@
 import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
 import {StsPolicyImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class HomeRealmDiscoveryPolicyImpl extends StsPolicyImpl implements HomeRealmDiscoveryPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new HomeRealmDiscoveryPolicy and sets the default values.
      * @param homeRealmDiscoveryPolicyParameterValue 
      */
     public constructor(homeRealmDiscoveryPolicyParameterValue?: HomeRealmDiscoveryPolicy | undefined) {
         super(homeRealmDiscoveryPolicyParameterValue);
-        this.additionalData = homeRealmDiscoveryPolicyParameterValue?.additionalData ? homeRealmDiscoveryPolicyParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +25,5 @@ export class HomeRealmDiscoveryPolicyImpl extends StsPolicyImpl implements HomeR
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

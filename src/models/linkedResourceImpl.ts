@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {LinkedResource} from './linkedResource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class LinkedResourceImpl extends EntityImpl implements LinkedResource {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Field indicating the app name of the source that is sending the linkedResource. */
     public applicationName?: string | undefined;
     /** Field indicating the title of the linkedResource. */
@@ -20,7 +18,6 @@ export class LinkedResourceImpl extends EntityImpl implements LinkedResource {
      */
     public constructor(linkedResourceParameterValue?: LinkedResource | undefined) {
         super(linkedResourceParameterValue);
-        this.additionalData = linkedResourceParameterValue?.additionalData ? linkedResourceParameterValue?.additionalData! : {};
         this.applicationName = linkedResourceParameterValue?.applicationName;
         this.displayName = linkedResourceParameterValue?.displayName;
         this.externalId = linkedResourceParameterValue?.externalId;
@@ -57,6 +54,5 @@ export class LinkedResourceImpl extends EntityImpl implements LinkedResource {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

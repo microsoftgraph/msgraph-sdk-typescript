@@ -1,12 +1,10 @@
 import {EntityImpl} from './index';
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
 import {RemoteAssistancePartner} from './remoteAssistancePartner';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service. */
 export class RemoteAssistancePartnerImpl extends EntityImpl implements RemoteAssistancePartner {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Display name of the partner. */
     public displayName?: string | undefined;
     /** Timestamp of the last request sent to Intune by the TEM partner. */
@@ -21,7 +19,6 @@ export class RemoteAssistancePartnerImpl extends EntityImpl implements RemoteAss
      */
     public constructor(remoteAssistancePartnerParameterValue?: RemoteAssistancePartner | undefined) {
         super(remoteAssistancePartnerParameterValue);
-        this.additionalData = remoteAssistancePartnerParameterValue?.additionalData ? remoteAssistancePartnerParameterValue?.additionalData! : {};
         this.displayName = remoteAssistancePartnerParameterValue?.displayName;
         this.lastConnectionDateTime = remoteAssistancePartnerParameterValue?.lastConnectionDateTime;
         this.onboardingStatus = remoteAssistancePartnerParameterValue?.onboardingStatus;
@@ -58,6 +55,5 @@ export class RemoteAssistancePartnerImpl extends EntityImpl implements RemoteAss
         if(this.onboardingUrl){
             writer.writeStringValue("onboardingUrl", this.onboardingUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

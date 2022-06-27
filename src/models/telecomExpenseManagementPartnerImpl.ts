@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off. */
 export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements TelecomExpenseManagementPartner {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Whether the partner's AAD app has been authorized to access Intune. */
     public appAuthorized?: boolean | undefined;
     /** Display name of the TEM partner. */
@@ -22,7 +20,6 @@ export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements T
      */
     public constructor(telecomExpenseManagementPartnerParameterValue?: TelecomExpenseManagementPartner | undefined) {
         super(telecomExpenseManagementPartnerParameterValue);
-        this.additionalData = telecomExpenseManagementPartnerParameterValue?.additionalData ? telecomExpenseManagementPartnerParameterValue?.additionalData! : {};
         this.appAuthorized = telecomExpenseManagementPartnerParameterValue?.appAuthorized;
         this.displayName = telecomExpenseManagementPartnerParameterValue?.displayName;
         this.enabled = telecomExpenseManagementPartnerParameterValue?.enabled;
@@ -64,6 +61,5 @@ export class TelecomExpenseManagementPartnerImpl extends EntityImpl implements T
         if(this.url){
             writer.writeStringValue("url", this.url);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

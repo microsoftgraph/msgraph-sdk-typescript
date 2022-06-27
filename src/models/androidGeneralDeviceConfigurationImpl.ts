@@ -5,11 +5,9 @@ import {AppListType} from './appListType';
 import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDiscriminatorValue';
 import {AppListItemImpl, DeviceConfigurationImpl} from './index';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl implements AndroidGeneralDeviceConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to block clipboard sharing to copy and paste between applications. */
     public appsBlockClipboardSharing?: boolean | undefined;
     /** Indicates whether or not to block copy and paste within applications. */
@@ -112,7 +110,6 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
      */
     public constructor(androidGeneralDeviceConfigurationParameterValue?: AndroidGeneralDeviceConfiguration | undefined) {
         super(androidGeneralDeviceConfigurationParameterValue);
-        this.additionalData = androidGeneralDeviceConfigurationParameterValue?.additionalData ? androidGeneralDeviceConfigurationParameterValue?.additionalData! : {};
         this.appsBlockClipboardSharing = androidGeneralDeviceConfigurationParameterValue?.appsBlockClipboardSharing;
         this.appsBlockCopyPaste = androidGeneralDeviceConfigurationParameterValue?.appsBlockCopyPaste;
         this.appsBlockYouTube = androidGeneralDeviceConfigurationParameterValue?.appsBlockYouTube;
@@ -374,6 +371,5 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
         if(this.wiFiBlocked){
             writer.writeBooleanValue("wiFiBlocked", this.wiFiBlocked);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

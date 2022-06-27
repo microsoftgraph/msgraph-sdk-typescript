@@ -1,12 +1,10 @@
 import {ComplianceStatus} from './complianceStatus';
 import {EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user. */
 export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationUserStatus {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Devices count for that user. */
     public devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */
@@ -23,7 +21,6 @@ export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImp
      */
     public constructor(managedDeviceMobileAppConfigurationUserStatusParameterValue?: ManagedDeviceMobileAppConfigurationUserStatus | undefined) {
         super(managedDeviceMobileAppConfigurationUserStatusParameterValue);
-        this.additionalData = managedDeviceMobileAppConfigurationUserStatusParameterValue?.additionalData ? managedDeviceMobileAppConfigurationUserStatusParameterValue?.additionalData! : {};
         this.devicesCount = managedDeviceMobileAppConfigurationUserStatusParameterValue?.devicesCount;
         this.lastReportedDateTime = managedDeviceMobileAppConfigurationUserStatusParameterValue?.lastReportedDateTime;
         this.status = managedDeviceMobileAppConfigurationUserStatusParameterValue?.status;
@@ -65,6 +62,5 @@ export class ManagedDeviceMobileAppConfigurationUserStatusImpl extends EntityImp
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

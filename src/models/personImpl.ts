@@ -10,11 +10,10 @@ import {PersonType} from './personType';
 import {Phone} from './phone';
 import {ScoredEmailAddress} from './scoredEmailAddress';
 import {Website} from './website';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class PersonImpl extends EntityImpl implements Person {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The person's birthday. */
     public birthday?: string | undefined;
     /** The name of the person's company. */
@@ -54,12 +53,11 @@ export class PersonImpl extends EntityImpl implements Person {
     /** The phonetic Japanese name of the person's company. */
     public yomiCompany?: string | undefined;
     /**
-     * Instantiates a new Person and sets the default values.
+     * Instantiates a new person and sets the default values.
      * @param personParameterValue 
      */
     public constructor(personParameterValue?: Person | undefined) {
         super(personParameterValue);
-        this.additionalData = personParameterValue?.additionalData ? personParameterValue?.additionalData! : {};
         this.birthday = personParameterValue?.birthday;
         this.companyName = personParameterValue?.companyName;
         this.department = personParameterValue?.department;
@@ -175,6 +173,5 @@ export class PersonImpl extends EntityImpl implements Person {
         if(this.yomiCompany){
             writer.writeStringValue("yomiCompany", this.yomiCompany);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

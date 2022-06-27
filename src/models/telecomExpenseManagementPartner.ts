@@ -1,9 +1,7 @@
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TelecomExpenseManagementPartner extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface TelecomExpenseManagementPartner extends Entity, Partial<Parsable> {
     /** Whether the partner's AAD app has been authorized to access Intune. */
     appAuthorized?: boolean | undefined;
     /** Display name of the TEM partner. */

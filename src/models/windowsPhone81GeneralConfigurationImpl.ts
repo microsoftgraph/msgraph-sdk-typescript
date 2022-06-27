@@ -4,11 +4,9 @@ import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDi
 import {AppListItemImpl, DeviceConfigurationImpl} from './index';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {WindowsPhone81GeneralConfiguration} from './windowsPhone81GeneralConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationImpl implements WindowsPhone81GeneralConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only. */
     public applyOnlyToWindowsPhone81?: boolean | undefined;
     /** Indicates whether or not to block copy paste. */
@@ -73,7 +71,6 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
      */
     public constructor(windowsPhone81GeneralConfigurationParameterValue?: WindowsPhone81GeneralConfiguration | undefined) {
         super(windowsPhone81GeneralConfigurationParameterValue);
-        this.additionalData = windowsPhone81GeneralConfigurationParameterValue?.additionalData ? windowsPhone81GeneralConfigurationParameterValue?.additionalData! : {};
         this.applyOnlyToWindowsPhone81 = windowsPhone81GeneralConfigurationParameterValue?.applyOnlyToWindowsPhone81;
         this.appsBlockCopyPaste = windowsPhone81GeneralConfigurationParameterValue?.appsBlockCopyPaste;
         this.bluetoothBlocked = windowsPhone81GeneralConfigurationParameterValue?.bluetoothBlocked;
@@ -236,6 +233,5 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         if(this.windowsStoreBlocked){
             writer.writeBooleanValue("windowsStoreBlocked", this.windowsStoreBlocked);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

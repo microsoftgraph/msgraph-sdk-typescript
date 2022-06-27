@@ -4,11 +4,10 @@ import {EntityImpl, OutlookGeoCoordinatesImpl, PhysicalAddressImpl} from './inde
 import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {PhysicalAddress} from './physicalAddress';
 import {Place} from './place';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of place entities. */
 export class PlaceImpl extends EntityImpl implements Place {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The street address of the place. */
     public address?: PhysicalAddress | undefined;
     /** The name associated with the place. */
@@ -18,12 +17,11 @@ export class PlaceImpl extends EntityImpl implements Place {
     /** The phone number of the place. */
     public phone?: string | undefined;
     /**
-     * Instantiates a new Place and sets the default values.
+     * Instantiates a new place and sets the default values.
      * @param placeParameterValue 
      */
     public constructor(placeParameterValue?: Place | undefined) {
         super(placeParameterValue);
-        this.additionalData = placeParameterValue?.additionalData ? placeParameterValue?.additionalData! : {};
         this.address = placeParameterValue?.address instanceof PhysicalAddressImpl? placeParameterValue?.address:new PhysicalAddressImpl(placeParameterValue?.address);
         this.displayName = placeParameterValue?.displayName;
         this.geoCoordinates = placeParameterValue?.geoCoordinates instanceof OutlookGeoCoordinatesImpl? placeParameterValue?.geoCoordinates:new OutlookGeoCoordinatesImpl(placeParameterValue?.geoCoordinates);
@@ -60,6 +58,5 @@ export class PlaceImpl extends EntityImpl implements Place {
         if(this.phone){
             writer.writeStringValue("phone", this.phone);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

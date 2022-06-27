@@ -15,14 +15,12 @@ import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDisc
 import {ExpirationPattern} from './expirationPattern';
 import {AccessPackageAssignmentApprovalSettingsImpl, AccessPackageAssignmentRequestorSettingsImpl, AccessPackageAssignmentReviewSettingsImpl, AccessPackageCatalogImpl, AccessPackageImpl, EntityImpl, ExpirationPatternImpl, SubjectSetImpl} from './index';
 import {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements AccessPackageAssignmentPolicy {
     /** The access package with this policy. Read-only. Nullable. Supports $expand. */
     public accessPackage?: AccessPackage | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
     public allowedTargetScope?: AllowedTargetScope | undefined;
     /** Catalog of the access package containing this policy. Read-only. */
@@ -52,7 +50,6 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
     public constructor(accessPackageAssignmentPolicyParameterValue?: AccessPackageAssignmentPolicy | undefined) {
         super(accessPackageAssignmentPolicyParameterValue);
         this.accessPackage = accessPackageAssignmentPolicyParameterValue?.accessPackage instanceof AccessPackageImpl? accessPackageAssignmentPolicyParameterValue?.accessPackage:new AccessPackageImpl(accessPackageAssignmentPolicyParameterValue?.accessPackage);
-        this.additionalData = accessPackageAssignmentPolicyParameterValue?.additionalData ? accessPackageAssignmentPolicyParameterValue?.additionalData! : {};
         this.allowedTargetScope = accessPackageAssignmentPolicyParameterValue?.allowedTargetScope;
         this.catalog = accessPackageAssignmentPolicyParameterValue?.catalog instanceof AccessPackageCatalogImpl? accessPackageAssignmentPolicyParameterValue?.catalog:new AccessPackageCatalogImpl(accessPackageAssignmentPolicyParameterValue?.catalog);
         this.createdDateTime = accessPackageAssignmentPolicyParameterValue?.createdDateTime;
@@ -129,6 +126,5 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         if(this.specificAllowedTargets && this.specificAllowedTargets.length != 0){        const specificAllowedTargetsArrValue: SubjectSetImpl[] = []; this.specificAllowedTargets?.forEach(element => {specificAllowedTargetsArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("specificAllowedTargets", specificAllowedTargetsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,17 +1,14 @@
 import {ManagedEBookAssignmentImpl} from './index';
 import {IosVppEBookAssignment} from './iosVppEBookAssignment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosVppEBookAssignmentImpl extends ManagedEBookAssignmentImpl implements IosVppEBookAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new IosVppEBookAssignment and sets the default values.
      * @param iosVppEBookAssignmentParameterValue 
      */
     public constructor(iosVppEBookAssignmentParameterValue?: IosVppEBookAssignment | undefined) {
         super(iosVppEBookAssignmentParameterValue);
-        this.additionalData = iosVppEBookAssignmentParameterValue?.additionalData ? iosVppEBookAssignmentParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +25,5 @@ export class IosVppEBookAssignmentImpl extends ManagedEBookAssignmentImpl implem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

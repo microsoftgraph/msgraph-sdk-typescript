@@ -1,19 +1,17 @@
 import {EducationCategory} from './educationCategory';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationCategoryImpl extends EntityImpl implements EducationCategory {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Unique identifier for the category. */
     public displayName?: string | undefined;
     /**
-     * Instantiates a new EducationCategory and sets the default values.
+     * Instantiates a new educationCategory and sets the default values.
      * @param educationCategoryParameterValue 
      */
     public constructor(educationCategoryParameterValue?: EducationCategory | undefined) {
         super(educationCategoryParameterValue);
-        this.additionalData = educationCategoryParameterValue?.additionalData ? educationCategoryParameterValue?.additionalData! : {};
         this.displayName = educationCategoryParameterValue?.displayName;
     };
     /**
@@ -35,6 +33,5 @@ export class EducationCategoryImpl extends EntityImpl implements EducationCatego
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

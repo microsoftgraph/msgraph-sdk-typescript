@@ -1,10 +1,8 @@
 import {BookingType} from './bookingType';
 import {Place} from './place';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Room extends Partial<AdditionalDataHolder>, Partial<Parsable>, Place {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Room extends Partial<Parsable>, Place {
     /** Specifies the name of the audio device in the room. */
     audioDeviceName?: string | undefined;
     /** Type of room. Possible values are standard, and reserved. */

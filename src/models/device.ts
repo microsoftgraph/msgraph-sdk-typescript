@@ -1,13 +1,11 @@
 import {AlternativeSecurityId} from './alternativeSecurityId';
 import {DirectoryObject} from './directoryObject';
 import {Extension} from './extension';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Device extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+export interface Device extends DirectoryObject, Partial<Parsable> {
     /** true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
     accountEnabled?: boolean | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le). */
     alternativeSecurityIds?: AlternativeSecurityId[] | undefined;
     /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy. */

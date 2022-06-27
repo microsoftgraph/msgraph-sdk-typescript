@@ -18,13 +18,11 @@ import {ProfilePhoto} from './profilePhoto';
 import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
 import {Site} from './site';
 import {Team} from './team';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Group extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+export interface Group extends DirectoryObject, Partial<Parsable> {
     /** The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post. */
     acceptedSenders?: DirectoryObject[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). */
     allowExternalSenders?: boolean | undefined;
     /** Represents the app roles a group has been granted for an application. Supports $expand. */

@@ -6,11 +6,9 @@ import {AccessReviewScope} from './accessReviewScope';
 import {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {Entity} from './entity';
 import {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewScheduleDefinition extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AccessReviewScheduleDefinition extends Entity, Partial<Parsable> {
     /** Defines the list of additional users or group members to be notified of the access review progress. */
     additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
     /** User who created this review. Read-only. */

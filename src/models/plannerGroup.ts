@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {PlannerPlan} from './plannerPlan';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PlannerGroup extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface PlannerGroup extends Entity, Partial<Parsable> {
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
     plans?: PlannerPlan[] | undefined;
 }

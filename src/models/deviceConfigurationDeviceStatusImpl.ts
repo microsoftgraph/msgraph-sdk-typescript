@@ -1,12 +1,10 @@
 import {ComplianceStatus} from './complianceStatus';
 import {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements DeviceConfigurationDeviceStatus {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The DateTime when device compliance grace period expires */
     public complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Device name of the DevicePolicyStatus. */
@@ -27,7 +25,6 @@ export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements D
      */
     public constructor(deviceConfigurationDeviceStatusParameterValue?: DeviceConfigurationDeviceStatus | undefined) {
         super(deviceConfigurationDeviceStatusParameterValue);
-        this.additionalData = deviceConfigurationDeviceStatusParameterValue?.additionalData ? deviceConfigurationDeviceStatusParameterValue?.additionalData! : {};
         this.complianceGracePeriodExpirationDateTime = deviceConfigurationDeviceStatusParameterValue?.complianceGracePeriodExpirationDateTime;
         this.deviceDisplayName = deviceConfigurationDeviceStatusParameterValue?.deviceDisplayName;
         this.deviceModel = deviceConfigurationDeviceStatusParameterValue?.deviceModel;
@@ -79,6 +76,5 @@ export class DeviceConfigurationDeviceStatusImpl extends EntityImpl implements D
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

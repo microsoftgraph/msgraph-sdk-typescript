@@ -2,13 +2,11 @@ import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDe
 import {Entity} from './entity';
 import {Identity} from './identity';
 import {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewInstanceDecisionItem extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface AccessReviewInstanceDecisionItem extends Entity, Partial<Parsable> {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
     accessReviewId?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** The identifier of the user who applied the decision. Read-only. */
     appliedBy?: UserIdentity | undefined;
     /** The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only. */

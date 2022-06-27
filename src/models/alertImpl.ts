@@ -37,14 +37,12 @@ import {SecurityVendorInformation} from './securityVendorInformation';
 import {UriClickSecurityState} from './uriClickSecurityState';
 import {UserSecurityState} from './userSecurityState';
 import {VulnerabilityState} from './vulnerabilityState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the security singleton. */
 export class AlertImpl extends EntityImpl implements Alert {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
     public activityGroupName?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The alertDetections property */
     public alertDetections?: AlertDetection[] | undefined;
     /** Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update). */
@@ -128,7 +126,6 @@ export class AlertImpl extends EntityImpl implements Alert {
     public constructor(alertParameterValue?: Alert | undefined) {
         super(alertParameterValue);
         this.activityGroupName = alertParameterValue?.activityGroupName;
-        this.additionalData = alertParameterValue?.additionalData ? alertParameterValue?.additionalData! : {};
         const alertDetectionsArrValue: AlertDetectionImpl[] = []; alertParameterValue.alertDetections?.forEach(element => {alertDetectionsArrValue.push(element instanceof AlertDetectionImpl? element : new AlertDetectionImpl(element));});
         this.alertDetections = alertDetectionsArrValue;
         this.assignedTo = alertParameterValue?.assignedTo;
@@ -355,6 +352,5 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(this.vulnerabilityStates && this.vulnerabilityStates.length != 0){        const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = []; this.vulnerabilityStates?.forEach(element => {vulnerabilityStatesArrValue.push(element instanceof VulnerabilityStateImpl? element : new VulnerabilityStateImpl(element));});
             writer.writeCollectionOfObjectValues<VulnerabilityStateImpl>("vulnerabilityStates", vulnerabilityStatesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

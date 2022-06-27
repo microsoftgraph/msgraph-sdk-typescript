@@ -6,7 +6,7 @@ import {DriveItem} from './driveItem';
 import {IdentitySet} from './identitySet';
 import {AccessActionImpl, DriveItemImpl, EntityImpl, IdentitySetImpl} from './index';
 import {ItemActivity} from './itemActivity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ItemActivityImpl extends EntityImpl implements ItemActivity {
@@ -16,8 +16,6 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
     public activityDateTime?: Date | undefined;
     /** Identity of who performed the action. Read-only. */
     public actor?: IdentitySet | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Exposes the driveItem that was the target of this activity. */
     public driveItem?: DriveItem | undefined;
     /**
@@ -29,7 +27,6 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
         this.access = itemActivityParameterValue?.access instanceof AccessActionImpl? itemActivityParameterValue?.access:new AccessActionImpl(itemActivityParameterValue?.access);
         this.activityDateTime = itemActivityParameterValue?.activityDateTime;
         this.actor = itemActivityParameterValue?.actor instanceof IdentitySetImpl? itemActivityParameterValue?.actor:new IdentitySetImpl(itemActivityParameterValue?.actor);
-        this.additionalData = itemActivityParameterValue?.additionalData ? itemActivityParameterValue?.additionalData! : {};
         this.driveItem = itemActivityParameterValue?.driveItem instanceof DriveItemImpl? itemActivityParameterValue?.driveItem:new DriveItemImpl(itemActivityParameterValue?.driveItem);
     };
     /**
@@ -63,6 +60,5 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
         if(this.driveItem){
             writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

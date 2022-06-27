@@ -2,11 +2,9 @@ import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {DeviceCompliancePolicyImpl} from './index';
 import {MacOSCompliancePolicy} from './macOSCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MacOSCompliancePolicyImpl extends DeviceCompliancePolicyImpl implements MacOSCompliancePolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Require that devices have enabled device threat protection. */
     public deviceThreatProtectionEnabled?: boolean | undefined;
     /** Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. */
@@ -47,7 +45,6 @@ export class MacOSCompliancePolicyImpl extends DeviceCompliancePolicyImpl implem
      */
     public constructor(macOSCompliancePolicyParameterValue?: MacOSCompliancePolicy | undefined) {
         super(macOSCompliancePolicyParameterValue);
-        this.additionalData = macOSCompliancePolicyParameterValue?.additionalData ? macOSCompliancePolicyParameterValue?.additionalData! : {};
         this.deviceThreatProtectionEnabled = macOSCompliancePolicyParameterValue?.deviceThreatProtectionEnabled;
         this.deviceThreatProtectionRequiredSecurityLevel = macOSCompliancePolicyParameterValue?.deviceThreatProtectionRequiredSecurityLevel;
         this.firewallBlockAllIncoming = macOSCompliancePolicyParameterValue?.firewallBlockAllIncoming;
@@ -149,6 +146,5 @@ export class MacOSCompliancePolicyImpl extends DeviceCompliancePolicyImpl implem
         if(this.systemIntegrityProtectionEnabled){
             writer.writeBooleanValue("systemIntegrityProtectionEnabled", this.systemIntegrityProtectionEnabled);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

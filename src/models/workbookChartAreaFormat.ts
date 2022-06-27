@@ -1,11 +1,9 @@
 import {Entity} from './entity';
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartFont} from './workbookChartFont';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChartAreaFormat extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookChartAreaFormat extends Entity, Partial<Parsable> {
     /** Represents the fill format of an object, which includes background formatting information. Read-only. */
     fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only. */

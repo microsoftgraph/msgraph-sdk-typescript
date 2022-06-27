@@ -3,12 +3,10 @@ import {EntityImpl, PrintTaskDefinitionImpl} from './index';
 import {PrintEvent} from './printEvent';
 import {PrintTaskDefinition} from './printTaskDefinition';
 import {PrintTaskTrigger} from './printTaskTrigger';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the print singleton. */
 export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The definition property */
     public definition?: PrintTaskDefinition | undefined;
     /** The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table. */
@@ -19,7 +17,6 @@ export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger
      */
     public constructor(printTaskTriggerParameterValue?: PrintTaskTrigger | undefined) {
         super(printTaskTriggerParameterValue);
-        this.additionalData = printTaskTriggerParameterValue?.additionalData ? printTaskTriggerParameterValue?.additionalData! : {};
         this.definition = printTaskTriggerParameterValue?.definition instanceof PrintTaskDefinitionImpl? printTaskTriggerParameterValue?.definition:new PrintTaskDefinitionImpl(printTaskTriggerParameterValue?.definition);
         this.event = printTaskTriggerParameterValue?.event;
     };
@@ -46,6 +43,5 @@ export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger
         if(this.event){
             writer.writeEnumValue<PrintEvent>("event", this.event);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

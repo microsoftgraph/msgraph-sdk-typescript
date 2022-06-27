@@ -13,12 +13,10 @@ import {DocumentSet} from './documentSet';
 import {DocumentSetContent} from './documentSetContent';
 import {ColumnDefinitionImpl, ColumnLinkImpl, ContentTypeOrderImpl, DocumentSetContentImpl, DocumentSetImpl, EntityImpl, ItemReferenceImpl} from './index';
 import {ItemReference} from './itemReference';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ContentTypeImpl extends EntityImpl implements ContentType {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     public associatedHubsUrls?: string[] | undefined;
     /** Parent contentType from which this content type is derived. */
@@ -63,7 +61,6 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
      */
     public constructor(contentTypeParameterValue?: ContentType | undefined) {
         super(contentTypeParameterValue);
-        this.additionalData = contentTypeParameterValue?.additionalData ? contentTypeParameterValue?.additionalData! : {};
         this.associatedHubsUrls = contentTypeParameterValue?.associatedHubsUrls;
         this.base = contentTypeParameterValue?.base instanceof ContentTypeImpl? contentTypeParameterValue?.base:new ContentTypeImpl(contentTypeParameterValue?.base);
         const baseTypesArrValue: ContentTypeImpl[] = []; contentTypeParameterValue.baseTypes?.forEach(element => {baseTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
@@ -179,6 +176,5 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         if(this.sealed){
             writer.writeBooleanValue("sealed", this.sealed);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

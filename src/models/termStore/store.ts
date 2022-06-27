@@ -1,11 +1,9 @@
 import {Entity} from '../entity';
 import {Group} from './group';
 import {Set} from './set';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Store extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Store extends Entity, Partial<Parsable> {
     /** Default language of the term store. */
     defaultLanguageTag?: string | undefined;
     /** Collection of all groups available in the term store. */

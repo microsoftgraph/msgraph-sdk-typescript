@@ -1,17 +1,14 @@
 import {MobileAppImpl} from './index';
 import {MacOSOfficeSuiteApp} from './macOSOfficeSuiteApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MacOSOfficeSuiteAppImpl extends MobileAppImpl implements MacOSOfficeSuiteApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new MacOSOfficeSuiteApp and sets the default values.
      * @param macOSOfficeSuiteAppParameterValue 
      */
     public constructor(macOSOfficeSuiteAppParameterValue?: MacOSOfficeSuiteApp | undefined) {
         super(macOSOfficeSuiteAppParameterValue);
-        this.additionalData = macOSOfficeSuiteAppParameterValue?.additionalData ? macOSOfficeSuiteAppParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +25,5 @@ export class MacOSOfficeSuiteAppImpl extends MobileAppImpl implements MacOSOffic
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

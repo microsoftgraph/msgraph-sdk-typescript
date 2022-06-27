@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationFlowsPolicy extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AuthenticationFlowsPolicy extends Entity, Partial<Parsable> {
     /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
     description?: string | undefined;
     /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only. */

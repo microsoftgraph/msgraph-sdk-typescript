@@ -1,17 +1,15 @@
 import {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
 import {IdentitySetImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageReactionIdentitySetImpl extends IdentitySetImpl implements ChatMessageReactionIdentitySet {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
-     * Instantiates a new ChatMessageReactionIdentitySet and sets the default values.
+     * Instantiates a new chatMessageReactionIdentitySet and sets the default values.
      * @param chatMessageReactionIdentitySetParameterValue 
      */
     public constructor(chatMessageReactionIdentitySetParameterValue?: ChatMessageReactionIdentitySet | undefined) {
         super(chatMessageReactionIdentitySetParameterValue);
-        this.additionalData = chatMessageReactionIdentitySetParameterValue?.additionalData ? chatMessageReactionIdentitySetParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +26,5 @@ export class ChatMessageReactionIdentitySetImpl extends IdentitySetImpl implemen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,10 +1,8 @@
 import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {ManagedMobileLobApp} from './managedMobileLobApp';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedAndroidLobApp extends Partial<AdditionalDataHolder>, ManagedMobileLobApp, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ManagedAndroidLobApp extends ManagedMobileLobApp, Partial<Parsable> {
     /** The value for the minimum applicable operating system. */
     minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
     /** The package identifier. */

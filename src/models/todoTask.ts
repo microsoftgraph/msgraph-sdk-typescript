@@ -7,11 +7,9 @@ import {ItemBody} from './itemBody';
 import {LinkedResource} from './linkedResource';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {TaskStatus} from './taskStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface TodoTask extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface TodoTask extends Entity, Partial<Parsable> {
     /** The task body that typically contains information about the task. */
     body?: ItemBody | undefined;
     /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */

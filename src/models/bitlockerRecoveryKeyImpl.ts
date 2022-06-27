@@ -1,12 +1,10 @@
 import {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
 import {EntityImpl} from './index';
 import {VolumeType} from './volumeType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the informationProtection singleton. */
 export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRecoveryKey {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The date and time when the key was originally backed up to Azure Active Directory. */
     public createdDateTime?: Date | undefined;
     /** ID of the device the BitLocker key is originally backed up from. */
@@ -21,7 +19,6 @@ export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRec
      */
     public constructor(bitlockerRecoveryKeyParameterValue?: BitlockerRecoveryKey | undefined) {
         super(bitlockerRecoveryKeyParameterValue);
-        this.additionalData = bitlockerRecoveryKeyParameterValue?.additionalData ? bitlockerRecoveryKeyParameterValue?.additionalData! : {};
         this.createdDateTime = bitlockerRecoveryKeyParameterValue?.createdDateTime;
         this.deviceId = bitlockerRecoveryKeyParameterValue?.deviceId;
         this.key = bitlockerRecoveryKeyParameterValue?.key;
@@ -58,6 +55,5 @@ export class BitlockerRecoveryKeyImpl extends EntityImpl implements BitlockerRec
         if(this.volumeType){
             writer.writeEnumValue<VolumeType>("volumeType", this.volumeType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

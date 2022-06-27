@@ -1,9 +1,7 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SchedulingGroup extends Partial<AdditionalDataHolder>, ChangeTrackedEntity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface SchedulingGroup extends ChangeTrackedEntity, Partial<Parsable> {
     /** The display name for the schedulingGroup. Required. */
     displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */

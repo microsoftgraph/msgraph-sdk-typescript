@@ -1,10 +1,8 @@
 import {AttendanceRecord} from './attendanceRecord';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MeetingAttendanceReport extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface MeetingAttendanceReport extends Entity, Partial<Parsable> {
     /** List of attendance records of an attendance report. Read-only. */
     attendanceRecords?: AttendanceRecord[] | undefined;
     /** UTC time when the meeting ended. Read-only. */

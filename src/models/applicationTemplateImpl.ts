@@ -1,11 +1,9 @@
 import {ApplicationTemplate} from './applicationTemplate';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of applicationTemplate entities. */
 export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTemplate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting. */
     public categories?: string[] | undefined;
     /** A description of the application. */
@@ -28,7 +26,6 @@ export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTe
      */
     public constructor(applicationTemplateParameterValue?: ApplicationTemplate | undefined) {
         super(applicationTemplateParameterValue);
-        this.additionalData = applicationTemplateParameterValue?.additionalData ? applicationTemplateParameterValue?.additionalData! : {};
         this.categories = applicationTemplateParameterValue?.categories;
         this.description = applicationTemplateParameterValue?.description;
         this.displayName = applicationTemplateParameterValue?.displayName;
@@ -85,6 +82,5 @@ export class ApplicationTemplateImpl extends EntityImpl implements ApplicationTe
         if(this.supportedSingleSignOnModes){
             writer.writeCollectionOfPrimitiveValues<string>("supportedSingleSignOnModes", this.supportedSingleSignOnModes);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

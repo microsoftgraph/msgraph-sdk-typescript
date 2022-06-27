@@ -10,12 +10,10 @@ import {Permission} from './permission';
 import {SharePointIdentitySet} from './sharePointIdentitySet';
 import {SharingInvitation} from './sharingInvitation';
 import {SharingLink} from './sharingLink';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class PermissionImpl extends EntityImpl implements Permission {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     public expirationDateTime?: Date | undefined;
     /** The grantedTo property */
@@ -44,7 +42,6 @@ export class PermissionImpl extends EntityImpl implements Permission {
      */
     public constructor(permissionParameterValue?: Permission | undefined) {
         super(permissionParameterValue);
-        this.additionalData = permissionParameterValue?.additionalData ? permissionParameterValue?.additionalData! : {};
         this.expirationDateTime = permissionParameterValue?.expirationDateTime;
         this.grantedTo = permissionParameterValue?.grantedTo instanceof IdentitySetImpl? permissionParameterValue?.grantedTo:new IdentitySetImpl(permissionParameterValue?.grantedTo);
         const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; permissionParameterValue.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(element instanceof IdentitySetImpl? element : new IdentitySetImpl(element));});
@@ -118,6 +115,5 @@ export class PermissionImpl extends EntityImpl implements Permission {
         if(this.shareId){
             writer.writeStringValue("shareId", this.shareId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -3,11 +3,9 @@ import {Json} from './json';
 import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
 import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChartAxis extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookChartAxis extends Entity, Partial<Parsable> {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     format?: WorkbookChartAxisFormat | undefined;
     /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */

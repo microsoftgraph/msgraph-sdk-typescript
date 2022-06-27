@@ -16,12 +16,10 @@ import {MeetingChatMode} from './meetingChatMode';
 import {MeetingParticipants} from './meetingParticipants';
 import {OnlineMeeting} from './onlineMeeting';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether attendees can turn on their camera. */
     public allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone. */
@@ -74,7 +72,6 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public constructor(onlineMeetingParameterValue?: OnlineMeeting | undefined) {
         super(onlineMeetingParameterValue);
-        this.additionalData = onlineMeetingParameterValue?.additionalData ? onlineMeetingParameterValue?.additionalData! : {};
         this.allowAttendeeToEnableCamera = onlineMeetingParameterValue?.allowAttendeeToEnableCamera;
         this.allowAttendeeToEnableMic = onlineMeetingParameterValue?.allowAttendeeToEnableMic;
         this.allowedPresenters = onlineMeetingParameterValue?.allowedPresenters;
@@ -207,6 +204,5 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
         if(this.videoTeleconferenceId){
             writer.writeStringValue("videoTeleconferenceId", this.videoTeleconferenceId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,12 +2,10 @@ import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookCha
 import {EntityImpl, WorkbookChartFontImpl} from './index';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {WorkbookChartFont} from './workbookChartFont';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements WorkbookChartAxisTitleFormat {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
     public font?: WorkbookChartFont | undefined;
     /**
@@ -16,7 +14,6 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartAxisTitleFormatParameterValue?: WorkbookChartAxisTitleFormat | undefined) {
         super(workbookChartAxisTitleFormatParameterValue);
-        this.additionalData = workbookChartAxisTitleFormatParameterValue?.additionalData ? workbookChartAxisTitleFormatParameterValue?.additionalData! : {};
         this.font = workbookChartAxisTitleFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartAxisTitleFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartAxisTitleFormatParameterValue?.font);
     };
     /**
@@ -38,6 +35,5 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Work
         if(this.font){
             writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

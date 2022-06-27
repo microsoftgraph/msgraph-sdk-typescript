@@ -8,11 +8,9 @@ import {RichLongRunningOperation} from './richLongRunningOperation';
 import {SharepointIds} from './sharepointIds';
 import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface List extends Partial<AdditionalDataHolder>, BaseItem, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface List extends BaseItem, Partial<Parsable> {
     /** The collection of field definitions for this list. */
     columns?: ColumnDefinition[] | undefined;
     /** The collection of content types present in this list. */

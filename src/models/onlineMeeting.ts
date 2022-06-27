@@ -8,11 +8,9 @@ import {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {MeetingChatMode} from './meetingChatMode';
 import {MeetingParticipants} from './meetingParticipants';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OnlineMeeting extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface OnlineMeeting extends Entity, Partial<Parsable> {
     /** Indicates whether attendees can turn on their camera. */
     allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone. */

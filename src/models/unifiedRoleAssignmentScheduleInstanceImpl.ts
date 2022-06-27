@@ -2,13 +2,11 @@ import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from
 import {UnifiedRoleEligibilityScheduleInstanceImpl, UnifiedRoleScheduleInstanceBaseImpl} from './index';
 import {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentScheduleInstance';
 import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements UnifiedRoleAssignmentScheduleInstance {
     /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
     public activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
     public assignmentType?: string | undefined;
     /** The end date of the schedule instance. */
@@ -28,7 +26,6 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
     public constructor(unifiedRoleAssignmentScheduleInstanceParameterValue?: UnifiedRoleAssignmentScheduleInstance | undefined) {
         super(unifiedRoleAssignmentScheduleInstanceParameterValue);
         this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleInstanceImpl? unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleInstanceImpl(unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing);
-        this.additionalData = unifiedRoleAssignmentScheduleInstanceParameterValue?.additionalData ? unifiedRoleAssignmentScheduleInstanceParameterValue?.additionalData! : {};
         this.assignmentType = unifiedRoleAssignmentScheduleInstanceParameterValue?.assignmentType;
         this.endDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.endDateTime;
         this.memberType = unifiedRoleAssignmentScheduleInstanceParameterValue?.memberType;
@@ -79,6 +76,5 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

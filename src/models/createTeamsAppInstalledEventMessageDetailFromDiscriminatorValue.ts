@@ -1,7 +1,0 @@
-import {TeamsAppInstalledEventMessageDetailImpl} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
-
-export function createTeamsAppInstalledEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamsAppInstalledEventMessageDetailImpl {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TeamsAppInstalledEventMessageDetailImpl();
-}

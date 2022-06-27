@@ -13,14 +13,11 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl implements UnifiedRoleEligibilityScheduleRequest {
     /** Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
     public action?: UnifiedRoleScheduleRequestActions | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity. */
     public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
@@ -50,13 +47,12 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
     /** The details of the ticket number and ticket system that is attached to the role assignment request. */
     public ticketInfo?: TicketInfo | undefined;
     /**
-     * Instantiates a new unifiedRoleEligibilityScheduleRequest and sets the default values.
+     * Instantiates a new UnifiedRoleEligibilityScheduleRequest and sets the default values.
      * @param unifiedRoleEligibilityScheduleRequestParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleRequestParameterValue?: UnifiedRoleEligibilityScheduleRequest | undefined) {
         super(unifiedRoleEligibilityScheduleRequestParameterValue);
         this.action = unifiedRoleEligibilityScheduleRequestParameterValue?.action;
-        this.additionalData = unifiedRoleEligibilityScheduleRequestParameterValue?.additionalData ? unifiedRoleEligibilityScheduleRequestParameterValue?.additionalData! : {};
         this.appScope = unifiedRoleEligibilityScheduleRequestParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.appScope:new AppScopeImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.appScope);
         this.appScopeId = unifiedRoleEligibilityScheduleRequestParameterValue?.appScopeId;
         this.directoryScope = unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleEligibilityScheduleRequestParameterValue?.directoryScope);
@@ -147,6 +143,5 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
         if(this.ticketInfo){
             writer.writeObjectValue<TicketInfoImpl>("ticketInfo", new TicketInfoImpl(this.ticketInfo));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

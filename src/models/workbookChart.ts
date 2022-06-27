@@ -6,11 +6,9 @@ import {WorkbookChartLegend} from './workbookChartLegend';
 import {WorkbookChartSeries} from './workbookChartSeries';
 import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChart extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookChart extends Entity, Partial<Parsable> {
     /** Represents chart axes. Read-only. */
     axes?: WorkbookChartAxes | undefined;
     /** Represents the datalabels on the chart. Read-only. */

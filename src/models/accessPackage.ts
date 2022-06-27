@@ -1,11 +1,9 @@
 import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
 import {AccessPackageCatalog} from './accessPackageCatalog';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessPackage extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AccessPackage extends Entity, Partial<Parsable> {
     /** The assignmentPolicies property */
     assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /** The catalog property */

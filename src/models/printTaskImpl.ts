@@ -6,12 +6,10 @@ import {PrintTask} from './printTask';
 import {PrintTaskDefinition} from './printTaskDefinition';
 import {PrintTaskStatus} from './printTaskStatus';
 import {PrintTaskTrigger} from './printTaskTrigger';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the print singleton. */
 export class PrintTaskImpl extends EntityImpl implements PrintTask {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The definition property */
     public definition?: PrintTaskDefinition | undefined;
     /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only. */
@@ -26,7 +24,6 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
      */
     public constructor(printTaskParameterValue?: PrintTask | undefined) {
         super(printTaskParameterValue);
-        this.additionalData = printTaskParameterValue?.additionalData ? printTaskParameterValue?.additionalData! : {};
         this.definition = printTaskParameterValue?.definition instanceof PrintTaskDefinitionImpl? printTaskParameterValue?.definition:new PrintTaskDefinitionImpl(printTaskParameterValue?.definition);
         this.parentUrl = printTaskParameterValue?.parentUrl;
         this.status = printTaskParameterValue?.status instanceof PrintTaskStatusImpl? printTaskParameterValue?.status:new PrintTaskStatusImpl(printTaskParameterValue?.status);
@@ -63,6 +60,5 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
         if(this.trigger){
             writer.writeObjectValue<PrintTaskTriggerImpl>("trigger", new PrintTaskTriggerImpl(this.trigger));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

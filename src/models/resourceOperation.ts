@@ -1,11 +1,9 @@
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ResourceOperation extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface ResourceOperation extends Entity, Partial<Parsable> {
     /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible. */
     actionName?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
     description?: string | undefined;
     /** Name of the Resource this operation is performed on. */

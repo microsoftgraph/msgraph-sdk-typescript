@@ -2,11 +2,9 @@ import {ChangeTrackedEntityImpl} from './index';
 import {ScheduleChangeRequest} from './scheduleChangeRequest';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implements ScheduleChangeRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The assignedTo property */
     public assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
@@ -29,7 +27,6 @@ export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implement
      */
     public constructor(scheduleChangeRequestParameterValue?: ScheduleChangeRequest | undefined) {
         super(scheduleChangeRequestParameterValue);
-        this.additionalData = scheduleChangeRequestParameterValue?.additionalData ? scheduleChangeRequestParameterValue?.additionalData! : {};
         this.assignedTo = scheduleChangeRequestParameterValue?.assignedTo;
         this.managerActionDateTime = scheduleChangeRequestParameterValue?.managerActionDateTime;
         this.managerActionMessage = scheduleChangeRequestParameterValue?.managerActionMessage;
@@ -86,6 +83,5 @@ export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implement
         if(this.state){
             writer.writeEnumValue<ScheduleChangeState>("state", this.state);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

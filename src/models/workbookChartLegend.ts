@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChartLegend extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookChartLegend extends Entity, Partial<Parsable> {
     /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
     format?: WorkbookChartLegendFormat | undefined;
     /** Boolean value for whether the chart legend should overlap with the main body of the chart. */

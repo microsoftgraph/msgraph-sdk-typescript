@@ -4,11 +4,10 @@ import {DirectoryObject} from './directoryObject';
 import {DirectoryRole} from './directoryRole';
 import {DirectoryObjectImpl, ScopedRoleMembershipImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of directoryRole entities. */
 export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryRole {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The description for the directory role. Read-only. Supports $filter (eq), $search, $select. */
     public description?: string | undefined;
     /** The display name for the directory role. Read-only. Supports $filter (eq), $search, $select. */
@@ -20,12 +19,11 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
     /** Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
     public scopedMembers?: ScopedRoleMembership[] | undefined;
     /**
-     * Instantiates a new DirectoryRole and sets the default values.
+     * Instantiates a new directoryRole and sets the default values.
      * @param directoryRoleParameterValue 
      */
     public constructor(directoryRoleParameterValue?: DirectoryRole | undefined) {
         super(directoryRoleParameterValue);
-        this.additionalData = directoryRoleParameterValue?.additionalData ? directoryRoleParameterValue?.additionalData! : {};
         this.description = directoryRoleParameterValue?.description;
         this.displayName = directoryRoleParameterValue?.displayName;
         const membersArrValue: DirectoryObjectImpl[] = []; directoryRoleParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
@@ -69,6 +67,5 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         if(this.scopedMembers && this.scopedMembers.length != 0){        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedMembers?.forEach(element => {scopedMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
             writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedMembers", scopedMembersArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,13 +5,11 @@ import {AccessPackageRequestType} from './accessPackageRequestType';
 import {AccessPackageSubject} from './accessPackageSubject';
 import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageAssignmentRequest extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface AccessPackageAssignmentRequest extends Entity, Partial<Parsable> {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
     accessPackage?: AccessPackage | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
     assignment?: AccessPackageAssignment | undefined;
     /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */

@@ -1,18 +1,15 @@
 import {EntityImpl} from './index';
 import {TeamsTemplate} from './teamsTemplate';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Casts the previous resource to group. */
 export class TeamsTemplateImpl extends EntityImpl implements TeamsTemplate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new teamsTemplate and sets the default values.
      * @param teamsTemplateParameterValue 
      */
     public constructor(teamsTemplateParameterValue?: TeamsTemplate | undefined) {
         super(teamsTemplateParameterValue);
-        this.additionalData = teamsTemplateParameterValue?.additionalData ? teamsTemplateParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -29,6 +26,5 @@ export class TeamsTemplateImpl extends EntityImpl implements TeamsTemplate {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

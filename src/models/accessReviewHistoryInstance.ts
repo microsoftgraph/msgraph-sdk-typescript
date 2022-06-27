@@ -1,10 +1,8 @@
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewHistoryInstance extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AccessReviewHistoryInstance extends Entity, Partial<Parsable> {
     /** Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required. */
     downloadUri?: string | undefined;
     /** Timestamp when this instance and associated data expires and the history is deleted. Required. */

@@ -2,11 +2,9 @@ import {ApprovalSettings} from './approvalSettings';
 import {createApprovalSettingsFromDiscriminatorValue} from './createApprovalSettingsFromDiscriminatorValue';
 import {ApprovalSettingsImpl, UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {UnifiedRoleManagementPolicyApprovalRule} from './unifiedRoleManagementPolicyApprovalRule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyApprovalRule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The settings for approval of the role assignment. */
     public setting?: ApprovalSettings | undefined;
     /**
@@ -15,7 +13,6 @@ export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleMana
      */
     public constructor(unifiedRoleManagementPolicyApprovalRuleParameterValue?: UnifiedRoleManagementPolicyApprovalRule | undefined) {
         super(unifiedRoleManagementPolicyApprovalRuleParameterValue);
-        this.additionalData = unifiedRoleManagementPolicyApprovalRuleParameterValue?.additionalData ? unifiedRoleManagementPolicyApprovalRuleParameterValue?.additionalData! : {};
         this.setting = unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting instanceof ApprovalSettingsImpl? unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting:new ApprovalSettingsImpl(unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting);
     };
     /**
@@ -37,6 +34,5 @@ export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleMana
         if(this.setting){
             writer.writeObjectValue<ApprovalSettingsImpl>("setting", new ApprovalSettingsImpl(this.setting));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

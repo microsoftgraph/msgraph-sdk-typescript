@@ -2,11 +2,10 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {IdentitySet} from './identitySet';
 import {EntityImpl, IdentitySetImpl} from './index';
 import {Request} from './request';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class RequestImpl extends EntityImpl implements Request {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The identifier of the approval of the request. */
     public approvalId?: string | undefined;
     /** The request completion date time. */
@@ -20,12 +19,11 @@ export class RequestImpl extends EntityImpl implements Request {
     /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
     public status?: string | undefined;
     /**
-     * Instantiates a new Request and sets the default values.
+     * Instantiates a new request and sets the default values.
      * @param requestParameterValue 
      */
     public constructor(requestParameterValue?: Request | undefined) {
         super(requestParameterValue);
-        this.additionalData = requestParameterValue?.additionalData ? requestParameterValue?.additionalData! : {};
         this.approvalId = requestParameterValue?.approvalId;
         this.completedDateTime = requestParameterValue?.completedDateTime;
         this.createdBy = requestParameterValue?.createdBy instanceof IdentitySetImpl? requestParameterValue?.createdBy:new IdentitySetImpl(requestParameterValue?.createdBy);
@@ -72,6 +70,5 @@ export class RequestImpl extends EntityImpl implements Request {
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

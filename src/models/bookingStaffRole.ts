@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the solutionsRoot singleton. */
 export enum BookingStaffRole {
     Guest = "guest",
     Administrator = "administrator",

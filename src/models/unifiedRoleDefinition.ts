@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {UnifiedRolePermission} from './unifiedRolePermission';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleDefinition extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface UnifiedRoleDefinition extends Entity, Partial<Parsable> {
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     description?: string | undefined;
     /** The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only). */

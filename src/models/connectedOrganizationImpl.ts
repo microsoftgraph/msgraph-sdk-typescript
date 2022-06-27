@@ -5,12 +5,10 @@ import {createIdentitySourceFromDiscriminatorValue} from './createIdentitySource
 import {DirectoryObject} from './directoryObject';
 import {IdentitySource} from './identitySource';
 import {DirectoryObjectImpl, EntityImpl, IdentitySourceImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOrganization {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public createdDateTime?: Date | undefined;
     /** The description of the connected organization. */
@@ -33,7 +31,6 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
      */
     public constructor(connectedOrganizationParameterValue?: ConnectedOrganization | undefined) {
         super(connectedOrganizationParameterValue);
-        this.additionalData = connectedOrganizationParameterValue?.additionalData ? connectedOrganizationParameterValue?.additionalData! : {};
         this.createdDateTime = connectedOrganizationParameterValue?.createdDateTime;
         this.description = connectedOrganizationParameterValue?.description;
         this.displayName = connectedOrganizationParameterValue?.displayName;
@@ -93,6 +90,5 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         if(this.state){
             writer.writeEnumValue<ConnectedOrganizationState>("state", this.state);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

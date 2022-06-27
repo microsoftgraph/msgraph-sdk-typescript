@@ -2,11 +2,9 @@ import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
 import {CallType} from './callType';
 import {Session} from './session';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CallRecord extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface CallRecord extends Entity, Partial<Parsable> {
     /** UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     endDateTime?: Date | undefined;
     /** Meeting URL associated to the call. May not be available for a peerToPeer call record type. */

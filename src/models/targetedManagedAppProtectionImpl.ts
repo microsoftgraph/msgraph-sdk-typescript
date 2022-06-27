@@ -2,11 +2,9 @@ import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './
 import {ManagedAppProtectionImpl, TargetedManagedAppPolicyAssignmentImpl} from './index';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl implements TargetedManagedAppProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
@@ -17,7 +15,6 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
      */
     public constructor(targetedManagedAppProtectionParameterValue?: TargetedManagedAppProtection | undefined) {
         super(targetedManagedAppProtectionParameterValue);
-        this.additionalData = targetedManagedAppProtectionParameterValue?.additionalData ? targetedManagedAppProtectionParameterValue?.additionalData! : {};
         const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppProtectionParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.isAssigned = targetedManagedAppProtectionParameterValue?.isAssigned;
@@ -45,6 +42,5 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
         if(this.isAssigned){
             writer.writeBooleanValue("isAssigned", this.isAssigned);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

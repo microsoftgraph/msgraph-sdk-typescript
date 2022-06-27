@@ -2,11 +2,9 @@ import {DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deviceEnro
 import {Enablement} from './enablement';
 import {DeviceEnrollmentConfigurationImpl} from './index';
 import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentWindowsHelloForBusinessConfigurationImpl extends DeviceEnrollmentConfigurationImpl implements DeviceEnrollmentWindowsHelloForBusinessConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Controls the ability to use the anti-spoofing features for facial recognition on devices which support it. If set to disabled, anti-spoofing features are not allowed. If set to Not Configured, the user can choose whether they want to use anti-spoofing. Possible values are: notConfigured, enabled, disabled. */
     public enhancedBiometricsState?: Enablement | undefined;
     /** Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user's PIN will never expire */
@@ -37,7 +35,6 @@ export class DeviceEnrollmentWindowsHelloForBusinessConfigurationImpl extends De
      */
     public constructor(deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue?: DeviceEnrollmentWindowsHelloForBusinessConfiguration | undefined) {
         super(deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue);
-        this.additionalData = deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue?.additionalData ? deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue?.additionalData! : {};
         this.enhancedBiometricsState = deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue?.enhancedBiometricsState;
         this.pinExpirationInDays = deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue?.pinExpirationInDays;
         this.pinLowercaseCharactersUsage = deviceEnrollmentWindowsHelloForBusinessConfigurationParameterValue?.pinLowercaseCharactersUsage;
@@ -114,6 +111,5 @@ export class DeviceEnrollmentWindowsHelloForBusinessConfigurationImpl extends De
         if(this.unlockWithBiometricsEnabled){
             writer.writeBooleanValue("unlockWithBiometricsEnabled", this.unlockWithBiometricsEnabled);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

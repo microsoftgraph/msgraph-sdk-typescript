@@ -2,12 +2,10 @@ import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {IdentitySet} from './identitySet';
 import {EntityImpl, IdentitySetImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTrackedEntity {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public createdDateTime?: Date | undefined;
     /** Identity of the person who last modified the entity. */
@@ -20,7 +18,6 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
      */
     public constructor(changeTrackedEntityParameterValue?: ChangeTrackedEntity | undefined) {
         super(changeTrackedEntityParameterValue);
-        this.additionalData = changeTrackedEntityParameterValue?.additionalData ? changeTrackedEntityParameterValue?.additionalData! : {};
         this.createdDateTime = changeTrackedEntityParameterValue?.createdDateTime;
         this.lastModifiedBy = changeTrackedEntityParameterValue?.lastModifiedBy instanceof IdentitySetImpl? changeTrackedEntityParameterValue?.lastModifiedBy:new IdentitySetImpl(changeTrackedEntityParameterValue?.lastModifiedBy);
         this.lastModifiedDateTime = changeTrackedEntityParameterValue?.lastModifiedDateTime;
@@ -52,6 +49,5 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

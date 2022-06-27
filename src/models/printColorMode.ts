@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the print singleton. */
 export enum PrintColorMode {
     BlackAndWhite = "blackAndWhite",
     Grayscale = "grayscale",

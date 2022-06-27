@@ -1,11 +1,9 @@
 import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceManagementPartner extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DeviceManagementPartner extends Entity, Partial<Parsable> {
     /** Partner display name */
     displayName?: string | undefined;
     /** Whether device management partner is configured or not */

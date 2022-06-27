@@ -1,10 +1,8 @@
 import {DriveItemVersion} from './driveItemVersion';
 import {BaseItemVersionImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The content property */
     public content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item. */
@@ -15,7 +13,6 @@ export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveIt
      */
     public constructor(driveItemVersionParameterValue?: DriveItemVersion | undefined) {
         super(driveItemVersionParameterValue);
-        this.additionalData = driveItemVersionParameterValue?.additionalData ? driveItemVersionParameterValue?.additionalData! : {};
         this.content = driveItemVersionParameterValue?.content;
         this.size = driveItemVersionParameterValue?.size;
     };
@@ -42,6 +39,5 @@ export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveIt
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements SoftwareUpdateStatusSummary {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Number of compliant devices. */
     public compliantDeviceCount?: number | undefined;
     /** Number of compliant users. */
@@ -42,7 +40,6 @@ export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements Softw
      */
     public constructor(softwareUpdateStatusSummaryParameterValue?: SoftwareUpdateStatusSummary | undefined) {
         super(softwareUpdateStatusSummaryParameterValue);
-        this.additionalData = softwareUpdateStatusSummaryParameterValue?.additionalData ? softwareUpdateStatusSummaryParameterValue?.additionalData! : {};
         this.compliantDeviceCount = softwareUpdateStatusSummaryParameterValue?.compliantDeviceCount;
         this.compliantUserCount = softwareUpdateStatusSummaryParameterValue?.compliantUserCount;
         this.conflictDeviceCount = softwareUpdateStatusSummaryParameterValue?.conflictDeviceCount;
@@ -134,6 +131,5 @@ export class SoftwareUpdateStatusSummaryImpl extends EntityImpl implements Softw
         if(this.unknownUserCount){
             writer.writeNumberValue("unknownUserCount", this.unknownUserCount);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

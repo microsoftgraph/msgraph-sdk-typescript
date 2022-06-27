@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of chat entities. */
 export enum TeamworkConversationIdentityType {
     Team = "team",
     Channel = "channel",

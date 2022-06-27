@@ -2,12 +2,10 @@ import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {AccessReviewReviewerScopeImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the policyRoot singleton. */
 export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminConsentRequestPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     public isEnabled?: boolean | undefined;
     /** Specifies whether reviewers will receive notifications. Required. */
@@ -26,7 +24,6 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
      */
     public constructor(adminConsentRequestPolicyParameterValue?: AdminConsentRequestPolicy | undefined) {
         super(adminConsentRequestPolicyParameterValue);
-        this.additionalData = adminConsentRequestPolicyParameterValue?.additionalData ? adminConsentRequestPolicyParameterValue?.additionalData! : {};
         this.isEnabled = adminConsentRequestPolicyParameterValue?.isEnabled;
         this.notifyReviewers = adminConsentRequestPolicyParameterValue?.notifyReviewers;
         this.remindersEnabled = adminConsentRequestPolicyParameterValue?.remindersEnabled;
@@ -74,6 +71,5 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

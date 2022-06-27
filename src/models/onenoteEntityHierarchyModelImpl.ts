@@ -2,11 +2,9 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {IdentitySet} from './identitySet';
 import {IdentitySetImpl, OnenoteEntitySchemaObjectModelImpl} from './index';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectModelImpl implements OnenoteEntityHierarchyModel {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Identity of the user, device, and application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;
     /** The name of the notebook. */
@@ -21,7 +19,6 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
      */
     public constructor(onenoteEntityHierarchyModelParameterValue?: OnenoteEntityHierarchyModel | undefined) {
         super(onenoteEntityHierarchyModelParameterValue);
-        this.additionalData = onenoteEntityHierarchyModelParameterValue?.additionalData ? onenoteEntityHierarchyModelParameterValue?.additionalData! : {};
         this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy instanceof IdentitySetImpl? onenoteEntityHierarchyModelParameterValue?.createdBy:new IdentitySetImpl(onenoteEntityHierarchyModelParameterValue?.createdBy);
         this.displayName = onenoteEntityHierarchyModelParameterValue?.displayName;
         this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy instanceof IdentitySetImpl? onenoteEntityHierarchyModelParameterValue?.lastModifiedBy:new IdentitySetImpl(onenoteEntityHierarchyModelParameterValue?.lastModifiedBy);
@@ -58,6 +55,5 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

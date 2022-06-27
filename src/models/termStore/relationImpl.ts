@@ -6,12 +6,10 @@ import {Relation} from './relation';
 import {RelationType} from './relationType';
 import {Set} from './set';
 import {Term} from './term';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class RelationImpl extends EntityImpl implements Relation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     public fromTerm?: Term | undefined;
     /** The type of relation. Possible values are: pin, reuse. */
@@ -26,7 +24,6 @@ export class RelationImpl extends EntityImpl implements Relation {
      */
     public constructor(relationParameterValue?: Relation | undefined) {
         super(relationParameterValue);
-        this.additionalData = relationParameterValue?.additionalData ? relationParameterValue?.additionalData! : {};
         this.fromTerm = relationParameterValue?.fromTerm instanceof TermImpl? relationParameterValue?.fromTerm:new TermImpl(relationParameterValue?.fromTerm);
         this.relationship = relationParameterValue?.relationship;
         this.set = relationParameterValue?.set instanceof SetImpl? relationParameterValue?.set:new SetImpl(relationParameterValue?.set);
@@ -63,6 +60,5 @@ export class RelationImpl extends EntityImpl implements Relation {
         if(this.toTerm){
             writer.writeObjectValue<TermImpl>("toTerm", new TermImpl(this.toTerm));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

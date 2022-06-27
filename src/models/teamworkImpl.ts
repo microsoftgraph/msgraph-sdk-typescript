@@ -2,20 +2,18 @@ import {createWorkforceIntegrationFromDiscriminatorValue} from './createWorkforc
 import {EntityImpl, WorkforceIntegrationImpl} from './index';
 import {Teamwork} from './teamwork';
 import {WorkforceIntegration} from './workforceIntegration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the teamwork singleton. */
 export class TeamworkImpl extends EntityImpl implements Teamwork {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A workforce integration with shifts. */
     public workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
-     * Instantiates a new Teamwork and sets the default values.
+     * Instantiates a new teamwork and sets the default values.
      * @param teamworkParameterValue 
      */
     public constructor(teamworkParameterValue?: Teamwork | undefined) {
         super(teamworkParameterValue);
-        this.additionalData = teamworkParameterValue?.additionalData ? teamworkParameterValue?.additionalData! : {};
         const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; teamworkParameterValue.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
         this.workforceIntegrations = workforceIntegrationsArrValue;
     };
@@ -38,6 +36,5 @@ export class TeamworkImpl extends EntityImpl implements Teamwork {
         if(this.workforceIntegrations && this.workforceIntegrations.length != 0){        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = []; this.workforceIntegrations?.forEach(element => {workforceIntegrationsArrValue.push(element instanceof WorkforceIntegrationImpl? element : new WorkforceIntegrationImpl(element));});
             writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("workforceIntegrations", workforceIntegrationsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

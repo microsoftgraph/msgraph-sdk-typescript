@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the privacy singleton. */
 export enum SubjectRightsRequestStage {
     ContentRetrieval = "contentRetrieval",
     ContentReview = "contentReview",

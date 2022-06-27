@@ -1,11 +1,9 @@
 import {AccessPackageSubjectType} from './accessPackageSubjectType';
 import {ConnectedOrganization} from './connectedOrganization';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageSubject extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AccessPackageSubject extends Entity, Partial<Parsable> {
     /** The connected organization of the subject. Read-only. Nullable. */
     connectedOrganization?: ConnectedOrganization | undefined;
     /** The display name of the subject. */

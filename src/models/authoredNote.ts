@@ -1,11 +1,9 @@
 import {Entity} from './entity';
 import {Identity} from './identity';
 import {ItemBody} from './itemBody';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AuthoredNote extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AuthoredNote extends Entity, Partial<Parsable> {
     /** Identity information about the note's author. */
     author?: Identity | undefined;
     /** The content of the note. */

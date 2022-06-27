@@ -6,13 +6,12 @@ import {createSecurityVendorInformationFromDiscriminatorValue} from './createSec
 import {AverageComparativeScoreImpl, ControlScoreImpl, EntityImpl, SecurityVendorInformationImpl} from './index';
 import {SecureScore} from './secureScore';
 import {SecurityVendorInformation} from './securityVendorInformation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the security singleton. */
 export class SecureScoreImpl extends EntityImpl implements SecureScore {
     /** Active user count of the given tenant. */
     public activeUserCount?: number | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope. */
     public averageComparativeScores?: AverageComparativeScore[] | undefined;
     /** GUID string for tenant ID. */
@@ -32,13 +31,12 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
     /** Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required. */
     public vendorInformation?: SecurityVendorInformation | undefined;
     /**
-     * Instantiates a new SecureScore and sets the default values.
+     * Instantiates a new secureScore and sets the default values.
      * @param secureScoreParameterValue 
      */
     public constructor(secureScoreParameterValue?: SecureScore | undefined) {
         super(secureScoreParameterValue);
         this.activeUserCount = secureScoreParameterValue?.activeUserCount;
-        this.additionalData = secureScoreParameterValue?.additionalData ? secureScoreParameterValue?.additionalData! : {};
         const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; secureScoreParameterValue.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
         this.averageComparativeScores = averageComparativeScoresArrValue;
         this.azureTenantId = secureScoreParameterValue?.azureTenantId;
@@ -106,6 +104,5 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         if(this.vendorInformation){
             writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", new SecurityVendorInformationImpl(this.vendorInformation));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

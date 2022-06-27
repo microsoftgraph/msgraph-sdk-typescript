@@ -2,12 +2,10 @@ import {createWorkbookChartAxisTitleFormatFromDiscriminatorValue} from './create
 import {EntityImpl, WorkbookChartAxisTitleFormatImpl} from './index';
 import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookChartAxisTitle {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the formatting of chart axis title. Read-only. */
     public format?: WorkbookChartAxisTitleFormat | undefined;
     /** Represents the axis title. */
@@ -20,7 +18,6 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookCh
      */
     public constructor(workbookChartAxisTitleParameterValue?: WorkbookChartAxisTitle | undefined) {
         super(workbookChartAxisTitleParameterValue);
-        this.additionalData = workbookChartAxisTitleParameterValue?.additionalData ? workbookChartAxisTitleParameterValue?.additionalData! : {};
         this.format = workbookChartAxisTitleParameterValue?.format instanceof WorkbookChartAxisTitleFormatImpl? workbookChartAxisTitleParameterValue?.format:new WorkbookChartAxisTitleFormatImpl(workbookChartAxisTitleParameterValue?.format);
         this.text = workbookChartAxisTitleParameterValue?.text;
         this.visible = workbookChartAxisTitleParameterValue?.visible;
@@ -52,6 +49,5 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookCh
         if(this.visible){
             writer.writeBooleanValue("visible", this.visible);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

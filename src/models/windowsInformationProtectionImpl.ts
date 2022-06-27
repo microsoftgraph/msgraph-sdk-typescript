@@ -15,11 +15,9 @@ import {WindowsInformationProtectionEnforcementLevel} from './windowsInformation
 import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl implements WindowsInformationProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Navigation property to list of security groups targeted for policy. */
     public assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Specifies whether to allow Azure RMS encryption for WIP */
@@ -76,7 +74,6 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
      */
     public constructor(windowsInformationProtectionParameterValue?: WindowsInformationProtection | undefined) {
         super(windowsInformationProtectionParameterValue);
-        this.additionalData = windowsInformationProtectionParameterValue?.additionalData ? windowsInformationProtectionParameterValue?.additionalData! : {};
         const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; windowsInformationProtectionParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.azureRightsManagementServicesAllowed = windowsInformationProtectionParameterValue?.azureRightsManagementServicesAllowed;
@@ -231,6 +228,5 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(this.smbAutoEncryptedFileExtensions && this.smbAutoEncryptedFileExtensions.length != 0){        const smbAutoEncryptedFileExtensionsArrValue: WindowsInformationProtectionResourceCollectionImpl[] = []; this.smbAutoEncryptedFileExtensions?.forEach(element => {smbAutoEncryptedFileExtensionsArrValue.push(element instanceof WindowsInformationProtectionResourceCollectionImpl? element : new WindowsInformationProtectionResourceCollectionImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("smbAutoEncryptedFileExtensions", smbAutoEncryptedFileExtensionsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

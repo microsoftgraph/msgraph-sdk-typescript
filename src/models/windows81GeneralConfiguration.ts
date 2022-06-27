@@ -3,13 +3,11 @@ import {InternetSiteSecurityLevel} from './internetSiteSecurityLevel';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {SiteSecurityLevel} from './siteSecurityLevel';
 import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Windows81GeneralConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
+export interface Windows81GeneralConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Value indicating whether this policy only applies to Windows 8.1. This property is read-only. */
     applyOnlyToWindows81?: boolean | undefined;
     /** Indicates whether or not to block auto fill. */

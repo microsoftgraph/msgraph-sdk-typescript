@@ -2,12 +2,10 @@ import {createThumbnailFromDiscriminatorValue} from './createThumbnailFromDiscri
 import {EntityImpl, ThumbnailImpl} from './index';
 import {Thumbnail} from './thumbnail';
 import {ThumbnailSet} from './thumbnailSet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A 1920x1920 scaled thumbnail. */
     public large?: Thumbnail | undefined;
     /** A 176x176 scaled thumbnail. */
@@ -22,7 +20,6 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public constructor(thumbnailSetParameterValue?: ThumbnailSet | undefined) {
         super(thumbnailSetParameterValue);
-        this.additionalData = thumbnailSetParameterValue?.additionalData ? thumbnailSetParameterValue?.additionalData! : {};
         this.large = thumbnailSetParameterValue?.large instanceof ThumbnailImpl? thumbnailSetParameterValue?.large:new ThumbnailImpl(thumbnailSetParameterValue?.large);
         this.medium = thumbnailSetParameterValue?.medium instanceof ThumbnailImpl? thumbnailSetParameterValue?.medium:new ThumbnailImpl(thumbnailSetParameterValue?.medium);
         this.small = thumbnailSetParameterValue?.small instanceof ThumbnailImpl? thumbnailSetParameterValue?.small:new ThumbnailImpl(thumbnailSetParameterValue?.small);
@@ -59,6 +56,5 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
         if(this.source){
             writer.writeObjectValue<ThumbnailImpl>("source", new ThumbnailImpl(this.source));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

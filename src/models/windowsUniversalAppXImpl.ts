@@ -4,11 +4,9 @@ import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
 import {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
 import {WindowsUniversalAppX} from './windowsUniversalAppX';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsUniversalAppXImpl extends MobileLobAppImpl implements WindowsUniversalAppX {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64. */
     public applicableArchitectures?: WindowsArchitecture | undefined;
     /** The Windows device type(s) for which this app can run on. Possible values are: none, desktop, mobile, holographic, team. */
@@ -31,7 +29,6 @@ export class WindowsUniversalAppXImpl extends MobileLobAppImpl implements Window
      */
     public constructor(windowsUniversalAppXParameterValue?: WindowsUniversalAppX | undefined) {
         super(windowsUniversalAppXParameterValue);
-        this.additionalData = windowsUniversalAppXParameterValue?.additionalData ? windowsUniversalAppXParameterValue?.additionalData! : {};
         this.applicableArchitectures = windowsUniversalAppXParameterValue?.applicableArchitectures;
         this.applicableDeviceTypes = windowsUniversalAppXParameterValue?.applicableDeviceTypes;
         this.identityName = windowsUniversalAppXParameterValue?.identityName;
@@ -88,6 +85,5 @@ export class WindowsUniversalAppXImpl extends MobileLobAppImpl implements Window
         if(this.minimumSupportedOperatingSystem){
             writer.writeObjectValue<WindowsMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", new WindowsMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

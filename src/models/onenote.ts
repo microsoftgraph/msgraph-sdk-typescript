@@ -5,11 +5,9 @@ import {OnenotePage} from './onenotePage';
 import {OnenoteResource} from './onenoteResource';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Onenote extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Onenote extends Entity, Partial<Parsable> {
     /** The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable. */
     notebooks?: Notebook[] | undefined;
     /** The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable. */

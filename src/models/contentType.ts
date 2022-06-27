@@ -5,11 +5,9 @@ import {DocumentSet} from './documentSet';
 import {DocumentSetContent} from './documentSetContent';
 import {Entity} from './entity';
 import {ItemReference} from './itemReference';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ContentType extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ContentType extends Entity, Partial<Parsable> {
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     associatedHubsUrls?: string[] | undefined;
     /** Parent contentType from which this content type is derived. */

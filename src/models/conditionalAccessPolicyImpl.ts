@@ -7,11 +7,10 @@ import {createConditionalAccessConditionSetFromDiscriminatorValue} from './creat
 import {createConditionalAccessGrantControlsFromDiscriminatorValue} from './createConditionalAccessGrantControlsFromDiscriminatorValue';
 import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './createConditionalAccessSessionControlsFromDiscriminatorValue';
 import {ConditionalAccessConditionSetImpl, ConditionalAccessGrantControlsImpl, ConditionalAccessSessionControlsImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class ConditionalAccessPolicyImpl extends EntityImpl implements ConditionalAccessPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The conditions property */
     public conditions?: ConditionalAccessConditionSet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
@@ -29,12 +28,11 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
     /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
     public state?: ConditionalAccessPolicyState | undefined;
     /**
-     * Instantiates a new ConditionalAccessPolicy and sets the default values.
+     * Instantiates a new conditionalAccessPolicy and sets the default values.
      * @param conditionalAccessPolicyParameterValue 
      */
     public constructor(conditionalAccessPolicyParameterValue?: ConditionalAccessPolicy | undefined) {
         super(conditionalAccessPolicyParameterValue);
-        this.additionalData = conditionalAccessPolicyParameterValue?.additionalData ? conditionalAccessPolicyParameterValue?.additionalData! : {};
         this.conditions = conditionalAccessPolicyParameterValue?.conditions instanceof ConditionalAccessConditionSetImpl? conditionalAccessPolicyParameterValue?.conditions:new ConditionalAccessConditionSetImpl(conditionalAccessPolicyParameterValue?.conditions);
         this.createdDateTime = conditionalAccessPolicyParameterValue?.createdDateTime;
         this.description = conditionalAccessPolicyParameterValue?.description;
@@ -91,6 +89,5 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
         if(this.state){
             writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

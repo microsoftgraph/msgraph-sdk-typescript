@@ -7,11 +7,9 @@ import {KeyValuePair} from './keyValuePair';
 import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl implements DefaultManagedAppProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */
@@ -42,7 +40,6 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
      */
     public constructor(defaultManagedAppProtectionParameterValue?: DefaultManagedAppProtection | undefined) {
         super(defaultManagedAppProtectionParameterValue);
-        this.additionalData = defaultManagedAppProtectionParameterValue?.additionalData ? defaultManagedAppProtectionParameterValue?.additionalData! : {};
         this.appDataEncryptionType = defaultManagedAppProtectionParameterValue?.appDataEncryptionType;
         const appsArrValue: ManagedMobileAppImpl[] = []; defaultManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
@@ -121,6 +118,5 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
         if(this.screenCaptureBlocked){
             writer.writeBooleanValue("screenCaptureBlocked", this.screenCaptureBlocked);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

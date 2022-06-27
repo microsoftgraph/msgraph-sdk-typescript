@@ -4,12 +4,10 @@ import {EntityImpl, WorkbookChartPointImpl, WorkbookChartSeriesFormatImpl} from 
 import {WorkbookChartPoint} from './workbookChartPoint';
 import {WorkbookChartSeries} from './workbookChartSeries';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChartSeries {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
     public format?: WorkbookChartSeriesFormat | undefined;
     /** Represents the name of a series in a chart. */
@@ -22,7 +20,6 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
      */
     public constructor(workbookChartSeriesParameterValue?: WorkbookChartSeries | undefined) {
         super(workbookChartSeriesParameterValue);
-        this.additionalData = workbookChartSeriesParameterValue?.additionalData ? workbookChartSeriesParameterValue?.additionalData! : {};
         this.format = workbookChartSeriesParameterValue?.format instanceof WorkbookChartSeriesFormatImpl? workbookChartSeriesParameterValue?.format:new WorkbookChartSeriesFormatImpl(workbookChartSeriesParameterValue?.format);
         this.name = workbookChartSeriesParameterValue?.name;
         const pointsArrValue: WorkbookChartPointImpl[] = []; workbookChartSeriesParameterValue.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
@@ -55,6 +52,5 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookChartPointImpl>("points", pointsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

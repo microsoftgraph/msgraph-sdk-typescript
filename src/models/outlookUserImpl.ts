@@ -2,20 +2,18 @@ import {createOutlookCategoryFromDiscriminatorValue} from './createOutlookCatego
 import {EntityImpl, OutlookCategoryImpl} from './index';
 import {OutlookCategory} from './outlookCategory';
 import {OutlookUser} from './outlookUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class OutlookUserImpl extends EntityImpl implements OutlookUser {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A list of categories defined for the user. */
     public masterCategories?: OutlookCategory[] | undefined;
     /**
-     * Instantiates a new OutlookUser and sets the default values.
+     * Instantiates a new outlookUser and sets the default values.
      * @param outlookUserParameterValue 
      */
     public constructor(outlookUserParameterValue?: OutlookUser | undefined) {
         super(outlookUserParameterValue);
-        this.additionalData = outlookUserParameterValue?.additionalData ? outlookUserParameterValue?.additionalData! : {};
         const masterCategoriesArrValue: OutlookCategoryImpl[] = []; outlookUserParameterValue.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
         this.masterCategories = masterCategoriesArrValue;
     };
@@ -38,6 +36,5 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
         if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("masterCategories", masterCategoriesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

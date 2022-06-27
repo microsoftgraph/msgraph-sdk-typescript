@@ -26,11 +26,9 @@ import {Subscription} from './subscription';
 import {ThumbnailSet} from './thumbnailSet';
 import {Video} from './video';
 import {Workbook} from './workbook';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DriveItem extends Partial<AdditionalDataHolder>, BaseItem, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DriveItem extends BaseItem, Partial<Parsable> {
     /** Analytics about the view activities that took place on this item. */
     analytics?: ItemAnalytics | undefined;
     /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */

@@ -2,11 +2,10 @@ import {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurati
 import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './createApiAuthenticationConfigurationBaseFromDiscriminatorValue';
 import {IdentityApiConnector} from './identityApiConnector';
 import {ApiAuthenticationConfigurationBaseImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiConnector {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
     public authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
     /** The name of the API connector. */
@@ -14,12 +13,11 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
     /** The URL of the API endpoint to call. */
     public targetUrl?: string | undefined;
     /**
-     * Instantiates a new IdentityApiConnector and sets the default values.
+     * Instantiates a new identityApiConnector and sets the default values.
      * @param identityApiConnectorParameterValue 
      */
     public constructor(identityApiConnectorParameterValue?: IdentityApiConnector | undefined) {
         super(identityApiConnectorParameterValue);
-        this.additionalData = identityApiConnectorParameterValue?.additionalData ? identityApiConnectorParameterValue?.additionalData! : {};
         this.authenticationConfiguration = identityApiConnectorParameterValue?.authenticationConfiguration instanceof ApiAuthenticationConfigurationBaseImpl? identityApiConnectorParameterValue?.authenticationConfiguration:new ApiAuthenticationConfigurationBaseImpl(identityApiConnectorParameterValue?.authenticationConfiguration);
         this.displayName = identityApiConnectorParameterValue?.displayName;
         this.targetUrl = identityApiConnectorParameterValue?.targetUrl;
@@ -51,6 +49,5 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
         if(this.targetUrl){
             writer.writeStringValue("targetUrl", this.targetUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

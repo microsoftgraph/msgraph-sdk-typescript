@@ -7,12 +7,10 @@ import {MobileApp} from './mobileApp';
 import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppCategory} from './mobileAppCategory';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class containing the base properties for Intune mobile apps. */
 export class MobileAppImpl extends EntityImpl implements MobileApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The list of group assignments for this mobile app. */
     public assignments?: MobileAppAssignment[] | undefined;
     /** The list of categories for this app. */
@@ -49,7 +47,6 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
      */
     public constructor(mobileAppParameterValue?: MobileApp | undefined) {
         super(mobileAppParameterValue);
-        this.additionalData = mobileAppParameterValue?.additionalData ? mobileAppParameterValue?.additionalData! : {};
         const assignmentsArrValue: MobileAppAssignmentImpl[] = []; mobileAppParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         const categoriesArrValue: MobileAppCategoryImpl[] = []; mobileAppParameterValue.categories?.forEach(element => {categoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
@@ -143,6 +140,5 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
         if(this.publishingState){
             writer.writeEnumValue<MobileAppPublishingState>("publishingState", this.publishingState);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

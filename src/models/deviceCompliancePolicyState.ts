@@ -2,11 +2,9 @@ import {ComplianceStatus} from './complianceStatus';
 import {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
 import {Entity} from './entity';
 import {PolicyPlatformType} from './policyPlatformType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceCompliancePolicyState extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DeviceCompliancePolicyState extends Entity, Partial<Parsable> {
     /** The name of the policy for this policyBase */
     displayName?: string | undefined;
     /** Platform type that the policy applies to */

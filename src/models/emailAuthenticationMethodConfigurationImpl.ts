@@ -3,11 +3,9 @@ import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAu
 import {EmailAuthenticationMethodConfiguration} from './emailAuthenticationMethodConfiguration';
 import {ExternalEmailOtpState} from './externalEmailOtpState';
 import {AuthenticationMethodConfigurationImpl, AuthenticationMethodTargetImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements EmailAuthenticationMethodConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021. */
     public allowExternalIdToUseEmailOtp?: ExternalEmailOtpState | undefined;
     /** A collection of users or groups who are enabled to use the authentication method. */
@@ -18,7 +16,6 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
      */
     public constructor(emailAuthenticationMethodConfigurationParameterValue?: EmailAuthenticationMethodConfiguration | undefined) {
         super(emailAuthenticationMethodConfigurationParameterValue);
-        this.additionalData = emailAuthenticationMethodConfigurationParameterValue?.additionalData ? emailAuthenticationMethodConfigurationParameterValue?.additionalData! : {};
         this.allowExternalIdToUseEmailOtp = emailAuthenticationMethodConfigurationParameterValue?.allowExternalIdToUseEmailOtp;
         const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; emailAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
         this.includeTargets = includeTargetsArrValue;
@@ -46,6 +43,5 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
         if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

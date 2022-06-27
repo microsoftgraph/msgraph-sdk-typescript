@@ -1,10 +1,8 @@
 import {IdentityProviderBaseImpl} from './index';
 import {SocialIdentityProvider} from './socialIdentityProvider';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SocialIdentityProviderImpl extends IdentityProviderBaseImpl implements SocialIdentityProvider {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The client identifier for the application obtained when registering the application with the identity provider. Required. */
     public clientId?: string | undefined;
     /** The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns ****. Required. */
@@ -17,7 +15,6 @@ export class SocialIdentityProviderImpl extends IdentityProviderBaseImpl impleme
      */
     public constructor(socialIdentityProviderParameterValue?: SocialIdentityProvider | undefined) {
         super(socialIdentityProviderParameterValue);
-        this.additionalData = socialIdentityProviderParameterValue?.additionalData ? socialIdentityProviderParameterValue?.additionalData! : {};
         this.clientId = socialIdentityProviderParameterValue?.clientId;
         this.clientSecret = socialIdentityProviderParameterValue?.clientSecret;
         this.identityProviderType = socialIdentityProviderParameterValue?.identityProviderType;
@@ -49,6 +46,5 @@ export class SocialIdentityProviderImpl extends IdentityProviderBaseImpl impleme
         if(this.identityProviderType){
             writer.writeStringValue("identityProviderType", this.identityProviderType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

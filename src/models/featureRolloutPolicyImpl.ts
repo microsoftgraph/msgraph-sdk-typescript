@@ -3,12 +3,10 @@ import {DirectoryObject} from './directoryObject';
 import {FeatureRolloutPolicy} from './featureRolloutPolicy';
 import {DirectoryObjectImpl, EntityImpl} from './index';
 import {StagedFeatureName} from './stagedFeatureName';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the policyRoot singleton. */
 export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRolloutPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     public appliesTo?: DirectoryObject[] | undefined;
     /** A description for this feature rollout policy. */
@@ -27,7 +25,6 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
      */
     public constructor(featureRolloutPolicyParameterValue?: FeatureRolloutPolicy | undefined) {
         super(featureRolloutPolicyParameterValue);
-        this.additionalData = featureRolloutPolicyParameterValue?.additionalData ? featureRolloutPolicyParameterValue?.additionalData! : {};
         const appliesToArrValue: DirectoryObjectImpl[] = []; featureRolloutPolicyParameterValue.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.appliesTo = appliesToArrValue;
         this.description = featureRolloutPolicyParameterValue?.description;
@@ -75,6 +72,5 @@ export class FeatureRolloutPolicyImpl extends EntityImpl implements FeatureRollo
         if(this.isEnabled){
             writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -3,13 +3,10 @@ import {ChatMessage} from './chatMessage';
 import {ConversationMember} from './conversationMember';
 import {DriveItem} from './driveItem';
 import {Entity} from './entity';
-import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import {TeamsTab} from './teamsTab';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Channel extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Channel extends Entity, Partial<Parsable> {
     /** Read only. Timestamp at which the channel was created. */
     createdDateTime?: Date | undefined;
     /** Optional textual description for the channel. */
@@ -28,12 +25,8 @@ export interface Channel extends Partial<AdditionalDataHolder>, Entity, Partial<
     membershipType?: ChannelMembershipType | undefined;
     /** A collection of all the messages in the channel. A navigation property. Nullable. */
     messages?: ChatMessage[] | undefined;
-    /** A collection of teams with which a channel is shared. */
-    sharedWithTeams?: SharedWithChannelTeamInfo[] | undefined;
     /** A collection of all the tabs in the channel. A navigation property. */
     tabs?: TeamsTab[] | undefined;
-    /** The ID of the Azure Active Directory tenant. */
-    tenantId?: string | undefined;
     /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
     webUrl?: string | undefined;
 }

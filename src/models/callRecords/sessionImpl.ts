@@ -7,12 +7,10 @@ import {FailureInfo} from './failureInfo';
 import {EndpointImpl, FailureInfoImpl, SegmentImpl} from './index';
 import {Segment} from './segment';
 import {Session} from './session';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class SessionImpl extends EntityImpl implements Session {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Endpoint that answered the session. */
     public callee?: Endpoint | undefined;
     /** Endpoint that initiated the session. */
@@ -33,7 +31,6 @@ export class SessionImpl extends EntityImpl implements Session {
      */
     public constructor(sessionParameterValue?: Session | undefined) {
         super(sessionParameterValue);
-        this.additionalData = sessionParameterValue?.additionalData ? sessionParameterValue?.additionalData! : {};
         this.callee = sessionParameterValue?.callee instanceof EndpointImpl? sessionParameterValue?.callee:new EndpointImpl(sessionParameterValue?.callee);
         this.caller = sessionParameterValue?.caller instanceof EndpointImpl? sessionParameterValue?.caller:new EndpointImpl(sessionParameterValue?.caller);
         this.endDateTime = sessionParameterValue?.endDateTime;
@@ -86,6 +83,5 @@ export class SessionImpl extends EntityImpl implements Session {
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

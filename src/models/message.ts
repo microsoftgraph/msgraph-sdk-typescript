@@ -9,11 +9,9 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {OutlookItem} from './outlookItem';
 import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Message extends Partial<AdditionalDataHolder>, OutlookItem, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Message extends OutlookItem, Partial<Parsable> {
     /** The fileAttachment and itemAttachment attachments for the message. */
     attachments?: Attachment[] | undefined;
     /** The Bcc: recipients for the message. */

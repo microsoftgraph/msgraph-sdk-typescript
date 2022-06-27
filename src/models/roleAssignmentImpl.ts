@@ -2,12 +2,10 @@ import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinition
 import {EntityImpl, RoleDefinitionImpl} from './index';
 import {RoleAssignment} from './roleAssignment';
 import {RoleDefinition} from './roleDefinition';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
 export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Description of the Role Assignment. */
     public description?: string | undefined;
     /** The display or friendly name of the role Assignment. */
@@ -22,7 +20,6 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
      */
     public constructor(roleAssignmentParameterValue?: RoleAssignment | undefined) {
         super(roleAssignmentParameterValue);
-        this.additionalData = roleAssignmentParameterValue?.additionalData ? roleAssignmentParameterValue?.additionalData! : {};
         this.description = roleAssignmentParameterValue?.description;
         this.displayName = roleAssignmentParameterValue?.displayName;
         this.resourceScopes = roleAssignmentParameterValue?.resourceScopes;
@@ -59,6 +56,5 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
         if(this.roleDefinition){
             writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", new RoleDefinitionImpl(this.roleDefinition));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

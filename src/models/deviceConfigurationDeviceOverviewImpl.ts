@@ -1,11 +1,9 @@
 import {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationDeviceOverviewImpl extends EntityImpl implements DeviceConfigurationDeviceOverview {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Version of the policy for that overview */
     public configurationVersion?: number | undefined;
     /** Number of error devices */
@@ -26,7 +24,6 @@ export class DeviceConfigurationDeviceOverviewImpl extends EntityImpl implements
      */
     public constructor(deviceConfigurationDeviceOverviewParameterValue?: DeviceConfigurationDeviceOverview | undefined) {
         super(deviceConfigurationDeviceOverviewParameterValue);
-        this.additionalData = deviceConfigurationDeviceOverviewParameterValue?.additionalData ? deviceConfigurationDeviceOverviewParameterValue?.additionalData! : {};
         this.configurationVersion = deviceConfigurationDeviceOverviewParameterValue?.configurationVersion;
         this.errorCount = deviceConfigurationDeviceOverviewParameterValue?.errorCount;
         this.failedCount = deviceConfigurationDeviceOverviewParameterValue?.failedCount;
@@ -78,6 +75,5 @@ export class DeviceConfigurationDeviceOverviewImpl extends EntityImpl implements
         if(this.successCount){
             writer.writeNumberValue("successCount", this.successCount);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

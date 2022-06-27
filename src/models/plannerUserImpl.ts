@@ -4,22 +4,20 @@ import {EntityImpl, PlannerPlanImpl, PlannerTaskImpl} from './index';
 import {PlannerPlan} from './plannerPlan';
 import {PlannerTask} from './plannerTask';
 import {PlannerUser} from './plannerUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class PlannerUserImpl extends EntityImpl implements PlannerUser {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     public plans?: PlannerPlan[] | undefined;
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     public tasks?: PlannerTask[] | undefined;
     /**
-     * Instantiates a new PlannerUser and sets the default values.
+     * Instantiates a new plannerUser and sets the default values.
      * @param plannerUserParameterValue 
      */
     public constructor(plannerUserParameterValue?: PlannerUser | undefined) {
         super(plannerUserParameterValue);
-        this.additionalData = plannerUserParameterValue?.additionalData ? plannerUserParameterValue?.additionalData! : {};
         const plansArrValue: PlannerPlanImpl[] = []; plannerUserParameterValue.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
         this.plans = plansArrValue;
         const tasksArrValue: PlannerTaskImpl[] = []; plannerUserParameterValue.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
@@ -48,6 +46,5 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

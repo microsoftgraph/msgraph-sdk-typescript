@@ -2,12 +2,10 @@ import {AppCatalogs} from './appCatalogs';
 import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscriminatorValue';
 import {EntityImpl, TeamsAppImpl} from './index';
 import {TeamsApp} from './teamsApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
 export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The teamsApps property */
     public teamsApps?: TeamsApp[] | undefined;
     /**
@@ -16,7 +14,6 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
      */
     public constructor(appCatalogsParameterValue?: AppCatalogs | undefined) {
         super(appCatalogsParameterValue);
-        this.additionalData = appCatalogsParameterValue?.additionalData ? appCatalogsParameterValue?.additionalData! : {};
         const teamsAppsArrValue: TeamsAppImpl[] = []; appCatalogsParameterValue.teamsApps?.forEach(element => {teamsAppsArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
         this.teamsApps = teamsAppsArrValue;
     };
@@ -39,6 +36,5 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
         if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

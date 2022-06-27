@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Request extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Request extends Entity, Partial<Parsable> {
     /** The identifier of the approval of the request. */
     approvalId?: string | undefined;
     /** The request completion date time. */

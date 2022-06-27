@@ -1,11 +1,9 @@
 import {Entity} from './entity';
 import {RoleAssignment} from './roleAssignment';
 import {RolePermission} from './rolePermission';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface RoleDefinition extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface RoleDefinition extends Entity, Partial<Parsable> {
     /** Description of the Role definition. */
     description?: string | undefined;
     /** Display Name of the Role definition. */

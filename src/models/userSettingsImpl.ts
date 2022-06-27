@@ -2,11 +2,10 @@ import {createShiftPreferencesFromDiscriminatorValue} from './createShiftPrefere
 import {EntityImpl, ShiftPreferencesImpl} from './index';
 import {ShiftPreferences} from './shiftPreferences';
 import {UserSettings} from './userSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class UserSettingsImpl extends EntityImpl implements UserSettings {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center. */
     public contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
     /** When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve. */
@@ -14,12 +13,11 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
     /** The shift preferences for the user. */
     public shiftPreferences?: ShiftPreferences | undefined;
     /**
-     * Instantiates a new UserSettings and sets the default values.
+     * Instantiates a new userSettings and sets the default values.
      * @param userSettingsParameterValue 
      */
     public constructor(userSettingsParameterValue?: UserSettings | undefined) {
         super(userSettingsParameterValue);
-        this.additionalData = userSettingsParameterValue?.additionalData ? userSettingsParameterValue?.additionalData! : {};
         this.contributionToContentDiscoveryAsOrganizationDisabled = userSettingsParameterValue?.contributionToContentDiscoveryAsOrganizationDisabled;
         this.contributionToContentDiscoveryDisabled = userSettingsParameterValue?.contributionToContentDiscoveryDisabled;
         this.shiftPreferences = userSettingsParameterValue?.shiftPreferences instanceof ShiftPreferencesImpl? userSettingsParameterValue?.shiftPreferences:new ShiftPreferencesImpl(userSettingsParameterValue?.shiftPreferences);
@@ -51,6 +49,5 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
         if(this.shiftPreferences){
             writer.writeObjectValue<ShiftPreferencesImpl>("shiftPreferences", new ShiftPreferencesImpl(this.shiftPreferences));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

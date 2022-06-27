@@ -1,10 +1,8 @@
 import {AuthenticationMethod} from './authenticationMethod';
 import {Device} from './device';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MicrosoftAuthenticatorAuthenticationMethod extends Partial<AdditionalDataHolder>, AuthenticationMethod, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod, Partial<Parsable> {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
     createdDateTime?: Date | undefined;
     /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In. */

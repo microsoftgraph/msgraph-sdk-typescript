@@ -1,11 +1,9 @@
 import {DirectoryObject} from './directoryObject';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
     public deletedDateTime?: Date | undefined;
     /**
@@ -14,7 +12,6 @@ export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject {
      */
     public constructor(directoryObjectParameterValue?: DirectoryObject | undefined) {
         super(directoryObjectParameterValue);
-        this.additionalData = directoryObjectParameterValue?.additionalData ? directoryObjectParameterValue?.additionalData! : {};
         this.deletedDateTime = directoryObjectParameterValue?.deletedDateTime;
     };
     /**
@@ -36,6 +33,5 @@ export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject {
         if(this.deletedDateTime){
             writer.writeDateValue("deletedDateTime", this.deletedDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

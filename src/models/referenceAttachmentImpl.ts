@@ -1,17 +1,14 @@
 import {AttachmentImpl} from './index';
 import {ReferenceAttachment} from './referenceAttachment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ReferenceAttachmentImpl extends AttachmentImpl implements ReferenceAttachment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new ReferenceAttachment and sets the default values.
      * @param referenceAttachmentParameterValue 
      */
     public constructor(referenceAttachmentParameterValue?: ReferenceAttachment | undefined) {
         super(referenceAttachmentParameterValue);
-        this.additionalData = referenceAttachmentParameterValue?.additionalData ? referenceAttachmentParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +25,5 @@ export class ReferenceAttachmentImpl extends AttachmentImpl implements Reference
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

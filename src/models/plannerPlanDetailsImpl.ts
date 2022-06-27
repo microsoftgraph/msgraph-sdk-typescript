@@ -4,12 +4,10 @@ import {EntityImpl, PlannerCategoryDescriptionsImpl, PlannerUserIdsImpl} from '.
 import {PlannerCategoryDescriptions} from './plannerCategoryDescriptions';
 import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerUserIds} from './plannerUserIds';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDetails {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
     public categoryDescriptions?: PlannerCategoryDescriptions | undefined;
     /** The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group. */
@@ -20,7 +18,6 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
      */
     public constructor(plannerPlanDetailsParameterValue?: PlannerPlanDetails | undefined) {
         super(plannerPlanDetailsParameterValue);
-        this.additionalData = plannerPlanDetailsParameterValue?.additionalData ? plannerPlanDetailsParameterValue?.additionalData! : {};
         this.categoryDescriptions = plannerPlanDetailsParameterValue?.categoryDescriptions instanceof PlannerCategoryDescriptionsImpl? plannerPlanDetailsParameterValue?.categoryDescriptions:new PlannerCategoryDescriptionsImpl(plannerPlanDetailsParameterValue?.categoryDescriptions);
         this.sharedWith = plannerPlanDetailsParameterValue?.sharedWith instanceof PlannerUserIdsImpl? plannerPlanDetailsParameterValue?.sharedWith:new PlannerUserIdsImpl(plannerPlanDetailsParameterValue?.sharedWith);
     };
@@ -47,6 +44,5 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
         if(this.sharedWith){
             writer.writeObjectValue<PlannerUserIdsImpl>("sharedWith", new PlannerUserIdsImpl(this.sharedWith));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

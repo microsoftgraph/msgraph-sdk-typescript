@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum ManagedAppDataEncryptionType {
     /** App data is encrypted based on the default settings on the device. */
     UseDeviceSettings = "useDeviceSettings",

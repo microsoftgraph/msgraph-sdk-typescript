@@ -15,15 +15,13 @@ import {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentSched
 import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleAssignmentScheduleRequestImpl extends RequestImpl implements UnifiedRoleAssignmentScheduleRequest {
     /** Represents the type of the operation on the role assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign roles to principals.adminRemove: For administrators to remove principals from roles. adminUpdate: For administrators to change existing role assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.selfExtend: For principals to request to extend their expiring assignments.selfRenew: For principals to request to renew their expired assignments. */
     public action?: UnifiedRoleScheduleRequestActions | undefined;
     /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it's null. Supports $expand. */
     public activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand. */
     public appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment is scoped to an app. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, ne, and on null values). */
@@ -60,7 +58,6 @@ export class UnifiedRoleAssignmentScheduleRequestImpl extends RequestImpl implem
         super(unifiedRoleAssignmentScheduleRequestParameterValue);
         this.action = unifiedRoleAssignmentScheduleRequestParameterValue?.action;
         this.activatedUsing = unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing);
-        this.additionalData = unifiedRoleAssignmentScheduleRequestParameterValue?.additionalData ? unifiedRoleAssignmentScheduleRequestParameterValue?.additionalData! : {};
         this.appScope = unifiedRoleAssignmentScheduleRequestParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.appScope:new AppScopeImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.appScope);
         this.appScopeId = unifiedRoleAssignmentScheduleRequestParameterValue?.appScopeId;
         this.directoryScope = unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope);
@@ -155,6 +152,5 @@ export class UnifiedRoleAssignmentScheduleRequestImpl extends RequestImpl implem
         if(this.ticketInfo){
             writer.writeObjectValue<TicketInfoImpl>("ticketInfo", new TicketInfoImpl(this.ticketInfo));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

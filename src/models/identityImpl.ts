@@ -4,9 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class IdentityImpl implements Identity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta. */
+    /** The display name of the identity. This property is read-only. */
     public displayName?: string | undefined;
-    /** Unique identifier for the identity. */
+    /** The identifier of the identity. This property is read-only. */
     public id?: string | undefined;
     /**
      * Instantiates a new identity and sets the default values.

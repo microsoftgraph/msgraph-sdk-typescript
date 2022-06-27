@@ -6,12 +6,10 @@ import {CallType} from './callType';
 import {createSessionFromDiscriminatorValue} from './createSessionFromDiscriminatorValue';
 import {SessionImpl} from './index';
 import {Session} from './session';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CallRecordImpl extends EntityImpl implements CallRecord {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public endDateTime?: Date | undefined;
     /** Meeting URL associated to the call. May not be available for a peerToPeer call record type. */
@@ -38,7 +36,6 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
      */
     public constructor(callRecordParameterValue?: CallRecord | undefined) {
         super(callRecordParameterValue);
-        this.additionalData = callRecordParameterValue?.additionalData ? callRecordParameterValue?.additionalData! : {};
         this.endDateTime = callRecordParameterValue?.endDateTime;
         this.joinWebUrl = callRecordParameterValue?.joinWebUrl;
         this.lastModifiedDateTime = callRecordParameterValue?.lastModifiedDateTime;
@@ -107,6 +104,5 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

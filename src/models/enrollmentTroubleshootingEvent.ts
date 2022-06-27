@@ -1,11 +1,9 @@
 import {DeviceEnrollmentFailureReason} from './deviceEnrollmentFailureReason';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
 import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EnrollmentTroubleshootingEvent extends Partial<AdditionalDataHolder>, DeviceManagementTroubleshootingEvent, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEvent, Partial<Parsable> {
     /** Azure AD device identifier. */
     deviceId?: string | undefined;
     /** Type of the enrollment. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile. */

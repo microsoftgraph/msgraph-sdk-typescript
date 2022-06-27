@@ -2,11 +2,9 @@ import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {EventMessage} from './eventMessage';
 import {Location} from './location';
 import {MeetingRequestType} from './meetingRequestType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EventMessageRequest extends Partial<AdditionalDataHolder>, EventMessage, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface EventMessageRequest extends EventMessage, Partial<Parsable> {
     /** True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true. */
     allowNewTimeProposals?: boolean | undefined;
     /** The meetingRequestType property */

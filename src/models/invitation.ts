@@ -1,11 +1,9 @@
 import {Entity} from './entity';
 import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import {User} from './user';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Invitation extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Invitation extends Entity, Partial<Parsable> {
     /** The user created as part of the invitation creation. Read-Only */
     invitedUser?: User | undefined;
     /** The display name of the user being invited. */

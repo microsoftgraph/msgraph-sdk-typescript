@@ -1,10 +1,8 @@
 import {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
 import {RoleAssignmentImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl implements DeviceAndAppManagementRoleAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The list of ids of role member security groups. These are IDs from Azure Active Directory. */
     public members?: string[] | undefined;
     /**
@@ -13,7 +11,6 @@ export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl
      */
     public constructor(deviceAndAppManagementRoleAssignmentParameterValue?: DeviceAndAppManagementRoleAssignment | undefined) {
         super(deviceAndAppManagementRoleAssignmentParameterValue);
-        this.additionalData = deviceAndAppManagementRoleAssignmentParameterValue?.additionalData ? deviceAndAppManagementRoleAssignmentParameterValue?.additionalData! : {};
         this.members = deviceAndAppManagementRoleAssignmentParameterValue?.members;
     };
     /**
@@ -35,6 +32,5 @@ export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl
         if(this.members){
             writer.writeCollectionOfPrimitiveValues<string>("members", this.members);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

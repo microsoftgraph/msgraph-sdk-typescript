@@ -2,11 +2,9 @@ import {Entity} from '../entity';
 import {Endpoint} from './endpoint';
 import {FailureInfo} from './failureInfo';
 import {Segment} from './segment';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Session extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Session extends Entity, Partial<Parsable> {
     /** Endpoint that answered the session. */
     callee?: Endpoint | undefined;
     /** Endpoint that initiated the session. */

@@ -3,11 +3,9 @@ import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedBrowserType} from './managedBrowserType';
-import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedAppProtection extends Partial<AdditionalDataHolder>, ManagedAppPolicy, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ManagedAppProtection extends ManagedAppPolicy, Partial<Parsable> {
     /** Data storage locations where a user may store managed data. */
     allowedDataStorageLocations?: string[] | undefined;
     /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */

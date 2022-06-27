@@ -1,18 +1,16 @@
 import {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {BookingStaffRole} from './bookingStaffRole';
 import {BookingWorkHours} from './bookingWorkHours';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BookingStaffMember extends Partial<AdditionalDataHolder>, BookingStaffMemberBase, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface BookingStaffMember extends BookingStaffMemberBase, Partial<Parsable> {
     /** True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking. */
     availabilityIsAffectedByPersonalCalendar?: boolean | undefined;
     /** The name of the staff member, as displayed to customers. Required. */
     displayName?: string | undefined;
     /** The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required. */
     emailAddress?: string | undefined;
-    /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required. */
+    /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required. */
     role?: BookingStaffRole | undefined;
     /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
     timeZone?: string | undefined;

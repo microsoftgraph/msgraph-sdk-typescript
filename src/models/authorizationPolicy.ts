@@ -1,11 +1,9 @@
 import {AllowInvitesFrom} from './allowInvitesFrom';
 import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {PolicyBase} from './policyBase';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AuthorizationPolicy extends Partial<AdditionalDataHolder>, Partial<Parsable>, PolicyBase {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AuthorizationPolicy extends Partial<Parsable>, PolicyBase {
     /** Indicates whether users can sign up for email based subscriptions. */
     allowedToSignUpEmailBasedSubscriptions?: boolean | undefined;
     /** Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant. */

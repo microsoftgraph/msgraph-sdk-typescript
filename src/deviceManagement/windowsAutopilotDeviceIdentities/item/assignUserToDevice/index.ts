@@ -1,3 +1,3 @@
 export * from './assignUserToDevicePostRequestBodyImpl'
-export * from './assignUserToDeviceRequestBuilderPostRequestConfiguration'
 export * from './assignUserToDevicePostRequestBody'
+export * from './assignUserToDeviceRequestBuilderPostRequestConfiguration'

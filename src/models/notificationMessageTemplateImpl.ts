@@ -3,12 +3,10 @@ import {EntityImpl, LocalizedNotificationMessageImpl} from './index';
 import {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {NotificationMessageTemplate} from './notificationMessageTemplate';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance. */
 export class NotificationMessageTemplateImpl extends EntityImpl implements NotificationMessageTemplate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink. */
     public brandingOptions?: NotificationTemplateBrandingOptions | undefined;
     /** The default locale to fallback onto when the requested locale is not available. */
@@ -25,7 +23,6 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
      */
     public constructor(notificationMessageTemplateParameterValue?: NotificationMessageTemplate | undefined) {
         super(notificationMessageTemplateParameterValue);
-        this.additionalData = notificationMessageTemplateParameterValue?.additionalData ? notificationMessageTemplateParameterValue?.additionalData! : {};
         this.brandingOptions = notificationMessageTemplateParameterValue?.brandingOptions;
         this.defaultLocale = notificationMessageTemplateParameterValue?.defaultLocale;
         this.displayName = notificationMessageTemplateParameterValue?.displayName;
@@ -68,6 +65,5 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         if(this.localizedNotificationMessages && this.localizedNotificationMessages.length != 0){        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; this.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
             writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("localizedNotificationMessages", localizedNotificationMessagesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

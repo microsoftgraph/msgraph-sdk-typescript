@@ -1,18 +1,15 @@
 import {OrganizationalBrandingPropertiesImpl} from './index';
 import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the organizationalBranding singleton. */
 export class OrganizationalBrandingLocalizationImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBrandingLocalization {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new organizationalBrandingLocalization and sets the default values.
      * @param organizationalBrandingLocalizationParameterValue 
      */
     public constructor(organizationalBrandingLocalizationParameterValue?: OrganizationalBrandingLocalization | undefined) {
         super(organizationalBrandingLocalizationParameterValue);
-        this.additionalData = organizationalBrandingLocalizationParameterValue?.additionalData ? organizationalBrandingLocalizationParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -29,6 +26,5 @@ export class OrganizationalBrandingLocalizationImpl extends OrganizationalBrandi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

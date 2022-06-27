@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Windows Information Protection Network learning Summary entity. */
 export class WindowsInformationProtectionNetworkLearningSummaryImpl extends EntityImpl implements WindowsInformationProtectionNetworkLearningSummary {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Device Count */
     public deviceCount?: number | undefined;
     /** Website url */
@@ -16,7 +14,6 @@ export class WindowsInformationProtectionNetworkLearningSummaryImpl extends Enti
      */
     public constructor(windowsInformationProtectionNetworkLearningSummaryParameterValue?: WindowsInformationProtectionNetworkLearningSummary | undefined) {
         super(windowsInformationProtectionNetworkLearningSummaryParameterValue);
-        this.additionalData = windowsInformationProtectionNetworkLearningSummaryParameterValue?.additionalData ? windowsInformationProtectionNetworkLearningSummaryParameterValue?.additionalData! : {};
         this.deviceCount = windowsInformationProtectionNetworkLearningSummaryParameterValue?.deviceCount;
         this.url = windowsInformationProtectionNetworkLearningSummaryParameterValue?.url;
     };
@@ -43,6 +40,5 @@ export class WindowsInformationProtectionNetworkLearningSummaryImpl extends Enti
         if(this.url){
             writer.writeStringValue("url", this.url);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

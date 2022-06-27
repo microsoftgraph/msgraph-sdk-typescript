@@ -2,11 +2,9 @@ import {createPrinterFromDiscriminatorValue} from './createPrinterFromDiscrimina
 import {PrinterImpl, PrintOperationImpl} from './index';
 import {Printer} from './printer';
 import {PrinterCreateOperation} from './printerCreateOperation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterCreateOperationImpl extends PrintOperationImpl implements PrinterCreateOperation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The signed certificate created during the registration process. Read-only. */
     public certificate?: string | undefined;
     /** The created printer entity. Read-only. */
@@ -17,7 +15,6 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
      */
     public constructor(printerCreateOperationParameterValue?: PrinterCreateOperation | undefined) {
         super(printerCreateOperationParameterValue);
-        this.additionalData = printerCreateOperationParameterValue?.additionalData ? printerCreateOperationParameterValue?.additionalData! : {};
         this.certificate = printerCreateOperationParameterValue?.certificate;
         this.printer = printerCreateOperationParameterValue?.printer instanceof PrinterImpl? printerCreateOperationParameterValue?.printer:new PrinterImpl(printerCreateOperationParameterValue?.printer);
     };
@@ -44,6 +41,5 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
         if(this.printer){
             writer.writeObjectValue<PrinterImpl>("printer", new PrinterImpl(this.printer));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

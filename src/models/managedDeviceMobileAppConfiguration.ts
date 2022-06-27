@@ -4,11 +4,9 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMo
 import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
 import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
 import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedDeviceMobileAppConfiguration extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ManagedDeviceMobileAppConfiguration extends Entity, Partial<Parsable> {
     /** The list of group assignemenets for app configration. */
     assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */

@@ -18,12 +18,9 @@ import {Message} from './message';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class MessageImpl extends OutlookItemImpl implements Message {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The fileAttachment and itemAttachment attachments for the message. */
     public attachments?: Attachment[] | undefined;
     /** The Bcc: recipients for the message. */
@@ -85,12 +82,11 @@ export class MessageImpl extends OutlookItemImpl implements Message {
     /** The webLink property */
     public webLink?: string | undefined;
     /**
-     * Instantiates a new message and sets the default values.
+     * Instantiates a new Message and sets the default values.
      * @param messageParameterValue 
      */
     public constructor(messageParameterValue?: Message | undefined) {
         super(messageParameterValue);
-        this.additionalData = messageParameterValue?.additionalData ? messageParameterValue?.additionalData! : {};
         const attachmentsArrValue: AttachmentImpl[] = []; messageParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         const bccRecipientsArrValue: RecipientImpl[] = []; messageParameterValue.bccRecipients?.forEach(element => {bccRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
@@ -266,6 +262,5 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(this.webLink){
             writer.writeStringValue("webLink", this.webLink);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

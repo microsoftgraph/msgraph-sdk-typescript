@@ -4,11 +4,10 @@ import {EntityImpl, LicenseUnitsDetailImpl, ServicePlanInfoImpl} from './index';
 import {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {SubscribedSku} from './subscribedSku';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of subscribedSku entities. */
 export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** For example, 'User' or 'Company'. */
     public appliesTo?: string | undefined;
     /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription. */
@@ -24,12 +23,11 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
     /** The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus. */
     public skuPartNumber?: string | undefined;
     /**
-     * Instantiates a new SubscribedSku and sets the default values.
+     * Instantiates a new subscribedSku and sets the default values.
      * @param subscribedSkuParameterValue 
      */
     public constructor(subscribedSkuParameterValue?: SubscribedSku | undefined) {
         super(subscribedSkuParameterValue);
-        this.additionalData = subscribedSkuParameterValue?.additionalData ? subscribedSkuParameterValue?.additionalData! : {};
         this.appliesTo = subscribedSkuParameterValue?.appliesTo;
         this.capabilityStatus = subscribedSkuParameterValue?.capabilityStatus;
         this.consumedUnits = subscribedSkuParameterValue?.consumedUnits;
@@ -82,6 +80,5 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
         if(this.skuPartNumber){
             writer.writeStringValue("skuPartNumber", this.skuPartNumber);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

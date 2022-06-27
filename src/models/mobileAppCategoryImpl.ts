@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {MobileAppCategory} from './mobileAppCategory';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for a single Intune app category. */
 export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCategory {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The name of the app category. */
     public displayName?: string | undefined;
     /** The date and time the mobileAppCategory was last modified. */
@@ -16,7 +14,6 @@ export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCatego
      */
     public constructor(mobileAppCategoryParameterValue?: MobileAppCategory | undefined) {
         super(mobileAppCategoryParameterValue);
-        this.additionalData = mobileAppCategoryParameterValue?.additionalData ? mobileAppCategoryParameterValue?.additionalData! : {};
         this.displayName = mobileAppCategoryParameterValue?.displayName;
         this.lastModifiedDateTime = mobileAppCategoryParameterValue?.lastModifiedDateTime;
     };
@@ -43,6 +40,5 @@ export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCatego
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

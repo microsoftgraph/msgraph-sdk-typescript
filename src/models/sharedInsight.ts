@@ -2,11 +2,9 @@ import {Entity} from './entity';
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {SharingDetail} from './sharingDetail';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SharedInsight extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface SharedInsight extends Entity, Partial<Parsable> {
     /** Details about the shared item. Read only. */
     lastShared?: SharingDetail | undefined;
     /** The lastSharedMethod property */

@@ -2,11 +2,10 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createU
 import {EntityImpl, UnifiedRoleManagementPolicyImpl} from './index';
 import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implements UnifiedRoleManagementPolicyAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The policy for the assignment. */
     public policy?: UnifiedRoleManagementPolicy | undefined;
     /** The id of the policy. */
@@ -18,12 +17,11 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
     /** The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group. */
     public scopeType?: string | undefined;
     /**
-     * Instantiates a new UnifiedRoleManagementPolicyAssignment and sets the default values.
+     * Instantiates a new unifiedRoleManagementPolicyAssignment and sets the default values.
      * @param unifiedRoleManagementPolicyAssignmentParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyAssignmentParameterValue?: UnifiedRoleManagementPolicyAssignment | undefined) {
         super(unifiedRoleManagementPolicyAssignmentParameterValue);
-        this.additionalData = unifiedRoleManagementPolicyAssignmentParameterValue?.additionalData ? unifiedRoleManagementPolicyAssignmentParameterValue?.additionalData! : {};
         this.policy = unifiedRoleManagementPolicyAssignmentParameterValue?.policy instanceof UnifiedRoleManagementPolicyImpl? unifiedRoleManagementPolicyAssignmentParameterValue?.policy:new UnifiedRoleManagementPolicyImpl(unifiedRoleManagementPolicyAssignmentParameterValue?.policy);
         this.policyId = unifiedRoleManagementPolicyAssignmentParameterValue?.policyId;
         this.roleDefinitionId = unifiedRoleManagementPolicyAssignmentParameterValue?.roleDefinitionId;
@@ -65,6 +63,5 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
         if(this.scopeType){
             writer.writeStringValue("scopeType", this.scopeType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

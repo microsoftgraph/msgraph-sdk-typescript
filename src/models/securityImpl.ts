@@ -6,11 +6,10 @@ import {AlertImpl, EntityImpl, SecureScoreControlProfileImpl, SecureScoreImpl} f
 import {SecureScore} from './secureScore';
 import {SecureScoreControlProfile} from './secureScoreControlProfile';
 import {Security} from './security';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the security singleton. */
 export class SecurityImpl extends EntityImpl implements Security {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Notifications for suspicious or potential security issues in a customer’s tenant. */
     public alerts?: Alert[] | undefined;
     /** The secureScoreControlProfiles property */
@@ -18,12 +17,11 @@ export class SecurityImpl extends EntityImpl implements Security {
     /** The secureScores property */
     public secureScores?: SecureScore[] | undefined;
     /**
-     * Instantiates a new Security and sets the default values.
+     * Instantiates a new security and sets the default values.
      * @param securityParameterValue 
      */
     public constructor(securityParameterValue?: Security | undefined) {
         super(securityParameterValue);
-        this.additionalData = securityParameterValue?.additionalData ? securityParameterValue?.additionalData! : {};
         const alertsArrValue: AlertImpl[] = []; securityParameterValue.alerts?.forEach(element => {alertsArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
         this.alerts = alertsArrValue;
         const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; securityParameterValue.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
@@ -58,6 +56,5 @@ export class SecurityImpl extends EntityImpl implements Security {
         if(this.secureScores && this.secureScores.length != 0){        const secureScoresArrValue: SecureScoreImpl[] = []; this.secureScores?.forEach(element => {secureScoresArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
             writer.writeCollectionOfObjectValues<SecureScoreImpl>("secureScores", secureScoresArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

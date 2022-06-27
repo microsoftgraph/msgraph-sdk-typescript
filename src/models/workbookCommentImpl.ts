@@ -2,12 +2,10 @@ import {createWorkbookCommentReplyFromDiscriminatorValue} from './createWorkbook
 import {EntityImpl, WorkbookCommentReplyImpl} from './index';
 import {WorkbookComment} from './workbookComment';
 import {WorkbookCommentReply} from './workbookCommentReply';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The content of the comment. */
     public content?: string | undefined;
     /** Indicates the type for the comment. */
@@ -20,7 +18,6 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
      */
     public constructor(workbookCommentParameterValue?: WorkbookComment | undefined) {
         super(workbookCommentParameterValue);
-        this.additionalData = workbookCommentParameterValue?.additionalData ? workbookCommentParameterValue?.additionalData! : {};
         this.content = workbookCommentParameterValue?.content;
         this.contentType = workbookCommentParameterValue?.contentType;
         const repliesArrValue: WorkbookCommentReplyImpl[] = []; workbookCommentParameterValue.replies?.forEach(element => {repliesArrValue.push(element instanceof WorkbookCommentReplyImpl? element : new WorkbookCommentReplyImpl(element));});
@@ -53,6 +50,5 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
         if(this.replies && this.replies.length != 0){        const repliesArrValue: WorkbookCommentReplyImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(element instanceof WorkbookCommentReplyImpl? element : new WorkbookCommentReplyImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookCommentReplyImpl>("replies", repliesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

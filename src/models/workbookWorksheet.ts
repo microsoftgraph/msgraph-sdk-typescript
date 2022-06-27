@@ -4,11 +4,9 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookWorksheet extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookWorksheet extends Entity, Partial<Parsable> {
     /** Returns collection of charts that are part of the worksheet. Read-only. */
     charts?: WorkbookChart[] | undefined;
     /** The display name of the worksheet. */

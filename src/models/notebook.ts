@@ -3,11 +3,9 @@ import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {SectionGroup} from './sectionGroup';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Notebook extends Partial<AdditionalDataHolder>, OnenoteEntityHierarchyModel, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Notebook extends OnenoteEntityHierarchyModel, Partial<Parsable> {
     /** Indicates whether this is the user's default notebook. Read-only. */
     isDefault?: boolean | undefined;
     /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only. */

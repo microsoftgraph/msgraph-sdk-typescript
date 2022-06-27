@@ -2,12 +2,10 @@ import {AgreementFileLocalization} from './agreementFileLocalization';
 import {AgreementFileVersion} from './agreementFileVersion';
 import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreementFileVersionFromDiscriminatorValue';
 import {AgreementFilePropertiesImpl, AgreementFileVersionImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl implements AgreementFileLocalization {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
     public versions?: AgreementFileVersion[] | undefined;
     /**
@@ -16,7 +14,6 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
      */
     public constructor(agreementFileLocalizationParameterValue?: AgreementFileLocalization | undefined) {
         super(agreementFileLocalizationParameterValue);
-        this.additionalData = agreementFileLocalizationParameterValue?.additionalData ? agreementFileLocalizationParameterValue?.additionalData! : {};
         const versionsArrValue: AgreementFileVersionImpl[] = []; agreementFileLocalizationParameterValue.versions?.forEach(element => {versionsArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
         this.versions = versionsArrValue;
     };
@@ -39,6 +36,5 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
         if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

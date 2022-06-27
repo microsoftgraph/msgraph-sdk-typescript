@@ -2,11 +2,9 @@ import {createSettingTemplateValueFromDiscriminatorValue} from './createSettingT
 import {GroupSettingTemplate} from './groupSettingTemplate';
 import {DirectoryObjectImpl, SettingTemplateValueImpl} from './index';
 import {SettingTemplateValue} from './settingTemplateValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements GroupSettingTemplate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Description of the template. */
     public description?: string | undefined;
     /** Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings. */
@@ -19,7 +17,6 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
      */
     public constructor(groupSettingTemplateParameterValue?: GroupSettingTemplate | undefined) {
         super(groupSettingTemplateParameterValue);
-        this.additionalData = groupSettingTemplateParameterValue?.additionalData ? groupSettingTemplateParameterValue?.additionalData! : {};
         this.description = groupSettingTemplateParameterValue?.description;
         this.displayName = groupSettingTemplateParameterValue?.displayName;
         const valuesArrValue: SettingTemplateValueImpl[] = []; groupSettingTemplateParameterValue.values?.forEach(element => {valuesArrValue.push(element instanceof SettingTemplateValueImpl? element : new SettingTemplateValueImpl(element));});
@@ -52,6 +49,5 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         if(this.values && this.values.length != 0){        const valuesArrValue: SettingTemplateValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof SettingTemplateValueImpl? element : new SettingTemplateValueImpl(element));});
             writer.writeCollectionOfObjectValues<SettingTemplateValueImpl>("values", valuesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

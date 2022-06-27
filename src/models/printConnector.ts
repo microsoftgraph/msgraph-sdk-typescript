@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {PrinterLocation} from './printerLocation';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PrintConnector extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface PrintConnector extends Entity, Partial<Parsable> {
     /** The connector's version. */
     appVersion?: string | undefined;
     /** The name of the connector. */

@@ -2,12 +2,10 @@ import {createDeviceComplianceActionItemFromDiscriminatorValue} from './createDe
 import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
 import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
 import {DeviceComplianceActionItemImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Scheduled Action for Rule */
 export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl implements DeviceComplianceScheduledActionForRule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired. */
     public ruleName?: string | undefined;
     /** The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action. */
@@ -18,7 +16,6 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
      */
     public constructor(deviceComplianceScheduledActionForRuleParameterValue?: DeviceComplianceScheduledActionForRule | undefined) {
         super(deviceComplianceScheduledActionForRuleParameterValue);
-        this.additionalData = deviceComplianceScheduledActionForRuleParameterValue?.additionalData ? deviceComplianceScheduledActionForRuleParameterValue?.additionalData! : {};
         this.ruleName = deviceComplianceScheduledActionForRuleParameterValue?.ruleName;
         const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; deviceComplianceScheduledActionForRuleParameterValue.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(element instanceof DeviceComplianceActionItemImpl? element : new DeviceComplianceActionItemImpl(element));});
         this.scheduledActionConfigurations = scheduledActionConfigurationsArrValue;
@@ -46,6 +43,5 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
         if(this.scheduledActionConfigurations && this.scheduledActionConfigurations.length != 0){        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; this.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(element instanceof DeviceComplianceActionItemImpl? element : new DeviceComplianceActionItemImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceActionItemImpl>("scheduledActionConfigurations", scheduledActionConfigurationsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

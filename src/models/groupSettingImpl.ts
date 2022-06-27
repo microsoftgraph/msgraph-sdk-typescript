@@ -2,12 +2,10 @@ import {createSettingValueFromDiscriminatorValue} from './createSettingValueFrom
 import {GroupSetting} from './groupSetting';
 import {EntityImpl, SettingValueImpl} from './index';
 import {SettingValue} from './settingValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
 export class GroupSettingImpl extends EntityImpl implements GroupSetting {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Display name of this group of settings, which comes from the associated template. */
     public displayName?: string | undefined;
     /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only. */
@@ -20,7 +18,6 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
      */
     public constructor(groupSettingParameterValue?: GroupSetting | undefined) {
         super(groupSettingParameterValue);
-        this.additionalData = groupSettingParameterValue?.additionalData ? groupSettingParameterValue?.additionalData! : {};
         this.displayName = groupSettingParameterValue?.displayName;
         this.templateId = groupSettingParameterValue?.templateId;
         const valuesArrValue: SettingValueImpl[] = []; groupSettingParameterValue.values?.forEach(element => {valuesArrValue.push(element instanceof SettingValueImpl? element : new SettingValueImpl(element));});
@@ -53,6 +50,5 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof SettingValueImpl? element : new SettingValueImpl(element));});
             writer.writeCollectionOfObjectValues<SettingValueImpl>("values", valuesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

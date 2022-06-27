@@ -1,21 +1,19 @@
 import {AppScope} from './appScope';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AppScopeImpl extends EntityImpl implements AppScope {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only. */
     public displayName?: string | undefined;
     /** Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only. */
     public type?: string | undefined;
     /**
-     * Instantiates a new AppScope and sets the default values.
+     * Instantiates a new appScope and sets the default values.
      * @param appScopeParameterValue 
      */
     public constructor(appScopeParameterValue?: AppScope | undefined) {
         super(appScopeParameterValue);
-        this.additionalData = appScopeParameterValue?.additionalData ? appScopeParameterValue?.additionalData! : {};
         this.displayName = appScopeParameterValue?.displayName;
         this.type = appScopeParameterValue?.type;
     };
@@ -42,6 +40,5 @@ export class AppScopeImpl extends EntityImpl implements AppScope {
         if(this.type){
             writer.writeStringValue("type", this.type);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

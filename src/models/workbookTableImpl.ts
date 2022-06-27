@@ -8,12 +8,10 @@ import {WorkbookTableColumn} from './workbookTableColumn';
 import {WorkbookTableRow} from './workbookTableRow';
 import {WorkbookTableSort} from './workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents a collection of all the columns in the table. Read-only. */
     public columns?: WorkbookTableColumn[] | undefined;
     /** Indicates whether the first column contains special formatting. */
@@ -48,7 +46,6 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
      */
     public constructor(workbookTableParameterValue?: WorkbookTable | undefined) {
         super(workbookTableParameterValue);
-        this.additionalData = workbookTableParameterValue?.additionalData ? workbookTableParameterValue?.additionalData! : {};
         const columnsArrValue: WorkbookTableColumnImpl[] = []; workbookTableParameterValue.columns?.forEach(element => {columnsArrValue.push(element instanceof WorkbookTableColumnImpl? element : new WorkbookTableColumnImpl(element));});
         this.columns = columnsArrValue;
         this.highlightFirstColumn = workbookTableParameterValue?.highlightFirstColumn;
@@ -137,6 +134,5 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
         if(this.worksheet){
             writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

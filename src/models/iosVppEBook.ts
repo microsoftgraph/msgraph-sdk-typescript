@@ -1,9 +1,7 @@
 import {ManagedEBook} from './managedEBook';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosVppEBook extends Partial<AdditionalDataHolder>, ManagedEBook, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface IosVppEBook extends ManagedEBook, Partial<Parsable> {
     /** The Apple ID associated with Vpp token. */
     appleId?: string | undefined;
     /** Genres. */

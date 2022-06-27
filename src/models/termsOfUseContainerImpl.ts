@@ -4,22 +4,20 @@ import {createAgreementAcceptanceFromDiscriminatorValue} from './createAgreement
 import {createAgreementFromDiscriminatorValue} from './createAgreementFromDiscriminatorValue';
 import {AgreementAcceptanceImpl, AgreementImpl, EntityImpl} from './index';
 import {TermsOfUseContainer} from './termsOfUseContainer';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseContainer {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the current status of a user's response to a company's customizable terms of use agreement. */
     public agreementAcceptances?: AgreementAcceptance[] | undefined;
     /** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD). */
     public agreements?: Agreement[] | undefined;
     /**
-     * Instantiates a new TermsOfUseContainer and sets the default values.
+     * Instantiates a new termsOfUseContainer and sets the default values.
      * @param termsOfUseContainerParameterValue 
      */
     public constructor(termsOfUseContainerParameterValue?: TermsOfUseContainer | undefined) {
         super(termsOfUseContainerParameterValue);
-        this.additionalData = termsOfUseContainerParameterValue?.additionalData ? termsOfUseContainerParameterValue?.additionalData! : {};
         const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = []; termsOfUseContainerParameterValue.agreementAcceptances?.forEach(element => {agreementAcceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
         this.agreementAcceptances = agreementAcceptancesArrValue;
         const agreementsArrValue: AgreementImpl[] = []; termsOfUseContainerParameterValue.agreements?.forEach(element => {agreementsArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
@@ -48,6 +46,5 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
         if(this.agreements && this.agreements.length != 0){        const agreementsArrValue: AgreementImpl[] = []; this.agreements?.forEach(element => {agreementsArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementImpl>("agreements", agreementsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

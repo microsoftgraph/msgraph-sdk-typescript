@@ -1,11 +1,9 @@
 import {Entity} from '../entity';
 import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Group extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Group extends Entity, Partial<Parsable> {
     /** Date and time of the group creation. Read-only. */
     createdDateTime?: Date | undefined;
     /** Description that gives details on the term usage. */

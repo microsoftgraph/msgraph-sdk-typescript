@@ -4,11 +4,9 @@ import {PlannerBucket} from './plannerBucket';
 import {PlannerPlanContainer} from './plannerPlanContainer';
 import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PlannerPlan extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface PlannerPlan extends Entity, Partial<Parsable> {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     buckets?: PlannerBucket[] | undefined;
     /** Identifies the container of the plan. After it is set, this property can’t be updated. Required. */

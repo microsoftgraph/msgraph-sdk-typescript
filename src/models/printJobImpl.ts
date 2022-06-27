@@ -10,11 +10,10 @@ import {PrintJobConfiguration} from './printJobConfiguration';
 import {PrintJobStatus} from './printJobStatus';
 import {PrintTask} from './printTask';
 import {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintJobImpl extends EntityImpl implements PrintJob {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The configuration property */
     public configuration?: PrintJobConfiguration | undefined;
     /** The createdBy property */
@@ -34,12 +33,11 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
     /** A list of printTasks that were triggered by this print job. */
     public tasks?: PrintTask[] | undefined;
     /**
-     * Instantiates a new PrintJob and sets the default values.
+     * Instantiates a new printJob and sets the default values.
      * @param printJobParameterValue 
      */
     public constructor(printJobParameterValue?: PrintJob | undefined) {
         super(printJobParameterValue);
-        this.additionalData = printJobParameterValue?.additionalData ? printJobParameterValue?.additionalData! : {};
         this.configuration = printJobParameterValue?.configuration instanceof PrintJobConfigurationImpl? printJobParameterValue?.configuration:new PrintJobConfigurationImpl(printJobParameterValue?.configuration);
         this.createdBy = printJobParameterValue?.createdBy instanceof UserIdentityImpl? printJobParameterValue?.createdBy:new UserIdentityImpl(printJobParameterValue?.createdBy);
         this.createdDateTime = printJobParameterValue?.createdDateTime;
@@ -103,6 +101,5 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

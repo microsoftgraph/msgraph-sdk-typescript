@@ -1,10 +1,8 @@
 import {DirectoryObjectPartnerReference} from './directoryObjectPartnerReference';
 import {DirectoryObjectImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryObjectPartnerReferenceImpl extends DirectoryObjectImpl implements DirectoryObjectPartnerReference {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Description of the object returned. Read-only. */
     public description?: string | undefined;
     /** Name of directory object being returned, like group or application. Read-only. */
@@ -19,7 +17,6 @@ export class DirectoryObjectPartnerReferenceImpl extends DirectoryObjectImpl imp
      */
     public constructor(directoryObjectPartnerReferenceParameterValue?: DirectoryObjectPartnerReference | undefined) {
         super(directoryObjectPartnerReferenceParameterValue);
-        this.additionalData = directoryObjectPartnerReferenceParameterValue?.additionalData ? directoryObjectPartnerReferenceParameterValue?.additionalData! : {};
         this.description = directoryObjectPartnerReferenceParameterValue?.description;
         this.displayName = directoryObjectPartnerReferenceParameterValue?.displayName;
         this.externalPartnerTenantId = directoryObjectPartnerReferenceParameterValue?.externalPartnerTenantId;
@@ -56,6 +53,5 @@ export class DirectoryObjectPartnerReferenceImpl extends DirectoryObjectImpl imp
         if(this.objectType){
             writer.writeStringValue("objectType", this.objectType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

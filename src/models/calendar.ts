@@ -6,11 +6,9 @@ import {Event} from './event';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Calendar extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Calendar extends Entity, Partial<Parsable> {
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     allowedOnlineMeetingProviders?: string[] | undefined;
     /** The permissions of the users with whom the calendar is shared. */

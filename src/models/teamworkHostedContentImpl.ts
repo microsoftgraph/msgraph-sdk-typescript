@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {TeamworkHostedContent} from './teamworkHostedContent';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class TeamworkHostedContentImpl extends EntityImpl implements TeamworkHostedContent {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Write only. Bytes for the hosted content (such as images). */
     public contentBytes?: string | undefined;
     /** Write only. Content type, such as image/png, image/jpg. */
@@ -16,7 +14,6 @@ export class TeamworkHostedContentImpl extends EntityImpl implements TeamworkHos
      */
     public constructor(teamworkHostedContentParameterValue?: TeamworkHostedContent | undefined) {
         super(teamworkHostedContentParameterValue);
-        this.additionalData = teamworkHostedContentParameterValue?.additionalData ? teamworkHostedContentParameterValue?.additionalData! : {};
         this.contentBytes = teamworkHostedContentParameterValue?.contentBytes;
         this.contentType = teamworkHostedContentParameterValue?.contentType;
     };
@@ -43,6 +40,5 @@ export class TeamworkHostedContentImpl extends EntityImpl implements TeamworkHos
         if(this.contentType){
             writer.writeStringValue("contentType", this.contentType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,11 +5,9 @@ import {EventMessageRequest} from './eventMessageRequest';
 import {DateTimeTimeZoneImpl, EventMessageImpl, LocationImpl} from './index';
 import {Location} from './location';
 import {MeetingRequestType} from './meetingRequestType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventMessageRequestImpl extends EventMessageImpl implements EventMessageRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true. */
     public allowNewTimeProposals?: boolean | undefined;
     /** The meetingRequestType property */
@@ -28,7 +26,6 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
      */
     public constructor(eventMessageRequestParameterValue?: EventMessageRequest | undefined) {
         super(eventMessageRequestParameterValue);
-        this.additionalData = eventMessageRequestParameterValue?.additionalData ? eventMessageRequestParameterValue?.additionalData! : {};
         this.allowNewTimeProposals = eventMessageRequestParameterValue?.allowNewTimeProposals;
         this.meetingRequestType = eventMessageRequestParameterValue?.meetingRequestType;
         this.previousEndDateTime = eventMessageRequestParameterValue?.previousEndDateTime instanceof DateTimeTimeZoneImpl? eventMessageRequestParameterValue?.previousEndDateTime:new DateTimeTimeZoneImpl(eventMessageRequestParameterValue?.previousEndDateTime);
@@ -75,6 +72,5 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
         if(this.responseRequested){
             writer.writeBooleanValue("responseRequested", this.responseRequested);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

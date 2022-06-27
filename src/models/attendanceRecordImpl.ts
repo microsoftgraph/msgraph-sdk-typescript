@@ -4,12 +4,10 @@ import {createAttendanceIntervalFromDiscriminatorValue} from './createAttendance
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {Identity} from './identity';
 import {AttendanceIntervalImpl, EntityImpl, IdentityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List of time periods between joining and leaving a meeting. */
     public attendanceIntervals?: AttendanceInterval[] | undefined;
     /** Email address of the user associated with this atttendance record. */
@@ -26,7 +24,6 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
      */
     public constructor(attendanceRecordParameterValue?: AttendanceRecord | undefined) {
         super(attendanceRecordParameterValue);
-        this.additionalData = attendanceRecordParameterValue?.additionalData ? attendanceRecordParameterValue?.additionalData! : {};
         const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; attendanceRecordParameterValue.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(element instanceof AttendanceIntervalImpl? element : new AttendanceIntervalImpl(element));});
         this.attendanceIntervals = attendanceIntervalsArrValue;
         this.emailAddress = attendanceRecordParameterValue?.emailAddress;
@@ -69,6 +66,5 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
         if(this.totalAttendanceInSeconds){
             writer.writeNumberValue("totalAttendanceInSeconds", this.totalAttendanceInSeconds);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

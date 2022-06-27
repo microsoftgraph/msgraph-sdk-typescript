@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements ServiceAnnouncementAttachment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The attachment content. */
     public content?: string | undefined;
     /** The contentType property */
@@ -22,7 +20,6 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Ser
      */
     public constructor(serviceAnnouncementAttachmentParameterValue?: ServiceAnnouncementAttachment | undefined) {
         super(serviceAnnouncementAttachmentParameterValue);
-        this.additionalData = serviceAnnouncementAttachmentParameterValue?.additionalData ? serviceAnnouncementAttachmentParameterValue?.additionalData! : {};
         this.content = serviceAnnouncementAttachmentParameterValue?.content;
         this.contentType = serviceAnnouncementAttachmentParameterValue?.contentType;
         this.lastModifiedDateTime = serviceAnnouncementAttachmentParameterValue?.lastModifiedDateTime;
@@ -64,6 +61,5 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Ser
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

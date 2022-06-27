@@ -4,13 +4,11 @@ import {AccessPackageAssignmentState} from './accessPackageAssignmentState';
 import {AccessPackageSubject} from './accessPackageSubject';
 import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageAssignment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface AccessPackageAssignment extends Entity, Partial<Parsable> {
     /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
     accessPackage?: AccessPackage | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
     assignmentPolicy?: AccessPackageAssignmentPolicy | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */

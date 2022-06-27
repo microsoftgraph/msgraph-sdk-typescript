@@ -6,7 +6,7 @@ import {EntityImpl, IncompleteDataImpl, ItemActionStatImpl, ItemActivityImpl} fr
 import {ItemActionStat} from './itemActionStat';
 import {ItemActivity} from './itemActivity';
 import {ItemActivityStat} from './itemActivityStat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat {
@@ -14,8 +14,6 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
     public access?: ItemActionStat | undefined;
     /** Exposes the itemActivities represented in this itemActivityStat resource. */
     public activities?: ItemActivity[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Statistics about the create actions in this interval. Read-only. */
     public create?: ItemActionStat | undefined;
     /** Statistics about the delete actions in this interval. Read-only. */
@@ -41,7 +39,6 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         this.access = itemActivityStatParameterValue?.access instanceof ItemActionStatImpl? itemActivityStatParameterValue?.access:new ItemActionStatImpl(itemActivityStatParameterValue?.access);
         const activitiesArrValue: ItemActivityImpl[] = []; itemActivityStatParameterValue.activities?.forEach(element => {activitiesArrValue.push(element instanceof ItemActivityImpl? element : new ItemActivityImpl(element));});
         this.activities = activitiesArrValue;
-        this.additionalData = itemActivityStatParameterValue?.additionalData ? itemActivityStatParameterValue?.additionalData! : {};
         this.create = itemActivityStatParameterValue?.create instanceof ItemActionStatImpl? itemActivityStatParameterValue?.create:new ItemActionStatImpl(itemActivityStatParameterValue?.create);
         this.delete = itemActivityStatParameterValue?.delete instanceof ItemActionStatImpl? itemActivityStatParameterValue?.delete:new ItemActionStatImpl(itemActivityStatParameterValue?.delete);
         this.edit = itemActivityStatParameterValue?.edit instanceof ItemActionStatImpl? itemActivityStatParameterValue?.edit:new ItemActionStatImpl(itemActivityStatParameterValue?.edit);
@@ -106,6 +103,5 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

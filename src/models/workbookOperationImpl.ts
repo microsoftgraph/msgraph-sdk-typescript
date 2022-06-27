@@ -3,12 +3,10 @@ import {EntityImpl, WorkbookOperationErrorImpl} from './index';
 import {WorkbookOperation} from './workbookOperation';
 import {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The error returned by the operation. */
     public error_escaped?: WorkbookOperationError | undefined;
     /** The resource URI for the result. */
@@ -21,7 +19,6 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
      */
     public constructor(workbookOperationParameterValue?: WorkbookOperation | undefined) {
         super(workbookOperationParameterValue);
-        this.additionalData = workbookOperationParameterValue?.additionalData ? workbookOperationParameterValue?.additionalData! : {};
         this.error_escaped = workbookOperationParameterValue?.error_escaped instanceof WorkbookOperationErrorImpl? workbookOperationParameterValue?.error_escaped:new WorkbookOperationErrorImpl(workbookOperationParameterValue?.error_escaped);
         this.resourceLocation = workbookOperationParameterValue?.resourceLocation;
         this.status = workbookOperationParameterValue?.status;
@@ -53,6 +50,5 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
         if(this.status){
             writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

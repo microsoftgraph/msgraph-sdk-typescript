@@ -7,11 +7,9 @@ import {NotebookLinks} from './notebookLinks';
 import {OnenoteSection} from './onenoteSection';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {SectionGroup} from './sectionGroup';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Notebook {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether this is the user's default notebook. Read-only. */
     public isDefault?: boolean | undefined;
     /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only. */
@@ -34,7 +32,6 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
      */
     public constructor(notebookParameterValue?: Notebook | undefined) {
         super(notebookParameterValue);
-        this.additionalData = notebookParameterValue?.additionalData ? notebookParameterValue?.additionalData! : {};
         this.isDefault = notebookParameterValue?.isDefault;
         this.isShared = notebookParameterValue?.isShared;
         this.links = notebookParameterValue?.links instanceof NotebookLinksImpl? notebookParameterValue?.links:new NotebookLinksImpl(notebookParameterValue?.links);
@@ -93,6 +90,5 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         if(this.userRole){
             writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,10 +1,8 @@
 import {ScheduleChangeRequestImpl} from './index';
 import {OpenShiftChangeRequest} from './openShiftChangeRequest';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implements OpenShiftChangeRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** ID for the open shift. */
     public openShiftId?: string | undefined;
     /**
@@ -13,7 +11,6 @@ export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implem
      */
     public constructor(openShiftChangeRequestParameterValue?: OpenShiftChangeRequest | undefined) {
         super(openShiftChangeRequestParameterValue);
-        this.additionalData = openShiftChangeRequestParameterValue?.additionalData ? openShiftChangeRequestParameterValue?.additionalData! : {};
         this.openShiftId = openShiftChangeRequestParameterValue?.openShiftId;
     };
     /**
@@ -35,6 +32,5 @@ export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implem
         if(this.openShiftId){
             writer.writeStringValue("openShiftId", this.openShiftId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

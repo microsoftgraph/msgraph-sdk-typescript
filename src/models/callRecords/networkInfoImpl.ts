@@ -43,7 +43,7 @@ export class NetworkInfoImpl implements NetworkInfo {
     public sentQualityEventRatio?: number | undefined;
     /** Subnet used for media stream by the media endpoint. */
     public subnet?: string | undefined;
-    /** List of network trace route hops collected for this media stream.* */
+    /** List of network trace route hops collected for this media stream. */
     public traceRouteHops?: TraceRouteHop[] | undefined;
     /** WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue. */
     public wifiBand?: WifiBand | undefined;

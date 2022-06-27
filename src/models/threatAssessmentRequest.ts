@@ -6,11 +6,9 @@ import {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentStatus} from './threatAssessmentStatus';
 import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ThreatAssessmentRequest extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ThreatAssessmentRequest extends Entity, Partial<Parsable> {
     /** The threat category. Possible values are: spam, phishing, malware. */
     category?: ThreatCategory | undefined;
     /** The content type of threat assessment. Possible values are: mail, url, file. */

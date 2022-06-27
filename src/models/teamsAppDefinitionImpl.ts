@@ -5,12 +5,10 @@ import {EntityImpl, IdentitySetImpl, TeamworkBotImpl} from './index';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {TeamworkBot} from './teamworkBot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
 export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefinition {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The details of the bot specified in the Teams app manifest. */
     public bot?: TeamworkBot | undefined;
     /** The createdBy property */
@@ -35,7 +33,6 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefini
      */
     public constructor(teamsAppDefinitionParameterValue?: TeamsAppDefinition | undefined) {
         super(teamsAppDefinitionParameterValue);
-        this.additionalData = teamsAppDefinitionParameterValue?.additionalData ? teamsAppDefinitionParameterValue?.additionalData! : {};
         this.bot = teamsAppDefinitionParameterValue?.bot instanceof TeamworkBotImpl? teamsAppDefinitionParameterValue?.bot:new TeamworkBotImpl(teamsAppDefinitionParameterValue?.bot);
         this.createdBy = teamsAppDefinitionParameterValue?.createdBy instanceof IdentitySetImpl? teamsAppDefinitionParameterValue?.createdBy:new IdentitySetImpl(teamsAppDefinitionParameterValue?.createdBy);
         this.description = teamsAppDefinitionParameterValue?.description;
@@ -97,6 +94,5 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefini
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

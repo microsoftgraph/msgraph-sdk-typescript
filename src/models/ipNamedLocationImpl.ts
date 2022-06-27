@@ -2,11 +2,9 @@ import {createIpRangeFromDiscriminatorValue} from './createIpRangeFromDiscrimina
 import {IpRangeImpl, NamedLocationImpl} from './index';
 import {IpNamedLocation} from './ipNamedLocation';
 import {IpRange} from './ipRange';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLocation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC596. Required. */
     public ipRanges?: IpRange[] | undefined;
     /** true if this location is explicitly trusted. Optional. Default value is false. */
@@ -17,7 +15,6 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
      */
     public constructor(ipNamedLocationParameterValue?: IpNamedLocation | undefined) {
         super(ipNamedLocationParameterValue);
-        this.additionalData = ipNamedLocationParameterValue?.additionalData ? ipNamedLocationParameterValue?.additionalData! : {};
         const ipRangesArrValue: IpRangeImpl[] = []; ipNamedLocationParameterValue.ipRanges?.forEach(element => {ipRangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
         this.ipRanges = ipRangesArrValue;
         this.isTrusted = ipNamedLocationParameterValue?.isTrusted;
@@ -45,6 +42,5 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
         if(this.isTrusted){
             writer.writeBooleanValue("isTrusted", this.isTrusted);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

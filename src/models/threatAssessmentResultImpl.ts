@@ -1,12 +1,10 @@
 import {EntityImpl} from './index';
 import {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the informationProtection singleton. */
 export class ThreatAssessmentResultImpl extends EntityImpl implements ThreatAssessmentResult {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public createdDateTime?: Date | undefined;
     /** The result message for each threat assessment. */
@@ -19,7 +17,6 @@ export class ThreatAssessmentResultImpl extends EntityImpl implements ThreatAsse
      */
     public constructor(threatAssessmentResultParameterValue?: ThreatAssessmentResult | undefined) {
         super(threatAssessmentResultParameterValue);
-        this.additionalData = threatAssessmentResultParameterValue?.additionalData ? threatAssessmentResultParameterValue?.additionalData! : {};
         this.createdDateTime = threatAssessmentResultParameterValue?.createdDateTime;
         this.message = threatAssessmentResultParameterValue?.message;
         this.resultType = threatAssessmentResultParameterValue?.resultType;
@@ -51,6 +48,5 @@ export class ThreatAssessmentResultImpl extends EntityImpl implements ThreatAsse
         if(this.resultType){
             writer.writeEnumValue<ThreatAssessmentResultType>("resultType", this.resultType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

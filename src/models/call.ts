@@ -16,11 +16,9 @@ import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
 import {ResultInfo} from './resultInfo';
 import {ToneInfo} from './toneInfo';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Call extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Call extends Entity, Partial<Parsable> {
     /** The audioRoutingGroups property */
     audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */

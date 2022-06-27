@@ -12,12 +12,10 @@ import {ExternalGroup} from './externalGroup';
 import {ExternalItem} from './externalItem';
 import {ConfigurationImpl, ConnectionOperationImpl, ExternalGroupImpl, ExternalItemImpl, SchemaImpl} from './index';
 import {Schema} from './schema';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalConnectionImpl extends EntityImpl implements ExternalConnection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
     public configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
@@ -40,7 +38,6 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
      */
     public constructor(externalConnectionParameterValue?: ExternalConnection | undefined) {
         super(externalConnectionParameterValue);
-        this.additionalData = externalConnectionParameterValue?.additionalData ? externalConnectionParameterValue?.additionalData! : {};
         this.configuration = externalConnectionParameterValue?.configuration instanceof ConfigurationImpl? externalConnectionParameterValue?.configuration:new ConfigurationImpl(externalConnectionParameterValue?.configuration);
         this.description = externalConnectionParameterValue?.description;
         const groupsArrValue: ExternalGroupImpl[] = []; externalConnectionParameterValue.groups?.forEach(element => {groupsArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
@@ -100,6 +97,5 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(this.state){
             writer.writeEnumValue<ConnectionState>("state", this.state);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

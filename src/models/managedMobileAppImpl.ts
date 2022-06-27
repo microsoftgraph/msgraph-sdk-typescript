@@ -2,12 +2,10 @@ import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileApp
 import {EntityImpl, MobileAppIdentifierImpl} from './index';
 import {ManagedMobileApp} from './managedMobileApp';
 import {MobileAppIdentifier} from './mobileAppIdentifier';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The identifier for the deployment an app. */
 export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The identifier for an app with it's operating system type. */
     public mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /** Version of the entity. */
@@ -18,7 +16,6 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
      */
     public constructor(managedMobileAppParameterValue?: ManagedMobileApp | undefined) {
         super(managedMobileAppParameterValue);
-        this.additionalData = managedMobileAppParameterValue?.additionalData ? managedMobileAppParameterValue?.additionalData! : {};
         this.mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier instanceof MobileAppIdentifierImpl? managedMobileAppParameterValue?.mobileAppIdentifier:new MobileAppIdentifierImpl(managedMobileAppParameterValue?.mobileAppIdentifier);
         this.version = managedMobileAppParameterValue?.version;
     };
@@ -45,6 +42,5 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

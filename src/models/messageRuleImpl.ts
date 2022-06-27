@@ -4,14 +4,12 @@ import {EntityImpl, MessageRuleActionsImpl, MessageRulePredicatesImpl} from './i
 import {MessageRule} from './messageRule';
 import {MessageRuleActions} from './messageRuleActions';
 import {MessageRulePredicates} from './messageRulePredicates';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class MessageRuleImpl extends EntityImpl implements MessageRule {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
     public actions?: MessageRuleActions | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
     public conditions?: MessageRulePredicates | undefined;
     /** The display name of the rule. */
@@ -33,7 +31,6 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
     public constructor(messageRuleParameterValue?: MessageRule | undefined) {
         super(messageRuleParameterValue);
         this.actions = messageRuleParameterValue?.actions instanceof MessageRuleActionsImpl? messageRuleParameterValue?.actions:new MessageRuleActionsImpl(messageRuleParameterValue?.actions);
-        this.additionalData = messageRuleParameterValue?.additionalData ? messageRuleParameterValue?.additionalData! : {};
         this.conditions = messageRuleParameterValue?.conditions instanceof MessageRulePredicatesImpl? messageRuleParameterValue?.conditions:new MessageRulePredicatesImpl(messageRuleParameterValue?.conditions);
         this.displayName = messageRuleParameterValue?.displayName;
         this.exceptions = messageRuleParameterValue?.exceptions instanceof MessageRulePredicatesImpl? messageRuleParameterValue?.exceptions:new MessageRulePredicatesImpl(messageRuleParameterValue?.exceptions);
@@ -89,6 +86,5 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
         if(this.sequence){
             writer.writeNumberValue("sequence", this.sequence);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,10 +1,8 @@
 import {CalendarSharingMessageAction} from './calendarSharingMessageAction';
 import {Message} from './message';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface CalendarSharingMessage extends Partial<AdditionalDataHolder>, Message, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface CalendarSharingMessage extends Message, Partial<Parsable> {
     /** The canAccept property */
     canAccept?: boolean | undefined;
     /** The sharingMessageAction property */

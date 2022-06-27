@@ -2,12 +2,10 @@ import {createEducationResourceFromDiscriminatorValue} from './createEducationRe
 import {EducationResource} from './educationResource';
 import {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationResourceImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationSubmissionResourceImpl extends EntityImpl implements EducationSubmissionResource {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource. */
     public assignmentResourceUrl?: string | undefined;
     /** Resource object. */
@@ -18,7 +16,6 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
      */
     public constructor(educationSubmissionResourceParameterValue?: EducationSubmissionResource | undefined) {
         super(educationSubmissionResourceParameterValue);
-        this.additionalData = educationSubmissionResourceParameterValue?.additionalData ? educationSubmissionResourceParameterValue?.additionalData! : {};
         this.assignmentResourceUrl = educationSubmissionResourceParameterValue?.assignmentResourceUrl;
         this.resource = educationSubmissionResourceParameterValue?.resource instanceof EducationResourceImpl? educationSubmissionResourceParameterValue?.resource:new EducationResourceImpl(educationSubmissionResourceParameterValue?.resource);
     };
@@ -45,6 +42,5 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
         if(this.resource){
             writer.writeObjectValue<EducationResourceImpl>("resource", new EducationResourceImpl(this.resource));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

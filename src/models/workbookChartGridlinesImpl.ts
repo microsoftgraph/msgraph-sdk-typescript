@@ -2,12 +2,10 @@ import {createWorkbookChartGridlinesFormatFromDiscriminatorValue} from './create
 import {EntityImpl, WorkbookChartGridlinesFormatImpl} from './index';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookChartGridlines {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the formatting of chart gridlines. Read-only. */
     public format?: WorkbookChartGridlinesFormat | undefined;
     /** Boolean value representing if the axis gridlines are visible or not. */
@@ -18,7 +16,6 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookCh
      */
     public constructor(workbookChartGridlinesParameterValue?: WorkbookChartGridlines | undefined) {
         super(workbookChartGridlinesParameterValue);
-        this.additionalData = workbookChartGridlinesParameterValue?.additionalData ? workbookChartGridlinesParameterValue?.additionalData! : {};
         this.format = workbookChartGridlinesParameterValue?.format instanceof WorkbookChartGridlinesFormatImpl? workbookChartGridlinesParameterValue?.format:new WorkbookChartGridlinesFormatImpl(workbookChartGridlinesParameterValue?.format);
         this.visible = workbookChartGridlinesParameterValue?.visible;
     };
@@ -45,6 +42,5 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookCh
         if(this.visible){
             writer.writeBooleanValue("visible", this.visible);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

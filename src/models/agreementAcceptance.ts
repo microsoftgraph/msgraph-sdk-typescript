@@ -1,10 +1,8 @@
 import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AgreementAcceptance extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AgreementAcceptance extends Entity, Partial<Parsable> {
     /** ID of the agreement file accepted by the user. */
     agreementFileId?: string | undefined;
     /** ID of the agreement. */

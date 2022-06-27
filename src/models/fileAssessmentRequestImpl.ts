@@ -1,10 +1,8 @@
 import {FileAssessmentRequest} from './fileAssessmentRequest';
 import {ThreatAssessmentRequestImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileAssessmentRequestImpl extends ThreatAssessmentRequestImpl implements FileAssessmentRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Base64 encoded file content. The file content cannot fetch back because it isn't stored. */
     public contentData?: string | undefined;
     /** The file name. */
@@ -15,7 +13,6 @@ export class FileAssessmentRequestImpl extends ThreatAssessmentRequestImpl imple
      */
     public constructor(fileAssessmentRequestParameterValue?: FileAssessmentRequest | undefined) {
         super(fileAssessmentRequestParameterValue);
-        this.additionalData = fileAssessmentRequestParameterValue?.additionalData ? fileAssessmentRequestParameterValue?.additionalData! : {};
         this.contentData = fileAssessmentRequestParameterValue?.contentData;
         this.fileName = fileAssessmentRequestParameterValue?.fileName;
     };
@@ -42,6 +39,5 @@ export class FileAssessmentRequestImpl extends ThreatAssessmentRequestImpl imple
         if(this.fileName){
             writer.writeStringValue("fileName", this.fileName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,10 +1,8 @@
 import {AppConfigurationSettingItem} from './appConfigurationSettingItem';
 import {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosMobileAppConfiguration extends Partial<AdditionalDataHolder>, ManagedDeviceMobileAppConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration, Partial<Parsable> {
     /** mdm app configuration Base64 binary. */
     encodedSettingXml?: string | undefined;
     /** app configuration setting items. */

@@ -1,11 +1,9 @@
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
 import {InstallIntent} from './installIntent';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedEBookAssignment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ManagedEBookAssignment extends Entity, Partial<Parsable> {
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */

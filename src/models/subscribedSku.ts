@@ -1,11 +1,9 @@
 import {Entity} from './entity';
 import {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {ServicePlanInfo} from './servicePlanInfo';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SubscribedSku extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface SubscribedSku extends Entity, Partial<Parsable> {
     /** For example, 'User' or 'Company'. */
     appliesTo?: string | undefined;
     /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription. */

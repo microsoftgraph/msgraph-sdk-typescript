@@ -1,11 +1,9 @@
 import {DirectoryObject} from './directoryObject';
 import {Extension} from './extension';
 import {ScopedRoleMembership} from './scopedRoleMembership';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AdministrativeUnit extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AdministrativeUnit extends DirectoryObject, Partial<Parsable> {
     /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     description?: string | undefined;
     /** Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
@@ -16,6 +14,6 @@ export interface AdministrativeUnit extends Partial<AdditionalDataHolder>, Direc
     members?: DirectoryObject[] | undefined;
     /** Scoped-role members of this administrative unit. */
     scopedRoleMembers?: ScopedRoleMembership[] | undefined;
-    /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
+    /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
     visibility?: string | undefined;
 }

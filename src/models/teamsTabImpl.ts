@@ -4,12 +4,10 @@ import {EntityImpl, TeamsAppImpl, TeamsTabConfigurationImpl} from './index';
 import {TeamsApp} from './teamsApp';
 import {TeamsTab} from './teamsTab';
 import {TeamsTabConfiguration} from './teamsTabConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class TeamsTabImpl extends EntityImpl implements TeamsTab {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
     public configuration?: TeamsTabConfiguration | undefined;
     /** Name of the tab. */
@@ -24,7 +22,6 @@ export class TeamsTabImpl extends EntityImpl implements TeamsTab {
      */
     public constructor(teamsTabParameterValue?: TeamsTab | undefined) {
         super(teamsTabParameterValue);
-        this.additionalData = teamsTabParameterValue?.additionalData ? teamsTabParameterValue?.additionalData! : {};
         this.configuration = teamsTabParameterValue?.configuration instanceof TeamsTabConfigurationImpl? teamsTabParameterValue?.configuration:new TeamsTabConfigurationImpl(teamsTabParameterValue?.configuration);
         this.displayName = teamsTabParameterValue?.displayName;
         this.teamsApp = teamsTabParameterValue?.teamsApp instanceof TeamsAppImpl? teamsTabParameterValue?.teamsApp:new TeamsAppImpl(teamsTabParameterValue?.teamsApp);
@@ -61,6 +58,5 @@ export class TeamsTabImpl extends EntityImpl implements TeamsTab {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

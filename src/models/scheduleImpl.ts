@@ -19,12 +19,10 @@ import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import {TimeOff} from './timeOff';
 import {TimeOffReason} from './timeOffReason';
 import {TimeOffRequest} from './timeOffRequest';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Casts the previous resource to group. */
 export class ScheduleImpl extends EntityImpl implements Schedule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether the schedule is enabled for the team. Required. */
     public enabled?: boolean | undefined;
     /** The offerShiftRequests property */
@@ -69,7 +67,6 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
      */
     public constructor(scheduleParameterValue?: Schedule | undefined) {
         super(scheduleParameterValue);
-        this.additionalData = scheduleParameterValue?.additionalData ? scheduleParameterValue?.additionalData! : {};
         this.enabled = scheduleParameterValue?.enabled;
         const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; scheduleParameterValue.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
         this.offerShiftRequests = offerShiftRequestsArrValue;
@@ -190,6 +187,5 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(this.workforceIntegrationIds){
             writer.writeCollectionOfPrimitiveValues<string>("workforceIntegrationIds", this.workforceIntegrationIds);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

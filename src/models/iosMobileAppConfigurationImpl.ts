@@ -2,11 +2,9 @@ import {AppConfigurationSettingItem} from './appConfigurationSettingItem';
 import {createAppConfigurationSettingItemFromDiscriminatorValue} from './createAppConfigurationSettingItemFromDiscriminatorValue';
 import {AppConfigurationSettingItemImpl, ManagedDeviceMobileAppConfigurationImpl} from './index';
 import {IosMobileAppConfiguration} from './iosMobileAppConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigurationImpl implements IosMobileAppConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** mdm app configuration Base64 binary. */
     public encodedSettingXml?: string | undefined;
     /** app configuration setting items. */
@@ -17,7 +15,6 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
      */
     public constructor(iosMobileAppConfigurationParameterValue?: IosMobileAppConfiguration | undefined) {
         super(iosMobileAppConfigurationParameterValue);
-        this.additionalData = iosMobileAppConfigurationParameterValue?.additionalData ? iosMobileAppConfigurationParameterValue?.additionalData! : {};
         this.encodedSettingXml = iosMobileAppConfigurationParameterValue?.encodedSettingXml;
         const settingsArrValue: AppConfigurationSettingItemImpl[] = []; iosMobileAppConfigurationParameterValue.settings?.forEach(element => {settingsArrValue.push(element instanceof AppConfigurationSettingItemImpl? element : new AppConfigurationSettingItemImpl(element));});
         this.settings = settingsArrValue;
@@ -45,6 +42,5 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
         if(this.settings && this.settings.length != 0){        const settingsArrValue: AppConfigurationSettingItemImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(element instanceof AppConfigurationSettingItemImpl? element : new AppConfigurationSettingItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppConfigurationSettingItemImpl>("settings", settingsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

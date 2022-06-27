@@ -9,12 +9,10 @@ import {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentStatus} from './threatAssessmentStatus';
 import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the informationProtection singleton. */
 export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAssessmentRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The threat category. Possible values are: spam, phishing, malware. */
     public category?: ThreatCategory | undefined;
     /** The content type of threat assessment. Possible values are: mail, url, file. */
@@ -37,7 +35,6 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
      */
     public constructor(threatAssessmentRequestParameterValue?: ThreatAssessmentRequest | undefined) {
         super(threatAssessmentRequestParameterValue);
-        this.additionalData = threatAssessmentRequestParameterValue?.additionalData ? threatAssessmentRequestParameterValue?.additionalData! : {};
         this.category = threatAssessmentRequestParameterValue?.category;
         this.contentType = threatAssessmentRequestParameterValue?.contentType;
         this.createdBy = threatAssessmentRequestParameterValue?.createdBy instanceof IdentitySetImpl? threatAssessmentRequestParameterValue?.createdBy:new IdentitySetImpl(threatAssessmentRequestParameterValue?.createdBy);
@@ -95,6 +92,5 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         if(this.status){
             writer.writeEnumValue<ThreatAssessmentStatus>("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

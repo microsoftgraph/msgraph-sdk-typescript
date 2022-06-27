@@ -1,11 +1,9 @@
 import {Attachment} from './attachment';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class AttachmentImpl extends EntityImpl implements Attachment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The MIME type. */
     public contentType?: string | undefined;
     /** true if the attachment is an inline attachment; otherwise, false. */
@@ -22,7 +20,6 @@ export class AttachmentImpl extends EntityImpl implements Attachment {
      */
     public constructor(attachmentParameterValue?: Attachment | undefined) {
         super(attachmentParameterValue);
-        this.additionalData = attachmentParameterValue?.additionalData ? attachmentParameterValue?.additionalData! : {};
         this.contentType = attachmentParameterValue?.contentType;
         this.isInline = attachmentParameterValue?.isInline;
         this.lastModifiedDateTime = attachmentParameterValue?.lastModifiedDateTime;
@@ -64,6 +61,5 @@ export class AttachmentImpl extends EntityImpl implements Attachment {
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

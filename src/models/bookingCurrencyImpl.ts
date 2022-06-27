@@ -1,19 +1,17 @@
 import {BookingCurrency} from './bookingCurrency';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the solutionsRoot singleton. */
 export class BookingCurrencyImpl extends EntityImpl implements BookingCurrency {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $. */
     public symbol?: string | undefined;
     /**
-     * Instantiates a new BookingCurrency and sets the default values.
+     * Instantiates a new bookingCurrency and sets the default values.
      * @param bookingCurrencyParameterValue 
      */
     public constructor(bookingCurrencyParameterValue?: BookingCurrency | undefined) {
         super(bookingCurrencyParameterValue);
-        this.additionalData = bookingCurrencyParameterValue?.additionalData ? bookingCurrencyParameterValue?.additionalData! : {};
         this.symbol = bookingCurrencyParameterValue?.symbol;
     };
     /**
@@ -35,6 +33,5 @@ export class BookingCurrencyImpl extends EntityImpl implements BookingCurrency {
         if(this.symbol){
             writer.writeStringValue("symbol", this.symbol);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

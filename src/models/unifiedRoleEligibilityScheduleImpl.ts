@@ -2,12 +2,10 @@ import {createRequestScheduleFromDiscriminatorValue} from './createRequestSchedu
 import {RequestScheduleImpl, UnifiedRoleScheduleBaseImpl} from './index';
 import {RequestSchedule} from './requestSchedule';
 import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleEligibilitySchedule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     public memberType?: string | undefined;
     /** The schedule object of the eligible role assignment request. */
@@ -18,7 +16,6 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
      */
     public constructor(unifiedRoleEligibilityScheduleParameterValue?: UnifiedRoleEligibilitySchedule | undefined) {
         super(unifiedRoleEligibilityScheduleParameterValue);
-        this.additionalData = unifiedRoleEligibilityScheduleParameterValue?.additionalData ? unifiedRoleEligibilityScheduleParameterValue?.additionalData! : {};
         this.memberType = unifiedRoleEligibilityScheduleParameterValue?.memberType;
         this.scheduleInfo = unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo instanceof RequestScheduleImpl? unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo:new RequestScheduleImpl(unifiedRoleEligibilityScheduleParameterValue?.scheduleInfo);
     };
@@ -45,6 +42,5 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
         if(this.scheduleInfo){
             writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

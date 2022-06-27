@@ -1,10 +1,8 @@
 import {DomainDnsSrvRecord} from './domainDnsSrvRecord';
 import {DomainDnsRecordImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsSrvRecordImpl extends DomainDnsRecordImpl implements DomainDnsSrvRecord {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Value to use when configuring the Target property of the SRV record at the DNS host. */
     public nameTarget?: string | undefined;
     /** Value to use when configuring the port property of the SRV record at the DNS host. */
@@ -23,7 +21,6 @@ export class DomainDnsSrvRecordImpl extends DomainDnsRecordImpl implements Domai
      */
     public constructor(domainDnsSrvRecordParameterValue?: DomainDnsSrvRecord | undefined) {
         super(domainDnsSrvRecordParameterValue);
-        this.additionalData = domainDnsSrvRecordParameterValue?.additionalData ? domainDnsSrvRecordParameterValue?.additionalData! : {};
         this.nameTarget = domainDnsSrvRecordParameterValue?.nameTarget;
         this.port = domainDnsSrvRecordParameterValue?.port;
         this.priority = domainDnsSrvRecordParameterValue?.priority;
@@ -70,6 +67,5 @@ export class DomainDnsSrvRecordImpl extends DomainDnsRecordImpl implements Domai
         if(this.weight){
             writer.writeNumberValue("weight", this.weight);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

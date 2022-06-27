@@ -2,12 +2,10 @@ import {createDeviceInstallStateFromDiscriminatorValue} from './createDeviceInst
 import {DeviceInstallState} from './deviceInstallState';
 import {DeviceInstallStateImpl, EntityImpl} from './index';
 import {UserInstallStateSummary} from './userInstallStateSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties for the installation state summary for a user. */
 export class UserInstallStateSummaryImpl extends EntityImpl implements UserInstallStateSummary {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The install state of the eBook. */
     public deviceStates?: DeviceInstallState[] | undefined;
     /** Failed Device Count. */
@@ -24,7 +22,6 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
      */
     public constructor(userInstallStateSummaryParameterValue?: UserInstallStateSummary | undefined) {
         super(userInstallStateSummaryParameterValue);
-        this.additionalData = userInstallStateSummaryParameterValue?.additionalData ? userInstallStateSummaryParameterValue?.additionalData! : {};
         const deviceStatesArrValue: DeviceInstallStateImpl[] = []; userInstallStateSummaryParameterValue.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
         this.deviceStates = deviceStatesArrValue;
         this.failedDeviceCount = userInstallStateSummaryParameterValue?.failedDeviceCount;
@@ -67,6 +64,5 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
         if(this.userName){
             writer.writeStringValue("userName", this.userName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

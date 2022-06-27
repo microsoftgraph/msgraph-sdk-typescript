@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChartDataLabels extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookChartDataLabels extends Entity, Partial<Parsable> {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     format?: WorkbookChartDataLabelFormat | undefined;
     /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout. */

@@ -1,9 +1,7 @@
 import {BaseItemVersion} from './baseItemVersion';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DriveItemVersion extends Partial<AdditionalDataHolder>, BaseItemVersion, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DriveItemVersion extends BaseItemVersion, Partial<Parsable> {
     /** The content property */
     content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item. */

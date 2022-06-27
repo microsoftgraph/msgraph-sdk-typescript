@@ -10,11 +10,9 @@ import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAs
 import {IdentityProviderBaseImpl, IdentityProviderImpl, IdentityUserFlowAttributeAssignmentImpl, IdentityUserFlowImpl, UserFlowApiConnectorConfigurationImpl, UserFlowLanguageConfigurationImpl} from './index';
 import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2xIdentityUserFlow {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
     public apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
     /** The identity providers included in the user flow. */
@@ -31,7 +29,6 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
      */
     public constructor(b2xIdentityUserFlowParameterValue?: B2xIdentityUserFlow | undefined) {
         super(b2xIdentityUserFlowParameterValue);
-        this.additionalData = b2xIdentityUserFlowParameterValue?.additionalData ? b2xIdentityUserFlowParameterValue?.additionalData! : {};
         this.apiConnectorConfiguration = b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration instanceof UserFlowApiConnectorConfigurationImpl? b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration:new UserFlowApiConnectorConfigurationImpl(b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration);
         const identityProvidersArrValue: IdentityProviderImpl[] = []; b2xIdentityUserFlowParameterValue.identityProviders?.forEach(element => {identityProvidersArrValue.push(element instanceof IdentityProviderImpl? element : new IdentityProviderImpl(element));});
         this.identityProviders = identityProvidersArrValue;
@@ -77,6 +74,5 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(this.userFlowIdentityProviders && this.userFlowIdentityProviders.length != 0){        const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.userFlowIdentityProviders?.forEach(element => {userFlowIdentityProvidersArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("userFlowIdentityProviders", userFlowIdentityProvidersArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

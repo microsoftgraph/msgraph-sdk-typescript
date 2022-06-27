@@ -4,11 +4,9 @@ import {EducationRubricOutcome} from './educationRubricOutcome';
 import {EducationOutcomeImpl, RubricQualityFeedbackModelImpl, RubricQualitySelectedColumnModelImpl} from './index';
 import {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
 import {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements EducationRubricOutcome {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A copy of the rubricQualityFeedback property that is made when the grade is released to the student. */
     public publishedRubricQualityFeedback?: RubricQualityFeedbackModel[] | undefined;
     /** A copy of the rubricQualitySelectedLevels property that is made when the grade is released to the student. */
@@ -23,7 +21,6 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
      */
     public constructor(educationRubricOutcomeParameterValue?: EducationRubricOutcome | undefined) {
         super(educationRubricOutcomeParameterValue);
-        this.additionalData = educationRubricOutcomeParameterValue?.additionalData ? educationRubricOutcomeParameterValue?.additionalData! : {};
         const publishedRubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = []; educationRubricOutcomeParameterValue.publishedRubricQualityFeedback?.forEach(element => {publishedRubricQualityFeedbackArrValue.push(element instanceof RubricQualityFeedbackModelImpl? element : new RubricQualityFeedbackModelImpl(element));});
         this.publishedRubricQualityFeedback = publishedRubricQualityFeedbackArrValue;
         const publishedRubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = []; educationRubricOutcomeParameterValue.publishedRubricQualitySelectedLevels?.forEach(element => {publishedRubricQualitySelectedLevelsArrValue.push(element instanceof RubricQualitySelectedColumnModelImpl? element : new RubricQualitySelectedColumnModelImpl(element));});
@@ -64,6 +61,5 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
         if(this.rubricQualitySelectedLevels && this.rubricQualitySelectedLevels.length != 0){        const rubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = []; this.rubricQualitySelectedLevels?.forEach(element => {rubricQualitySelectedLevelsArrValue.push(element instanceof RubricQualitySelectedColumnModelImpl? element : new RubricQualitySelectedColumnModelImpl(element));});
             writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModelImpl>("rubricQualitySelectedLevels", rubricQualitySelectedLevelsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

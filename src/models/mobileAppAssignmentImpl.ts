@@ -5,12 +5,10 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl, MobileAppAssignm
 import {InstallIntent} from './installIntent';
 import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A class containing the properties used for Group Assignment of a Mobile App. */
 export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     public intent?: InstallIntent | undefined;
     /** The settings for target assignment defined by the admin. */
@@ -23,7 +21,6 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
      */
     public constructor(mobileAppAssignmentParameterValue?: MobileAppAssignment | undefined) {
         super(mobileAppAssignmentParameterValue);
-        this.additionalData = mobileAppAssignmentParameterValue?.additionalData ? mobileAppAssignmentParameterValue?.additionalData! : {};
         this.intent = mobileAppAssignmentParameterValue?.intent;
         this.settings = mobileAppAssignmentParameterValue?.settings instanceof MobileAppAssignmentSettingsImpl? mobileAppAssignmentParameterValue?.settings:new MobileAppAssignmentSettingsImpl(mobileAppAssignmentParameterValue?.settings);
         this.target = mobileAppAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? mobileAppAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(mobileAppAssignmentParameterValue?.target);
@@ -55,6 +52,5 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
         if(this.target){
             writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

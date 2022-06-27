@@ -1,18 +1,15 @@
 import {EntityImpl} from './index';
 import {TeamworkBot} from './teamworkBot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
 export class TeamworkBotImpl extends EntityImpl implements TeamworkBot {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new teamworkBot and sets the default values.
      * @param teamworkBotParameterValue 
      */
     public constructor(teamworkBotParameterValue?: TeamworkBot | undefined) {
         super(teamworkBotParameterValue);
-        this.additionalData = teamworkBotParameterValue?.additionalData ? teamworkBotParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -29,6 +26,5 @@ export class TeamworkBotImpl extends EntityImpl implements TeamworkBot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

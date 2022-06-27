@@ -1,10 +1,8 @@
 import {PrintUsageImpl} from './index';
 import {PrintUsageByPrinter} from './printUsageByPrinter';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinterImpl extends PrintUsageImpl implements PrintUsageByPrinter {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The printerId property */
     public printerId?: string | undefined;
     /**
@@ -13,7 +11,6 @@ export class PrintUsageByPrinterImpl extends PrintUsageImpl implements PrintUsag
      */
     public constructor(printUsageByPrinterParameterValue?: PrintUsageByPrinter | undefined) {
         super(printUsageByPrinterParameterValue);
-        this.additionalData = printUsageByPrinterParameterValue?.additionalData ? printUsageByPrinterParameterValue?.additionalData! : {};
         this.printerId = printUsageByPrinterParameterValue?.printerId;
     };
     /**
@@ -35,6 +32,5 @@ export class PrintUsageByPrinterImpl extends PrintUsageImpl implements PrintUsag
         if(this.printerId){
             writer.writeStringValue("printerId", this.printerId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

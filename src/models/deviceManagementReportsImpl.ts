@@ -2,12 +2,10 @@ import {createDeviceManagementExportJobFromDiscriminatorValue} from './createDev
 import {DeviceManagementExportJob} from './deviceManagementExportJob';
 import {DeviceManagementReports} from './deviceManagementReports';
 import {DeviceManagementExportJobImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Singleton entity that acts as a container for all reports functionality. */
 export class DeviceManagementReportsImpl extends EntityImpl implements DeviceManagementReports {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Entity representing a job to export a report */
     public exportJobs?: DeviceManagementExportJob[] | undefined;
     /**
@@ -16,7 +14,6 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
      */
     public constructor(deviceManagementReportsParameterValue?: DeviceManagementReports | undefined) {
         super(deviceManagementReportsParameterValue);
-        this.additionalData = deviceManagementReportsParameterValue?.additionalData ? deviceManagementReportsParameterValue?.additionalData! : {};
         const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; deviceManagementReportsParameterValue.exportJobs?.forEach(element => {exportJobsArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
         this.exportJobs = exportJobsArrValue;
     };
@@ -39,6 +36,5 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
         if(this.exportJobs && this.exportJobs.length != 0){        const exportJobsArrValue: DeviceManagementExportJobImpl[] = []; this.exportJobs?.forEach(element => {exportJobsArrValue.push(element instanceof DeviceManagementExportJobImpl? element : new DeviceManagementExportJobImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("exportJobs", exportJobsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

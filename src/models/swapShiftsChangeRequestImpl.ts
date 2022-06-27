@@ -1,10 +1,8 @@
 import {OfferShiftRequestImpl} from './index';
 import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implements SwapShiftsChangeRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Shift ID for the recipient user with whom the request is to swap. */
     public recipientShiftId?: string | undefined;
     /**
@@ -13,7 +11,6 @@ export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implement
      */
     public constructor(swapShiftsChangeRequestParameterValue?: SwapShiftsChangeRequest | undefined) {
         super(swapShiftsChangeRequestParameterValue);
-        this.additionalData = swapShiftsChangeRequestParameterValue?.additionalData ? swapShiftsChangeRequestParameterValue?.additionalData! : {};
         this.recipientShiftId = swapShiftsChangeRequestParameterValue?.recipientShiftId;
     };
     /**
@@ -35,6 +32,5 @@ export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implement
         if(this.recipientShiftId){
             writer.writeStringValue("recipientShiftId", this.recipientShiftId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

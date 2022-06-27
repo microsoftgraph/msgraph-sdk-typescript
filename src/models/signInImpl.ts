@@ -12,11 +12,10 @@ import {RiskState} from './riskState';
 import {SignIn} from './signIn';
 import {SignInLocation} from './signInLocation';
 import {SignInStatus} from './signInStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class SignInImpl extends EntityImpl implements SignIn {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     public appDisplayName?: string | undefined;
     /** The application identifier in Azure Active Directory. Supports $filter (eq operator only). */
@@ -64,12 +63,11 @@ export class SignInImpl extends EntityImpl implements SignIn {
     /** The UPN of the user. Supports $filter (eq and startsWith operators only). */
     public userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new SignIn and sets the default values.
+     * Instantiates a new signIn and sets the default values.
      * @param signInParameterValue 
      */
     public constructor(signInParameterValue?: SignIn | undefined) {
         super(signInParameterValue);
-        this.additionalData = signInParameterValue?.additionalData ? signInParameterValue?.additionalData! : {};
         this.appDisplayName = signInParameterValue?.appDisplayName;
         this.appId = signInParameterValue?.appId;
         const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; signInParameterValue.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(element instanceof AppliedConditionalAccessPolicyImpl? element : new AppliedConditionalAccessPolicyImpl(element));});
@@ -202,6 +200,5 @@ export class SignInImpl extends EntityImpl implements SignIn {
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

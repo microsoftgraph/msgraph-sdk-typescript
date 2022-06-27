@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum PolicyPlatformType {
     /** Android. */
     Android = "android",

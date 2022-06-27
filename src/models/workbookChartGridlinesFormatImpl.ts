@@ -2,12 +2,10 @@ import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkb
 import {EntityImpl, WorkbookChartLineFormatImpl} from './index';
 import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements WorkbookChartGridlinesFormat {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents chart line formatting. Read-only. */
     public line?: WorkbookChartLineFormat | undefined;
     /**
@@ -16,7 +14,6 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartGridlinesFormatParameterValue?: WorkbookChartGridlinesFormat | undefined) {
         super(workbookChartGridlinesFormatParameterValue);
-        this.additionalData = workbookChartGridlinesFormatParameterValue?.additionalData ? workbookChartGridlinesFormatParameterValue?.additionalData! : {};
         this.line = workbookChartGridlinesFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartGridlinesFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartGridlinesFormatParameterValue?.line);
     };
     /**
@@ -38,6 +35,5 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
         if(this.line){
             writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,11 +5,9 @@ import {IosManagedAppProtection} from './iosManagedAppProtection';
 import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImpl implements IosManagedAppProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     public appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */
@@ -30,7 +28,6 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
      */
     public constructor(iosManagedAppProtectionParameterValue?: IosManagedAppProtection | undefined) {
         super(iosManagedAppProtectionParameterValue);
-        this.additionalData = iosManagedAppProtectionParameterValue?.additionalData ? iosManagedAppProtectionParameterValue?.additionalData! : {};
         this.appDataEncryptionType = iosManagedAppProtectionParameterValue?.appDataEncryptionType;
         const appsArrValue: ManagedMobileAppImpl[] = []; iosManagedAppProtectionParameterValue.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
         this.apps = appsArrValue;
@@ -83,6 +80,5 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         if(this.minimumRequiredSdkVersion){
             writer.writeStringValue("minimumRequiredSdkVersion", this.minimumRequiredSdkVersion);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

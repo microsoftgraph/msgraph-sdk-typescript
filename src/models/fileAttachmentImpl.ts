@@ -1,10 +1,8 @@
 import {FileAttachment} from './fileAttachment';
 import {AttachmentImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileAttachmentImpl extends AttachmentImpl implements FileAttachment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The base64-encoded contents of the file. */
     public contentBytes?: string | undefined;
     /** The ID of the attachment in the Exchange store. */
@@ -17,7 +15,6 @@ export class FileAttachmentImpl extends AttachmentImpl implements FileAttachment
      */
     public constructor(fileAttachmentParameterValue?: FileAttachment | undefined) {
         super(fileAttachmentParameterValue);
-        this.additionalData = fileAttachmentParameterValue?.additionalData ? fileAttachmentParameterValue?.additionalData! : {};
         this.contentBytes = fileAttachmentParameterValue?.contentBytes;
         this.contentId = fileAttachmentParameterValue?.contentId;
         this.contentLocation = fileAttachmentParameterValue?.contentLocation;
@@ -49,6 +46,5 @@ export class FileAttachmentImpl extends AttachmentImpl implements FileAttachment
         if(this.contentLocation){
             writer.writeStringValue("contentLocation", this.contentLocation);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

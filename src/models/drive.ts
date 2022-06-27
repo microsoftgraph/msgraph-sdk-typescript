@@ -5,11 +5,9 @@ import {List} from './list';
 import {Quota} from './quota';
 import {SharepointIds} from './sharepointIds';
 import {SystemFacet} from './systemFacet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Drive extends Partial<AdditionalDataHolder>, BaseItem, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Drive extends BaseItem, Partial<Parsable> {
     /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
     bundles?: DriveItem[] | undefined;
     /** Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only. */

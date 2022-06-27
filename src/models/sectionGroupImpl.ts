@@ -5,12 +5,10 @@ import {NotebookImpl, OnenoteEntityHierarchyModelImpl, OnenoteSectionImpl} from 
 import {Notebook} from './notebook';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements SectionGroup {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The notebook that contains the section group. Read-only. */
     public parentNotebook?: Notebook | undefined;
     /** The section group that contains the section group. Read-only. */
@@ -29,7 +27,6 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
      */
     public constructor(sectionGroupParameterValue?: SectionGroup | undefined) {
         super(sectionGroupParameterValue);
-        this.additionalData = sectionGroupParameterValue?.additionalData ? sectionGroupParameterValue?.additionalData! : {};
         this.parentNotebook = sectionGroupParameterValue?.parentNotebook instanceof NotebookImpl? sectionGroupParameterValue?.parentNotebook:new NotebookImpl(sectionGroupParameterValue?.parentNotebook);
         this.parentSectionGroup = sectionGroupParameterValue?.parentSectionGroup instanceof SectionGroupImpl? sectionGroupParameterValue?.parentSectionGroup:new SectionGroupImpl(sectionGroupParameterValue?.parentSectionGroup);
         const sectionGroupsArrValue: SectionGroupImpl[] = []; sectionGroupParameterValue.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
@@ -78,6 +75,5 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         if(this.sectionsUrl){
             writer.writeStringValue("sectionsUrl", this.sectionsUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

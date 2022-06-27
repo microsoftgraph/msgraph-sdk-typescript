@@ -1,19 +1,17 @@
 import {ScheduleEntityImpl} from './index';
 import {TimeOffItem} from './timeOffItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class TimeOffItemImpl extends ScheduleEntityImpl implements TimeOffItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** ID of the timeOffReason for this timeOffItem. Required. */
     public timeOffReasonId?: string | undefined;
     /**
-     * Instantiates a new TimeOffItem and sets the default values.
+     * Instantiates a new timeOffItem and sets the default values.
      * @param timeOffItemParameterValue 
      */
     public constructor(timeOffItemParameterValue?: TimeOffItem | undefined) {
         super(timeOffItemParameterValue);
-        this.additionalData = timeOffItemParameterValue?.additionalData ? timeOffItemParameterValue?.additionalData! : {};
         this.timeOffReasonId = timeOffItemParameterValue?.timeOffReasonId;
     };
     /**
@@ -35,6 +33,5 @@ export class TimeOffItemImpl extends ScheduleEntityImpl implements TimeOffItem {
         if(this.timeOffReasonId){
             writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

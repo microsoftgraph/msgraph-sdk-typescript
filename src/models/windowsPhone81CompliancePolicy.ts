@@ -1,10 +1,8 @@
 import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WindowsPhone81CompliancePolicy extends Partial<AdditionalDataHolder>, DeviceCompliancePolicy, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WindowsPhone81CompliancePolicy extends DeviceCompliancePolicy, Partial<Parsable> {
     /** Maximum Windows Phone version. */
     osMaximumVersion?: string | undefined;
     /** Minimum Windows Phone version. */

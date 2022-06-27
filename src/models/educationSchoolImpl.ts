@@ -10,11 +10,9 @@ import {EducationUser} from './educationUser';
 import {IdentitySet} from './identitySet';
 import {AdministrativeUnitImpl, EducationClassImpl, EducationOrganizationImpl, EducationUserImpl, IdentitySetImpl, PhysicalAddressImpl} from './index';
 import {PhysicalAddress} from './physicalAddress';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSchoolImpl extends EducationOrganizationImpl implements EducationSchool {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Address of the school. */
     public address?: PhysicalAddress | undefined;
     /** The underlying administrativeUnit for this school. */
@@ -49,7 +47,6 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
      */
     public constructor(educationSchoolParameterValue?: EducationSchool | undefined) {
         super(educationSchoolParameterValue);
-        this.additionalData = educationSchoolParameterValue?.additionalData ? educationSchoolParameterValue?.additionalData! : {};
         this.address = educationSchoolParameterValue?.address instanceof PhysicalAddressImpl? educationSchoolParameterValue?.address:new PhysicalAddressImpl(educationSchoolParameterValue?.address);
         this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit instanceof AdministrativeUnitImpl? educationSchoolParameterValue?.administrativeUnit:new AdministrativeUnitImpl(educationSchoolParameterValue?.administrativeUnit);
         const classesArrValue: EducationClassImpl[] = []; educationSchoolParameterValue.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
@@ -138,6 +135,5 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
             writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

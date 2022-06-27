@@ -5,11 +5,9 @@ import {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview
 import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import {Entity} from './entity';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceConfiguration extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DeviceConfiguration extends Entity, Partial<Parsable> {
     /** The list of assignments for the device configuration profile. */
     assignments?: DeviceConfigurationAssignment[] | undefined;
     /** DateTime the object was created. */

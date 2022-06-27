@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {VolumeType} from './volumeType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BitlockerRecoveryKey extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface BitlockerRecoveryKey extends Entity, Partial<Parsable> {
     /** The date and time when the key was originally backed up to Azure Active Directory. */
     createdDateTime?: Date | undefined;
     /** ID of the device the BitLocker key is originally backed up from. */

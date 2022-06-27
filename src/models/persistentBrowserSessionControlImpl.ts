@@ -1,20 +1,18 @@
 import {ConditionalAccessSessionControlImpl} from './index';
 import {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
 import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessionControlImpl implements PersistentBrowserSessionControl {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Possible values are: always, never. */
     public mode?: PersistentBrowserSessionMode | undefined;
     /**
-     * Instantiates a new PersistentBrowserSessionControl and sets the default values.
+     * Instantiates a new persistentBrowserSessionControl and sets the default values.
      * @param persistentBrowserSessionControlParameterValue 
      */
     public constructor(persistentBrowserSessionControlParameterValue?: PersistentBrowserSessionControl | undefined) {
         super(persistentBrowserSessionControlParameterValue);
-        this.additionalData = persistentBrowserSessionControlParameterValue?.additionalData ? persistentBrowserSessionControlParameterValue?.additionalData! : {};
         this.mode = persistentBrowserSessionControlParameterValue?.mode;
     };
     /**
@@ -36,6 +34,5 @@ export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessio
         if(this.mode){
             writer.writeEnumValue<PersistentBrowserSessionMode>("mode", this.mode);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

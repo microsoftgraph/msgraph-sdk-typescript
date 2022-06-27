@@ -1,11 +1,9 @@
 import {Entity} from './entity';
 import {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthStatus} from './serviceHealthStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ServiceHealth extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ServiceHealth extends Entity, Partial<Parsable> {
     /** A collection of issues that happened on the service, with detailed information for each issue. */
     issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */

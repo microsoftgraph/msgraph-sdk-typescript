@@ -24,13 +24,10 @@ import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamsTemplate} from './teamsTemplate';
 import {TeamVisibilityType} from './teamVisibilityType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class TeamImpl extends EntityImpl implements Team {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
-    /** List of channels either hosted in or shared with the team (incoming channels). */
-    public allChannels?: Channel[] | undefined;
     /** The collection of channels and messages associated with the team. */
     public channels?: Channel[] | undefined;
     /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory. */
@@ -47,8 +44,6 @@ export class TeamImpl extends EntityImpl implements Team {
     public group?: Group | undefined;
     /** Settings to configure whether guests can create, update, or delete channels in the team. */
     public guestSettings?: TeamGuestSettings | undefined;
-    /** List of channels shared with the team. */
-    public incomingChannels?: Channel[] | undefined;
     /** The apps installed in this team. */
     public installedApps?: TeamsAppInstallation[] | undefined;
     /** A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API. */
@@ -71,21 +66,16 @@ export class TeamImpl extends EntityImpl implements Team {
     public specialization?: TeamSpecialization | undefined;
     /** The template this team was created from. See available templates. */
     public template?: TeamsTemplate | undefined;
-    /** The ID of the Azure Active Directory tenant. */
-    public tenantId?: string | undefined;
     /** The visibility of the group and team. Defaults to Public. */
     public visibility?: TeamVisibilityType | undefined;
     /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */
     public webUrl?: string | undefined;
     /**
-     * Instantiates a new Team and sets the default values.
+     * Instantiates a new team and sets the default values.
      * @param teamParameterValue 
      */
     public constructor(teamParameterValue?: Team | undefined) {
         super(teamParameterValue);
-        this.additionalData = teamParameterValue?.additionalData ? teamParameterValue?.additionalData! : {};
-        const allChannelsArrValue: ChannelImpl[] = []; teamParameterValue.allChannels?.forEach(element => {allChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
-        this.allChannels = allChannelsArrValue;
         const channelsArrValue: ChannelImpl[] = []; teamParameterValue.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
         this.channels = channelsArrValue;
         this.classification = teamParameterValue?.classification;
@@ -95,8 +85,6 @@ export class TeamImpl extends EntityImpl implements Team {
         this.funSettings = teamParameterValue?.funSettings instanceof TeamFunSettingsImpl? teamParameterValue?.funSettings:new TeamFunSettingsImpl(teamParameterValue?.funSettings);
         this.group = teamParameterValue?.group instanceof GroupImpl? teamParameterValue?.group:new GroupImpl(teamParameterValue?.group);
         this.guestSettings = teamParameterValue?.guestSettings instanceof TeamGuestSettingsImpl? teamParameterValue?.guestSettings:new TeamGuestSettingsImpl(teamParameterValue?.guestSettings);
-        const incomingChannelsArrValue: ChannelImpl[] = []; teamParameterValue.incomingChannels?.forEach(element => {incomingChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
-        this.incomingChannels = incomingChannelsArrValue;
         const installedAppsArrValue: TeamsAppInstallationImpl[] = []; teamParameterValue.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
         this.installedApps = installedAppsArrValue;
         this.internalId = teamParameterValue?.internalId;
@@ -111,7 +99,6 @@ export class TeamImpl extends EntityImpl implements Team {
         this.schedule = teamParameterValue?.schedule instanceof ScheduleImpl? teamParameterValue?.schedule:new ScheduleImpl(teamParameterValue?.schedule);
         this.specialization = teamParameterValue?.specialization;
         this.template = teamParameterValue?.template instanceof TeamsTemplateImpl? teamParameterValue?.template:new TeamsTemplateImpl(teamParameterValue?.template);
-        this.tenantId = teamParameterValue?.tenantId;
         this.visibility = teamParameterValue?.visibility;
         this.webUrl = teamParameterValue?.webUrl;
     };
@@ -121,7 +108,6 @@ export class TeamImpl extends EntityImpl implements Team {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "allChannels": n => { this.allChannels = n.getCollectionOfObjectValues<ChannelImpl>(createChannelFromDiscriminatorValue); },
             "channels": n => { this.channels = n.getCollectionOfObjectValues<ChannelImpl>(createChannelFromDiscriminatorValue); },
             "classification": n => { this.classification = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
@@ -130,7 +116,6 @@ export class TeamImpl extends EntityImpl implements Team {
             "funSettings": n => { this.funSettings = n.getObjectValue<TeamFunSettingsImpl>(createTeamFunSettingsFromDiscriminatorValue); },
             "group": n => { this.group = n.getObjectValue<GroupImpl>(createGroupFromDiscriminatorValue); },
             "guestSettings": n => { this.guestSettings = n.getObjectValue<TeamGuestSettingsImpl>(createTeamGuestSettingsFromDiscriminatorValue); },
-            "incomingChannels": n => { this.incomingChannels = n.getCollectionOfObjectValues<ChannelImpl>(createChannelFromDiscriminatorValue); },
             "installedApps": n => { this.installedApps = n.getCollectionOfObjectValues<TeamsAppInstallationImpl>(createTeamsAppInstallationFromDiscriminatorValue); },
             "internalId": n => { this.internalId = n.getStringValue(); },
             "isArchived": n => { this.isArchived = n.getBooleanValue(); },
@@ -142,7 +127,6 @@ export class TeamImpl extends EntityImpl implements Team {
             "schedule": n => { this.schedule = n.getObjectValue<ScheduleImpl>(createScheduleFromDiscriminatorValue); },
             "specialization": n => { this.specialization = n.getEnumValue<TeamSpecialization>(TeamSpecialization); },
             "template": n => { this.template = n.getObjectValue<TeamsTemplateImpl>(createTeamsTemplateFromDiscriminatorValue); },
-            "tenantId": n => { this.tenantId = n.getStringValue(); },
             "visibility": n => { this.visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
@@ -154,9 +138,6 @@ export class TeamImpl extends EntityImpl implements Team {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.allChannels && this.allChannels.length != 0){        const allChannelsArrValue: ChannelImpl[] = []; this.allChannels?.forEach(element => {allChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
-            writer.writeCollectionOfObjectValues<ChannelImpl>("allChannels", allChannelsArrValue);
-        }
         if(this.channels && this.channels.length != 0){        const channelsArrValue: ChannelImpl[] = []; this.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
             writer.writeCollectionOfObjectValues<ChannelImpl>("channels", channelsArrValue);
         }
@@ -180,9 +161,6 @@ export class TeamImpl extends EntityImpl implements Team {
         }
         if(this.guestSettings){
             writer.writeObjectValue<TeamGuestSettingsImpl>("guestSettings", new TeamGuestSettingsImpl(this.guestSettings));
-        }
-        if(this.incomingChannels && this.incomingChannels.length != 0){        const incomingChannelsArrValue: ChannelImpl[] = []; this.incomingChannels?.forEach(element => {incomingChannelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
-            writer.writeCollectionOfObjectValues<ChannelImpl>("incomingChannels", incomingChannelsArrValue);
         }
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
@@ -217,15 +195,11 @@ export class TeamImpl extends EntityImpl implements Team {
         if(this.template){
             writer.writeObjectValue<TeamsTemplateImpl>("template", new TeamsTemplateImpl(this.template));
         }
-        if(this.tenantId){
-            writer.writeStringValue("tenantId", this.tenantId);
-        }
         if(this.visibility){
             writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         }
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

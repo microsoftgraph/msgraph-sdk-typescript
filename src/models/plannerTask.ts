@@ -7,13 +7,11 @@ import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskForm
 import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
 import {PlannerTaskDetails} from './plannerTaskDetails';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PlannerTask extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface PlannerTask extends Entity, Partial<Parsable> {
     /** Number of checklist items with value set to false, representing incomplete items. */
     activeChecklistItemCount?: number | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** The categories to which the task has been applied. See applied Categories for possible values. */
     appliedCategories?: PlannerAppliedCategories | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo. */

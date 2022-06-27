@@ -1,19 +1,17 @@
 import {ShiftItemImpl} from './index';
 import {OpenShiftItem} from './openShiftItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Count of the number of slots for the given open shift. */
     public openSlotCount?: number | undefined;
     /**
-     * Instantiates a new OpenShiftItem and sets the default values.
+     * Instantiates a new openShiftItem and sets the default values.
      * @param openShiftItemParameterValue 
      */
     public constructor(openShiftItemParameterValue?: OpenShiftItem | undefined) {
         super(openShiftItemParameterValue);
-        this.additionalData = openShiftItemParameterValue?.additionalData ? openShiftItemParameterValue?.additionalData! : {};
         this.openSlotCount = openShiftItemParameterValue?.openSlotCount;
     };
     /**
@@ -35,6 +33,5 @@ export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem {
         if(this.openSlotCount){
             writer.writeNumberValue("openSlotCount", this.openSlotCount);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,11 +1,9 @@
 import {EmailFileAssessmentRequest} from './emailFileAssessmentRequest';
 import {ThreatAssessmentRequestImpl} from './index';
 import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EmailFileAssessmentRequestImpl extends ThreatAssessmentRequestImpl implements EmailFileAssessmentRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Base64 encoded .eml email file content. The file content cannot fetch back because it isn't stored. */
     public contentData?: string | undefined;
     /** The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk. */
@@ -18,7 +16,6 @@ export class EmailFileAssessmentRequestImpl extends ThreatAssessmentRequestImpl 
      */
     public constructor(emailFileAssessmentRequestParameterValue?: EmailFileAssessmentRequest | undefined) {
         super(emailFileAssessmentRequestParameterValue);
-        this.additionalData = emailFileAssessmentRequestParameterValue?.additionalData ? emailFileAssessmentRequestParameterValue?.additionalData! : {};
         this.contentData = emailFileAssessmentRequestParameterValue?.contentData;
         this.destinationRoutingReason = emailFileAssessmentRequestParameterValue?.destinationRoutingReason;
         this.recipientEmail = emailFileAssessmentRequestParameterValue?.recipientEmail;
@@ -50,6 +47,5 @@ export class EmailFileAssessmentRequestImpl extends ThreatAssessmentRequestImpl 
         if(this.recipientEmail){
             writer.writeStringValue("recipientEmail", this.recipientEmail);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

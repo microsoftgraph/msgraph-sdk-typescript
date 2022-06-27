@@ -2,11 +2,9 @@ import {CalendarSharingMessage} from './calendarSharingMessage';
 import {CalendarSharingMessageAction} from './calendarSharingMessageAction';
 import {createCalendarSharingMessageActionFromDiscriminatorValue} from './createCalendarSharingMessageActionFromDiscriminatorValue';
 import {CalendarSharingMessageActionImpl, MessageImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarSharingMessageImpl extends MessageImpl implements CalendarSharingMessage {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The canAccept property */
     public canAccept?: boolean | undefined;
     /** The sharingMessageAction property */
@@ -21,7 +19,6 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
      */
     public constructor(calendarSharingMessageParameterValue?: CalendarSharingMessage | undefined) {
         super(calendarSharingMessageParameterValue);
-        this.additionalData = calendarSharingMessageParameterValue?.additionalData ? calendarSharingMessageParameterValue?.additionalData! : {};
         this.canAccept = calendarSharingMessageParameterValue?.canAccept;
         this.sharingMessageAction = calendarSharingMessageParameterValue?.sharingMessageAction instanceof CalendarSharingMessageActionImpl? calendarSharingMessageParameterValue?.sharingMessageAction:new CalendarSharingMessageActionImpl(calendarSharingMessageParameterValue?.sharingMessageAction);
         const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; calendarSharingMessageParameterValue.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(element instanceof CalendarSharingMessageActionImpl? element : new CalendarSharingMessageActionImpl(element));});
@@ -59,6 +56,5 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
         if(this.suggestedCalendarName){
             writer.writeStringValue("suggestedCalendarName", this.suggestedCalendarName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

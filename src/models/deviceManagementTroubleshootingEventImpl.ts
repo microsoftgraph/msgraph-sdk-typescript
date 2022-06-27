@@ -1,21 +1,19 @@
 import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Event representing an general failure. */
 export class DeviceManagementTroubleshootingEventImpl extends EntityImpl implements DeviceManagementTroubleshootingEvent {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Id used for tracing the failure in the service. */
     public correlationId?: string | undefined;
     /** Time when the event occurred . */
     public eventDateTime?: Date | undefined;
     /**
-     * Instantiates a new DeviceManagementTroubleshootingEvent and sets the default values.
+     * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.
      * @param deviceManagementTroubleshootingEventParameterValue 
      */
     public constructor(deviceManagementTroubleshootingEventParameterValue?: DeviceManagementTroubleshootingEvent | undefined) {
         super(deviceManagementTroubleshootingEventParameterValue);
-        this.additionalData = deviceManagementTroubleshootingEventParameterValue?.additionalData ? deviceManagementTroubleshootingEventParameterValue?.additionalData! : {};
         this.correlationId = deviceManagementTroubleshootingEventParameterValue?.correlationId;
         this.eventDateTime = deviceManagementTroubleshootingEventParameterValue?.eventDateTime;
     };
@@ -42,6 +40,5 @@ export class DeviceManagementTroubleshootingEventImpl extends EntityImpl impleme
         if(this.eventDateTime){
             writer.writeDateValue("eventDateTime", this.eventDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

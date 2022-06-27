@@ -1,5 +1,5 @@
 export * from './getAvailableExtensionPropertiesResponseImpl'
 export * from './getAvailableExtensionPropertiesPostRequestBodyImpl'
 export * from './getAvailableExtensionPropertiesResponse'
-export * from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration'
 export * from './getAvailableExtensionPropertiesPostRequestBody'
+export * from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration'

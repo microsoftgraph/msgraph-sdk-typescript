@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum LocationUniqueIdType {
     Unknown = "unknown",
     LocationStore = "locationStore",

@@ -3,16 +3,14 @@ import {createUserActivityFromDiscriminatorValue} from './createUserActivityFrom
 import {EntityImpl, UserActivityImpl} from './index';
 import {Status} from './status';
 import {UserActivity} from './userActivity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHistoryItem {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     public activeDurationSeconds?: number | undefined;
     /** The activity property */
     public activity?: UserActivity | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Set by the server. DateTime in UTC when the object was created on the server. */
     public createdDateTime?: Date | undefined;
     /** Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client. */
@@ -35,7 +33,6 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
         super(activityHistoryItemParameterValue);
         this.activeDurationSeconds = activityHistoryItemParameterValue?.activeDurationSeconds;
         this.activity = activityHistoryItemParameterValue?.activity instanceof UserActivityImpl? activityHistoryItemParameterValue?.activity:new UserActivityImpl(activityHistoryItemParameterValue?.activity);
-        this.additionalData = activityHistoryItemParameterValue?.additionalData ? activityHistoryItemParameterValue?.additionalData! : {};
         this.createdDateTime = activityHistoryItemParameterValue?.createdDateTime;
         this.expirationDateTime = activityHistoryItemParameterValue?.expirationDateTime;
         this.lastActiveDateTime = activityHistoryItemParameterValue?.lastActiveDateTime;
@@ -95,6 +92,5 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
         if(this.userTimezone){
             writer.writeStringValue("userTimezone", this.userTimezone);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

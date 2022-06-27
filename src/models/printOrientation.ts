@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the print singleton. */
 export enum PrintOrientation {
     Portrait = "portrait",
     Landscape = "landscape",

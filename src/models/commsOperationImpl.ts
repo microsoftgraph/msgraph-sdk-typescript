@@ -3,12 +3,10 @@ import {createResultInfoFromDiscriminatorValue} from './createResultInfoFromDisc
 import {EntityImpl, ResultInfoImpl} from './index';
 import {OperationStatus} from './operationStatus';
 import {ResultInfo} from './resultInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CommsOperationImpl extends EntityImpl implements CommsOperation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Unique Client Context string. Max limit is 256 chars. */
     public clientContext?: string | undefined;
     /** The result information. Read-only. */
@@ -21,7 +19,6 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
      */
     public constructor(commsOperationParameterValue?: CommsOperation | undefined) {
         super(commsOperationParameterValue);
-        this.additionalData = commsOperationParameterValue?.additionalData ? commsOperationParameterValue?.additionalData! : {};
         this.clientContext = commsOperationParameterValue?.clientContext;
         this.resultInfo = commsOperationParameterValue?.resultInfo instanceof ResultInfoImpl? commsOperationParameterValue?.resultInfo:new ResultInfoImpl(commsOperationParameterValue?.resultInfo);
         this.status = commsOperationParameterValue?.status;
@@ -53,6 +50,5 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
         if(this.status){
             writer.writeEnumValue<OperationStatus>("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

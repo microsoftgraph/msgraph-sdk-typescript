@@ -32,11 +32,9 @@ import {Recipient} from './recipient';
 import {ResponseStatus} from './responseStatus';
 import {Sensitivity} from './sensitivity';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventImpl extends OutlookItemImpl implements Event {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
     public allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */
@@ -127,7 +125,6 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public constructor(eventParameterValue?: Event | undefined) {
         super(eventParameterValue);
-        this.additionalData = eventParameterValue?.additionalData ? eventParameterValue?.additionalData! : {};
         this.allowNewTimeProposals = eventParameterValue?.allowNewTimeProposals;
         const attachmentsArrValue: AttachmentImpl[] = []; eventParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
@@ -361,6 +358,5 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(this.webLink){
             writer.writeStringValue("webLink", this.webLink);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

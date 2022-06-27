@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChartAxisTitle extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WorkbookChartAxisTitle extends Entity, Partial<Parsable> {
     /** Represents the formatting of chart axis title. Read-only. */
     format?: WorkbookChartAxisTitleFormat | undefined;
     /** Represents the axis title. */

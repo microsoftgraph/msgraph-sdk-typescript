@@ -4,11 +4,9 @@ import {BookingReminder} from './bookingReminder';
 import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {Entity} from './entity';
 import {Location} from './location';
-import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BookingAppointment extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface BookingAppointment extends Entity, Partial<Parsable> {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     additionalInformation?: string | undefined;
     /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */

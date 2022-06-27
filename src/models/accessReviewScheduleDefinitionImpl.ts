@@ -14,11 +14,10 @@ import {createAccessReviewStageSettingsFromDiscriminatorValue} from './createAcc
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
 import {AccessReviewInstanceImpl, AccessReviewNotificationRecipientItemImpl, AccessReviewReviewerScopeImpl, AccessReviewScheduleSettingsImpl, AccessReviewScopeImpl, AccessReviewStageSettingsImpl, EntityImpl, UserIdentityImpl} from './index';
 import {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements AccessReviewScheduleDefinition {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Defines the list of additional users or group members to be notified of the access review progress. */
     public additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
     /** User who created this review. Read-only. */
@@ -50,12 +49,11 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
     /** This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only. */
     public status?: string | undefined;
     /**
-     * Instantiates a new AccessReviewScheduleDefinition and sets the default values.
+     * Instantiates a new accessReviewScheduleDefinition and sets the default values.
      * @param accessReviewScheduleDefinitionParameterValue 
      */
     public constructor(accessReviewScheduleDefinitionParameterValue?: AccessReviewScheduleDefinition | undefined) {
         super(accessReviewScheduleDefinitionParameterValue);
-        this.additionalData = accessReviewScheduleDefinitionParameterValue?.additionalData ? accessReviewScheduleDefinitionParameterValue?.additionalData! : {};
         const additionalNotificationRecipientsArrValue: AccessReviewNotificationRecipientItemImpl[] = []; accessReviewScheduleDefinitionParameterValue.additionalNotificationRecipients?.forEach(element => {additionalNotificationRecipientsArrValue.push(element instanceof AccessReviewNotificationRecipientItemImpl? element : new AccessReviewNotificationRecipientItemImpl(element));});
         this.additionalNotificationRecipients = additionalNotificationRecipientsArrValue;
         this.createdBy = accessReviewScheduleDefinitionParameterValue?.createdBy instanceof UserIdentityImpl? accessReviewScheduleDefinitionParameterValue?.createdBy:new UserIdentityImpl(accessReviewScheduleDefinitionParameterValue?.createdBy);
@@ -152,6 +150,5 @@ export class AccessReviewScheduleDefinitionImpl extends EntityImpl implements Ac
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

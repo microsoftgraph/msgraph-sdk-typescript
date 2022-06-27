@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {PermissionClassificationType} from './permissionClassificationType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DelegatedPermissionClassification extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DelegatedPermissionClassification extends Entity, Partial<Parsable> {
     /** The classification value being given. Possible value: low. Does not support $filter. */
     classification?: PermissionClassificationType | undefined;
     /** The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter. */

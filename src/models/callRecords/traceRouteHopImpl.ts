@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 export class TraceRouteHopImpl implements TraceRouteHop {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** The network path count of this hop that was used to compute the round-trip time. */
+    /** The network path count of this hop that was used to compute the RTT. */
     public hopCount?: number | undefined;
     /** IP address used for this hop in the network trace. */
     public ipAddress?: string | undefined;

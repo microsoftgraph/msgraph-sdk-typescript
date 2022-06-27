@@ -2,12 +2,10 @@ import {ApprovalStage} from './approvalStage';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {Identity} from './identity';
 import {EntityImpl, IdentityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
     public assignedToMe?: boolean | undefined;
     /** The label provided by the policy creator to identify an approval stage. Read-only. */
@@ -28,7 +26,6 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
      */
     public constructor(approvalStageParameterValue?: ApprovalStage | undefined) {
         super(approvalStageParameterValue);
-        this.additionalData = approvalStageParameterValue?.additionalData ? approvalStageParameterValue?.additionalData! : {};
         this.assignedToMe = approvalStageParameterValue?.assignedToMe;
         this.displayName = approvalStageParameterValue?.displayName;
         this.justification = approvalStageParameterValue?.justification;
@@ -80,6 +77,5 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

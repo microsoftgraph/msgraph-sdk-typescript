@@ -1,11 +1,9 @@
 import {ExtensionProperty} from './extensionProperty';
 import {DirectoryObjectImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class ExtensionPropertyImpl extends DirectoryObjectImpl implements ExtensionProperty {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Display name of the application object on which this extension property is defined. Read-only. */
     public appDisplayName?: string | undefined;
     /** Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum */
@@ -22,7 +20,6 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
      */
     public constructor(extensionPropertyParameterValue?: ExtensionProperty | undefined) {
         super(extensionPropertyParameterValue);
-        this.additionalData = extensionPropertyParameterValue?.additionalData ? extensionPropertyParameterValue?.additionalData! : {};
         this.appDisplayName = extensionPropertyParameterValue?.appDisplayName;
         this.dataType = extensionPropertyParameterValue?.dataType;
         this.isSyncedFromOnPremises = extensionPropertyParameterValue?.isSyncedFromOnPremises;
@@ -64,6 +61,5 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
         if(this.targetObjects){
             writer.writeCollectionOfPrimitiveValues<string>("targetObjects", this.targetObjects);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

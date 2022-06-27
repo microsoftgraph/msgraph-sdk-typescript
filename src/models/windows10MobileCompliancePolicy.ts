@@ -1,10 +1,8 @@
 import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Windows10MobileCompliancePolicy extends Partial<AdditionalDataHolder>, DeviceCompliancePolicy, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Windows10MobileCompliancePolicy extends DeviceCompliancePolicy, Partial<Parsable> {
     /** Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled */
     bitLockerEnabled?: boolean | undefined;
     /** Require devices to be reported as healthy by Windows Device Health Attestation. */

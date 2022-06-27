@@ -1,9 +1,7 @@
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DomainDnsRecord extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DomainDnsRecord extends Entity, Partial<Parsable> {
     /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     isOptional?: boolean | undefined;
     /** Value used when configuring the name of the DNS record at the DNS host. */

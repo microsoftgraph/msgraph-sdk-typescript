@@ -1,17 +1,15 @@
 import {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
 import {ConditionalAccessSessionControlImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class ApplicationEnforcedRestrictionsSessionControlImpl extends ConditionalAccessSessionControlImpl implements ApplicationEnforcedRestrictionsSessionControl {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
-     * Instantiates a new ApplicationEnforcedRestrictionsSessionControl and sets the default values.
+     * Instantiates a new applicationEnforcedRestrictionsSessionControl and sets the default values.
      * @param applicationEnforcedRestrictionsSessionControlParameterValue 
      */
     public constructor(applicationEnforcedRestrictionsSessionControlParameterValue?: ApplicationEnforcedRestrictionsSessionControl | undefined) {
         super(applicationEnforcedRestrictionsSessionControlParameterValue);
-        this.additionalData = applicationEnforcedRestrictionsSessionControlParameterValue?.additionalData ? applicationEnforcedRestrictionsSessionControlParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +26,5 @@ export class ApplicationEnforcedRestrictionsSessionControlImpl extends Condition
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,17 +1,14 @@
 import {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
 import {StsPolicyImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityBasedTimeoutPolicyImpl extends StsPolicyImpl implements ActivityBasedTimeoutPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new ActivityBasedTimeoutPolicy and sets the default values.
      * @param activityBasedTimeoutPolicyParameterValue 
      */
     public constructor(activityBasedTimeoutPolicyParameterValue?: ActivityBasedTimeoutPolicy | undefined) {
         super(activityBasedTimeoutPolicyParameterValue);
-        this.additionalData = activityBasedTimeoutPolicyParameterValue?.additionalData ? activityBasedTimeoutPolicyParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +25,5 @@ export class ActivityBasedTimeoutPolicyImpl extends StsPolicyImpl implements Act
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

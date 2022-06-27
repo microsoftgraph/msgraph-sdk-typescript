@@ -2,11 +2,9 @@ import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {DeviceCompliancePolicyImpl} from './index';
 import {IosCompliancePolicy} from './iosCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosCompliancePolicyImpl extends DeviceCompliancePolicyImpl implements IosCompliancePolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Require that devices have enabled device threat protection . */
     public deviceThreatProtectionEnabled?: boolean | undefined;
     /** Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. */
@@ -41,7 +39,6 @@ export class IosCompliancePolicyImpl extends DeviceCompliancePolicyImpl implemen
      */
     public constructor(iosCompliancePolicyParameterValue?: IosCompliancePolicy | undefined) {
         super(iosCompliancePolicyParameterValue);
-        this.additionalData = iosCompliancePolicyParameterValue?.additionalData ? iosCompliancePolicyParameterValue?.additionalData! : {};
         this.deviceThreatProtectionEnabled = iosCompliancePolicyParameterValue?.deviceThreatProtectionEnabled;
         this.deviceThreatProtectionRequiredSecurityLevel = iosCompliancePolicyParameterValue?.deviceThreatProtectionRequiredSecurityLevel;
         this.managedEmailProfileRequired = iosCompliancePolicyParameterValue?.managedEmailProfileRequired;
@@ -128,6 +125,5 @@ export class IosCompliancePolicyImpl extends DeviceCompliancePolicyImpl implemen
         if(this.securityBlockJailbrokenDevices){
             writer.writeBooleanValue("securityBlockJailbrokenDevices", this.securityBlockJailbrokenDevices);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -6,12 +6,10 @@ import {EntityImpl, ResourceReferenceImpl, ResourceVisualizationImpl} from './in
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {Trending} from './trending';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class TrendingImpl extends EntityImpl implements Trending {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The lastModifiedDateTime property */
     public lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */
@@ -28,7 +26,6 @@ export class TrendingImpl extends EntityImpl implements Trending {
      */
     public constructor(trendingParameterValue?: Trending | undefined) {
         super(trendingParameterValue);
-        this.additionalData = trendingParameterValue?.additionalData ? trendingParameterValue?.additionalData! : {};
         this.lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime;
         this.resource = trendingParameterValue?.resource instanceof EntityImpl? trendingParameterValue?.resource:new EntityImpl(trendingParameterValue?.resource);
         this.resourceReference = trendingParameterValue?.resourceReference instanceof ResourceReferenceImpl? trendingParameterValue?.resourceReference:new ResourceReferenceImpl(trendingParameterValue?.resourceReference);
@@ -70,6 +67,5 @@ export class TrendingImpl extends EntityImpl implements Trending {
         if(this.weight){
             writer.writeNumberValue("weight", this.weight);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

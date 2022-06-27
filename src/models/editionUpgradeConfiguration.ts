@@ -1,11 +1,9 @@
 import {DeviceConfiguration} from './deviceConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {Windows10EditionType} from './windows10EditionType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EditionUpgradeConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface EditionUpgradeConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Edition Upgrade License File Content. */
     license?: string | undefined;
     /** Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured. */

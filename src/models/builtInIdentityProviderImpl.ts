@@ -1,10 +1,8 @@
 import {BuiltInIdentityProvider} from './builtInIdentityProvider';
 import {IdentityProviderBaseImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BuiltInIdentityProviderImpl extends IdentityProviderBaseImpl implements BuiltInIdentityProvider {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required. */
     public identityProviderType?: string | undefined;
     /**
@@ -13,7 +11,6 @@ export class BuiltInIdentityProviderImpl extends IdentityProviderBaseImpl implem
      */
     public constructor(builtInIdentityProviderParameterValue?: BuiltInIdentityProvider | undefined) {
         super(builtInIdentityProviderParameterValue);
-        this.additionalData = builtInIdentityProviderParameterValue?.additionalData ? builtInIdentityProviderParameterValue?.additionalData! : {};
         this.identityProviderType = builtInIdentityProviderParameterValue?.identityProviderType;
     };
     /**
@@ -35,6 +32,5 @@ export class BuiltInIdentityProviderImpl extends IdentityProviderBaseImpl implem
         if(this.identityProviderType){
             writer.writeStringValue("identityProviderType", this.identityProviderType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

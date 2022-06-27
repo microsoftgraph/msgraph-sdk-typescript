@@ -1,10 +1,8 @@
 import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceEnrollmentConfiguration extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DeviceEnrollmentConfiguration extends Entity, Partial<Parsable> {
     /** The list of group assignments for the device configuration profile */
     assignments?: EnrollmentConfigurationAssignment[] | undefined;
     /** Created date time in UTC of the device enrollment configuration */

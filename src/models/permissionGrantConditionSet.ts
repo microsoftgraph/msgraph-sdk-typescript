@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {PermissionType} from './permissionType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PermissionGrantConditionSet extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface PermissionGrantConditionSet extends Entity, Partial<Parsable> {
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
     clientApplicationIds?: string[] | undefined;
     /** A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all. */

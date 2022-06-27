@@ -2,11 +2,9 @@ import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObje
 import {DirectoryObject} from './directoryObject';
 import {DirectoryObjectImpl, PolicyBaseImpl} from './index';
 import {StsPolicy} from './stsPolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The appliesTo property */
     public appliesTo?: DirectoryObject[] | undefined;
     /** A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required. */
@@ -19,7 +17,6 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
      */
     public constructor(stsPolicyParameterValue?: StsPolicy | undefined) {
         super(stsPolicyParameterValue);
-        this.additionalData = stsPolicyParameterValue?.additionalData ? stsPolicyParameterValue?.additionalData! : {};
         const appliesToArrValue: DirectoryObjectImpl[] = []; stsPolicyParameterValue.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
         this.appliesTo = appliesToArrValue;
         this.definition = stsPolicyParameterValue?.definition;
@@ -52,6 +49,5 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
         if(this.isOrganizationDefault){
             writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

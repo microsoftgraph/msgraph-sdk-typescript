@@ -3,11 +3,9 @@ import {Message} from './message';
 import {MessageRule} from './messageRule';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MailFolder extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface MailFolder extends Entity, Partial<Parsable> {
     /** The number of immediate child mailFolders in the current mailFolder. */
     childFolderCount?: number | undefined;
     /** The collection of child folders in the mailFolder. */

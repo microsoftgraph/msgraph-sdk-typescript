@@ -3,11 +3,9 @@ import {RiskDetail} from './riskDetail';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface RiskyUser extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface RiskyUser extends Entity, Partial<Parsable> {
     /** The activity related to user risk level change */
     history?: RiskyUserHistoryItem[] | undefined;
     /** Indicates whether the user is deleted. Possible values are: true, false. */

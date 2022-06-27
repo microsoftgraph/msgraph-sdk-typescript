@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {ProfilePhoto} from './profilePhoto';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class ProfilePhotoImpl extends EntityImpl implements ProfilePhoto {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The height of the photo. Read-only. */
     public height?: number | undefined;
     /** The width of the photo. Read-only. */
@@ -16,7 +14,6 @@ export class ProfilePhotoImpl extends EntityImpl implements ProfilePhoto {
      */
     public constructor(profilePhotoParameterValue?: ProfilePhoto | undefined) {
         super(profilePhotoParameterValue);
-        this.additionalData = profilePhotoParameterValue?.additionalData ? profilePhotoParameterValue?.additionalData! : {};
         this.height = profilePhotoParameterValue?.height;
         this.width = profilePhotoParameterValue?.width;
     };
@@ -43,6 +40,5 @@ export class ProfilePhotoImpl extends EntityImpl implements ProfilePhoto {
         if(this.width){
             writer.writeNumberValue("width", this.width);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

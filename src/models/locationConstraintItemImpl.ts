@@ -1,19 +1,17 @@
 import {LocationImpl} from './index';
 import {LocationConstraintItem} from './locationConstraintItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the findMeetingTimes method. */
 export class LocationConstraintItemImpl extends LocationImpl implements LocationConstraintItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true. */
     public resolveAvailability?: boolean | undefined;
     /**
-     * Instantiates a new LocationConstraintItem and sets the default values.
+     * Instantiates a new locationConstraintItem and sets the default values.
      * @param locationConstraintItemParameterValue 
      */
     public constructor(locationConstraintItemParameterValue?: LocationConstraintItem | undefined) {
         super(locationConstraintItemParameterValue);
-        this.additionalData = locationConstraintItemParameterValue?.additionalData ? locationConstraintItemParameterValue?.additionalData! : {};
         this.resolveAvailability = locationConstraintItemParameterValue?.resolveAvailability;
     };
     /**
@@ -35,6 +33,5 @@ export class LocationConstraintItemImpl extends LocationImpl implements Location
         if(this.resolveAvailability){
             writer.writeBooleanValue("resolveAvailability", this.resolveAvailability);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

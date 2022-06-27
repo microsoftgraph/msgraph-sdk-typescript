@@ -2,11 +2,9 @@ import {AdministrativeUnit} from './administrativeUnit';
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
 import {IdentityProviderBase} from './identityProviderBase';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Directory extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Directory extends Entity, Partial<Parsable> {
     /** Conceptual container for user and group directory objects. */
     administrativeUnits?: AdministrativeUnit[] | undefined;
     /** Recently deleted items. Read-only. Nullable. */

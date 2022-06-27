@@ -4,11 +4,9 @@ import {LocalizedDescription} from './localizedDescription';
 import {LocalizedLabel} from './localizedLabel';
 import {Relation} from './relation';
 import {Set} from './set';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Term extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Term extends Entity, Partial<Parsable> {
     /** Children of current term. */
     children?: Term[] | undefined;
     /** Date and time of term creation. Read-only. */

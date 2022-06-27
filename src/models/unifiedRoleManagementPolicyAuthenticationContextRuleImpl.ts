@@ -1,10 +1,8 @@
 import {UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {UnifiedRoleManagementPolicyAuthenticationContextRule} from './unifiedRoleManagementPolicyAuthenticationContextRule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyAuthenticationContextRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyAuthenticationContextRule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The value of the authentication context claim. */
     public claimValue?: string | undefined;
     /** Whether this rule is enabled. */
@@ -15,7 +13,6 @@ export class UnifiedRoleManagementPolicyAuthenticationContextRuleImpl extends Un
      */
     public constructor(unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?: UnifiedRoleManagementPolicyAuthenticationContextRule | undefined) {
         super(unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue);
-        this.additionalData = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.additionalData ? unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.additionalData! : {};
         this.claimValue = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.claimValue;
         this.isEnabled = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.isEnabled;
     };
@@ -42,6 +39,5 @@ export class UnifiedRoleManagementPolicyAuthenticationContextRuleImpl extends Un
         if(this.isEnabled){
             writer.writeBooleanValue("isEnabled", this.isEnabled);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

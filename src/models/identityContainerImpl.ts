@@ -10,11 +10,10 @@ import {IdentityContainer} from './identityContainer';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {B2xIdentityUserFlowImpl, ConditionalAccessRootImpl, EntityImpl, IdentityApiConnectorImpl, IdentityProviderBaseImpl, IdentityUserFlowAttributeImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityContainerImpl extends EntityImpl implements IdentityContainer {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents entry point for API connectors. */
     public apiConnectors?: IdentityApiConnector[] | undefined;
     /** Represents entry point for B2X and self-service sign-up identity userflows. */
@@ -26,12 +25,11 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
     /** Represents entry point for identity userflow attributes. */
     public userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
     /**
-     * Instantiates a new IdentityContainer and sets the default values.
+     * Instantiates a new identityContainer and sets the default values.
      * @param identityContainerParameterValue 
      */
     public constructor(identityContainerParameterValue?: IdentityContainer | undefined) {
         super(identityContainerParameterValue);
-        this.additionalData = identityContainerParameterValue?.additionalData ? identityContainerParameterValue?.additionalData! : {};
         const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; identityContainerParameterValue.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
         this.apiConnectors = apiConnectorsArrValue;
         const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; identityContainerParameterValue.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
@@ -77,6 +75,5 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
         if(this.userFlowAttributes && this.userFlowAttributes.length != 0){        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; this.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeImpl>("userFlowAttributes", userFlowAttributesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

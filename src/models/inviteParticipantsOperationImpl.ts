@@ -2,11 +2,9 @@ import {createInvitationParticipantInfoFromDiscriminatorValue} from './createInv
 import {CommsOperationImpl, InvitationParticipantInfoImpl} from './index';
 import {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {InviteParticipantsOperation} from './inviteParticipantsOperation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InviteParticipantsOperationImpl extends CommsOperationImpl implements InviteParticipantsOperation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The participants to invite. */
     public participants?: InvitationParticipantInfo[] | undefined;
     /**
@@ -15,7 +13,6 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
      */
     public constructor(inviteParticipantsOperationParameterValue?: InviteParticipantsOperation | undefined) {
         super(inviteParticipantsOperationParameterValue);
-        this.additionalData = inviteParticipantsOperationParameterValue?.additionalData ? inviteParticipantsOperationParameterValue?.additionalData! : {};
         const participantsArrValue: InvitationParticipantInfoImpl[] = []; inviteParticipantsOperationParameterValue.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
         this.participants = participantsArrValue;
     };
@@ -38,6 +35,5 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
         if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

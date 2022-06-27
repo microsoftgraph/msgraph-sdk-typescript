@@ -2,11 +2,9 @@ import {DeviceManagementExportJobLocalizationType} from './deviceManagementExpor
 import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
 import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceManagementExportJob extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DeviceManagementExportJob extends Entity, Partial<Parsable> {
     /** Time that the exported report expires */
     expirationDateTime?: Date | undefined;
     /** Filters applied on the report */

@@ -4,11 +4,10 @@ import {EntityImpl, InvitedUserMessageInfoImpl, UserImpl} from './index';
 import {Invitation} from './invitation';
 import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import {User} from './user';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of invitation entities. */
 export class InvitationImpl extends EntityImpl implements Invitation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The user created as part of the invitation creation. Read-Only */
     public invitedUser?: User | undefined;
     /** The display name of the user being invited. */
@@ -28,12 +27,11 @@ export class InvitationImpl extends EntityImpl implements Invitation {
     /** The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error */
     public status?: string | undefined;
     /**
-     * Instantiates a new Invitation and sets the default values.
+     * Instantiates a new invitation and sets the default values.
      * @param invitationParameterValue 
      */
     public constructor(invitationParameterValue?: Invitation | undefined) {
         super(invitationParameterValue);
-        this.additionalData = invitationParameterValue?.additionalData ? invitationParameterValue?.additionalData! : {};
         this.invitedUser = invitationParameterValue?.invitedUser instanceof UserImpl? invitationParameterValue?.invitedUser:new UserImpl(invitationParameterValue?.invitedUser);
         this.invitedUserDisplayName = invitationParameterValue?.invitedUserDisplayName;
         this.invitedUserEmailAddress = invitationParameterValue?.invitedUserEmailAddress;
@@ -95,6 +93,5 @@ export class InvitationImpl extends EntityImpl implements Invitation {
         if(this.status){
             writer.writeStringValue("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

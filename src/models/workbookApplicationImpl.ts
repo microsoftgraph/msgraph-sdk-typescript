@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {WorkbookApplication} from './workbookApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookApplicationImpl extends EntityImpl implements WorkbookApplication {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
     public calculationMode?: string | undefined;
     /**
@@ -14,7 +12,6 @@ export class WorkbookApplicationImpl extends EntityImpl implements WorkbookAppli
      */
     public constructor(workbookApplicationParameterValue?: WorkbookApplication | undefined) {
         super(workbookApplicationParameterValue);
-        this.additionalData = workbookApplicationParameterValue?.additionalData ? workbookApplicationParameterValue?.additionalData! : {};
         this.calculationMode = workbookApplicationParameterValue?.calculationMode;
     };
     /**
@@ -36,6 +33,5 @@ export class WorkbookApplicationImpl extends EntityImpl implements WorkbookAppli
         if(this.calculationMode){
             writer.writeStringValue("calculationMode", this.calculationMode);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

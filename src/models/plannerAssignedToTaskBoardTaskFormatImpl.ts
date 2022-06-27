@@ -2,12 +2,10 @@ import {createPlannerOrderHintsByAssigneeFromDiscriminatorValue} from './createP
 import {EntityImpl, PlannerOrderHintsByAssigneeImpl} from './index';
 import {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
 import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl implements PlannerAssignedToTaskBoardTaskFormat {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here. */
     public orderHintsByAssignee?: PlannerOrderHintsByAssignee | undefined;
     /** Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here. */
@@ -18,7 +16,6 @@ export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl impleme
      */
     public constructor(plannerAssignedToTaskBoardTaskFormatParameterValue?: PlannerAssignedToTaskBoardTaskFormat | undefined) {
         super(plannerAssignedToTaskBoardTaskFormatParameterValue);
-        this.additionalData = plannerAssignedToTaskBoardTaskFormatParameterValue?.additionalData ? plannerAssignedToTaskBoardTaskFormatParameterValue?.additionalData! : {};
         this.orderHintsByAssignee = plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee instanceof PlannerOrderHintsByAssigneeImpl? plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee:new PlannerOrderHintsByAssigneeImpl(plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee);
         this.unassignedOrderHint = plannerAssignedToTaskBoardTaskFormatParameterValue?.unassignedOrderHint;
     };
@@ -45,6 +42,5 @@ export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl impleme
         if(this.unassignedOrderHint){
             writer.writeStringValue("unassignedOrderHint", this.unassignedOrderHint);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

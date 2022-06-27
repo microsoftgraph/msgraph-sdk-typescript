@@ -1,21 +1,19 @@
 import {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import {DirectoryObjectImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of directoryRoleTemplate entities. */
 export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements DirectoryRoleTemplate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The description to set for the directory role. Read-only. */
     public description?: string | undefined;
     /** The display name to set for the directory role. Read-only. */
     public displayName?: string | undefined;
     /**
-     * Instantiates a new DirectoryRoleTemplate and sets the default values.
+     * Instantiates a new directoryRoleTemplate and sets the default values.
      * @param directoryRoleTemplateParameterValue 
      */
     public constructor(directoryRoleTemplateParameterValue?: DirectoryRoleTemplate | undefined) {
         super(directoryRoleTemplateParameterValue);
-        this.additionalData = directoryRoleTemplateParameterValue?.additionalData ? directoryRoleTemplateParameterValue?.additionalData! : {};
         this.description = directoryRoleTemplateParameterValue?.description;
         this.displayName = directoryRoleTemplateParameterValue?.displayName;
     };
@@ -42,6 +40,5 @@ export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements Di
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

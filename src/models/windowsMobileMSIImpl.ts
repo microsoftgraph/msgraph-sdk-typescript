@@ -1,10 +1,8 @@
 import {MobileLobAppImpl} from './index';
 import {WindowsMobileMSI} from './windowsMobileMSI';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsMobileMSIImpl extends MobileLobAppImpl implements WindowsMobileMSI {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The command line. */
     public commandLine?: string | undefined;
     /** A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature. */
@@ -19,7 +17,6 @@ export class WindowsMobileMSIImpl extends MobileLobAppImpl implements WindowsMob
      */
     public constructor(windowsMobileMSIParameterValue?: WindowsMobileMSI | undefined) {
         super(windowsMobileMSIParameterValue);
-        this.additionalData = windowsMobileMSIParameterValue?.additionalData ? windowsMobileMSIParameterValue?.additionalData! : {};
         this.commandLine = windowsMobileMSIParameterValue?.commandLine;
         this.ignoreVersionDetection = windowsMobileMSIParameterValue?.ignoreVersionDetection;
         this.productCode = windowsMobileMSIParameterValue?.productCode;
@@ -56,6 +53,5 @@ export class WindowsMobileMSIImpl extends MobileLobAppImpl implements WindowsMob
         if(this.productVersion){
             writer.writeStringValue("productVersion", this.productVersion);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

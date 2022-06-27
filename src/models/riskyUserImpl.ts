@@ -5,11 +5,10 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {RiskyUser} from './riskyUser';
 import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUserImpl extends EntityImpl implements RiskyUser {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The activity related to user risk level change */
     public history?: RiskyUserHistoryItem[] | undefined;
     /** Indicates whether the user is deleted. Possible values are: true, false. */
@@ -29,12 +28,11 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
     /** Risky user principal name. */
     public userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new RiskyUser and sets the default values.
+     * Instantiates a new riskyUser and sets the default values.
      * @param riskyUserParameterValue 
      */
     public constructor(riskyUserParameterValue?: RiskyUser | undefined) {
         super(riskyUserParameterValue);
-        this.additionalData = riskyUserParameterValue?.additionalData ? riskyUserParameterValue?.additionalData! : {};
         const historyArrValue: RiskyUserHistoryItemImpl[] = []; riskyUserParameterValue.history?.forEach(element => {historyArrValue.push(element instanceof RiskyUserHistoryItemImpl? element : new RiskyUserHistoryItemImpl(element));});
         this.history = historyArrValue;
         this.isDeleted = riskyUserParameterValue?.isDeleted;
@@ -97,6 +95,5 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

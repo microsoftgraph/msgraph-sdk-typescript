@@ -9,11 +9,9 @@ import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import {TimeOff} from './timeOff';
 import {TimeOffReason} from './timeOffReason';
 import {TimeOffRequest} from './timeOffRequest';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Schedule extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Schedule extends Entity, Partial<Parsable> {
     /** Indicates whether the schedule is enabled for the team. Required. */
     enabled?: boolean | undefined;
     /** The offerShiftRequests property */

@@ -1,12 +1,10 @@
 import {ComplianceStatus} from './complianceStatus';
 import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationUserStatusImpl extends EntityImpl implements DeviceConfigurationUserStatus {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Devices count for that user. */
     public devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */
@@ -23,7 +21,6 @@ export class DeviceConfigurationUserStatusImpl extends EntityImpl implements Dev
      */
     public constructor(deviceConfigurationUserStatusParameterValue?: DeviceConfigurationUserStatus | undefined) {
         super(deviceConfigurationUserStatusParameterValue);
-        this.additionalData = deviceConfigurationUserStatusParameterValue?.additionalData ? deviceConfigurationUserStatusParameterValue?.additionalData! : {};
         this.devicesCount = deviceConfigurationUserStatusParameterValue?.devicesCount;
         this.lastReportedDateTime = deviceConfigurationUserStatusParameterValue?.lastReportedDateTime;
         this.status = deviceConfigurationUserStatusParameterValue?.status;
@@ -65,6 +62,5 @@ export class DeviceConfigurationUserStatusImpl extends EntityImpl implements Dev
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

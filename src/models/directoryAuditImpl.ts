@@ -7,15 +7,14 @@ import {AuditActivityInitiatorImpl, EntityImpl, KeyValueImpl, TargetResourceImpl
 import {KeyValue} from './keyValue';
 import {OperationResult} from './operationResult';
 import {TargetResource} from './targetResource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     public activityDateTime?: Date | undefined;
     /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
     public activityDisplayName?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates additional details on the activity. */
     public additionalDetails?: KeyValue[] | undefined;
     /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */
@@ -35,14 +34,13 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
     /** Information about the resource that changed due to the activity. */
     public targetResources?: TargetResource[] | undefined;
     /**
-     * Instantiates a new DirectoryAudit and sets the default values.
+     * Instantiates a new directoryAudit and sets the default values.
      * @param directoryAuditParameterValue 
      */
     public constructor(directoryAuditParameterValue?: DirectoryAudit | undefined) {
         super(directoryAuditParameterValue);
         this.activityDateTime = directoryAuditParameterValue?.activityDateTime;
         this.activityDisplayName = directoryAuditParameterValue?.activityDisplayName;
-        this.additionalData = directoryAuditParameterValue?.additionalData ? directoryAuditParameterValue?.additionalData! : {};
         const additionalDetailsArrValue: KeyValueImpl[] = []; directoryAuditParameterValue.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(element instanceof KeyValueImpl? element : new KeyValueImpl(element));});
         this.additionalDetails = additionalDetailsArrValue;
         this.category = directoryAuditParameterValue?.category;
@@ -114,6 +112,5 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(element instanceof TargetResourceImpl? element : new TargetResourceImpl(element));});
             writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,11 +1,9 @@
 import {DeviceCategory} from './deviceCategory';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories. */
 export class DeviceCategoryImpl extends EntityImpl implements DeviceCategory {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Optional description for the device category. */
     public description?: string | undefined;
     /** Display name for the device category. */
@@ -16,7 +14,6 @@ export class DeviceCategoryImpl extends EntityImpl implements DeviceCategory {
      */
     public constructor(deviceCategoryParameterValue?: DeviceCategory | undefined) {
         super(deviceCategoryParameterValue);
-        this.additionalData = deviceCategoryParameterValue?.additionalData ? deviceCategoryParameterValue?.additionalData! : {};
         this.description = deviceCategoryParameterValue?.description;
         this.displayName = deviceCategoryParameterValue?.displayName;
     };
@@ -43,6 +40,5 @@ export class DeviceCategoryImpl extends EntityImpl implements DeviceCategory {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

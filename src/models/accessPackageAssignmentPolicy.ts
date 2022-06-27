@@ -7,13 +7,11 @@ import {AllowedTargetScope} from './allowedTargetScope';
 import {Entity} from './entity';
 import {ExpirationPattern} from './expirationPattern';
 import {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageAssignmentPolicy extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface AccessPackageAssignmentPolicy extends Entity, Partial<Parsable> {
     /** The access package with this policy. Read-only. Nullable. Supports $expand. */
     accessPackage?: AccessPackage | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
     allowedTargetScope?: AllowedTargetScope | undefined;
     /** Catalog of the access package containing this policy. Read-only. */

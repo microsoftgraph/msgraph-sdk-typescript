@@ -1,22 +1,20 @@
 import {ConditionalAccessSessionControlImpl} from './index';
 import {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {SigninFrequencyType} from './signinFrequencyType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements SignInFrequencySessionControl {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Possible values are: days, hours, or null if frequencyInterval is everyTime . */
     public type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
     public value?: number | undefined;
     /**
-     * Instantiates a new SignInFrequencySessionControl and sets the default values.
+     * Instantiates a new signInFrequencySessionControl and sets the default values.
      * @param signInFrequencySessionControlParameterValue 
      */
     public constructor(signInFrequencySessionControlParameterValue?: SignInFrequencySessionControl | undefined) {
         super(signInFrequencySessionControlParameterValue);
-        this.additionalData = signInFrequencySessionControlParameterValue?.additionalData ? signInFrequencySessionControlParameterValue?.additionalData! : {};
         this.type = signInFrequencySessionControlParameterValue?.type;
         this.value = signInFrequencySessionControlParameterValue?.value;
     };
@@ -43,6 +41,5 @@ export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionC
         if(this.value){
             writer.writeNumberValue("value", this.value);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

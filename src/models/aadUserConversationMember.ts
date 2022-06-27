@@ -1,10 +1,8 @@
 import {ConversationMember} from './conversationMember';
 import {User} from './user';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AadUserConversationMember extends Partial<AdditionalDataHolder>, ConversationMember, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AadUserConversationMember extends ConversationMember, Partial<Parsable> {
     /** The email address of the user. */
     email?: string | undefined;
     /** TenantId which the Azure AD user belongs to. */

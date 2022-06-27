@@ -2,11 +2,9 @@ import {createOpenShiftItemFromDiscriminatorValue} from './createOpenShiftItemFr
 import {ChangeTrackedEntityImpl, OpenShiftItemImpl} from './index';
 import {OpenShift} from './openShift';
 import {OpenShiftItem} from './openShiftItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** An unpublished open shift. */
     public draftOpenShift?: OpenShiftItem | undefined;
     /** ID for the scheduling group that the open shift belongs to. */
@@ -19,7 +17,6 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
      */
     public constructor(openShiftParameterValue?: OpenShift | undefined) {
         super(openShiftParameterValue);
-        this.additionalData = openShiftParameterValue?.additionalData ? openShiftParameterValue?.additionalData! : {};
         this.draftOpenShift = openShiftParameterValue?.draftOpenShift instanceof OpenShiftItemImpl? openShiftParameterValue?.draftOpenShift:new OpenShiftItemImpl(openShiftParameterValue?.draftOpenShift);
         this.schedulingGroupId = openShiftParameterValue?.schedulingGroupId;
         this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift instanceof OpenShiftItemImpl? openShiftParameterValue?.sharedOpenShift:new OpenShiftItemImpl(openShiftParameterValue?.sharedOpenShift);
@@ -51,6 +48,5 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
         if(this.sharedOpenShift){
             writer.writeObjectValue<OpenShiftItemImpl>("sharedOpenShift", new OpenShiftItemImpl(this.sharedOpenShift));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

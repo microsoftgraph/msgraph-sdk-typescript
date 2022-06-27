@@ -1,10 +1,8 @@
 import {DeviceConfigurationImpl} from './index';
 import {MacOSCustomConfiguration} from './macOSCustomConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MacOSCustomConfigurationImpl extends DeviceConfigurationImpl implements MacOSCustomConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Payload. (UTF8 encoded byte array) */
     public payload?: string | undefined;
     /** Payload file name (.mobileconfig */
@@ -17,7 +15,6 @@ export class MacOSCustomConfigurationImpl extends DeviceConfigurationImpl implem
      */
     public constructor(macOSCustomConfigurationParameterValue?: MacOSCustomConfiguration | undefined) {
         super(macOSCustomConfigurationParameterValue);
-        this.additionalData = macOSCustomConfigurationParameterValue?.additionalData ? macOSCustomConfigurationParameterValue?.additionalData! : {};
         this.payload = macOSCustomConfigurationParameterValue?.payload;
         this.payloadFileName = macOSCustomConfigurationParameterValue?.payloadFileName;
         this.payloadName = macOSCustomConfigurationParameterValue?.payloadName;
@@ -49,6 +46,5 @@ export class MacOSCustomConfigurationImpl extends DeviceConfigurationImpl implem
         if(this.payloadName){
             writer.writeStringValue("payloadName", this.payloadName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -13,11 +13,9 @@ import {MobileAppCategory} from './mobileAppCategory';
 import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import {VppToken} from './vppToken';
 import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DeviceAppManagement extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DeviceAppManagement extends Entity, Partial<Parsable> {
     /** Android managed app policies. */
     androidManagedAppProtections?: AndroidManagedAppProtection[] | undefined;
     /** Default managed app policies. */

@@ -3,12 +3,10 @@ import {DeviceManagementExportJobLocalizationType} from './deviceManagementExpor
 import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
 import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Entity representing a job to export a report */
 export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceManagementExportJob {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Time that the exported report expires */
     public expirationDateTime?: Date | undefined;
     /** Filters applied on the report */
@@ -35,7 +33,6 @@ export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceM
      */
     public constructor(deviceManagementExportJobParameterValue?: DeviceManagementExportJob | undefined) {
         super(deviceManagementExportJobParameterValue);
-        this.additionalData = deviceManagementExportJobParameterValue?.additionalData ? deviceManagementExportJobParameterValue?.additionalData! : {};
         this.expirationDateTime = deviceManagementExportJobParameterValue?.expirationDateTime;
         this.filter = deviceManagementExportJobParameterValue?.filter;
         this.format = deviceManagementExportJobParameterValue?.format;
@@ -102,6 +99,5 @@ export class DeviceManagementExportJobImpl extends EntityImpl implements DeviceM
         if(this.url){
             writer.writeStringValue("url", this.url);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

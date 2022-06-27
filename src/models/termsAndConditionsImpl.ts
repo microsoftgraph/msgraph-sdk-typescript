@@ -4,7 +4,7 @@ import {EntityImpl, TermsAndConditionsAcceptanceStatusImpl, TermsAndConditionsAs
 import {TermsAndConditions} from './termsAndConditions';
 import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
 import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A termsAndConditions entity represents the metadata and contents of a given Terms and Conditions (T&C) policy. T&C policies’ contents are presented to users upon their first attempt to enroll into Intune and subsequently upon edits where an administrator has required re-acceptance. They enable administrators to communicate the provisions to which a user must agree in order to have devices enrolled into Intune. */
 export class TermsAndConditionsImpl extends EntityImpl implements TermsAndConditions {
@@ -12,8 +12,6 @@ export class TermsAndConditionsImpl extends EntityImpl implements TermsAndCondit
     public acceptanceStatement?: string | undefined;
     /** The list of acceptance statuses for this T&C policy. */
     public acceptanceStatuses?: TermsAndConditionsAcceptanceStatus[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The list of assignments for this T&C policy. */
     public assignments?: TermsAndConditionsAssignment[] | undefined;
     /** Administrator-supplied body text of the terms and conditions, typically the terms themselves. This is shown to the user on prompts to accept the T&C policy. */
@@ -39,7 +37,6 @@ export class TermsAndConditionsImpl extends EntityImpl implements TermsAndCondit
         this.acceptanceStatement = termsAndConditionsParameterValue?.acceptanceStatement;
         const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; termsAndConditionsParameterValue.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
         this.acceptanceStatuses = acceptanceStatusesArrValue;
-        this.additionalData = termsAndConditionsParameterValue?.additionalData ? termsAndConditionsParameterValue?.additionalData! : {};
         const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; termsAndConditionsParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.bodyText = termsAndConditionsParameterValue?.bodyText;
@@ -105,6 +102,5 @@ export class TermsAndConditionsImpl extends EntityImpl implements TermsAndCondit
         if(this.version){
             writer.writeNumberValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -8,12 +8,10 @@ import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {SharedInsight} from './sharedInsight';
 import {SharingDetail} from './sharingDetail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class SharedInsightImpl extends EntityImpl implements SharedInsight {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Details about the shared item. Read only. */
     public lastShared?: SharingDetail | undefined;
     /** The lastSharedMethod property */
@@ -32,7 +30,6 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public constructor(sharedInsightParameterValue?: SharedInsight | undefined) {
         super(sharedInsightParameterValue);
-        this.additionalData = sharedInsightParameterValue?.additionalData ? sharedInsightParameterValue?.additionalData! : {};
         this.lastShared = sharedInsightParameterValue?.lastShared instanceof SharingDetailImpl? sharedInsightParameterValue?.lastShared:new SharingDetailImpl(sharedInsightParameterValue?.lastShared);
         this.lastSharedMethod = sharedInsightParameterValue?.lastSharedMethod instanceof EntityImpl? sharedInsightParameterValue?.lastSharedMethod:new EntityImpl(sharedInsightParameterValue?.lastSharedMethod);
         this.resource = sharedInsightParameterValue?.resource instanceof EntityImpl? sharedInsightParameterValue?.resource:new EntityImpl(sharedInsightParameterValue?.resource);
@@ -80,6 +77,5 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
         if(this.sharingHistory && this.sharingHistory.length != 0){        const sharingHistoryArrValue: SharingDetailImpl[] = []; this.sharingHistory?.forEach(element => {sharingHistoryArrValue.push(element instanceof SharingDetailImpl? element : new SharingDetailImpl(element));});
             writer.writeCollectionOfObjectValues<SharingDetailImpl>("sharingHistory", sharingHistoryArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

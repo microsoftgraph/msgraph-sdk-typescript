@@ -1,10 +1,8 @@
 import {UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {UnifiedRoleManagementPolicyExpirationRule} from './unifiedRoleManagementPolicyExpirationRule';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyExpirationRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyExpirationRule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether expiration is required or if it's a permanently active assignment or eligibility. */
     public isExpirationRequired?: boolean | undefined;
     /** The maximum duration allowed for eligibility or assignment which is not permanent. Required when isExpirationRequired is true. */
@@ -15,7 +13,6 @@ export class UnifiedRoleManagementPolicyExpirationRuleImpl extends UnifiedRoleMa
      */
     public constructor(unifiedRoleManagementPolicyExpirationRuleParameterValue?: UnifiedRoleManagementPolicyExpirationRule | undefined) {
         super(unifiedRoleManagementPolicyExpirationRuleParameterValue);
-        this.additionalData = unifiedRoleManagementPolicyExpirationRuleParameterValue?.additionalData ? unifiedRoleManagementPolicyExpirationRuleParameterValue?.additionalData! : {};
         this.isExpirationRequired = unifiedRoleManagementPolicyExpirationRuleParameterValue?.isExpirationRequired;
         this.maximumDuration = unifiedRoleManagementPolicyExpirationRuleParameterValue?.maximumDuration;
     };
@@ -42,6 +39,5 @@ export class UnifiedRoleManagementPolicyExpirationRuleImpl extends UnifiedRoleMa
         if(this.maximumDuration){
             writer.writeDurationValue("maximumDuration", this.maximumDuration);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

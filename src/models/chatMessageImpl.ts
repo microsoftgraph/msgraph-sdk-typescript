@@ -21,12 +21,10 @@ import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscrimi
 import {EventMessageDetail} from './eventMessageDetail';
 import {ChannelIdentityImpl, ChatMessageAttachmentImpl, ChatMessageFromIdentitySetImpl, ChatMessageHostedContentImpl, ChatMessageMentionImpl, ChatMessagePolicyViolationImpl, ChatMessageReactionImpl, EntityImpl, EventMessageDetailImpl, ItemBodyImpl} from './index';
 import {ItemBody} from './itemBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class ChatMessageImpl extends EntityImpl implements ChatMessage {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** References to attached objects like files, tabs, meetings etc. */
     public attachments?: ChatMessageAttachment[] | undefined;
     /** The body property */
@@ -79,7 +77,6 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public constructor(chatMessageParameterValue?: ChatMessage | undefined) {
         super(chatMessageParameterValue);
-        this.additionalData = chatMessageParameterValue?.additionalData ? chatMessageParameterValue?.additionalData! : {};
         const attachmentsArrValue: ChatMessageAttachmentImpl[] = []; chatMessageParameterValue.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ChatMessageAttachmentImpl? element : new ChatMessageAttachmentImpl(element));});
         this.attachments = attachmentsArrValue;
         this.body = chatMessageParameterValue?.body instanceof ItemBodyImpl? chatMessageParameterValue?.body:new ItemBodyImpl(chatMessageParameterValue?.body);
@@ -216,6 +213,5 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

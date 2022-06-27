@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {ManagedDevice} from './managedDevice';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DetectedApp extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DetectedApp extends Entity, Partial<Parsable> {
     /** The number of devices that have installed this application */
     deviceCount?: number | undefined;
     /** Name of the discovered application. Read-only */

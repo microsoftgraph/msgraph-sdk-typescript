@@ -2,12 +2,10 @@ import {Calendar} from './calendar';
 import {CalendarGroup} from './calendarGroup';
 import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
 import {CalendarImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     public calendars?: Calendar[] | undefined;
     /** Identifies the version of the calendar group. Every time the calendar group is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
@@ -22,7 +20,6 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
      */
     public constructor(calendarGroupParameterValue?: CalendarGroup | undefined) {
         super(calendarGroupParameterValue);
-        this.additionalData = calendarGroupParameterValue?.additionalData ? calendarGroupParameterValue?.additionalData! : {};
         const calendarsArrValue: CalendarImpl[] = []; calendarGroupParameterValue.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
         this.calendars = calendarsArrValue;
         this.changeKey = calendarGroupParameterValue?.changeKey;
@@ -60,6 +57,5 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

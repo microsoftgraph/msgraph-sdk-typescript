@@ -2,12 +2,10 @@ import {Conversation} from './conversation';
 import {ConversationThread} from './conversationThread';
 import {createConversationThreadFromDiscriminatorValue} from './createConversationThreadFromDiscriminatorValue';
 import {ConversationThreadImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Casts the previous resource to group. */
 export class ConversationImpl extends EntityImpl implements Conversation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */
     public hasAttachments?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge). */
@@ -26,7 +24,6 @@ export class ConversationImpl extends EntityImpl implements Conversation {
      */
     public constructor(conversationParameterValue?: Conversation | undefined) {
         super(conversationParameterValue);
-        this.additionalData = conversationParameterValue?.additionalData ? conversationParameterValue?.additionalData! : {};
         this.hasAttachments = conversationParameterValue?.hasAttachments;
         this.lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime;
         this.preview = conversationParameterValue?.preview;
@@ -74,6 +71,5 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         if(this.uniqueSenders){
             writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

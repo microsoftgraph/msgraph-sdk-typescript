@@ -3,18 +3,16 @@ import {BookingStaffRole} from './bookingStaffRole';
 import {BookingWorkHours} from './bookingWorkHours';
 import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
 import {BookingStaffMemberBaseImpl, BookingWorkHoursImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implements BookingStaffMember {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking. */
     public availabilityIsAffectedByPersonalCalendar?: boolean | undefined;
     /** The name of the staff member, as displayed to customers. Required. */
     public displayName?: string | undefined;
     /** The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required. */
     public emailAddress?: string | undefined;
-    /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required. */
+    /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required. */
     public role?: BookingStaffRole | undefined;
     /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
     public timeZone?: string | undefined;
@@ -28,7 +26,6 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
      */
     public constructor(bookingStaffMemberParameterValue?: BookingStaffMember | undefined) {
         super(bookingStaffMemberParameterValue);
-        this.additionalData = bookingStaffMemberParameterValue?.additionalData ? bookingStaffMemberParameterValue?.additionalData! : {};
         this.availabilityIsAffectedByPersonalCalendar = bookingStaffMemberParameterValue?.availabilityIsAffectedByPersonalCalendar;
         this.displayName = bookingStaffMemberParameterValue?.displayName;
         this.emailAddress = bookingStaffMemberParameterValue?.emailAddress;
@@ -81,6 +78,5 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = []; this.workingHours?.forEach(element => {workingHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("workingHours", workingHoursArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

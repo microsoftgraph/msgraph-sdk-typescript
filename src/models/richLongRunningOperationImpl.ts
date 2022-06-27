@@ -2,11 +2,9 @@ import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDi
 import {LongRunningOperationImpl, PublicErrorImpl} from './index';
 import {PublicError} from './publicError';
 import {RichLongRunningOperation} from './richLongRunningOperation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RichLongRunningOperationImpl extends LongRunningOperationImpl implements RichLongRunningOperation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Error due to which the operation failed. */
     public error_escaped?: PublicError | undefined;
     /** A value between 0 and 100 that indicates the progress of the operation. */
@@ -21,7 +19,6 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
      */
     public constructor(richLongRunningOperationParameterValue?: RichLongRunningOperation | undefined) {
         super(richLongRunningOperationParameterValue);
-        this.additionalData = richLongRunningOperationParameterValue?.additionalData ? richLongRunningOperationParameterValue?.additionalData! : {};
         this.error_escaped = richLongRunningOperationParameterValue?.error_escaped instanceof PublicErrorImpl? richLongRunningOperationParameterValue?.error_escaped:new PublicErrorImpl(richLongRunningOperationParameterValue?.error_escaped);
         this.percentageComplete = richLongRunningOperationParameterValue?.percentageComplete;
         this.resourceId = richLongRunningOperationParameterValue?.resourceId;
@@ -58,6 +55,5 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
         if(this.type){
             writer.writeStringValue("type", this.type);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

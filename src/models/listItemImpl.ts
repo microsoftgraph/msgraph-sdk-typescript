@@ -12,12 +12,10 @@ import {ItemAnalytics} from './itemAnalytics';
 import {ListItem} from './listItem';
 import {ListItemVersion} from './listItemVersion';
 import {SharepointIds} from './sharepointIds';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class ListItemImpl extends BaseItemImpl implements ListItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Analytics about the view activities that took place on this item. */
     public analytics?: ItemAnalytics | undefined;
     /** The content type of this list item */
@@ -36,7 +34,6 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public constructor(listItemParameterValue?: ListItem | undefined) {
         super(listItemParameterValue);
-        this.additionalData = listItemParameterValue?.additionalData ? listItemParameterValue?.additionalData! : {};
         this.analytics = listItemParameterValue?.analytics instanceof ItemAnalyticsImpl? listItemParameterValue?.analytics:new ItemAnalyticsImpl(listItemParameterValue?.analytics);
         this.contentType = listItemParameterValue?.contentType instanceof ContentTypeInfoImpl? listItemParameterValue?.contentType:new ContentTypeInfoImpl(listItemParameterValue?.contentType);
         this.driveItem = listItemParameterValue?.driveItem instanceof DriveItemImpl? listItemParameterValue?.driveItem:new DriveItemImpl(listItemParameterValue?.driveItem);
@@ -84,6 +81,5 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
         if(this.versions && this.versions.length != 0){        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
             writer.writeCollectionOfObjectValues<ListItemVersionImpl>("versions", versionsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

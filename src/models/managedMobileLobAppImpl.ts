@@ -2,11 +2,9 @@ import {createMobileAppContentFromDiscriminatorValue} from './createMobileAppCon
 import {ManagedAppImpl, MobileAppContentImpl} from './index';
 import {ManagedMobileLobApp} from './managedMobileLobApp';
 import {MobileAppContent} from './mobileAppContent';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMobileLobApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The internal committed content version. */
     public committedContentVersion?: string | undefined;
     /** The list of content versions for this app. */
@@ -21,7 +19,6 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
      */
     public constructor(managedMobileLobAppParameterValue?: ManagedMobileLobApp | undefined) {
         super(managedMobileLobAppParameterValue);
-        this.additionalData = managedMobileLobAppParameterValue?.additionalData ? managedMobileLobAppParameterValue?.additionalData! : {};
         this.committedContentVersion = managedMobileLobAppParameterValue?.committedContentVersion;
         const contentVersionsArrValue: MobileAppContentImpl[] = []; managedMobileLobAppParameterValue.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
         this.contentVersions = contentVersionsArrValue;
@@ -59,6 +56,5 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

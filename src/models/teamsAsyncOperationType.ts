@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Casts the previous resource to group. */
 export enum TeamsAsyncOperationType {
     Invalid = "invalid",
     CloneTeam = "cloneTeam",
@@ -6,6 +6,4 @@ export enum TeamsAsyncOperationType {
     UnarchiveTeam = "unarchiveTeam",
     CreateTeam = "createTeam",
     UnknownFutureValue = "unknownFutureValue",
-    TeamifyGroup = "teamifyGroup",
-    CreateChannel = "createChannel",
 }

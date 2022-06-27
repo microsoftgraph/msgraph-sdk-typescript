@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {ManagedAppPolicy} from './managedAppPolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
 export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The date and time the policy was created. */
     public createdDateTime?: Date | undefined;
     /** The policy's description. */
@@ -22,7 +20,6 @@ export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy
      */
     public constructor(managedAppPolicyParameterValue?: ManagedAppPolicy | undefined) {
         super(managedAppPolicyParameterValue);
-        this.additionalData = managedAppPolicyParameterValue?.additionalData ? managedAppPolicyParameterValue?.additionalData! : {};
         this.createdDateTime = managedAppPolicyParameterValue?.createdDateTime;
         this.description = managedAppPolicyParameterValue?.description;
         this.displayName = managedAppPolicyParameterValue?.displayName;
@@ -64,6 +61,5 @@ export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy
         if(this.version){
             writer.writeStringValue("version", this.version);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

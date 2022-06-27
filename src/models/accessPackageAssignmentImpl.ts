@@ -9,14 +9,12 @@ import {createAccessPackageSubjectFromDiscriminatorValue} from './createAccessPa
 import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
 import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {AccessPackageAssignmentPolicyImpl, AccessPackageImpl, AccessPackageSubjectImpl, EntitlementManagementScheduleImpl, EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPackageAssignment {
     /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
     public accessPackage?: AccessPackage | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
     public assignmentPolicy?: AccessPackageAssignmentPolicy | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -36,7 +34,6 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
     public constructor(accessPackageAssignmentParameterValue?: AccessPackageAssignment | undefined) {
         super(accessPackageAssignmentParameterValue);
         this.accessPackage = accessPackageAssignmentParameterValue?.accessPackage instanceof AccessPackageImpl? accessPackageAssignmentParameterValue?.accessPackage:new AccessPackageImpl(accessPackageAssignmentParameterValue?.accessPackage);
-        this.additionalData = accessPackageAssignmentParameterValue?.additionalData ? accessPackageAssignmentParameterValue?.additionalData! : {};
         this.assignmentPolicy = accessPackageAssignmentParameterValue?.assignmentPolicy instanceof AccessPackageAssignmentPolicyImpl? accessPackageAssignmentParameterValue?.assignmentPolicy:new AccessPackageAssignmentPolicyImpl(accessPackageAssignmentParameterValue?.assignmentPolicy);
         this.expiredDateTime = accessPackageAssignmentParameterValue?.expiredDateTime;
         this.schedule = accessPackageAssignmentParameterValue?.schedule instanceof EntitlementManagementScheduleImpl? accessPackageAssignmentParameterValue?.schedule:new EntitlementManagementScheduleImpl(accessPackageAssignmentParameterValue?.schedule);
@@ -87,6 +84,5 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
         if(this.target){
             writer.writeObjectValue<AccessPackageSubjectImpl>("target", new AccessPackageSubjectImpl(this.target));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

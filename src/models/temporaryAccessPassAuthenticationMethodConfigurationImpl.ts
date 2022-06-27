@@ -2,22 +2,20 @@ import {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAuthenticationMethodTargetFromDiscriminatorValue';
 import {AuthenticationMethodConfigurationImpl, AuthenticationMethodTargetImpl} from './index';
 import {TemporaryAccessPassAuthenticationMethodConfiguration} from './temporaryAccessPassAuthenticationMethodConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements TemporaryAccessPassAuthenticationMethodConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
-    /** Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters. */
+    /** Default length, in characters, of a temporaryAccessPass, between 8 and 48 characters. */
     public defaultLength?: number | undefined;
-    /** Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */
+    /** Default lifetime, in minutes, for a temporaryAccessPass. Value can be between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */
     public defaultLifetimeInMinutes?: number | undefined;
     /** A collection of users or groups who are enabled to use the authentication method. */
     public includeTargets?: AuthenticationMethodTarget[] | undefined;
-    /** If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable. */
+    /** If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or multiple time use. */
     public isUsableOnce?: boolean | undefined;
-    /** Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
+    /** Maximum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
     public maximumLifetimeInMinutes?: number | undefined;
-    /** Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
+    /** Minimum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
     public minimumLifetimeInMinutes?: number | undefined;
     /**
      * Instantiates a new TemporaryAccessPassAuthenticationMethodConfiguration and sets the default values.
@@ -25,7 +23,6 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
      */
     public constructor(temporaryAccessPassAuthenticationMethodConfigurationParameterValue?: TemporaryAccessPassAuthenticationMethodConfiguration | undefined) {
         super(temporaryAccessPassAuthenticationMethodConfigurationParameterValue);
-        this.additionalData = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.additionalData ? temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.additionalData! : {};
         this.defaultLength = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLength;
         this.defaultLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLifetimeInMinutes;
         const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; temporaryAccessPassAuthenticationMethodConfigurationParameterValue.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
@@ -73,6 +70,5 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         if(this.minimumLifetimeInMinutes){
             writer.writeNumberValue("minimumLifetimeInMinutes", this.minimumLifetimeInMinutes);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

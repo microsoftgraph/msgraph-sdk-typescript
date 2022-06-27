@@ -4,11 +4,9 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {BookingCustomerBaseImpl, PhoneImpl, PhysicalAddressImpl} from './index';
 import {Phone} from './phone';
 import {PhysicalAddress} from './physicalAddress';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingCustomerImpl extends BookingCustomerBaseImpl implements BookingCustomer {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Addresses associated with the customer, including home, business and other addresses. */
     public addresses?: PhysicalAddress[] | undefined;
     /** The name of the customer. */
@@ -23,7 +21,6 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
      */
     public constructor(bookingCustomerParameterValue?: BookingCustomer | undefined) {
         super(bookingCustomerParameterValue);
-        this.additionalData = bookingCustomerParameterValue?.additionalData ? bookingCustomerParameterValue?.additionalData! : {};
         const addressesArrValue: PhysicalAddressImpl[] = []; bookingCustomerParameterValue.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalAddressImpl? element : new PhysicalAddressImpl(element));});
         this.addresses = addressesArrValue;
         this.displayName = bookingCustomerParameterValue?.displayName;
@@ -62,6 +59,5 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

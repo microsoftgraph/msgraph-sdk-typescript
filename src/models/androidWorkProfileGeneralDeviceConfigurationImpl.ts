@@ -3,11 +3,9 @@ import {AndroidWorkProfileDefaultAppPermissionPolicyType} from './androidWorkPro
 import {AndroidWorkProfileGeneralDeviceConfiguration} from './androidWorkProfileGeneralDeviceConfiguration';
 import {AndroidWorkProfileRequiredPasswordType} from './androidWorkProfileRequiredPasswordType';
 import {DeviceConfigurationImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidWorkProfileGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl implements AndroidWorkProfileGeneralDeviceConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to block fingerprint unlock. */
     public passwordBlockFingerprintUnlock?: boolean | undefined;
     /** Indicates whether or not to block Smart Lock and other trust agents. */
@@ -82,7 +80,6 @@ export class AndroidWorkProfileGeneralDeviceConfigurationImpl extends DeviceConf
      */
     public constructor(androidWorkProfileGeneralDeviceConfigurationParameterValue?: AndroidWorkProfileGeneralDeviceConfiguration | undefined) {
         super(androidWorkProfileGeneralDeviceConfigurationParameterValue);
-        this.additionalData = androidWorkProfileGeneralDeviceConfigurationParameterValue?.additionalData ? androidWorkProfileGeneralDeviceConfigurationParameterValue?.additionalData! : {};
         this.passwordBlockFingerprintUnlock = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordBlockFingerprintUnlock;
         this.passwordBlockTrustAgents = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordBlockTrustAgents;
         this.passwordExpirationDays = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordExpirationDays;
@@ -269,6 +266,5 @@ export class AndroidWorkProfileGeneralDeviceConfigurationImpl extends DeviceConf
         if(this.workProfileRequirePassword){
             writer.writeBooleanValue("workProfileRequirePassword", this.workProfileRequirePassword);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

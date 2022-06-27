@@ -5,12 +5,10 @@ import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAs
 import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
 import {EntityImpl, IdentityUserFlowAttributeImpl, UserAttributeValuesItemImpl} from './index';
 import {UserAttributeValuesItem} from './userAttributeValuesItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implements IdentityUserFlowAttributeAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The display name of the identityUserFlowAttribute within a user flow. */
     public displayName?: string | undefined;
     /** Determines whether the identityUserFlowAttribute is optional. true means the user doesn't have to provide a value. false means the user cannot complete sign-up without providing a value. */
@@ -29,7 +27,6 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
      */
     public constructor(identityUserFlowAttributeAssignmentParameterValue?: IdentityUserFlowAttributeAssignment | undefined) {
         super(identityUserFlowAttributeAssignmentParameterValue);
-        this.additionalData = identityUserFlowAttributeAssignmentParameterValue?.additionalData ? identityUserFlowAttributeAssignmentParameterValue?.additionalData! : {};
         this.displayName = identityUserFlowAttributeAssignmentParameterValue?.displayName;
         this.isOptional = identityUserFlowAttributeAssignmentParameterValue?.isOptional;
         this.requiresVerification = identityUserFlowAttributeAssignmentParameterValue?.requiresVerification;
@@ -77,6 +74,5 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         if(this.userInputType){
             writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

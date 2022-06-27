@@ -19,13 +19,12 @@ import {EducationRubric} from './educationRubric';
 import {EducationSubmission} from './educationSubmission';
 import {IdentitySet} from './identitySet';
 import {EducationAssignmentGradeTypeImpl, EducationAssignmentRecipientImpl, EducationAssignmentResourceImpl, EducationCategoryImpl, EducationItemBodyImpl, EducationRubricImpl, EducationSubmissionImpl, EntityImpl, IdentitySetImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentImpl extends EntityImpl implements EducationAssignment {
     /** Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen. */
     public addedStudentAction?: EducationAddedStudentAction | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none. */
     public addToCalendarAction?: EducationAddToCalendarOptions | undefined;
     /** Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true. */
@@ -75,13 +74,12 @@ export class EducationAssignmentImpl extends EntityImpl implements EducationAssi
     /** The deep link URL for the given assignment. */
     public webUrl?: string | undefined;
     /**
-     * Instantiates a new EducationAssignment and sets the default values.
+     * Instantiates a new educationAssignment and sets the default values.
      * @param educationAssignmentParameterValue 
      */
     public constructor(educationAssignmentParameterValue?: EducationAssignment | undefined) {
         super(educationAssignmentParameterValue);
         this.addedStudentAction = educationAssignmentParameterValue?.addedStudentAction;
-        this.additionalData = educationAssignmentParameterValue?.additionalData ? educationAssignmentParameterValue?.additionalData! : {};
         this.addToCalendarAction = educationAssignmentParameterValue?.addToCalendarAction;
         this.allowLateSubmissions = educationAssignmentParameterValue?.allowLateSubmissions;
         this.allowStudentsToAddResourcesToSubmission = educationAssignmentParameterValue?.allowStudentsToAddResourcesToSubmission;
@@ -225,6 +223,5 @@ export class EducationAssignmentImpl extends EntityImpl implements EducationAssi
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,11 +2,9 @@ import {createOmaSettingFromDiscriminatorValue} from './createOmaSettingFromDisc
 import {DeviceConfigurationImpl, OmaSettingImpl} from './index';
 import {OmaSetting} from './omaSetting';
 import {WindowsPhone81CustomConfiguration} from './windowsPhone81CustomConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsPhone81CustomConfigurationImpl extends DeviceConfigurationImpl implements WindowsPhone81CustomConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** OMA settings. This collection can contain a maximum of 1000 elements. */
     public omaSettings?: OmaSetting[] | undefined;
     /**
@@ -15,7 +13,6 @@ export class WindowsPhone81CustomConfigurationImpl extends DeviceConfigurationIm
      */
     public constructor(windowsPhone81CustomConfigurationParameterValue?: WindowsPhone81CustomConfiguration | undefined) {
         super(windowsPhone81CustomConfigurationParameterValue);
-        this.additionalData = windowsPhone81CustomConfigurationParameterValue?.additionalData ? windowsPhone81CustomConfigurationParameterValue?.additionalData! : {};
         const omaSettingsArrValue: OmaSettingImpl[] = []; windowsPhone81CustomConfigurationParameterValue.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
         this.omaSettings = omaSettingsArrValue;
     };
@@ -38,6 +35,5 @@ export class WindowsPhone81CustomConfigurationImpl extends DeviceConfigurationIm
         if(this.omaSettings && this.omaSettings.length != 0){        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
             writer.writeCollectionOfObjectValues<OmaSettingImpl>("omaSettings", omaSettingsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

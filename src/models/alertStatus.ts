@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the security singleton. */
 export enum AlertStatus {
     Unknown = "unknown",
     NewAlert = "newAlert",

@@ -15,15 +15,13 @@ import {ResourceSpecificPermission} from './resourceSpecificPermission';
 import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ServicePrincipal extends Partial<AdditionalDataHolder>, DirectoryObject, Partial<Parsable> {
+export interface ServicePrincipal extends DirectoryObject, Partial<Parsable> {
     /** true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in). */
     accountEnabled?: boolean | undefined;
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on. */
     addIns?: AddIn[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith). */
     alternativeNames?: string[] | undefined;
     /** The description exposed by the associated application. */

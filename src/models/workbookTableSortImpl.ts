@@ -2,12 +2,10 @@ import {createWorkbookSortFieldFromDiscriminatorValue} from './createWorkbookSor
 import {EntityImpl, WorkbookSortFieldImpl} from './index';
 import {WorkbookSortField} from './workbookSortField';
 import {WorkbookTableSort} from './workbookTableSort';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSort {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the current conditions used to last sort the table. Read-only. */
     public fields?: WorkbookSortField[] | undefined;
     /** Represents whether the casing impacted the last sort of the table. Read-only. */
@@ -20,7 +18,6 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
      */
     public constructor(workbookTableSortParameterValue?: WorkbookTableSort | undefined) {
         super(workbookTableSortParameterValue);
-        this.additionalData = workbookTableSortParameterValue?.additionalData ? workbookTableSortParameterValue?.additionalData! : {};
         const fieldsArrValue: WorkbookSortFieldImpl[] = []; workbookTableSortParameterValue.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
         this.fields = fieldsArrValue;
         this.matchCase = workbookTableSortParameterValue?.matchCase;
@@ -53,6 +50,5 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
         if(this.method){
             writer.writeStringValue("method", this.method);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

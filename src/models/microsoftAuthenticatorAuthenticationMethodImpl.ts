@@ -2,11 +2,9 @@ import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminato
 import {Device} from './device';
 import {AuthenticationMethodImpl, DeviceImpl} from './index';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethodImpl extends AuthenticationMethodImpl implements MicrosoftAuthenticatorAuthenticationMethod {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
     public createdDateTime?: Date | undefined;
     /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In. */
@@ -23,7 +21,6 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodParameterValue?: MicrosoftAuthenticatorAuthenticationMethod | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodParameterValue);
-        this.additionalData = microsoftAuthenticatorAuthenticationMethodParameterValue?.additionalData ? microsoftAuthenticatorAuthenticationMethodParameterValue?.additionalData! : {};
         this.createdDateTime = microsoftAuthenticatorAuthenticationMethodParameterValue?.createdDateTime;
         this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device instanceof DeviceImpl? microsoftAuthenticatorAuthenticationMethodParameterValue?.device:new DeviceImpl(microsoftAuthenticatorAuthenticationMethodParameterValue?.device);
         this.deviceTag = microsoftAuthenticatorAuthenticationMethodParameterValue?.deviceTag;
@@ -65,6 +62,5 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
         if(this.phoneAppVersion){
             writer.writeStringValue("phoneAppVersion", this.phoneAppVersion);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

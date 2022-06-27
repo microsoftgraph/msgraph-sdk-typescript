@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum ResponseType {
     None = "none",
     Organizer = "organizer",

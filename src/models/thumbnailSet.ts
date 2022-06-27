@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {Thumbnail} from './thumbnail';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ThumbnailSet extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ThumbnailSet extends Entity, Partial<Parsable> {
     /** A 1920x1920 scaled thumbnail. */
     large?: Thumbnail | undefined;
     /** A 176x176 scaled thumbnail. */

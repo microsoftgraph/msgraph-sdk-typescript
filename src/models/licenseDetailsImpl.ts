@@ -2,11 +2,10 @@ import {createServicePlanInfoFromDiscriminatorValue} from './createServicePlanIn
 import {EntityImpl, ServicePlanInfoImpl} from './index';
 import {LicenseDetails} from './licenseDetails';
 import {ServicePlanInfo} from './servicePlanInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of application entities. */
 export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Information about the service plans assigned with the license. Read-only, Not nullable */
     public servicePlans?: ServicePlanInfo[] | undefined;
     /** Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only */
@@ -14,12 +13,11 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
     /** Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only */
     public skuPartNumber?: string | undefined;
     /**
-     * Instantiates a new LicenseDetails and sets the default values.
+     * Instantiates a new licenseDetails and sets the default values.
      * @param licenseDetailsParameterValue 
      */
     public constructor(licenseDetailsParameterValue?: LicenseDetails | undefined) {
         super(licenseDetailsParameterValue);
-        this.additionalData = licenseDetailsParameterValue?.additionalData ? licenseDetailsParameterValue?.additionalData! : {};
         const servicePlansArrValue: ServicePlanInfoImpl[] = []; licenseDetailsParameterValue.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
         this.servicePlans = servicePlansArrValue;
         this.skuId = licenseDetailsParameterValue?.skuId;
@@ -52,6 +50,5 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
         if(this.skuPartNumber){
             writer.writeStringValue("skuPartNumber", this.skuPartNumber);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

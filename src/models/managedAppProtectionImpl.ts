@@ -4,11 +4,9 @@ import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedAppProtection} from './managedAppProtection';
 import {ManagedBrowserType} from './managedBrowserType';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements ManagedAppProtection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Data storage locations where a user may store managed data. */
     public allowedDataStorageLocations?: string[] | undefined;
     /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
@@ -69,7 +67,6 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
      */
     public constructor(managedAppProtectionParameterValue?: ManagedAppProtection | undefined) {
         super(managedAppProtectionParameterValue);
-        this.additionalData = managedAppProtectionParameterValue?.additionalData ? managedAppProtectionParameterValue?.additionalData! : {};
         this.allowedDataStorageLocations = managedAppProtectionParameterValue?.allowedDataStorageLocations;
         this.allowedInboundDataTransferSources = managedAppProtectionParameterValue?.allowedInboundDataTransferSources;
         this.allowedOutboundClipboardSharingLevel = managedAppProtectionParameterValue?.allowedOutboundClipboardSharingLevel;
@@ -221,6 +218,5 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
         if(this.simplePinBlocked){
             writer.writeBooleanValue("simplePinBlocked", this.simplePinBlocked);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PreAuthorizedApplicationImpl implements PreAuthorizedApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     public additionalData: Record<string, unknown>;
-    /** The unique identifier for the client application. */
+    /** The unique identifier for the application. */
     public appId?: string | undefined;
     /** The unique identifier for the oauth2PermissionScopes the application requires. */
     public delegatedPermissionIds?: string[] | undefined;

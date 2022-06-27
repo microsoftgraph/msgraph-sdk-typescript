@@ -1,11 +1,9 @@
 import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface IosCompliancePolicy extends Partial<AdditionalDataHolder>, DeviceCompliancePolicy, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface IosCompliancePolicy extends DeviceCompliancePolicy, Partial<Parsable> {
     /** Require that devices have enabled device threat protection . */
     deviceThreatProtectionEnabled?: boolean | undefined;
     /** Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. */

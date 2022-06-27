@@ -7,11 +7,9 @@ import {FirewallCertificateRevocationListCheckMethodType} from './firewallCertif
 import {FirewallPacketQueueingMethodType} from './firewallPacketQueueingMethodType';
 import {FirewallPreSharedKeyEncodingMethodType} from './firewallPreSharedKeyEncodingMethodType';
 import {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Windows10EndpointProtectionConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Windows10EndpointProtectionConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.) */
     applicationGuardAllowPersistence?: boolean | undefined;
     /** Allow printing to Local Printers from Container */

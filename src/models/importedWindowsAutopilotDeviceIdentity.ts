@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ImportedWindowsAutopilotDeviceIdentity extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ImportedWindowsAutopilotDeviceIdentity extends Entity, Partial<Parsable> {
     /** UPN of the user the device will be assigned */
     assignedUserPrincipalName?: string | undefined;
     /** Group Tag of the Windows autopilot device. */

@@ -4,11 +4,9 @@ import {Entity} from './entity';
 import {ManagedEBookAssignment} from './managedEBookAssignment';
 import {MimeContent} from './mimeContent';
 import {UserInstallStateSummary} from './userInstallStateSummary';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedEBook extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ManagedEBook extends Entity, Partial<Parsable> {
     /** The list of assignments for this eBook. */
     assignments?: ManagedEBookAssignment[] | undefined;
     /** The date and time when the eBook file was created. */

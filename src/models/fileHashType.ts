@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the security singleton. */
 export enum FileHashType {
     Unknown = "unknown",
     Sha1 = "sha1",

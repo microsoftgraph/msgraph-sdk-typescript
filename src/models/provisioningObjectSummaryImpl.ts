@@ -15,14 +15,12 @@ import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
 import {ProvisioningStatusInfo} from './provisioningStatusInfo';
 import {ProvisioningStep} from './provisioningStep';
 import {ProvisioningSystem} from './provisioningSystem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisioningObjectSummaryImpl extends EntityImpl implements ProvisioningObjectSummary {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     public activityDateTime?: Date | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Unique ID of this change in this cycle. */
     public changeId?: string | undefined;
     /** Unique ID per job iteration. */
@@ -60,7 +58,6 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Provisi
     public constructor(provisioningObjectSummaryParameterValue?: ProvisioningObjectSummary | undefined) {
         super(provisioningObjectSummaryParameterValue);
         this.activityDateTime = provisioningObjectSummaryParameterValue?.activityDateTime;
-        this.additionalData = provisioningObjectSummaryParameterValue?.additionalData ? provisioningObjectSummaryParameterValue?.additionalData! : {};
         this.changeId = provisioningObjectSummaryParameterValue?.changeId;
         this.cycleId = provisioningObjectSummaryParameterValue?.cycleId;
         this.durationInMilliseconds = provisioningObjectSummaryParameterValue?.durationInMilliseconds;
@@ -158,6 +155,5 @@ export class ProvisioningObjectSummaryImpl extends EntityImpl implements Provisi
         if(this.tenantId){
             writer.writeStringValue("tenantId", this.tenantId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

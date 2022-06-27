@@ -3,11 +3,9 @@ import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedAppProtection} from './managedAppProtection';
 import {ManagedMobileApp} from './managedMobileApp';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DefaultManagedAppProtection extends Partial<AdditionalDataHolder>, ManagedAppProtection, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DefaultManagedAppProtection extends ManagedAppProtection, Partial<Parsable> {
     /** Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */

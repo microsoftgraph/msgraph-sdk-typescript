@@ -1,10 +1,8 @@
 import {OnenoteOperationError} from './onenoteOperationError';
 import {Operation} from './operation';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface OnenoteOperation extends Partial<AdditionalDataHolder>, Operation, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface OnenoteOperation extends Operation, Partial<Parsable> {
     /** The error returned by the operation. */
     error_escaped?: OnenoteOperationError | undefined;
     /** The operation percent complete if the operation is still in running status. */

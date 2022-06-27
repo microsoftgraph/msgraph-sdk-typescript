@@ -1,12 +1,10 @@
 import {EntityImpl} from './index';
 import {Operation} from './operation';
 import {OperationStatus} from './operationStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class OperationImpl extends EntityImpl implements Operation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The start time of the operation. */
     public createdDateTime?: Date | undefined;
     /** The time of the last action of the operation. */
@@ -19,7 +17,6 @@ export class OperationImpl extends EntityImpl implements Operation {
      */
     public constructor(operationParameterValue?: Operation | undefined) {
         super(operationParameterValue);
-        this.additionalData = operationParameterValue?.additionalData ? operationParameterValue?.additionalData! : {};
         this.createdDateTime = operationParameterValue?.createdDateTime;
         this.lastActionDateTime = operationParameterValue?.lastActionDateTime;
         this.status = operationParameterValue?.status;
@@ -51,6 +48,5 @@ export class OperationImpl extends EntityImpl implements Operation {
         if(this.status){
             writer.writeEnumValue<OperationStatus>("status", this.status);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

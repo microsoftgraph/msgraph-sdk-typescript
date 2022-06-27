@@ -2,11 +2,9 @@ import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {AndroidStoreApp} from './androidStoreApp';
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {AndroidMinimumOperatingSystemImpl, MobileAppImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The Android app store URL. */
     public appStoreUrl?: string | undefined;
     /** The value for the minimum applicable operating system. */
@@ -19,7 +17,6 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
      */
     public constructor(androidStoreAppParameterValue?: AndroidStoreApp | undefined) {
         super(androidStoreAppParameterValue);
-        this.additionalData = androidStoreAppParameterValue?.additionalData ? androidStoreAppParameterValue?.additionalData! : {};
         this.appStoreUrl = androidStoreAppParameterValue?.appStoreUrl;
         this.minimumSupportedOperatingSystem = androidStoreAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? androidStoreAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(androidStoreAppParameterValue?.minimumSupportedOperatingSystem);
         this.packageId = androidStoreAppParameterValue?.packageId;
@@ -51,6 +48,5 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
         if(this.packageId){
             writer.writeStringValue("packageId", this.packageId);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

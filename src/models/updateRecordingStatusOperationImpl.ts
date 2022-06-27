@@ -1,17 +1,14 @@
 import {CommsOperationImpl} from './index';
 import {UpdateRecordingStatusOperation} from './updateRecordingStatusOperation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UpdateRecordingStatusOperationImpl extends CommsOperationImpl implements UpdateRecordingStatusOperation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /**
      * Instantiates a new UpdateRecordingStatusOperation and sets the default values.
      * @param updateRecordingStatusOperationParameterValue 
      */
     public constructor(updateRecordingStatusOperationParameterValue?: UpdateRecordingStatusOperation | undefined) {
         super(updateRecordingStatusOperationParameterValue);
-        this.additionalData = updateRecordingStatusOperationParameterValue?.additionalData ? updateRecordingStatusOperationParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +25,5 @@ export class UpdateRecordingStatusOperationImpl extends CommsOperationImpl imple
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeAdditionalData(this.additionalData);
     };
 }

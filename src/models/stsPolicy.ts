@@ -1,10 +1,8 @@
 import {DirectoryObject} from './directoryObject';
 import {PolicyBase} from './policyBase';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface StsPolicy extends Partial<AdditionalDataHolder>, Partial<Parsable>, PolicyBase {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface StsPolicy extends Partial<Parsable>, PolicyBase {
     /** The appliesTo property */
     appliesTo?: DirectoryObject[] | undefined;
     /** A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required. */

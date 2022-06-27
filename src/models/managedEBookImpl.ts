@@ -10,12 +10,10 @@ import {ManagedEBook} from './managedEBook';
 import {ManagedEBookAssignment} from './managedEBookAssignment';
 import {MimeContent} from './mimeContent';
 import {UserInstallStateSummary} from './userInstallStateSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class containing the base properties for Managed eBook. */
 export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The list of assignments for this eBook. */
     public assignments?: ManagedEBookAssignment[] | undefined;
     /** The date and time when the eBook file was created. */
@@ -48,7 +46,6 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
      */
     public constructor(managedEBookParameterValue?: ManagedEBook | undefined) {
         super(managedEBookParameterValue);
-        this.additionalData = managedEBookParameterValue?.additionalData ? managedEBookParameterValue?.additionalData! : {};
         const assignmentsArrValue: ManagedEBookAssignmentImpl[] = []; managedEBookParameterValue.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
         this.assignments = assignmentsArrValue;
         this.createdDateTime = managedEBookParameterValue?.createdDateTime;
@@ -133,6 +130,5 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         if(this.userStateSummary && this.userStateSummary.length != 0){        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = []; this.userStateSummary?.forEach(element => {userStateSummaryArrValue.push(element instanceof UserInstallStateSummaryImpl? element : new UserInstallStateSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("userStateSummary", userStateSummaryArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

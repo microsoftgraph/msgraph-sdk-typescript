@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {UserFlowLanguagePage} from './userFlowLanguagePage';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UserFlowLanguageConfiguration extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface UserFlowLanguageConfiguration extends Entity, Partial<Parsable> {
     /** Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification. */
     defaultPages?: UserFlowLanguagePage[] | undefined;
     /** The language name to display. This property is read-only. */

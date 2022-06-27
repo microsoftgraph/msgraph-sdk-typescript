@@ -1,10 +1,8 @@
 import {ExtensionImpl} from './index';
 import {OpenTypeExtension} from './openTypeExtension';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenTypeExtensionImpl extends ExtensionImpl implements OpenTypeExtension {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A unique text identifier for an open type data extension. Required. */
     public extensionName?: string | undefined;
     /**
@@ -13,7 +11,6 @@ export class OpenTypeExtensionImpl extends ExtensionImpl implements OpenTypeExte
      */
     public constructor(openTypeExtensionParameterValue?: OpenTypeExtension | undefined) {
         super(openTypeExtensionParameterValue);
-        this.additionalData = openTypeExtensionParameterValue?.additionalData ? openTypeExtensionParameterValue?.additionalData! : {};
         this.extensionName = openTypeExtensionParameterValue?.extensionName;
     };
     /**
@@ -35,6 +32,5 @@ export class OpenTypeExtensionImpl extends ExtensionImpl implements OpenTypeExte
         if(this.extensionName){
             writer.writeStringValue("extensionName", this.extensionName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

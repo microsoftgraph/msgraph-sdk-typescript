@@ -7,14 +7,12 @@ import {ExternalItem} from './externalItem';
 import {ExternalItemContent} from './externalItemContent';
 import {AclImpl, ExternalItemContentImpl, PropertiesImpl} from './index';
 import {Properties} from './properties';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalItemImpl extends EntityImpl implements ExternalItem {
     /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
     public acl?: Acl[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */
     public content?: ExternalItemContent | undefined;
     /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required. */
@@ -27,7 +25,6 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
         super(externalItemParameterValue);
         const aclArrValue: AclImpl[] = []; externalItemParameterValue.acl?.forEach(element => {aclArrValue.push(element instanceof AclImpl? element : new AclImpl(element));});
         this.acl = aclArrValue;
-        this.additionalData = externalItemParameterValue?.additionalData ? externalItemParameterValue?.additionalData! : {};
         this.content = externalItemParameterValue?.content instanceof ExternalItemContentImpl? externalItemParameterValue?.content:new ExternalItemContentImpl(externalItemParameterValue?.content);
         this.properties = externalItemParameterValue?.properties instanceof PropertiesImpl? externalItemParameterValue?.properties:new PropertiesImpl(externalItemParameterValue?.properties);
     };
@@ -58,6 +55,5 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
         if(this.properties){
             writer.writeObjectValue<PropertiesImpl>("properties", new PropertiesImpl(this.properties));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

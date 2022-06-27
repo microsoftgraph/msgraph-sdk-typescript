@@ -3,12 +3,10 @@ import {DeviceCompliancePolicySettingStateSummary} from './deviceCompliancePolic
 import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {DeviceComplianceSettingStateImpl, EntityImpl} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compilance Policy Setting State summary across the account. */
 export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicySettingStateSummary {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Number of compliant devices */
     public compliantDeviceCount?: number | undefined;
     /** Number of conflict devices */
@@ -37,7 +35,6 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
      */
     public constructor(deviceCompliancePolicySettingStateSummaryParameterValue?: DeviceCompliancePolicySettingStateSummary | undefined) {
         super(deviceCompliancePolicySettingStateSummaryParameterValue);
-        this.additionalData = deviceCompliancePolicySettingStateSummaryParameterValue?.additionalData ? deviceCompliancePolicySettingStateSummaryParameterValue?.additionalData! : {};
         this.compliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.compliantDeviceCount;
         this.conflictDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.conflictDeviceCount;
         const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; deviceCompliancePolicySettingStateSummaryParameterValue.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
@@ -110,6 +107,5 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         if(this.unknownDeviceCount){
             writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

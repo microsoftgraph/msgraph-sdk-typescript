@@ -7,11 +7,9 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {SignInLocation} from './signInLocation';
 import {SignInStatus} from './signInStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface SignIn extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface SignIn extends Entity, Partial<Parsable> {
     /** The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     appDisplayName?: string | undefined;
     /** The application identifier in Azure Active Directory. Supports $filter (eq operator only). */

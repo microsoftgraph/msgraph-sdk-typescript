@@ -20,13 +20,12 @@ import {ManagedDevice} from './managedDevice';
 import {ManagedDeviceOwnerType} from './managedDeviceOwnerType';
 import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerReportedHealthState';
 import {ManagementAgentType} from './managementAgentType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Devices that are managed or pre-enrolled through Intune */
 export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
     public activationLockBypassCode?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Android security patch level. This property is read-only. */
     public androidSecurityPatchLevel?: string | undefined;
     /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
@@ -134,13 +133,12 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
     /** Wi-Fi MAC. This property is read-only. */
     public wiFiMacAddress?: string | undefined;
     /**
-     * Instantiates a new ManagedDevice and sets the default values.
+     * Instantiates a new managedDevice and sets the default values.
      * @param managedDeviceParameterValue 
      */
     public constructor(managedDeviceParameterValue?: ManagedDevice | undefined) {
         super(managedDeviceParameterValue);
         this.activationLockBypassCode = managedDeviceParameterValue?.activationLockBypassCode;
-        this.additionalData = managedDeviceParameterValue?.additionalData ? managedDeviceParameterValue?.additionalData! : {};
         this.androidSecurityPatchLevel = managedDeviceParameterValue?.androidSecurityPatchLevel;
         this.azureADDeviceId = managedDeviceParameterValue?.azureADDeviceId;
         this.azureADRegistered = managedDeviceParameterValue?.azureADRegistered;
@@ -429,6 +427,5 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         if(this.wiFiMacAddress){
             writer.writeStringValue("wiFiMacAddress", this.wiFiMacAddress);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

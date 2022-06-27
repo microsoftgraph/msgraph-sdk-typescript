@@ -1,11 +1,9 @@
 import {ThreatAssessmentRequestImpl} from './index';
 import {MailAssessmentRequest} from './mailAssessmentRequest';
 import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailAssessmentRequestImpl extends ThreatAssessmentRequestImpl implements MailAssessmentRequest {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk. */
     public destinationRoutingReason?: MailDestinationRoutingReason | undefined;
     /** The resource URI of the mail message for assessment. */
@@ -18,7 +16,6 @@ export class MailAssessmentRequestImpl extends ThreatAssessmentRequestImpl imple
      */
     public constructor(mailAssessmentRequestParameterValue?: MailAssessmentRequest | undefined) {
         super(mailAssessmentRequestParameterValue);
-        this.additionalData = mailAssessmentRequestParameterValue?.additionalData ? mailAssessmentRequestParameterValue?.additionalData! : {};
         this.destinationRoutingReason = mailAssessmentRequestParameterValue?.destinationRoutingReason;
         this.messageUri = mailAssessmentRequestParameterValue?.messageUri;
         this.recipientEmail = mailAssessmentRequestParameterValue?.recipientEmail;
@@ -50,6 +47,5 @@ export class MailAssessmentRequestImpl extends ThreatAssessmentRequestImpl imple
         if(this.recipientEmail){
             writer.writeStringValue("recipientEmail", this.recipientEmail);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

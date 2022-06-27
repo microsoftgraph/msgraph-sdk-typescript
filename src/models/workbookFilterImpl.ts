@@ -2,12 +2,10 @@ import {createWorkbookFilterCriteriaFromDiscriminatorValue} from './createWorkbo
 import {EntityImpl, WorkbookFilterCriteriaImpl} from './index';
 import {WorkbookFilter} from './workbookFilter';
 import {WorkbookFilterCriteria} from './workbookFilterCriteria';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The currently applied filter on the given column. Read-only. */
     public criteria?: WorkbookFilterCriteria | undefined;
     /**
@@ -16,7 +14,6 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
      */
     public constructor(workbookFilterParameterValue?: WorkbookFilter | undefined) {
         super(workbookFilterParameterValue);
-        this.additionalData = workbookFilterParameterValue?.additionalData ? workbookFilterParameterValue?.additionalData! : {};
         this.criteria = workbookFilterParameterValue?.criteria instanceof WorkbookFilterCriteriaImpl? workbookFilterParameterValue?.criteria:new WorkbookFilterCriteriaImpl(workbookFilterParameterValue?.criteria);
     };
     /**
@@ -38,6 +35,5 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
         if(this.criteria){
             writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", new WorkbookFilterCriteriaImpl(this.criteria));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

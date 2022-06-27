@@ -1,10 +1,8 @@
 import {UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {UnifiedRoleManagementPolicyEnablementRule} from './unifiedRoleManagementPolicyEnablementRule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyEnablementRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyEnablementRule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification. */
     public enabledRules?: string[] | undefined;
     /**
@@ -13,7 +11,6 @@ export class UnifiedRoleManagementPolicyEnablementRuleImpl extends UnifiedRoleMa
      */
     public constructor(unifiedRoleManagementPolicyEnablementRuleParameterValue?: UnifiedRoleManagementPolicyEnablementRule | undefined) {
         super(unifiedRoleManagementPolicyEnablementRuleParameterValue);
-        this.additionalData = unifiedRoleManagementPolicyEnablementRuleParameterValue?.additionalData ? unifiedRoleManagementPolicyEnablementRuleParameterValue?.additionalData! : {};
         this.enabledRules = unifiedRoleManagementPolicyEnablementRuleParameterValue?.enabledRules;
     };
     /**
@@ -35,6 +32,5 @@ export class UnifiedRoleManagementPolicyEnablementRuleImpl extends UnifiedRoleMa
         if(this.enabledRules){
             writer.writeCollectionOfPrimitiveValues<string>("enabledRules", this.enabledRules);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

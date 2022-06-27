@@ -1,10 +1,8 @@
 import {PrintUsageImpl} from './index';
 import {PrintUsageByUser} from './printUsageByUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByUserImpl extends PrintUsageImpl implements PrintUsageByUser {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The UPN of the user represented by these statistics. */
     public userPrincipalName?: string | undefined;
     /**
@@ -13,7 +11,6 @@ export class PrintUsageByUserImpl extends PrintUsageImpl implements PrintUsageBy
      */
     public constructor(printUsageByUserParameterValue?: PrintUsageByUser | undefined) {
         super(printUsageByUserParameterValue);
-        this.additionalData = printUsageByUserParameterValue?.additionalData ? printUsageByUserParameterValue?.additionalData! : {};
         this.userPrincipalName = printUsageByUserParameterValue?.userPrincipalName;
     };
     /**
@@ -35,6 +32,5 @@ export class PrintUsageByUserImpl extends PrintUsageImpl implements PrintUsageBy
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

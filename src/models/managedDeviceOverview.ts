@@ -1,11 +1,9 @@
 import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
 import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ManagedDeviceOverview extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ManagedDeviceOverview extends Entity, Partial<Parsable> {
     /** Distribution of Exchange Access State in Intune */
     deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
     /** Device operating system summary. */

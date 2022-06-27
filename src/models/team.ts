@@ -12,13 +12,9 @@ import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamsTemplate} from './teamsTemplate';
 import {TeamVisibilityType} from './teamVisibilityType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Team extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
-    /** List of channels either hosted in or shared with the team (incoming channels). */
-    allChannels?: Channel[] | undefined;
+export interface Team extends Entity, Partial<Parsable> {
     /** The collection of channels and messages associated with the team. */
     channels?: Channel[] | undefined;
     /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory. */
@@ -35,8 +31,6 @@ export interface Team extends Partial<AdditionalDataHolder>, Entity, Partial<Par
     group?: Group | undefined;
     /** Settings to configure whether guests can create, update, or delete channels in the team. */
     guestSettings?: TeamGuestSettings | undefined;
-    /** List of channels shared with the team. */
-    incomingChannels?: Channel[] | undefined;
     /** The apps installed in this team. */
     installedApps?: TeamsAppInstallation[] | undefined;
     /** A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API. */
@@ -59,8 +53,6 @@ export interface Team extends Partial<AdditionalDataHolder>, Entity, Partial<Par
     specialization?: TeamSpecialization | undefined;
     /** The template this team was created from. See available templates. */
     template?: TeamsTemplate | undefined;
-    /** The ID of the Azure Active Directory tenant. */
-    tenantId?: string | undefined;
     /** The visibility of the group and team. Defaults to Public. */
     visibility?: TeamVisibilityType | undefined;
     /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */

@@ -3,11 +3,9 @@ import {ServiceHealthClassificationType} from './serviceHealthClassificationType
 import {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ServiceHealthIssue extends Partial<AdditionalDataHolder>, Partial<Parsable>, ServiceAnnouncementBase {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ServiceHealthIssue extends Partial<Parsable>, ServiceAnnouncementBase {
     /** The type of service health issue. Possible values are: advisory, incident, unknownFutureValue. */
     classification?: ServiceHealthClassificationType | undefined;
     /** The feature name of the service issue. */

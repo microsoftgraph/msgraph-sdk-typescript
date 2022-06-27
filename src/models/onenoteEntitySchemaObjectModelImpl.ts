@@ -1,10 +1,8 @@
 import {OnenoteEntityBaseModelImpl} from './index';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteEntitySchemaObjectModelImpl extends OnenoteEntityBaseModelImpl implements OnenoteEntitySchemaObjectModel {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     public createdDateTime?: Date | undefined;
     /**
@@ -13,7 +11,6 @@ export class OnenoteEntitySchemaObjectModelImpl extends OnenoteEntityBaseModelIm
      */
     public constructor(onenoteEntitySchemaObjectModelParameterValue?: OnenoteEntitySchemaObjectModel | undefined) {
         super(onenoteEntitySchemaObjectModelParameterValue);
-        this.additionalData = onenoteEntitySchemaObjectModelParameterValue?.additionalData ? onenoteEntitySchemaObjectModelParameterValue?.additionalData! : {};
         this.createdDateTime = onenoteEntitySchemaObjectModelParameterValue?.createdDateTime;
     };
     /**
@@ -35,6 +32,5 @@ export class OnenoteEntitySchemaObjectModelImpl extends OnenoteEntityBaseModelIm
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

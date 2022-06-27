@@ -2,11 +2,9 @@ import {createExternalDomainNameFromDiscriminatorValue} from './createExternalDo
 import {ExternalDomainName} from './externalDomainName';
 import {ExternalDomainNameImpl, SamlOrWsFedProviderImpl} from './index';
 import {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProviderImpl implements SamlOrWsFedExternalDomainFederation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq). */
     public domains?: ExternalDomainName[] | undefined;
     /**
@@ -15,7 +13,6 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
      */
     public constructor(samlOrWsFedExternalDomainFederationParameterValue?: SamlOrWsFedExternalDomainFederation | undefined) {
         super(samlOrWsFedExternalDomainFederationParameterValue);
-        this.additionalData = samlOrWsFedExternalDomainFederationParameterValue?.additionalData ? samlOrWsFedExternalDomainFederationParameterValue?.additionalData! : {};
         const domainsArrValue: ExternalDomainNameImpl[] = []; samlOrWsFedExternalDomainFederationParameterValue.domains?.forEach(element => {domainsArrValue.push(element instanceof ExternalDomainNameImpl? element : new ExternalDomainNameImpl(element));});
         this.domains = domainsArrValue;
     };
@@ -38,6 +35,5 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
         if(this.domains && this.domains.length != 0){        const domainsArrValue: ExternalDomainNameImpl[] = []; this.domains?.forEach(element => {domainsArrValue.push(element instanceof ExternalDomainNameImpl? element : new ExternalDomainNameImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalDomainNameImpl>("domains", domainsArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

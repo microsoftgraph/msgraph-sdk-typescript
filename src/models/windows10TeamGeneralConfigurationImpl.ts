@@ -2,11 +2,9 @@ import {DeviceConfigurationImpl} from './index';
 import {MiracastChannel} from './miracastChannel';
 import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
 import {Windows10TeamGeneralConfiguration} from './windows10TeamGeneralConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class Windows10TeamGeneralConfigurationImpl extends DeviceConfigurationImpl implements Windows10TeamGeneralConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether or not to Block Azure Operational Insights. */
     public azureOperationalInsightsBlockTelemetry?: boolean | undefined;
     /** The Azure Operational Insights workspace id. */
@@ -53,7 +51,6 @@ export class Windows10TeamGeneralConfigurationImpl extends DeviceConfigurationIm
      */
     public constructor(windows10TeamGeneralConfigurationParameterValue?: Windows10TeamGeneralConfiguration | undefined) {
         super(windows10TeamGeneralConfigurationParameterValue);
-        this.additionalData = windows10TeamGeneralConfigurationParameterValue?.additionalData ? windows10TeamGeneralConfigurationParameterValue?.additionalData! : {};
         this.azureOperationalInsightsBlockTelemetry = windows10TeamGeneralConfigurationParameterValue?.azureOperationalInsightsBlockTelemetry;
         this.azureOperationalInsightsWorkspaceId = windows10TeamGeneralConfigurationParameterValue?.azureOperationalInsightsWorkspaceId;
         this.azureOperationalInsightsWorkspaceKey = windows10TeamGeneralConfigurationParameterValue?.azureOperationalInsightsWorkspaceKey;
@@ -170,6 +167,5 @@ export class Windows10TeamGeneralConfigurationImpl extends DeviceConfigurationIm
         if(this.welcomeScreenMeetingInformation){
             writer.writeEnumValue<WelcomeScreenMeetingInformation>("welcomeScreenMeetingInformation", this.welcomeScreenMeetingInformation);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

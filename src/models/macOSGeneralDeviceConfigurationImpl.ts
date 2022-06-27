@@ -4,11 +4,9 @@ import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDi
 import {AppListItemImpl, DeviceConfigurationImpl} from './index';
 import {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl implements MacOSGeneralDeviceConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant. */
     public compliantAppListType?: AppListType | undefined;
     /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
@@ -39,7 +37,6 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
      */
     public constructor(macOSGeneralDeviceConfigurationParameterValue?: MacOSGeneralDeviceConfiguration | undefined) {
         super(macOSGeneralDeviceConfigurationParameterValue);
-        this.additionalData = macOSGeneralDeviceConfigurationParameterValue?.additionalData ? macOSGeneralDeviceConfigurationParameterValue?.additionalData! : {};
         this.compliantAppListType = macOSGeneralDeviceConfigurationParameterValue?.compliantAppListType;
         const compliantAppsListArrValue: AppListItemImpl[] = []; macOSGeneralDeviceConfigurationParameterValue.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
         this.compliantAppsList = compliantAppsListArrValue;
@@ -117,6 +114,5 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
         if(this.passwordRequiredType){
             writer.writeEnumValue<RequiredPasswordType>("passwordRequiredType", this.passwordRequiredType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements SingleValueLegacyExtendedProperty {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** A property value. */
     public value?: string | undefined;
     /**
@@ -14,7 +12,6 @@ export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements
      */
     public constructor(singleValueLegacyExtendedPropertyParameterValue?: SingleValueLegacyExtendedProperty | undefined) {
         super(singleValueLegacyExtendedPropertyParameterValue);
-        this.additionalData = singleValueLegacyExtendedPropertyParameterValue?.additionalData ? singleValueLegacyExtendedPropertyParameterValue?.additionalData! : {};
         this.value = singleValueLegacyExtendedPropertyParameterValue?.value;
     };
     /**
@@ -36,6 +33,5 @@ export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements
         if(this.value){
             writer.writeStringValue("value", this.value);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

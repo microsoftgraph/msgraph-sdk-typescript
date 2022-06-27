@@ -1,10 +1,8 @@
 import {UnifiedRoleManagementPolicyRuleImpl} from './index';
 import {UnifiedRoleManagementPolicyNotificationRule} from './unifiedRoleManagementPolicyNotificationRule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyNotificationRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyNotificationRule {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Indicates whether a default recipient will receive the notification email. */
     public isDefaultRecipientsEnabled?: boolean | undefined;
     /** The level of notification. The possible values are None, Critical, All. */
@@ -21,7 +19,6 @@ export class UnifiedRoleManagementPolicyNotificationRuleImpl extends UnifiedRole
      */
     public constructor(unifiedRoleManagementPolicyNotificationRuleParameterValue?: UnifiedRoleManagementPolicyNotificationRule | undefined) {
         super(unifiedRoleManagementPolicyNotificationRuleParameterValue);
-        this.additionalData = unifiedRoleManagementPolicyNotificationRuleParameterValue?.additionalData ? unifiedRoleManagementPolicyNotificationRuleParameterValue?.additionalData! : {};
         this.isDefaultRecipientsEnabled = unifiedRoleManagementPolicyNotificationRuleParameterValue?.isDefaultRecipientsEnabled;
         this.notificationLevel = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationLevel;
         this.notificationRecipients = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationRecipients;
@@ -63,6 +60,5 @@ export class UnifiedRoleManagementPolicyNotificationRuleImpl extends UnifiedRole
         if(this.recipientType){
             writer.writeStringValue("recipientType", this.recipientType);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

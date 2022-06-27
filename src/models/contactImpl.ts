@@ -12,12 +12,9 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {PhysicalAddress} from './physicalAddress';
 import {ProfilePhoto} from './profilePhoto';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class ContactImpl extends OutlookItemImpl implements Contact {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The name of the contact's assistant. */
     public assistantName?: string | undefined;
     /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -93,12 +90,11 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
     /** The yomiSurname property */
     public yomiSurname?: string | undefined;
     /**
-     * Instantiates a new contact and sets the default values.
+     * Instantiates a new Contact and sets the default values.
      * @param contactParameterValue 
      */
     public constructor(contactParameterValue?: Contact | undefined) {
         super(contactParameterValue);
-        this.additionalData = contactParameterValue?.additionalData ? contactParameterValue?.additionalData! : {};
         this.assistantName = contactParameterValue?.assistantName;
         this.birthday = contactParameterValue?.birthday;
         this.businessAddress = contactParameterValue?.businessAddress instanceof PhysicalAddressImpl? contactParameterValue?.businessAddress:new PhysicalAddressImpl(contactParameterValue?.businessAddress);
@@ -304,6 +300,5 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(this.yomiSurname){
             writer.writeStringValue("yomiSurname", this.yomiSurname);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

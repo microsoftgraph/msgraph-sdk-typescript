@@ -1,11 +1,9 @@
 import {EntityImpl} from './index';
 import {Subscription} from './subscription';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
 export class SubscriptionImpl extends EntityImpl implements Subscription {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Optional. Identifier of the application used to create the subscription. Read-only. */
     public applicationId?: string | undefined;
     /** Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Note:  Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType. */
@@ -40,7 +38,6 @@ export class SubscriptionImpl extends EntityImpl implements Subscription {
      */
     public constructor(subscriptionParameterValue?: Subscription | undefined) {
         super(subscriptionParameterValue);
-        this.additionalData = subscriptionParameterValue?.additionalData ? subscriptionParameterValue?.additionalData! : {};
         this.applicationId = subscriptionParameterValue?.applicationId;
         this.changeType = subscriptionParameterValue?.changeType;
         this.clientState = subscriptionParameterValue?.clientState;
@@ -127,6 +124,5 @@ export class SubscriptionImpl extends EntityImpl implements Subscription {
         if(this.resource){
             writer.writeStringValue("resource", this.resource);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

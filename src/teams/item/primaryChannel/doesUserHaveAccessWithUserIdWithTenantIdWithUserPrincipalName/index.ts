@@ -1,4 +1,0 @@
-export * from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameResponseImpl'
-export * from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilderGetQueryParameters'
-export * from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameResponse'
-export * from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilderGetRequestConfiguration'

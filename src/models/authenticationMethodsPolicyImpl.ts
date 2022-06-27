@@ -4,11 +4,10 @@ import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from './c
 import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegistrationEnforcementFromDiscriminatorValue';
 import {AuthenticationMethodConfigurationImpl, EntityImpl, RegistrationEnforcementImpl} from './index';
 import {RegistrationEnforcement} from './registrationEnforcement';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class AuthenticationMethodsPolicyImpl extends EntityImpl implements AuthenticationMethodsPolicy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
     public authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
     /** A description of the policy. */
@@ -24,12 +23,11 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
     /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
     public registrationEnforcement?: RegistrationEnforcement | undefined;
     /**
-     * Instantiates a new AuthenticationMethodsPolicy and sets the default values.
+     * Instantiates a new authenticationMethodsPolicy and sets the default values.
      * @param authenticationMethodsPolicyParameterValue 
      */
     public constructor(authenticationMethodsPolicyParameterValue?: AuthenticationMethodsPolicy | undefined) {
         super(authenticationMethodsPolicyParameterValue);
-        this.additionalData = authenticationMethodsPolicyParameterValue?.additionalData ? authenticationMethodsPolicyParameterValue?.additionalData! : {};
         const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = []; authenticationMethodsPolicyParameterValue.authenticationMethodConfigurations?.forEach(element => {authenticationMethodConfigurationsArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
         this.authenticationMethodConfigurations = authenticationMethodConfigurationsArrValue;
         this.description = authenticationMethodsPolicyParameterValue?.description;
@@ -82,6 +80,5 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
         if(this.registrationEnforcement){
             writer.writeObjectValue<RegistrationEnforcementImpl>("registrationEnforcement", new RegistrationEnforcementImpl(this.registrationEnforcement));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export enum UnifiedRoleScheduleRequestActions {
     AdminAssign = "adminAssign",
     AdminUpdate = "adminUpdate",

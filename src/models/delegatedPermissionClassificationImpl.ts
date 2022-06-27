@@ -1,12 +1,10 @@
 import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
 import {EntityImpl} from './index';
 import {PermissionClassificationType} from './permissionClassificationType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class DelegatedPermissionClassificationImpl extends EntityImpl implements DelegatedPermissionClassification {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The classification value being given. Possible value: low. Does not support $filter. */
     public classification?: PermissionClassificationType | undefined;
     /** The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter. */
@@ -19,7 +17,6 @@ export class DelegatedPermissionClassificationImpl extends EntityImpl implements
      */
     public constructor(delegatedPermissionClassificationParameterValue?: DelegatedPermissionClassification | undefined) {
         super(delegatedPermissionClassificationParameterValue);
-        this.additionalData = delegatedPermissionClassificationParameterValue?.additionalData ? delegatedPermissionClassificationParameterValue?.additionalData! : {};
         this.classification = delegatedPermissionClassificationParameterValue?.classification;
         this.permissionId = delegatedPermissionClassificationParameterValue?.permissionId;
         this.permissionName = delegatedPermissionClassificationParameterValue?.permissionName;
@@ -51,6 +48,5 @@ export class DelegatedPermissionClassificationImpl extends EntityImpl implements
         if(this.permissionName){
             writer.writeStringValue("permissionName", this.permissionName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -2,11 +2,9 @@ import {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import {DeviceConfiguration} from './deviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface MacOSGeneralDeviceConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface MacOSGeneralDeviceConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant. */
     compliantAppListType?: AppListType | undefined;
     /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */

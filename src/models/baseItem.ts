@@ -2,11 +2,9 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {ItemReference} from './itemReference';
 import {User} from './user';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface BaseItem extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface BaseItem extends Entity, Partial<Parsable> {
     /** Identity of the user, device, or application which created the item. Read-only. */
     createdBy?: IdentitySet | undefined;
     /** Identity of the user who created the item. Read-only. */

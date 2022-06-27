@@ -3,12 +3,10 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {ExternalGroup} from './externalGroup';
 import {Identity} from './identity';
 import {IdentityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The description of the external group. Optional. */
     public description?: string | undefined;
     /** The friendly name of the external group. Optional. */
@@ -21,7 +19,6 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
      */
     public constructor(externalGroupParameterValue?: ExternalGroup | undefined) {
         super(externalGroupParameterValue);
-        this.additionalData = externalGroupParameterValue?.additionalData ? externalGroupParameterValue?.additionalData! : {};
         this.description = externalGroupParameterValue?.description;
         this.displayName = externalGroupParameterValue?.displayName;
         const membersArrValue: IdentityImpl[] = []; externalGroupParameterValue.members?.forEach(element => {membersArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
@@ -54,6 +51,5 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

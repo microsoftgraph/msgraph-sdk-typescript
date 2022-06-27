@@ -2,12 +2,10 @@ import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobileAppConfigurationAssignment';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains the properties used to assign an MDM app configuration to a group. */
 export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationAssignment {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Assignment target that the T&C policy is assigned to. */
     public target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -16,7 +14,6 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
      */
     public constructor(managedDeviceMobileAppConfigurationAssignmentParameterValue?: ManagedDeviceMobileAppConfigurationAssignment | undefined) {
         super(managedDeviceMobileAppConfigurationAssignmentParameterValue);
-        this.additionalData = managedDeviceMobileAppConfigurationAssignmentParameterValue?.additionalData ? managedDeviceMobileAppConfigurationAssignmentParameterValue?.additionalData! : {};
         this.target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? managedDeviceMobileAppConfigurationAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(managedDeviceMobileAppConfigurationAssignmentParameterValue?.target);
     };
     /**
@@ -38,6 +35,5 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
         if(this.target){
             writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

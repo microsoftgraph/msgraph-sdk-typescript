@@ -2,11 +2,9 @@ import {Entity} from './entity';
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {UsageDetails} from './usageDetails';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface UsedInsight extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface UsedInsight extends Entity, Partial<Parsable> {
     /** Information about when the item was last viewed or modified by the user. Read only. */
     lastUsed?: UsageDetails | undefined;
     /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */

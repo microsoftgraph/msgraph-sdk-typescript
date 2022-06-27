@@ -6,12 +6,10 @@ import {MediaStream} from './mediaStream';
 import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
 import {RecordingInfo} from './recordingInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class ParticipantImpl extends EntityImpl implements Participant {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The info property */
     public info?: ParticipantInfo | undefined;
     /** true if the participant is in lobby. */
@@ -30,7 +28,6 @@ export class ParticipantImpl extends EntityImpl implements Participant {
      */
     public constructor(participantParameterValue?: Participant | undefined) {
         super(participantParameterValue);
-        this.additionalData = participantParameterValue?.additionalData ? participantParameterValue?.additionalData! : {};
         this.info = participantParameterValue?.info instanceof ParticipantInfoImpl? participantParameterValue?.info:new ParticipantInfoImpl(participantParameterValue?.info);
         this.isInLobby = participantParameterValue?.isInLobby;
         this.isMuted = participantParameterValue?.isMuted;
@@ -78,6 +75,5 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         if(this.recordingInfo){
             writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", new RecordingInfoImpl(this.recordingInfo));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -4,11 +4,9 @@ import {ItemReference} from './itemReference';
 import {SharePointIdentitySet} from './sharePointIdentitySet';
 import {SharingInvitation} from './sharingInvitation';
 import {SharingLink} from './sharingLink';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Permission extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Permission extends Entity, Partial<Parsable> {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     expirationDateTime?: Date | undefined;
     /** The grantedTo property */

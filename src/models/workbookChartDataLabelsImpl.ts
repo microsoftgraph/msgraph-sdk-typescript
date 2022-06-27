@@ -2,12 +2,10 @@ import {createWorkbookChartDataLabelFormatFromDiscriminatorValue} from './create
 import {EntityImpl, WorkbookChartDataLabelFormatImpl} from './index';
 import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import {WorkbookChartDataLabels} from './workbookChartDataLabels';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookChartDataLabels {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartDataLabelFormat | undefined;
     /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout. */
@@ -32,7 +30,6 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartDataLabelsParameterValue?: WorkbookChartDataLabels | undefined) {
         super(workbookChartDataLabelsParameterValue);
-        this.additionalData = workbookChartDataLabelsParameterValue?.additionalData ? workbookChartDataLabelsParameterValue?.additionalData! : {};
         this.format = workbookChartDataLabelsParameterValue?.format instanceof WorkbookChartDataLabelFormatImpl? workbookChartDataLabelsParameterValue?.format:new WorkbookChartDataLabelFormatImpl(workbookChartDataLabelsParameterValue?.format);
         this.position = workbookChartDataLabelsParameterValue?.position;
         this.separator = workbookChartDataLabelsParameterValue?.separator;
@@ -94,6 +91,5 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookC
         if(this.showValue){
             writer.writeBooleanValue("showValue", this.showValue);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

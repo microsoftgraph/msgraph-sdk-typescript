@@ -8,14 +8,12 @@ import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgr
 import {createTermsExpirationFromDiscriminatorValue} from './createTermsExpirationFromDiscriminatorValue';
 import {AgreementAcceptanceImpl, AgreementFileImpl, AgreementFileLocalizationImpl, EntityImpl, TermsExpirationImpl} from './index';
 import {TermsExpiration} from './termsExpiration';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
 export class AgreementImpl extends EntityImpl implements Agreement {
     /** Read-only. Information about acceptances of this agreement. */
     public acceptances?: AgreementAcceptance[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq). */
     public displayName?: string | undefined;
     /** Default PDF linked to this agreement. */
@@ -38,7 +36,6 @@ export class AgreementImpl extends EntityImpl implements Agreement {
         super(agreementParameterValue);
         const acceptancesArrValue: AgreementAcceptanceImpl[] = []; agreementParameterValue.acceptances?.forEach(element => {acceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
         this.acceptances = acceptancesArrValue;
-        this.additionalData = agreementParameterValue?.additionalData ? agreementParameterValue?.additionalData! : {};
         this.displayName = agreementParameterValue?.displayName;
         this.file = agreementParameterValue?.file instanceof AgreementFileImpl? agreementParameterValue?.file:new AgreementFileImpl(agreementParameterValue?.file);
         const filesArrValue: AgreementFileLocalizationImpl[] = []; agreementParameterValue.files?.forEach(element => {filesArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
@@ -95,6 +92,5 @@ export class AgreementImpl extends EntityImpl implements Agreement {
         if(this.userReacceptRequiredFrequency){
             writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

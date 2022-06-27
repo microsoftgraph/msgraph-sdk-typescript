@@ -14,13 +14,11 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface PolicyRoot extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface PolicyRoot extends Entity, Partial<Parsable> {
     /** The policy that controls the idle time out for web sessions for applications. */
     activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** The policy by which consent requests are created and managed for the entire tenant. */
     adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */

@@ -1,14 +1,12 @@
 import {ConversationMember} from './conversationMember';
 import {EntityImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class ConversationMemberImpl extends EntityImpl implements ConversationMember {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The display name of the user. */
     public displayName?: string | undefined;
-    /** The roles for that user. This property only contains additional qualifiers when relevant - for example, if the member has owner privileges, the roles property contains owner as one of the values. Similarly, if the member is a guest, the roles property contains guest as one of the values. A basic member should not have any values specified in the roles property. */
+    /** The roles for that user. */
     public roles?: string[] | undefined;
     /** The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat. */
     public visibleHistoryStartDateTime?: Date | undefined;
@@ -18,7 +16,6 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
      */
     public constructor(conversationMemberParameterValue?: ConversationMember | undefined) {
         super(conversationMemberParameterValue);
-        this.additionalData = conversationMemberParameterValue?.additionalData ? conversationMemberParameterValue?.additionalData! : {};
         this.displayName = conversationMemberParameterValue?.displayName;
         this.roles = conversationMemberParameterValue?.roles;
         this.visibleHistoryStartDateTime = conversationMemberParameterValue?.visibleHistoryStartDateTime;
@@ -50,6 +47,5 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
         if(this.visibleHistoryStartDateTime){
             writer.writeDateValue("visibleHistoryStartDateTime", this.visibleHistoryStartDateTime);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

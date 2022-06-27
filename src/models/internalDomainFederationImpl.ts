@@ -4,13 +4,11 @@ import {SamlOrWsFedProviderImpl, SigningCertificateUpdateStatusImpl} from './ind
 import {InternalDomainFederation} from './internalDomainFederation';
 import {PromptLoginBehavior} from './promptLoginBehavior';
 import {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implements InternalDomainFederation {
     /** URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Azure Active Directory (Azure AD). Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet. */
     public activeSignInUri?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Determines whether Azure AD accepts the MFA performed by the federated IdP when a federated user accesses an application that is governed by a conditional access policy that requires MFA. The possible values are: acceptIfMfaDoneByFederatedIdp, enforceMfaByFederatedIdp, rejectMfaByFederatedIdp, unknownFutureValue. For more information, see federatedIdpMfaBehavior values. */
     public federatedIdpMfaBehavior?: FederatedIdpMfaBehavior | undefined;
     /** If true, when SAML authentication requests are sent to the federated SAML IdP, Azure AD will sign those requests using the OrgID signing key. If false (default), the SAML authentication requests sent to the federated IdP are not signed. */
@@ -30,7 +28,6 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
     public constructor(internalDomainFederationParameterValue?: InternalDomainFederation | undefined) {
         super(internalDomainFederationParameterValue);
         this.activeSignInUri = internalDomainFederationParameterValue?.activeSignInUri;
-        this.additionalData = internalDomainFederationParameterValue?.additionalData ? internalDomainFederationParameterValue?.additionalData! : {};
         this.federatedIdpMfaBehavior = internalDomainFederationParameterValue?.federatedIdpMfaBehavior;
         this.isSignedAuthenticationRequestRequired = internalDomainFederationParameterValue?.isSignedAuthenticationRequestRequired;
         this.nextSigningCertificate = internalDomainFederationParameterValue?.nextSigningCertificate;
@@ -81,6 +78,5 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
         if(this.signOutUri){
             writer.writeStringValue("signOutUri", this.signOutUri);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

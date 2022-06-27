@@ -1,13 +1,11 @@
 import {AttestationLevel} from './attestationLevel';
 import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {AuthenticationMethodImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl implements Fido2AuthenticationMethod {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     public aaGuid?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The attestation certificate(s) attached to this security key. */
     public attestationCertificates?: string[] | undefined;
     /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue. */
@@ -25,7 +23,6 @@ export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl impl
     public constructor(fido2AuthenticationMethodParameterValue?: Fido2AuthenticationMethod | undefined) {
         super(fido2AuthenticationMethodParameterValue);
         this.aaGuid = fido2AuthenticationMethodParameterValue?.aaGuid;
-        this.additionalData = fido2AuthenticationMethodParameterValue?.additionalData ? fido2AuthenticationMethodParameterValue?.additionalData! : {};
         this.attestationCertificates = fido2AuthenticationMethodParameterValue?.attestationCertificates;
         this.attestationLevel = fido2AuthenticationMethodParameterValue?.attestationLevel;
         this.createdDateTime = fido2AuthenticationMethodParameterValue?.createdDateTime;
@@ -71,6 +68,5 @@ export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl impl
         if(this.model){
             writer.writeStringValue("model", this.model);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

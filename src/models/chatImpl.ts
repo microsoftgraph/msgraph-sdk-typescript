@@ -11,12 +11,10 @@ import {ChatMessageImpl, ConversationMemberImpl, EntityImpl, TeamsAppInstallatio
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsTab} from './teamsTab';
 import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class ChatImpl extends EntityImpl implements Chat {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
     public chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
@@ -45,7 +43,6 @@ export class ChatImpl extends EntityImpl implements Chat {
      */
     public constructor(chatParameterValue?: Chat | undefined) {
         super(chatParameterValue);
-        this.additionalData = chatParameterValue?.additionalData ? chatParameterValue?.additionalData! : {};
         this.chatType = chatParameterValue?.chatType;
         this.createdDateTime = chatParameterValue?.createdDateTime;
         const installedAppsArrValue: TeamsAppInstallationImpl[] = []; chatParameterValue.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
@@ -121,6 +118,5 @@ export class ChatImpl extends EntityImpl implements Chat {
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

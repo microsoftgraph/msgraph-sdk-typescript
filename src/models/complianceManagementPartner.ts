@@ -1,11 +1,9 @@
 import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface ComplianceManagementPartner extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface ComplianceManagementPartner extends Entity, Partial<Parsable> {
     /** User groups which enroll Android devices through partner. */
     androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
     /** Partner onboarded for Android devices. */

@@ -4,11 +4,9 @@ import {PrereleaseFeatures} from './prereleaseFeatures';
 import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode';
 import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
 import {WindowsUpdateType} from './windowsUpdateType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface WindowsUpdateForBusinessConfiguration extends Partial<AdditionalDataHolder>, DeviceConfiguration, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface WindowsUpdateForBusinessConfiguration extends DeviceConfiguration, Partial<Parsable> {
     /** Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault. */
     automaticUpdateMode?: AutomaticUpdateMode | undefined;
     /** Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease. */

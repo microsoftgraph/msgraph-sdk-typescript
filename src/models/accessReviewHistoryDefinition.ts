@@ -4,11 +4,9 @@ import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {AccessReviewScope} from './accessReviewScope';
 import {Entity} from './entity';
 import {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface AccessReviewHistoryDefinition extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface AccessReviewHistoryDefinition extends Entity, Partial<Parsable> {
     /** The createdBy property */
     createdBy?: UserIdentity | undefined;
     /** Timestamp when the access review definition was created. */

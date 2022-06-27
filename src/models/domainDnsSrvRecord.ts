@@ -1,9 +1,7 @@
 import {DomainDnsRecord} from './domainDnsRecord';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface DomainDnsSrvRecord extends Partial<AdditionalDataHolder>, DomainDnsRecord, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface DomainDnsSrvRecord extends DomainDnsRecord, Partial<Parsable> {
     /** Value to use when configuring the Target property of the SRV record at the DNS host. */
     nameTarget?: string | undefined;
     /** Value to use when configuring the port property of the SRV record at the DNS host. */

@@ -14,12 +14,10 @@ import {WorkbookChartLegend} from './workbookChartLegend';
 import {WorkbookChartSeries} from './workbookChartSeries';
 import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Represents chart axes. Read-only. */
     public axes?: WorkbookChartAxes | undefined;
     /** Represents the datalabels on the chart. Read-only. */
@@ -50,7 +48,6 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public constructor(workbookChartParameterValue?: WorkbookChart | undefined) {
         super(workbookChartParameterValue);
-        this.additionalData = workbookChartParameterValue?.additionalData ? workbookChartParameterValue?.additionalData! : {};
         this.axes = workbookChartParameterValue?.axes instanceof WorkbookChartAxesImpl? workbookChartParameterValue?.axes:new WorkbookChartAxesImpl(workbookChartParameterValue?.axes);
         this.dataLabels = workbookChartParameterValue?.dataLabels instanceof WorkbookChartDataLabelsImpl? workbookChartParameterValue?.dataLabels:new WorkbookChartDataLabelsImpl(workbookChartParameterValue?.dataLabels);
         this.format = workbookChartParameterValue?.format instanceof WorkbookChartAreaFormatImpl? workbookChartParameterValue?.format:new WorkbookChartAreaFormatImpl(workbookChartParameterValue?.format);
@@ -128,6 +125,5 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
         if(this.worksheet){
             writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

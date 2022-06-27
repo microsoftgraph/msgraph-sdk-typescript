@@ -1,10 +1,8 @@
 import {Entity} from './entity';
 import {WorkforceIntegration} from './workforceIntegration';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface Teamwork extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+export interface Teamwork extends Entity, Partial<Parsable> {
     /** A workforce integration with shifts. */
     workforceIntegrations?: WorkforceIntegration[] | undefined;
 }

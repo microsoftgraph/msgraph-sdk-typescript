@@ -10,11 +10,9 @@ import {DateTimeTimeZoneImpl, EventImpl, LocationImpl, MessageImpl, PatternedRec
 import {Location} from './location';
 import {MeetingMessageType} from './meetingMessageType';
 import {PatternedRecurrence} from './patternedRecurrence';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventMessageImpl extends MessageImpl implements EventMessage {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The end time of the requested meeting. */
     public endDateTime?: DateTimeTimeZone | undefined;
     /** The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only. */
@@ -41,7 +39,6 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public constructor(eventMessageParameterValue?: EventMessage | undefined) {
         super(eventMessageParameterValue);
-        this.additionalData = eventMessageParameterValue?.additionalData ? eventMessageParameterValue?.additionalData! : {};
         this.endDateTime = eventMessageParameterValue?.endDateTime instanceof DateTimeTimeZoneImpl? eventMessageParameterValue?.endDateTime:new DateTimeTimeZoneImpl(eventMessageParameterValue?.endDateTime);
         this.event = eventMessageParameterValue?.event instanceof EventImpl? eventMessageParameterValue?.event:new EventImpl(eventMessageParameterValue?.event);
         this.isAllDay = eventMessageParameterValue?.isAllDay;
@@ -108,6 +105,5 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
         if(this.type){
             writer.writeEnumValue<EventType>("type", this.type);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

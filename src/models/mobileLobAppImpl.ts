@@ -2,11 +2,9 @@ import {createMobileAppContentFromDiscriminatorValue} from './createMobileAppCon
 import {MobileAppContentImpl, MobileAppImpl} from './index';
 import {MobileAppContent} from './mobileAppContent';
 import {MobileLobApp} from './mobileLobApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The internal committed content version. */
     public committedContentVersion?: string | undefined;
     /** The list of content versions for this app. */
@@ -21,7 +19,6 @@ export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
      */
     public constructor(mobileLobAppParameterValue?: MobileLobApp | undefined) {
         super(mobileLobAppParameterValue);
-        this.additionalData = mobileLobAppParameterValue?.additionalData ? mobileLobAppParameterValue?.additionalData! : {};
         this.committedContentVersion = mobileLobAppParameterValue?.committedContentVersion;
         const contentVersionsArrValue: MobileAppContentImpl[] = []; mobileLobAppParameterValue.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
         this.contentVersions = contentVersionsArrValue;
@@ -59,6 +56,5 @@ export class MobileLobAppImpl extends MobileAppImpl implements MobileLobApp {
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

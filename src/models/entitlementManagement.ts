@@ -7,15 +7,13 @@ import {Approval} from './approval';
 import {ConnectedOrganization} from './connectedOrganization';
 import {EntitlementManagementSettings} from './entitlementManagementSettings';
 import {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export interface EntitlementManagement extends Partial<AdditionalDataHolder>, Entity, Partial<Parsable> {
+export interface EntitlementManagement extends Entity, Partial<Parsable> {
     /** Approval stages for decisions associated with access package assignment requests. */
     accessPackageAssignmentApprovals?: Approval[] | undefined;
     /** Represents access package objects. */
     accessPackages?: AccessPackage[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
     /** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
     assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /** Access package assignment requests created by or on behalf of a subject. */

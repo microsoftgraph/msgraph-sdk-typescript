@@ -1,22 +1,20 @@
 import {IdentityUserFlow} from './identityUserFlow';
 import {EntityImpl} from './index';
 import {UserFlowType} from './userFlowType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** The userFlowType property */
     public userFlowType?: UserFlowType | undefined;
     /** The userFlowTypeVersion property */
     public userFlowTypeVersion?: number | undefined;
     /**
-     * Instantiates a new IdentityUserFlow and sets the default values.
+     * Instantiates a new identityUserFlow and sets the default values.
      * @param identityUserFlowParameterValue 
      */
     public constructor(identityUserFlowParameterValue?: IdentityUserFlow | undefined) {
         super(identityUserFlowParameterValue);
-        this.additionalData = identityUserFlowParameterValue?.additionalData ? identityUserFlowParameterValue?.additionalData! : {};
         this.userFlowType = identityUserFlowParameterValue?.userFlowType;
         this.userFlowTypeVersion = identityUserFlowParameterValue?.userFlowTypeVersion;
     };
@@ -43,6 +41,5 @@ export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow
         if(this.userFlowTypeVersion){
             writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }

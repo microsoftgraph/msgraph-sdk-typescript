@@ -1,10 +1,9 @@
 import {Contract} from './contract';
 import {DirectoryObjectImpl} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of contract entities. */
 export class ContractImpl extends DirectoryObjectImpl implements Contract {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
     /** Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below. */
     public contractType?: string | undefined;
     /** The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource. */
@@ -14,12 +13,11 @@ export class ContractImpl extends DirectoryObjectImpl implements Contract {
     /** A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes. */
     public displayName?: string | undefined;
     /**
-     * Instantiates a new Contract and sets the default values.
+     * Instantiates a new contract and sets the default values.
      * @param contractParameterValue 
      */
     public constructor(contractParameterValue?: Contract | undefined) {
         super(contractParameterValue);
-        this.additionalData = contractParameterValue?.additionalData ? contractParameterValue?.additionalData! : {};
         this.contractType = contractParameterValue?.contractType;
         this.customerId = contractParameterValue?.customerId;
         this.defaultDomainName = contractParameterValue?.defaultDomainName;
@@ -56,6 +54,5 @@ export class ContractImpl extends DirectoryObjectImpl implements Contract {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        writer.writeAdditionalData(this.additionalData);
     };
 }
