@@ -4,6 +4,7 @@ import {Shift} from './shift';
 import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
     /** The draft version of this shift that is viewable by managers. Required. */
     public draftShift?: ShiftItem | undefined;
@@ -14,7 +15,7 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
     /** ID of the user assigned to the shift. Required. */
     public userId?: string | undefined;
     /**
-     * Instantiates a new Shift and sets the default values.
+     * Instantiates a new shift and sets the default values.
      * @param shiftParameterValue 
      */
     public constructor(shiftParameterValue?: Shift | undefined) {

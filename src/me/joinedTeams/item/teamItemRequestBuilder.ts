@@ -3,12 +3,16 @@ import {createTeamFromDiscriminatorValue} from '../../../models/createTeamFromDi
 import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {Team} from '../../../models/team';
+import {AllChannelsRequestBuilder} from './allChannels/allChannelsRequestBuilder';
+import {ChannelItemRequestBuilder as ie92aed16481f020394234b9c7770545ee80c89f5a2934ed4f9d6328e1f13d937} from './allChannels/item/channelItemRequestBuilder';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
-import {ChannelItemRequestBuilder} from './channels/item/channelItemRequestBuilder';
+import {ChannelItemRequestBuilder as i735395b9f6b1d1e7decafd8d3be8ae21a8c54cd822b56301fdd02abca2cc16a5} from './channels/item/channelItemRequestBuilder';
 import {CloneRequestBuilder} from './clone/cloneRequestBuilder';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {IncomingChannelsRequestBuilder} from './incomingChannels/incomingChannelsRequestBuilder';
+import {ChannelItemRequestBuilder as ie80a37fd3d4677669fd04ed0ccb29b9ed12221160eec0ae2a96d2d729ca0f444} from './incomingChannels/item/channelItemRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {TeamsAppInstallationItemRequestBuilder} from './installedApps/item/teamsAppInstallationItemRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
@@ -27,6 +31,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the joinedTeams property of the microsoft.graph.user entity. */
 export class TeamItemRequestBuilder {
+    /** The allChannels property */
+    public get allChannels(): AllChannelsRequestBuilder {
+        return new AllChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The archive property */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -46,6 +54,10 @@ export class TeamItemRequestBuilder {
     /** The group property */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The incomingChannels property */
+    public get incomingChannels(): IncomingChannelsRequestBuilder {
+        return new IncomingChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The installedApps property */
     public get installedApps(): InstalledAppsRequestBuilder {
@@ -86,15 +98,26 @@ export class TeamItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
+     * Gets an item from the MicrosoftGraph.me.joinedTeams.item.allChannels.item collection
+     * @param id Unique identifier of the item
+     * @returns a channelItemRequestBuilder
+     */
+    public allChannelsById(id: string) : ie92aed16481f020394234b9c7770545ee80c89f5a2934ed4f9d6328e1f13d937 {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["channel%2Did"] = id
+        return new ie92aed16481f020394234b9c7770545ee80c89f5a2934ed4f9d6328e1f13d937(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Gets an item from the MicrosoftGraph.me.joinedTeams.item.channels.item collection
      * @param id Unique identifier of the item
      * @returns a channelItemRequestBuilder
      */
-    public channelsById(id: string) : ChannelItemRequestBuilder {
+    public channelsById(id: string) : i735395b9f6b1d1e7decafd8d3be8ae21a8c54cd822b56301fdd02abca2cc16a5 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
-        return new ChannelItemRequestBuilder(urlTplParams, this.requestAdapter);
+        return new i735395b9f6b1d1e7decafd8d3be8ae21a8c54cd822b56301fdd02abca2cc16a5(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TeamItemRequestBuilder and sets the default values.
@@ -193,6 +216,17 @@ export class TeamItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<TeamImpl>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the MicrosoftGraph.me.joinedTeams.item.incomingChannels.item collection
+     * @param id Unique identifier of the item
+     * @returns a channelItemRequestBuilder
+     */
+    public incomingChannelsById(id: string) : ie80a37fd3d4677669fd04ed0ccb29b9ed12221160eec0ae2a96d2d729ca0f444 {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["channel%2Did"] = id
+        return new ie80a37fd3d4677669fd04ed0ccb29b9ed12221160eec0ae2a96d2d729ca0f444(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the MicrosoftGraph.me.joinedTeams.item.installedApps.item collection

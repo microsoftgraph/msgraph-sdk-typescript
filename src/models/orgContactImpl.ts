@@ -10,7 +10,7 @@ import {Phone} from './phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of orgContact entities. */
+/** Casts the previous resource to orgContact. */
 export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
     public addresses?: PhysicalOfficeAddress[] | undefined;

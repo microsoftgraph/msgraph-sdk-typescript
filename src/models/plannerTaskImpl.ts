@@ -17,7 +17,7 @@ import {PlannerTask} from './plannerTask';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     /** Number of checklist items with value set to false, representing incomplete items. */
     public activeChecklistItemCount?: number | undefined;

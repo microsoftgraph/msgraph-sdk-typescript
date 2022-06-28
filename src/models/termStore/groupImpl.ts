@@ -6,7 +6,7 @@ import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class GroupImpl extends EntityImpl implements Group {
     /** Date and time of the group creation. Read-only. */
     public createdDateTime?: Date | undefined;

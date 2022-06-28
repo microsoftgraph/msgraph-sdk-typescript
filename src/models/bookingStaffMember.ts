@@ -10,7 +10,7 @@ export interface BookingStaffMember extends BookingStaffMemberBase, Partial<Pars
     displayName?: string | undefined;
     /** The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required. */
     emailAddress?: string | undefined;
-    /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required. */
+    /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required. */
     role?: BookingStaffRole | undefined;
     /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
     timeZone?: string | undefined;

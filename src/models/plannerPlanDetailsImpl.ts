@@ -6,7 +6,7 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerUserIds} from './plannerUserIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDetails {
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
     public categoryDescriptions?: PlannerCategoryDescriptions | undefined;

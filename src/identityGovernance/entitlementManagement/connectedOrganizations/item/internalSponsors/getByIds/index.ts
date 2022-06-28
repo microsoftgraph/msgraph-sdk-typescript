@@ -1,5 +1,5 @@
-export * from './getByIdsResponseImpl'
 export * from './getByIdsPostRequestBodyImpl'
-export * from './getByIdsPostRequestBody'
+export * from './getByIdsResponseImpl'
 export * from './getByIdsResponse'
 export * from './getByIdsRequestBuilderPostRequestConfiguration'
+export * from './getByIdsPostRequestBody'

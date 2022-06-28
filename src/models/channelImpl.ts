@@ -5,9 +5,11 @@ import {ConversationMember} from './conversationMember';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
+import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from './createSharedWithChannelTeamInfoFromDiscriminatorValue';
 import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
 import {DriveItem} from './driveItem';
-import {ChatMessageImpl, ConversationMemberImpl, DriveItemImpl, EntityImpl, TeamsTabImpl} from './index';
+import {ChatMessageImpl, ConversationMemberImpl, DriveItemImpl, EntityImpl, SharedWithChannelTeamInfoImpl, TeamsTabImpl} from './index';
+import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import {TeamsTab} from './teamsTab';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -31,8 +33,12 @@ export class ChannelImpl extends EntityImpl implements Channel {
     public membershipType?: ChannelMembershipType | undefined;
     /** A collection of all the messages in the channel. A navigation property. Nullable. */
     public messages?: ChatMessage[] | undefined;
+    /** A collection of teams with which a channel is shared. */
+    public sharedWithTeams?: SharedWithChannelTeamInfo[] | undefined;
     /** A collection of all the tabs in the channel. A navigation property. */
     public tabs?: TeamsTab[] | undefined;
+    /** The ID of the Azure Active Directory tenant. */
+    public tenantId?: string | undefined;
     /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
     public webUrl?: string | undefined;
     /**
@@ -50,7 +56,9 @@ export class ChannelImpl extends EntityImpl implements Channel {
         this.members = channelParameterValue?.members;
         this.membershipType = channelParameterValue?.membershipType;
         this.messages = channelParameterValue?.messages;
+        this.sharedWithTeams = channelParameterValue?.sharedWithTeams;
         this.tabs = channelParameterValue?.tabs;
+        this.tenantId = channelParameterValue?.tenantId;
         this.webUrl = channelParameterValue?.webUrl;
     };
     /**
@@ -68,7 +76,9 @@ export class ChannelImpl extends EntityImpl implements Channel {
             "members": n => { this.members = n.getCollectionOfObjectValues<ConversationMemberImpl>(createConversationMemberFromDiscriminatorValue); },
             "membershipType": n => { this.membershipType = n.getEnumValue<ChannelMembershipType>(ChannelMembershipType); },
             "messages": n => { this.messages = n.getCollectionOfObjectValues<ChatMessageImpl>(createChatMessageFromDiscriminatorValue); },
+            "sharedWithTeams": n => { this.sharedWithTeams = n.getCollectionOfObjectValues<SharedWithChannelTeamInfoImpl>(createSharedWithChannelTeamInfoFromDiscriminatorValue); },
             "tabs": n => { this.tabs = n.getCollectionOfObjectValues<TeamsTabImpl>(createTeamsTabFromDiscriminatorValue); },
+            "tenantId": n => { this.tenantId = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
@@ -106,8 +116,14 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
+        if(this.sharedWithTeams && this.sharedWithTeams.length != 0){        const sharedWithTeamsArrValue: SharedWithChannelTeamInfoImpl[] = []; this.sharedWithTeams?.forEach(element => {sharedWithTeamsArrValue.push(new SharedWithChannelTeamInfoImpl(element));});
+            writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfoImpl>("sharedWithTeams", sharedWithTeamsArrValue);
+        }
         if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
+        }
+        if(this.tenantId){
+            writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
