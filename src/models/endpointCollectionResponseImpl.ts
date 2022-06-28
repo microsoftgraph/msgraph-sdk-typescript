@@ -18,8 +18,7 @@ export class EndpointCollectionResponseImpl implements EndpointCollectionRespons
     public constructor(endpointCollectionResponseParameterValue?: EndpointCollectionResponse | undefined) {
         this.additionalData = endpointCollectionResponseParameterValue?.additionalData ? endpointCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = endpointCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EndpointImpl[] = []; endpointCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EndpointImpl? element : new EndpointImpl(element));});
-        this.value = valueArrValue;
+        this.value = endpointCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EndpointCollectionResponseImpl implements EndpointCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EndpointImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EndpointImpl? element : new EndpointImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EndpointImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EndpointImpl(element));});
             writer.writeCollectionOfObjectValues<EndpointImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

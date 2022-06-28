@@ -21,9 +21,8 @@ export class ShiftAvailabilityImpl implements ShiftAvailability {
      */
     public constructor(shiftAvailabilityParameterValue?: ShiftAvailability | undefined) {
         this.additionalData = shiftAvailabilityParameterValue?.additionalData ? shiftAvailabilityParameterValue?.additionalData! : {};
-        this.recurrence = shiftAvailabilityParameterValue?.recurrence instanceof PatternedRecurrenceImpl? shiftAvailabilityParameterValue?.recurrence:new PatternedRecurrenceImpl(shiftAvailabilityParameterValue?.recurrence);
-        const timeSlotsArrValue: TimeRangeImpl[] = []; shiftAvailabilityParameterValue?.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeRangeImpl? element : new TimeRangeImpl(element));});
-        this.timeSlots = timeSlotsArrValue;
+        this.recurrence = shiftAvailabilityParameterValue?.recurrence;
+        this.timeSlots = shiftAvailabilityParameterValue?.timeSlots;
         this.timeZone = shiftAvailabilityParameterValue?.timeZone;
     };
     /**
@@ -46,7 +45,7 @@ export class ShiftAvailabilityImpl implements ShiftAvailability {
         if(this.recurrence){
             writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
         }
-        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeRangeImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeRangeImpl? element : new TimeRangeImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeRangeImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeRangeImpl(element));});
             writer.writeCollectionOfObjectValues<TimeRangeImpl>("timeSlots", timeSlotsArrValue);
         }
         if(this.timeZone){

@@ -19,7 +19,7 @@ export class CreateReplyAllPostRequestBodyImpl implements CreateReplyAllPostRequ
     public constructor(createReplyAllPostRequestBodyParameterValue?: CreateReplyAllPostRequestBody | undefined) {
         this.additionalData = createReplyAllPostRequestBodyParameterValue?.additionalData ? createReplyAllPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = createReplyAllPostRequestBodyParameterValue?.comment;
-        this.message = createReplyAllPostRequestBodyParameterValue?.message instanceof MessageImpl? createReplyAllPostRequestBodyParameterValue?.message:new MessageImpl(createReplyAllPostRequestBodyParameterValue?.message);
+        this.message = createReplyAllPostRequestBodyParameterValue?.message;
     };
     /**
      * The deserialization information for the current model

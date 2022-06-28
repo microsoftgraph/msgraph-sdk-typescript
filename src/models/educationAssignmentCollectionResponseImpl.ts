@@ -18,8 +18,7 @@ export class EducationAssignmentCollectionResponseImpl implements EducationAssig
     public constructor(educationAssignmentCollectionResponseParameterValue?: EducationAssignmentCollectionResponse | undefined) {
         this.additionalData = educationAssignmentCollectionResponseParameterValue?.additionalData ? educationAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationAssignmentImpl[] = []; educationAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationAssignmentImpl? element : new EducationAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationAssignmentCollectionResponseImpl implements EducationAssig
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationAssignmentImpl? element : new EducationAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<EducationAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

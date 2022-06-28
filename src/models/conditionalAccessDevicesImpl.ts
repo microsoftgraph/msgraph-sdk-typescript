@@ -15,7 +15,7 @@ export class ConditionalAccessDevicesImpl implements ConditionalAccessDevices {
      */
     public constructor(conditionalAccessDevicesParameterValue?: ConditionalAccessDevices | undefined) {
         this.additionalData = conditionalAccessDevicesParameterValue?.additionalData ? conditionalAccessDevicesParameterValue?.additionalData! : {};
-        this.deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter instanceof ConditionalAccessFilterImpl? conditionalAccessDevicesParameterValue?.deviceFilter:new ConditionalAccessFilterImpl(conditionalAccessDevicesParameterValue?.deviceFilter);
+        this.deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter;
     };
     /**
      * The deserialization information for the current model

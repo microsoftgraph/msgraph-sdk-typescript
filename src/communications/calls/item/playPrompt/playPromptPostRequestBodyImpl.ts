@@ -19,8 +19,7 @@ export class PlayPromptPostRequestBodyImpl implements PlayPromptPostRequestBody 
     public constructor(playPromptPostRequestBodyParameterValue?: PlayPromptPostRequestBody | undefined) {
         this.additionalData = playPromptPostRequestBodyParameterValue?.additionalData ? playPromptPostRequestBodyParameterValue?.additionalData! : {};
         this.clientContext = playPromptPostRequestBodyParameterValue?.clientContext;
-        const promptsArrValue: PromptImpl[] = []; playPromptPostRequestBodyParameterValue?.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
-        this.prompts = promptsArrValue;
+        this.prompts = playPromptPostRequestBodyParameterValue?.prompts;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +40,7 @@ export class PlayPromptPostRequestBodyImpl implements PlayPromptPostRequestBody 
         if(this.clientContext){
             writer.writeStringValue("clientContext", this.clientContext);
         }
-        if(this.prompts && this.prompts.length != 0){        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(element instanceof PromptImpl? element : new PromptImpl(element));});
+        if(this.prompts && this.prompts.length != 0){        const promptsArrValue: PromptImpl[] = []; this.prompts?.forEach(element => {promptsArrValue.push(new PromptImpl(element));});
             writer.writeCollectionOfObjectValues<PromptImpl>("prompts", promptsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

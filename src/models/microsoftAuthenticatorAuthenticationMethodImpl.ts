@@ -22,7 +22,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodImpl extends Authenticati
     public constructor(microsoftAuthenticatorAuthenticationMethodParameterValue?: MicrosoftAuthenticatorAuthenticationMethod | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodParameterValue);
         this.createdDateTime = microsoftAuthenticatorAuthenticationMethodParameterValue?.createdDateTime;
-        this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device instanceof DeviceImpl? microsoftAuthenticatorAuthenticationMethodParameterValue?.device:new DeviceImpl(microsoftAuthenticatorAuthenticationMethodParameterValue?.device);
+        this.device = microsoftAuthenticatorAuthenticationMethodParameterValue?.device;
         this.deviceTag = microsoftAuthenticatorAuthenticationMethodParameterValue?.deviceTag;
         this.displayName = microsoftAuthenticatorAuthenticationMethodParameterValue?.displayName;
         this.phoneAppVersion = microsoftAuthenticatorAuthenticationMethodParameterValue?.phoneAppVersion;

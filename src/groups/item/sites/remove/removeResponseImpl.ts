@@ -16,8 +16,7 @@ export class RemoveResponseImpl implements RemoveResponse {
      */
     public constructor(removeResponseParameterValue?: RemoveResponse | undefined) {
         this.additionalData = removeResponseParameterValue?.additionalData ? removeResponseParameterValue?.additionalData! : {};
-        const valueArrValue: SiteImpl[] = []; removeResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
-        this.value = valueArrValue;
+        this.value = removeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class RemoveResponseImpl implements RemoveResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
             writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

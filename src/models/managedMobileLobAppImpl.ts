@@ -20,8 +20,7 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
     public constructor(managedMobileLobAppParameterValue?: ManagedMobileLobApp | undefined) {
         super(managedMobileLobAppParameterValue);
         this.committedContentVersion = managedMobileLobAppParameterValue?.committedContentVersion;
-        const contentVersionsArrValue: MobileAppContentImpl[] = []; managedMobileLobAppParameterValue?.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
-        this.contentVersions = contentVersionsArrValue;
+        this.contentVersions = managedMobileLobAppParameterValue?.contentVersions;
         this.fileName = managedMobileLobAppParameterValue?.fileName;
         this.size = managedMobileLobAppParameterValue?.size;
     };
@@ -47,7 +46,7 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
         if(this.committedContentVersion){
             writer.writeStringValue("committedContentVersion", this.committedContentVersion);
         }
-        if(this.contentVersions && this.contentVersions.length != 0){        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(element instanceof MobileAppContentImpl? element : new MobileAppContentImpl(element));});
+        if(this.contentVersions && this.contentVersions.length != 0){        const contentVersionsArrValue: MobileAppContentImpl[] = []; this.contentVersions?.forEach(element => {contentVersionsArrValue.push(new MobileAppContentImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppContentImpl>("contentVersions", contentVersionsArrValue);
         }
         if(this.fileName){

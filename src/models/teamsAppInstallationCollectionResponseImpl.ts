@@ -18,8 +18,7 @@ export class TeamsAppInstallationCollectionResponseImpl implements TeamsAppInsta
     public constructor(teamsAppInstallationCollectionResponseParameterValue?: TeamsAppInstallationCollectionResponse | undefined) {
         this.additionalData = teamsAppInstallationCollectionResponseParameterValue?.additionalData ? teamsAppInstallationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAppInstallationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsAppInstallationImpl[] = []; teamsAppInstallationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
-        this.value = valueArrValue;
+        this.value = teamsAppInstallationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TeamsAppInstallationCollectionResponseImpl implements TeamsAppInsta
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppInstallationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

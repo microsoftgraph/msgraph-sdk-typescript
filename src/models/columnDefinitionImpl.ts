@@ -38,7 +38,7 @@ import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition {
     /** This column stores boolean values. */
     public boolean?: BooleanColumn | undefined;
@@ -110,38 +110,38 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public constructor(columnDefinitionParameterValue?: ColumnDefinition | undefined) {
         super(columnDefinitionParameterValue);
-        this.boolean = columnDefinitionParameterValue?.boolean instanceof BooleanColumnImpl? columnDefinitionParameterValue?.boolean:new BooleanColumnImpl(columnDefinitionParameterValue?.boolean);
-        this.calculated = columnDefinitionParameterValue?.calculated instanceof CalculatedColumnImpl? columnDefinitionParameterValue?.calculated:new CalculatedColumnImpl(columnDefinitionParameterValue?.calculated);
-        this.choice = columnDefinitionParameterValue?.choice instanceof ChoiceColumnImpl? columnDefinitionParameterValue?.choice:new ChoiceColumnImpl(columnDefinitionParameterValue?.choice);
+        this.boolean = columnDefinitionParameterValue?.boolean;
+        this.calculated = columnDefinitionParameterValue?.calculated;
+        this.choice = columnDefinitionParameterValue?.choice;
         this.columnGroup = columnDefinitionParameterValue?.columnGroup;
-        this.contentApprovalStatus = columnDefinitionParameterValue?.contentApprovalStatus instanceof ContentApprovalStatusColumnImpl? columnDefinitionParameterValue?.contentApprovalStatus:new ContentApprovalStatusColumnImpl(columnDefinitionParameterValue?.contentApprovalStatus);
-        this.currency = columnDefinitionParameterValue?.currency instanceof CurrencyColumnImpl? columnDefinitionParameterValue?.currency:new CurrencyColumnImpl(columnDefinitionParameterValue?.currency);
-        this.dateTime = columnDefinitionParameterValue?.dateTime instanceof DateTimeColumnImpl? columnDefinitionParameterValue?.dateTime:new DateTimeColumnImpl(columnDefinitionParameterValue?.dateTime);
-        this.defaultValue = columnDefinitionParameterValue?.defaultValue instanceof DefaultColumnValueImpl? columnDefinitionParameterValue?.defaultValue:new DefaultColumnValueImpl(columnDefinitionParameterValue?.defaultValue);
+        this.contentApprovalStatus = columnDefinitionParameterValue?.contentApprovalStatus;
+        this.currency = columnDefinitionParameterValue?.currency;
+        this.dateTime = columnDefinitionParameterValue?.dateTime;
+        this.defaultValue = columnDefinitionParameterValue?.defaultValue;
         this.description = columnDefinitionParameterValue?.description;
         this.displayName = columnDefinitionParameterValue?.displayName;
         this.enforceUniqueValues = columnDefinitionParameterValue?.enforceUniqueValues;
-        this.geolocation = columnDefinitionParameterValue?.geolocation instanceof GeolocationColumnImpl? columnDefinitionParameterValue?.geolocation:new GeolocationColumnImpl(columnDefinitionParameterValue?.geolocation);
+        this.geolocation = columnDefinitionParameterValue?.geolocation;
         this.hidden = columnDefinitionParameterValue?.hidden;
-        this.hyperlinkOrPicture = columnDefinitionParameterValue?.hyperlinkOrPicture instanceof HyperlinkOrPictureColumnImpl? columnDefinitionParameterValue?.hyperlinkOrPicture:new HyperlinkOrPictureColumnImpl(columnDefinitionParameterValue?.hyperlinkOrPicture);
+        this.hyperlinkOrPicture = columnDefinitionParameterValue?.hyperlinkOrPicture;
         this.indexed = columnDefinitionParameterValue?.indexed;
         this.isDeletable = columnDefinitionParameterValue?.isDeletable;
         this.isReorderable = columnDefinitionParameterValue?.isReorderable;
         this.isSealed = columnDefinitionParameterValue?.isSealed;
-        this.lookup = columnDefinitionParameterValue?.lookup instanceof LookupColumnImpl? columnDefinitionParameterValue?.lookup:new LookupColumnImpl(columnDefinitionParameterValue?.lookup);
+        this.lookup = columnDefinitionParameterValue?.lookup;
         this.name = columnDefinitionParameterValue?.name;
-        this.number = columnDefinitionParameterValue?.number instanceof NumberColumnImpl? columnDefinitionParameterValue?.number:new NumberColumnImpl(columnDefinitionParameterValue?.number);
-        this.personOrGroup = columnDefinitionParameterValue?.personOrGroup instanceof PersonOrGroupColumnImpl? columnDefinitionParameterValue?.personOrGroup:new PersonOrGroupColumnImpl(columnDefinitionParameterValue?.personOrGroup);
+        this.number = columnDefinitionParameterValue?.number;
+        this.personOrGroup = columnDefinitionParameterValue?.personOrGroup;
         this.propagateChanges = columnDefinitionParameterValue?.propagateChanges;
         this.readOnly = columnDefinitionParameterValue?.readOnly;
         this.required = columnDefinitionParameterValue?.required;
-        this.sourceColumn = columnDefinitionParameterValue?.sourceColumn instanceof ColumnDefinitionImpl? columnDefinitionParameterValue?.sourceColumn:new ColumnDefinitionImpl(columnDefinitionParameterValue?.sourceColumn);
-        this.sourceContentType = columnDefinitionParameterValue?.sourceContentType instanceof ContentTypeInfoImpl? columnDefinitionParameterValue?.sourceContentType:new ContentTypeInfoImpl(columnDefinitionParameterValue?.sourceContentType);
-        this.term = columnDefinitionParameterValue?.term instanceof TermColumnImpl? columnDefinitionParameterValue?.term:new TermColumnImpl(columnDefinitionParameterValue?.term);
-        this.text = columnDefinitionParameterValue?.text instanceof TextColumnImpl? columnDefinitionParameterValue?.text:new TextColumnImpl(columnDefinitionParameterValue?.text);
-        this.thumbnail = columnDefinitionParameterValue?.thumbnail instanceof ThumbnailColumnImpl? columnDefinitionParameterValue?.thumbnail:new ThumbnailColumnImpl(columnDefinitionParameterValue?.thumbnail);
+        this.sourceColumn = columnDefinitionParameterValue?.sourceColumn;
+        this.sourceContentType = columnDefinitionParameterValue?.sourceContentType;
+        this.term = columnDefinitionParameterValue?.term;
+        this.text = columnDefinitionParameterValue?.text;
+        this.thumbnail = columnDefinitionParameterValue?.thumbnail;
         this.type = columnDefinitionParameterValue?.type;
-        this.validation = columnDefinitionParameterValue?.validation instanceof ColumnValidationImpl? columnDefinitionParameterValue?.validation:new ColumnValidationImpl(columnDefinitionParameterValue?.validation);
+        this.validation = columnDefinitionParameterValue?.validation;
     };
     /**
      * The deserialization information for the current model

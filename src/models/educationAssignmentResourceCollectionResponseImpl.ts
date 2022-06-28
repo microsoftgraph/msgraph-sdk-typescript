@@ -18,8 +18,7 @@ export class EducationAssignmentResourceCollectionResponseImpl implements Educat
     public constructor(educationAssignmentResourceCollectionResponseParameterValue?: EducationAssignmentResourceCollectionResponse | undefined) {
         this.additionalData = educationAssignmentResourceCollectionResponseParameterValue?.additionalData ? educationAssignmentResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationAssignmentResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationAssignmentResourceImpl[] = []; educationAssignmentResourceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationAssignmentResourceImpl? element : new EducationAssignmentResourceImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationAssignmentResourceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationAssignmentResourceCollectionResponseImpl implements Educat
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationAssignmentResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationAssignmentResourceImpl? element : new EducationAssignmentResourceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationAssignmentResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationAssignmentResourceImpl(element));});
             writer.writeCollectionOfObjectValues<EducationAssignmentResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

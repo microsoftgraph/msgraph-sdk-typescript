@@ -27,8 +27,7 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         this.defaultLocale = notificationMessageTemplateParameterValue?.defaultLocale;
         this.displayName = notificationMessageTemplateParameterValue?.displayName;
         this.lastModifiedDateTime = notificationMessageTemplateParameterValue?.lastModifiedDateTime;
-        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; notificationMessageTemplateParameterValue?.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
-        this.localizedNotificationMessages = localizedNotificationMessagesArrValue;
+        this.localizedNotificationMessages = notificationMessageTemplateParameterValue?.localizedNotificationMessages;
     };
     /**
      * The deserialization information for the current model
@@ -62,7 +61,7 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.localizedNotificationMessages && this.localizedNotificationMessages.length != 0){        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; this.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(element instanceof LocalizedNotificationMessageImpl? element : new LocalizedNotificationMessageImpl(element));});
+        if(this.localizedNotificationMessages && this.localizedNotificationMessages.length != 0){        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = []; this.localizedNotificationMessages?.forEach(element => {localizedNotificationMessagesArrValue.push(new LocalizedNotificationMessageImpl(element));});
             writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("localizedNotificationMessages", localizedNotificationMessagesArrValue);
         }
     };

@@ -18,8 +18,7 @@ export class ExternalGroupCollectionResponseImpl implements ExternalGroupCollect
     public constructor(externalGroupCollectionResponseParameterValue?: ExternalGroupCollectionResponse | undefined) {
         this.additionalData = externalGroupCollectionResponseParameterValue?.additionalData ? externalGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = externalGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExternalGroupImpl[] = []; externalGroupCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
-        this.value = valueArrValue;
+        this.value = externalGroupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ExternalGroupCollectionResponseImpl implements ExternalGroupCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ExternalGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExternalGroupImpl? element : new ExternalGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExternalGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExternalGroupImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

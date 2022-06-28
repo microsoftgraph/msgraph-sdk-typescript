@@ -18,7 +18,7 @@ export class ManagedAndroidStoreAppImpl extends ManagedAppImpl implements Manage
     public constructor(managedAndroidStoreAppParameterValue?: ManagedAndroidStoreApp | undefined) {
         super(managedAndroidStoreAppParameterValue);
         this.appStoreUrl = managedAndroidStoreAppParameterValue?.appStoreUrl;
-        this.minimumSupportedOperatingSystem = managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = managedAndroidStoreAppParameterValue?.minimumSupportedOperatingSystem;
         this.packageId = managedAndroidStoreAppParameterValue?.packageId;
     };
     /**

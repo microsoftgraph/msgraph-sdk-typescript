@@ -19,8 +19,7 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     public constructor(forwardPostRequestBodyParameterValue?: ForwardPostRequestBody | undefined) {
         this.additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = forwardPostRequestBodyParameterValue?.comment;
-        const toRecipientsArrValue: RecipientImpl[] = []; forwardPostRequestBodyParameterValue?.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.toRecipients = toRecipientsArrValue;
+        this.toRecipients = forwardPostRequestBodyParameterValue?.toRecipients;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +40,7 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
         if(this.comment){
             writer.writeStringValue("comment", this.comment);
         }
-        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

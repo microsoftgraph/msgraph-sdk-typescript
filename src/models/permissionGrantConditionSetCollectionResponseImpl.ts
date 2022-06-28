@@ -18,8 +18,7 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Permis
     public constructor(permissionGrantConditionSetCollectionResponseParameterValue?: PermissionGrantConditionSetCollectionResponse | undefined) {
         this.additionalData = permissionGrantConditionSetCollectionResponseParameterValue?.additionalData ? permissionGrantConditionSetCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = permissionGrantConditionSetCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantConditionSetCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
-        this.value = valueArrValue;
+        this.value = permissionGrantConditionSetCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Permis
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantConditionSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantConditionSetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionGrantConditionSetImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -21,7 +21,7 @@ export class DeclinePostRequestBodyImpl implements DeclinePostRequestBody {
     public constructor(declinePostRequestBodyParameterValue?: DeclinePostRequestBody | undefined) {
         this.additionalData = declinePostRequestBodyParameterValue?.additionalData ? declinePostRequestBodyParameterValue?.additionalData! : {};
         this.comment = declinePostRequestBodyParameterValue?.comment;
-        this.proposedNewTime = declinePostRequestBodyParameterValue?.proposedNewTime instanceof TimeSlotImpl? declinePostRequestBodyParameterValue?.proposedNewTime:new TimeSlotImpl(declinePostRequestBodyParameterValue?.proposedNewTime);
+        this.proposedNewTime = declinePostRequestBodyParameterValue?.proposedNewTime;
         this.sendResponse = declinePostRequestBodyParameterValue?.sendResponse;
     };
     /**

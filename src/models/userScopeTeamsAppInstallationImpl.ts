@@ -13,7 +13,7 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
      */
     public constructor(userScopeTeamsAppInstallationParameterValue?: UserScopeTeamsAppInstallation | undefined) {
         super(userScopeTeamsAppInstallationParameterValue);
-        this.chat = userScopeTeamsAppInstallationParameterValue?.chat instanceof ChatImpl? userScopeTeamsAppInstallationParameterValue?.chat:new ChatImpl(userScopeTeamsAppInstallationParameterValue?.chat);
+        this.chat = userScopeTeamsAppInstallationParameterValue?.chat;
     };
     /**
      * The deserialization information for the current model

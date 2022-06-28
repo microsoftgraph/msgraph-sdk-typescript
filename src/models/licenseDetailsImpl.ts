@@ -18,8 +18,7 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
      */
     public constructor(licenseDetailsParameterValue?: LicenseDetails | undefined) {
         super(licenseDetailsParameterValue);
-        const servicePlansArrValue: ServicePlanInfoImpl[] = []; licenseDetailsParameterValue?.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
-        this.servicePlans = servicePlansArrValue;
+        this.servicePlans = licenseDetailsParameterValue?.servicePlans;
         this.skuId = licenseDetailsParameterValue?.skuId;
         this.skuPartNumber = licenseDetailsParameterValue?.skuPartNumber;
     };
@@ -41,7 +40,7 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
+        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
             writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){

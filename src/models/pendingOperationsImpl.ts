@@ -15,7 +15,7 @@ export class PendingOperationsImpl implements PendingOperations {
      */
     public constructor(pendingOperationsParameterValue?: PendingOperations | undefined) {
         this.additionalData = pendingOperationsParameterValue?.additionalData ? pendingOperationsParameterValue?.additionalData! : {};
-        this.pendingContentUpdate = pendingOperationsParameterValue?.pendingContentUpdate instanceof PendingContentUpdateImpl? pendingOperationsParameterValue?.pendingContentUpdate:new PendingContentUpdateImpl(pendingOperationsParameterValue?.pendingContentUpdate);
+        this.pendingContentUpdate = pendingOperationsParameterValue?.pendingContentUpdate;
     };
     /**
      * The deserialization information for the current model

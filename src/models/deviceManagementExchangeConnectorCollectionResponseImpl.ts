@@ -18,8 +18,7 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
     public constructor(deviceManagementExchangeConnectorCollectionResponseParameterValue?: DeviceManagementExchangeConnectorCollectionResponse | undefined) {
         this.additionalData = deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData ? deviceManagementExchangeConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceManagementExchangeConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = []; deviceManagementExchangeConnectorCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExchangeConnectorImpl? element : new DeviceManagementExchangeConnectorImpl(element));});
-        this.value = valueArrValue;
+        this.value = deviceManagementExchangeConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceManagementExchangeConnectorImpl? element : new DeviceManagementExchangeConnectorImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementExchangeConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

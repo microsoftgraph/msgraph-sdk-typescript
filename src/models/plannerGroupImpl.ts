@@ -14,8 +14,7 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
      */
     public constructor(plannerGroupParameterValue?: PlannerGroup | undefined) {
         super(plannerGroupParameterValue);
-        const plansArrValue: PlannerPlanImpl[] = []; plannerGroupParameterValue?.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
-        this.plans = plansArrValue;
+        this.plans = plannerGroupParameterValue?.plans;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
     };

@@ -14,8 +14,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
      */
     public constructor(outlookUserParameterValue?: OutlookUser | undefined) {
         super(outlookUserParameterValue);
-        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; outlookUserParameterValue?.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
-        this.masterCategories = masterCategoriesArrValue;
+        this.masterCategories = outlookUserParameterValue?.masterCategories;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(element instanceof OutlookCategoryImpl? element : new OutlookCategoryImpl(element));});
+        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(new OutlookCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("masterCategories", masterCategoriesArrValue);
         }
     };

@@ -31,13 +31,12 @@ export class SessionImpl extends EntityImpl implements Session {
      */
     public constructor(sessionParameterValue?: Session | undefined) {
         super(sessionParameterValue);
-        this.callee = sessionParameterValue?.callee instanceof EndpointImpl? sessionParameterValue?.callee:new EndpointImpl(sessionParameterValue?.callee);
-        this.caller = sessionParameterValue?.caller instanceof EndpointImpl? sessionParameterValue?.caller:new EndpointImpl(sessionParameterValue?.caller);
+        this.callee = sessionParameterValue?.callee;
+        this.caller = sessionParameterValue?.caller;
         this.endDateTime = sessionParameterValue?.endDateTime;
-        this.failureInfo = sessionParameterValue?.failureInfo instanceof FailureInfoImpl? sessionParameterValue?.failureInfo:new FailureInfoImpl(sessionParameterValue?.failureInfo);
+        this.failureInfo = sessionParameterValue?.failureInfo;
         this.modalities = sessionParameterValue?.modalities;
-        const segmentsArrValue: SegmentImpl[] = []; sessionParameterValue?.segments?.forEach(element => {segmentsArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
-        this.segments = segmentsArrValue;
+        this.segments = sessionParameterValue?.segments;
         this.startDateTime = sessionParameterValue?.startDateTime;
     };
     /**
@@ -77,7 +76,7 @@ export class SessionImpl extends EntityImpl implements Session {
         if(this.modalities){
             writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
         }
-        if(this.segments && this.segments.length != 0){        const segmentsArrValue: SegmentImpl[] = []; this.segments?.forEach(element => {segmentsArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
+        if(this.segments && this.segments.length != 0){        const segmentsArrValue: SegmentImpl[] = []; this.segments?.forEach(element => {segmentsArrValue.push(new SegmentImpl(element));});
             writer.writeCollectionOfObjectValues<SegmentImpl>("segments", segmentsArrValue);
         }
         if(this.startDateTime){

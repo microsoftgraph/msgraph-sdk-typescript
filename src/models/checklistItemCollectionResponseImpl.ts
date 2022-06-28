@@ -18,8 +18,7 @@ export class ChecklistItemCollectionResponseImpl implements ChecklistItemCollect
     public constructor(checklistItemCollectionResponseParameterValue?: ChecklistItemCollectionResponse | undefined) {
         this.additionalData = checklistItemCollectionResponseParameterValue?.additionalData ? checklistItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = checklistItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ChecklistItemImpl[] = []; checklistItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ChecklistItemImpl? element : new ChecklistItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = checklistItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ChecklistItemCollectionResponseImpl implements ChecklistItemCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ChecklistItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChecklistItemImpl? element : new ChecklistItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChecklistItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChecklistItemImpl(element));});
             writer.writeCollectionOfObjectValues<ChecklistItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

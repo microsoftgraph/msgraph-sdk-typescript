@@ -13,8 +13,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?: MicrosoftAuthenticatorAuthenticationMethodConfiguration | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue);
-        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element : new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
-        this.includeTargets = includeTargetsArrValue;
+        this.includeTargets = microsoftAuthenticatorAuthenticationMethodConfigurationParameterValue?.includeTargets;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element : new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element));});
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
     };

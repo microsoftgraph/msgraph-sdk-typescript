@@ -17,7 +17,7 @@ export class EducationAssignmentGradeImpl implements EducationAssignmentGrade {
      */
     public constructor(educationAssignmentGradeParameterValue?: EducationAssignmentGrade | undefined) {
         this.additionalData = educationAssignmentGradeParameterValue?.additionalData ? educationAssignmentGradeParameterValue?.additionalData! : {};
-        this.gradedBy = educationAssignmentGradeParameterValue?.gradedBy instanceof IdentitySetImpl? educationAssignmentGradeParameterValue?.gradedBy:new IdentitySetImpl(educationAssignmentGradeParameterValue?.gradedBy);
+        this.gradedBy = educationAssignmentGradeParameterValue?.gradedBy;
         this.gradedDateTime = educationAssignmentGradeParameterValue?.gradedDateTime;
     };
     /**

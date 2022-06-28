@@ -27,10 +27,8 @@ export class ApiApplicationImpl implements ApiApplication {
         this.acceptMappedClaims = apiApplicationParameterValue?.acceptMappedClaims;
         this.additionalData = apiApplicationParameterValue?.additionalData ? apiApplicationParameterValue?.additionalData! : {};
         this.knownClientApplications = apiApplicationParameterValue?.knownClientApplications;
-        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; apiApplicationParameterValue?.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(element instanceof PermissionScopeImpl? element : new PermissionScopeImpl(element));});
-        this.oauth2PermissionScopes = oauth2PermissionScopesArrValue;
-        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = []; apiApplicationParameterValue?.preAuthorizedApplications?.forEach(element => {preAuthorizedApplicationsArrValue.push(element instanceof PreAuthorizedApplicationImpl? element : new PreAuthorizedApplicationImpl(element));});
-        this.preAuthorizedApplications = preAuthorizedApplicationsArrValue;
+        this.oauth2PermissionScopes = apiApplicationParameterValue?.oauth2PermissionScopes;
+        this.preAuthorizedApplications = apiApplicationParameterValue?.preAuthorizedApplications;
         this.requestedAccessTokenVersion = apiApplicationParameterValue?.requestedAccessTokenVersion;
     };
     /**
@@ -58,10 +56,10 @@ export class ApiApplicationImpl implements ApiApplication {
         if(this.knownClientApplications){
             writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", this.knownClientApplications);
         }
-        if(this.oauth2PermissionScopes && this.oauth2PermissionScopes.length != 0){        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; this.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(element instanceof PermissionScopeImpl? element : new PermissionScopeImpl(element));});
+        if(this.oauth2PermissionScopes && this.oauth2PermissionScopes.length != 0){        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = []; this.oauth2PermissionScopes?.forEach(element => {oauth2PermissionScopesArrValue.push(new PermissionScopeImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
         }
-        if(this.preAuthorizedApplications && this.preAuthorizedApplications.length != 0){        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = []; this.preAuthorizedApplications?.forEach(element => {preAuthorizedApplicationsArrValue.push(element instanceof PreAuthorizedApplicationImpl? element : new PreAuthorizedApplicationImpl(element));});
+        if(this.preAuthorizedApplications && this.preAuthorizedApplications.length != 0){        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = []; this.preAuthorizedApplications?.forEach(element => {preAuthorizedApplicationsArrValue.push(new PreAuthorizedApplicationImpl(element));});
             writer.writeCollectionOfObjectValues<PreAuthorizedApplicationImpl>("preAuthorizedApplications", preAuthorizedApplicationsArrValue);
         }
         if(this.requestedAccessTokenVersion){

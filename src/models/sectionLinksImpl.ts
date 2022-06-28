@@ -17,8 +17,8 @@ export class SectionLinksImpl implements SectionLinks {
      */
     public constructor(sectionLinksParameterValue?: SectionLinks | undefined) {
         this.additionalData = sectionLinksParameterValue?.additionalData ? sectionLinksParameterValue?.additionalData! : {};
-        this.oneNoteClientUrl = sectionLinksParameterValue?.oneNoteClientUrl instanceof ExternalLinkImpl? sectionLinksParameterValue?.oneNoteClientUrl:new ExternalLinkImpl(sectionLinksParameterValue?.oneNoteClientUrl);
-        this.oneNoteWebUrl = sectionLinksParameterValue?.oneNoteWebUrl instanceof ExternalLinkImpl? sectionLinksParameterValue?.oneNoteWebUrl:new ExternalLinkImpl(sectionLinksParameterValue?.oneNoteWebUrl);
+        this.oneNoteClientUrl = sectionLinksParameterValue?.oneNoteClientUrl;
+        this.oneNoteWebUrl = sectionLinksParameterValue?.oneNoteWebUrl;
     };
     /**
      * The deserialization information for the current model

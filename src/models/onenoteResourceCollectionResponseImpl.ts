@@ -18,8 +18,7 @@ export class OnenoteResourceCollectionResponseImpl implements OnenoteResourceCol
     public constructor(onenoteResourceCollectionResponseParameterValue?: OnenoteResourceCollectionResponse | undefined) {
         this.additionalData = onenoteResourceCollectionResponseParameterValue?.additionalData ? onenoteResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onenoteResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnenoteResourceImpl[] = []; onenoteResourceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteResourceImpl? element : new OnenoteResourceImpl(element));});
-        this.value = valueArrValue;
+        this.value = onenoteResourceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OnenoteResourceCollectionResponseImpl implements OnenoteResourceCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OnenoteResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteResourceImpl? element : new OnenoteResourceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OnenoteResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnenoteResourceImpl(element));});
             writer.writeCollectionOfObjectValues<OnenoteResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

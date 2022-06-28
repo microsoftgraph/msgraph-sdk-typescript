@@ -18,8 +18,7 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
     public constructor(targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?: TargetedManagedAppPolicyAssignmentCollectionResponse | undefined) {
         this.additionalData = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData ? targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = targetedManagedAppPolicyAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

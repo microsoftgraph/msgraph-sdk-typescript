@@ -105,7 +105,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
         this.bitLockerDisableWarningForOtherDiskEncryption = windows10EndpointProtectionConfigurationParameterValue?.bitLockerDisableWarningForOtherDiskEncryption;
         this.bitLockerEnableStorageCardEncryptionOnMobile = windows10EndpointProtectionConfigurationParameterValue?.bitLockerEnableStorageCardEncryptionOnMobile;
         this.bitLockerEncryptDevice = windows10EndpointProtectionConfigurationParameterValue?.bitLockerEncryptDevice;
-        this.bitLockerRemovableDrivePolicy = windows10EndpointProtectionConfigurationParameterValue?.bitLockerRemovableDrivePolicy instanceof BitLockerRemovableDrivePolicyImpl? windows10EndpointProtectionConfigurationParameterValue?.bitLockerRemovableDrivePolicy:new BitLockerRemovableDrivePolicyImpl(windows10EndpointProtectionConfigurationParameterValue?.bitLockerRemovableDrivePolicy);
+        this.bitLockerRemovableDrivePolicy = windows10EndpointProtectionConfigurationParameterValue?.bitLockerRemovableDrivePolicy;
         this.defenderAdditionalGuardedFolders = windows10EndpointProtectionConfigurationParameterValue?.defenderAdditionalGuardedFolders;
         this.defenderAttackSurfaceReductionExcludedPaths = windows10EndpointProtectionConfigurationParameterValue?.defenderAttackSurfaceReductionExcludedPaths;
         this.defenderExploitProtectionXml = windows10EndpointProtectionConfigurationParameterValue?.defenderExploitProtectionXml;
@@ -122,9 +122,9 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
         this.firewallMergeKeyingModuleSettings = windows10EndpointProtectionConfigurationParameterValue?.firewallMergeKeyingModuleSettings;
         this.firewallPacketQueueingMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallPacketQueueingMethod;
         this.firewallPreSharedKeyEncodingMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallPreSharedKeyEncodingMethod;
-        this.firewallProfileDomain = windows10EndpointProtectionConfigurationParameterValue?.firewallProfileDomain instanceof WindowsFirewallNetworkProfileImpl? windows10EndpointProtectionConfigurationParameterValue?.firewallProfileDomain:new WindowsFirewallNetworkProfileImpl(windows10EndpointProtectionConfigurationParameterValue?.firewallProfileDomain);
-        this.firewallProfilePrivate = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePrivate instanceof WindowsFirewallNetworkProfileImpl? windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePrivate:new WindowsFirewallNetworkProfileImpl(windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePrivate);
-        this.firewallProfilePublic = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePublic instanceof WindowsFirewallNetworkProfileImpl? windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePublic:new WindowsFirewallNetworkProfileImpl(windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePublic);
+        this.firewallProfileDomain = windows10EndpointProtectionConfigurationParameterValue?.firewallProfileDomain;
+        this.firewallProfilePrivate = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePrivate;
+        this.firewallProfilePublic = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePublic;
         this.smartScreenBlockOverrideForFiles = windows10EndpointProtectionConfigurationParameterValue?.smartScreenBlockOverrideForFiles;
         this.smartScreenEnableInShell = windows10EndpointProtectionConfigurationParameterValue?.smartScreenEnableInShell;
     };

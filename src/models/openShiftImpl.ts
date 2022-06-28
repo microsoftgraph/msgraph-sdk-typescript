@@ -17,9 +17,9 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
      */
     public constructor(openShiftParameterValue?: OpenShift | undefined) {
         super(openShiftParameterValue);
-        this.draftOpenShift = openShiftParameterValue?.draftOpenShift instanceof OpenShiftItemImpl? openShiftParameterValue?.draftOpenShift:new OpenShiftItemImpl(openShiftParameterValue?.draftOpenShift);
+        this.draftOpenShift = openShiftParameterValue?.draftOpenShift;
         this.schedulingGroupId = openShiftParameterValue?.schedulingGroupId;
-        this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift instanceof OpenShiftItemImpl? openShiftParameterValue?.sharedOpenShift:new OpenShiftItemImpl(openShiftParameterValue?.sharedOpenShift);
+        this.sharedOpenShift = openShiftParameterValue?.sharedOpenShift;
     };
     /**
      * The deserialization information for the current model

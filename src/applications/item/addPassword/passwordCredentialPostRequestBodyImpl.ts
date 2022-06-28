@@ -16,7 +16,7 @@ export class PasswordCredentialPostRequestBodyImpl implements PasswordCredential
      */
     public constructor(passwordCredentialPostRequestBodyParameterValue?: PasswordCredentialPostRequestBody | undefined) {
         this.additionalData = passwordCredentialPostRequestBodyParameterValue?.additionalData ? passwordCredentialPostRequestBodyParameterValue?.additionalData! : {};
-        this.passwordCredential = passwordCredentialPostRequestBodyParameterValue?.passwordCredential instanceof PasswordCredentialImpl? passwordCredentialPostRequestBodyParameterValue?.passwordCredential:new PasswordCredentialImpl(passwordCredentialPostRequestBodyParameterValue?.passwordCredential);
+        this.passwordCredential = passwordCredentialPostRequestBodyParameterValue?.passwordCredential;
     };
     /**
      * The deserialization information for the current model

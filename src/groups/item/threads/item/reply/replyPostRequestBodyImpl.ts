@@ -16,7 +16,7 @@ export class ReplyPostRequestBodyImpl implements ReplyPostRequestBody {
      */
     public constructor(replyPostRequestBodyParameterValue?: ReplyPostRequestBody | undefined) {
         this.additionalData = replyPostRequestBodyParameterValue?.additionalData ? replyPostRequestBodyParameterValue?.additionalData! : {};
-        this.post = replyPostRequestBodyParameterValue?.post instanceof PostImpl? replyPostRequestBodyParameterValue?.post:new PostImpl(replyPostRequestBodyParameterValue?.post);
+        this.post = replyPostRequestBodyParameterValue?.post;
     };
     /**
      * The deserialization information for the current model

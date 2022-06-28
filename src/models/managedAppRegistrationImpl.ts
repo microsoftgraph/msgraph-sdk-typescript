@@ -46,21 +46,18 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
      */
     public constructor(managedAppRegistrationParameterValue?: ManagedAppRegistration | undefined) {
         super(managedAppRegistrationParameterValue);
-        this.appIdentifier = managedAppRegistrationParameterValue?.appIdentifier instanceof MobileAppIdentifierImpl? managedAppRegistrationParameterValue?.appIdentifier:new MobileAppIdentifierImpl(managedAppRegistrationParameterValue?.appIdentifier);
+        this.appIdentifier = managedAppRegistrationParameterValue?.appIdentifier;
         this.applicationVersion = managedAppRegistrationParameterValue?.applicationVersion;
-        const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = []; managedAppRegistrationParameterValue?.appliedPolicies?.forEach(element => {appliedPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
-        this.appliedPolicies = appliedPoliciesArrValue;
+        this.appliedPolicies = managedAppRegistrationParameterValue?.appliedPolicies;
         this.createdDateTime = managedAppRegistrationParameterValue?.createdDateTime;
         this.deviceName = managedAppRegistrationParameterValue?.deviceName;
         this.deviceTag = managedAppRegistrationParameterValue?.deviceTag;
         this.deviceType = managedAppRegistrationParameterValue?.deviceType;
         this.flaggedReasons = managedAppRegistrationParameterValue?.flaggedReasons;
-        const intendedPoliciesArrValue: ManagedAppPolicyImpl[] = []; managedAppRegistrationParameterValue?.intendedPolicies?.forEach(element => {intendedPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
-        this.intendedPolicies = intendedPoliciesArrValue;
+        this.intendedPolicies = managedAppRegistrationParameterValue?.intendedPolicies;
         this.lastSyncDateTime = managedAppRegistrationParameterValue?.lastSyncDateTime;
         this.managementSdkVersion = managedAppRegistrationParameterValue?.managementSdkVersion;
-        const operationsArrValue: ManagedAppOperationImpl[] = []; managedAppRegistrationParameterValue?.operations?.forEach(element => {operationsArrValue.push(element instanceof ManagedAppOperationImpl? element : new ManagedAppOperationImpl(element));});
-        this.operations = operationsArrValue;
+        this.operations = managedAppRegistrationParameterValue?.operations;
         this.platformVersion = managedAppRegistrationParameterValue?.platformVersion;
         this.userId = managedAppRegistrationParameterValue?.userId;
         this.version = managedAppRegistrationParameterValue?.version;
@@ -101,7 +98,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(this.applicationVersion){
             writer.writeStringValue("applicationVersion", this.applicationVersion);
         }
-        if(this.appliedPolicies && this.appliedPolicies.length != 0){        const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.appliedPolicies?.forEach(element => {appliedPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
+        if(this.appliedPolicies && this.appliedPolicies.length != 0){        const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.appliedPolicies?.forEach(element => {appliedPoliciesArrValue.push(new ManagedAppPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("appliedPolicies", appliedPoliciesArrValue);
         }
         if(this.createdDateTime){
@@ -119,7 +116,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(this.flaggedReasons){
             writer.writeCollectionOfPrimitiveValues<string>("flaggedReasons", this.flaggedReasons);
         }
-        if(this.intendedPolicies && this.intendedPolicies.length != 0){        const intendedPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.intendedPolicies?.forEach(element => {intendedPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
+        if(this.intendedPolicies && this.intendedPolicies.length != 0){        const intendedPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.intendedPolicies?.forEach(element => {intendedPoliciesArrValue.push(new ManagedAppPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("intendedPolicies", intendedPoliciesArrValue);
         }
         if(this.lastSyncDateTime){
@@ -128,7 +125,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(this.managementSdkVersion){
             writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: ManagedAppOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof ManagedAppOperationImpl? element : new ManagedAppOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: ManagedAppOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new ManagedAppOperationImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("operations", operationsArrValue);
         }
         if(this.platformVersion){

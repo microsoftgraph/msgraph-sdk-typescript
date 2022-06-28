@@ -18,8 +18,7 @@ export class MessageRuleCollectionResponseImpl implements MessageRuleCollectionR
     public constructor(messageRuleCollectionResponseParameterValue?: MessageRuleCollectionResponse | undefined) {
         this.additionalData = messageRuleCollectionResponseParameterValue?.additionalData ? messageRuleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = messageRuleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MessageRuleImpl[] = []; messageRuleCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
-        this.value = valueArrValue;
+        this.value = messageRuleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MessageRuleCollectionResponseImpl implements MessageRuleCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MessageRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MessageRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageRuleImpl(element));});
             writer.writeCollectionOfObjectValues<MessageRuleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

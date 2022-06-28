@@ -18,8 +18,7 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Androi
     public constructor(androidManagedAppProtectionCollectionResponseParameterValue?: AndroidManagedAppProtectionCollectionResponse | undefined) {
         this.additionalData = androidManagedAppProtectionCollectionResponseParameterValue?.additionalData ? androidManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = androidManagedAppProtectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AndroidManagedAppProtectionImpl[] = []; androidManagedAppProtectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
-        this.value = valueArrValue;
+        this.value = androidManagedAppProtectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Androi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AndroidManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AndroidManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AndroidManagedAppProtectionImpl(element));});
             writer.writeCollectionOfObjectValues<AndroidManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

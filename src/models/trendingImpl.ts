@@ -27,9 +27,9 @@ export class TrendingImpl extends EntityImpl implements Trending {
     public constructor(trendingParameterValue?: Trending | undefined) {
         super(trendingParameterValue);
         this.lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime;
-        this.resource = trendingParameterValue?.resource instanceof EntityImpl? trendingParameterValue?.resource:new EntityImpl(trendingParameterValue?.resource);
-        this.resourceReference = trendingParameterValue?.resourceReference instanceof ResourceReferenceImpl? trendingParameterValue?.resourceReference:new ResourceReferenceImpl(trendingParameterValue?.resourceReference);
-        this.resourceVisualization = trendingParameterValue?.resourceVisualization instanceof ResourceVisualizationImpl? trendingParameterValue?.resourceVisualization:new ResourceVisualizationImpl(trendingParameterValue?.resourceVisualization);
+        this.resource = trendingParameterValue?.resource;
+        this.resourceReference = trendingParameterValue?.resourceReference;
+        this.resourceVisualization = trendingParameterValue?.resourceVisualization;
         this.weight = trendingParameterValue?.weight;
     };
     /**

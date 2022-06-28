@@ -18,8 +18,7 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements In
     public constructor(inferenceClassificationOverrideCollectionResponseParameterValue?: InferenceClassificationOverrideCollectionResponse | undefined) {
         this.additionalData = inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData ? inferenceClassificationOverrideCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = inferenceClassificationOverrideCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationOverrideCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
-        this.value = valueArrValue;
+        this.value = inferenceClassificationOverrideCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements In
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: InferenceClassificationOverrideImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: InferenceClassificationOverrideImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new InferenceClassificationOverrideImpl(element));});
             writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

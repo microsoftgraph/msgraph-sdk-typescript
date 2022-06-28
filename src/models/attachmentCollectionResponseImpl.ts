@@ -18,8 +18,7 @@ export class AttachmentCollectionResponseImpl implements AttachmentCollectionRes
     public constructor(attachmentCollectionResponseParameterValue?: AttachmentCollectionResponse | undefined) {
         this.additionalData = attachmentCollectionResponseParameterValue?.additionalData ? attachmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = attachmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AttachmentImpl[] = []; attachmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = attachmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AttachmentCollectionResponseImpl implements AttachmentCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AttachmentImpl? element : new AttachmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AttachmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AttachmentImpl(element));});
             writer.writeCollectionOfObjectValues<AttachmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

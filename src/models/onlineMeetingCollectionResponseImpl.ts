@@ -18,8 +18,7 @@ export class OnlineMeetingCollectionResponseImpl implements OnlineMeetingCollect
     public constructor(onlineMeetingCollectionResponseParameterValue?: OnlineMeetingCollectionResponse | undefined) {
         this.additionalData = onlineMeetingCollectionResponseParameterValue?.additionalData ? onlineMeetingCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onlineMeetingCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnlineMeetingImpl[] = []; onlineMeetingCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
-        this.value = valueArrValue;
+        this.value = onlineMeetingCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OnlineMeetingCollectionResponseImpl implements OnlineMeetingCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OnlineMeetingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnlineMeetingImpl? element : new OnlineMeetingImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OnlineMeetingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnlineMeetingImpl(element));});
             writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class ExtensionPropertyCollectionResponseImpl implements ExtensionPropert
     public constructor(extensionPropertyCollectionResponseParameterValue?: ExtensionPropertyCollectionResponse | undefined) {
         this.additionalData = extensionPropertyCollectionResponseParameterValue?.additionalData ? extensionPropertyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = extensionPropertyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExtensionPropertyImpl[] = []; extensionPropertyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
-        this.value = valueArrValue;
+        this.value = extensionPropertyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ExtensionPropertyCollectionResponseImpl implements ExtensionPropert
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExtensionPropertyImpl? element : new ExtensionPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

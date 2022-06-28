@@ -18,8 +18,7 @@ export class LinkedResourceCollectionResponseImpl implements LinkedResourceColle
     public constructor(linkedResourceCollectionResponseParameterValue?: LinkedResourceCollectionResponse | undefined) {
         this.additionalData = linkedResourceCollectionResponseParameterValue?.additionalData ? linkedResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = linkedResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: LinkedResourceImpl[] = []; linkedResourceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof LinkedResourceImpl? element : new LinkedResourceImpl(element));});
-        this.value = valueArrValue;
+        this.value = linkedResourceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class LinkedResourceCollectionResponseImpl implements LinkedResourceColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: LinkedResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LinkedResourceImpl? element : new LinkedResourceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: LinkedResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LinkedResourceImpl(element));});
             writer.writeCollectionOfObjectValues<LinkedResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

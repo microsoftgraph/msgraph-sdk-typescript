@@ -17,8 +17,7 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
      */
     public constructor(stsPolicyParameterValue?: StsPolicy | undefined) {
         super(stsPolicyParameterValue);
-        const appliesToArrValue: DirectoryObjectImpl[] = []; stsPolicyParameterValue?.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.appliesTo = appliesToArrValue;
+        this.appliesTo = stsPolicyParameterValue?.appliesTo;
         this.definition = stsPolicyParameterValue?.definition;
         this.isOrganizationDefault = stsPolicyParameterValue?.isOrganizationDefault;
     };
@@ -40,7 +39,7 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = []; this.appliesTo?.forEach(element => {appliesToArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
         }
         if(this.definition){

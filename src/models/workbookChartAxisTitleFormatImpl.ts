@@ -14,7 +14,7 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartAxisTitleFormatParameterValue?: WorkbookChartAxisTitleFormat | undefined) {
         super(workbookChartAxisTitleFormatParameterValue);
-        this.font = workbookChartAxisTitleFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartAxisTitleFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartAxisTitleFormatParameterValue?.font);
+        this.font = workbookChartAxisTitleFormatParameterValue?.font;
     };
     /**
      * The deserialization information for the current model

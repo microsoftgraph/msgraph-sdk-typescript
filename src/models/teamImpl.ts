@@ -76,29 +76,25 @@ export class TeamImpl extends EntityImpl implements Team {
      */
     public constructor(teamParameterValue?: Team | undefined) {
         super(teamParameterValue);
-        const channelsArrValue: ChannelImpl[] = []; teamParameterValue?.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
-        this.channels = channelsArrValue;
+        this.channels = teamParameterValue?.channels;
         this.classification = teamParameterValue?.classification;
         this.createdDateTime = teamParameterValue?.createdDateTime;
         this.description = teamParameterValue?.description;
         this.displayName = teamParameterValue?.displayName;
-        this.funSettings = teamParameterValue?.funSettings instanceof TeamFunSettingsImpl? teamParameterValue?.funSettings:new TeamFunSettingsImpl(teamParameterValue?.funSettings);
-        this.group = teamParameterValue?.group instanceof GroupImpl? teamParameterValue?.group:new GroupImpl(teamParameterValue?.group);
-        this.guestSettings = teamParameterValue?.guestSettings instanceof TeamGuestSettingsImpl? teamParameterValue?.guestSettings:new TeamGuestSettingsImpl(teamParameterValue?.guestSettings);
-        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; teamParameterValue?.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
-        this.installedApps = installedAppsArrValue;
+        this.funSettings = teamParameterValue?.funSettings;
+        this.group = teamParameterValue?.group;
+        this.guestSettings = teamParameterValue?.guestSettings;
+        this.installedApps = teamParameterValue?.installedApps;
         this.internalId = teamParameterValue?.internalId;
         this.isArchived = teamParameterValue?.isArchived;
-        const membersArrValue: ConversationMemberImpl[] = []; teamParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
-        this.members = membersArrValue;
-        this.memberSettings = teamParameterValue?.memberSettings instanceof TeamMemberSettingsImpl? teamParameterValue?.memberSettings:new TeamMemberSettingsImpl(teamParameterValue?.memberSettings);
-        this.messagingSettings = teamParameterValue?.messagingSettings instanceof TeamMessagingSettingsImpl? teamParameterValue?.messagingSettings:new TeamMessagingSettingsImpl(teamParameterValue?.messagingSettings);
-        const operationsArrValue: TeamsAsyncOperationImpl[] = []; teamParameterValue?.operations?.forEach(element => {operationsArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
-        this.operations = operationsArrValue;
-        this.primaryChannel = teamParameterValue?.primaryChannel instanceof ChannelImpl? teamParameterValue?.primaryChannel:new ChannelImpl(teamParameterValue?.primaryChannel);
-        this.schedule = teamParameterValue?.schedule instanceof ScheduleImpl? teamParameterValue?.schedule:new ScheduleImpl(teamParameterValue?.schedule);
+        this.members = teamParameterValue?.members;
+        this.memberSettings = teamParameterValue?.memberSettings;
+        this.messagingSettings = teamParameterValue?.messagingSettings;
+        this.operations = teamParameterValue?.operations;
+        this.primaryChannel = teamParameterValue?.primaryChannel;
+        this.schedule = teamParameterValue?.schedule;
         this.specialization = teamParameterValue?.specialization;
-        this.template = teamParameterValue?.template instanceof TeamsTemplateImpl? teamParameterValue?.template:new TeamsTemplateImpl(teamParameterValue?.template);
+        this.template = teamParameterValue?.template;
         this.visibility = teamParameterValue?.visibility;
         this.webUrl = teamParameterValue?.webUrl;
     };
@@ -138,7 +134,7 @@ export class TeamImpl extends EntityImpl implements Team {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.channels && this.channels.length != 0){        const channelsArrValue: ChannelImpl[] = []; this.channels?.forEach(element => {channelsArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
+        if(this.channels && this.channels.length != 0){        const channelsArrValue: ChannelImpl[] = []; this.channels?.forEach(element => {channelsArrValue.push(new ChannelImpl(element));});
             writer.writeCollectionOfObjectValues<ChannelImpl>("channels", channelsArrValue);
         }
         if(this.classification){
@@ -162,7 +158,7 @@ export class TeamImpl extends EntityImpl implements Team {
         if(this.guestSettings){
             writer.writeObjectValue<TeamGuestSettingsImpl>("guestSettings", new TeamGuestSettingsImpl(this.guestSettings));
         }
-        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
+        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new TeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
         if(this.internalId){
@@ -171,7 +167,7 @@ export class TeamImpl extends EntityImpl implements Team {
         if(this.isArchived){
             writer.writeBooleanValue("isArchived", this.isArchived);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
         if(this.memberSettings){
@@ -180,7 +176,7 @@ export class TeamImpl extends EntityImpl implements Team {
         if(this.messagingSettings){
             writer.writeObjectValue<TeamMessagingSettingsImpl>("messagingSettings", new TeamMessagingSettingsImpl(this.messagingSettings));
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: TeamsAsyncOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof TeamsAsyncOperationImpl? element : new TeamsAsyncOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: TeamsAsyncOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new TeamsAsyncOperationImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("operations", operationsArrValue);
         }
         if(this.primaryChannel){

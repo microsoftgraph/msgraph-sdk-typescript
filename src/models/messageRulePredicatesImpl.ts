@@ -81,8 +81,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         this.bodyContains = messageRulePredicatesParameterValue?.bodyContains;
         this.bodyOrSubjectContains = messageRulePredicatesParameterValue?.bodyOrSubjectContains;
         this.categories = messageRulePredicatesParameterValue?.categories;
-        const fromAddressesArrValue: RecipientImpl[] = []; messageRulePredicatesParameterValue?.fromAddresses?.forEach(element => {fromAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.fromAddresses = fromAddressesArrValue;
+        this.fromAddresses = messageRulePredicatesParameterValue?.fromAddresses;
         this.hasAttachments = messageRulePredicatesParameterValue?.hasAttachments;
         this.headerContains = messageRulePredicatesParameterValue?.headerContains;
         this.importance = messageRulePredicatesParameterValue?.importance;
@@ -104,12 +103,11 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         this.sensitivity = messageRulePredicatesParameterValue?.sensitivity;
         this.sentCcMe = messageRulePredicatesParameterValue?.sentCcMe;
         this.sentOnlyToMe = messageRulePredicatesParameterValue?.sentOnlyToMe;
-        const sentToAddressesArrValue: RecipientImpl[] = []; messageRulePredicatesParameterValue?.sentToAddresses?.forEach(element => {sentToAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.sentToAddresses = sentToAddressesArrValue;
+        this.sentToAddresses = messageRulePredicatesParameterValue?.sentToAddresses;
         this.sentToMe = messageRulePredicatesParameterValue?.sentToMe;
         this.sentToOrCcMe = messageRulePredicatesParameterValue?.sentToOrCcMe;
         this.subjectContains = messageRulePredicatesParameterValue?.subjectContains;
-        this.withinSizeRange = messageRulePredicatesParameterValue?.withinSizeRange instanceof SizeRangeImpl? messageRulePredicatesParameterValue?.withinSizeRange:new SizeRangeImpl(messageRulePredicatesParameterValue?.withinSizeRange);
+        this.withinSizeRange = messageRulePredicatesParameterValue?.withinSizeRange;
     };
     /**
      * The deserialization information for the current model
@@ -164,7 +162,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         if(this.categories){
             writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
         }
-        if(this.fromAddresses && this.fromAddresses.length != 0){        const fromAddressesArrValue: RecipientImpl[] = []; this.fromAddresses?.forEach(element => {fromAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.fromAddresses && this.fromAddresses.length != 0){        const fromAddressesArrValue: RecipientImpl[] = []; this.fromAddresses?.forEach(element => {fromAddressesArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("fromAddresses", fromAddressesArrValue);
         }
         if(this.hasAttachments){
@@ -230,7 +228,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         if(this.sentOnlyToMe){
             writer.writeBooleanValue("sentOnlyToMe", this.sentOnlyToMe);
         }
-        if(this.sentToAddresses && this.sentToAddresses.length != 0){        const sentToAddressesArrValue: RecipientImpl[] = []; this.sentToAddresses?.forEach(element => {sentToAddressesArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.sentToAddresses && this.sentToAddresses.length != 0){        const sentToAddressesArrValue: RecipientImpl[] = []; this.sentToAddresses?.forEach(element => {sentToAddressesArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("sentToAddresses", sentToAddressesArrValue);
         }
         if(this.sentToMe){

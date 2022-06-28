@@ -24,8 +24,8 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
      */
     public constructor(managedDeviceOverviewParameterValue?: ManagedDeviceOverview | undefined) {
         super(managedDeviceOverviewParameterValue);
-        this.deviceExchangeAccessStateSummary = managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary instanceof DeviceExchangeAccessStateSummaryImpl? managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary:new DeviceExchangeAccessStateSummaryImpl(managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary);
-        this.deviceOperatingSystemSummary = managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary instanceof DeviceOperatingSystemSummaryImpl? managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary:new DeviceOperatingSystemSummaryImpl(managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary);
+        this.deviceExchangeAccessStateSummary = managedDeviceOverviewParameterValue?.deviceExchangeAccessStateSummary;
+        this.deviceOperatingSystemSummary = managedDeviceOverviewParameterValue?.deviceOperatingSystemSummary;
         this.dualEnrolledDeviceCount = managedDeviceOverviewParameterValue?.dualEnrolledDeviceCount;
         this.enrolledDeviceCount = managedDeviceOverviewParameterValue?.enrolledDeviceCount;
         this.mdmEnrolledCount = managedDeviceOverviewParameterValue?.mdmEnrolledCount;

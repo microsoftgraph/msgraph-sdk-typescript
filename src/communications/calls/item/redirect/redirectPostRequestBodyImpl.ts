@@ -21,8 +21,7 @@ export class RedirectPostRequestBodyImpl implements RedirectPostRequestBody {
     public constructor(redirectPostRequestBodyParameterValue?: RedirectPostRequestBody | undefined) {
         this.additionalData = redirectPostRequestBodyParameterValue?.additionalData ? redirectPostRequestBodyParameterValue?.additionalData! : {};
         this.callbackUri = redirectPostRequestBodyParameterValue?.callbackUri;
-        const targetsArrValue: InvitationParticipantInfoImpl[] = []; redirectPostRequestBodyParameterValue?.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
-        this.targets = targetsArrValue;
+        this.targets = redirectPostRequestBodyParameterValue?.targets;
         this.timeout = redirectPostRequestBodyParameterValue?.timeout;
     };
     /**
@@ -45,7 +44,7 @@ export class RedirectPostRequestBodyImpl implements RedirectPostRequestBody {
         if(this.callbackUri){
             writer.writeStringValue("callbackUri", this.callbackUri);
         }
-        if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = []; this.targets?.forEach(element => {targetsArrValue.push(new InvitationParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
         }
         if(this.timeout){

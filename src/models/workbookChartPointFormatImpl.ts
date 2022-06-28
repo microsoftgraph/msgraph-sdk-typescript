@@ -14,7 +14,7 @@ export class WorkbookChartPointFormatImpl extends EntityImpl implements Workbook
      */
     public constructor(workbookChartPointFormatParameterValue?: WorkbookChartPointFormat | undefined) {
         super(workbookChartPointFormatParameterValue);
-        this.fill = workbookChartPointFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartPointFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartPointFormatParameterValue?.fill);
+        this.fill = workbookChartPointFormatParameterValue?.fill;
     };
     /**
      * The deserialization information for the current model

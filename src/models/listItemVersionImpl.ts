@@ -13,7 +13,7 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
      */
     public constructor(listItemVersionParameterValue?: ListItemVersion | undefined) {
         super(listItemVersionParameterValue);
-        this.fields = listItemVersionParameterValue?.fields instanceof FieldValueSetImpl? listItemVersionParameterValue?.fields:new FieldValueSetImpl(listItemVersionParameterValue?.fields);
+        this.fields = listItemVersionParameterValue?.fields;
     };
     /**
      * The deserialization information for the current model

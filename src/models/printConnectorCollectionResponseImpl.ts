@@ -18,8 +18,7 @@ export class PrintConnectorCollectionResponseImpl implements PrintConnectorColle
     public constructor(printConnectorCollectionResponseParameterValue?: PrintConnectorCollectionResponse | undefined) {
         this.additionalData = printConnectorCollectionResponseParameterValue?.additionalData ? printConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintConnectorImpl[] = []; printConnectorCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
-        this.value = valueArrValue;
+        this.value = printConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class PrintConnectorCollectionResponseImpl implements PrintConnectorColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrintConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrintConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<PrintConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

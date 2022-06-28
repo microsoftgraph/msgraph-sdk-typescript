@@ -34,12 +34,10 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         super(notebookParameterValue);
         this.isDefault = notebookParameterValue?.isDefault;
         this.isShared = notebookParameterValue?.isShared;
-        this.links = notebookParameterValue?.links instanceof NotebookLinksImpl? notebookParameterValue?.links:new NotebookLinksImpl(notebookParameterValue?.links);
-        const sectionGroupsArrValue: SectionGroupImpl[] = []; notebookParameterValue?.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
-        this.sectionGroups = sectionGroupsArrValue;
+        this.links = notebookParameterValue?.links;
+        this.sectionGroups = notebookParameterValue?.sectionGroups;
         this.sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl;
-        const sectionsArrValue: OnenoteSectionImpl[] = []; notebookParameterValue?.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
-        this.sections = sectionsArrValue;
+        this.sections = notebookParameterValue?.sections;
         this.sectionsUrl = notebookParameterValue?.sectionsUrl;
         this.userRole = notebookParameterValue?.userRole;
     };
@@ -75,13 +73,13 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         if(this.links){
             writer.writeObjectValue<NotebookLinksImpl>("links", new NotebookLinksImpl(this.links));
         }
-        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(new SectionGroupImpl(element));});
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
         if(this.sectionGroupsUrl){
             writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         }
-        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(new OnenoteSectionImpl(element));});
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }
         if(this.sectionsUrl){

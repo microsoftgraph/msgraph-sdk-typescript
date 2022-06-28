@@ -18,8 +18,7 @@ export class BookingBusinessCollectionResponseImpl implements BookingBusinessCol
     public constructor(bookingBusinessCollectionResponseParameterValue?: BookingBusinessCollectionResponse | undefined) {
         this.additionalData = bookingBusinessCollectionResponseParameterValue?.additionalData ? bookingBusinessCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingBusinessCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingBusinessImpl[] = []; bookingBusinessCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingBusinessImpl? element : new BookingBusinessImpl(element));});
-        this.value = valueArrValue;
+        this.value = bookingBusinessCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class BookingBusinessCollectionResponseImpl implements BookingBusinessCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BookingBusinessImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingBusinessImpl? element : new BookingBusinessImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingBusinessImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingBusinessImpl(element));});
             writer.writeCollectionOfObjectValues<BookingBusinessImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

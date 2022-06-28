@@ -13,8 +13,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
      */
     public constructor(organizationalBrandingParameterValue?: OrganizationalBranding | undefined) {
         super(organizationalBrandingParameterValue);
-        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; organizationalBrandingParameterValue?.localizations?.forEach(element => {localizationsArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
-        this.localizations = localizationsArrValue;
+        this.localizations = organizationalBrandingParameterValue?.localizations;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof OrganizationalBrandingLocalizationImpl? element : new OrganizationalBrandingLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

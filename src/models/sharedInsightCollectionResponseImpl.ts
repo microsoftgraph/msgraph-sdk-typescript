@@ -18,8 +18,7 @@ export class SharedInsightCollectionResponseImpl implements SharedInsightCollect
     public constructor(sharedInsightCollectionResponseParameterValue?: SharedInsightCollectionResponse | undefined) {
         this.additionalData = sharedInsightCollectionResponseParameterValue?.additionalData ? sharedInsightCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sharedInsightCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SharedInsightImpl[] = []; sharedInsightCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
-        this.value = valueArrValue;
+        this.value = sharedInsightCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SharedInsightCollectionResponseImpl implements SharedInsightCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SharedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SharedInsightImpl? element : new SharedInsightImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SharedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedInsightImpl(element));});
             writer.writeCollectionOfObjectValues<SharedInsightImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

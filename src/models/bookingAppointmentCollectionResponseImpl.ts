@@ -18,8 +18,7 @@ export class BookingAppointmentCollectionResponseImpl implements BookingAppointm
     public constructor(bookingAppointmentCollectionResponseParameterValue?: BookingAppointmentCollectionResponse | undefined) {
         this.additionalData = bookingAppointmentCollectionResponseParameterValue?.additionalData ? bookingAppointmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingAppointmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingAppointmentImpl[] = []; bookingAppointmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = bookingAppointmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class BookingAppointmentCollectionResponseImpl implements BookingAppointm
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BookingAppointmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingAppointmentImpl? element : new BookingAppointmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingAppointmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingAppointmentImpl(element));});
             writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

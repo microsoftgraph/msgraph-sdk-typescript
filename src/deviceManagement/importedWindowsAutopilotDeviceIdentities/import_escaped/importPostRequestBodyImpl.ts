@@ -16,8 +16,7 @@ export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
      */
     public constructor(importPostRequestBodyParameterValue?: ImportPostRequestBody | undefined) {
         this.additionalData = importPostRequestBodyParameterValue?.additionalData ? importPostRequestBodyParameterValue?.additionalData! : {};
-        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
-        this.importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
+        this.importedWindowsAutopilotDeviceIdentities = importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class AccessReviewHistoryInstanceCollectionResponseImpl implements Access
     public constructor(accessReviewHistoryInstanceCollectionResponseParameterValue?: AccessReviewHistoryInstanceCollectionResponse | undefined) {
         this.additionalData = accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData ? accessReviewHistoryInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewHistoryInstanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewHistoryInstanceImpl[] = []; accessReviewHistoryInstanceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
-        this.value = valueArrValue;
+        this.value = accessReviewHistoryInstanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AccessReviewHistoryInstanceCollectionResponseImpl implements Access
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewHistoryInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewHistoryInstanceImpl? element : new AccessReviewHistoryInstanceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewHistoryInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewHistoryInstanceImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

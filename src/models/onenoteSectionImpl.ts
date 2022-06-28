@@ -31,12 +31,11 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
     public constructor(onenoteSectionParameterValue?: OnenoteSection | undefined) {
         super(onenoteSectionParameterValue);
         this.isDefault = onenoteSectionParameterValue?.isDefault;
-        this.links = onenoteSectionParameterValue?.links instanceof SectionLinksImpl? onenoteSectionParameterValue?.links:new SectionLinksImpl(onenoteSectionParameterValue?.links);
-        const pagesArrValue: OnenotePageImpl[] = []; onenoteSectionParameterValue?.pages?.forEach(element => {pagesArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
-        this.pages = pagesArrValue;
+        this.links = onenoteSectionParameterValue?.links;
+        this.pages = onenoteSectionParameterValue?.pages;
         this.pagesUrl = onenoteSectionParameterValue?.pagesUrl;
-        this.parentNotebook = onenoteSectionParameterValue?.parentNotebook instanceof NotebookImpl? onenoteSectionParameterValue?.parentNotebook:new NotebookImpl(onenoteSectionParameterValue?.parentNotebook);
-        this.parentSectionGroup = onenoteSectionParameterValue?.parentSectionGroup instanceof SectionGroupImpl? onenoteSectionParameterValue?.parentSectionGroup:new SectionGroupImpl(onenoteSectionParameterValue?.parentSectionGroup);
+        this.parentNotebook = onenoteSectionParameterValue?.parentNotebook;
+        this.parentSectionGroup = onenoteSectionParameterValue?.parentSectionGroup;
     };
     /**
      * The deserialization information for the current model
@@ -65,7 +64,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
         if(this.links){
             writer.writeObjectValue<SectionLinksImpl>("links", new SectionLinksImpl(this.links));
         }
-        if(this.pages && this.pages.length != 0){        const pagesArrValue: OnenotePageImpl[] = []; this.pages?.forEach(element => {pagesArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
+        if(this.pages && this.pages.length != 0){        const pagesArrValue: OnenotePageImpl[] = []; this.pages?.forEach(element => {pagesArrValue.push(new OnenotePageImpl(element));});
             writer.writeCollectionOfObjectValues<OnenotePageImpl>("pages", pagesArrValue);
         }
         if(this.pagesUrl){

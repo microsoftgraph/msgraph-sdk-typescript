@@ -18,8 +18,7 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements OpenShiftCh
     public constructor(openShiftChangeRequestCollectionResponseParameterValue?: OpenShiftChangeRequestCollectionResponse | undefined) {
         this.additionalData = openShiftChangeRequestCollectionResponseParameterValue?.additionalData ? openShiftChangeRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = openShiftChangeRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OpenShiftChangeRequestImpl[] = []; openShiftChangeRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OpenShiftChangeRequestImpl? element : new OpenShiftChangeRequestImpl(element));});
-        this.value = valueArrValue;
+        this.value = openShiftChangeRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements OpenShiftCh
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OpenShiftChangeRequestImpl? element : new OpenShiftChangeRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OpenShiftChangeRequestImpl(element));});
             writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -14,8 +14,7 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
      */
     public constructor(mobileAppContentParameterValue?: MobileAppContent | undefined) {
         super(mobileAppContentParameterValue);
-        const filesArrValue: MobileAppContentFileImpl[] = []; mobileAppContentParameterValue?.files?.forEach(element => {filesArrValue.push(element instanceof MobileAppContentFileImpl? element : new MobileAppContentFileImpl(element));});
-        this.files = filesArrValue;
+        this.files = mobileAppContentParameterValue?.files;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.files && this.files.length != 0){        const filesArrValue: MobileAppContentFileImpl[] = []; this.files?.forEach(element => {filesArrValue.push(element instanceof MobileAppContentFileImpl? element : new MobileAppContentFileImpl(element));});
+        if(this.files && this.files.length != 0){        const filesArrValue: MobileAppContentFileImpl[] = []; this.files?.forEach(element => {filesArrValue.push(new MobileAppContentFileImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppContentFileImpl>("files", filesArrValue);
         }
     };

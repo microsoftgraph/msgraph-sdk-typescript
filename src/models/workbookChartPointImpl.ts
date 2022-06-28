@@ -18,8 +18,8 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
      */
     public constructor(workbookChartPointParameterValue?: WorkbookChartPoint | undefined) {
         super(workbookChartPointParameterValue);
-        this.format = workbookChartPointParameterValue?.format instanceof WorkbookChartPointFormatImpl? workbookChartPointParameterValue?.format:new WorkbookChartPointFormatImpl(workbookChartPointParameterValue?.format);
-        this.value = workbookChartPointParameterValue?.value instanceof JsonImpl? workbookChartPointParameterValue?.value:new JsonImpl(workbookChartPointParameterValue?.value);
+        this.format = workbookChartPointParameterValue?.format;
+        this.value = workbookChartPointParameterValue?.value;
     };
     /**
      * The deserialization information for the current model

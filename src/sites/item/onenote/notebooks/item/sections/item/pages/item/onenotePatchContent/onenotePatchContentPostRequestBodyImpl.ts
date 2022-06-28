@@ -16,8 +16,7 @@ export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchConte
      */
     public constructor(onenotePatchContentPostRequestBodyParameterValue?: OnenotePatchContentPostRequestBody | undefined) {
         this.additionalData = onenotePatchContentPostRequestBodyParameterValue?.additionalData ? onenotePatchContentPostRequestBodyParameterValue?.additionalData! : {};
-        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; onenotePatchContentPostRequestBodyParameterValue?.commands?.forEach(element => {commandsArrValue.push(element instanceof OnenotePatchContentCommandImpl? element : new OnenotePatchContentCommandImpl(element));});
-        this.commands = commandsArrValue;
+        this.commands = onenotePatchContentPostRequestBodyParameterValue?.commands;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchConte
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.commands && this.commands.length != 0){        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; this.commands?.forEach(element => {commandsArrValue.push(element instanceof OnenotePatchContentCommandImpl? element : new OnenotePatchContentCommandImpl(element));});
+        if(this.commands && this.commands.length != 0){        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; this.commands?.forEach(element => {commandsArrValue.push(new OnenotePatchContentCommandImpl(element));});
             writer.writeCollectionOfObjectValues<OnenotePatchContentCommandImpl>("commands", commandsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

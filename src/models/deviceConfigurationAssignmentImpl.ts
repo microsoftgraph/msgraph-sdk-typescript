@@ -14,7 +14,7 @@ export class DeviceConfigurationAssignmentImpl extends EntityImpl implements Dev
      */
     public constructor(deviceConfigurationAssignmentParameterValue?: DeviceConfigurationAssignment | undefined) {
         super(deviceConfigurationAssignmentParameterValue);
-        this.target = deviceConfigurationAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? deviceConfigurationAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(deviceConfigurationAssignmentParameterValue?.target);
+        this.target = deviceConfigurationAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

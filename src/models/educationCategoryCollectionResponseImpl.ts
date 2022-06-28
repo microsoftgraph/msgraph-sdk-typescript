@@ -18,8 +18,7 @@ export class EducationCategoryCollectionResponseImpl implements EducationCategor
     public constructor(educationCategoryCollectionResponseParameterValue?: EducationCategoryCollectionResponse | undefined) {
         this.additionalData = educationCategoryCollectionResponseParameterValue?.additionalData ? educationCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationCategoryImpl[] = []; educationCategoryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationCategoryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationCategoryCollectionResponseImpl implements EducationCategor
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationCategoryImpl? element : new EducationCategoryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<EducationCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

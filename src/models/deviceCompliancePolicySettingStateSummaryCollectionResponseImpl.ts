@@ -18,8 +18,7 @@ export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl imp
     public constructor(deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?: DeviceCompliancePolicySettingStateSummaryCollectionResponse | undefined) {
         this.additionalData = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData ? deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element : new DeviceCompliancePolicySettingStateSummaryImpl(element));});
-        this.value = valueArrValue;
+        this.value = deviceCompliancePolicySettingStateSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceCompliancePolicySettingStateSummaryCollectionResponseImpl imp
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element : new DeviceCompliancePolicySettingStateSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCompliancePolicySettingStateSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

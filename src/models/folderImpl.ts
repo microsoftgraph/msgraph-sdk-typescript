@@ -18,7 +18,7 @@ export class FolderImpl implements Folder {
     public constructor(folderParameterValue?: Folder | undefined) {
         this.additionalData = folderParameterValue?.additionalData ? folderParameterValue?.additionalData! : {};
         this.childCount = folderParameterValue?.childCount;
-        this.view = folderParameterValue?.view instanceof FolderViewImpl? folderParameterValue?.view:new FolderViewImpl(folderParameterValue?.view);
+        this.view = folderParameterValue?.view;
     };
     /**
      * The deserialization information for the current model

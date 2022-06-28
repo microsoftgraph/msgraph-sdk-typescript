@@ -18,8 +18,7 @@ export class ListItemVersionCollectionResponseImpl implements ListItemVersionCol
     public constructor(listItemVersionCollectionResponseParameterValue?: ListItemVersionCollectionResponse | undefined) {
         this.additionalData = listItemVersionCollectionResponseParameterValue?.additionalData ? listItemVersionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = listItemVersionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ListItemVersionImpl[] = []; listItemVersionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
-        this.value = valueArrValue;
+        this.value = listItemVersionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ListItemVersionCollectionResponseImpl implements ListItemVersionCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ListItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ListItemVersionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ListItemVersionImpl(element));});
             writer.writeCollectionOfObjectValues<ListItemVersionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

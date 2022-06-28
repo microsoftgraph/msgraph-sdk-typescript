@@ -18,8 +18,7 @@ export class RoomCollectionResponseImpl implements RoomCollectionResponse {
     public constructor(roomCollectionResponseParameterValue?: RoomCollectionResponse | undefined) {
         this.additionalData = roomCollectionResponseParameterValue?.additionalData ? roomCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = roomCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RoomImpl[] = []; roomCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
-        this.value = valueArrValue;
+        this.value = roomCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class RoomCollectionResponseImpl implements RoomCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RoomImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RoomImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RoomImpl(element));});
             writer.writeCollectionOfObjectValues<RoomImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

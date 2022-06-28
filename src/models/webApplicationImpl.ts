@@ -22,7 +22,7 @@ export class WebApplicationImpl implements WebApplication {
     public constructor(webApplicationParameterValue?: WebApplication | undefined) {
         this.additionalData = webApplicationParameterValue?.additionalData ? webApplicationParameterValue?.additionalData! : {};
         this.homePageUrl = webApplicationParameterValue?.homePageUrl;
-        this.implicitGrantSettings = webApplicationParameterValue?.implicitGrantSettings instanceof ImplicitGrantSettingsImpl? webApplicationParameterValue?.implicitGrantSettings:new ImplicitGrantSettingsImpl(webApplicationParameterValue?.implicitGrantSettings);
+        this.implicitGrantSettings = webApplicationParameterValue?.implicitGrantSettings;
         this.logoutUrl = webApplicationParameterValue?.logoutUrl;
         this.redirectUris = webApplicationParameterValue?.redirectUris;
     };

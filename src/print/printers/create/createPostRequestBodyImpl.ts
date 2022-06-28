@@ -28,7 +28,7 @@ export class CreatePostRequestBodyImpl implements CreatePostRequestBody {
      */
     public constructor(createPostRequestBodyParameterValue?: CreatePostRequestBody | undefined) {
         this.additionalData = createPostRequestBodyParameterValue?.additionalData ? createPostRequestBodyParameterValue?.additionalData! : {};
-        this.certificateSigningRequest = createPostRequestBodyParameterValue?.certificateSigningRequest instanceof PrintCertificateSigningRequestImpl? createPostRequestBodyParameterValue?.certificateSigningRequest:new PrintCertificateSigningRequestImpl(createPostRequestBodyParameterValue?.certificateSigningRequest);
+        this.certificateSigningRequest = createPostRequestBodyParameterValue?.certificateSigningRequest;
         this.connectorId = createPostRequestBodyParameterValue?.connectorId;
         this.displayName = createPostRequestBodyParameterValue?.displayName;
         this.hasPhysicalDevice = createPostRequestBodyParameterValue?.hasPhysicalDevice;

@@ -18,8 +18,7 @@ export class ContactFolderCollectionResponseImpl implements ContactFolderCollect
     public constructor(contactFolderCollectionResponseParameterValue?: ContactFolderCollectionResponse | undefined) {
         this.additionalData = contactFolderCollectionResponseParameterValue?.additionalData ? contactFolderCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contactFolderCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ContactFolderImpl[] = []; contactFolderCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
-        this.value = valueArrValue;
+        this.value = contactFolderCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ContactFolderCollectionResponseImpl implements ContactFolderCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ContactFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContactFolderImpl? element : new ContactFolderImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContactFolderImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContactFolderImpl(element));});
             writer.writeCollectionOfObjectValues<ContactFolderImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

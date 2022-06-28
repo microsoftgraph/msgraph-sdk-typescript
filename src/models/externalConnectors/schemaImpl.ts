@@ -18,8 +18,7 @@ export class SchemaImpl extends EntityImpl implements Schema {
     public constructor(schemaParameterValue?: Schema | undefined) {
         super(schemaParameterValue);
         this.baseType = schemaParameterValue?.baseType;
-        const propertiesArrValue: PropertyImpl[] = []; schemaParameterValue?.properties?.forEach(element => {propertiesArrValue.push(element instanceof PropertyImpl? element : new PropertyImpl(element));});
-        this.properties = propertiesArrValue;
+        this.properties = schemaParameterValue?.properties;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +40,7 @@ export class SchemaImpl extends EntityImpl implements Schema {
         if(this.baseType){
             writer.writeStringValue("baseType", this.baseType);
         }
-        if(this.properties && this.properties.length != 0){        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(element instanceof PropertyImpl? element : new PropertyImpl(element));});
+        if(this.properties && this.properties.length != 0){        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new PropertyImpl(element));});
             writer.writeCollectionOfObjectValues<PropertyImpl>("properties", propertiesArrValue);
         }
     };

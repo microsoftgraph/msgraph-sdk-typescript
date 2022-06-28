@@ -20,8 +20,7 @@ export class LocationConstraintImpl implements LocationConstraint {
     public constructor(locationConstraintParameterValue?: LocationConstraint | undefined) {
         this.additionalData = locationConstraintParameterValue?.additionalData ? locationConstraintParameterValue?.additionalData! : {};
         this.isRequired = locationConstraintParameterValue?.isRequired;
-        const locationsArrValue: LocationConstraintItemImpl[] = []; locationConstraintParameterValue?.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationConstraintItemImpl? element : new LocationConstraintItemImpl(element));});
-        this.locations = locationsArrValue;
+        this.locations = locationConstraintParameterValue?.locations;
         this.suggestLocation = locationConstraintParameterValue?.suggestLocation;
     };
     /**
@@ -44,7 +43,7 @@ export class LocationConstraintImpl implements LocationConstraint {
         if(this.isRequired){
             writer.writeBooleanValue("isRequired", this.isRequired);
         }
-        if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationConstraintItemImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationConstraintItemImpl? element : new LocationConstraintItemImpl(element));});
+        if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationConstraintItemImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationConstraintItemImpl(element));});
             writer.writeCollectionOfObjectValues<LocationConstraintItemImpl>("locations", locationsArrValue);
         }
         if(this.suggestLocation){

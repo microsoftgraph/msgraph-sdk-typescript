@@ -16,8 +16,7 @@ export class SupportedTimeZonesResponseImpl implements SupportedTimeZonesRespons
      */
     public constructor(supportedTimeZonesResponseParameterValue?: SupportedTimeZonesResponse | undefined) {
         this.additionalData = supportedTimeZonesResponseParameterValue?.additionalData ? supportedTimeZonesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: TimeZoneInformationImpl[] = []; supportedTimeZonesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TimeZoneInformationImpl? element : new TimeZoneInformationImpl(element));});
-        this.value = valueArrValue;
+        this.value = supportedTimeZonesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class SupportedTimeZonesResponseImpl implements SupportedTimeZonesRespons
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: TimeZoneInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TimeZoneInformationImpl? element : new TimeZoneInformationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TimeZoneInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TimeZoneInformationImpl(element));});
             writer.writeCollectionOfObjectValues<TimeZoneInformationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

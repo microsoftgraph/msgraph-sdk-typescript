@@ -18,8 +18,8 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
      */
     public constructor(teamsAppInstallationParameterValue?: TeamsAppInstallation | undefined) {
         super(teamsAppInstallationParameterValue);
-        this.teamsApp = teamsAppInstallationParameterValue?.teamsApp instanceof TeamsAppImpl? teamsAppInstallationParameterValue?.teamsApp:new TeamsAppImpl(teamsAppInstallationParameterValue?.teamsApp);
-        this.teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition instanceof TeamsAppDefinitionImpl? teamsAppInstallationParameterValue?.teamsAppDefinition:new TeamsAppDefinitionImpl(teamsAppInstallationParameterValue?.teamsAppDefinition);
+        this.teamsApp = teamsAppInstallationParameterValue?.teamsApp;
+        this.teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition;
     };
     /**
      * The deserialization information for the current model

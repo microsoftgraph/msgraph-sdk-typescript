@@ -18,8 +18,7 @@ export class MessageCollectionResponseImpl implements MessageCollectionResponse 
     public constructor(messageCollectionResponseParameterValue?: MessageCollectionResponse | undefined) {
         this.additionalData = messageCollectionResponseParameterValue?.additionalData ? messageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = messageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MessageImpl[] = []; messageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
-        this.value = valueArrValue;
+        this.value = messageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MessageCollectionResponseImpl implements MessageCollectionResponse 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MessageImpl(element));});
             writer.writeCollectionOfObjectValues<MessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

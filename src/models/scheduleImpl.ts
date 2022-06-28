@@ -68,31 +68,22 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
     public constructor(scheduleParameterValue?: Schedule | undefined) {
         super(scheduleParameterValue);
         this.enabled = scheduleParameterValue?.enabled;
-        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; scheduleParameterValue?.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
-        this.offerShiftRequests = offerShiftRequestsArrValue;
+        this.offerShiftRequests = scheduleParameterValue?.offerShiftRequests;
         this.offerShiftRequestsEnabled = scheduleParameterValue?.offerShiftRequestsEnabled;
-        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = []; scheduleParameterValue?.openShiftChangeRequests?.forEach(element => {openShiftChangeRequestsArrValue.push(element instanceof OpenShiftChangeRequestImpl? element : new OpenShiftChangeRequestImpl(element));});
-        this.openShiftChangeRequests = openShiftChangeRequestsArrValue;
-        const openShiftsArrValue: OpenShiftImpl[] = []; scheduleParameterValue?.openShifts?.forEach(element => {openShiftsArrValue.push(element instanceof OpenShiftImpl? element : new OpenShiftImpl(element));});
-        this.openShifts = openShiftsArrValue;
+        this.openShiftChangeRequests = scheduleParameterValue?.openShiftChangeRequests;
+        this.openShifts = scheduleParameterValue?.openShifts;
         this.openShiftsEnabled = scheduleParameterValue?.openShiftsEnabled;
         this.provisionStatus = scheduleParameterValue?.provisionStatus;
         this.provisionStatusCode = scheduleParameterValue?.provisionStatusCode;
-        const schedulingGroupsArrValue: SchedulingGroupImpl[] = []; scheduleParameterValue?.schedulingGroups?.forEach(element => {schedulingGroupsArrValue.push(element instanceof SchedulingGroupImpl? element : new SchedulingGroupImpl(element));});
-        this.schedulingGroups = schedulingGroupsArrValue;
-        const shiftsArrValue: ShiftImpl[] = []; scheduleParameterValue?.shifts?.forEach(element => {shiftsArrValue.push(element instanceof ShiftImpl? element : new ShiftImpl(element));});
-        this.shifts = shiftsArrValue;
-        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = []; scheduleParameterValue?.swapShiftsChangeRequests?.forEach(element => {swapShiftsChangeRequestsArrValue.push(element instanceof SwapShiftsChangeRequestImpl? element : new SwapShiftsChangeRequestImpl(element));});
-        this.swapShiftsChangeRequests = swapShiftsChangeRequestsArrValue;
+        this.schedulingGroups = scheduleParameterValue?.schedulingGroups;
+        this.shifts = scheduleParameterValue?.shifts;
+        this.swapShiftsChangeRequests = scheduleParameterValue?.swapShiftsChangeRequests;
         this.swapShiftsRequestsEnabled = scheduleParameterValue?.swapShiftsRequestsEnabled;
         this.timeClockEnabled = scheduleParameterValue?.timeClockEnabled;
-        const timeOffReasonsArrValue: TimeOffReasonImpl[] = []; scheduleParameterValue?.timeOffReasons?.forEach(element => {timeOffReasonsArrValue.push(element instanceof TimeOffReasonImpl? element : new TimeOffReasonImpl(element));});
-        this.timeOffReasons = timeOffReasonsArrValue;
-        const timeOffRequestsArrValue: TimeOffRequestImpl[] = []; scheduleParameterValue?.timeOffRequests?.forEach(element => {timeOffRequestsArrValue.push(element instanceof TimeOffRequestImpl? element : new TimeOffRequestImpl(element));});
-        this.timeOffRequests = timeOffRequestsArrValue;
+        this.timeOffReasons = scheduleParameterValue?.timeOffReasons;
+        this.timeOffRequests = scheduleParameterValue?.timeOffRequests;
         this.timeOffRequestsEnabled = scheduleParameterValue?.timeOffRequestsEnabled;
-        const timesOffArrValue: TimeOffImpl[] = []; scheduleParameterValue?.timesOff?.forEach(element => {timesOffArrValue.push(element instanceof TimeOffImpl? element : new TimeOffImpl(element));});
-        this.timesOff = timesOffArrValue;
+        this.timesOff = scheduleParameterValue?.timesOff;
         this.timeZone = scheduleParameterValue?.timeZone;
         this.workforceIntegrationIds = scheduleParameterValue?.workforceIntegrationIds;
     };
@@ -133,16 +124,16 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(this.enabled){
             writer.writeBooleanValue("enabled", this.enabled);
         }
-        if(this.offerShiftRequests && this.offerShiftRequests.length != 0){        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; this.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(element instanceof OfferShiftRequestImpl? element : new OfferShiftRequestImpl(element));});
+        if(this.offerShiftRequests && this.offerShiftRequests.length != 0){        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = []; this.offerShiftRequests?.forEach(element => {offerShiftRequestsArrValue.push(new OfferShiftRequestImpl(element));});
             writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("offerShiftRequests", offerShiftRequestsArrValue);
         }
         if(this.offerShiftRequestsEnabled){
             writer.writeBooleanValue("offerShiftRequestsEnabled", this.offerShiftRequestsEnabled);
         }
-        if(this.openShiftChangeRequests && this.openShiftChangeRequests.length != 0){        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = []; this.openShiftChangeRequests?.forEach(element => {openShiftChangeRequestsArrValue.push(element instanceof OpenShiftChangeRequestImpl? element : new OpenShiftChangeRequestImpl(element));});
+        if(this.openShiftChangeRequests && this.openShiftChangeRequests.length != 0){        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = []; this.openShiftChangeRequests?.forEach(element => {openShiftChangeRequestsArrValue.push(new OpenShiftChangeRequestImpl(element));});
             writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("openShiftChangeRequests", openShiftChangeRequestsArrValue);
         }
-        if(this.openShifts && this.openShifts.length != 0){        const openShiftsArrValue: OpenShiftImpl[] = []; this.openShifts?.forEach(element => {openShiftsArrValue.push(element instanceof OpenShiftImpl? element : new OpenShiftImpl(element));});
+        if(this.openShifts && this.openShifts.length != 0){        const openShiftsArrValue: OpenShiftImpl[] = []; this.openShifts?.forEach(element => {openShiftsArrValue.push(new OpenShiftImpl(element));});
             writer.writeCollectionOfObjectValues<OpenShiftImpl>("openShifts", openShiftsArrValue);
         }
         if(this.openShiftsEnabled){
@@ -154,13 +145,13 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(this.provisionStatusCode){
             writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
         }
-        if(this.schedulingGroups && this.schedulingGroups.length != 0){        const schedulingGroupsArrValue: SchedulingGroupImpl[] = []; this.schedulingGroups?.forEach(element => {schedulingGroupsArrValue.push(element instanceof SchedulingGroupImpl? element : new SchedulingGroupImpl(element));});
+        if(this.schedulingGroups && this.schedulingGroups.length != 0){        const schedulingGroupsArrValue: SchedulingGroupImpl[] = []; this.schedulingGroups?.forEach(element => {schedulingGroupsArrValue.push(new SchedulingGroupImpl(element));});
             writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("schedulingGroups", schedulingGroupsArrValue);
         }
-        if(this.shifts && this.shifts.length != 0){        const shiftsArrValue: ShiftImpl[] = []; this.shifts?.forEach(element => {shiftsArrValue.push(element instanceof ShiftImpl? element : new ShiftImpl(element));});
+        if(this.shifts && this.shifts.length != 0){        const shiftsArrValue: ShiftImpl[] = []; this.shifts?.forEach(element => {shiftsArrValue.push(new ShiftImpl(element));});
             writer.writeCollectionOfObjectValues<ShiftImpl>("shifts", shiftsArrValue);
         }
-        if(this.swapShiftsChangeRequests && this.swapShiftsChangeRequests.length != 0){        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = []; this.swapShiftsChangeRequests?.forEach(element => {swapShiftsChangeRequestsArrValue.push(element instanceof SwapShiftsChangeRequestImpl? element : new SwapShiftsChangeRequestImpl(element));});
+        if(this.swapShiftsChangeRequests && this.swapShiftsChangeRequests.length != 0){        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = []; this.swapShiftsChangeRequests?.forEach(element => {swapShiftsChangeRequestsArrValue.push(new SwapShiftsChangeRequestImpl(element));});
             writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("swapShiftsChangeRequests", swapShiftsChangeRequestsArrValue);
         }
         if(this.swapShiftsRequestsEnabled){
@@ -169,16 +160,16 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(this.timeClockEnabled){
             writer.writeBooleanValue("timeClockEnabled", this.timeClockEnabled);
         }
-        if(this.timeOffReasons && this.timeOffReasons.length != 0){        const timeOffReasonsArrValue: TimeOffReasonImpl[] = []; this.timeOffReasons?.forEach(element => {timeOffReasonsArrValue.push(element instanceof TimeOffReasonImpl? element : new TimeOffReasonImpl(element));});
+        if(this.timeOffReasons && this.timeOffReasons.length != 0){        const timeOffReasonsArrValue: TimeOffReasonImpl[] = []; this.timeOffReasons?.forEach(element => {timeOffReasonsArrValue.push(new TimeOffReasonImpl(element));});
             writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("timeOffReasons", timeOffReasonsArrValue);
         }
-        if(this.timeOffRequests && this.timeOffRequests.length != 0){        const timeOffRequestsArrValue: TimeOffRequestImpl[] = []; this.timeOffRequests?.forEach(element => {timeOffRequestsArrValue.push(element instanceof TimeOffRequestImpl? element : new TimeOffRequestImpl(element));});
+        if(this.timeOffRequests && this.timeOffRequests.length != 0){        const timeOffRequestsArrValue: TimeOffRequestImpl[] = []; this.timeOffRequests?.forEach(element => {timeOffRequestsArrValue.push(new TimeOffRequestImpl(element));});
             writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("timeOffRequests", timeOffRequestsArrValue);
         }
         if(this.timeOffRequestsEnabled){
             writer.writeBooleanValue("timeOffRequestsEnabled", this.timeOffRequestsEnabled);
         }
-        if(this.timesOff && this.timesOff.length != 0){        const timesOffArrValue: TimeOffImpl[] = []; this.timesOff?.forEach(element => {timesOffArrValue.push(element instanceof TimeOffImpl? element : new TimeOffImpl(element));});
+        if(this.timesOff && this.timesOff.length != 0){        const timesOffArrValue: TimeOffImpl[] = []; this.timesOff?.forEach(element => {timesOffArrValue.push(new TimeOffImpl(element));});
             writer.writeCollectionOfObjectValues<TimeOffImpl>("timesOff", timesOffArrValue);
         }
         if(this.timeZone){

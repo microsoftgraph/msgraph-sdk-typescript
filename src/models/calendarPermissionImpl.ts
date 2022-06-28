@@ -24,7 +24,7 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
     public constructor(calendarPermissionParameterValue?: CalendarPermission | undefined) {
         super(calendarPermissionParameterValue);
         this.allowedRoles = calendarPermissionParameterValue?.allowedRoles;
-        this.emailAddress = calendarPermissionParameterValue?.emailAddress instanceof EmailAddressImpl? calendarPermissionParameterValue?.emailAddress:new EmailAddressImpl(calendarPermissionParameterValue?.emailAddress);
+        this.emailAddress = calendarPermissionParameterValue?.emailAddress;
         this.isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization;
         this.isRemovable = calendarPermissionParameterValue?.isRemovable;
         this.role = calendarPermissionParameterValue?.role;

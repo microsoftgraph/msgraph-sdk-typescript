@@ -18,8 +18,7 @@ export class AccessReviewScheduleDefinitionCollectionResponseImpl implements Acc
     public constructor(accessReviewScheduleDefinitionCollectionResponseParameterValue?: AccessReviewScheduleDefinitionCollectionResponse | undefined) {
         this.additionalData = accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData ? accessReviewScheduleDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewScheduleDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; accessReviewScheduleDefinitionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
-        this.value = valueArrValue;
+        this.value = accessReviewScheduleDefinitionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AccessReviewScheduleDefinitionCollectionResponseImpl implements Acc
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewScheduleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

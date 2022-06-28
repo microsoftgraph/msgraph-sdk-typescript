@@ -18,8 +18,7 @@ export class TrendingCollectionResponseImpl implements TrendingCollectionRespons
     public constructor(trendingCollectionResponseParameterValue?: TrendingCollectionResponse | undefined) {
         this.additionalData = trendingCollectionResponseParameterValue?.additionalData ? trendingCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = trendingCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TrendingImpl[] = []; trendingCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
-        this.value = valueArrValue;
+        this.value = trendingCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TrendingCollectionResponseImpl implements TrendingCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TrendingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TrendingImpl? element : new TrendingImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TrendingImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TrendingImpl(element));});
             writer.writeCollectionOfObjectValues<TrendingImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -26,13 +26,10 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
      */
     public constructor(accessReviewStageParameterValue?: AccessReviewStage | undefined) {
         super(accessReviewStageParameterValue);
-        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewStageParameterValue?.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
-        this.decisions = decisionsArrValue;
+        this.decisions = accessReviewStageParameterValue?.decisions;
         this.endDateTime = accessReviewStageParameterValue?.endDateTime;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageParameterValue?.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.fallbackReviewers = fallbackReviewersArrValue;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageParameterValue?.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.reviewers = reviewersArrValue;
+        this.fallbackReviewers = accessReviewStageParameterValue?.fallbackReviewers;
+        this.reviewers = accessReviewStageParameterValue?.reviewers;
         this.startDateTime = accessReviewStageParameterValue?.startDateTime;
         this.status = accessReviewStageParameterValue?.status;
     };
@@ -57,16 +54,16 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
+        if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.decisions?.forEach(element => {decisionsArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("decisions", decisionsArrValue);
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.startDateTime){

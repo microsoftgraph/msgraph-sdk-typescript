@@ -30,15 +30,11 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
      */
     public constructor(identityContainerParameterValue?: IdentityContainer | undefined) {
         super(identityContainerParameterValue);
-        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; identityContainerParameterValue?.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
-        this.apiConnectors = apiConnectorsArrValue;
-        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; identityContainerParameterValue?.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
-        this.b2xUserFlows = b2xUserFlowsArrValue;
-        this.conditionalAccess = identityContainerParameterValue?.conditionalAccess instanceof ConditionalAccessRootImpl? identityContainerParameterValue?.conditionalAccess:new ConditionalAccessRootImpl(identityContainerParameterValue?.conditionalAccess);
-        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; identityContainerParameterValue?.identityProviders?.forEach(element => {identityProvidersArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
-        this.identityProviders = identityProvidersArrValue;
-        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; identityContainerParameterValue?.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
-        this.userFlowAttributes = userFlowAttributesArrValue;
+        this.apiConnectors = identityContainerParameterValue?.apiConnectors;
+        this.b2xUserFlows = identityContainerParameterValue?.b2xUserFlows;
+        this.conditionalAccess = identityContainerParameterValue?.conditionalAccess;
+        this.identityProviders = identityContainerParameterValue?.identityProviders;
+        this.userFlowAttributes = identityContainerParameterValue?.userFlowAttributes;
     };
     /**
      * The deserialization information for the current model
@@ -60,19 +56,19 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.apiConnectors && this.apiConnectors.length != 0){        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; this.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
+        if(this.apiConnectors && this.apiConnectors.length != 0){        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = []; this.apiConnectors?.forEach(element => {apiConnectorsArrValue.push(new IdentityApiConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("apiConnectors", apiConnectorsArrValue);
         }
-        if(this.b2xUserFlows && this.b2xUserFlows.length != 0){        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; this.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(element instanceof B2xIdentityUserFlowImpl? element : new B2xIdentityUserFlowImpl(element));});
+        if(this.b2xUserFlows && this.b2xUserFlows.length != 0){        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = []; this.b2xUserFlows?.forEach(element => {b2xUserFlowsArrValue.push(new B2xIdentityUserFlowImpl(element));});
             writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("b2xUserFlows", b2xUserFlowsArrValue);
         }
         if(this.conditionalAccess){
             writer.writeObjectValue<ConditionalAccessRootImpl>("conditionalAccess", new ConditionalAccessRootImpl(this.conditionalAccess));
         }
-        if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.identityProviders?.forEach(element => {identityProvidersArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
+        if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.identityProviders?.forEach(element => {identityProvidersArrValue.push(new IdentityProviderBaseImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("identityProviders", identityProvidersArrValue);
         }
-        if(this.userFlowAttributes && this.userFlowAttributes.length != 0){        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; this.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
+        if(this.userFlowAttributes && this.userFlowAttributes.length != 0){        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = []; this.userFlowAttributes?.forEach(element => {userFlowAttributesArrValue.push(new IdentityUserFlowAttributeImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeImpl>("userFlowAttributes", userFlowAttributesArrValue);
         }
     };

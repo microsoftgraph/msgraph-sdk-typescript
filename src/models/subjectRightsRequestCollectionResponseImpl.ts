@@ -18,8 +18,7 @@ export class SubjectRightsRequestCollectionResponseImpl implements SubjectRights
     public constructor(subjectRightsRequestCollectionResponseParameterValue?: SubjectRightsRequestCollectionResponse | undefined) {
         this.additionalData = subjectRightsRequestCollectionResponseParameterValue?.additionalData ? subjectRightsRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = subjectRightsRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SubjectRightsRequestImpl[] = []; subjectRightsRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
-        this.value = valueArrValue;
+        this.value = subjectRightsRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SubjectRightsRequestCollectionResponseImpl implements SubjectRights
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SubjectRightsRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SubjectRightsRequestImpl? element : new SubjectRightsRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SubjectRightsRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubjectRightsRequestImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

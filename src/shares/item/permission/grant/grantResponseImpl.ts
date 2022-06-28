@@ -16,8 +16,7 @@ export class GrantResponseImpl implements GrantResponse {
      */
     public constructor(grantResponseParameterValue?: GrantResponse | undefined) {
         this.additionalData = grantResponseParameterValue?.additionalData ? grantResponseParameterValue?.additionalData! : {};
-        const valueArrValue: PermissionImpl[] = []; grantResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
-        this.value = valueArrValue;
+        this.value = grantResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GrantResponseImpl implements GrantResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

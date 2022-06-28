@@ -13,7 +13,7 @@ export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleMana
      */
     public constructor(unifiedRoleManagementPolicyApprovalRuleParameterValue?: UnifiedRoleManagementPolicyApprovalRule | undefined) {
         super(unifiedRoleManagementPolicyApprovalRuleParameterValue);
-        this.setting = unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting instanceof ApprovalSettingsImpl? unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting:new ApprovalSettingsImpl(unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting);
+        this.setting = unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting;
     };
     /**
      * The deserialization information for the current model

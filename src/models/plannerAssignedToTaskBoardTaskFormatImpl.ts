@@ -16,7 +16,7 @@ export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl impleme
      */
     public constructor(plannerAssignedToTaskBoardTaskFormatParameterValue?: PlannerAssignedToTaskBoardTaskFormat | undefined) {
         super(plannerAssignedToTaskBoardTaskFormatParameterValue);
-        this.orderHintsByAssignee = plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee instanceof PlannerOrderHintsByAssigneeImpl? plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee:new PlannerOrderHintsByAssigneeImpl(plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee);
+        this.orderHintsByAssignee = plannerAssignedToTaskBoardTaskFormatParameterValue?.orderHintsByAssignee;
         this.unassignedOrderHint = plannerAssignedToTaskBoardTaskFormatParameterValue?.unassignedOrderHint;
     };
     /**

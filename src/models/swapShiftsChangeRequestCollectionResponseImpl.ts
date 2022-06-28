@@ -18,8 +18,7 @@ export class SwapShiftsChangeRequestCollectionResponseImpl implements SwapShifts
     public constructor(swapShiftsChangeRequestCollectionResponseParameterValue?: SwapShiftsChangeRequestCollectionResponse | undefined) {
         this.additionalData = swapShiftsChangeRequestCollectionResponseParameterValue?.additionalData ? swapShiftsChangeRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = swapShiftsChangeRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SwapShiftsChangeRequestImpl[] = []; swapShiftsChangeRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SwapShiftsChangeRequestImpl? element : new SwapShiftsChangeRequestImpl(element));});
-        this.value = valueArrValue;
+        this.value = swapShiftsChangeRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SwapShiftsChangeRequestCollectionResponseImpl implements SwapShifts
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SwapShiftsChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SwapShiftsChangeRequestImpl? element : new SwapShiftsChangeRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SwapShiftsChangeRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SwapShiftsChangeRequestImpl(element));});
             writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

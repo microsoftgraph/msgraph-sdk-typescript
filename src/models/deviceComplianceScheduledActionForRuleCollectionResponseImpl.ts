@@ -18,8 +18,7 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
     public constructor(deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?: DeviceComplianceScheduledActionForRuleCollectionResponse | undefined) {
         this.additionalData = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData ? deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
-        this.value = valueArrValue;
+        this.value = deviceComplianceScheduledActionForRuleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceScheduledActionForRuleImpl? element : new DeviceComplianceScheduledActionForRuleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceScheduledActionForRuleImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

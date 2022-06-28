@@ -48,7 +48,7 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
         this.featureUpdatesDeferralPeriodInDays = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesDeferralPeriodInDays;
         this.featureUpdatesPaused = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesPaused;
         this.featureUpdatesPauseExpiryDateTime = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesPauseExpiryDateTime;
-        this.installationSchedule = windowsUpdateForBusinessConfigurationParameterValue?.installationSchedule instanceof WindowsUpdateInstallScheduleTypeImpl? windowsUpdateForBusinessConfigurationParameterValue?.installationSchedule:new WindowsUpdateInstallScheduleTypeImpl(windowsUpdateForBusinessConfigurationParameterValue?.installationSchedule);
+        this.installationSchedule = windowsUpdateForBusinessConfigurationParameterValue?.installationSchedule;
         this.microsoftUpdateServiceAllowed = windowsUpdateForBusinessConfigurationParameterValue?.microsoftUpdateServiceAllowed;
         this.prereleaseFeatures = windowsUpdateForBusinessConfigurationParameterValue?.prereleaseFeatures;
         this.qualityUpdatesDeferralPeriodInDays = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesDeferralPeriodInDays;

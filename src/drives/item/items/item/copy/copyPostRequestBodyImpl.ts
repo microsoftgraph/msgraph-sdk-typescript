@@ -19,7 +19,7 @@ export class CopyPostRequestBodyImpl implements CopyPostRequestBody {
     public constructor(copyPostRequestBodyParameterValue?: CopyPostRequestBody | undefined) {
         this.additionalData = copyPostRequestBodyParameterValue?.additionalData ? copyPostRequestBodyParameterValue?.additionalData! : {};
         this.name = copyPostRequestBodyParameterValue?.name;
-        this.parentReference = copyPostRequestBodyParameterValue?.parentReference instanceof ItemReferenceImpl? copyPostRequestBodyParameterValue?.parentReference:new ItemReferenceImpl(copyPostRequestBodyParameterValue?.parentReference);
+        this.parentReference = copyPostRequestBodyParameterValue?.parentReference;
     };
     /**
      * The deserialization information for the current model

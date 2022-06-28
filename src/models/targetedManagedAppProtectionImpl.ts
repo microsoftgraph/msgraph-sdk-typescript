@@ -15,8 +15,7 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
      */
     public constructor(targetedManagedAppProtectionParameterValue?: TargetedManagedAppProtection | undefined) {
         super(targetedManagedAppProtectionParameterValue);
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppProtectionParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
-        this.assignments = assignmentsArrValue;
+        this.assignments = targetedManagedAppProtectionParameterValue?.assignments;
         this.isAssigned = targetedManagedAppProtectionParameterValue?.isAssigned;
     };
     /**
@@ -36,7 +35,7 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.isAssigned){

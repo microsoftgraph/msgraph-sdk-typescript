@@ -31,9 +31,8 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
         this.appliesTo = subscribedSkuParameterValue?.appliesTo;
         this.capabilityStatus = subscribedSkuParameterValue?.capabilityStatus;
         this.consumedUnits = subscribedSkuParameterValue?.consumedUnits;
-        this.prepaidUnits = subscribedSkuParameterValue?.prepaidUnits instanceof LicenseUnitsDetailImpl? subscribedSkuParameterValue?.prepaidUnits:new LicenseUnitsDetailImpl(subscribedSkuParameterValue?.prepaidUnits);
-        const servicePlansArrValue: ServicePlanInfoImpl[] = []; subscribedSkuParameterValue?.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
-        this.servicePlans = servicePlansArrValue;
+        this.prepaidUnits = subscribedSkuParameterValue?.prepaidUnits;
+        this.servicePlans = subscribedSkuParameterValue?.servicePlans;
         this.skuId = subscribedSkuParameterValue?.skuId;
         this.skuPartNumber = subscribedSkuParameterValue?.skuPartNumber;
     };
@@ -71,7 +70,7 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
         if(this.prepaidUnits){
             writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", new LicenseUnitsDetailImpl(this.prepaidUnits));
         }
-        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(element instanceof ServicePlanInfoImpl? element : new ServicePlanInfoImpl(element));});
+        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
             writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){

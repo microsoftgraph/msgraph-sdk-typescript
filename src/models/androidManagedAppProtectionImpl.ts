@@ -33,12 +33,11 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
      */
     public constructor(androidManagedAppProtectionParameterValue?: AndroidManagedAppProtection | undefined) {
         super(androidManagedAppProtectionParameterValue);
-        const appsArrValue: ManagedMobileAppImpl[] = []; androidManagedAppProtectionParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
-        this.apps = appsArrValue;
+        this.apps = androidManagedAppProtectionParameterValue?.apps;
         this.customBrowserDisplayName = androidManagedAppProtectionParameterValue?.customBrowserDisplayName;
         this.customBrowserPackageId = androidManagedAppProtectionParameterValue?.customBrowserPackageId;
         this.deployedAppCount = androidManagedAppProtectionParameterValue?.deployedAppCount;
-        this.deploymentSummary = androidManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? androidManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(androidManagedAppProtectionParameterValue?.deploymentSummary);
+        this.deploymentSummary = androidManagedAppProtectionParameterValue?.deploymentSummary;
         this.disableAppEncryptionIfDeviceEncryptionIsEnabled = androidManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled;
         this.encryptAppData = androidManagedAppProtectionParameterValue?.encryptAppData;
         this.minimumRequiredPatchVersion = androidManagedAppProtectionParameterValue?.minimumRequiredPatchVersion;
@@ -70,7 +69,7 @@ export class AndroidManagedAppProtectionImpl extends TargetedManagedAppProtectio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserDisplayName){

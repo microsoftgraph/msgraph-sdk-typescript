@@ -23,10 +23,10 @@ export class EducationResourceImpl implements EducationResource {
      */
     public constructor(educationResourceParameterValue?: EducationResource | undefined) {
         this.additionalData = educationResourceParameterValue?.additionalData ? educationResourceParameterValue?.additionalData! : {};
-        this.createdBy = educationResourceParameterValue?.createdBy instanceof IdentitySetImpl? educationResourceParameterValue?.createdBy:new IdentitySetImpl(educationResourceParameterValue?.createdBy);
+        this.createdBy = educationResourceParameterValue?.createdBy;
         this.createdDateTime = educationResourceParameterValue?.createdDateTime;
         this.displayName = educationResourceParameterValue?.displayName;
-        this.lastModifiedBy = educationResourceParameterValue?.lastModifiedBy instanceof IdentitySetImpl? educationResourceParameterValue?.lastModifiedBy:new IdentitySetImpl(educationResourceParameterValue?.lastModifiedBy);
+        this.lastModifiedBy = educationResourceParameterValue?.lastModifiedBy;
         this.lastModifiedDateTime = educationResourceParameterValue?.lastModifiedDateTime;
     };
     /**

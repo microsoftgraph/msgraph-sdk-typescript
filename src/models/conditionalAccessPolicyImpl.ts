@@ -33,13 +33,13 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
      */
     public constructor(conditionalAccessPolicyParameterValue?: ConditionalAccessPolicy | undefined) {
         super(conditionalAccessPolicyParameterValue);
-        this.conditions = conditionalAccessPolicyParameterValue?.conditions instanceof ConditionalAccessConditionSetImpl? conditionalAccessPolicyParameterValue?.conditions:new ConditionalAccessConditionSetImpl(conditionalAccessPolicyParameterValue?.conditions);
+        this.conditions = conditionalAccessPolicyParameterValue?.conditions;
         this.createdDateTime = conditionalAccessPolicyParameterValue?.createdDateTime;
         this.description = conditionalAccessPolicyParameterValue?.description;
         this.displayName = conditionalAccessPolicyParameterValue?.displayName;
-        this.grantControls = conditionalAccessPolicyParameterValue?.grantControls instanceof ConditionalAccessGrantControlsImpl? conditionalAccessPolicyParameterValue?.grantControls:new ConditionalAccessGrantControlsImpl(conditionalAccessPolicyParameterValue?.grantControls);
+        this.grantControls = conditionalAccessPolicyParameterValue?.grantControls;
         this.modifiedDateTime = conditionalAccessPolicyParameterValue?.modifiedDateTime;
-        this.sessionControls = conditionalAccessPolicyParameterValue?.sessionControls instanceof ConditionalAccessSessionControlsImpl? conditionalAccessPolicyParameterValue?.sessionControls:new ConditionalAccessSessionControlsImpl(conditionalAccessPolicyParameterValue?.sessionControls);
+        this.sessionControls = conditionalAccessPolicyParameterValue?.sessionControls;
         this.state = conditionalAccessPolicyParameterValue?.state;
     };
     /**

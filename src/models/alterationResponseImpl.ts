@@ -21,7 +21,7 @@ export class AlterationResponseImpl implements AlterationResponse {
     public constructor(alterationResponseParameterValue?: AlterationResponse | undefined) {
         this.additionalData = alterationResponseParameterValue?.additionalData ? alterationResponseParameterValue?.additionalData! : {};
         this.originalQueryString = alterationResponseParameterValue?.originalQueryString;
-        this.queryAlteration = alterationResponseParameterValue?.queryAlteration instanceof SearchAlterationImpl? alterationResponseParameterValue?.queryAlteration:new SearchAlterationImpl(alterationResponseParameterValue?.queryAlteration);
+        this.queryAlteration = alterationResponseParameterValue?.queryAlteration;
         this.queryAlterationType = alterationResponseParameterValue?.queryAlterationType;
     };
     /**

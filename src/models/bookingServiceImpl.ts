@@ -58,14 +58,12 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
     public constructor(bookingServiceParameterValue?: BookingService | undefined) {
         super(bookingServiceParameterValue);
         this.additionalInformation = bookingServiceParameterValue?.additionalInformation;
-        const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = []; bookingServiceParameterValue?.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingQuestionAssignmentImpl? element : new BookingQuestionAssignmentImpl(element));});
-        this.customQuestions = customQuestionsArrValue;
+        this.customQuestions = bookingServiceParameterValue?.customQuestions;
         this.defaultDuration = bookingServiceParameterValue?.defaultDuration;
-        this.defaultLocation = bookingServiceParameterValue?.defaultLocation instanceof LocationImpl? bookingServiceParameterValue?.defaultLocation:new LocationImpl(bookingServiceParameterValue?.defaultLocation);
+        this.defaultLocation = bookingServiceParameterValue?.defaultLocation;
         this.defaultPrice = bookingServiceParameterValue?.defaultPrice;
         this.defaultPriceType = bookingServiceParameterValue?.defaultPriceType;
-        const defaultRemindersArrValue: BookingReminderImpl[] = []; bookingServiceParameterValue?.defaultReminders?.forEach(element => {defaultRemindersArrValue.push(element instanceof BookingReminderImpl? element : new BookingReminderImpl(element));});
-        this.defaultReminders = defaultRemindersArrValue;
+        this.defaultReminders = bookingServiceParameterValue?.defaultReminders;
         this.description = bookingServiceParameterValue?.description;
         this.displayName = bookingServiceParameterValue?.displayName;
         this.isHiddenFromCustomers = bookingServiceParameterValue?.isHiddenFromCustomers;
@@ -74,7 +72,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         this.notes = bookingServiceParameterValue?.notes;
         this.postBuffer = bookingServiceParameterValue?.postBuffer;
         this.preBuffer = bookingServiceParameterValue?.preBuffer;
-        this.schedulingPolicy = bookingServiceParameterValue?.schedulingPolicy instanceof BookingSchedulingPolicyImpl? bookingServiceParameterValue?.schedulingPolicy:new BookingSchedulingPolicyImpl(bookingServiceParameterValue?.schedulingPolicy);
+        this.schedulingPolicy = bookingServiceParameterValue?.schedulingPolicy;
         this.smsNotificationsEnabled = bookingServiceParameterValue?.smsNotificationsEnabled;
         this.staffMemberIds = bookingServiceParameterValue?.staffMemberIds;
         this.webUrl = bookingServiceParameterValue?.webUrl;
@@ -116,7 +114,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         if(this.additionalInformation){
             writer.writeStringValue("additionalInformation", this.additionalInformation);
         }
-        if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(element instanceof BookingQuestionAssignmentImpl? element : new BookingQuestionAssignmentImpl(element));});
+        if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = []; this.customQuestions?.forEach(element => {customQuestionsArrValue.push(new BookingQuestionAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<BookingQuestionAssignmentImpl>("customQuestions", customQuestionsArrValue);
         }
         if(this.defaultDuration){
@@ -131,7 +129,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         if(this.defaultPriceType){
             writer.writeEnumValue<BookingPriceType>("defaultPriceType", this.defaultPriceType);
         }
-        if(this.defaultReminders && this.defaultReminders.length != 0){        const defaultRemindersArrValue: BookingReminderImpl[] = []; this.defaultReminders?.forEach(element => {defaultRemindersArrValue.push(element instanceof BookingReminderImpl? element : new BookingReminderImpl(element));});
+        if(this.defaultReminders && this.defaultReminders.length != 0){        const defaultRemindersArrValue: BookingReminderImpl[] = []; this.defaultReminders?.forEach(element => {defaultRemindersArrValue.push(new BookingReminderImpl(element));});
             writer.writeCollectionOfObjectValues<BookingReminderImpl>("defaultReminders", defaultRemindersArrValue);
         }
         if(this.description){

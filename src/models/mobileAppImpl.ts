@@ -47,17 +47,15 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
      */
     public constructor(mobileAppParameterValue?: MobileApp | undefined) {
         super(mobileAppParameterValue);
-        const assignmentsArrValue: MobileAppAssignmentImpl[] = []; mobileAppParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
-        this.assignments = assignmentsArrValue;
-        const categoriesArrValue: MobileAppCategoryImpl[] = []; mobileAppParameterValue?.categories?.forEach(element => {categoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
-        this.categories = categoriesArrValue;
+        this.assignments = mobileAppParameterValue?.assignments;
+        this.categories = mobileAppParameterValue?.categories;
         this.createdDateTime = mobileAppParameterValue?.createdDateTime;
         this.description = mobileAppParameterValue?.description;
         this.developer = mobileAppParameterValue?.developer;
         this.displayName = mobileAppParameterValue?.displayName;
         this.informationUrl = mobileAppParameterValue?.informationUrl;
         this.isFeatured = mobileAppParameterValue?.isFeatured;
-        this.largeIcon = mobileAppParameterValue?.largeIcon instanceof MimeContentImpl? mobileAppParameterValue?.largeIcon:new MimeContentImpl(mobileAppParameterValue?.largeIcon);
+        this.largeIcon = mobileAppParameterValue?.largeIcon;
         this.lastModifiedDateTime = mobileAppParameterValue?.lastModifiedDateTime;
         this.notes = mobileAppParameterValue?.notes;
         this.owner = mobileAppParameterValue?.owner;
@@ -95,10 +93,10 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: MobileAppAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: MobileAppAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new MobileAppAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("assignments", assignmentsArrValue);
         }
-        if(this.categories && this.categories.length != 0){        const categoriesArrValue: MobileAppCategoryImpl[] = []; this.categories?.forEach(element => {categoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
+        if(this.categories && this.categories.length != 0){        const categoriesArrValue: MobileAppCategoryImpl[] = []; this.categories?.forEach(element => {categoriesArrValue.push(new MobileAppCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("categories", categoriesArrValue);
         }
         if(this.createdDateTime){

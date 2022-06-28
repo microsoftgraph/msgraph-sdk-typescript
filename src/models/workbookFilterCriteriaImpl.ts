@@ -36,9 +36,9 @@ export class WorkbookFilterCriteriaImpl implements WorkbookFilterCriteria {
         this.criterion2 = workbookFilterCriteriaParameterValue?.criterion2;
         this.dynamicCriteria = workbookFilterCriteriaParameterValue?.dynamicCriteria;
         this.filterOn = workbookFilterCriteriaParameterValue?.filterOn;
-        this.icon = workbookFilterCriteriaParameterValue?.icon instanceof WorkbookIconImpl? workbookFilterCriteriaParameterValue?.icon:new WorkbookIconImpl(workbookFilterCriteriaParameterValue?.icon);
+        this.icon = workbookFilterCriteriaParameterValue?.icon;
         this.operator = workbookFilterCriteriaParameterValue?.operator;
-        this.values = workbookFilterCriteriaParameterValue?.values instanceof JsonImpl? workbookFilterCriteriaParameterValue?.values:new JsonImpl(workbookFilterCriteriaParameterValue?.values);
+        this.values = workbookFilterCriteriaParameterValue?.values;
     };
     /**
      * The deserialization information for the current model

@@ -18,8 +18,7 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
     public constructor(accessReviewInstanceDecisionItemCollectionResponseParameterValue?: AccessReviewInstanceDecisionItemCollectionResponse | undefined) {
         this.additionalData = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData ? accessReviewInstanceDecisionItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceDecisionItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = accessReviewInstanceDecisionItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

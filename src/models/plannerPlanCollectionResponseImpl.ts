@@ -18,8 +18,7 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
     public constructor(plannerPlanCollectionResponseParameterValue?: PlannerPlanCollectionResponse | undefined) {
         this.additionalData = plannerPlanCollectionResponseParameterValue?.additionalData ? plannerPlanCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = plannerPlanCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PlannerPlanImpl[] = []; plannerPlanCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
-        this.value = valueArrValue;
+        this.value = plannerPlanCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PlannerPlanImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PlannerPlanImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlannerPlanImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

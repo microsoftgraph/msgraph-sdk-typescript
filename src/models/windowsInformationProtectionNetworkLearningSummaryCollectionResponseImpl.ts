@@ -18,8 +18,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryCollectionRespons
     public constructor(windowsInformationProtectionNetworkLearningSummaryCollectionResponseParameterValue?: WindowsInformationProtectionNetworkLearningSummaryCollectionResponse | undefined) {
         this.additionalData = windowsInformationProtectionNetworkLearningSummaryCollectionResponseParameterValue?.additionalData ? windowsInformationProtectionNetworkLearningSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsInformationProtectionNetworkLearningSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; windowsInformationProtectionNetworkLearningSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element : new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
-        this.value = valueArrValue;
+        this.value = windowsInformationProtectionNetworkLearningSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element : new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

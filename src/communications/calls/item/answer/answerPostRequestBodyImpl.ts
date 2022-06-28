@@ -28,8 +28,8 @@ export class AnswerPostRequestBodyImpl implements AnswerPostRequestBody {
         this.acceptedModalities = answerPostRequestBodyParameterValue?.acceptedModalities;
         this.additionalData = answerPostRequestBodyParameterValue?.additionalData ? answerPostRequestBodyParameterValue?.additionalData! : {};
         this.callbackUri = answerPostRequestBodyParameterValue?.callbackUri;
-        this.callOptions = answerPostRequestBodyParameterValue?.callOptions instanceof IncomingCallOptionsImpl? answerPostRequestBodyParameterValue?.callOptions:new IncomingCallOptionsImpl(answerPostRequestBodyParameterValue?.callOptions);
-        this.mediaConfig = answerPostRequestBodyParameterValue?.mediaConfig instanceof MediaConfigImpl? answerPostRequestBodyParameterValue?.mediaConfig:new MediaConfigImpl(answerPostRequestBodyParameterValue?.mediaConfig);
+        this.callOptions = answerPostRequestBodyParameterValue?.callOptions;
+        this.mediaConfig = answerPostRequestBodyParameterValue?.mediaConfig;
         this.participantCapacity = answerPostRequestBodyParameterValue?.participantCapacity;
     };
     /**

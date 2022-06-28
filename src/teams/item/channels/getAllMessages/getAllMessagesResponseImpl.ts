@@ -16,8 +16,7 @@ export class GetAllMessagesResponseImpl implements GetAllMessagesResponse {
      */
     public constructor(getAllMessagesResponseParameterValue?: GetAllMessagesResponse | undefined) {
         this.additionalData = getAllMessagesResponseParameterValue?.additionalData ? getAllMessagesResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ChatMessageImpl[] = []; getAllMessagesResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
-        this.value = valueArrValue;
+        this.value = getAllMessagesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetAllMessagesResponseImpl implements GetAllMessagesResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -14,7 +14,7 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
      */
     public constructor(workbookFilterParameterValue?: WorkbookFilter | undefined) {
         super(workbookFilterParameterValue);
-        this.criteria = workbookFilterParameterValue?.criteria instanceof WorkbookFilterCriteriaImpl? workbookFilterParameterValue?.criteria:new WorkbookFilterCriteriaImpl(workbookFilterParameterValue?.criteria);
+        this.criteria = workbookFilterParameterValue?.criteria;
     };
     /**
      * The deserialization information for the current model

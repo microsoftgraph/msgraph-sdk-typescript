@@ -18,8 +18,7 @@ export class DeviceAndAppManagementRoleAssignmentCollectionResponseImpl implemen
     public constructor(deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?: DeviceAndAppManagementRoleAssignmentCollectionResponse | undefined) {
         this.additionalData = deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.additionalData ? deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceAndAppManagementRoleAssignmentImpl? element : new DeviceAndAppManagementRoleAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = deviceAndAppManagementRoleAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceAndAppManagementRoleAssignmentCollectionResponseImpl implemen
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceAndAppManagementRoleAssignmentImpl? element : new DeviceAndAppManagementRoleAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceAndAppManagementRoleAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

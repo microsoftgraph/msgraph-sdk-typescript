@@ -17,8 +17,7 @@ export class SearchAggregationImpl implements SearchAggregation {
      */
     public constructor(searchAggregationParameterValue?: SearchAggregation | undefined) {
         this.additionalData = searchAggregationParameterValue?.additionalData ? searchAggregationParameterValue?.additionalData! : {};
-        const bucketsArrValue: SearchBucketImpl[] = []; searchAggregationParameterValue?.buckets?.forEach(element => {bucketsArrValue.push(element instanceof SearchBucketImpl? element : new SearchBucketImpl(element));});
-        this.buckets = bucketsArrValue;
+        this.buckets = searchAggregationParameterValue?.buckets;
         this.field = searchAggregationParameterValue?.field;
     };
     /**
@@ -37,7 +36,7 @@ export class SearchAggregationImpl implements SearchAggregation {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: SearchBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(element instanceof SearchBucketImpl? element : new SearchBucketImpl(element));});
+        if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: SearchBucketImpl[] = []; this.buckets?.forEach(element => {bucketsArrValue.push(new SearchBucketImpl(element));});
             writer.writeCollectionOfObjectValues<SearchBucketImpl>("buckets", bucketsArrValue);
         }
         if(this.field){

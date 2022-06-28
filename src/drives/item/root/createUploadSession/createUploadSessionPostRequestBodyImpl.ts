@@ -16,7 +16,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessi
      */
     public constructor(createUploadSessionPostRequestBodyParameterValue?: CreateUploadSessionPostRequestBody | undefined) {
         this.additionalData = createUploadSessionPostRequestBodyParameterValue?.additionalData ? createUploadSessionPostRequestBodyParameterValue?.additionalData! : {};
-        this.item = createUploadSessionPostRequestBodyParameterValue?.item instanceof DriveItemUploadablePropertiesImpl? createUploadSessionPostRequestBodyParameterValue?.item:new DriveItemUploadablePropertiesImpl(createUploadSessionPostRequestBodyParameterValue?.item);
+        this.item = createUploadSessionPostRequestBodyParameterValue?.item;
     };
     /**
      * The deserialization information for the current model

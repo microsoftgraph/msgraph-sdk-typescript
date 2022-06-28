@@ -19,8 +19,7 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         super(groupSettingTemplateParameterValue);
         this.description = groupSettingTemplateParameterValue?.description;
         this.displayName = groupSettingTemplateParameterValue?.displayName;
-        const valuesArrValue: SettingTemplateValueImpl[] = []; groupSettingTemplateParameterValue?.values?.forEach(element => {valuesArrValue.push(element instanceof SettingTemplateValueImpl? element : new SettingTemplateValueImpl(element));});
-        this.values = valuesArrValue;
+        this.values = groupSettingTemplateParameterValue?.values;
     };
     /**
      * The deserialization information for the current model
@@ -46,7 +45,7 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.values && this.values.length != 0){        const valuesArrValue: SettingTemplateValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof SettingTemplateValueImpl? element : new SettingTemplateValueImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: SettingTemplateValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingTemplateValueImpl(element));});
             writer.writeCollectionOfObjectValues<SettingTemplateValueImpl>("values", valuesArrValue);
         }
     };

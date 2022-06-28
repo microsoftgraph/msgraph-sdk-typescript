@@ -27,8 +27,7 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         this.hasAttachments = conversationParameterValue?.hasAttachments;
         this.lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime;
         this.preview = conversationParameterValue?.preview;
-        const threadsArrValue: ConversationThreadImpl[] = []; conversationParameterValue?.threads?.forEach(element => {threadsArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
-        this.threads = threadsArrValue;
+        this.threads = conversationParameterValue?.threads;
         this.topic = conversationParameterValue?.topic;
         this.uniqueSenders = conversationParameterValue?.uniqueSenders;
     };
@@ -62,7 +61,7 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         if(this.preview){
             writer.writeStringValue("preview", this.preview);
         }
-        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(element instanceof ConversationThreadImpl? element : new ConversationThreadImpl(element));});
+        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(new ConversationThreadImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
         if(this.topic){

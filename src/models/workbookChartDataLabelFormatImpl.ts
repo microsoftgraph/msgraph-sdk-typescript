@@ -18,8 +18,8 @@ export class WorkbookChartDataLabelFormatImpl extends EntityImpl implements Work
      */
     public constructor(workbookChartDataLabelFormatParameterValue?: WorkbookChartDataLabelFormat | undefined) {
         super(workbookChartDataLabelFormatParameterValue);
-        this.fill = workbookChartDataLabelFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartDataLabelFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartDataLabelFormatParameterValue?.fill);
-        this.font = workbookChartDataLabelFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartDataLabelFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartDataLabelFormatParameterValue?.font);
+        this.fill = workbookChartDataLabelFormatParameterValue?.fill;
+        this.font = workbookChartDataLabelFormatParameterValue?.font;
     };
     /**
      * The deserialization information for the current model

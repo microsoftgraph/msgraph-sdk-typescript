@@ -18,8 +18,7 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
     public constructor(identityUserFlowAttributeAssignmentCollectionResponseParameterValue?: IdentityUserFlowAttributeAssignmentCollectionResponse | undefined) {
         this.additionalData = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData ? identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeAssignmentImpl? element : new IdentityUserFlowAttributeAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = identityUserFlowAttributeAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeAssignmentImpl? element : new IdentityUserFlowAttributeAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityUserFlowAttributeAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

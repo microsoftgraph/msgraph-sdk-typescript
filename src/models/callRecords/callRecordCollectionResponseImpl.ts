@@ -18,8 +18,7 @@ export class CallRecordCollectionResponseImpl implements CallRecordCollectionRes
     public constructor(callRecordCollectionResponseParameterValue?: CallRecordCollectionResponse | undefined) {
         this.additionalData = callRecordCollectionResponseParameterValue?.additionalData ? callRecordCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = callRecordCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CallRecordImpl[] = []; callRecordCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
-        this.value = valueArrValue;
+        this.value = callRecordCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class CallRecordCollectionResponseImpl implements CallRecordCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: CallRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CallRecordImpl? element : new CallRecordImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CallRecordImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CallRecordImpl(element));});
             writer.writeCollectionOfObjectValues<CallRecordImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

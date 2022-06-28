@@ -16,7 +16,7 @@ export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome
      */
     public constructor(educationOutcomeParameterValue?: EducationOutcome | undefined) {
         super(educationOutcomeParameterValue);
-        this.lastModifiedBy = educationOutcomeParameterValue?.lastModifiedBy instanceof IdentitySetImpl? educationOutcomeParameterValue?.lastModifiedBy:new IdentitySetImpl(educationOutcomeParameterValue?.lastModifiedBy);
+        this.lastModifiedBy = educationOutcomeParameterValue?.lastModifiedBy;
         this.lastModifiedDateTime = educationOutcomeParameterValue?.lastModifiedDateTime;
     };
     /**

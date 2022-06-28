@@ -26,13 +26,11 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
     public constructor(unifiedApprovalStageParameterValue?: UnifiedApprovalStage | undefined) {
         this.additionalData = unifiedApprovalStageParameterValue?.additionalData ? unifiedApprovalStageParameterValue?.additionalData! : {};
         this.approvalStageTimeOutInDays = unifiedApprovalStageParameterValue?.approvalStageTimeOutInDays;
-        const escalationApproversArrValue: SubjectSetImpl[] = []; unifiedApprovalStageParameterValue?.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
-        this.escalationApprovers = escalationApproversArrValue;
+        this.escalationApprovers = unifiedApprovalStageParameterValue?.escalationApprovers;
         this.escalationTimeInMinutes = unifiedApprovalStageParameterValue?.escalationTimeInMinutes;
         this.isApproverJustificationRequired = unifiedApprovalStageParameterValue?.isApproverJustificationRequired;
         this.isEscalationEnabled = unifiedApprovalStageParameterValue?.isEscalationEnabled;
-        const primaryApproversArrValue: SubjectSetImpl[] = []; unifiedApprovalStageParameterValue?.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
-        this.primaryApprovers = primaryApproversArrValue;
+        this.primaryApprovers = unifiedApprovalStageParameterValue?.primaryApprovers;
     };
     /**
      * The deserialization information for the current model
@@ -57,7 +55,7 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         if(this.approvalStageTimeOutInDays){
             writer.writeNumberValue("approvalStageTimeOutInDays", this.approvalStageTimeOutInDays);
         }
-        if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("escalationApprovers", escalationApproversArrValue);
         }
         if(this.escalationTimeInMinutes){
@@ -69,7 +67,7 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         if(this.isEscalationEnabled){
             writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
         }
-        if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryApprovers", primaryApproversArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

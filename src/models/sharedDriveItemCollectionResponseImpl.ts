@@ -18,8 +18,7 @@ export class SharedDriveItemCollectionResponseImpl implements SharedDriveItemCol
     public constructor(sharedDriveItemCollectionResponseParameterValue?: SharedDriveItemCollectionResponse | undefined) {
         this.additionalData = sharedDriveItemCollectionResponseParameterValue?.additionalData ? sharedDriveItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sharedDriveItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SharedDriveItemImpl[] = []; sharedDriveItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SharedDriveItemImpl? element : new SharedDriveItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = sharedDriveItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SharedDriveItemCollectionResponseImpl implements SharedDriveItemCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SharedDriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SharedDriveItemImpl? element : new SharedDriveItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SharedDriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SharedDriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<SharedDriveItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -35,10 +35,8 @@ export class TermsAndConditionsImpl extends EntityImpl implements TermsAndCondit
     public constructor(termsAndConditionsParameterValue?: TermsAndConditions | undefined) {
         super(termsAndConditionsParameterValue);
         this.acceptanceStatement = termsAndConditionsParameterValue?.acceptanceStatement;
-        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; termsAndConditionsParameterValue?.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
-        this.acceptanceStatuses = acceptanceStatusesArrValue;
-        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; termsAndConditionsParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
-        this.assignments = assignmentsArrValue;
+        this.acceptanceStatuses = termsAndConditionsParameterValue?.acceptanceStatuses;
+        this.assignments = termsAndConditionsParameterValue?.assignments;
         this.bodyText = termsAndConditionsParameterValue?.bodyText;
         this.createdDateTime = termsAndConditionsParameterValue?.createdDateTime;
         this.description = termsAndConditionsParameterValue?.description;
@@ -75,10 +73,10 @@ export class TermsAndConditionsImpl extends EntityImpl implements TermsAndCondit
         if(this.acceptanceStatement){
             writer.writeStringValue("acceptanceStatement", this.acceptanceStatement);
         }
-        if(this.acceptanceStatuses && this.acceptanceStatuses.length != 0){        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(element instanceof TermsAndConditionsAcceptanceStatusImpl? element : new TermsAndConditionsAcceptanceStatusImpl(element));});
+        if(this.acceptanceStatuses && this.acceptanceStatuses.length != 0){        const acceptanceStatusesArrValue: TermsAndConditionsAcceptanceStatusImpl[] = []; this.acceptanceStatuses?.forEach(element => {acceptanceStatusesArrValue.push(new TermsAndConditionsAcceptanceStatusImpl(element));});
             writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("acceptanceStatuses", acceptanceStatusesArrValue);
         }
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TermsAndConditionsAssignmentImpl? element : new TermsAndConditionsAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TermsAndConditionsAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TermsAndConditionsAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<TermsAndConditionsAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.bodyText){

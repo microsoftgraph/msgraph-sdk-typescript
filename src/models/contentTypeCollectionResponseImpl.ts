@@ -18,8 +18,7 @@ export class ContentTypeCollectionResponseImpl implements ContentTypeCollectionR
     public constructor(contentTypeCollectionResponseParameterValue?: ContentTypeCollectionResponse | undefined) {
         this.additionalData = contentTypeCollectionResponseParameterValue?.additionalData ? contentTypeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = contentTypeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ContentTypeImpl[] = []; contentTypeCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
-        this.value = valueArrValue;
+        this.value = contentTypeCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ContentTypeCollectionResponseImpl implements ContentTypeCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

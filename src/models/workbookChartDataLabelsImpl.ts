@@ -30,7 +30,7 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartDataLabelsParameterValue?: WorkbookChartDataLabels | undefined) {
         super(workbookChartDataLabelsParameterValue);
-        this.format = workbookChartDataLabelsParameterValue?.format instanceof WorkbookChartDataLabelFormatImpl? workbookChartDataLabelsParameterValue?.format:new WorkbookChartDataLabelFormatImpl(workbookChartDataLabelsParameterValue?.format);
+        this.format = workbookChartDataLabelsParameterValue?.format;
         this.position = workbookChartDataLabelsParameterValue?.position;
         this.separator = workbookChartDataLabelsParameterValue?.separator;
         this.showBubbleSize = workbookChartDataLabelsParameterValue?.showBubbleSize;

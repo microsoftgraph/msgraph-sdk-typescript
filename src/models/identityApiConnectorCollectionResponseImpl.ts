@@ -18,8 +18,7 @@ export class IdentityApiConnectorCollectionResponseImpl implements IdentityApiCo
     public constructor(identityApiConnectorCollectionResponseParameterValue?: IdentityApiConnectorCollectionResponse | undefined) {
         this.additionalData = identityApiConnectorCollectionResponseParameterValue?.additionalData ? identityApiConnectorCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityApiConnectorCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityApiConnectorImpl[] = []; identityApiConnectorCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
-        this.value = valueArrValue;
+        this.value = identityApiConnectorCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class IdentityApiConnectorCollectionResponseImpl implements IdentityApiCo
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IdentityApiConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityApiConnectorImpl? element : new IdentityApiConnectorImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityApiConnectorImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityApiConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

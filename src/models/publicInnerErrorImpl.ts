@@ -22,8 +22,7 @@ export class PublicInnerErrorImpl implements PublicInnerError {
     public constructor(publicInnerErrorParameterValue?: PublicInnerError | undefined) {
         this.additionalData = publicInnerErrorParameterValue?.additionalData ? publicInnerErrorParameterValue?.additionalData! : {};
         this.code = publicInnerErrorParameterValue?.code;
-        const detailsArrValue: PublicErrorDetailImpl[] = []; publicInnerErrorParameterValue?.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
-        this.details = detailsArrValue;
+        this.details = publicInnerErrorParameterValue?.details;
         this.message = publicInnerErrorParameterValue?.message;
         this.target = publicInnerErrorParameterValue?.target;
     };
@@ -48,7 +47,7 @@ export class PublicInnerErrorImpl implements PublicInnerError {
         if(this.code){
             writer.writeStringValue("code", this.code);
         }
-        if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof PublicErrorDetailImpl? element : new PublicErrorDetailImpl(element));});
+        if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new PublicErrorDetailImpl(element));});
             writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
         }
         if(this.message){

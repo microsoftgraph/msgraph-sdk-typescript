@@ -17,9 +17,8 @@ export class MeetingParticipantsImpl implements MeetingParticipants {
      */
     public constructor(meetingParticipantsParameterValue?: MeetingParticipants | undefined) {
         this.additionalData = meetingParticipantsParameterValue?.additionalData ? meetingParticipantsParameterValue?.additionalData! : {};
-        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; meetingParticipantsParameterValue?.attendees?.forEach(element => {attendeesArrValue.push(element instanceof MeetingParticipantInfoImpl? element : new MeetingParticipantInfoImpl(element));});
-        this.attendees = attendeesArrValue;
-        this.organizer = meetingParticipantsParameterValue?.organizer instanceof MeetingParticipantInfoImpl? meetingParticipantsParameterValue?.organizer:new MeetingParticipantInfoImpl(meetingParticipantsParameterValue?.organizer);
+        this.attendees = meetingParticipantsParameterValue?.attendees;
+        this.organizer = meetingParticipantsParameterValue?.organizer;
     };
     /**
      * The deserialization information for the current model
@@ -37,7 +36,7 @@ export class MeetingParticipantsImpl implements MeetingParticipants {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(element instanceof MeetingParticipantInfoImpl? element : new MeetingParticipantInfoImpl(element));});
+        if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: MeetingParticipantInfoImpl[] = []; this.attendees?.forEach(element => {attendeesArrValue.push(new MeetingParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<MeetingParticipantInfoImpl>("attendees", attendeesArrValue);
         }
         if(this.organizer){

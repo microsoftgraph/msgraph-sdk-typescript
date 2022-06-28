@@ -36,7 +36,7 @@ export class WindowsUniversalAppXImpl extends MobileLobAppImpl implements Window
         this.identityResourceIdentifier = windowsUniversalAppXParameterValue?.identityResourceIdentifier;
         this.identityVersion = windowsUniversalAppXParameterValue?.identityVersion;
         this.isBundle = windowsUniversalAppXParameterValue?.isBundle;
-        this.minimumSupportedOperatingSystem = windowsUniversalAppXParameterValue?.minimumSupportedOperatingSystem instanceof WindowsMinimumOperatingSystemImpl? windowsUniversalAppXParameterValue?.minimumSupportedOperatingSystem:new WindowsMinimumOperatingSystemImpl(windowsUniversalAppXParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = windowsUniversalAppXParameterValue?.minimumSupportedOperatingSystem;
     };
     /**
      * The deserialization information for the current model

@@ -74,38 +74,24 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
      */
     public constructor(deviceAppManagementParameterValue?: DeviceAppManagement | undefined) {
         super(deviceAppManagementParameterValue);
-        const androidManagedAppProtectionsArrValue: AndroidManagedAppProtectionImpl[] = []; deviceAppManagementParameterValue?.androidManagedAppProtections?.forEach(element => {androidManagedAppProtectionsArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
-        this.androidManagedAppProtections = androidManagedAppProtectionsArrValue;
-        const defaultManagedAppProtectionsArrValue: DefaultManagedAppProtectionImpl[] = []; deviceAppManagementParameterValue?.defaultManagedAppProtections?.forEach(element => {defaultManagedAppProtectionsArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
-        this.defaultManagedAppProtections = defaultManagedAppProtectionsArrValue;
-        const iosManagedAppProtectionsArrValue: IosManagedAppProtectionImpl[] = []; deviceAppManagementParameterValue?.iosManagedAppProtections?.forEach(element => {iosManagedAppProtectionsArrValue.push(element instanceof IosManagedAppProtectionImpl? element : new IosManagedAppProtectionImpl(element));});
-        this.iosManagedAppProtections = iosManagedAppProtectionsArrValue;
+        this.androidManagedAppProtections = deviceAppManagementParameterValue?.androidManagedAppProtections;
+        this.defaultManagedAppProtections = deviceAppManagementParameterValue?.defaultManagedAppProtections;
+        this.iosManagedAppProtections = deviceAppManagementParameterValue?.iosManagedAppProtections;
         this.isEnabledForMicrosoftStoreForBusiness = deviceAppManagementParameterValue?.isEnabledForMicrosoftStoreForBusiness;
-        const managedAppPoliciesArrValue: ManagedAppPolicyImpl[] = []; deviceAppManagementParameterValue?.managedAppPolicies?.forEach(element => {managedAppPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
-        this.managedAppPolicies = managedAppPoliciesArrValue;
-        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = []; deviceAppManagementParameterValue?.managedAppRegistrations?.forEach(element => {managedAppRegistrationsArrValue.push(element instanceof ManagedAppRegistrationImpl? element : new ManagedAppRegistrationImpl(element));});
-        this.managedAppRegistrations = managedAppRegistrationsArrValue;
-        const managedAppStatusesArrValue: ManagedAppStatusImpl[] = []; deviceAppManagementParameterValue?.managedAppStatuses?.forEach(element => {managedAppStatusesArrValue.push(element instanceof ManagedAppStatusImpl? element : new ManagedAppStatusImpl(element));});
-        this.managedAppStatuses = managedAppStatusesArrValue;
-        const managedEBooksArrValue: ManagedEBookImpl[] = []; deviceAppManagementParameterValue?.managedEBooks?.forEach(element => {managedEBooksArrValue.push(element instanceof ManagedEBookImpl? element : new ManagedEBookImpl(element));});
-        this.managedEBooks = managedEBooksArrValue;
-        const mdmWindowsInformationProtectionPoliciesArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; deviceAppManagementParameterValue?.mdmWindowsInformationProtectionPolicies?.forEach(element => {mdmWindowsInformationProtectionPoliciesArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
-        this.mdmWindowsInformationProtectionPolicies = mdmWindowsInformationProtectionPoliciesArrValue;
+        this.managedAppPolicies = deviceAppManagementParameterValue?.managedAppPolicies;
+        this.managedAppRegistrations = deviceAppManagementParameterValue?.managedAppRegistrations;
+        this.managedAppStatuses = deviceAppManagementParameterValue?.managedAppStatuses;
+        this.managedEBooks = deviceAppManagementParameterValue?.managedEBooks;
+        this.mdmWindowsInformationProtectionPolicies = deviceAppManagementParameterValue?.mdmWindowsInformationProtectionPolicies;
         this.microsoftStoreForBusinessLanguage = deviceAppManagementParameterValue?.microsoftStoreForBusinessLanguage;
         this.microsoftStoreForBusinessLastCompletedApplicationSyncTime = deviceAppManagementParameterValue?.microsoftStoreForBusinessLastCompletedApplicationSyncTime;
         this.microsoftStoreForBusinessLastSuccessfulSyncDateTime = deviceAppManagementParameterValue?.microsoftStoreForBusinessLastSuccessfulSyncDateTime;
-        const mobileAppCategoriesArrValue: MobileAppCategoryImpl[] = []; deviceAppManagementParameterValue?.mobileAppCategories?.forEach(element => {mobileAppCategoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
-        this.mobileAppCategories = mobileAppCategoriesArrValue;
-        const mobileAppConfigurationsArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; deviceAppManagementParameterValue?.mobileAppConfigurations?.forEach(element => {mobileAppConfigurationsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationImpl? element : new ManagedDeviceMobileAppConfigurationImpl(element));});
-        this.mobileAppConfigurations = mobileAppConfigurationsArrValue;
-        const mobileAppsArrValue: MobileAppImpl[] = []; deviceAppManagementParameterValue?.mobileApps?.forEach(element => {mobileAppsArrValue.push(element instanceof MobileAppImpl? element : new MobileAppImpl(element));});
-        this.mobileApps = mobileAppsArrValue;
-        const targetedManagedAppConfigurationsArrValue: TargetedManagedAppConfigurationImpl[] = []; deviceAppManagementParameterValue?.targetedManagedAppConfigurations?.forEach(element => {targetedManagedAppConfigurationsArrValue.push(element instanceof TargetedManagedAppConfigurationImpl? element : new TargetedManagedAppConfigurationImpl(element));});
-        this.targetedManagedAppConfigurations = targetedManagedAppConfigurationsArrValue;
-        const vppTokensArrValue: VppTokenImpl[] = []; deviceAppManagementParameterValue?.vppTokens?.forEach(element => {vppTokensArrValue.push(element instanceof VppTokenImpl? element : new VppTokenImpl(element));});
-        this.vppTokens = vppTokensArrValue;
-        const windowsInformationProtectionPoliciesArrValue: WindowsInformationProtectionPolicyImpl[] = []; deviceAppManagementParameterValue?.windowsInformationProtectionPolicies?.forEach(element => {windowsInformationProtectionPoliciesArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
-        this.windowsInformationProtectionPolicies = windowsInformationProtectionPoliciesArrValue;
+        this.mobileAppCategories = deviceAppManagementParameterValue?.mobileAppCategories;
+        this.mobileAppConfigurations = deviceAppManagementParameterValue?.mobileAppConfigurations;
+        this.mobileApps = deviceAppManagementParameterValue?.mobileApps;
+        this.targetedManagedAppConfigurations = deviceAppManagementParameterValue?.targetedManagedAppConfigurations;
+        this.vppTokens = deviceAppManagementParameterValue?.vppTokens;
+        this.windowsInformationProtectionPolicies = deviceAppManagementParameterValue?.windowsInformationProtectionPolicies;
     };
     /**
      * The deserialization information for the current model
@@ -140,31 +126,31 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.androidManagedAppProtections && this.androidManagedAppProtections.length != 0){        const androidManagedAppProtectionsArrValue: AndroidManagedAppProtectionImpl[] = []; this.androidManagedAppProtections?.forEach(element => {androidManagedAppProtectionsArrValue.push(element instanceof AndroidManagedAppProtectionImpl? element : new AndroidManagedAppProtectionImpl(element));});
+        if(this.androidManagedAppProtections && this.androidManagedAppProtections.length != 0){        const androidManagedAppProtectionsArrValue: AndroidManagedAppProtectionImpl[] = []; this.androidManagedAppProtections?.forEach(element => {androidManagedAppProtectionsArrValue.push(new AndroidManagedAppProtectionImpl(element));});
             writer.writeCollectionOfObjectValues<AndroidManagedAppProtectionImpl>("androidManagedAppProtections", androidManagedAppProtectionsArrValue);
         }
-        if(this.defaultManagedAppProtections && this.defaultManagedAppProtections.length != 0){        const defaultManagedAppProtectionsArrValue: DefaultManagedAppProtectionImpl[] = []; this.defaultManagedAppProtections?.forEach(element => {defaultManagedAppProtectionsArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
+        if(this.defaultManagedAppProtections && this.defaultManagedAppProtections.length != 0){        const defaultManagedAppProtectionsArrValue: DefaultManagedAppProtectionImpl[] = []; this.defaultManagedAppProtections?.forEach(element => {defaultManagedAppProtectionsArrValue.push(new DefaultManagedAppProtectionImpl(element));});
             writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("defaultManagedAppProtections", defaultManagedAppProtectionsArrValue);
         }
-        if(this.iosManagedAppProtections && this.iosManagedAppProtections.length != 0){        const iosManagedAppProtectionsArrValue: IosManagedAppProtectionImpl[] = []; this.iosManagedAppProtections?.forEach(element => {iosManagedAppProtectionsArrValue.push(element instanceof IosManagedAppProtectionImpl? element : new IosManagedAppProtectionImpl(element));});
+        if(this.iosManagedAppProtections && this.iosManagedAppProtections.length != 0){        const iosManagedAppProtectionsArrValue: IosManagedAppProtectionImpl[] = []; this.iosManagedAppProtections?.forEach(element => {iosManagedAppProtectionsArrValue.push(new IosManagedAppProtectionImpl(element));});
             writer.writeCollectionOfObjectValues<IosManagedAppProtectionImpl>("iosManagedAppProtections", iosManagedAppProtectionsArrValue);
         }
         if(this.isEnabledForMicrosoftStoreForBusiness){
             writer.writeBooleanValue("isEnabledForMicrosoftStoreForBusiness", this.isEnabledForMicrosoftStoreForBusiness);
         }
-        if(this.managedAppPolicies && this.managedAppPolicies.length != 0){        const managedAppPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.managedAppPolicies?.forEach(element => {managedAppPoliciesArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
+        if(this.managedAppPolicies && this.managedAppPolicies.length != 0){        const managedAppPoliciesArrValue: ManagedAppPolicyImpl[] = []; this.managedAppPolicies?.forEach(element => {managedAppPoliciesArrValue.push(new ManagedAppPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("managedAppPolicies", managedAppPoliciesArrValue);
         }
-        if(this.managedAppRegistrations && this.managedAppRegistrations.length != 0){        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = []; this.managedAppRegistrations?.forEach(element => {managedAppRegistrationsArrValue.push(element instanceof ManagedAppRegistrationImpl? element : new ManagedAppRegistrationImpl(element));});
+        if(this.managedAppRegistrations && this.managedAppRegistrations.length != 0){        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = []; this.managedAppRegistrations?.forEach(element => {managedAppRegistrationsArrValue.push(new ManagedAppRegistrationImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("managedAppRegistrations", managedAppRegistrationsArrValue);
         }
-        if(this.managedAppStatuses && this.managedAppStatuses.length != 0){        const managedAppStatusesArrValue: ManagedAppStatusImpl[] = []; this.managedAppStatuses?.forEach(element => {managedAppStatusesArrValue.push(element instanceof ManagedAppStatusImpl? element : new ManagedAppStatusImpl(element));});
+        if(this.managedAppStatuses && this.managedAppStatuses.length != 0){        const managedAppStatusesArrValue: ManagedAppStatusImpl[] = []; this.managedAppStatuses?.forEach(element => {managedAppStatusesArrValue.push(new ManagedAppStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppStatusImpl>("managedAppStatuses", managedAppStatusesArrValue);
         }
-        if(this.managedEBooks && this.managedEBooks.length != 0){        const managedEBooksArrValue: ManagedEBookImpl[] = []; this.managedEBooks?.forEach(element => {managedEBooksArrValue.push(element instanceof ManagedEBookImpl? element : new ManagedEBookImpl(element));});
+        if(this.managedEBooks && this.managedEBooks.length != 0){        const managedEBooksArrValue: ManagedEBookImpl[] = []; this.managedEBooks?.forEach(element => {managedEBooksArrValue.push(new ManagedEBookImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedEBookImpl>("managedEBooks", managedEBooksArrValue);
         }
-        if(this.mdmWindowsInformationProtectionPolicies && this.mdmWindowsInformationProtectionPolicies.length != 0){        const mdmWindowsInformationProtectionPoliciesArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.mdmWindowsInformationProtectionPolicies?.forEach(element => {mdmWindowsInformationProtectionPoliciesArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
+        if(this.mdmWindowsInformationProtectionPolicies && this.mdmWindowsInformationProtectionPolicies.length != 0){        const mdmWindowsInformationProtectionPoliciesArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.mdmWindowsInformationProtectionPolicies?.forEach(element => {mdmWindowsInformationProtectionPoliciesArrValue.push(new MdmWindowsInformationProtectionPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicyImpl>("mdmWindowsInformationProtectionPolicies", mdmWindowsInformationProtectionPoliciesArrValue);
         }
         if(this.microsoftStoreForBusinessLanguage){
@@ -176,22 +162,22 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(this.microsoftStoreForBusinessLastSuccessfulSyncDateTime){
             writer.writeDateValue("microsoftStoreForBusinessLastSuccessfulSyncDateTime", this.microsoftStoreForBusinessLastSuccessfulSyncDateTime);
         }
-        if(this.mobileAppCategories && this.mobileAppCategories.length != 0){        const mobileAppCategoriesArrValue: MobileAppCategoryImpl[] = []; this.mobileAppCategories?.forEach(element => {mobileAppCategoriesArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
+        if(this.mobileAppCategories && this.mobileAppCategories.length != 0){        const mobileAppCategoriesArrValue: MobileAppCategoryImpl[] = []; this.mobileAppCategories?.forEach(element => {mobileAppCategoriesArrValue.push(new MobileAppCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("mobileAppCategories", mobileAppCategoriesArrValue);
         }
-        if(this.mobileAppConfigurations && this.mobileAppConfigurations.length != 0){        const mobileAppConfigurationsArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; this.mobileAppConfigurations?.forEach(element => {mobileAppConfigurationsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationImpl? element : new ManagedDeviceMobileAppConfigurationImpl(element));});
+        if(this.mobileAppConfigurations && this.mobileAppConfigurations.length != 0){        const mobileAppConfigurationsArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; this.mobileAppConfigurations?.forEach(element => {mobileAppConfigurationsArrValue.push(new ManagedDeviceMobileAppConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationImpl>("mobileAppConfigurations", mobileAppConfigurationsArrValue);
         }
-        if(this.mobileApps && this.mobileApps.length != 0){        const mobileAppsArrValue: MobileAppImpl[] = []; this.mobileApps?.forEach(element => {mobileAppsArrValue.push(element instanceof MobileAppImpl? element : new MobileAppImpl(element));});
+        if(this.mobileApps && this.mobileApps.length != 0){        const mobileAppsArrValue: MobileAppImpl[] = []; this.mobileApps?.forEach(element => {mobileAppsArrValue.push(new MobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppImpl>("mobileApps", mobileAppsArrValue);
         }
-        if(this.targetedManagedAppConfigurations && this.targetedManagedAppConfigurations.length != 0){        const targetedManagedAppConfigurationsArrValue: TargetedManagedAppConfigurationImpl[] = []; this.targetedManagedAppConfigurations?.forEach(element => {targetedManagedAppConfigurationsArrValue.push(element instanceof TargetedManagedAppConfigurationImpl? element : new TargetedManagedAppConfigurationImpl(element));});
+        if(this.targetedManagedAppConfigurations && this.targetedManagedAppConfigurations.length != 0){        const targetedManagedAppConfigurationsArrValue: TargetedManagedAppConfigurationImpl[] = []; this.targetedManagedAppConfigurations?.forEach(element => {targetedManagedAppConfigurationsArrValue.push(new TargetedManagedAppConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<TargetedManagedAppConfigurationImpl>("targetedManagedAppConfigurations", targetedManagedAppConfigurationsArrValue);
         }
-        if(this.vppTokens && this.vppTokens.length != 0){        const vppTokensArrValue: VppTokenImpl[] = []; this.vppTokens?.forEach(element => {vppTokensArrValue.push(element instanceof VppTokenImpl? element : new VppTokenImpl(element));});
+        if(this.vppTokens && this.vppTokens.length != 0){        const vppTokensArrValue: VppTokenImpl[] = []; this.vppTokens?.forEach(element => {vppTokensArrValue.push(new VppTokenImpl(element));});
             writer.writeCollectionOfObjectValues<VppTokenImpl>("vppTokens", vppTokensArrValue);
         }
-        if(this.windowsInformationProtectionPolicies && this.windowsInformationProtectionPolicies.length != 0){        const windowsInformationProtectionPoliciesArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.windowsInformationProtectionPolicies?.forEach(element => {windowsInformationProtectionPoliciesArrValue.push(element instanceof WindowsInformationProtectionPolicyImpl? element : new WindowsInformationProtectionPolicyImpl(element));});
+        if(this.windowsInformationProtectionPolicies && this.windowsInformationProtectionPolicies.length != 0){        const windowsInformationProtectionPoliciesArrValue: WindowsInformationProtectionPolicyImpl[] = []; this.windowsInformationProtectionPolicies?.forEach(element => {windowsInformationProtectionPoliciesArrValue.push(new WindowsInformationProtectionPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("windowsInformationProtectionPolicies", windowsInformationProtectionPoliciesArrValue);
         }
     };

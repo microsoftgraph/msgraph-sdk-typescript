@@ -19,7 +19,7 @@ export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
     public constructor(restorePostRequestBodyParameterValue?: RestorePostRequestBody | undefined) {
         this.additionalData = restorePostRequestBodyParameterValue?.additionalData ? restorePostRequestBodyParameterValue?.additionalData! : {};
         this.name = restorePostRequestBodyParameterValue?.name;
-        this.parentReference = restorePostRequestBodyParameterValue?.parentReference instanceof ItemReferenceImpl? restorePostRequestBodyParameterValue?.parentReference:new ItemReferenceImpl(restorePostRequestBodyParameterValue?.parentReference);
+        this.parentReference = restorePostRequestBodyParameterValue?.parentReference;
     };
     /**
      * The deserialization information for the current model

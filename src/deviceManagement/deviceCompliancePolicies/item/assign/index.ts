@@ -1,5 +1,5 @@
 export * from './assignPostRequestBodyImpl'
 export * from './assignResponseImpl'
-export * from './assignPostRequestBody'
 export * from './assignResponse'
 export * from './assignRequestBuilderPostRequestConfiguration'
+export * from './assignPostRequestBody'

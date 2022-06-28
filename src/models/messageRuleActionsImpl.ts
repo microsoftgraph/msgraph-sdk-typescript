@@ -39,16 +39,13 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         this.assignCategories = messageRuleActionsParameterValue?.assignCategories;
         this.copyToFolder = messageRuleActionsParameterValue?.copyToFolder;
         this.delete = messageRuleActionsParameterValue?.delete;
-        const forwardAsAttachmentToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue?.forwardAsAttachmentTo?.forEach(element => {forwardAsAttachmentToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.forwardAsAttachmentTo = forwardAsAttachmentToArrValue;
-        const forwardToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue?.forwardTo?.forEach(element => {forwardToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.forwardTo = forwardToArrValue;
+        this.forwardAsAttachmentTo = messageRuleActionsParameterValue?.forwardAsAttachmentTo;
+        this.forwardTo = messageRuleActionsParameterValue?.forwardTo;
         this.markAsRead = messageRuleActionsParameterValue?.markAsRead;
         this.markImportance = messageRuleActionsParameterValue?.markImportance;
         this.moveToFolder = messageRuleActionsParameterValue?.moveToFolder;
         this.permanentDelete = messageRuleActionsParameterValue?.permanentDelete;
-        const redirectToArrValue: RecipientImpl[] = []; messageRuleActionsParameterValue?.redirectTo?.forEach(element => {redirectToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.redirectTo = redirectToArrValue;
+        this.redirectTo = messageRuleActionsParameterValue?.redirectTo;
         this.stopProcessingRules = messageRuleActionsParameterValue?.stopProcessingRules;
     };
     /**
@@ -85,10 +82,10 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         if(this.delete){
             writer.writeBooleanValue("delete", this.delete);
         }
-        if(this.forwardAsAttachmentTo && this.forwardAsAttachmentTo.length != 0){        const forwardAsAttachmentToArrValue: RecipientImpl[] = []; this.forwardAsAttachmentTo?.forEach(element => {forwardAsAttachmentToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.forwardAsAttachmentTo && this.forwardAsAttachmentTo.length != 0){        const forwardAsAttachmentToArrValue: RecipientImpl[] = []; this.forwardAsAttachmentTo?.forEach(element => {forwardAsAttachmentToArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("forwardAsAttachmentTo", forwardAsAttachmentToArrValue);
         }
-        if(this.forwardTo && this.forwardTo.length != 0){        const forwardToArrValue: RecipientImpl[] = []; this.forwardTo?.forEach(element => {forwardToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.forwardTo && this.forwardTo.length != 0){        const forwardToArrValue: RecipientImpl[] = []; this.forwardTo?.forEach(element => {forwardToArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("forwardTo", forwardToArrValue);
         }
         if(this.markAsRead){
@@ -103,7 +100,7 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         if(this.permanentDelete){
             writer.writeBooleanValue("permanentDelete", this.permanentDelete);
         }
-        if(this.redirectTo && this.redirectTo.length != 0){        const redirectToArrValue: RecipientImpl[] = []; this.redirectTo?.forEach(element => {redirectToArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.redirectTo && this.redirectTo.length != 0){        const redirectToArrValue: RecipientImpl[] = []; this.redirectTo?.forEach(element => {redirectToArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("redirectTo", redirectToArrValue);
         }
         if(this.stopProcessingRules){

@@ -21,10 +21,10 @@ export class IosStoreAppImpl extends MobileAppImpl implements IosStoreApp {
      */
     public constructor(iosStoreAppParameterValue?: IosStoreApp | undefined) {
         super(iosStoreAppParameterValue);
-        this.applicableDeviceType = iosStoreAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? iosStoreAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(iosStoreAppParameterValue?.applicableDeviceType);
+        this.applicableDeviceType = iosStoreAppParameterValue?.applicableDeviceType;
         this.appStoreUrl = iosStoreAppParameterValue?.appStoreUrl;
         this.bundleId = iosStoreAppParameterValue?.bundleId;
-        this.minimumSupportedOperatingSystem = iosStoreAppParameterValue?.minimumSupportedOperatingSystem instanceof IosMinimumOperatingSystemImpl? iosStoreAppParameterValue?.minimumSupportedOperatingSystem:new IosMinimumOperatingSystemImpl(iosStoreAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = iosStoreAppParameterValue?.minimumSupportedOperatingSystem;
     };
     /**
      * The deserialization information for the current model

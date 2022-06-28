@@ -23,10 +23,10 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
      */
     public constructor(plannerTaskDetailsParameterValue?: PlannerTaskDetails | undefined) {
         super(plannerTaskDetailsParameterValue);
-        this.checklist = plannerTaskDetailsParameterValue?.checklist instanceof PlannerChecklistItemsImpl? plannerTaskDetailsParameterValue?.checklist:new PlannerChecklistItemsImpl(plannerTaskDetailsParameterValue?.checklist);
+        this.checklist = plannerTaskDetailsParameterValue?.checklist;
         this.description = plannerTaskDetailsParameterValue?.description;
         this.previewType = plannerTaskDetailsParameterValue?.previewType;
-        this.references = plannerTaskDetailsParameterValue?.references instanceof PlannerExternalReferencesImpl? plannerTaskDetailsParameterValue?.references:new PlannerExternalReferencesImpl(plannerTaskDetailsParameterValue?.references);
+        this.references = plannerTaskDetailsParameterValue?.references;
     };
     /**
      * The deserialization information for the current model

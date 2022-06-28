@@ -18,8 +18,7 @@ export class SubscribedSkuCollectionResponseImpl implements SubscribedSkuCollect
     public constructor(subscribedSkuCollectionResponseParameterValue?: SubscribedSkuCollectionResponse | undefined) {
         this.additionalData = subscribedSkuCollectionResponseParameterValue?.additionalData ? subscribedSkuCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = subscribedSkuCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SubscribedSkuImpl[] = []; subscribedSkuCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SubscribedSkuImpl? element : new SubscribedSkuImpl(element));});
-        this.value = valueArrValue;
+        this.value = subscribedSkuCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SubscribedSkuCollectionResponseImpl implements SubscribedSkuCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SubscribedSkuImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SubscribedSkuImpl? element : new SubscribedSkuImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SubscribedSkuImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscribedSkuImpl(element));});
             writer.writeCollectionOfObjectValues<SubscribedSkuImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

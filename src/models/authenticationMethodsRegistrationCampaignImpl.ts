@@ -24,10 +24,8 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Authentica
      */
     public constructor(authenticationMethodsRegistrationCampaignParameterValue?: AuthenticationMethodsRegistrationCampaign | undefined) {
         this.additionalData = authenticationMethodsRegistrationCampaignParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignParameterValue?.additionalData! : {};
-        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; authenticationMethodsRegistrationCampaignParameterValue?.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(element instanceof ExcludeTargetImpl? element : new ExcludeTargetImpl(element));});
-        this.excludeTargets = excludeTargetsArrValue;
-        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; authenticationMethodsRegistrationCampaignParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodsRegistrationCampaignIncludeTargetImpl? element : new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
-        this.includeTargets = includeTargetsArrValue;
+        this.excludeTargets = authenticationMethodsRegistrationCampaignParameterValue?.excludeTargets;
+        this.includeTargets = authenticationMethodsRegistrationCampaignParameterValue?.includeTargets;
         this.snoozeDurationInDays = authenticationMethodsRegistrationCampaignParameterValue?.snoozeDurationInDays;
         this.state = authenticationMethodsRegistrationCampaignParameterValue?.state;
     };
@@ -49,10 +47,10 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Authentica
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.excludeTargets && this.excludeTargets.length != 0){        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; this.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(element instanceof ExcludeTargetImpl? element : new ExcludeTargetImpl(element));});
+        if(this.excludeTargets && this.excludeTargets.length != 0){        const excludeTargetsArrValue: ExcludeTargetImpl[] = []; this.excludeTargets?.forEach(element => {excludeTargetsArrValue.push(new ExcludeTargetImpl(element));});
             writer.writeCollectionOfObjectValues<ExcludeTargetImpl>("excludeTargets", excludeTargetsArrValue);
         }
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodsRegistrationCampaignIncludeTargetImpl? element : new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodsRegistrationCampaignIncludeTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodsRegistrationCampaignIncludeTargetImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTargetImpl>("includeTargets", includeTargetsArrValue);
         }
         if(this.snoozeDurationInDays){

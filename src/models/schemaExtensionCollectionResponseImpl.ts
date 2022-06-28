@@ -18,8 +18,7 @@ export class SchemaExtensionCollectionResponseImpl implements SchemaExtensionCol
     public constructor(schemaExtensionCollectionResponseParameterValue?: SchemaExtensionCollectionResponse | undefined) {
         this.additionalData = schemaExtensionCollectionResponseParameterValue?.additionalData ? schemaExtensionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = schemaExtensionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SchemaExtensionImpl[] = []; schemaExtensionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SchemaExtensionImpl? element : new SchemaExtensionImpl(element));});
-        this.value = valueArrValue;
+        this.value = schemaExtensionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SchemaExtensionCollectionResponseImpl implements SchemaExtensionCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SchemaExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SchemaExtensionImpl? element : new SchemaExtensionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SchemaExtensionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchemaExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<SchemaExtensionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

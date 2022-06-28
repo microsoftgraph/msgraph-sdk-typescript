@@ -20,9 +20,8 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
     public constructor(calendarSharingMessageParameterValue?: CalendarSharingMessage | undefined) {
         super(calendarSharingMessageParameterValue);
         this.canAccept = calendarSharingMessageParameterValue?.canAccept;
-        this.sharingMessageAction = calendarSharingMessageParameterValue?.sharingMessageAction instanceof CalendarSharingMessageActionImpl? calendarSharingMessageParameterValue?.sharingMessageAction:new CalendarSharingMessageActionImpl(calendarSharingMessageParameterValue?.sharingMessageAction);
-        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; calendarSharingMessageParameterValue?.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(element instanceof CalendarSharingMessageActionImpl? element : new CalendarSharingMessageActionImpl(element));});
-        this.sharingMessageActions = sharingMessageActionsArrValue;
+        this.sharingMessageAction = calendarSharingMessageParameterValue?.sharingMessageAction;
+        this.sharingMessageActions = calendarSharingMessageParameterValue?.sharingMessageActions;
         this.suggestedCalendarName = calendarSharingMessageParameterValue?.suggestedCalendarName;
     };
     /**
@@ -50,7 +49,7 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
         if(this.sharingMessageAction){
             writer.writeObjectValue<CalendarSharingMessageActionImpl>("sharingMessageAction", new CalendarSharingMessageActionImpl(this.sharingMessageAction));
         }
-        if(this.sharingMessageActions && this.sharingMessageActions.length != 0){        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; this.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(element instanceof CalendarSharingMessageActionImpl? element : new CalendarSharingMessageActionImpl(element));});
+        if(this.sharingMessageActions && this.sharingMessageActions.length != 0){        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; this.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(new CalendarSharingMessageActionImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarSharingMessageActionImpl>("sharingMessageActions", sharingMessageActionsArrValue);
         }
         if(this.suggestedCalendarName){

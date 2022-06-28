@@ -17,7 +17,7 @@ export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNo
      */
     public constructor(accessReviewNotificationRecipientItemParameterValue?: AccessReviewNotificationRecipientItem | undefined) {
         this.additionalData = accessReviewNotificationRecipientItemParameterValue?.additionalData ? accessReviewNotificationRecipientItemParameterValue?.additionalData! : {};
-        this.notificationRecipientScope = accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope instanceof AccessReviewNotificationRecipientScopeImpl? accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope:new AccessReviewNotificationRecipientScopeImpl(accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope);
+        this.notificationRecipientScope = accessReviewNotificationRecipientItemParameterValue?.notificationRecipientScope;
         this.notificationTemplateType = accessReviewNotificationRecipientItemParameterValue?.notificationTemplateType;
     };
     /**

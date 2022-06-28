@@ -23,7 +23,7 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
         this.description = roleAssignmentParameterValue?.description;
         this.displayName = roleAssignmentParameterValue?.displayName;
         this.resourceScopes = roleAssignmentParameterValue?.resourceScopes;
-        this.roleDefinition = roleAssignmentParameterValue?.roleDefinition instanceof RoleDefinitionImpl? roleAssignmentParameterValue?.roleDefinition:new RoleDefinitionImpl(roleAssignmentParameterValue?.roleDefinition);
+        this.roleDefinition = roleAssignmentParameterValue?.roleDefinition;
     };
     /**
      * The deserialization information for the current model

@@ -21,10 +21,10 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
      */
     public constructor(managedIOSStoreAppParameterValue?: ManagedIOSStoreApp | undefined) {
         super(managedIOSStoreAppParameterValue);
-        this.applicableDeviceType = managedIOSStoreAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? managedIOSStoreAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(managedIOSStoreAppParameterValue?.applicableDeviceType);
+        this.applicableDeviceType = managedIOSStoreAppParameterValue?.applicableDeviceType;
         this.appStoreUrl = managedIOSStoreAppParameterValue?.appStoreUrl;
         this.bundleId = managedIOSStoreAppParameterValue?.bundleId;
-        this.minimumSupportedOperatingSystem = managedIOSStoreAppParameterValue?.minimumSupportedOperatingSystem instanceof IosMinimumOperatingSystemImpl? managedIOSStoreAppParameterValue?.minimumSupportedOperatingSystem:new IosMinimumOperatingSystemImpl(managedIOSStoreAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = managedIOSStoreAppParameterValue?.minimumSupportedOperatingSystem;
     };
     /**
      * The deserialization information for the current model

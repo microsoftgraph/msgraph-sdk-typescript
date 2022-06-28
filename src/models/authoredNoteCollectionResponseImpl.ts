@@ -18,8 +18,7 @@ export class AuthoredNoteCollectionResponseImpl implements AuthoredNoteCollectio
     public constructor(authoredNoteCollectionResponseParameterValue?: AuthoredNoteCollectionResponse | undefined) {
         this.additionalData = authoredNoteCollectionResponseParameterValue?.additionalData ? authoredNoteCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = authoredNoteCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AuthoredNoteImpl[] = []; authoredNoteCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AuthoredNoteImpl? element : new AuthoredNoteImpl(element));});
-        this.value = valueArrValue;
+        this.value = authoredNoteCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AuthoredNoteCollectionResponseImpl implements AuthoredNoteCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AuthoredNoteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AuthoredNoteImpl? element : new AuthoredNoteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AuthoredNoteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthoredNoteImpl(element));});
             writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

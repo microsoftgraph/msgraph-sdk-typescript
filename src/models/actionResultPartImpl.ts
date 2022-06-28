@@ -15,7 +15,7 @@ export class ActionResultPartImpl implements ActionResultPart {
      */
     public constructor(actionResultPartParameterValue?: ActionResultPart | undefined) {
         this.additionalData = actionResultPartParameterValue?.additionalData ? actionResultPartParameterValue?.additionalData! : {};
-        this.error_escaped = actionResultPartParameterValue?.error_escaped instanceof PublicErrorImpl? actionResultPartParameterValue?.error_escaped:new PublicErrorImpl(actionResultPartParameterValue?.error_escaped);
+        this.error_escaped = actionResultPartParameterValue?.error_escaped;
     };
     /**
      * The deserialization information for the current model

@@ -18,8 +18,7 @@ export class StoreCollectionResponseImpl implements StoreCollectionResponse {
     public constructor(storeCollectionResponseParameterValue?: StoreCollectionResponse | undefined) {
         this.additionalData = storeCollectionResponseParameterValue?.additionalData ? storeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = storeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: StoreImpl[] = []; storeCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
-        this.value = valueArrValue;
+        this.value = storeCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class StoreCollectionResponseImpl implements StoreCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: StoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: StoreImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new StoreImpl(element));});
             writer.writeCollectionOfObjectValues<StoreImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

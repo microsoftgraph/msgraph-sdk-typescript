@@ -18,8 +18,7 @@ export class ManagedDeviceMobileAppConfigurationCollectionResponseImpl implement
     public constructor(managedDeviceMobileAppConfigurationCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationCollectionResponse | undefined) {
         this.additionalData = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationImpl? element : new ManagedDeviceMobileAppConfigurationImpl(element));});
-        this.value = valueArrValue;
+        this.value = managedDeviceMobileAppConfigurationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ManagedDeviceMobileAppConfigurationCollectionResponseImpl implement
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationImpl? element : new ManagedDeviceMobileAppConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
     public constructor(delegatedPermissionClassificationCollectionResponseParameterValue?: DelegatedPermissionClassificationCollectionResponse | undefined) {
         this.additionalData = delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData ? delegatedPermissionClassificationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = delegatedPermissionClassificationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DelegatedPermissionClassificationImpl[] = []; delegatedPermissionClassificationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DelegatedPermissionClassificationImpl? element : new DelegatedPermissionClassificationImpl(element));});
-        this.value = valueArrValue;
+        this.value = delegatedPermissionClassificationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DelegatedPermissionClassificationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DelegatedPermissionClassificationImpl? element : new DelegatedPermissionClassificationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DelegatedPermissionClassificationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DelegatedPermissionClassificationImpl(element));});
             writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

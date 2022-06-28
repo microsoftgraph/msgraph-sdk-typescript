@@ -24,11 +24,9 @@ export class StoreImpl extends EntityImpl implements Store {
     public constructor(storeParameterValue?: Store | undefined) {
         super(storeParameterValue);
         this.defaultLanguageTag = storeParameterValue?.defaultLanguageTag;
-        const groupsArrValue: GroupImpl[] = []; storeParameterValue?.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
-        this.groups = groupsArrValue;
+        this.groups = storeParameterValue?.groups;
         this.languageTags = storeParameterValue?.languageTags;
-        const setsArrValue: SetImpl[] = []; storeParameterValue?.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
-        this.sets = setsArrValue;
+        this.sets = storeParameterValue?.sets;
     };
     /**
      * The deserialization information for the current model
@@ -52,13 +50,13 @@ export class StoreImpl extends EntityImpl implements Store {
         if(this.defaultLanguageTag){
             writer.writeStringValue("defaultLanguageTag", this.defaultLanguageTag);
         }
-        if(this.groups && this.groups.length != 0){        const groupsArrValue: GroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        if(this.groups && this.groups.length != 0){        const groupsArrValue: GroupImpl[] = []; this.groups?.forEach(element => {groupsArrValue.push(new GroupImpl(element));});
             writer.writeCollectionOfObjectValues<GroupImpl>("groups", groupsArrValue);
         }
         if(this.languageTags){
             writer.writeCollectionOfPrimitiveValues<string>("languageTags", this.languageTags);
         }
-        if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = []; this.sets?.forEach(element => {setsArrValue.push(new SetImpl(element));});
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
     };

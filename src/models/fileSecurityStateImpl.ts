@@ -21,7 +21,7 @@ export class FileSecurityStateImpl implements FileSecurityState {
      */
     public constructor(fileSecurityStateParameterValue?: FileSecurityState | undefined) {
         this.additionalData = fileSecurityStateParameterValue?.additionalData ? fileSecurityStateParameterValue?.additionalData! : {};
-        this.fileHash = fileSecurityStateParameterValue?.fileHash instanceof FileHashImpl? fileSecurityStateParameterValue?.fileHash:new FileHashImpl(fileSecurityStateParameterValue?.fileHash);
+        this.fileHash = fileSecurityStateParameterValue?.fileHash;
         this.name = fileSecurityStateParameterValue?.name;
         this.path = fileSecurityStateParameterValue?.path;
         this.riskScore = fileSecurityStateParameterValue?.riskScore;

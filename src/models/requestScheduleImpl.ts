@@ -21,8 +21,8 @@ export class RequestScheduleImpl implements RequestSchedule {
      */
     public constructor(requestScheduleParameterValue?: RequestSchedule | undefined) {
         this.additionalData = requestScheduleParameterValue?.additionalData ? requestScheduleParameterValue?.additionalData! : {};
-        this.expiration = requestScheduleParameterValue?.expiration instanceof ExpirationPatternImpl? requestScheduleParameterValue?.expiration:new ExpirationPatternImpl(requestScheduleParameterValue?.expiration);
-        this.recurrence = requestScheduleParameterValue?.recurrence instanceof PatternedRecurrenceImpl? requestScheduleParameterValue?.recurrence:new PatternedRecurrenceImpl(requestScheduleParameterValue?.recurrence);
+        this.expiration = requestScheduleParameterValue?.expiration;
+        this.recurrence = requestScheduleParameterValue?.recurrence;
         this.startDateTime = requestScheduleParameterValue?.startDateTime;
     };
     /**

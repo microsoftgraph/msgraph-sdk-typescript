@@ -18,8 +18,7 @@ export class ExternalItemCollectionResponseImpl implements ExternalItemCollectio
     public constructor(externalItemCollectionResponseParameterValue?: ExternalItemCollectionResponse | undefined) {
         this.additionalData = externalItemCollectionResponseParameterValue?.additionalData ? externalItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = externalItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ExternalItemImpl[] = []; externalItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = externalItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ExternalItemCollectionResponseImpl implements ExternalItemCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ExternalItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ExternalItemImpl? element : new ExternalItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExternalItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExternalItemImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -113,12 +113,9 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
         this.appsBlockClipboardSharing = androidGeneralDeviceConfigurationParameterValue?.appsBlockClipboardSharing;
         this.appsBlockCopyPaste = androidGeneralDeviceConfigurationParameterValue?.appsBlockCopyPaste;
         this.appsBlockYouTube = androidGeneralDeviceConfigurationParameterValue?.appsBlockYouTube;
-        const appsHideListArrValue: AppListItemImpl[] = []; androidGeneralDeviceConfigurationParameterValue?.appsHideList?.forEach(element => {appsHideListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.appsHideList = appsHideListArrValue;
-        const appsInstallAllowListArrValue: AppListItemImpl[] = []; androidGeneralDeviceConfigurationParameterValue?.appsInstallAllowList?.forEach(element => {appsInstallAllowListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.appsInstallAllowList = appsInstallAllowListArrValue;
-        const appsLaunchBlockListArrValue: AppListItemImpl[] = []; androidGeneralDeviceConfigurationParameterValue?.appsLaunchBlockList?.forEach(element => {appsLaunchBlockListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.appsLaunchBlockList = appsLaunchBlockListArrValue;
+        this.appsHideList = androidGeneralDeviceConfigurationParameterValue?.appsHideList;
+        this.appsInstallAllowList = androidGeneralDeviceConfigurationParameterValue?.appsInstallAllowList;
+        this.appsLaunchBlockList = androidGeneralDeviceConfigurationParameterValue?.appsLaunchBlockList;
         this.bluetoothBlocked = androidGeneralDeviceConfigurationParameterValue?.bluetoothBlocked;
         this.cameraBlocked = androidGeneralDeviceConfigurationParameterValue?.cameraBlocked;
         this.cellularBlockDataRoaming = androidGeneralDeviceConfigurationParameterValue?.cellularBlockDataRoaming;
@@ -126,15 +123,13 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
         this.cellularBlockVoiceRoaming = androidGeneralDeviceConfigurationParameterValue?.cellularBlockVoiceRoaming;
         this.cellularBlockWiFiTethering = androidGeneralDeviceConfigurationParameterValue?.cellularBlockWiFiTethering;
         this.compliantAppListType = androidGeneralDeviceConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; androidGeneralDeviceConfigurationParameterValue?.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.compliantAppsList = compliantAppsListArrValue;
+        this.compliantAppsList = androidGeneralDeviceConfigurationParameterValue?.compliantAppsList;
         this.deviceSharingAllowed = androidGeneralDeviceConfigurationParameterValue?.deviceSharingAllowed;
         this.diagnosticDataBlockSubmission = androidGeneralDeviceConfigurationParameterValue?.diagnosticDataBlockSubmission;
         this.factoryResetBlocked = androidGeneralDeviceConfigurationParameterValue?.factoryResetBlocked;
         this.googleAccountBlockAutoSync = androidGeneralDeviceConfigurationParameterValue?.googleAccountBlockAutoSync;
         this.googlePlayStoreBlocked = androidGeneralDeviceConfigurationParameterValue?.googlePlayStoreBlocked;
-        const kioskModeAppsArrValue: AppListItemImpl[] = []; androidGeneralDeviceConfigurationParameterValue?.kioskModeApps?.forEach(element => {kioskModeAppsArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.kioskModeApps = kioskModeAppsArrValue;
+        this.kioskModeApps = androidGeneralDeviceConfigurationParameterValue?.kioskModeApps;
         this.kioskModeBlockSleepButton = androidGeneralDeviceConfigurationParameterValue?.kioskModeBlockSleepButton;
         this.kioskModeBlockVolumeButtons = androidGeneralDeviceConfigurationParameterValue?.kioskModeBlockVolumeButtons;
         this.locationServicesBlocked = androidGeneralDeviceConfigurationParameterValue?.locationServicesBlocked;
@@ -236,13 +231,13 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
         if(this.appsBlockYouTube){
             writer.writeBooleanValue("appsBlockYouTube", this.appsBlockYouTube);
         }
-        if(this.appsHideList && this.appsHideList.length != 0){        const appsHideListArrValue: AppListItemImpl[] = []; this.appsHideList?.forEach(element => {appsHideListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.appsHideList && this.appsHideList.length != 0){        const appsHideListArrValue: AppListItemImpl[] = []; this.appsHideList?.forEach(element => {appsHideListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsHideList", appsHideListArrValue);
         }
-        if(this.appsInstallAllowList && this.appsInstallAllowList.length != 0){        const appsInstallAllowListArrValue: AppListItemImpl[] = []; this.appsInstallAllowList?.forEach(element => {appsInstallAllowListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.appsInstallAllowList && this.appsInstallAllowList.length != 0){        const appsInstallAllowListArrValue: AppListItemImpl[] = []; this.appsInstallAllowList?.forEach(element => {appsInstallAllowListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsInstallAllowList", appsInstallAllowListArrValue);
         }
-        if(this.appsLaunchBlockList && this.appsLaunchBlockList.length != 0){        const appsLaunchBlockListArrValue: AppListItemImpl[] = []; this.appsLaunchBlockList?.forEach(element => {appsLaunchBlockListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.appsLaunchBlockList && this.appsLaunchBlockList.length != 0){        const appsLaunchBlockListArrValue: AppListItemImpl[] = []; this.appsLaunchBlockList?.forEach(element => {appsLaunchBlockListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsLaunchBlockList", appsLaunchBlockListArrValue);
         }
         if(this.bluetoothBlocked){
@@ -266,7 +261,7 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
         if(this.compliantAppListType){
             writer.writeEnumValue<AppListType>("compliantAppListType", this.compliantAppListType);
         }
-        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
         if(this.deviceSharingAllowed){
@@ -284,7 +279,7 @@ export class AndroidGeneralDeviceConfigurationImpl extends DeviceConfigurationIm
         if(this.googlePlayStoreBlocked){
             writer.writeBooleanValue("googlePlayStoreBlocked", this.googlePlayStoreBlocked);
         }
-        if(this.kioskModeApps && this.kioskModeApps.length != 0){        const kioskModeAppsArrValue: AppListItemImpl[] = []; this.kioskModeApps?.forEach(element => {kioskModeAppsArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.kioskModeApps && this.kioskModeApps.length != 0){        const kioskModeAppsArrValue: AppListItemImpl[] = []; this.kioskModeApps?.forEach(element => {kioskModeAppsArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("kioskModeApps", kioskModeAppsArrValue);
         }
         if(this.kioskModeBlockSleepButton){

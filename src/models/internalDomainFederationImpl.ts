@@ -32,7 +32,7 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
         this.isSignedAuthenticationRequestRequired = internalDomainFederationParameterValue?.isSignedAuthenticationRequestRequired;
         this.nextSigningCertificate = internalDomainFederationParameterValue?.nextSigningCertificate;
         this.promptLoginBehavior = internalDomainFederationParameterValue?.promptLoginBehavior;
-        this.signingCertificateUpdateStatus = internalDomainFederationParameterValue?.signingCertificateUpdateStatus instanceof SigningCertificateUpdateStatusImpl? internalDomainFederationParameterValue?.signingCertificateUpdateStatus:new SigningCertificateUpdateStatusImpl(internalDomainFederationParameterValue?.signingCertificateUpdateStatus);
+        this.signingCertificateUpdateStatus = internalDomainFederationParameterValue?.signingCertificateUpdateStatus;
         this.signOutUri = internalDomainFederationParameterValue?.signOutUri;
     };
     /**

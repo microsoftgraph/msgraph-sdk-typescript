@@ -18,8 +18,7 @@ export class ConversationMemberCollectionResponseImpl implements ConversationMem
     public constructor(conversationMemberCollectionResponseParameterValue?: ConversationMemberCollectionResponse | undefined) {
         this.additionalData = conversationMemberCollectionResponseParameterValue?.additionalData ? conversationMemberCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conversationMemberCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConversationMemberImpl[] = []; conversationMemberCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
-        this.value = valueArrValue;
+        this.value = conversationMemberCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ConversationMemberCollectionResponseImpl implements ConversationMem
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ConversationMemberImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConversationMemberImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationMemberImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

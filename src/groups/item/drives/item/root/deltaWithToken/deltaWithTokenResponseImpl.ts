@@ -16,8 +16,7 @@ export class DeltaWithTokenResponseImpl implements DeltaWithTokenResponse {
      */
     public constructor(deltaWithTokenResponseParameterValue?: DeltaWithTokenResponse | undefined) {
         this.additionalData = deltaWithTokenResponseParameterValue?.additionalData ? deltaWithTokenResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DriveItemImpl[] = []; deltaWithTokenResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = deltaWithTokenResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class DeltaWithTokenResponseImpl implements DeltaWithTokenResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

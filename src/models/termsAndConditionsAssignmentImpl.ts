@@ -14,7 +14,7 @@ export class TermsAndConditionsAssignmentImpl extends EntityImpl implements Term
      */
     public constructor(termsAndConditionsAssignmentParameterValue?: TermsAndConditionsAssignment | undefined) {
         super(termsAndConditionsAssignmentParameterValue);
-        this.target = termsAndConditionsAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? termsAndConditionsAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(termsAndConditionsAssignmentParameterValue?.target);
+        this.target = termsAndConditionsAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

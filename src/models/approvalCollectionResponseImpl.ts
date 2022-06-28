@@ -18,8 +18,7 @@ export class ApprovalCollectionResponseImpl implements ApprovalCollectionRespons
     public constructor(approvalCollectionResponseParameterValue?: ApprovalCollectionResponse | undefined) {
         this.additionalData = approvalCollectionResponseParameterValue?.additionalData ? approvalCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = approvalCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ApprovalImpl[] = []; approvalCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ApprovalImpl? element : new ApprovalImpl(element));});
-        this.value = valueArrValue;
+        this.value = approvalCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ApprovalCollectionResponseImpl implements ApprovalCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ApprovalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApprovalImpl? element : new ApprovalImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ApprovalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApprovalImpl(element));});
             writer.writeCollectionOfObjectValues<ApprovalImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

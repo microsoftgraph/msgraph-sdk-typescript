@@ -32,9 +32,9 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
         this.name = workbookNamedItemParameterValue?.name;
         this.scope = workbookNamedItemParameterValue?.scope;
         this.type = workbookNamedItemParameterValue?.type;
-        this.value = workbookNamedItemParameterValue?.value instanceof JsonImpl? workbookNamedItemParameterValue?.value:new JsonImpl(workbookNamedItemParameterValue?.value);
+        this.value = workbookNamedItemParameterValue?.value;
         this.visible = workbookNamedItemParameterValue?.visible;
-        this.worksheet = workbookNamedItemParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookNamedItemParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookNamedItemParameterValue?.worksheet);
+        this.worksheet = workbookNamedItemParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model

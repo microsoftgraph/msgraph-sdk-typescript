@@ -17,7 +17,7 @@ export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger
      */
     public constructor(printTaskTriggerParameterValue?: PrintTaskTrigger | undefined) {
         super(printTaskTriggerParameterValue);
-        this.definition = printTaskTriggerParameterValue?.definition instanceof PrintTaskDefinitionImpl? printTaskTriggerParameterValue?.definition:new PrintTaskDefinitionImpl(printTaskTriggerParameterValue?.definition);
+        this.definition = printTaskTriggerParameterValue?.definition;
         this.event = printTaskTriggerParameterValue?.event;
     };
     /**

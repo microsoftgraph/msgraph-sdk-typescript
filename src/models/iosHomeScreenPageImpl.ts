@@ -19,8 +19,7 @@ export class IosHomeScreenPageImpl implements IosHomeScreenPage {
     public constructor(iosHomeScreenPageParameterValue?: IosHomeScreenPage | undefined) {
         this.additionalData = iosHomeScreenPageParameterValue?.additionalData ? iosHomeScreenPageParameterValue?.additionalData! : {};
         this.displayName = iosHomeScreenPageParameterValue?.displayName;
-        const iconsArrValue: IosHomeScreenItemImpl[] = []; iosHomeScreenPageParameterValue?.icons?.forEach(element => {iconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
-        this.icons = iconsArrValue;
+        this.icons = iosHomeScreenPageParameterValue?.icons;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +40,7 @@ export class IosHomeScreenPageImpl implements IosHomeScreenPage {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.icons && this.icons.length != 0){        const iconsArrValue: IosHomeScreenItemImpl[] = []; this.icons?.forEach(element => {iconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
+        if(this.icons && this.icons.length != 0){        const iconsArrValue: IosHomeScreenItemImpl[] = []; this.icons?.forEach(element => {iconsArrValue.push(new IosHomeScreenItemImpl(element));});
             writer.writeCollectionOfObjectValues<IosHomeScreenItemImpl>("icons", iconsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

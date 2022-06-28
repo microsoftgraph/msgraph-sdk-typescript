@@ -18,8 +18,7 @@ export class ServicePrincipalCollectionResponseImpl implements ServicePrincipalC
     public constructor(servicePrincipalCollectionResponseParameterValue?: ServicePrincipalCollectionResponse | undefined) {
         this.additionalData = servicePrincipalCollectionResponseParameterValue?.additionalData ? servicePrincipalCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = servicePrincipalCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ServicePrincipalImpl[] = []; servicePrincipalCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ServicePrincipalImpl? element : new ServicePrincipalImpl(element));});
-        this.value = valueArrValue;
+        this.value = servicePrincipalCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ServicePrincipalCollectionResponseImpl implements ServicePrincipalC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ServicePrincipalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ServicePrincipalImpl? element : new ServicePrincipalImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ServicePrincipalImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ServicePrincipalImpl(element));});
             writer.writeCollectionOfObjectValues<ServicePrincipalImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

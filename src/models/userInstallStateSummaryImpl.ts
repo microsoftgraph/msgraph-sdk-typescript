@@ -22,8 +22,7 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
      */
     public constructor(userInstallStateSummaryParameterValue?: UserInstallStateSummary | undefined) {
         super(userInstallStateSummaryParameterValue);
-        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; userInstallStateSummaryParameterValue?.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
-        this.deviceStates = deviceStatesArrValue;
+        this.deviceStates = userInstallStateSummaryParameterValue?.deviceStates;
         this.failedDeviceCount = userInstallStateSummaryParameterValue?.failedDeviceCount;
         this.installedDeviceCount = userInstallStateSummaryParameterValue?.installedDeviceCount;
         this.notInstalledDeviceCount = userInstallStateSummaryParameterValue?.notInstalledDeviceCount;
@@ -49,7 +48,7 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(element instanceof DeviceInstallStateImpl? element : new DeviceInstallStateImpl(element));});
+        if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = []; this.deviceStates?.forEach(element => {deviceStatesArrValue.push(new DeviceInstallStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }
         if(this.failedDeviceCount){

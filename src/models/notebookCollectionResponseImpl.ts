@@ -18,8 +18,7 @@ export class NotebookCollectionResponseImpl implements NotebookCollectionRespons
     public constructor(notebookCollectionResponseParameterValue?: NotebookCollectionResponse | undefined) {
         this.additionalData = notebookCollectionResponseParameterValue?.additionalData ? notebookCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = notebookCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: NotebookImpl[] = []; notebookCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof NotebookImpl? element : new NotebookImpl(element));});
-        this.value = valueArrValue;
+        this.value = notebookCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class NotebookCollectionResponseImpl implements NotebookCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: NotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NotebookImpl? element : new NotebookImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotebookImpl(element));});
             writer.writeCollectionOfObjectValues<NotebookImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

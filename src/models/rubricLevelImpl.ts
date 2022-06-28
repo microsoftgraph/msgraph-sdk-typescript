@@ -23,9 +23,9 @@ export class RubricLevelImpl implements RubricLevel {
      */
     public constructor(rubricLevelParameterValue?: RubricLevel | undefined) {
         this.additionalData = rubricLevelParameterValue?.additionalData ? rubricLevelParameterValue?.additionalData! : {};
-        this.description = rubricLevelParameterValue?.description instanceof EducationItemBodyImpl? rubricLevelParameterValue?.description:new EducationItemBodyImpl(rubricLevelParameterValue?.description);
+        this.description = rubricLevelParameterValue?.description;
         this.displayName = rubricLevelParameterValue?.displayName;
-        this.grading = rubricLevelParameterValue?.grading instanceof EducationAssignmentGradeTypeImpl? rubricLevelParameterValue?.grading:new EducationAssignmentGradeTypeImpl(rubricLevelParameterValue?.grading);
+        this.grading = rubricLevelParameterValue?.grading;
         this.levelId = rubricLevelParameterValue?.levelId;
     };
     /**

@@ -18,7 +18,7 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookCh
      */
     public constructor(workbookChartAxisTitleParameterValue?: WorkbookChartAxisTitle | undefined) {
         super(workbookChartAxisTitleParameterValue);
-        this.format = workbookChartAxisTitleParameterValue?.format instanceof WorkbookChartAxisTitleFormatImpl? workbookChartAxisTitleParameterValue?.format:new WorkbookChartAxisTitleFormatImpl(workbookChartAxisTitleParameterValue?.format);
+        this.format = workbookChartAxisTitleParameterValue?.format;
         this.text = workbookChartAxisTitleParameterValue?.text;
         this.visible = workbookChartAxisTitleParameterValue?.visible;
     };

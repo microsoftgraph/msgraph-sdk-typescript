@@ -43,17 +43,17 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
     public constructor(accessReviewInstanceDecisionItemParameterValue?: AccessReviewInstanceDecisionItem | undefined) {
         super(accessReviewInstanceDecisionItemParameterValue);
         this.accessReviewId = accessReviewInstanceDecisionItemParameterValue?.accessReviewId;
-        this.appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy instanceof UserIdentityImpl? accessReviewInstanceDecisionItemParameterValue?.appliedBy:new UserIdentityImpl(accessReviewInstanceDecisionItemParameterValue?.appliedBy);
+        this.appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy;
         this.appliedDateTime = accessReviewInstanceDecisionItemParameterValue?.appliedDateTime;
         this.applyResult = accessReviewInstanceDecisionItemParameterValue?.applyResult;
         this.decision = accessReviewInstanceDecisionItemParameterValue?.decision;
         this.justification = accessReviewInstanceDecisionItemParameterValue?.justification;
-        this.principal = accessReviewInstanceDecisionItemParameterValue?.principal instanceof IdentityImpl? accessReviewInstanceDecisionItemParameterValue?.principal:new IdentityImpl(accessReviewInstanceDecisionItemParameterValue?.principal);
+        this.principal = accessReviewInstanceDecisionItemParameterValue?.principal;
         this.principalLink = accessReviewInstanceDecisionItemParameterValue?.principalLink;
         this.recommendation = accessReviewInstanceDecisionItemParameterValue?.recommendation;
-        this.resource = accessReviewInstanceDecisionItemParameterValue?.resource instanceof AccessReviewInstanceDecisionItemResourceImpl? accessReviewInstanceDecisionItemParameterValue?.resource:new AccessReviewInstanceDecisionItemResourceImpl(accessReviewInstanceDecisionItemParameterValue?.resource);
+        this.resource = accessReviewInstanceDecisionItemParameterValue?.resource;
         this.resourceLink = accessReviewInstanceDecisionItemParameterValue?.resourceLink;
-        this.reviewedBy = accessReviewInstanceDecisionItemParameterValue?.reviewedBy instanceof UserIdentityImpl? accessReviewInstanceDecisionItemParameterValue?.reviewedBy:new UserIdentityImpl(accessReviewInstanceDecisionItemParameterValue?.reviewedBy);
+        this.reviewedBy = accessReviewInstanceDecisionItemParameterValue?.reviewedBy;
         this.reviewedDateTime = accessReviewInstanceDecisionItemParameterValue?.reviewedDateTime;
     };
     /**

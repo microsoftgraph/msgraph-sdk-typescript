@@ -33,15 +33,13 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
     public constructor(accessPackageAssignmentReviewSettingsParameterValue?: AccessPackageAssignmentReviewSettings | undefined) {
         this.additionalData = accessPackageAssignmentReviewSettingsParameterValue?.additionalData ? accessPackageAssignmentReviewSettingsParameterValue?.additionalData! : {};
         this.expirationBehavior = accessPackageAssignmentReviewSettingsParameterValue?.expirationBehavior;
-        const fallbackReviewersArrValue: SubjectSetImpl[] = []; accessPackageAssignmentReviewSettingsParameterValue?.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
-        this.fallbackReviewers = fallbackReviewersArrValue;
+        this.fallbackReviewers = accessPackageAssignmentReviewSettingsParameterValue?.fallbackReviewers;
         this.isEnabled = accessPackageAssignmentReviewSettingsParameterValue?.isEnabled;
         this.isRecommendationEnabled = accessPackageAssignmentReviewSettingsParameterValue?.isRecommendationEnabled;
         this.isReviewerJustificationRequired = accessPackageAssignmentReviewSettingsParameterValue?.isReviewerJustificationRequired;
         this.isSelfReview = accessPackageAssignmentReviewSettingsParameterValue?.isSelfReview;
-        const primaryReviewersArrValue: SubjectSetImpl[] = []; accessPackageAssignmentReviewSettingsParameterValue?.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
-        this.primaryReviewers = primaryReviewersArrValue;
-        this.schedule = accessPackageAssignmentReviewSettingsParameterValue?.schedule instanceof EntitlementManagementScheduleImpl? accessPackageAssignmentReviewSettingsParameterValue?.schedule:new EntitlementManagementScheduleImpl(accessPackageAssignmentReviewSettingsParameterValue?.schedule);
+        this.primaryReviewers = accessPackageAssignmentReviewSettingsParameterValue?.primaryReviewers;
+        this.schedule = accessPackageAssignmentReviewSettingsParameterValue?.schedule;
     };
     /**
      * The deserialization information for the current model
@@ -68,7 +66,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
         if(this.expirationBehavior){
             writer.writeEnumValue<AccessReviewExpirationBehavior>("expirationBehavior", this.expirationBehavior);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: SubjectSetImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: SubjectSetImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.isEnabled){
@@ -83,7 +81,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
         if(this.isSelfReview){
             writer.writeBooleanValue("isSelfReview", this.isSelfReview);
         }
-        if(this.primaryReviewers && this.primaryReviewers.length != 0){        const primaryReviewersArrValue: SubjectSetImpl[] = []; this.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(element instanceof SubjectSetImpl? element : new SubjectSetImpl(element));});
+        if(this.primaryReviewers && this.primaryReviewers.length != 0){        const primaryReviewersArrValue: SubjectSetImpl[] = []; this.primaryReviewers?.forEach(element => {primaryReviewersArrValue.push(new SubjectSetImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryReviewers", primaryReviewersArrValue);
         }
         if(this.schedule){

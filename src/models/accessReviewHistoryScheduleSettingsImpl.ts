@@ -17,7 +17,7 @@ export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHist
      */
     public constructor(accessReviewHistoryScheduleSettingsParameterValue?: AccessReviewHistoryScheduleSettings | undefined) {
         this.additionalData = accessReviewHistoryScheduleSettingsParameterValue?.additionalData ? accessReviewHistoryScheduleSettingsParameterValue?.additionalData! : {};
-        this.recurrence = accessReviewHistoryScheduleSettingsParameterValue?.recurrence instanceof PatternedRecurrenceImpl? accessReviewHistoryScheduleSettingsParameterValue?.recurrence:new PatternedRecurrenceImpl(accessReviewHistoryScheduleSettingsParameterValue?.recurrence);
+        this.recurrence = accessReviewHistoryScheduleSettingsParameterValue?.recurrence;
         this.reportRange = accessReviewHistoryScheduleSettingsParameterValue?.reportRange;
     };
     /**

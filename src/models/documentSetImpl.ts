@@ -31,16 +31,12 @@ export class DocumentSetImpl implements DocumentSet {
      */
     public constructor(documentSetParameterValue?: DocumentSet | undefined) {
         this.additionalData = documentSetParameterValue?.additionalData ? documentSetParameterValue?.additionalData! : {};
-        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = []; documentSetParameterValue?.allowedContentTypes?.forEach(element => {allowedContentTypesArrValue.push(element instanceof ContentTypeInfoImpl? element : new ContentTypeInfoImpl(element));});
-        this.allowedContentTypes = allowedContentTypesArrValue;
-        const defaultContentsArrValue: DocumentSetContentImpl[] = []; documentSetParameterValue?.defaultContents?.forEach(element => {defaultContentsArrValue.push(element instanceof DocumentSetContentImpl? element : new DocumentSetContentImpl(element));});
-        this.defaultContents = defaultContentsArrValue;
+        this.allowedContentTypes = documentSetParameterValue?.allowedContentTypes;
+        this.defaultContents = documentSetParameterValue?.defaultContents;
         this.propagateWelcomePageChanges = documentSetParameterValue?.propagateWelcomePageChanges;
-        const sharedColumnsArrValue: ColumnDefinitionImpl[] = []; documentSetParameterValue?.sharedColumns?.forEach(element => {sharedColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
-        this.sharedColumns = sharedColumnsArrValue;
+        this.sharedColumns = documentSetParameterValue?.sharedColumns;
         this.shouldPrefixNameToFile = documentSetParameterValue?.shouldPrefixNameToFile;
-        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = []; documentSetParameterValue?.welcomePageColumns?.forEach(element => {welcomePageColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
-        this.welcomePageColumns = welcomePageColumnsArrValue;
+        this.welcomePageColumns = documentSetParameterValue?.welcomePageColumns;
         this.welcomePageUrl = documentSetParameterValue?.welcomePageUrl;
     };
     /**
@@ -64,22 +60,22 @@ export class DocumentSetImpl implements DocumentSet {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.allowedContentTypes && this.allowedContentTypes.length != 0){        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = []; this.allowedContentTypes?.forEach(element => {allowedContentTypesArrValue.push(element instanceof ContentTypeInfoImpl? element : new ContentTypeInfoImpl(element));});
+        if(this.allowedContentTypes && this.allowedContentTypes.length != 0){        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = []; this.allowedContentTypes?.forEach(element => {allowedContentTypesArrValue.push(new ContentTypeInfoImpl(element));});
             writer.writeCollectionOfObjectValues<ContentTypeInfoImpl>("allowedContentTypes", allowedContentTypesArrValue);
         }
-        if(this.defaultContents && this.defaultContents.length != 0){        const defaultContentsArrValue: DocumentSetContentImpl[] = []; this.defaultContents?.forEach(element => {defaultContentsArrValue.push(element instanceof DocumentSetContentImpl? element : new DocumentSetContentImpl(element));});
+        if(this.defaultContents && this.defaultContents.length != 0){        const defaultContentsArrValue: DocumentSetContentImpl[] = []; this.defaultContents?.forEach(element => {defaultContentsArrValue.push(new DocumentSetContentImpl(element));});
             writer.writeCollectionOfObjectValues<DocumentSetContentImpl>("defaultContents", defaultContentsArrValue);
         }
         if(this.propagateWelcomePageChanges){
             writer.writeBooleanValue("propagateWelcomePageChanges", this.propagateWelcomePageChanges);
         }
-        if(this.sharedColumns && this.sharedColumns.length != 0){        const sharedColumnsArrValue: ColumnDefinitionImpl[] = []; this.sharedColumns?.forEach(element => {sharedColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        if(this.sharedColumns && this.sharedColumns.length != 0){        const sharedColumnsArrValue: ColumnDefinitionImpl[] = []; this.sharedColumns?.forEach(element => {sharedColumnsArrValue.push(new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("sharedColumns", sharedColumnsArrValue);
         }
         if(this.shouldPrefixNameToFile){
             writer.writeBooleanValue("shouldPrefixNameToFile", this.shouldPrefixNameToFile);
         }
-        if(this.welcomePageColumns && this.welcomePageColumns.length != 0){        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = []; this.welcomePageColumns?.forEach(element => {welcomePageColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        if(this.welcomePageColumns && this.welcomePageColumns.length != 0){        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = []; this.welcomePageColumns?.forEach(element => {welcomePageColumnsArrValue.push(new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("welcomePageColumns", welcomePageColumnsArrValue);
         }
         if(this.welcomePageUrl){

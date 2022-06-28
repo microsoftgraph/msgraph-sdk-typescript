@@ -22,8 +22,8 @@ export class KeyCredentialPostRequestBodyImpl implements KeyCredentialPostReques
      */
     public constructor(keyCredentialPostRequestBodyParameterValue?: KeyCredentialPostRequestBody | undefined) {
         this.additionalData = keyCredentialPostRequestBodyParameterValue?.additionalData ? keyCredentialPostRequestBodyParameterValue?.additionalData! : {};
-        this.keyCredential = keyCredentialPostRequestBodyParameterValue?.keyCredential instanceof KeyCredentialImpl? keyCredentialPostRequestBodyParameterValue?.keyCredential:new KeyCredentialImpl(keyCredentialPostRequestBodyParameterValue?.keyCredential);
-        this.passwordCredential = keyCredentialPostRequestBodyParameterValue?.passwordCredential instanceof PasswordCredentialImpl? keyCredentialPostRequestBodyParameterValue?.passwordCredential:new PasswordCredentialImpl(keyCredentialPostRequestBodyParameterValue?.passwordCredential);
+        this.keyCredential = keyCredentialPostRequestBodyParameterValue?.keyCredential;
+        this.passwordCredential = keyCredentialPostRequestBodyParameterValue?.passwordCredential;
         this.proof = keyCredentialPostRequestBodyParameterValue?.proof;
     };
     /**

@@ -27,7 +27,7 @@ export class PrintConnectorImpl extends EntityImpl implements PrintConnector {
         this.appVersion = printConnectorParameterValue?.appVersion;
         this.displayName = printConnectorParameterValue?.displayName;
         this.fullyQualifiedDomainName = printConnectorParameterValue?.fullyQualifiedDomainName;
-        this.location = printConnectorParameterValue?.location instanceof PrinterLocationImpl? printConnectorParameterValue?.location:new PrinterLocationImpl(printConnectorParameterValue?.location);
+        this.location = printConnectorParameterValue?.location;
         this.operatingSystem = printConnectorParameterValue?.operatingSystem;
         this.registeredDateTime = printConnectorParameterValue?.registeredDateTime;
     };

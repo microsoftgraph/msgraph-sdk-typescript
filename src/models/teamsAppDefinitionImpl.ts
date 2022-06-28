@@ -33,8 +33,8 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefini
      */
     public constructor(teamsAppDefinitionParameterValue?: TeamsAppDefinition | undefined) {
         super(teamsAppDefinitionParameterValue);
-        this.bot = teamsAppDefinitionParameterValue?.bot instanceof TeamworkBotImpl? teamsAppDefinitionParameterValue?.bot:new TeamworkBotImpl(teamsAppDefinitionParameterValue?.bot);
-        this.createdBy = teamsAppDefinitionParameterValue?.createdBy instanceof IdentitySetImpl? teamsAppDefinitionParameterValue?.createdBy:new IdentitySetImpl(teamsAppDefinitionParameterValue?.createdBy);
+        this.bot = teamsAppDefinitionParameterValue?.bot;
+        this.createdBy = teamsAppDefinitionParameterValue?.createdBy;
         this.description = teamsAppDefinitionParameterValue?.description;
         this.displayName = teamsAppDefinitionParameterValue?.displayName;
         this.lastModifiedDateTime = teamsAppDefinitionParameterValue?.lastModifiedDateTime;

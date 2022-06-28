@@ -14,8 +14,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
      */
     public constructor(agreementFileLocalizationParameterValue?: AgreementFileLocalization | undefined) {
         super(agreementFileLocalizationParameterValue);
-        const versionsArrValue: AgreementFileVersionImpl[] = []; agreementFileLocalizationParameterValue?.versions?.forEach(element => {versionsArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
-        this.versions = versionsArrValue;
+        this.versions = agreementFileLocalizationParameterValue?.versions;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof AgreementFileVersionImpl? element : new AgreementFileVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new AgreementFileVersionImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
         }
     };

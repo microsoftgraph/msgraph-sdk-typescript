@@ -16,8 +16,7 @@ export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
      */
     public constructor(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse | undefined) {
         this.additionalData = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData ? getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ItemActivityStatImpl[] = []; getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
-        this.value = valueArrValue;
+        this.value = getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ItemActivityStatImpl(element));});
             writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

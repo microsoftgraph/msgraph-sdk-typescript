@@ -24,7 +24,7 @@ export class WorkingHoursImpl implements WorkingHours {
         this.daysOfWeek = workingHoursParameterValue?.daysOfWeek;
         this.endTime = workingHoursParameterValue?.endTime;
         this.startTime = workingHoursParameterValue?.startTime;
-        this.timeZone = workingHoursParameterValue?.timeZone instanceof TimeZoneBaseImpl? workingHoursParameterValue?.timeZone:new TimeZoneBaseImpl(workingHoursParameterValue?.timeZone);
+        this.timeZone = workingHoursParameterValue?.timeZone;
     };
     /**
      * The deserialization information for the current model

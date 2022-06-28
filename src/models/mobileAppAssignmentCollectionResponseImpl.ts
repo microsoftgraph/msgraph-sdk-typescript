@@ -18,8 +18,7 @@ export class MobileAppAssignmentCollectionResponseImpl implements MobileAppAssig
     public constructor(mobileAppAssignmentCollectionResponseParameterValue?: MobileAppAssignmentCollectionResponse | undefined) {
         this.additionalData = mobileAppAssignmentCollectionResponseParameterValue?.additionalData ? mobileAppAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileAppAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileAppAssignmentImpl[] = []; mobileAppAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = mobileAppAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MobileAppAssignmentCollectionResponseImpl implements MobileAppAssig
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppAssignmentImpl? element : new MobileAppAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class DomainCollectionResponseImpl implements DomainCollectionResponse {
     public constructor(domainCollectionResponseParameterValue?: DomainCollectionResponse | undefined) {
         this.additionalData = domainCollectionResponseParameterValue?.additionalData ? domainCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = domainCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DomainImpl[] = []; domainCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DomainImpl? element : new DomainImpl(element));});
-        this.value = valueArrValue;
+        this.value = domainCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DomainCollectionResponseImpl implements DomainCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DomainImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DomainImpl? element : new DomainImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DomainImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DomainImpl(element));});
             writer.writeCollectionOfObjectValues<DomainImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -28,9 +28,8 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
      */
     public constructor(accessPackageParameterValue?: AccessPackage | undefined) {
         super(accessPackageParameterValue);
-        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; accessPackageParameterValue?.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
-        this.assignmentPolicies = assignmentPoliciesArrValue;
-        this.catalog = accessPackageParameterValue?.catalog instanceof AccessPackageCatalogImpl? accessPackageParameterValue?.catalog:new AccessPackageCatalogImpl(accessPackageParameterValue?.catalog);
+        this.assignmentPolicies = accessPackageParameterValue?.assignmentPolicies;
+        this.catalog = accessPackageParameterValue?.catalog;
         this.createdDateTime = accessPackageParameterValue?.createdDateTime;
         this.description = accessPackageParameterValue?.description;
         this.displayName = accessPackageParameterValue?.displayName;
@@ -59,7 +58,7 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(element instanceof AccessPackageAssignmentPolicyImpl? element : new AccessPackageAssignmentPolicyImpl(element));});
+        if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = []; this.assignmentPolicies?.forEach(element => {assignmentPoliciesArrValue.push(new AccessPackageAssignmentPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.catalog){

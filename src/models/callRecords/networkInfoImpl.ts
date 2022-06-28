@@ -85,8 +85,7 @@ export class NetworkInfoImpl implements NetworkInfo {
         this.relayPort = networkInfoParameterValue?.relayPort;
         this.sentQualityEventRatio = networkInfoParameterValue?.sentQualityEventRatio;
         this.subnet = networkInfoParameterValue?.subnet;
-        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; networkInfoParameterValue?.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(element instanceof TraceRouteHopImpl? element : new TraceRouteHopImpl(element));});
-        this.traceRouteHops = traceRouteHopsArrValue;
+        this.traceRouteHops = networkInfoParameterValue?.traceRouteHops;
         this.wifiBand = networkInfoParameterValue?.wifiBand;
         this.wifiBatteryCharge = networkInfoParameterValue?.wifiBatteryCharge;
         this.wifiChannel = networkInfoParameterValue?.wifiChannel;
@@ -185,7 +184,7 @@ export class NetworkInfoImpl implements NetworkInfo {
         if(this.subnet){
             writer.writeStringValue("subnet", this.subnet);
         }
-        if(this.traceRouteHops && this.traceRouteHops.length != 0){        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; this.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(element instanceof TraceRouteHopImpl? element : new TraceRouteHopImpl(element));});
+        if(this.traceRouteHops && this.traceRouteHops.length != 0){        const traceRouteHopsArrValue: TraceRouteHopImpl[] = []; this.traceRouteHops?.forEach(element => {traceRouteHopsArrValue.push(new TraceRouteHopImpl(element));});
             writer.writeCollectionOfObjectValues<TraceRouteHopImpl>("traceRouteHops", traceRouteHopsArrValue);
         }
         if(this.wifiBand){

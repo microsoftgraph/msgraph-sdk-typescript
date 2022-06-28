@@ -22,8 +22,8 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
     public constructor(mobileAppAssignmentParameterValue?: MobileAppAssignment | undefined) {
         super(mobileAppAssignmentParameterValue);
         this.intent = mobileAppAssignmentParameterValue?.intent;
-        this.settings = mobileAppAssignmentParameterValue?.settings instanceof MobileAppAssignmentSettingsImpl? mobileAppAssignmentParameterValue?.settings:new MobileAppAssignmentSettingsImpl(mobileAppAssignmentParameterValue?.settings);
-        this.target = mobileAppAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? mobileAppAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(mobileAppAssignmentParameterValue?.target);
+        this.settings = mobileAppAssignmentParameterValue?.settings;
+        this.target = mobileAppAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

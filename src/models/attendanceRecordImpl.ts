@@ -24,10 +24,9 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
      */
     public constructor(attendanceRecordParameterValue?: AttendanceRecord | undefined) {
         super(attendanceRecordParameterValue);
-        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; attendanceRecordParameterValue?.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(element instanceof AttendanceIntervalImpl? element : new AttendanceIntervalImpl(element));});
-        this.attendanceIntervals = attendanceIntervalsArrValue;
+        this.attendanceIntervals = attendanceRecordParameterValue?.attendanceIntervals;
         this.emailAddress = attendanceRecordParameterValue?.emailAddress;
-        this.identity = attendanceRecordParameterValue?.identity instanceof IdentityImpl? attendanceRecordParameterValue?.identity:new IdentityImpl(attendanceRecordParameterValue?.identity);
+        this.identity = attendanceRecordParameterValue?.identity;
         this.role = attendanceRecordParameterValue?.role;
         this.totalAttendanceInSeconds = attendanceRecordParameterValue?.totalAttendanceInSeconds;
     };
@@ -51,7 +50,7 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.attendanceIntervals && this.attendanceIntervals.length != 0){        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; this.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(element instanceof AttendanceIntervalImpl? element : new AttendanceIntervalImpl(element));});
+        if(this.attendanceIntervals && this.attendanceIntervals.length != 0){        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = []; this.attendanceIntervals?.forEach(element => {attendanceIntervalsArrValue.push(new AttendanceIntervalImpl(element));});
             writer.writeCollectionOfObjectValues<AttendanceIntervalImpl>("attendanceIntervals", attendanceIntervalsArrValue);
         }
         if(this.emailAddress){

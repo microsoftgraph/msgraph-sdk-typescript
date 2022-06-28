@@ -14,7 +14,7 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements U
      */
     public constructor(unifiedRoleManagementPolicyRuleParameterValue?: UnifiedRoleManagementPolicyRule | undefined) {
         super(unifiedRoleManagementPolicyRuleParameterValue);
-        this.target = unifiedRoleManagementPolicyRuleParameterValue?.target instanceof UnifiedRoleManagementPolicyRuleTargetImpl? unifiedRoleManagementPolicyRuleParameterValue?.target:new UnifiedRoleManagementPolicyRuleTargetImpl(unifiedRoleManagementPolicyRuleParameterValue?.target);
+        this.target = unifiedRoleManagementPolicyRuleParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

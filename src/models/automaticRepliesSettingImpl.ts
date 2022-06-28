@@ -30,8 +30,8 @@ export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
         this.externalAudience = automaticRepliesSettingParameterValue?.externalAudience;
         this.externalReplyMessage = automaticRepliesSettingParameterValue?.externalReplyMessage;
         this.internalReplyMessage = automaticRepliesSettingParameterValue?.internalReplyMessage;
-        this.scheduledEndDateTime = automaticRepliesSettingParameterValue?.scheduledEndDateTime instanceof DateTimeTimeZoneImpl? automaticRepliesSettingParameterValue?.scheduledEndDateTime:new DateTimeTimeZoneImpl(automaticRepliesSettingParameterValue?.scheduledEndDateTime);
-        this.scheduledStartDateTime = automaticRepliesSettingParameterValue?.scheduledStartDateTime instanceof DateTimeTimeZoneImpl? automaticRepliesSettingParameterValue?.scheduledStartDateTime:new DateTimeTimeZoneImpl(automaticRepliesSettingParameterValue?.scheduledStartDateTime);
+        this.scheduledEndDateTime = automaticRepliesSettingParameterValue?.scheduledEndDateTime;
+        this.scheduledStartDateTime = automaticRepliesSettingParameterValue?.scheduledStartDateTime;
         this.status = automaticRepliesSettingParameterValue?.status;
     };
     /**

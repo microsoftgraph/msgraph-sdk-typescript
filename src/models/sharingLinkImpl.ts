@@ -25,7 +25,7 @@ export class SharingLinkImpl implements SharingLink {
      */
     public constructor(sharingLinkParameterValue?: SharingLink | undefined) {
         this.additionalData = sharingLinkParameterValue?.additionalData ? sharingLinkParameterValue?.additionalData! : {};
-        this.application = sharingLinkParameterValue?.application instanceof IdentityImpl? sharingLinkParameterValue?.application:new IdentityImpl(sharingLinkParameterValue?.application);
+        this.application = sharingLinkParameterValue?.application;
         this.preventsDownload = sharingLinkParameterValue?.preventsDownload;
         this.scope = sharingLinkParameterValue?.scope;
         this.type = sharingLinkParameterValue?.type;

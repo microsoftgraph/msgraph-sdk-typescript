@@ -18,8 +18,7 @@ export class TargetedManagedAppConfigurationCollectionResponseImpl implements Ta
     public constructor(targetedManagedAppConfigurationCollectionResponseParameterValue?: TargetedManagedAppConfigurationCollectionResponse | undefined) {
         this.additionalData = targetedManagedAppConfigurationCollectionResponseParameterValue?.additionalData ? targetedManagedAppConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = targetedManagedAppConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TargetedManagedAppConfigurationImpl[] = []; targetedManagedAppConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TargetedManagedAppConfigurationImpl? element : new TargetedManagedAppConfigurationImpl(element));});
-        this.value = valueArrValue;
+        this.value = targetedManagedAppConfigurationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TargetedManagedAppConfigurationCollectionResponseImpl implements Ta
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TargetedManagedAppConfigurationImpl? element : new TargetedManagedAppConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TargetedManagedAppConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<TargetedManagedAppConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

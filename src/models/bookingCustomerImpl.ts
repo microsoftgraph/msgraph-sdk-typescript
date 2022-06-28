@@ -21,12 +21,10 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
      */
     public constructor(bookingCustomerParameterValue?: BookingCustomer | undefined) {
         super(bookingCustomerParameterValue);
-        const addressesArrValue: PhysicalAddressImpl[] = []; bookingCustomerParameterValue?.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalAddressImpl? element : new PhysicalAddressImpl(element));});
-        this.addresses = addressesArrValue;
+        this.addresses = bookingCustomerParameterValue?.addresses;
         this.displayName = bookingCustomerParameterValue?.displayName;
         this.emailAddress = bookingCustomerParameterValue?.emailAddress;
-        const phonesArrValue: PhoneImpl[] = []; bookingCustomerParameterValue?.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
-        this.phones = phonesArrValue;
+        this.phones = bookingCustomerParameterValue?.phones;
     };
     /**
      * The deserialization information for the current model
@@ -47,7 +45,7 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(element instanceof PhysicalAddressImpl? element : new PhysicalAddressImpl(element));});
+        if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(new PhysicalAddressImpl(element));});
             writer.writeCollectionOfObjectValues<PhysicalAddressImpl>("addresses", addressesArrValue);
         }
         if(this.displayName){
@@ -56,7 +54,7 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
         if(this.emailAddress){
             writer.writeStringValue("emailAddress", this.emailAddress);
         }
-        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(element instanceof PhoneImpl? element : new PhoneImpl(element));});
+        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
     };

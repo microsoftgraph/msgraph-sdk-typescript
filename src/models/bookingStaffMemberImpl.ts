@@ -32,8 +32,7 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         this.role = bookingStaffMemberParameterValue?.role;
         this.timeZone = bookingStaffMemberParameterValue?.timeZone;
         this.useBusinessHours = bookingStaffMemberParameterValue?.useBusinessHours;
-        const workingHoursArrValue: BookingWorkHoursImpl[] = []; bookingStaffMemberParameterValue?.workingHours?.forEach(element => {workingHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
-        this.workingHours = workingHoursArrValue;
+        this.workingHours = bookingStaffMemberParameterValue?.workingHours;
     };
     /**
      * The deserialization information for the current model
@@ -75,7 +74,7 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         if(this.useBusinessHours){
             writer.writeBooleanValue("useBusinessHours", this.useBusinessHours);
         }
-        if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = []; this.workingHours?.forEach(element => {workingHoursArrValue.push(element instanceof BookingWorkHoursImpl? element : new BookingWorkHoursImpl(element));});
+        if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = []; this.workingHours?.forEach(element => {workingHoursArrValue.push(new BookingWorkHoursImpl(element));});
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("workingHours", workingHoursArrValue);
         }
     };

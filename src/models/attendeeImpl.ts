@@ -18,8 +18,8 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
      */
     public constructor(attendeeParameterValue?: Attendee | undefined) {
         super(attendeeParameterValue);
-        this.proposedNewTime = attendeeParameterValue?.proposedNewTime instanceof TimeSlotImpl? attendeeParameterValue?.proposedNewTime:new TimeSlotImpl(attendeeParameterValue?.proposedNewTime);
-        this.status = attendeeParameterValue?.status instanceof ResponseStatusImpl? attendeeParameterValue?.status:new ResponseStatusImpl(attendeeParameterValue?.status);
+        this.proposedNewTime = attendeeParameterValue?.proposedNewTime;
+        this.status = attendeeParameterValue?.status;
     };
     /**
      * The deserialization information for the current model

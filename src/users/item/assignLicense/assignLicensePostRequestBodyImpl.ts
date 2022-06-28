@@ -18,8 +18,7 @@ export class AssignLicensePostRequestBodyImpl implements AssignLicensePostReques
      */
     public constructor(assignLicensePostRequestBodyParameterValue?: AssignLicensePostRequestBody | undefined) {
         this.additionalData = assignLicensePostRequestBodyParameterValue?.additionalData ? assignLicensePostRequestBodyParameterValue?.additionalData! : {};
-        const addLicensesArrValue: AssignedLicenseImpl[] = []; assignLicensePostRequestBodyParameterValue?.addLicenses?.forEach(element => {addLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
-        this.addLicenses = addLicensesArrValue;
+        this.addLicenses = assignLicensePostRequestBodyParameterValue?.addLicenses;
         this.removeLicenses = assignLicensePostRequestBodyParameterValue?.removeLicenses;
     };
     /**
@@ -38,7 +37,7 @@ export class AssignLicensePostRequestBodyImpl implements AssignLicensePostReques
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.addLicenses && this.addLicenses.length != 0){        const addLicensesArrValue: AssignedLicenseImpl[] = []; this.addLicenses?.forEach(element => {addLicensesArrValue.push(element instanceof AssignedLicenseImpl? element : new AssignedLicenseImpl(element));});
+        if(this.addLicenses && this.addLicenses.length != 0){        const addLicensesArrValue: AssignedLicenseImpl[] = []; this.addLicenses?.forEach(element => {addLicensesArrValue.push(new AssignedLicenseImpl(element));});
             writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("addLicenses", addLicensesArrValue);
         }
         if(this.removeLicenses){

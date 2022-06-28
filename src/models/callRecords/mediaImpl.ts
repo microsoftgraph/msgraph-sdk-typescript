@@ -29,13 +29,12 @@ export class MediaImpl implements Media {
      */
     public constructor(mediaParameterValue?: Media | undefined) {
         this.additionalData = mediaParameterValue?.additionalData ? mediaParameterValue?.additionalData! : {};
-        this.calleeDevice = mediaParameterValue?.calleeDevice instanceof DeviceInfoImpl? mediaParameterValue?.calleeDevice:new DeviceInfoImpl(mediaParameterValue?.calleeDevice);
-        this.calleeNetwork = mediaParameterValue?.calleeNetwork instanceof NetworkInfoImpl? mediaParameterValue?.calleeNetwork:new NetworkInfoImpl(mediaParameterValue?.calleeNetwork);
-        this.callerDevice = mediaParameterValue?.callerDevice instanceof DeviceInfoImpl? mediaParameterValue?.callerDevice:new DeviceInfoImpl(mediaParameterValue?.callerDevice);
-        this.callerNetwork = mediaParameterValue?.callerNetwork instanceof NetworkInfoImpl? mediaParameterValue?.callerNetwork:new NetworkInfoImpl(mediaParameterValue?.callerNetwork);
+        this.calleeDevice = mediaParameterValue?.calleeDevice;
+        this.calleeNetwork = mediaParameterValue?.calleeNetwork;
+        this.callerDevice = mediaParameterValue?.callerDevice;
+        this.callerNetwork = mediaParameterValue?.callerNetwork;
         this.label = mediaParameterValue?.label;
-        const streamsArrValue: MediaStreamImpl[] = []; mediaParameterValue?.streams?.forEach(element => {streamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
-        this.streams = streamsArrValue;
+        this.streams = mediaParameterValue?.streams;
     };
     /**
      * The deserialization information for the current model
@@ -72,7 +71,7 @@ export class MediaImpl implements Media {
         if(this.label){
             writer.writeStringValue("label", this.label);
         }
-        if(this.streams && this.streams.length != 0){        const streamsArrValue: MediaStreamImpl[] = []; this.streams?.forEach(element => {streamsArrValue.push(element instanceof MediaStreamImpl? element : new MediaStreamImpl(element));});
+        if(this.streams && this.streams.length != 0){        const streamsArrValue: MediaStreamImpl[] = []; this.streams?.forEach(element => {streamsArrValue.push(new MediaStreamImpl(element));});
             writer.writeCollectionOfObjectValues<MediaStreamImpl>("streams", streamsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -15,7 +15,7 @@ export class AdminImpl implements Admin {
      */
     public constructor(adminParameterValue?: Admin | undefined) {
         this.additionalData = adminParameterValue?.additionalData ? adminParameterValue?.additionalData! : {};
-        this.serviceAnnouncement = adminParameterValue?.serviceAnnouncement instanceof ServiceAnnouncementImpl? adminParameterValue?.serviceAnnouncement:new ServiceAnnouncementImpl(adminParameterValue?.serviceAnnouncement);
+        this.serviceAnnouncement = adminParameterValue?.serviceAnnouncement;
     };
     /**
      * The deserialization information for the current model

@@ -18,8 +18,7 @@ export class UserConsentRequestCollectionResponseImpl implements UserConsentRequ
     public constructor(userConsentRequestCollectionResponseParameterValue?: UserConsentRequestCollectionResponse | undefined) {
         this.additionalData = userConsentRequestCollectionResponseParameterValue?.additionalData ? userConsentRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userConsentRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserConsentRequestImpl[] = []; userConsentRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
-        this.value = valueArrValue;
+        this.value = userConsentRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UserConsentRequestCollectionResponseImpl implements UserConsentRequ
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UserConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserConsentRequestImpl? element : new UserConsentRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserConsentRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserConsentRequestImpl(element));});
             writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

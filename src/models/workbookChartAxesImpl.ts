@@ -18,9 +18,9 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
      */
     public constructor(workbookChartAxesParameterValue?: WorkbookChartAxes | undefined) {
         super(workbookChartAxesParameterValue);
-        this.categoryAxis = workbookChartAxesParameterValue?.categoryAxis instanceof WorkbookChartAxisImpl? workbookChartAxesParameterValue?.categoryAxis:new WorkbookChartAxisImpl(workbookChartAxesParameterValue?.categoryAxis);
-        this.seriesAxis = workbookChartAxesParameterValue?.seriesAxis instanceof WorkbookChartAxisImpl? workbookChartAxesParameterValue?.seriesAxis:new WorkbookChartAxisImpl(workbookChartAxesParameterValue?.seriesAxis);
-        this.valueAxis = workbookChartAxesParameterValue?.valueAxis instanceof WorkbookChartAxisImpl? workbookChartAxesParameterValue?.valueAxis:new WorkbookChartAxisImpl(workbookChartAxesParameterValue?.valueAxis);
+        this.categoryAxis = workbookChartAxesParameterValue?.categoryAxis;
+        this.seriesAxis = workbookChartAxesParameterValue?.seriesAxis;
+        this.valueAxis = workbookChartAxesParameterValue?.valueAxis;
     };
     /**
      * The deserialization information for the current model

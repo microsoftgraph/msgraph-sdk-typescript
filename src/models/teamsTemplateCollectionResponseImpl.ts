@@ -18,8 +18,7 @@ export class TeamsTemplateCollectionResponseImpl implements TeamsTemplateCollect
     public constructor(teamsTemplateCollectionResponseParameterValue?: TeamsTemplateCollectionResponse | undefined) {
         this.additionalData = teamsTemplateCollectionResponseParameterValue?.additionalData ? teamsTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsTemplateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsTemplateImpl[] = []; teamsTemplateCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TeamsTemplateImpl? element : new TeamsTemplateImpl(element));});
-        this.value = valueArrValue;
+        this.value = teamsTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TeamsTemplateCollectionResponseImpl implements TeamsTemplateCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TeamsTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsTemplateImpl? element : new TeamsTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsTemplateImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

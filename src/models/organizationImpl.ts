@@ -74,36 +74,31 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
      */
     public constructor(organizationParameterValue?: Organization | undefined) {
         super(organizationParameterValue);
-        const assignedPlansArrValue: AssignedPlanImpl[] = []; organizationParameterValue?.assignedPlans?.forEach(element => {assignedPlansArrValue.push(element instanceof AssignedPlanImpl? element : new AssignedPlanImpl(element));});
-        this.assignedPlans = assignedPlansArrValue;
-        this.branding = organizationParameterValue?.branding instanceof OrganizationalBrandingImpl? organizationParameterValue?.branding:new OrganizationalBrandingImpl(organizationParameterValue?.branding);
+        this.assignedPlans = organizationParameterValue?.assignedPlans;
+        this.branding = organizationParameterValue?.branding;
         this.businessPhones = organizationParameterValue?.businessPhones;
-        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; organizationParameterValue?.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
-        this.certificateBasedAuthConfiguration = certificateBasedAuthConfigurationArrValue;
+        this.certificateBasedAuthConfiguration = organizationParameterValue?.certificateBasedAuthConfiguration;
         this.city = organizationParameterValue?.city;
         this.country = organizationParameterValue?.country;
         this.countryLetterCode = organizationParameterValue?.countryLetterCode;
         this.createdDateTime = organizationParameterValue?.createdDateTime;
         this.displayName = organizationParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; organizationParameterValue?.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
-        this.extensions = extensionsArrValue;
+        this.extensions = organizationParameterValue?.extensions;
         this.marketingNotificationEmails = organizationParameterValue?.marketingNotificationEmails;
         this.mobileDeviceManagementAuthority = organizationParameterValue?.mobileDeviceManagementAuthority;
         this.onPremisesLastSyncDateTime = organizationParameterValue?.onPremisesLastSyncDateTime;
         this.onPremisesSyncEnabled = organizationParameterValue?.onPremisesSyncEnabled;
         this.postalCode = organizationParameterValue?.postalCode;
         this.preferredLanguage = organizationParameterValue?.preferredLanguage;
-        this.privacyProfile = organizationParameterValue?.privacyProfile instanceof PrivacyProfileImpl? organizationParameterValue?.privacyProfile:new PrivacyProfileImpl(organizationParameterValue?.privacyProfile);
-        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; organizationParameterValue?.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(element instanceof ProvisionedPlanImpl? element : new ProvisionedPlanImpl(element));});
-        this.provisionedPlans = provisionedPlansArrValue;
+        this.privacyProfile = organizationParameterValue?.privacyProfile;
+        this.provisionedPlans = organizationParameterValue?.provisionedPlans;
         this.securityComplianceNotificationMails = organizationParameterValue?.securityComplianceNotificationMails;
         this.securityComplianceNotificationPhones = organizationParameterValue?.securityComplianceNotificationPhones;
         this.state = organizationParameterValue?.state;
         this.street = organizationParameterValue?.street;
         this.technicalNotificationMails = organizationParameterValue?.technicalNotificationMails;
         this.tenantType = organizationParameterValue?.tenantType;
-        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; organizationParameterValue?.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(element instanceof VerifiedDomainImpl? element : new VerifiedDomainImpl(element));});
-        this.verifiedDomains = verifiedDomainsArrValue;
+        this.verifiedDomains = organizationParameterValue?.verifiedDomains;
     };
     /**
      * The deserialization information for the current model
@@ -145,7 +140,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(element instanceof AssignedPlanImpl? element : new AssignedPlanImpl(element));});
+        if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
             writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.branding){
@@ -154,7 +149,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.businessPhones){
             writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
-        if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
+        if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(new CertificateBasedAuthConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("certificateBasedAuthConfiguration", certificateBasedAuthConfigurationArrValue);
         }
         if(this.city){
@@ -172,7 +167,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.marketingNotificationEmails){
@@ -196,7 +191,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.privacyProfile){
             writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", new PrivacyProfileImpl(this.privacyProfile));
         }
-        if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(element instanceof ProvisionedPlanImpl? element : new ProvisionedPlanImpl(element));});
+        if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
             writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.securityComplianceNotificationMails){
@@ -217,7 +212,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.tenantType){
             writer.writeStringValue("tenantType", this.tenantType);
         }
-        if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(element instanceof VerifiedDomainImpl? element : new VerifiedDomainImpl(element));});
+        if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(new VerifiedDomainImpl(element));});
             writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
         }
     };

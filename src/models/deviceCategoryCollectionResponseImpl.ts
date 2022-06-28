@@ -18,8 +18,7 @@ export class DeviceCategoryCollectionResponseImpl implements DeviceCategoryColle
     public constructor(deviceCategoryCollectionResponseParameterValue?: DeviceCategoryCollectionResponse | undefined) {
         this.additionalData = deviceCategoryCollectionResponseParameterValue?.additionalData ? deviceCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceCategoryImpl[] = []; deviceCategoryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCategoryImpl? element : new DeviceCategoryImpl(element));});
-        this.value = valueArrValue;
+        this.value = deviceCategoryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceCategoryCollectionResponseImpl implements DeviceCategoryColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceCategoryImpl? element : new DeviceCategoryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

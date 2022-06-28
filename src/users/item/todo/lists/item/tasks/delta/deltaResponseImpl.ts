@@ -16,8 +16,7 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
         this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
-        const valueArrValue: TodoTaskImpl[] = []; deltaResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
-        this.value = valueArrValue;
+        this.value = deltaResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: TodoTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TodoTaskImpl? element : new TodoTaskImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TodoTaskImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TodoTaskImpl(element));});
             writer.writeCollectionOfObjectValues<TodoTaskImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

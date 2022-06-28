@@ -13,8 +13,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
      */
     public constructor(managedAppConfigurationParameterValue?: ManagedAppConfiguration | undefined) {
         super(managedAppConfigurationParameterValue);
-        const customSettingsArrValue: KeyValuePairImpl[] = []; managedAppConfigurationParameterValue?.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
-        this.customSettings = customSettingsArrValue;
+        this.customSettings = managedAppConfigurationParameterValue?.customSettings;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }
     };

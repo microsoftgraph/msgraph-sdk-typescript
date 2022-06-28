@@ -57,11 +57,9 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         this.actionType = secureScoreControlProfileParameterValue?.actionType;
         this.actionUrl = secureScoreControlProfileParameterValue?.actionUrl;
         this.azureTenantId = secureScoreControlProfileParameterValue?.azureTenantId;
-        const complianceInformationArrValue: ComplianceInformationImpl[] = []; secureScoreControlProfileParameterValue?.complianceInformation?.forEach(element => {complianceInformationArrValue.push(element instanceof ComplianceInformationImpl? element : new ComplianceInformationImpl(element));});
-        this.complianceInformation = complianceInformationArrValue;
+        this.complianceInformation = secureScoreControlProfileParameterValue?.complianceInformation;
         this.controlCategory = secureScoreControlProfileParameterValue?.controlCategory;
-        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; secureScoreControlProfileParameterValue?.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(element instanceof SecureScoreControlStateUpdateImpl? element : new SecureScoreControlStateUpdateImpl(element));});
-        this.controlStateUpdates = controlStateUpdatesArrValue;
+        this.controlStateUpdates = secureScoreControlProfileParameterValue?.controlStateUpdates;
         this.deprecated = secureScoreControlProfileParameterValue?.deprecated;
         this.implementationCost = secureScoreControlProfileParameterValue?.implementationCost;
         this.lastModifiedDateTime = secureScoreControlProfileParameterValue?.lastModifiedDateTime;
@@ -74,7 +72,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         this.tier = secureScoreControlProfileParameterValue?.tier;
         this.title = secureScoreControlProfileParameterValue?.title;
         this.userImpact = secureScoreControlProfileParameterValue?.userImpact;
-        this.vendorInformation = secureScoreControlProfileParameterValue?.vendorInformation instanceof SecurityVendorInformationImpl? secureScoreControlProfileParameterValue?.vendorInformation:new SecurityVendorInformationImpl(secureScoreControlProfileParameterValue?.vendorInformation);
+        this.vendorInformation = secureScoreControlProfileParameterValue?.vendorInformation;
     };
     /**
      * The deserialization information for the current model
@@ -119,13 +117,13 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         if(this.azureTenantId){
             writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
-        if(this.complianceInformation && this.complianceInformation.length != 0){        const complianceInformationArrValue: ComplianceInformationImpl[] = []; this.complianceInformation?.forEach(element => {complianceInformationArrValue.push(element instanceof ComplianceInformationImpl? element : new ComplianceInformationImpl(element));});
+        if(this.complianceInformation && this.complianceInformation.length != 0){        const complianceInformationArrValue: ComplianceInformationImpl[] = []; this.complianceInformation?.forEach(element => {complianceInformationArrValue.push(new ComplianceInformationImpl(element));});
             writer.writeCollectionOfObjectValues<ComplianceInformationImpl>("complianceInformation", complianceInformationArrValue);
         }
         if(this.controlCategory){
             writer.writeStringValue("controlCategory", this.controlCategory);
         }
-        if(this.controlStateUpdates && this.controlStateUpdates.length != 0){        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; this.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(element instanceof SecureScoreControlStateUpdateImpl? element : new SecureScoreControlStateUpdateImpl(element));});
+        if(this.controlStateUpdates && this.controlStateUpdates.length != 0){        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = []; this.controlStateUpdates?.forEach(element => {controlStateUpdatesArrValue.push(new SecureScoreControlStateUpdateImpl(element));});
             writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdateImpl>("controlStateUpdates", controlStateUpdatesArrValue);
         }
         if(this.deprecated){

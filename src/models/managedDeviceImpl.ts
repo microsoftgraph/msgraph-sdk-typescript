@@ -144,17 +144,14 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         this.azureADRegistered = managedDeviceParameterValue?.azureADRegistered;
         this.complianceGracePeriodExpirationDateTime = managedDeviceParameterValue?.complianceGracePeriodExpirationDateTime;
         this.complianceState = managedDeviceParameterValue?.complianceState;
-        this.configurationManagerClientEnabledFeatures = managedDeviceParameterValue?.configurationManagerClientEnabledFeatures instanceof ConfigurationManagerClientEnabledFeaturesImpl? managedDeviceParameterValue?.configurationManagerClientEnabledFeatures:new ConfigurationManagerClientEnabledFeaturesImpl(managedDeviceParameterValue?.configurationManagerClientEnabledFeatures);
-        const deviceActionResultsArrValue: DeviceActionResultImpl[] = []; managedDeviceParameterValue?.deviceActionResults?.forEach(element => {deviceActionResultsArrValue.push(element instanceof DeviceActionResultImpl? element : new DeviceActionResultImpl(element));});
-        this.deviceActionResults = deviceActionResultsArrValue;
-        this.deviceCategory = managedDeviceParameterValue?.deviceCategory instanceof DeviceCategoryImpl? managedDeviceParameterValue?.deviceCategory:new DeviceCategoryImpl(managedDeviceParameterValue?.deviceCategory);
+        this.configurationManagerClientEnabledFeatures = managedDeviceParameterValue?.configurationManagerClientEnabledFeatures;
+        this.deviceActionResults = managedDeviceParameterValue?.deviceActionResults;
+        this.deviceCategory = managedDeviceParameterValue?.deviceCategory;
         this.deviceCategoryDisplayName = managedDeviceParameterValue?.deviceCategoryDisplayName;
-        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = []; managedDeviceParameterValue?.deviceCompliancePolicyStates?.forEach(element => {deviceCompliancePolicyStatesArrValue.push(element instanceof DeviceCompliancePolicyStateImpl? element : new DeviceCompliancePolicyStateImpl(element));});
-        this.deviceCompliancePolicyStates = deviceCompliancePolicyStatesArrValue;
-        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = []; managedDeviceParameterValue?.deviceConfigurationStates?.forEach(element => {deviceConfigurationStatesArrValue.push(element instanceof DeviceConfigurationStateImpl? element : new DeviceConfigurationStateImpl(element));});
-        this.deviceConfigurationStates = deviceConfigurationStatesArrValue;
+        this.deviceCompliancePolicyStates = managedDeviceParameterValue?.deviceCompliancePolicyStates;
+        this.deviceConfigurationStates = managedDeviceParameterValue?.deviceConfigurationStates;
         this.deviceEnrollmentType = managedDeviceParameterValue?.deviceEnrollmentType;
-        this.deviceHealthAttestationState = managedDeviceParameterValue?.deviceHealthAttestationState instanceof DeviceHealthAttestationStateImpl? managedDeviceParameterValue?.deviceHealthAttestationState:new DeviceHealthAttestationStateImpl(managedDeviceParameterValue?.deviceHealthAttestationState);
+        this.deviceHealthAttestationState = managedDeviceParameterValue?.deviceHealthAttestationState;
         this.deviceName = managedDeviceParameterValue?.deviceName;
         this.deviceRegistrationState = managedDeviceParameterValue?.deviceRegistrationState;
         this.easActivated = managedDeviceParameterValue?.easActivated;
@@ -286,7 +283,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         if(this.configurationManagerClientEnabledFeatures){
             writer.writeObjectValue<ConfigurationManagerClientEnabledFeaturesImpl>("configurationManagerClientEnabledFeatures", new ConfigurationManagerClientEnabledFeaturesImpl(this.configurationManagerClientEnabledFeatures));
         }
-        if(this.deviceActionResults && this.deviceActionResults.length != 0){        const deviceActionResultsArrValue: DeviceActionResultImpl[] = []; this.deviceActionResults?.forEach(element => {deviceActionResultsArrValue.push(element instanceof DeviceActionResultImpl? element : new DeviceActionResultImpl(element));});
+        if(this.deviceActionResults && this.deviceActionResults.length != 0){        const deviceActionResultsArrValue: DeviceActionResultImpl[] = []; this.deviceActionResults?.forEach(element => {deviceActionResultsArrValue.push(new DeviceActionResultImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceActionResultImpl>("deviceActionResults", deviceActionResultsArrValue);
         }
         if(this.deviceCategory){
@@ -295,10 +292,10 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         if(this.deviceCategoryDisplayName){
             writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
         }
-        if(this.deviceCompliancePolicyStates && this.deviceCompliancePolicyStates.length != 0){        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = []; this.deviceCompliancePolicyStates?.forEach(element => {deviceCompliancePolicyStatesArrValue.push(element instanceof DeviceCompliancePolicyStateImpl? element : new DeviceCompliancePolicyStateImpl(element));});
+        if(this.deviceCompliancePolicyStates && this.deviceCompliancePolicyStates.length != 0){        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = []; this.deviceCompliancePolicyStates?.forEach(element => {deviceCompliancePolicyStatesArrValue.push(new DeviceCompliancePolicyStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("deviceCompliancePolicyStates", deviceCompliancePolicyStatesArrValue);
         }
-        if(this.deviceConfigurationStates && this.deviceConfigurationStates.length != 0){        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = []; this.deviceConfigurationStates?.forEach(element => {deviceConfigurationStatesArrValue.push(element instanceof DeviceConfigurationStateImpl? element : new DeviceConfigurationStateImpl(element));});
+        if(this.deviceConfigurationStates && this.deviceConfigurationStates.length != 0){        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = []; this.deviceConfigurationStates?.forEach(element => {deviceConfigurationStatesArrValue.push(new DeviceConfigurationStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("deviceConfigurationStates", deviceConfigurationStatesArrValue);
         }
         if(this.deviceEnrollmentType){

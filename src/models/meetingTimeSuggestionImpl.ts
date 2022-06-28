@@ -32,12 +32,10 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
      */
     public constructor(meetingTimeSuggestionParameterValue?: MeetingTimeSuggestion | undefined) {
         this.additionalData = meetingTimeSuggestionParameterValue?.additionalData ? meetingTimeSuggestionParameterValue?.additionalData! : {};
-        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; meetingTimeSuggestionParameterValue?.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(element instanceof AttendeeAvailabilityImpl? element : new AttendeeAvailabilityImpl(element));});
-        this.attendeeAvailability = attendeeAvailabilityArrValue;
+        this.attendeeAvailability = meetingTimeSuggestionParameterValue?.attendeeAvailability;
         this.confidence = meetingTimeSuggestionParameterValue?.confidence;
-        const locationsArrValue: LocationImpl[] = []; meetingTimeSuggestionParameterValue?.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationImpl? element : new LocationImpl(element));});
-        this.locations = locationsArrValue;
-        this.meetingTimeSlot = meetingTimeSuggestionParameterValue?.meetingTimeSlot instanceof TimeSlotImpl? meetingTimeSuggestionParameterValue?.meetingTimeSlot:new TimeSlotImpl(meetingTimeSuggestionParameterValue?.meetingTimeSlot);
+        this.locations = meetingTimeSuggestionParameterValue?.locations;
+        this.meetingTimeSlot = meetingTimeSuggestionParameterValue?.meetingTimeSlot;
         this.order = meetingTimeSuggestionParameterValue?.order;
         this.organizerAvailability = meetingTimeSuggestionParameterValue?.organizerAvailability;
         this.suggestionReason = meetingTimeSuggestionParameterValue?.suggestionReason;
@@ -63,13 +61,13 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.attendeeAvailability && this.attendeeAvailability.length != 0){        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; this.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(element instanceof AttendeeAvailabilityImpl? element : new AttendeeAvailabilityImpl(element));});
+        if(this.attendeeAvailability && this.attendeeAvailability.length != 0){        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = []; this.attendeeAvailability?.forEach(element => {attendeeAvailabilityArrValue.push(new AttendeeAvailabilityImpl(element));});
             writer.writeCollectionOfObjectValues<AttendeeAvailabilityImpl>("attendeeAvailability", attendeeAvailabilityArrValue);
         }
         if(this.confidence){
             writer.writeNumberValue("confidence", this.confidence);
         }
-        if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(element instanceof LocationImpl? element : new LocationImpl(element));});
+        if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = []; this.locations?.forEach(element => {locationsArrValue.push(new LocationImpl(element));});
             writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
         if(this.meetingTimeSlot){

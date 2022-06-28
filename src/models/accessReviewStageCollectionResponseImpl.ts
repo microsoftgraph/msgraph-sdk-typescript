@@ -18,8 +18,7 @@ export class AccessReviewStageCollectionResponseImpl implements AccessReviewStag
     public constructor(accessReviewStageCollectionResponseParameterValue?: AccessReviewStageCollectionResponse | undefined) {
         this.additionalData = accessReviewStageCollectionResponseParameterValue?.additionalData ? accessReviewStageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewStageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewStageImpl[] = []; accessReviewStageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
-        this.value = valueArrValue;
+        this.value = accessReviewStageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AccessReviewStageCollectionResponseImpl implements AccessReviewStag
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewStageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewStageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewStageImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewStageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

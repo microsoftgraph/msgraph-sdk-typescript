@@ -17,8 +17,8 @@ export class PageLinksImpl implements PageLinks {
      */
     public constructor(pageLinksParameterValue?: PageLinks | undefined) {
         this.additionalData = pageLinksParameterValue?.additionalData ? pageLinksParameterValue?.additionalData! : {};
-        this.oneNoteClientUrl = pageLinksParameterValue?.oneNoteClientUrl instanceof ExternalLinkImpl? pageLinksParameterValue?.oneNoteClientUrl:new ExternalLinkImpl(pageLinksParameterValue?.oneNoteClientUrl);
-        this.oneNoteWebUrl = pageLinksParameterValue?.oneNoteWebUrl instanceof ExternalLinkImpl? pageLinksParameterValue?.oneNoteWebUrl:new ExternalLinkImpl(pageLinksParameterValue?.oneNoteWebUrl);
+        this.oneNoteClientUrl = pageLinksParameterValue?.oneNoteClientUrl;
+        this.oneNoteWebUrl = pageLinksParameterValue?.oneNoteWebUrl;
     };
     /**
      * The deserialization information for the current model

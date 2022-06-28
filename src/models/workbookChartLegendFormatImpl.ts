@@ -18,8 +18,8 @@ export class WorkbookChartLegendFormatImpl extends EntityImpl implements Workboo
      */
     public constructor(workbookChartLegendFormatParameterValue?: WorkbookChartLegendFormat | undefined) {
         super(workbookChartLegendFormatParameterValue);
-        this.fill = workbookChartLegendFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartLegendFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartLegendFormatParameterValue?.fill);
-        this.font = workbookChartLegendFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartLegendFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartLegendFormatParameterValue?.font);
+        this.fill = workbookChartLegendFormatParameterValue?.fill;
+        this.font = workbookChartLegendFormatParameterValue?.font;
     };
     /**
      * The deserialization information for the current model

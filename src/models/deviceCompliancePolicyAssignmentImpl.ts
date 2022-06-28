@@ -14,7 +14,7 @@ export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements 
      */
     public constructor(deviceCompliancePolicyAssignmentParameterValue?: DeviceCompliancePolicyAssignment | undefined) {
         super(deviceCompliancePolicyAssignmentParameterValue);
-        this.target = deviceCompliancePolicyAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? deviceCompliancePolicyAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(deviceCompliancePolicyAssignmentParameterValue?.target);
+        this.target = deviceCompliancePolicyAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

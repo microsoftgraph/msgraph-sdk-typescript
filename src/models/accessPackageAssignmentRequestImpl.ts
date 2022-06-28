@@ -38,13 +38,13 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
      */
     public constructor(accessPackageAssignmentRequestParameterValue?: AccessPackageAssignmentRequest | undefined) {
         super(accessPackageAssignmentRequestParameterValue);
-        this.accessPackage = accessPackageAssignmentRequestParameterValue?.accessPackage instanceof AccessPackageImpl? accessPackageAssignmentRequestParameterValue?.accessPackage:new AccessPackageImpl(accessPackageAssignmentRequestParameterValue?.accessPackage);
-        this.assignment = accessPackageAssignmentRequestParameterValue?.assignment instanceof AccessPackageAssignmentImpl? accessPackageAssignmentRequestParameterValue?.assignment:new AccessPackageAssignmentImpl(accessPackageAssignmentRequestParameterValue?.assignment);
+        this.accessPackage = accessPackageAssignmentRequestParameterValue?.accessPackage;
+        this.assignment = accessPackageAssignmentRequestParameterValue?.assignment;
         this.completedDateTime = accessPackageAssignmentRequestParameterValue?.completedDateTime;
         this.createdDateTime = accessPackageAssignmentRequestParameterValue?.createdDateTime;
-        this.requestor = accessPackageAssignmentRequestParameterValue?.requestor instanceof AccessPackageSubjectImpl? accessPackageAssignmentRequestParameterValue?.requestor:new AccessPackageSubjectImpl(accessPackageAssignmentRequestParameterValue?.requestor);
+        this.requestor = accessPackageAssignmentRequestParameterValue?.requestor;
         this.requestType = accessPackageAssignmentRequestParameterValue?.requestType;
-        this.schedule = accessPackageAssignmentRequestParameterValue?.schedule instanceof EntitlementManagementScheduleImpl? accessPackageAssignmentRequestParameterValue?.schedule:new EntitlementManagementScheduleImpl(accessPackageAssignmentRequestParameterValue?.schedule);
+        this.schedule = accessPackageAssignmentRequestParameterValue?.schedule;
         this.state = accessPackageAssignmentRequestParameterValue?.state;
         this.status = accessPackageAssignmentRequestParameterValue?.status;
     };

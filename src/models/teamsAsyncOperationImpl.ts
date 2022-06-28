@@ -32,7 +32,7 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOpe
         super(teamsAsyncOperationParameterValue);
         this.attemptsCount = teamsAsyncOperationParameterValue?.attemptsCount;
         this.createdDateTime = teamsAsyncOperationParameterValue?.createdDateTime;
-        this.error_escaped = teamsAsyncOperationParameterValue?.error_escaped instanceof OperationErrorImpl? teamsAsyncOperationParameterValue?.error_escaped:new OperationErrorImpl(teamsAsyncOperationParameterValue?.error_escaped);
+        this.error_escaped = teamsAsyncOperationParameterValue?.error_escaped;
         this.lastActionDateTime = teamsAsyncOperationParameterValue?.lastActionDateTime;
         this.operationType = teamsAsyncOperationParameterValue?.operationType;
         this.status = teamsAsyncOperationParameterValue?.status;

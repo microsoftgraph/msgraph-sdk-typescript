@@ -18,8 +18,7 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
     public constructor(listItemCollectionResponseParameterValue?: ListItemCollectionResponse | undefined) {
         this.additionalData = listItemCollectionResponseParameterValue?.additionalData ? listItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = listItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ListItemImpl[] = []; listItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ListItemImpl? element : new ListItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = listItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ListItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ListItemImpl? element : new ListItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ListItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ListItemImpl(element));});
             writer.writeCollectionOfObjectValues<ListItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

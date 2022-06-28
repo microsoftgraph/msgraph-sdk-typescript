@@ -37,17 +37,15 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
     public constructor(secureScoreParameterValue?: SecureScore | undefined) {
         super(secureScoreParameterValue);
         this.activeUserCount = secureScoreParameterValue?.activeUserCount;
-        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; secureScoreParameterValue?.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
-        this.averageComparativeScores = averageComparativeScoresArrValue;
+        this.averageComparativeScores = secureScoreParameterValue?.averageComparativeScores;
         this.azureTenantId = secureScoreParameterValue?.azureTenantId;
-        const controlScoresArrValue: ControlScoreImpl[] = []; secureScoreParameterValue?.controlScores?.forEach(element => {controlScoresArrValue.push(element instanceof ControlScoreImpl? element : new ControlScoreImpl(element));});
-        this.controlScores = controlScoresArrValue;
+        this.controlScores = secureScoreParameterValue?.controlScores;
         this.createdDateTime = secureScoreParameterValue?.createdDateTime;
         this.currentScore = secureScoreParameterValue?.currentScore;
         this.enabledServices = secureScoreParameterValue?.enabledServices;
         this.licensedUserCount = secureScoreParameterValue?.licensedUserCount;
         this.maxScore = secureScoreParameterValue?.maxScore;
-        this.vendorInformation = secureScoreParameterValue?.vendorInformation instanceof SecurityVendorInformationImpl? secureScoreParameterValue?.vendorInformation:new SecurityVendorInformationImpl(secureScoreParameterValue?.vendorInformation);
+        this.vendorInformation = secureScoreParameterValue?.vendorInformation;
     };
     /**
      * The deserialization information for the current model
@@ -77,13 +75,13 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         if(this.activeUserCount){
             writer.writeNumberValue("activeUserCount", this.activeUserCount);
         }
-        if(this.averageComparativeScores && this.averageComparativeScores.length != 0){        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; this.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(element instanceof AverageComparativeScoreImpl? element : new AverageComparativeScoreImpl(element));});
+        if(this.averageComparativeScores && this.averageComparativeScores.length != 0){        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = []; this.averageComparativeScores?.forEach(element => {averageComparativeScoresArrValue.push(new AverageComparativeScoreImpl(element));});
             writer.writeCollectionOfObjectValues<AverageComparativeScoreImpl>("averageComparativeScores", averageComparativeScoresArrValue);
         }
         if(this.azureTenantId){
             writer.writeStringValue("azureTenantId", this.azureTenantId);
         }
-        if(this.controlScores && this.controlScores.length != 0){        const controlScoresArrValue: ControlScoreImpl[] = []; this.controlScores?.forEach(element => {controlScoresArrValue.push(element instanceof ControlScoreImpl? element : new ControlScoreImpl(element));});
+        if(this.controlScores && this.controlScores.length != 0){        const controlScoresArrValue: ControlScoreImpl[] = []; this.controlScores?.forEach(element => {controlScoresArrValue.push(new ControlScoreImpl(element));});
             writer.writeCollectionOfObjectValues<ControlScoreImpl>("controlScores", controlScoresArrValue);
         }
         if(this.createdDateTime){

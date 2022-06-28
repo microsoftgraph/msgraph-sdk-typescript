@@ -26,13 +26,10 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
     public constructor(iosDeviceFeaturesConfigurationParameterValue?: IosDeviceFeaturesConfiguration | undefined) {
         super(iosDeviceFeaturesConfigurationParameterValue);
         this.assetTagTemplate = iosDeviceFeaturesConfigurationParameterValue?.assetTagTemplate;
-        const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = []; iosDeviceFeaturesConfigurationParameterValue?.homeScreenDockIcons?.forEach(element => {homeScreenDockIconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
-        this.homeScreenDockIcons = homeScreenDockIconsArrValue;
-        const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = []; iosDeviceFeaturesConfigurationParameterValue?.homeScreenPages?.forEach(element => {homeScreenPagesArrValue.push(element instanceof IosHomeScreenPageImpl? element : new IosHomeScreenPageImpl(element));});
-        this.homeScreenPages = homeScreenPagesArrValue;
+        this.homeScreenDockIcons = iosDeviceFeaturesConfigurationParameterValue?.homeScreenDockIcons;
+        this.homeScreenPages = iosDeviceFeaturesConfigurationParameterValue?.homeScreenPages;
         this.lockScreenFootnote = iosDeviceFeaturesConfigurationParameterValue?.lockScreenFootnote;
-        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = []; iosDeviceFeaturesConfigurationParameterValue?.notificationSettings?.forEach(element => {notificationSettingsArrValue.push(element instanceof IosNotificationSettingsImpl? element : new IosNotificationSettingsImpl(element));});
-        this.notificationSettings = notificationSettingsArrValue;
+        this.notificationSettings = iosDeviceFeaturesConfigurationParameterValue?.notificationSettings;
     };
     /**
      * The deserialization information for the current model
@@ -57,16 +54,16 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         if(this.assetTagTemplate){
             writer.writeStringValue("assetTagTemplate", this.assetTagTemplate);
         }
-        if(this.homeScreenDockIcons && this.homeScreenDockIcons.length != 0){        const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = []; this.homeScreenDockIcons?.forEach(element => {homeScreenDockIconsArrValue.push(element instanceof IosHomeScreenItemImpl? element : new IosHomeScreenItemImpl(element));});
+        if(this.homeScreenDockIcons && this.homeScreenDockIcons.length != 0){        const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = []; this.homeScreenDockIcons?.forEach(element => {homeScreenDockIconsArrValue.push(new IosHomeScreenItemImpl(element));});
             writer.writeCollectionOfObjectValues<IosHomeScreenItemImpl>("homeScreenDockIcons", homeScreenDockIconsArrValue);
         }
-        if(this.homeScreenPages && this.homeScreenPages.length != 0){        const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = []; this.homeScreenPages?.forEach(element => {homeScreenPagesArrValue.push(element instanceof IosHomeScreenPageImpl? element : new IosHomeScreenPageImpl(element));});
+        if(this.homeScreenPages && this.homeScreenPages.length != 0){        const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = []; this.homeScreenPages?.forEach(element => {homeScreenPagesArrValue.push(new IosHomeScreenPageImpl(element));});
             writer.writeCollectionOfObjectValues<IosHomeScreenPageImpl>("homeScreenPages", homeScreenPagesArrValue);
         }
         if(this.lockScreenFootnote){
             writer.writeStringValue("lockScreenFootnote", this.lockScreenFootnote);
         }
-        if(this.notificationSettings && this.notificationSettings.length != 0){        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = []; this.notificationSettings?.forEach(element => {notificationSettingsArrValue.push(element instanceof IosNotificationSettingsImpl? element : new IosNotificationSettingsImpl(element));});
+        if(this.notificationSettings && this.notificationSettings.length != 0){        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = []; this.notificationSettings?.forEach(element => {notificationSettingsArrValue.push(new IosNotificationSettingsImpl(element));});
             writer.writeCollectionOfObjectValues<IosNotificationSettingsImpl>("notificationSettings", notificationSettingsArrValue);
         }
     };

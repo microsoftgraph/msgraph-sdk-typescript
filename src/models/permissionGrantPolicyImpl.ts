@@ -15,10 +15,8 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
      */
     public constructor(permissionGrantPolicyParameterValue?: PermissionGrantPolicy | undefined) {
         super(permissionGrantPolicyParameterValue);
-        const excludesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue?.excludes?.forEach(element => {excludesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
-        this.excludes = excludesArrValue;
-        const includesArrValue: PermissionGrantConditionSetImpl[] = []; permissionGrantPolicyParameterValue?.includes?.forEach(element => {includesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
-        this.includes = includesArrValue;
+        this.excludes = permissionGrantPolicyParameterValue?.excludes;
+        this.includes = permissionGrantPolicyParameterValue?.includes;
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +35,10 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.excludes && this.excludes.length != 0){        const excludesArrValue: PermissionGrantConditionSetImpl[] = []; this.excludes?.forEach(element => {excludesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
+        if(this.excludes && this.excludes.length != 0){        const excludesArrValue: PermissionGrantConditionSetImpl[] = []; this.excludes?.forEach(element => {excludesArrValue.push(new PermissionGrantConditionSetImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("excludes", excludesArrValue);
         }
-        if(this.includes && this.includes.length != 0){        const includesArrValue: PermissionGrantConditionSetImpl[] = []; this.includes?.forEach(element => {includesArrValue.push(element instanceof PermissionGrantConditionSetImpl? element : new PermissionGrantConditionSetImpl(element));});
+        if(this.includes && this.includes.length != 0){        const includesArrValue: PermissionGrantConditionSetImpl[] = []; this.includes?.forEach(element => {includesArrValue.push(new PermissionGrantConditionSetImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("includes", includesArrValue);
         }
     };

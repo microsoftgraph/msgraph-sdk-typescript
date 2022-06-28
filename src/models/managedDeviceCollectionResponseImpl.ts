@@ -18,8 +18,7 @@ export class ManagedDeviceCollectionResponseImpl implements ManagedDeviceCollect
     public constructor(managedDeviceCollectionResponseParameterValue?: ManagedDeviceCollectionResponse | undefined) {
         this.additionalData = managedDeviceCollectionResponseParameterValue?.additionalData ? managedDeviceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedDeviceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedDeviceImpl[] = []; managedDeviceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
-        this.value = valueArrValue;
+        this.value = managedDeviceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ManagedDeviceCollectionResponseImpl implements ManagedDeviceCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

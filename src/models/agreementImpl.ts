@@ -34,15 +34,13 @@ export class AgreementImpl extends EntityImpl implements Agreement {
      */
     public constructor(agreementParameterValue?: Agreement | undefined) {
         super(agreementParameterValue);
-        const acceptancesArrValue: AgreementAcceptanceImpl[] = []; agreementParameterValue?.acceptances?.forEach(element => {acceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
-        this.acceptances = acceptancesArrValue;
+        this.acceptances = agreementParameterValue?.acceptances;
         this.displayName = agreementParameterValue?.displayName;
-        this.file = agreementParameterValue?.file instanceof AgreementFileImpl? agreementParameterValue?.file:new AgreementFileImpl(agreementParameterValue?.file);
-        const filesArrValue: AgreementFileLocalizationImpl[] = []; agreementParameterValue?.files?.forEach(element => {filesArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
-        this.files = filesArrValue;
+        this.file = agreementParameterValue?.file;
+        this.files = agreementParameterValue?.files;
         this.isPerDeviceAcceptanceRequired = agreementParameterValue?.isPerDeviceAcceptanceRequired;
         this.isViewingBeforeAcceptanceRequired = agreementParameterValue?.isViewingBeforeAcceptanceRequired;
-        this.termsExpiration = agreementParameterValue?.termsExpiration instanceof TermsExpirationImpl? agreementParameterValue?.termsExpiration:new TermsExpirationImpl(agreementParameterValue?.termsExpiration);
+        this.termsExpiration = agreementParameterValue?.termsExpiration;
         this.userReacceptRequiredFrequency = agreementParameterValue?.userReacceptRequiredFrequency;
     };
     /**
@@ -68,7 +66,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.acceptances && this.acceptances.length != 0){        const acceptancesArrValue: AgreementAcceptanceImpl[] = []; this.acceptances?.forEach(element => {acceptancesArrValue.push(element instanceof AgreementAcceptanceImpl? element : new AgreementAcceptanceImpl(element));});
+        if(this.acceptances && this.acceptances.length != 0){        const acceptancesArrValue: AgreementAcceptanceImpl[] = []; this.acceptances?.forEach(element => {acceptancesArrValue.push(new AgreementAcceptanceImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("acceptances", acceptancesArrValue);
         }
         if(this.displayName){
@@ -77,7 +75,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
         if(this.file){
             writer.writeObjectValue<AgreementFileImpl>("file", new AgreementFileImpl(this.file));
         }
-        if(this.files && this.files.length != 0){        const filesArrValue: AgreementFileLocalizationImpl[] = []; this.files?.forEach(element => {filesArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        if(this.files && this.files.length != 0){        const filesArrValue: AgreementFileLocalizationImpl[] = []; this.files?.forEach(element => {filesArrValue.push(new AgreementFileLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("files", filesArrValue);
         }
         if(this.isPerDeviceAcceptanceRequired){

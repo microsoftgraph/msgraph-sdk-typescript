@@ -16,8 +16,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public constructor(filterByCurrentUserWithOnResponseParameterValue?: FilterByCurrentUserWithOnResponse | undefined) {
         this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
-        const valueArrValue: UnifiedRoleAssignmentScheduleRequestImpl[] = []; filterByCurrentUserWithOnResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleRequestImpl? element : new UnifiedRoleAssignmentScheduleRequestImpl(element));});
-        this.value = valueArrValue;
+        this.value = filterByCurrentUserWithOnResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleRequestImpl? element : new UnifiedRoleAssignmentScheduleRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentScheduleRequestImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

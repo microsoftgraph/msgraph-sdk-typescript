@@ -18,8 +18,7 @@ export class BookingCustomQuestionCollectionResponseImpl implements BookingCusto
     public constructor(bookingCustomQuestionCollectionResponseParameterValue?: BookingCustomQuestionCollectionResponse | undefined) {
         this.additionalData = bookingCustomQuestionCollectionResponseParameterValue?.additionalData ? bookingCustomQuestionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingCustomQuestionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingCustomQuestionImpl[] = []; bookingCustomQuestionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
-        this.value = valueArrValue;
+        this.value = bookingCustomQuestionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class BookingCustomQuestionCollectionResponseImpl implements BookingCusto
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomQuestionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingCustomQuestionImpl? element : new BookingCustomQuestionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomQuestionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCustomQuestionImpl(element));});
             writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

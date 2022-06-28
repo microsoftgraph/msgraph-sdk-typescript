@@ -18,8 +18,7 @@ export class RiskyUserCollectionResponseImpl implements RiskyUserCollectionRespo
     public constructor(riskyUserCollectionResponseParameterValue?: RiskyUserCollectionResponse | undefined) {
         this.additionalData = riskyUserCollectionResponseParameterValue?.additionalData ? riskyUserCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = riskyUserCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RiskyUserImpl[] = []; riskyUserCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
-        this.value = valueArrValue;
+        this.value = riskyUserCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class RiskyUserCollectionResponseImpl implements RiskyUserCollectionRespo
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskyUserImpl? element : new RiskyUserImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskyUserImpl(element));});
             writer.writeCollectionOfObjectValues<RiskyUserImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

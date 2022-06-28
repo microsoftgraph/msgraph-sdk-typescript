@@ -18,8 +18,7 @@ export class UserCollectionResponseImpl implements UserCollectionResponse {
     public constructor(userCollectionResponseParameterValue?: UserCollectionResponse | undefined) {
         this.additionalData = userCollectionResponseParameterValue?.additionalData ? userCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserImpl[] = []; userCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
-        this.value = valueArrValue;
+        this.value = userCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UserCollectionResponseImpl implements UserCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserImpl? element : new UserImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserImpl(element));});
             writer.writeCollectionOfObjectValues<UserImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

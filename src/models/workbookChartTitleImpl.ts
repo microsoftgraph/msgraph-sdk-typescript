@@ -20,7 +20,7 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
      */
     public constructor(workbookChartTitleParameterValue?: WorkbookChartTitle | undefined) {
         super(workbookChartTitleParameterValue);
-        this.format = workbookChartTitleParameterValue?.format instanceof WorkbookChartTitleFormatImpl? workbookChartTitleParameterValue?.format:new WorkbookChartTitleFormatImpl(workbookChartTitleParameterValue?.format);
+        this.format = workbookChartTitleParameterValue?.format;
         this.overlay = workbookChartTitleParameterValue?.overlay;
         this.text = workbookChartTitleParameterValue?.text;
         this.visible = workbookChartTitleParameterValue?.visible;

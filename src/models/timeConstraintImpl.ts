@@ -19,8 +19,7 @@ export class TimeConstraintImpl implements TimeConstraint {
     public constructor(timeConstraintParameterValue?: TimeConstraint | undefined) {
         this.activityDomain = timeConstraintParameterValue?.activityDomain;
         this.additionalData = timeConstraintParameterValue?.additionalData ? timeConstraintParameterValue?.additionalData! : {};
-        const timeSlotsArrValue: TimeSlotImpl[] = []; timeConstraintParameterValue?.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeSlotImpl? element : new TimeSlotImpl(element));});
-        this.timeSlots = timeSlotsArrValue;
+        this.timeSlots = timeConstraintParameterValue?.timeSlots;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +40,7 @@ export class TimeConstraintImpl implements TimeConstraint {
         if(this.activityDomain){
             writer.writeEnumValue<ActivityDomain>("activityDomain", this.activityDomain);
         }
-        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof TimeSlotImpl? element : new TimeSlotImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeSlotImpl(element));});
             writer.writeCollectionOfObjectValues<TimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

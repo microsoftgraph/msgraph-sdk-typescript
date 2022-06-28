@@ -18,8 +18,7 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
     public constructor(mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?: MdmWindowsInformationProtectionPolicyCollectionResponse | undefined) {
         this.additionalData = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData ? mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
-        this.value = valueArrValue;
+        this.value = mdmWindowsInformationProtectionPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MdmWindowsInformationProtectionPolicyImpl? element : new MdmWindowsInformationProtectionPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MdmWindowsInformationProtectionPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

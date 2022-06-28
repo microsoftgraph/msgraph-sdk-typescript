@@ -18,8 +18,7 @@ export class TeamCollectionResponseImpl implements TeamCollectionResponse {
     public constructor(teamCollectionResponseParameterValue?: TeamCollectionResponse | undefined) {
         this.additionalData = teamCollectionResponseParameterValue?.additionalData ? teamCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamImpl[] = []; teamCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TeamImpl? element : new TeamImpl(element));});
-        this.value = valueArrValue;
+        this.value = teamCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TeamCollectionResponseImpl implements TeamCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TeamImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamImpl? element : new TeamImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamImpl(element));});
             writer.writeCollectionOfObjectValues<TeamImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

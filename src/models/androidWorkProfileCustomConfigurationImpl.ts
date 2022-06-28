@@ -13,8 +13,7 @@ export class AndroidWorkProfileCustomConfigurationImpl extends DeviceConfigurati
      */
     public constructor(androidWorkProfileCustomConfigurationParameterValue?: AndroidWorkProfileCustomConfiguration | undefined) {
         super(androidWorkProfileCustomConfigurationParameterValue);
-        const omaSettingsArrValue: OmaSettingImpl[] = []; androidWorkProfileCustomConfigurationParameterValue?.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
-        this.omaSettings = omaSettingsArrValue;
+        this.omaSettings = androidWorkProfileCustomConfigurationParameterValue?.omaSettings;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class AndroidWorkProfileCustomConfigurationImpl extends DeviceConfigurati
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.omaSettings && this.omaSettings.length != 0){        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(element instanceof OmaSettingImpl? element : new OmaSettingImpl(element));});
+        if(this.omaSettings && this.omaSettings.length != 0){        const omaSettingsArrValue: OmaSettingImpl[] = []; this.omaSettings?.forEach(element => {omaSettingsArrValue.push(new OmaSettingImpl(element));});
             writer.writeCollectionOfObjectValues<OmaSettingImpl>("omaSettings", omaSettingsArrValue);
         }
     };

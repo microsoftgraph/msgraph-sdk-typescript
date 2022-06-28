@@ -18,8 +18,7 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
     public constructor(groupCollectionResponseParameterValue?: GroupCollectionResponse | undefined) {
         this.additionalData = groupCollectionResponseParameterValue?.additionalData ? groupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = groupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: GroupImpl[] = []; groupCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
-        this.value = valueArrValue;
+        this.value = groupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: GroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof GroupImpl? element : new GroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: GroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupImpl(element));});
             writer.writeCollectionOfObjectValues<GroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class NamedLocationCollectionResponseImpl implements NamedLocationCollect
     public constructor(namedLocationCollectionResponseParameterValue?: NamedLocationCollectionResponse | undefined) {
         this.additionalData = namedLocationCollectionResponseParameterValue?.additionalData ? namedLocationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = namedLocationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: NamedLocationImpl[] = []; namedLocationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
-        this.value = valueArrValue;
+        this.value = namedLocationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class NamedLocationCollectionResponseImpl implements NamedLocationCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: NamedLocationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof NamedLocationImpl? element : new NamedLocationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NamedLocationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NamedLocationImpl(element));});
             writer.writeCollectionOfObjectValues<NamedLocationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

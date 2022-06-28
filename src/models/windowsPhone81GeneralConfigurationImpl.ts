@@ -77,8 +77,7 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         this.cameraBlocked = windowsPhone81GeneralConfigurationParameterValue?.cameraBlocked;
         this.cellularBlockWifiTethering = windowsPhone81GeneralConfigurationParameterValue?.cellularBlockWifiTethering;
         this.compliantAppListType = windowsPhone81GeneralConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; windowsPhone81GeneralConfigurationParameterValue?.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.compliantAppsList = compliantAppsListArrValue;
+        this.compliantAppsList = windowsPhone81GeneralConfigurationParameterValue?.compliantAppsList;
         this.diagnosticDataBlockSubmission = windowsPhone81GeneralConfigurationParameterValue?.diagnosticDataBlockSubmission;
         this.emailBlockAddingAccounts = windowsPhone81GeneralConfigurationParameterValue?.emailBlockAddingAccounts;
         this.locationServicesBlocked = windowsPhone81GeneralConfigurationParameterValue?.locationServicesBlocked;
@@ -164,7 +163,7 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         if(this.compliantAppListType){
             writer.writeEnumValue<AppListType>("compliantAppListType", this.compliantAppListType);
         }
-        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
         if(this.diagnosticDataBlockSubmission){

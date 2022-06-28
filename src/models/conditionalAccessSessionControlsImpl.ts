@@ -29,11 +29,11 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
      */
     public constructor(conditionalAccessSessionControlsParameterValue?: ConditionalAccessSessionControls | undefined) {
         this.additionalData = conditionalAccessSessionControlsParameterValue?.additionalData ? conditionalAccessSessionControlsParameterValue?.additionalData! : {};
-        this.applicationEnforcedRestrictions = conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions instanceof ApplicationEnforcedRestrictionsSessionControlImpl? conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions:new ApplicationEnforcedRestrictionsSessionControlImpl(conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions);
-        this.cloudAppSecurity = conditionalAccessSessionControlsParameterValue?.cloudAppSecurity instanceof CloudAppSecuritySessionControlImpl? conditionalAccessSessionControlsParameterValue?.cloudAppSecurity:new CloudAppSecuritySessionControlImpl(conditionalAccessSessionControlsParameterValue?.cloudAppSecurity);
+        this.applicationEnforcedRestrictions = conditionalAccessSessionControlsParameterValue?.applicationEnforcedRestrictions;
+        this.cloudAppSecurity = conditionalAccessSessionControlsParameterValue?.cloudAppSecurity;
         this.disableResilienceDefaults = conditionalAccessSessionControlsParameterValue?.disableResilienceDefaults;
-        this.persistentBrowser = conditionalAccessSessionControlsParameterValue?.persistentBrowser instanceof PersistentBrowserSessionControlImpl? conditionalAccessSessionControlsParameterValue?.persistentBrowser:new PersistentBrowserSessionControlImpl(conditionalAccessSessionControlsParameterValue?.persistentBrowser);
-        this.signInFrequency = conditionalAccessSessionControlsParameterValue?.signInFrequency instanceof SignInFrequencySessionControlImpl? conditionalAccessSessionControlsParameterValue?.signInFrequency:new SignInFrequencySessionControlImpl(conditionalAccessSessionControlsParameterValue?.signInFrequency);
+        this.persistentBrowser = conditionalAccessSessionControlsParameterValue?.persistentBrowser;
+        this.signInFrequency = conditionalAccessSessionControlsParameterValue?.signInFrequency;
     };
     /**
      * The deserialization information for the current model

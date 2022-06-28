@@ -20,10 +20,10 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public constructor(thumbnailSetParameterValue?: ThumbnailSet | undefined) {
         super(thumbnailSetParameterValue);
-        this.large = thumbnailSetParameterValue?.large instanceof ThumbnailImpl? thumbnailSetParameterValue?.large:new ThumbnailImpl(thumbnailSetParameterValue?.large);
-        this.medium = thumbnailSetParameterValue?.medium instanceof ThumbnailImpl? thumbnailSetParameterValue?.medium:new ThumbnailImpl(thumbnailSetParameterValue?.medium);
-        this.small = thumbnailSetParameterValue?.small instanceof ThumbnailImpl? thumbnailSetParameterValue?.small:new ThumbnailImpl(thumbnailSetParameterValue?.small);
-        this.source = thumbnailSetParameterValue?.source instanceof ThumbnailImpl? thumbnailSetParameterValue?.source:new ThumbnailImpl(thumbnailSetParameterValue?.source);
+        this.large = thumbnailSetParameterValue?.large;
+        this.medium = thumbnailSetParameterValue?.medium;
+        this.small = thumbnailSetParameterValue?.small;
+        this.source = thumbnailSetParameterValue?.source;
     };
     /**
      * The deserialization information for the current model

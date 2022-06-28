@@ -15,8 +15,8 @@ export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implement
      */
     public constructor(educationFeedbackOutcomeParameterValue?: EducationFeedbackOutcome | undefined) {
         super(educationFeedbackOutcomeParameterValue);
-        this.feedback = educationFeedbackOutcomeParameterValue?.feedback instanceof EducationFeedbackImpl? educationFeedbackOutcomeParameterValue?.feedback:new EducationFeedbackImpl(educationFeedbackOutcomeParameterValue?.feedback);
-        this.publishedFeedback = educationFeedbackOutcomeParameterValue?.publishedFeedback instanceof EducationFeedbackImpl? educationFeedbackOutcomeParameterValue?.publishedFeedback:new EducationFeedbackImpl(educationFeedbackOutcomeParameterValue?.publishedFeedback);
+        this.feedback = educationFeedbackOutcomeParameterValue?.feedback;
+        this.publishedFeedback = educationFeedbackOutcomeParameterValue?.publishedFeedback;
     };
     /**
      * The deserialization information for the current model

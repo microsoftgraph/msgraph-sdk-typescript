@@ -18,8 +18,7 @@ export class RelationCollectionResponseImpl implements RelationCollectionRespons
     public constructor(relationCollectionResponseParameterValue?: RelationCollectionResponse | undefined) {
         this.additionalData = relationCollectionResponseParameterValue?.additionalData ? relationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = relationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RelationImpl[] = []; relationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
-        this.value = valueArrValue;
+        this.value = relationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class RelationCollectionResponseImpl implements RelationCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RelationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RelationImpl? element : new RelationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RelationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RelationImpl(element));});
             writer.writeCollectionOfObjectValues<RelationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

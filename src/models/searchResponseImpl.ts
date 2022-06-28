@@ -25,10 +25,9 @@ export class SearchResponseImpl implements SearchResponse {
      */
     public constructor(searchResponseParameterValue?: SearchResponse | undefined) {
         this.additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {};
-        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; searchResponseParameterValue?.hitsContainers?.forEach(element => {hitsContainersArrValue.push(element instanceof SearchHitsContainerImpl? element : new SearchHitsContainerImpl(element));});
-        this.hitsContainers = hitsContainersArrValue;
-        this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse instanceof AlterationResponseImpl? searchResponseParameterValue?.queryAlterationResponse:new AlterationResponseImpl(searchResponseParameterValue?.queryAlterationResponse);
-        this.resultTemplates = searchResponseParameterValue?.resultTemplates instanceof ResultTemplateDictionaryImpl? searchResponseParameterValue?.resultTemplates:new ResultTemplateDictionaryImpl(searchResponseParameterValue?.resultTemplates);
+        this.hitsContainers = searchResponseParameterValue?.hitsContainers;
+        this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse;
+        this.resultTemplates = searchResponseParameterValue?.resultTemplates;
         this.searchTerms = searchResponseParameterValue?.searchTerms;
     };
     /**
@@ -49,7 +48,7 @@ export class SearchResponseImpl implements SearchResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(element instanceof SearchHitsContainerImpl? element : new SearchHitsContainerImpl(element));});
+        if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(new SearchHitsContainerImpl(element));});
             writer.writeCollectionOfObjectValues<SearchHitsContainerImpl>("hitsContainers", hitsContainersArrValue);
         }
         if(this.queryAlterationResponse){

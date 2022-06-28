@@ -18,8 +18,7 @@ export class OrganizationCollectionResponseImpl implements OrganizationCollectio
     public constructor(organizationCollectionResponseParameterValue?: OrganizationCollectionResponse | undefined) {
         this.additionalData = organizationCollectionResponseParameterValue?.additionalData ? organizationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = organizationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OrganizationImpl[] = []; organizationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationImpl? element : new OrganizationImpl(element));});
-        this.value = valueArrValue;
+        this.value = organizationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OrganizationCollectionResponseImpl implements OrganizationCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OrganizationImpl? element : new OrganizationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OrganizationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OrganizationImpl(element));});
             writer.writeCollectionOfObjectValues<OrganizationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

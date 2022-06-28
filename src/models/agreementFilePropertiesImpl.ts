@@ -28,7 +28,7 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
         super(agreementFilePropertiesParameterValue);
         this.createdDateTime = agreementFilePropertiesParameterValue?.createdDateTime;
         this.displayName = agreementFilePropertiesParameterValue?.displayName;
-        this.fileData = agreementFilePropertiesParameterValue?.fileData instanceof AgreementFileDataImpl? agreementFilePropertiesParameterValue?.fileData:new AgreementFileDataImpl(agreementFilePropertiesParameterValue?.fileData);
+        this.fileData = agreementFilePropertiesParameterValue?.fileData;
         this.fileName = agreementFilePropertiesParameterValue?.fileName;
         this.isDefault = agreementFilePropertiesParameterValue?.isDefault;
         this.isMajorVersion = agreementFilePropertiesParameterValue?.isMajorVersion;

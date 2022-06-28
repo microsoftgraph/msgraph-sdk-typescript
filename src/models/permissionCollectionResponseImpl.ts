@@ -18,8 +18,7 @@ export class PermissionCollectionResponseImpl implements PermissionCollectionRes
     public constructor(permissionCollectionResponseParameterValue?: PermissionCollectionResponse | undefined) {
         this.additionalData = permissionCollectionResponseParameterValue?.additionalData ? permissionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = permissionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PermissionImpl[] = []; permissionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
-        this.value = valueArrValue;
+        this.value = permissionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class PermissionCollectionResponseImpl implements PermissionCollectionRes
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

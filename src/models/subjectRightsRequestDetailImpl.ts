@@ -28,12 +28,10 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
     public constructor(subjectRightsRequestDetailParameterValue?: SubjectRightsRequestDetail | undefined) {
         this.additionalData = subjectRightsRequestDetailParameterValue?.additionalData ? subjectRightsRequestDetailParameterValue?.additionalData! : {};
         this.excludedItemCount = subjectRightsRequestDetailParameterValue?.excludedItemCount;
-        const insightCountsArrValue: KeyValuePairImpl[] = []; subjectRightsRequestDetailParameterValue?.insightCounts?.forEach(element => {insightCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
-        this.insightCounts = insightCountsArrValue;
+        this.insightCounts = subjectRightsRequestDetailParameterValue?.insightCounts;
         this.itemCount = subjectRightsRequestDetailParameterValue?.itemCount;
         this.itemNeedReview = subjectRightsRequestDetailParameterValue?.itemNeedReview;
-        const productItemCountsArrValue: KeyValuePairImpl[] = []; subjectRightsRequestDetailParameterValue?.productItemCounts?.forEach(element => {productItemCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
-        this.productItemCounts = productItemCountsArrValue;
+        this.productItemCounts = subjectRightsRequestDetailParameterValue?.productItemCounts;
         this.signedOffItemCount = subjectRightsRequestDetailParameterValue?.signedOffItemCount;
         this.totalItemSize = subjectRightsRequestDetailParameterValue?.totalItemSize;
     };
@@ -61,7 +59,7 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
         if(this.excludedItemCount){
             writer.writeNumberValue("excludedItemCount", this.excludedItemCount);
         }
-        if(this.insightCounts && this.insightCounts.length != 0){        const insightCountsArrValue: KeyValuePairImpl[] = []; this.insightCounts?.forEach(element => {insightCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        if(this.insightCounts && this.insightCounts.length != 0){        const insightCountsArrValue: KeyValuePairImpl[] = []; this.insightCounts?.forEach(element => {insightCountsArrValue.push(new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("insightCounts", insightCountsArrValue);
         }
         if(this.itemCount){
@@ -70,7 +68,7 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
         if(this.itemNeedReview){
             writer.writeNumberValue("itemNeedReview", this.itemNeedReview);
         }
-        if(this.productItemCounts && this.productItemCounts.length != 0){        const productItemCountsArrValue: KeyValuePairImpl[] = []; this.productItemCounts?.forEach(element => {productItemCountsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        if(this.productItemCounts && this.productItemCounts.length != 0){        const productItemCountsArrValue: KeyValuePairImpl[] = []; this.productItemCounts?.forEach(element => {productItemCountsArrValue.push(new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("productItemCounts", productItemCountsArrValue);
         }
         if(this.signedOffItemCount){

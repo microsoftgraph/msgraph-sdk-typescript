@@ -25,9 +25,8 @@ export class RubricQualityImpl implements RubricQuality {
      */
     public constructor(rubricQualityParameterValue?: RubricQuality | undefined) {
         this.additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {};
-        const criteriaArrValue: RubricCriterionImpl[] = []; rubricQualityParameterValue?.criteria?.forEach(element => {criteriaArrValue.push(element instanceof RubricCriterionImpl? element : new RubricCriterionImpl(element));});
-        this.criteria = criteriaArrValue;
-        this.description = rubricQualityParameterValue?.description instanceof EducationItemBodyImpl? rubricQualityParameterValue?.description:new EducationItemBodyImpl(rubricQualityParameterValue?.description);
+        this.criteria = rubricQualityParameterValue?.criteria;
+        this.description = rubricQualityParameterValue?.description;
         this.displayName = rubricQualityParameterValue?.displayName;
         this.qualityId = rubricQualityParameterValue?.qualityId;
         this.weight = rubricQualityParameterValue?.weight;
@@ -51,7 +50,7 @@ export class RubricQualityImpl implements RubricQuality {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = []; this.criteria?.forEach(element => {criteriaArrValue.push(element instanceof RubricCriterionImpl? element : new RubricCriterionImpl(element));});
+        if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = []; this.criteria?.forEach(element => {criteriaArrValue.push(new RubricCriterionImpl(element));});
             writer.writeCollectionOfObjectValues<RubricCriterionImpl>("criteria", criteriaArrValue);
         }
         if(this.description){

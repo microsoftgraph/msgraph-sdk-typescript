@@ -18,8 +18,7 @@ export class EducationSubmissionResourceCollectionResponseImpl implements Educat
     public constructor(educationSubmissionResourceCollectionResponseParameterValue?: EducationSubmissionResourceCollectionResponse | undefined) {
         this.additionalData = educationSubmissionResourceCollectionResponseParameterValue?.additionalData ? educationSubmissionResourceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationSubmissionResourceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationSubmissionResourceImpl[] = []; educationSubmissionResourceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationSubmissionResourceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationSubmissionResourceCollectionResponseImpl implements Educat
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationSubmissionResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationSubmissionResourceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationSubmissionResourceImpl(element));});
             writer.writeCollectionOfObjectValues<EducationSubmissionResourceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

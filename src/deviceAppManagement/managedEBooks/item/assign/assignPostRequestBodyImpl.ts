@@ -16,8 +16,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = []; assignPostRequestBodyParameterValue?.managedEBookAssignments?.forEach(element => {managedEBookAssignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
-        this.managedEBookAssignments = managedEBookAssignmentsArrValue;
+        this.managedEBookAssignments = assignPostRequestBodyParameterValue?.managedEBookAssignments;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.managedEBookAssignments && this.managedEBookAssignments.length != 0){        const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.managedEBookAssignments?.forEach(element => {managedEBookAssignmentsArrValue.push(element instanceof ManagedEBookAssignmentImpl? element : new ManagedEBookAssignmentImpl(element));});
+        if(this.managedEBookAssignments && this.managedEBookAssignments.length != 0){        const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = []; this.managedEBookAssignments?.forEach(element => {managedEBookAssignmentsArrValue.push(new ManagedEBookAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedEBookAssignmentImpl>("managedEBookAssignments", managedEBookAssignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

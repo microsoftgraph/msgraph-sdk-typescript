@@ -21,11 +21,10 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
      */
     public constructor(fido2AuthenticationMethodConfigurationParameterValue?: Fido2AuthenticationMethodConfiguration | undefined) {
         super(fido2AuthenticationMethodConfigurationParameterValue);
-        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; fido2AuthenticationMethodConfigurationParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
-        this.includeTargets = includeTargetsArrValue;
+        this.includeTargets = fido2AuthenticationMethodConfigurationParameterValue?.includeTargets;
         this.isAttestationEnforced = fido2AuthenticationMethodConfigurationParameterValue?.isAttestationEnforced;
         this.isSelfServiceRegistrationAllowed = fido2AuthenticationMethodConfigurationParameterValue?.isSelfServiceRegistrationAllowed;
-        this.keyRestrictions = fido2AuthenticationMethodConfigurationParameterValue?.keyRestrictions instanceof Fido2KeyRestrictionsImpl? fido2AuthenticationMethodConfigurationParameterValue?.keyRestrictions:new Fido2KeyRestrictionsImpl(fido2AuthenticationMethodConfigurationParameterValue?.keyRestrictions);
+        this.keyRestrictions = fido2AuthenticationMethodConfigurationParameterValue?.keyRestrictions;
     };
     /**
      * The deserialization information for the current model
@@ -46,7 +45,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodTargetImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
         if(this.isAttestationEnforced){

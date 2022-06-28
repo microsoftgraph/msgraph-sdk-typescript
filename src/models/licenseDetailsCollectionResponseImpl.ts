@@ -18,8 +18,7 @@ export class LicenseDetailsCollectionResponseImpl implements LicenseDetailsColle
     public constructor(licenseDetailsCollectionResponseParameterValue?: LicenseDetailsCollectionResponse | undefined) {
         this.additionalData = licenseDetailsCollectionResponseParameterValue?.additionalData ? licenseDetailsCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = licenseDetailsCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: LicenseDetailsImpl[] = []; licenseDetailsCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof LicenseDetailsImpl? element : new LicenseDetailsImpl(element));});
-        this.value = valueArrValue;
+        this.value = licenseDetailsCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class LicenseDetailsCollectionResponseImpl implements LicenseDetailsColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: LicenseDetailsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof LicenseDetailsImpl? element : new LicenseDetailsImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: LicenseDetailsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new LicenseDetailsImpl(element));});
             writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

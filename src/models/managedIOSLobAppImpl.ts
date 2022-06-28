@@ -25,11 +25,11 @@ export class ManagedIOSLobAppImpl extends ManagedMobileLobAppImpl implements Man
      */
     public constructor(managedIOSLobAppParameterValue?: ManagedIOSLobApp | undefined) {
         super(managedIOSLobAppParameterValue);
-        this.applicableDeviceType = managedIOSLobAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? managedIOSLobAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(managedIOSLobAppParameterValue?.applicableDeviceType);
+        this.applicableDeviceType = managedIOSLobAppParameterValue?.applicableDeviceType;
         this.buildNumber = managedIOSLobAppParameterValue?.buildNumber;
         this.bundleId = managedIOSLobAppParameterValue?.bundleId;
         this.expirationDateTime = managedIOSLobAppParameterValue?.expirationDateTime;
-        this.minimumSupportedOperatingSystem = managedIOSLobAppParameterValue?.minimumSupportedOperatingSystem instanceof IosMinimumOperatingSystemImpl? managedIOSLobAppParameterValue?.minimumSupportedOperatingSystem:new IosMinimumOperatingSystemImpl(managedIOSLobAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = managedIOSLobAppParameterValue?.minimumSupportedOperatingSystem;
         this.versionNumber = managedIOSLobAppParameterValue?.versionNumber;
     };
     /**

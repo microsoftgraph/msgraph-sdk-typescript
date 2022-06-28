@@ -16,8 +16,7 @@ export class AssignResponseImpl implements AssignResponse {
      */
     public constructor(assignResponseParameterValue?: AssignResponse | undefined) {
         this.additionalData = assignResponseParameterValue?.additionalData ? assignResponseParameterValue?.additionalData! : {};
-        const valueArrValue: DeviceConfigurationAssignmentImpl[] = []; assignResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = assignResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class AssignResponseImpl implements AssignResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceConfigurationAssignmentImpl? element : new DeviceConfigurationAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class SiteCollectionResponseImpl implements SiteCollectionResponse {
     public constructor(siteCollectionResponseParameterValue?: SiteCollectionResponse | undefined) {
         this.additionalData = siteCollectionResponseParameterValue?.additionalData ? siteCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = siteCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SiteImpl[] = []; siteCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
-        this.value = valueArrValue;
+        this.value = siteCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SiteCollectionResponseImpl implements SiteCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
             writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

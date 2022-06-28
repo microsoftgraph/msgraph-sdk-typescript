@@ -19,7 +19,7 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
      */
     public constructor(workbookOperationParameterValue?: WorkbookOperation | undefined) {
         super(workbookOperationParameterValue);
-        this.error_escaped = workbookOperationParameterValue?.error_escaped instanceof WorkbookOperationErrorImpl? workbookOperationParameterValue?.error_escaped:new WorkbookOperationErrorImpl(workbookOperationParameterValue?.error_escaped);
+        this.error_escaped = workbookOperationParameterValue?.error_escaped;
         this.resourceLocation = workbookOperationParameterValue?.resourceLocation;
         this.status = workbookOperationParameterValue?.status;
     };

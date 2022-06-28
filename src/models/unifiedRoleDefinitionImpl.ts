@@ -5,7 +5,7 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRolePermission} from './unifiedRolePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRoleDefinition {
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     public description?: string | undefined;
@@ -33,13 +33,11 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         super(unifiedRoleDefinitionParameterValue);
         this.description = unifiedRoleDefinitionParameterValue?.description;
         this.displayName = unifiedRoleDefinitionParameterValue?.displayName;
-        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; unifiedRoleDefinitionParameterValue?.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
-        this.inheritsPermissionsFrom = inheritsPermissionsFromArrValue;
+        this.inheritsPermissionsFrom = unifiedRoleDefinitionParameterValue?.inheritsPermissionsFrom;
         this.isBuiltIn = unifiedRoleDefinitionParameterValue?.isBuiltIn;
         this.isEnabled = unifiedRoleDefinitionParameterValue?.isEnabled;
         this.resourceScopes = unifiedRoleDefinitionParameterValue?.resourceScopes;
-        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = []; unifiedRoleDefinitionParameterValue?.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof UnifiedRolePermissionImpl? element : new UnifiedRolePermissionImpl(element));});
-        this.rolePermissions = rolePermissionsArrValue;
+        this.rolePermissions = unifiedRoleDefinitionParameterValue?.rolePermissions;
         this.templateId = unifiedRoleDefinitionParameterValue?.templateId;
         this.version = unifiedRoleDefinitionParameterValue?.version;
     };
@@ -73,7 +71,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.inheritsPermissionsFrom && this.inheritsPermissionsFrom.length != 0){        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; this.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(element instanceof UnifiedRoleDefinitionImpl? element : new UnifiedRoleDefinitionImpl(element));});
+        if(this.inheritsPermissionsFrom && this.inheritsPermissionsFrom.length != 0){        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = []; this.inheritsPermissionsFrom?.forEach(element => {inheritsPermissionsFromArrValue.push(new UnifiedRoleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("inheritsPermissionsFrom", inheritsPermissionsFromArrValue);
         }
         if(this.isBuiltIn){
@@ -85,7 +83,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         if(this.resourceScopes){
             writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         }
-        if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof UnifiedRolePermissionImpl? element : new UnifiedRolePermissionImpl(element));});
+        if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(new UnifiedRolePermissionImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }
         if(this.templateId){

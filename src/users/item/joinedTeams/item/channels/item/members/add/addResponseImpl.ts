@@ -16,8 +16,7 @@ export class AddResponseImpl implements AddResponse {
      */
     public constructor(addResponseParameterValue?: AddResponse | undefined) {
         this.additionalData = addResponseParameterValue?.additionalData ? addResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ActionResultPartImpl[] = []; addResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ActionResultPartImpl? element : new ActionResultPartImpl(element));});
-        this.value = valueArrValue;
+        this.value = addResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class AddResponseImpl implements AddResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ActionResultPartImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ActionResultPartImpl? element : new ActionResultPartImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ActionResultPartImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ActionResultPartImpl(element));});
             writer.writeCollectionOfObjectValues<ActionResultPartImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

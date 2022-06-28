@@ -25,8 +25,7 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         super(temporaryAccessPassAuthenticationMethodConfigurationParameterValue);
         this.defaultLength = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLength;
         this.defaultLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLifetimeInMinutes;
-        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
-        this.includeTargets = includeTargetsArrValue;
+        this.includeTargets = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.includeTargets;
         this.isUsableOnce = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.isUsableOnce;
         this.maximumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.maximumLifetimeInMinutes;
         this.minimumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.minimumLifetimeInMinutes;
@@ -58,7 +57,7 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         if(this.defaultLifetimeInMinutes){
             writer.writeNumberValue("defaultLifetimeInMinutes", this.defaultLifetimeInMinutes);
         }
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodTargetImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
         if(this.isUsableOnce){

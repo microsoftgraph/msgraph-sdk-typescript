@@ -18,8 +18,7 @@ export class RestrictedSignInCollectionResponseImpl implements RestrictedSignInC
     public constructor(restrictedSignInCollectionResponseParameterValue?: RestrictedSignInCollectionResponse | undefined) {
         this.additionalData = restrictedSignInCollectionResponseParameterValue?.additionalData ? restrictedSignInCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = restrictedSignInCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RestrictedSignInImpl[] = []; restrictedSignInCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RestrictedSignInImpl? element : new RestrictedSignInImpl(element));});
-        this.value = valueArrValue;
+        this.value = restrictedSignInCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class RestrictedSignInCollectionResponseImpl implements RestrictedSignInC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RestrictedSignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RestrictedSignInImpl? element : new RestrictedSignInImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RestrictedSignInImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RestrictedSignInImpl(element));});
             writer.writeCollectionOfObjectValues<RestrictedSignInImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

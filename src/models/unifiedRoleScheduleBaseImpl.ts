@@ -8,7 +8,7 @@ import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRoleScheduleBase {
     /** Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable. */
     public appScope?: AppScope | undefined;
@@ -40,16 +40,16 @@ export class UnifiedRoleScheduleBaseImpl extends EntityImpl implements UnifiedRo
      */
     public constructor(unifiedRoleScheduleBaseParameterValue?: UnifiedRoleScheduleBase | undefined) {
         super(unifiedRoleScheduleBaseParameterValue);
-        this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleScheduleBaseParameterValue?.appScope:new AppScopeImpl(unifiedRoleScheduleBaseParameterValue?.appScope);
+        this.appScope = unifiedRoleScheduleBaseParameterValue?.appScope;
         this.appScopeId = unifiedRoleScheduleBaseParameterValue?.appScopeId;
         this.createdDateTime = unifiedRoleScheduleBaseParameterValue?.createdDateTime;
         this.createdUsing = unifiedRoleScheduleBaseParameterValue?.createdUsing;
-        this.directoryScope = unifiedRoleScheduleBaseParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleScheduleBaseParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleScheduleBaseParameterValue?.directoryScope);
+        this.directoryScope = unifiedRoleScheduleBaseParameterValue?.directoryScope;
         this.directoryScopeId = unifiedRoleScheduleBaseParameterValue?.directoryScopeId;
         this.modifiedDateTime = unifiedRoleScheduleBaseParameterValue?.modifiedDateTime;
-        this.principal = unifiedRoleScheduleBaseParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleScheduleBaseParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleScheduleBaseParameterValue?.principal);
+        this.principal = unifiedRoleScheduleBaseParameterValue?.principal;
         this.principalId = unifiedRoleScheduleBaseParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleScheduleBaseParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleScheduleBaseParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleScheduleBaseParameterValue?.roleDefinition);
+        this.roleDefinition = unifiedRoleScheduleBaseParameterValue?.roleDefinition;
         this.roleDefinitionId = unifiedRoleScheduleBaseParameterValue?.roleDefinitionId;
         this.status = unifiedRoleScheduleBaseParameterValue?.status;
     };

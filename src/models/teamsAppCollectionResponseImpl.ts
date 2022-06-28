@@ -18,8 +18,7 @@ export class TeamsAppCollectionResponseImpl implements TeamsAppCollectionRespons
     public constructor(teamsAppCollectionResponseParameterValue?: TeamsAppCollectionResponse | undefined) {
         this.additionalData = teamsAppCollectionResponseParameterValue?.additionalData ? teamsAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = teamsAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TeamsAppImpl[] = []; teamsAppCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
-        this.value = valueArrValue;
+        this.value = teamsAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TeamsAppCollectionResponseImpl implements TeamsAppCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TeamsAppImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

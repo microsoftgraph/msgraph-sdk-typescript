@@ -30,12 +30,9 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
         super(administrativeUnitParameterValue);
         this.description = administrativeUnitParameterValue?.description;
         this.displayName = administrativeUnitParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; administrativeUnitParameterValue?.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
-        this.extensions = extensionsArrValue;
-        const membersArrValue: DirectoryObjectImpl[] = []; administrativeUnitParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.members = membersArrValue;
-        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; administrativeUnitParameterValue?.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
-        this.scopedRoleMembers = scopedRoleMembersArrValue;
+        this.extensions = administrativeUnitParameterValue?.extensions;
+        this.members = administrativeUnitParameterValue?.members;
+        this.scopedRoleMembers = administrativeUnitParameterValue?.scopedRoleMembers;
         this.visibility = administrativeUnitParameterValue?.visibility;
     };
     /**
@@ -65,13 +62,13 @@ export class AdministrativeUnitImpl extends DirectoryObjectImpl implements Admin
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
-        if(this.scopedRoleMembers && this.scopedRoleMembers.length != 0){        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(element instanceof ScopedRoleMembershipImpl? element : new ScopedRoleMembershipImpl(element));});
+        if(this.scopedRoleMembers && this.scopedRoleMembers.length != 0){        const scopedRoleMembersArrValue: ScopedRoleMembershipImpl[] = []; this.scopedRoleMembers?.forEach(element => {scopedRoleMembersArrValue.push(new ScopedRoleMembershipImpl(element));});
             writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedRoleMembers", scopedRoleMembersArrValue);
         }
         if(this.visibility){

@@ -34,13 +34,12 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public constructor(listItemParameterValue?: ListItem | undefined) {
         super(listItemParameterValue);
-        this.analytics = listItemParameterValue?.analytics instanceof ItemAnalyticsImpl? listItemParameterValue?.analytics:new ItemAnalyticsImpl(listItemParameterValue?.analytics);
-        this.contentType = listItemParameterValue?.contentType instanceof ContentTypeInfoImpl? listItemParameterValue?.contentType:new ContentTypeInfoImpl(listItemParameterValue?.contentType);
-        this.driveItem = listItemParameterValue?.driveItem instanceof DriveItemImpl? listItemParameterValue?.driveItem:new DriveItemImpl(listItemParameterValue?.driveItem);
-        this.fields = listItemParameterValue?.fields instanceof FieldValueSetImpl? listItemParameterValue?.fields:new FieldValueSetImpl(listItemParameterValue?.fields);
-        this.sharepointIds = listItemParameterValue?.sharepointIds instanceof SharepointIdsImpl? listItemParameterValue?.sharepointIds:new SharepointIdsImpl(listItemParameterValue?.sharepointIds);
-        const versionsArrValue: ListItemVersionImpl[] = []; listItemParameterValue?.versions?.forEach(element => {versionsArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
-        this.versions = versionsArrValue;
+        this.analytics = listItemParameterValue?.analytics;
+        this.contentType = listItemParameterValue?.contentType;
+        this.driveItem = listItemParameterValue?.driveItem;
+        this.fields = listItemParameterValue?.fields;
+        this.sharepointIds = listItemParameterValue?.sharepointIds;
+        this.versions = listItemParameterValue?.versions;
     };
     /**
      * The deserialization information for the current model
@@ -78,7 +77,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
         if(this.sharepointIds){
             writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
         }
-        if(this.versions && this.versions.length != 0){        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(element instanceof ListItemVersionImpl? element : new ListItemVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: ListItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new ListItemVersionImpl(element));});
             writer.writeCollectionOfObjectValues<ListItemVersionImpl>("versions", versionsArrValue);
         }
     };

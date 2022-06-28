@@ -23,8 +23,7 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
     public constructor(managedAppPolicyDeploymentSummaryParameterValue?: ManagedAppPolicyDeploymentSummary | undefined) {
         super(managedAppPolicyDeploymentSummaryParameterValue);
         this.configurationDeployedUserCount = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeployedUserCount;
-        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; managedAppPolicyDeploymentSummaryParameterValue?.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element : new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
-        this.configurationDeploymentSummaryPerApp = configurationDeploymentSummaryPerAppArrValue;
+        this.configurationDeploymentSummaryPerApp = managedAppPolicyDeploymentSummaryParameterValue?.configurationDeploymentSummaryPerApp;
         this.displayName = managedAppPolicyDeploymentSummaryParameterValue?.displayName;
         this.lastRefreshTime = managedAppPolicyDeploymentSummaryParameterValue?.lastRefreshTime;
         this.version = managedAppPolicyDeploymentSummaryParameterValue?.version;
@@ -52,7 +51,7 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
         if(this.configurationDeployedUserCount){
             writer.writeNumberValue("configurationDeployedUserCount", this.configurationDeployedUserCount);
         }
-        if(this.configurationDeploymentSummaryPerApp && this.configurationDeploymentSummaryPerApp.length != 0){        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; this.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element : new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
+        if(this.configurationDeploymentSummaryPerApp && this.configurationDeploymentSummaryPerApp.length != 0){        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = []; this.configurationDeploymentSummaryPerApp?.forEach(element => {configurationDeploymentSummaryPerAppArrValue.push(new ManagedAppPolicyDeploymentSummaryPerAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerAppImpl>("configurationDeploymentSummaryPerApp", configurationDeploymentSummaryPerAppArrValue);
         }
         if(this.displayName){

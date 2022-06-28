@@ -17,7 +17,7 @@ export class RubricQualityFeedbackModelImpl implements RubricQualityFeedbackMode
      */
     public constructor(rubricQualityFeedbackModelParameterValue?: RubricQualityFeedbackModel | undefined) {
         this.additionalData = rubricQualityFeedbackModelParameterValue?.additionalData ? rubricQualityFeedbackModelParameterValue?.additionalData! : {};
-        this.feedback = rubricQualityFeedbackModelParameterValue?.feedback instanceof EducationItemBodyImpl? rubricQualityFeedbackModelParameterValue?.feedback:new EducationItemBodyImpl(rubricQualityFeedbackModelParameterValue?.feedback);
+        this.feedback = rubricQualityFeedbackModelParameterValue?.feedback;
         this.qualityId = rubricQualityFeedbackModelParameterValue?.qualityId;
     };
     /**

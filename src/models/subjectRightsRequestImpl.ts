@@ -67,27 +67,24 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
      */
     public constructor(subjectRightsRequestParameterValue?: SubjectRightsRequest | undefined) {
         super(subjectRightsRequestParameterValue);
-        this.assignedTo = subjectRightsRequestParameterValue?.assignedTo instanceof IdentityImpl? subjectRightsRequestParameterValue?.assignedTo:new IdentityImpl(subjectRightsRequestParameterValue?.assignedTo);
+        this.assignedTo = subjectRightsRequestParameterValue?.assignedTo;
         this.closedDateTime = subjectRightsRequestParameterValue?.closedDateTime;
-        this.createdBy = subjectRightsRequestParameterValue?.createdBy instanceof IdentitySetImpl? subjectRightsRequestParameterValue?.createdBy:new IdentitySetImpl(subjectRightsRequestParameterValue?.createdBy);
+        this.createdBy = subjectRightsRequestParameterValue?.createdBy;
         this.createdDateTime = subjectRightsRequestParameterValue?.createdDateTime;
-        this.dataSubject = subjectRightsRequestParameterValue?.dataSubject instanceof DataSubjectImpl? subjectRightsRequestParameterValue?.dataSubject:new DataSubjectImpl(subjectRightsRequestParameterValue?.dataSubject);
+        this.dataSubject = subjectRightsRequestParameterValue?.dataSubject;
         this.dataSubjectType = subjectRightsRequestParameterValue?.dataSubjectType;
         this.description = subjectRightsRequestParameterValue?.description;
         this.displayName = subjectRightsRequestParameterValue?.displayName;
-        const historyArrValue: SubjectRightsRequestHistoryImpl[] = []; subjectRightsRequestParameterValue?.history?.forEach(element => {historyArrValue.push(element instanceof SubjectRightsRequestHistoryImpl? element : new SubjectRightsRequestHistoryImpl(element));});
-        this.history = historyArrValue;
-        this.insight = subjectRightsRequestParameterValue?.insight instanceof SubjectRightsRequestDetailImpl? subjectRightsRequestParameterValue?.insight:new SubjectRightsRequestDetailImpl(subjectRightsRequestParameterValue?.insight);
+        this.history = subjectRightsRequestParameterValue?.history;
+        this.insight = subjectRightsRequestParameterValue?.insight;
         this.internalDueDateTime = subjectRightsRequestParameterValue?.internalDueDateTime;
-        this.lastModifiedBy = subjectRightsRequestParameterValue?.lastModifiedBy instanceof IdentitySetImpl? subjectRightsRequestParameterValue?.lastModifiedBy:new IdentitySetImpl(subjectRightsRequestParameterValue?.lastModifiedBy);
+        this.lastModifiedBy = subjectRightsRequestParameterValue?.lastModifiedBy;
         this.lastModifiedDateTime = subjectRightsRequestParameterValue?.lastModifiedDateTime;
-        const notesArrValue: AuthoredNoteImpl[] = []; subjectRightsRequestParameterValue?.notes?.forEach(element => {notesArrValue.push(element instanceof AuthoredNoteImpl? element : new AuthoredNoteImpl(element));});
-        this.notes = notesArrValue;
+        this.notes = subjectRightsRequestParameterValue?.notes;
         this.regulations = subjectRightsRequestParameterValue?.regulations;
-        const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = []; subjectRightsRequestParameterValue?.stages?.forEach(element => {stagesArrValue.push(element instanceof SubjectRightsRequestStageDetailImpl? element : new SubjectRightsRequestStageDetailImpl(element));});
-        this.stages = stagesArrValue;
+        this.stages = subjectRightsRequestParameterValue?.stages;
         this.status = subjectRightsRequestParameterValue?.status;
-        this.team = subjectRightsRequestParameterValue?.team instanceof TeamImpl? subjectRightsRequestParameterValue?.team:new TeamImpl(subjectRightsRequestParameterValue?.team);
+        this.team = subjectRightsRequestParameterValue?.team;
         this.type = subjectRightsRequestParameterValue?.type;
     };
     /**
@@ -148,7 +145,7 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.history && this.history.length != 0){        const historyArrValue: SubjectRightsRequestHistoryImpl[] = []; this.history?.forEach(element => {historyArrValue.push(element instanceof SubjectRightsRequestHistoryImpl? element : new SubjectRightsRequestHistoryImpl(element));});
+        if(this.history && this.history.length != 0){        const historyArrValue: SubjectRightsRequestHistoryImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new SubjectRightsRequestHistoryImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectRightsRequestHistoryImpl>("history", historyArrValue);
         }
         if(this.insight){
@@ -163,13 +160,13 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.notes && this.notes.length != 0){        const notesArrValue: AuthoredNoteImpl[] = []; this.notes?.forEach(element => {notesArrValue.push(element instanceof AuthoredNoteImpl? element : new AuthoredNoteImpl(element));});
+        if(this.notes && this.notes.length != 0){        const notesArrValue: AuthoredNoteImpl[] = []; this.notes?.forEach(element => {notesArrValue.push(new AuthoredNoteImpl(element));});
             writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("notes", notesArrValue);
         }
         if(this.regulations){
             writer.writeCollectionOfPrimitiveValues<string>("regulations", this.regulations);
         }
-        if(this.stages && this.stages.length != 0){        const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof SubjectRightsRequestStageDetailImpl? element : new SubjectRightsRequestStageDetailImpl(element));});
+        if(this.stages && this.stages.length != 0){        const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new SubjectRightsRequestStageDetailImpl(element));});
             writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetailImpl>("stages", stagesArrValue);
         }
         if(this.status){

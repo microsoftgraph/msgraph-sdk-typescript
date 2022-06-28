@@ -67,7 +67,7 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
         this.collation = printerCapabilitiesParameterValue?.collation;
         this.colorModes = printerCapabilitiesParameterValue?.colorModes;
         this.contentTypes = printerCapabilitiesParameterValue?.contentTypes;
-        this.copiesPerJob = printerCapabilitiesParameterValue?.copiesPerJob instanceof IntegerRangeImpl? printerCapabilitiesParameterValue?.copiesPerJob:new IntegerRangeImpl(printerCapabilitiesParameterValue?.copiesPerJob);
+        this.copiesPerJob = printerCapabilitiesParameterValue?.copiesPerJob;
         this.dpis = printerCapabilitiesParameterValue?.dpis;
         this.duplexModes = printerCapabilitiesParameterValue?.duplexModes;
         this.feedOrientations = printerCapabilitiesParameterValue?.feedOrientations;

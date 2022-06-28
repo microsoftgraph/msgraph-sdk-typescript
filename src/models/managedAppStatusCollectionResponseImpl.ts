@@ -18,8 +18,7 @@ export class ManagedAppStatusCollectionResponseImpl implements ManagedAppStatusC
     public constructor(managedAppStatusCollectionResponseParameterValue?: ManagedAppStatusCollectionResponse | undefined) {
         this.additionalData = managedAppStatusCollectionResponseParameterValue?.additionalData ? managedAppStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedAppStatusImpl[] = []; managedAppStatusCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppStatusImpl? element : new ManagedAppStatusImpl(element));});
-        this.value = valueArrValue;
+        this.value = managedAppStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ManagedAppStatusCollectionResponseImpl implements ManagedAppStatusC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppStatusImpl? element : new ManagedAppStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

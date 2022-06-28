@@ -18,8 +18,7 @@ export class BookingCurrencyCollectionResponseImpl implements BookingCurrencyCol
     public constructor(bookingCurrencyCollectionResponseParameterValue?: BookingCurrencyCollectionResponse | undefined) {
         this.additionalData = bookingCurrencyCollectionResponseParameterValue?.additionalData ? bookingCurrencyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = bookingCurrencyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BookingCurrencyImpl[] = []; bookingCurrencyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BookingCurrencyImpl? element : new BookingCurrencyImpl(element));});
-        this.value = valueArrValue;
+        this.value = bookingCurrencyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class BookingCurrencyCollectionResponseImpl implements BookingCurrencyCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BookingCurrencyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BookingCurrencyImpl? element : new BookingCurrencyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingCurrencyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingCurrencyImpl(element));});
             writer.writeCollectionOfObjectValues<BookingCurrencyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

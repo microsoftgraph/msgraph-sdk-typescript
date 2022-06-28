@@ -4,7 +4,7 @@ import {EntityImpl, IdentitySetImpl} from './index';
 import {Request} from './request';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the identityGovernance singleton. */
 export class RequestImpl extends EntityImpl implements Request {
     /** The identifier of the approval of the request. */
     public approvalId?: string | undefined;
@@ -26,7 +26,7 @@ export class RequestImpl extends EntityImpl implements Request {
         super(requestParameterValue);
         this.approvalId = requestParameterValue?.approvalId;
         this.completedDateTime = requestParameterValue?.completedDateTime;
-        this.createdBy = requestParameterValue?.createdBy instanceof IdentitySetImpl? requestParameterValue?.createdBy:new IdentitySetImpl(requestParameterValue?.createdBy);
+        this.createdBy = requestParameterValue?.createdBy;
         this.createdDateTime = requestParameterValue?.createdDateTime;
         this.customData = requestParameterValue?.customData;
         this.status = requestParameterValue?.status;

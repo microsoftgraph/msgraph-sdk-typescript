@@ -45,16 +45,12 @@ export class ChatImpl extends EntityImpl implements Chat {
         super(chatParameterValue);
         this.chatType = chatParameterValue?.chatType;
         this.createdDateTime = chatParameterValue?.createdDateTime;
-        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; chatParameterValue?.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
-        this.installedApps = installedAppsArrValue;
+        this.installedApps = chatParameterValue?.installedApps;
         this.lastUpdatedDateTime = chatParameterValue?.lastUpdatedDateTime;
-        const membersArrValue: ConversationMemberImpl[] = []; chatParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
-        this.members = membersArrValue;
-        const messagesArrValue: ChatMessageImpl[] = []; chatParameterValue?.messages?.forEach(element => {messagesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
-        this.messages = messagesArrValue;
-        this.onlineMeetingInfo = chatParameterValue?.onlineMeetingInfo instanceof TeamworkOnlineMeetingInfoImpl? chatParameterValue?.onlineMeetingInfo:new TeamworkOnlineMeetingInfoImpl(chatParameterValue?.onlineMeetingInfo);
-        const tabsArrValue: TeamsTabImpl[] = []; chatParameterValue?.tabs?.forEach(element => {tabsArrValue.push(element instanceof TeamsTabImpl? element : new TeamsTabImpl(element));});
-        this.tabs = tabsArrValue;
+        this.members = chatParameterValue?.members;
+        this.messages = chatParameterValue?.messages;
+        this.onlineMeetingInfo = chatParameterValue?.onlineMeetingInfo;
+        this.tabs = chatParameterValue?.tabs;
         this.tenantId = chatParameterValue?.tenantId;
         this.topic = chatParameterValue?.topic;
         this.webUrl = chatParameterValue?.webUrl;
@@ -91,22 +87,22 @@ export class ChatImpl extends EntityImpl implements Chat {
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof TeamsAppInstallationImpl? element : new TeamsAppInstallationImpl(element));});
+        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new TeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
         if(this.lastUpdatedDateTime){
             writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
-        if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
         if(this.onlineMeetingInfo){
             writer.writeObjectValue<TeamworkOnlineMeetingInfoImpl>("onlineMeetingInfo", new TeamworkOnlineMeetingInfoImpl(this.onlineMeetingInfo));
         }
-        if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(element instanceof TeamsTabImpl? element : new TeamsTabImpl(element));});
+        if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
         if(this.tenantId){

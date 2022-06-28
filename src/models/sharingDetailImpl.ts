@@ -25,9 +25,9 @@ export class SharingDetailImpl implements SharingDetail {
      */
     public constructor(sharingDetailParameterValue?: SharingDetail | undefined) {
         this.additionalData = sharingDetailParameterValue?.additionalData ? sharingDetailParameterValue?.additionalData! : {};
-        this.sharedBy = sharingDetailParameterValue?.sharedBy instanceof InsightIdentityImpl? sharingDetailParameterValue?.sharedBy:new InsightIdentityImpl(sharingDetailParameterValue?.sharedBy);
+        this.sharedBy = sharingDetailParameterValue?.sharedBy;
         this.sharedDateTime = sharingDetailParameterValue?.sharedDateTime;
-        this.sharingReference = sharingDetailParameterValue?.sharingReference instanceof ResourceReferenceImpl? sharingDetailParameterValue?.sharingReference:new ResourceReferenceImpl(sharingDetailParameterValue?.sharingReference);
+        this.sharingReference = sharingDetailParameterValue?.sharingReference;
         this.sharingSubject = sharingDetailParameterValue?.sharingSubject;
         this.sharingType = sharingDetailParameterValue?.sharingType;
     };

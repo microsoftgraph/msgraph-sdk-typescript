@@ -21,7 +21,7 @@ export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
     public constructor(serviceHealthIssuePostParameterValue?: ServiceHealthIssuePost | undefined) {
         this.additionalData = serviceHealthIssuePostParameterValue?.additionalData ? serviceHealthIssuePostParameterValue?.additionalData! : {};
         this.createdDateTime = serviceHealthIssuePostParameterValue?.createdDateTime;
-        this.description = serviceHealthIssuePostParameterValue?.description instanceof ItemBodyImpl? serviceHealthIssuePostParameterValue?.description:new ItemBodyImpl(serviceHealthIssuePostParameterValue?.description);
+        this.description = serviceHealthIssuePostParameterValue?.description;
         this.postType = serviceHealthIssuePostParameterValue?.postType;
     };
     /**

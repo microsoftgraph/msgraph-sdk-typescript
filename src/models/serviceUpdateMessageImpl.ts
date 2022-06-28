@@ -40,17 +40,16 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
     public constructor(serviceUpdateMessageParameterValue?: ServiceUpdateMessage | undefined) {
         super(serviceUpdateMessageParameterValue);
         this.actionRequiredByDateTime = serviceUpdateMessageParameterValue?.actionRequiredByDateTime;
-        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; serviceUpdateMessageParameterValue?.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
-        this.attachments = attachmentsArrValue;
+        this.attachments = serviceUpdateMessageParameterValue?.attachments;
         this.attachmentsArchive = serviceUpdateMessageParameterValue?.attachmentsArchive;
-        this.body = serviceUpdateMessageParameterValue?.body instanceof ItemBodyImpl? serviceUpdateMessageParameterValue?.body:new ItemBodyImpl(serviceUpdateMessageParameterValue?.body);
+        this.body = serviceUpdateMessageParameterValue?.body;
         this.category = serviceUpdateMessageParameterValue?.category;
         this.hasAttachments = serviceUpdateMessageParameterValue?.hasAttachments;
         this.isMajorChange = serviceUpdateMessageParameterValue?.isMajorChange;
         this.services = serviceUpdateMessageParameterValue?.services;
         this.severity = serviceUpdateMessageParameterValue?.severity;
         this.tags = serviceUpdateMessageParameterValue?.tags;
-        this.viewPoint = serviceUpdateMessageParameterValue?.viewPoint instanceof ServiceUpdateMessageViewpointImpl? serviceUpdateMessageParameterValue?.viewPoint:new ServiceUpdateMessageViewpointImpl(serviceUpdateMessageParameterValue?.viewPoint);
+        this.viewPoint = serviceUpdateMessageParameterValue?.viewPoint;
     };
     /**
      * The deserialization information for the current model
@@ -81,7 +80,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
         if(this.actionRequiredByDateTime){
             writer.writeDateValue("actionRequiredByDateTime", this.actionRequiredByDateTime);
         }
-        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(element instanceof ServiceAnnouncementAttachmentImpl? element : new ServiceAnnouncementAttachmentImpl(element));});
+        if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = []; this.attachments?.forEach(element => {attachmentsArrValue.push(new ServiceAnnouncementAttachmentImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.attachmentsArchive){

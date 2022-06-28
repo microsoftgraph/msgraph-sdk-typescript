@@ -25,11 +25,11 @@ export class IosLobAppImpl extends MobileLobAppImpl implements IosLobApp {
      */
     public constructor(iosLobAppParameterValue?: IosLobApp | undefined) {
         super(iosLobAppParameterValue);
-        this.applicableDeviceType = iosLobAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? iosLobAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(iosLobAppParameterValue?.applicableDeviceType);
+        this.applicableDeviceType = iosLobAppParameterValue?.applicableDeviceType;
         this.buildNumber = iosLobAppParameterValue?.buildNumber;
         this.bundleId = iosLobAppParameterValue?.bundleId;
         this.expirationDateTime = iosLobAppParameterValue?.expirationDateTime;
-        this.minimumSupportedOperatingSystem = iosLobAppParameterValue?.minimumSupportedOperatingSystem instanceof IosMinimumOperatingSystemImpl? iosLobAppParameterValue?.minimumSupportedOperatingSystem:new IosMinimumOperatingSystemImpl(iosLobAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = iosLobAppParameterValue?.minimumSupportedOperatingSystem;
         this.versionNumber = iosLobAppParameterValue?.versionNumber;
     };
     /**

@@ -28,9 +28,9 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
         super(eventMessageRequestParameterValue);
         this.allowNewTimeProposals = eventMessageRequestParameterValue?.allowNewTimeProposals;
         this.meetingRequestType = eventMessageRequestParameterValue?.meetingRequestType;
-        this.previousEndDateTime = eventMessageRequestParameterValue?.previousEndDateTime instanceof DateTimeTimeZoneImpl? eventMessageRequestParameterValue?.previousEndDateTime:new DateTimeTimeZoneImpl(eventMessageRequestParameterValue?.previousEndDateTime);
-        this.previousLocation = eventMessageRequestParameterValue?.previousLocation instanceof LocationImpl? eventMessageRequestParameterValue?.previousLocation:new LocationImpl(eventMessageRequestParameterValue?.previousLocation);
-        this.previousStartDateTime = eventMessageRequestParameterValue?.previousStartDateTime instanceof DateTimeTimeZoneImpl? eventMessageRequestParameterValue?.previousStartDateTime:new DateTimeTimeZoneImpl(eventMessageRequestParameterValue?.previousStartDateTime);
+        this.previousEndDateTime = eventMessageRequestParameterValue?.previousEndDateTime;
+        this.previousLocation = eventMessageRequestParameterValue?.previousLocation;
+        this.previousStartDateTime = eventMessageRequestParameterValue?.previousStartDateTime;
         this.responseRequested = eventMessageRequestParameterValue?.responseRequested;
     };
     /**

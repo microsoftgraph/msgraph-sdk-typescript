@@ -17,7 +17,7 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
     public constructor(workbookPivotTableParameterValue?: WorkbookPivotTable | undefined) {
         super(workbookPivotTableParameterValue);
         this.name = workbookPivotTableParameterValue?.name;
-        this.worksheet = workbookPivotTableParameterValue?.worksheet instanceof WorkbookWorksheetImpl? workbookPivotTableParameterValue?.worksheet:new WorkbookWorksheetImpl(workbookPivotTableParameterValue?.worksheet);
+        this.worksheet = workbookPivotTableParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model

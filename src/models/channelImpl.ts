@@ -45,15 +45,12 @@ export class ChannelImpl extends EntityImpl implements Channel {
         this.description = channelParameterValue?.description;
         this.displayName = channelParameterValue?.displayName;
         this.email = channelParameterValue?.email;
-        this.filesFolder = channelParameterValue?.filesFolder instanceof DriveItemImpl? channelParameterValue?.filesFolder:new DriveItemImpl(channelParameterValue?.filesFolder);
+        this.filesFolder = channelParameterValue?.filesFolder;
         this.isFavoriteByDefault = channelParameterValue?.isFavoriteByDefault;
-        const membersArrValue: ConversationMemberImpl[] = []; channelParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
-        this.members = membersArrValue;
+        this.members = channelParameterValue?.members;
         this.membershipType = channelParameterValue?.membershipType;
-        const messagesArrValue: ChatMessageImpl[] = []; channelParameterValue?.messages?.forEach(element => {messagesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
-        this.messages = messagesArrValue;
-        const tabsArrValue: TeamsTabImpl[] = []; channelParameterValue?.tabs?.forEach(element => {tabsArrValue.push(element instanceof TeamsTabImpl? element : new TeamsTabImpl(element));});
-        this.tabs = tabsArrValue;
+        this.messages = channelParameterValue?.messages;
+        this.tabs = channelParameterValue?.tabs;
         this.webUrl = channelParameterValue?.webUrl;
     };
     /**
@@ -100,16 +97,16 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(this.isFavoriteByDefault){
             writer.writeBooleanValue("isFavoriteByDefault", this.isFavoriteByDefault);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof ConversationMemberImpl? element : new ConversationMemberImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new ConversationMemberImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
         if(this.membershipType){
             writer.writeEnumValue<ChannelMembershipType>("membershipType", this.membershipType);
         }
-        if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof ChatMessageImpl? element : new ChatMessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new ChatMessageImpl(element));});
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
-        if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(element instanceof TeamsTabImpl? element : new TeamsTabImpl(element));});
+        if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = []; this.tabs?.forEach(element => {tabsArrValue.push(new TeamsTabImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
         if(this.webUrl){

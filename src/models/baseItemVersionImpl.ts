@@ -20,9 +20,9 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
      */
     public constructor(baseItemVersionParameterValue?: BaseItemVersion | undefined) {
         super(baseItemVersionParameterValue);
-        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy instanceof IdentitySetImpl? baseItemVersionParameterValue?.lastModifiedBy:new IdentitySetImpl(baseItemVersionParameterValue?.lastModifiedBy);
+        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy;
         this.lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime;
-        this.publication = baseItemVersionParameterValue?.publication instanceof PublicationFacetImpl? baseItemVersionParameterValue?.publication:new PublicationFacetImpl(baseItemVersionParameterValue?.publication);
+        this.publication = baseItemVersionParameterValue?.publication;
     };
     /**
      * The deserialization information for the current model

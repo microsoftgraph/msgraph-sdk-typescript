@@ -38,18 +38,13 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
      */
     public constructor(accessReviewInstanceParameterValue?: AccessReviewInstance | undefined) {
         super(accessReviewInstanceParameterValue);
-        const contactedReviewersArrValue: AccessReviewReviewerImpl[] = []; accessReviewInstanceParameterValue?.contactedReviewers?.forEach(element => {contactedReviewersArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
-        this.contactedReviewers = contactedReviewersArrValue;
-        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; accessReviewInstanceParameterValue?.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
-        this.decisions = decisionsArrValue;
+        this.contactedReviewers = accessReviewInstanceParameterValue?.contactedReviewers;
+        this.decisions = accessReviewInstanceParameterValue?.decisions;
         this.endDateTime = accessReviewInstanceParameterValue?.endDateTime;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewInstanceParameterValue?.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.fallbackReviewers = fallbackReviewersArrValue;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewInstanceParameterValue?.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.reviewers = reviewersArrValue;
-        this.scope = accessReviewInstanceParameterValue?.scope instanceof AccessReviewScopeImpl? accessReviewInstanceParameterValue?.scope:new AccessReviewScopeImpl(accessReviewInstanceParameterValue?.scope);
-        const stagesArrValue: AccessReviewStageImpl[] = []; accessReviewInstanceParameterValue?.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
-        this.stages = stagesArrValue;
+        this.fallbackReviewers = accessReviewInstanceParameterValue?.fallbackReviewers;
+        this.reviewers = accessReviewInstanceParameterValue?.reviewers;
+        this.scope = accessReviewInstanceParameterValue?.scope;
+        this.stages = accessReviewInstanceParameterValue?.stages;
         this.startDateTime = accessReviewInstanceParameterValue?.startDateTime;
         this.status = accessReviewInstanceParameterValue?.status;
     };
@@ -77,25 +72,25 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.contactedReviewers && this.contactedReviewers.length != 0){        const contactedReviewersArrValue: AccessReviewReviewerImpl[] = []; this.contactedReviewers?.forEach(element => {contactedReviewersArrValue.push(element instanceof AccessReviewReviewerImpl? element : new AccessReviewReviewerImpl(element));});
+        if(this.contactedReviewers && this.contactedReviewers.length != 0){        const contactedReviewersArrValue: AccessReviewReviewerImpl[] = []; this.contactedReviewers?.forEach(element => {contactedReviewersArrValue.push(new AccessReviewReviewerImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerImpl>("contactedReviewers", contactedReviewersArrValue);
         }
-        if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.decisions?.forEach(element => {decisionsArrValue.push(element instanceof AccessReviewInstanceDecisionItemImpl? element : new AccessReviewInstanceDecisionItemImpl(element));});
+        if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.decisions?.forEach(element => {decisionsArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("decisions", decisionsArrValue);
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.scope){
             writer.writeObjectValue<AccessReviewScopeImpl>("scope", new AccessReviewScopeImpl(this.scope));
         }
-        if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessReviewStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(element instanceof AccessReviewStageImpl? element : new AccessReviewStageImpl(element));});
+        if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessReviewStageImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new AccessReviewStageImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewStageImpl>("stages", stagesArrValue);
         }
         if(this.startDateTime){

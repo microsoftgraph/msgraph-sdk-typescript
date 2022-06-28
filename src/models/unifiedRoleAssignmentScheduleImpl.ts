@@ -21,10 +21,10 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
      */
     public constructor(unifiedRoleAssignmentScheduleParameterValue?: UnifiedRoleAssignmentSchedule | undefined) {
         super(unifiedRoleAssignmentScheduleParameterValue);
-        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? unifiedRoleAssignmentScheduleParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleImpl(unifiedRoleAssignmentScheduleParameterValue?.activatedUsing);
+        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing;
         this.assignmentType = unifiedRoleAssignmentScheduleParameterValue?.assignmentType;
         this.memberType = unifiedRoleAssignmentScheduleParameterValue?.memberType;
-        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo instanceof RequestScheduleImpl? unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo:new RequestScheduleImpl(unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo);
+        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo;
     };
     /**
      * The deserialization information for the current model

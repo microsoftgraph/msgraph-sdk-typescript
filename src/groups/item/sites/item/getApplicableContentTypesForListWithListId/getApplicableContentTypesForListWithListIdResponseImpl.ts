@@ -16,8 +16,7 @@ export class GetApplicableContentTypesForListWithListIdResponseImpl implements G
      */
     public constructor(getApplicableContentTypesForListWithListIdResponseParameterValue?: GetApplicableContentTypesForListWithListIdResponse | undefined) {
         this.additionalData = getApplicableContentTypesForListWithListIdResponseParameterValue?.additionalData ? getApplicableContentTypesForListWithListIdResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ContentTypeImpl[] = []; getApplicableContentTypesForListWithListIdResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
-        this.value = valueArrValue;
+        this.value = getApplicableContentTypesForListWithListIdResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetApplicableContentTypesForListWithListIdResponseImpl implements G
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ContentTypeImpl(element));});
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

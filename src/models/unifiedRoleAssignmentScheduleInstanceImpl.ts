@@ -25,7 +25,7 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
      */
     public constructor(unifiedRoleAssignmentScheduleInstanceParameterValue?: UnifiedRoleAssignmentScheduleInstance | undefined) {
         super(unifiedRoleAssignmentScheduleInstanceParameterValue);
-        this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleInstanceImpl? unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleInstanceImpl(unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing);
+        this.activatedUsing = unifiedRoleAssignmentScheduleInstanceParameterValue?.activatedUsing;
         this.assignmentType = unifiedRoleAssignmentScheduleInstanceParameterValue?.assignmentType;
         this.endDateTime = unifiedRoleAssignmentScheduleInstanceParameterValue?.endDateTime;
         this.memberType = unifiedRoleAssignmentScheduleInstanceParameterValue?.memberType;

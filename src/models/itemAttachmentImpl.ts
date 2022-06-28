@@ -13,7 +13,7 @@ export class ItemAttachmentImpl extends AttachmentImpl implements ItemAttachment
      */
     public constructor(itemAttachmentParameterValue?: ItemAttachment | undefined) {
         super(itemAttachmentParameterValue);
-        this.item = itemAttachmentParameterValue?.item instanceof OutlookItemImpl? itemAttachmentParameterValue?.item:new OutlookItemImpl(itemAttachmentParameterValue?.item);
+        this.item = itemAttachmentParameterValue?.item;
     };
     /**
      * The deserialization information for the current model

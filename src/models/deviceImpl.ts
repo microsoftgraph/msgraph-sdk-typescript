@@ -8,7 +8,7 @@ import {Extension} from './extension';
 import {AlternativeSecurityIdImpl, DirectoryObjectImpl, ExtensionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of device entities. */
+/** Casts the previous resource to device. */
 export class DeviceImpl extends DirectoryObjectImpl implements Device {
     /** true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
     public accountEnabled?: boolean | undefined;
@@ -65,34 +65,28 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
     public constructor(deviceParameterValue?: Device | undefined) {
         super(deviceParameterValue);
         this.accountEnabled = deviceParameterValue?.accountEnabled;
-        const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = []; deviceParameterValue?.alternativeSecurityIds?.forEach(element => {alternativeSecurityIdsArrValue.push(element instanceof AlternativeSecurityIdImpl? element : new AlternativeSecurityIdImpl(element));});
-        this.alternativeSecurityIds = alternativeSecurityIdsArrValue;
+        this.alternativeSecurityIds = deviceParameterValue?.alternativeSecurityIds;
         this.approximateLastSignInDateTime = deviceParameterValue?.approximateLastSignInDateTime;
         this.complianceExpirationDateTime = deviceParameterValue?.complianceExpirationDateTime;
         this.deviceId = deviceParameterValue?.deviceId;
         this.deviceMetadata = deviceParameterValue?.deviceMetadata;
         this.deviceVersion = deviceParameterValue?.deviceVersion;
         this.displayName = deviceParameterValue?.displayName;
-        const extensionsArrValue: ExtensionImpl[] = []; deviceParameterValue?.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
-        this.extensions = extensionsArrValue;
+        this.extensions = deviceParameterValue?.extensions;
         this.isCompliant = deviceParameterValue?.isCompliant;
         this.isManaged = deviceParameterValue?.isManaged;
         this.mdmAppId = deviceParameterValue?.mdmAppId;
-        const memberOfArrValue: DirectoryObjectImpl[] = []; deviceParameterValue?.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.memberOf = memberOfArrValue;
+        this.memberOf = deviceParameterValue?.memberOf;
         this.onPremisesLastSyncDateTime = deviceParameterValue?.onPremisesLastSyncDateTime;
         this.onPremisesSyncEnabled = deviceParameterValue?.onPremisesSyncEnabled;
         this.operatingSystem = deviceParameterValue?.operatingSystem;
         this.operatingSystemVersion = deviceParameterValue?.operatingSystemVersion;
         this.physicalIds = deviceParameterValue?.physicalIds;
         this.profileType = deviceParameterValue?.profileType;
-        const registeredOwnersArrValue: DirectoryObjectImpl[] = []; deviceParameterValue?.registeredOwners?.forEach(element => {registeredOwnersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.registeredOwners = registeredOwnersArrValue;
-        const registeredUsersArrValue: DirectoryObjectImpl[] = []; deviceParameterValue?.registeredUsers?.forEach(element => {registeredUsersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.registeredUsers = registeredUsersArrValue;
+        this.registeredOwners = deviceParameterValue?.registeredOwners;
+        this.registeredUsers = deviceParameterValue?.registeredUsers;
         this.systemLabels = deviceParameterValue?.systemLabels;
-        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; deviceParameterValue?.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.transitiveMemberOf = transitiveMemberOfArrValue;
+        this.transitiveMemberOf = deviceParameterValue?.transitiveMemberOf;
         this.trustType = deviceParameterValue?.trustType;
     };
     /**
@@ -137,7 +131,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(this.accountEnabled){
             writer.writeBooleanValue("accountEnabled", this.accountEnabled);
         }
-        if(this.alternativeSecurityIds && this.alternativeSecurityIds.length != 0){        const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = []; this.alternativeSecurityIds?.forEach(element => {alternativeSecurityIdsArrValue.push(element instanceof AlternativeSecurityIdImpl? element : new AlternativeSecurityIdImpl(element));});
+        if(this.alternativeSecurityIds && this.alternativeSecurityIds.length != 0){        const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = []; this.alternativeSecurityIds?.forEach(element => {alternativeSecurityIdsArrValue.push(new AlternativeSecurityIdImpl(element));});
             writer.writeCollectionOfObjectValues<AlternativeSecurityIdImpl>("alternativeSecurityIds", alternativeSecurityIdsArrValue);
         }
         if(this.approximateLastSignInDateTime){
@@ -158,7 +152,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(element instanceof ExtensionImpl? element : new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.isCompliant){
@@ -170,7 +164,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(this.mdmAppId){
             writer.writeStringValue("mdmAppId", this.mdmAppId);
         }
-        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.onPremisesLastSyncDateTime){
@@ -191,16 +185,16 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(this.profileType){
             writer.writeStringValue("profileType", this.profileType);
         }
-        if(this.registeredOwners && this.registeredOwners.length != 0){        const registeredOwnersArrValue: DirectoryObjectImpl[] = []; this.registeredOwners?.forEach(element => {registeredOwnersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.registeredOwners && this.registeredOwners.length != 0){        const registeredOwnersArrValue: DirectoryObjectImpl[] = []; this.registeredOwners?.forEach(element => {registeredOwnersArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredOwners", registeredOwnersArrValue);
         }
-        if(this.registeredUsers && this.registeredUsers.length != 0){        const registeredUsersArrValue: DirectoryObjectImpl[] = []; this.registeredUsers?.forEach(element => {registeredUsersArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.registeredUsers && this.registeredUsers.length != 0){        const registeredUsersArrValue: DirectoryObjectImpl[] = []; this.registeredUsers?.forEach(element => {registeredUsersArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredUsers", registeredUsersArrValue);
         }
         if(this.systemLabels){
             writer.writeCollectionOfPrimitiveValues<string>("systemLabels", this.systemLabels);
         }
-        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
         if(this.trustType){

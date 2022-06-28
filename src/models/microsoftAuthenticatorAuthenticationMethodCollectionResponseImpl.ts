@@ -18,8 +18,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl im
     public constructor(microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?: MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.additionalData ? microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element : new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
-        this.value = valueArrValue;
+        this.value = microsoftAuthenticatorAuthenticationMethodCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl im
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element : new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

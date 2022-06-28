@@ -29,11 +29,10 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
     public constructor(iosManagedAppProtectionParameterValue?: IosManagedAppProtection | undefined) {
         super(iosManagedAppProtectionParameterValue);
         this.appDataEncryptionType = iosManagedAppProtectionParameterValue?.appDataEncryptionType;
-        const appsArrValue: ManagedMobileAppImpl[] = []; iosManagedAppProtectionParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
-        this.apps = appsArrValue;
+        this.apps = iosManagedAppProtectionParameterValue?.apps;
         this.customBrowserProtocol = iosManagedAppProtectionParameterValue?.customBrowserProtocol;
         this.deployedAppCount = iosManagedAppProtectionParameterValue?.deployedAppCount;
-        this.deploymentSummary = iosManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? iosManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(iosManagedAppProtectionParameterValue?.deploymentSummary);
+        this.deploymentSummary = iosManagedAppProtectionParameterValue?.deploymentSummary;
         this.faceIdBlocked = iosManagedAppProtectionParameterValue?.faceIdBlocked;
         this.minimumRequiredSdkVersion = iosManagedAppProtectionParameterValue?.minimumRequiredSdkVersion;
     };
@@ -62,7 +61,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         if(this.appDataEncryptionType){
             writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         }
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.customBrowserProtocol){

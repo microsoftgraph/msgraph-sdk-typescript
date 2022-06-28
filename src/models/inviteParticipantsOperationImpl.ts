@@ -13,8 +13,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
      */
     public constructor(inviteParticipantsOperationParameterValue?: InviteParticipantsOperation | undefined) {
         super(inviteParticipantsOperationParameterValue);
-        const participantsArrValue: InvitationParticipantInfoImpl[] = []; inviteParticipantsOperationParameterValue?.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
-        this.participants = participantsArrValue;
+        this.participants = inviteParticipantsOperationParameterValue?.participants;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(element instanceof InvitationParticipantInfoImpl? element : new InvitationParticipantInfoImpl(element));});
+        if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = []; this.participants?.forEach(element => {participantsArrValue.push(new InvitationParticipantInfoImpl(element));});
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }
     };

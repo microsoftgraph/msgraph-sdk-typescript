@@ -19,7 +19,7 @@ export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements
      */
     public constructor(managedAndroidLobAppParameterValue?: ManagedAndroidLobApp | undefined) {
         super(managedAndroidLobAppParameterValue);
-        this.minimumSupportedOperatingSystem = managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem;
         this.packageId = managedAndroidLobAppParameterValue?.packageId;
         this.versionCode = managedAndroidLobAppParameterValue?.versionCode;
         this.versionName = managedAndroidLobAppParameterValue?.versionName;

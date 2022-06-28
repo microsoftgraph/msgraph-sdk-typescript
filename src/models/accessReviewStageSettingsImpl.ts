@@ -30,11 +30,9 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         this.decisionsThatWillMoveToNextStage = accessReviewStageSettingsParameterValue?.decisionsThatWillMoveToNextStage;
         this.dependsOn = accessReviewStageSettingsParameterValue?.dependsOn;
         this.durationInDays = accessReviewStageSettingsParameterValue?.durationInDays;
-        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageSettingsParameterValue?.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.fallbackReviewers = fallbackReviewersArrValue;
+        this.fallbackReviewers = accessReviewStageSettingsParameterValue?.fallbackReviewers;
         this.recommendationsEnabled = accessReviewStageSettingsParameterValue?.recommendationsEnabled;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; accessReviewStageSettingsParameterValue?.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.reviewers = reviewersArrValue;
+        this.reviewers = accessReviewStageSettingsParameterValue?.reviewers;
         this.stageId = accessReviewStageSettingsParameterValue?.stageId;
     };
     /**
@@ -67,13 +65,13 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         if(this.durationInDays){
             writer.writeNumberValue("durationInDays", this.durationInDays);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.recommendationsEnabled){
             writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.stageId){

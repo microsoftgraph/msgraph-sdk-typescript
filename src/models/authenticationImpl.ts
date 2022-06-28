@@ -30,16 +30,11 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
      */
     public constructor(authenticationParameterValue?: Authentication | undefined) {
         super(authenticationParameterValue);
-        const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = []; authenticationParameterValue?.fido2Methods?.forEach(element => {fido2MethodsArrValue.push(element instanceof Fido2AuthenticationMethodImpl? element : new Fido2AuthenticationMethodImpl(element));});
-        this.fido2Methods = fido2MethodsArrValue;
-        const methodsArrValue: AuthenticationMethodImpl[] = []; authenticationParameterValue?.methods?.forEach(element => {methodsArrValue.push(element instanceof AuthenticationMethodImpl? element : new AuthenticationMethodImpl(element));});
-        this.methods = methodsArrValue;
-        const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; authenticationParameterValue?.microsoftAuthenticatorMethods?.forEach(element => {microsoftAuthenticatorMethodsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element : new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
-        this.microsoftAuthenticatorMethods = microsoftAuthenticatorMethodsArrValue;
-        const temporaryAccessPassMethodsArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; authenticationParameterValue?.temporaryAccessPassMethods?.forEach(element => {temporaryAccessPassMethodsArrValue.push(element instanceof TemporaryAccessPassAuthenticationMethodImpl? element : new TemporaryAccessPassAuthenticationMethodImpl(element));});
-        this.temporaryAccessPassMethods = temporaryAccessPassMethodsArrValue;
-        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; authenticationParameterValue?.windowsHelloForBusinessMethods?.forEach(element => {windowsHelloForBusinessMethodsArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
-        this.windowsHelloForBusinessMethods = windowsHelloForBusinessMethodsArrValue;
+        this.fido2Methods = authenticationParameterValue?.fido2Methods;
+        this.methods = authenticationParameterValue?.methods;
+        this.microsoftAuthenticatorMethods = authenticationParameterValue?.microsoftAuthenticatorMethods;
+        this.temporaryAccessPassMethods = authenticationParameterValue?.temporaryAccessPassMethods;
+        this.windowsHelloForBusinessMethods = authenticationParameterValue?.windowsHelloForBusinessMethods;
     };
     /**
      * The deserialization information for the current model
@@ -61,19 +56,19 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.fido2Methods && this.fido2Methods.length != 0){        const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = []; this.fido2Methods?.forEach(element => {fido2MethodsArrValue.push(element instanceof Fido2AuthenticationMethodImpl? element : new Fido2AuthenticationMethodImpl(element));});
+        if(this.fido2Methods && this.fido2Methods.length != 0){        const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = []; this.fido2Methods?.forEach(element => {fido2MethodsArrValue.push(new Fido2AuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<Fido2AuthenticationMethodImpl>("fido2Methods", fido2MethodsArrValue);
         }
-        if(this.methods && this.methods.length != 0){        const methodsArrValue: AuthenticationMethodImpl[] = []; this.methods?.forEach(element => {methodsArrValue.push(element instanceof AuthenticationMethodImpl? element : new AuthenticationMethodImpl(element));});
+        if(this.methods && this.methods.length != 0){        const methodsArrValue: AuthenticationMethodImpl[] = []; this.methods?.forEach(element => {methodsArrValue.push(new AuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodImpl>("methods", methodsArrValue);
         }
-        if(this.microsoftAuthenticatorMethods && this.microsoftAuthenticatorMethods.length != 0){        const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; this.microsoftAuthenticatorMethods?.forEach(element => {microsoftAuthenticatorMethodsArrValue.push(element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element : new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
+        if(this.microsoftAuthenticatorMethods && this.microsoftAuthenticatorMethods.length != 0){        const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = []; this.microsoftAuthenticatorMethods?.forEach(element => {microsoftAuthenticatorMethodsArrValue.push(new MicrosoftAuthenticatorAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodImpl>("microsoftAuthenticatorMethods", microsoftAuthenticatorMethodsArrValue);
         }
-        if(this.temporaryAccessPassMethods && this.temporaryAccessPassMethods.length != 0){        const temporaryAccessPassMethodsArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; this.temporaryAccessPassMethods?.forEach(element => {temporaryAccessPassMethodsArrValue.push(element instanceof TemporaryAccessPassAuthenticationMethodImpl? element : new TemporaryAccessPassAuthenticationMethodImpl(element));});
+        if(this.temporaryAccessPassMethods && this.temporaryAccessPassMethods.length != 0){        const temporaryAccessPassMethodsArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; this.temporaryAccessPassMethods?.forEach(element => {temporaryAccessPassMethodsArrValue.push(new TemporaryAccessPassAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethodImpl>("temporaryAccessPassMethods", temporaryAccessPassMethodsArrValue);
         }
-        if(this.windowsHelloForBusinessMethods && this.windowsHelloForBusinessMethods.length != 0){        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.windowsHelloForBusinessMethods?.forEach(element => {windowsHelloForBusinessMethodsArrValue.push(element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element : new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
+        if(this.windowsHelloForBusinessMethods && this.windowsHelloForBusinessMethods.length != 0){        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = []; this.windowsHelloForBusinessMethods?.forEach(element => {windowsHelloForBusinessMethodsArrValue.push(new WindowsHelloForBusinessAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethodImpl>("windowsHelloForBusinessMethods", windowsHelloForBusinessMethodsArrValue);
         }
     };

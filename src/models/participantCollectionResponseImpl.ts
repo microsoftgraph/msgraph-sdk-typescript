@@ -18,8 +18,7 @@ export class ParticipantCollectionResponseImpl implements ParticipantCollectionR
     public constructor(participantCollectionResponseParameterValue?: ParticipantCollectionResponse | undefined) {
         this.additionalData = participantCollectionResponseParameterValue?.additionalData ? participantCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = participantCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ParticipantImpl[] = []; participantCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
-        this.value = valueArrValue;
+        this.value = participantCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ParticipantCollectionResponseImpl implements ParticipantCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ParticipantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ParticipantImpl? element : new ParticipantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ParticipantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ParticipantImpl(element));});
             writer.writeCollectionOfObjectValues<ParticipantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

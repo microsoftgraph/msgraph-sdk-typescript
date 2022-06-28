@@ -18,8 +18,7 @@ export class IosManagedAppProtectionCollectionResponseImpl implements IosManaged
     public constructor(iosManagedAppProtectionCollectionResponseParameterValue?: IosManagedAppProtectionCollectionResponse | undefined) {
         this.additionalData = iosManagedAppProtectionCollectionResponseParameterValue?.additionalData ? iosManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = iosManagedAppProtectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IosManagedAppProtectionImpl[] = []; iosManagedAppProtectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IosManagedAppProtectionImpl? element : new IosManagedAppProtectionImpl(element));});
-        this.value = valueArrValue;
+        this.value = iosManagedAppProtectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class IosManagedAppProtectionCollectionResponseImpl implements IosManaged
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IosManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IosManagedAppProtectionImpl? element : new IosManagedAppProtectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IosManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IosManagedAppProtectionImpl(element));});
             writer.writeCollectionOfObjectValues<IosManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

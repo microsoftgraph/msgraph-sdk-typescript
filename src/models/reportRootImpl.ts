@@ -22,14 +22,10 @@ export class ReportRootImpl extends EntityImpl implements ReportRoot {
      */
     public constructor(reportRootParameterValue?: ReportRoot | undefined) {
         super(reportRootParameterValue);
-        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue?.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
-        this.dailyPrintUsageByPrinter = dailyPrintUsageByPrinterArrValue;
-        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue?.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
-        this.dailyPrintUsageByUser = dailyPrintUsageByUserArrValue;
-        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; reportRootParameterValue?.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
-        this.monthlyPrintUsageByPrinter = monthlyPrintUsageByPrinterArrValue;
-        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; reportRootParameterValue?.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
-        this.monthlyPrintUsageByUser = monthlyPrintUsageByUserArrValue;
+        this.dailyPrintUsageByPrinter = reportRootParameterValue?.dailyPrintUsageByPrinter;
+        this.dailyPrintUsageByUser = reportRootParameterValue?.dailyPrintUsageByUser;
+        this.monthlyPrintUsageByPrinter = reportRootParameterValue?.monthlyPrintUsageByPrinter;
+        this.monthlyPrintUsageByUser = reportRootParameterValue?.monthlyPrintUsageByUser;
     };
     /**
      * The deserialization information for the current model
@@ -50,16 +46,16 @@ export class ReportRootImpl extends EntityImpl implements ReportRoot {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.dailyPrintUsageByPrinter && this.dailyPrintUsageByPrinter.length != 0){        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
+        if(this.dailyPrintUsageByPrinter && this.dailyPrintUsageByPrinter.length != 0){        const dailyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.dailyPrintUsageByPrinter?.forEach(element => {dailyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
             writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("dailyPrintUsageByPrinter", dailyPrintUsageByPrinterArrValue);
         }
-        if(this.dailyPrintUsageByUser && this.dailyPrintUsageByUser.length != 0){        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
+        if(this.dailyPrintUsageByUser && this.dailyPrintUsageByUser.length != 0){        const dailyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.dailyPrintUsageByUser?.forEach(element => {dailyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
             writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("dailyPrintUsageByUser", dailyPrintUsageByUserArrValue);
         }
-        if(this.monthlyPrintUsageByPrinter && this.monthlyPrintUsageByPrinter.length != 0){        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(element instanceof PrintUsageByPrinterImpl? element : new PrintUsageByPrinterImpl(element));});
+        if(this.monthlyPrintUsageByPrinter && this.monthlyPrintUsageByPrinter.length != 0){        const monthlyPrintUsageByPrinterArrValue: PrintUsageByPrinterImpl[] = []; this.monthlyPrintUsageByPrinter?.forEach(element => {monthlyPrintUsageByPrinterArrValue.push(new PrintUsageByPrinterImpl(element));});
             writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("monthlyPrintUsageByPrinter", monthlyPrintUsageByPrinterArrValue);
         }
-        if(this.monthlyPrintUsageByUser && this.monthlyPrintUsageByUser.length != 0){        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(element instanceof PrintUsageByUserImpl? element : new PrintUsageByUserImpl(element));});
+        if(this.monthlyPrintUsageByUser && this.monthlyPrintUsageByUser.length != 0){        const monthlyPrintUsageByUserArrValue: PrintUsageByUserImpl[] = []; this.monthlyPrintUsageByUser?.forEach(element => {monthlyPrintUsageByUserArrValue.push(new PrintUsageByUserImpl(element));});
             writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("monthlyPrintUsageByUser", monthlyPrintUsageByUserArrValue);
         }
     };

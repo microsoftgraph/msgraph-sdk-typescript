@@ -19,7 +19,7 @@ export class CopyToDefaultContentLocationPostRequestBodyImpl implements CopyToDe
     public constructor(copyToDefaultContentLocationPostRequestBodyParameterValue?: CopyToDefaultContentLocationPostRequestBody | undefined) {
         this.additionalData = copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData ? copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData! : {};
         this.destinationFileName = copyToDefaultContentLocationPostRequestBodyParameterValue?.destinationFileName;
-        this.sourceFile = copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile instanceof ItemReferenceImpl? copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile:new ItemReferenceImpl(copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile);
+        this.sourceFile = copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile;
     };
     /**
      * The deserialization information for the current model

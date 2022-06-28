@@ -31,7 +31,7 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
         this.allowEmailVerifiedUsersToJoinOrganization = authorizationPolicyParameterValue?.allowEmailVerifiedUsersToJoinOrganization;
         this.allowInvitesFrom = authorizationPolicyParameterValue?.allowInvitesFrom;
         this.blockMsolPowerShell = authorizationPolicyParameterValue?.blockMsolPowerShell;
-        this.defaultUserRolePermissions = authorizationPolicyParameterValue?.defaultUserRolePermissions instanceof DefaultUserRolePermissionsImpl? authorizationPolicyParameterValue?.defaultUserRolePermissions:new DefaultUserRolePermissionsImpl(authorizationPolicyParameterValue?.defaultUserRolePermissions);
+        this.defaultUserRolePermissions = authorizationPolicyParameterValue?.defaultUserRolePermissions;
         this.guestUserRoleId = authorizationPolicyParameterValue?.guestUserRoleId;
     };
     /**

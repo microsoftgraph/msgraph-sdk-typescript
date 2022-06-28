@@ -13,8 +13,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
      */
     public constructor(agreementFileParameterValue?: AgreementFile | undefined) {
         super(agreementFileParameterValue);
-        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; agreementFileParameterValue?.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
-        this.localizations = localizationsArrValue;
+        this.localizations = agreementFileParameterValue?.localizations;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(element instanceof AgreementFileLocalizationImpl? element : new AgreementFileLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new AgreementFileLocalizationImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

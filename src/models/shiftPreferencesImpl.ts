@@ -13,8 +13,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
      */
     public constructor(shiftPreferencesParameterValue?: ShiftPreferences | undefined) {
         super(shiftPreferencesParameterValue);
-        const availabilityArrValue: ShiftAvailabilityImpl[] = []; shiftPreferencesParameterValue?.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
-        this.availability = availabilityArrValue;
+        this.availability = shiftPreferencesParameterValue?.availability;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(element instanceof ShiftAvailabilityImpl? element : new ShiftAvailabilityImpl(element));});
+        if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(new ShiftAvailabilityImpl(element));});
             writer.writeCollectionOfObjectValues<ShiftAvailabilityImpl>("availability", availabilityArrValue);
         }
     };

@@ -24,8 +24,7 @@ export class ApprovalSettingsImpl implements ApprovalSettings {
     public constructor(approvalSettingsParameterValue?: ApprovalSettings | undefined) {
         this.additionalData = approvalSettingsParameterValue?.additionalData ? approvalSettingsParameterValue?.additionalData! : {};
         this.approvalMode = approvalSettingsParameterValue?.approvalMode;
-        const approvalStagesArrValue: UnifiedApprovalStageImpl[] = []; approvalSettingsParameterValue?.approvalStages?.forEach(element => {approvalStagesArrValue.push(element instanceof UnifiedApprovalStageImpl? element : new UnifiedApprovalStageImpl(element));});
-        this.approvalStages = approvalStagesArrValue;
+        this.approvalStages = approvalSettingsParameterValue?.approvalStages;
         this.isApprovalRequired = approvalSettingsParameterValue?.isApprovalRequired;
         this.isApprovalRequiredForExtension = approvalSettingsParameterValue?.isApprovalRequiredForExtension;
         this.isRequestorJustificationRequired = approvalSettingsParameterValue?.isRequestorJustificationRequired;
@@ -52,7 +51,7 @@ export class ApprovalSettingsImpl implements ApprovalSettings {
         if(this.approvalMode){
             writer.writeStringValue("approvalMode", this.approvalMode);
         }
-        if(this.approvalStages && this.approvalStages.length != 0){        const approvalStagesArrValue: UnifiedApprovalStageImpl[] = []; this.approvalStages?.forEach(element => {approvalStagesArrValue.push(element instanceof UnifiedApprovalStageImpl? element : new UnifiedApprovalStageImpl(element));});
+        if(this.approvalStages && this.approvalStages.length != 0){        const approvalStagesArrValue: UnifiedApprovalStageImpl[] = []; this.approvalStages?.forEach(element => {approvalStagesArrValue.push(new UnifiedApprovalStageImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedApprovalStageImpl>("approvalStages", approvalStagesArrValue);
         }
         if(this.isApprovalRequired){

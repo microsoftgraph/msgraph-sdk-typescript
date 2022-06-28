@@ -18,8 +18,7 @@ export class UserActivityCollectionResponseImpl implements UserActivityCollectio
     public constructor(userActivityCollectionResponseParameterValue?: UserActivityCollectionResponse | undefined) {
         this.additionalData = userActivityCollectionResponseParameterValue?.additionalData ? userActivityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = userActivityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UserActivityImpl[] = []; userActivityCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
-        this.value = valueArrValue;
+        this.value = userActivityCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UserActivityCollectionResponseImpl implements UserActivityCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UserActivityImpl? element : new UserActivityImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UserActivityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UserActivityImpl(element));});
             writer.writeCollectionOfObjectValues<UserActivityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

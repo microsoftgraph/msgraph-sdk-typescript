@@ -8,7 +8,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class RelationImpl extends EntityImpl implements Relation {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     public fromTerm?: Term | undefined;
@@ -24,10 +24,10 @@ export class RelationImpl extends EntityImpl implements Relation {
      */
     public constructor(relationParameterValue?: Relation | undefined) {
         super(relationParameterValue);
-        this.fromTerm = relationParameterValue?.fromTerm instanceof TermImpl? relationParameterValue?.fromTerm:new TermImpl(relationParameterValue?.fromTerm);
+        this.fromTerm = relationParameterValue?.fromTerm;
         this.relationship = relationParameterValue?.relationship;
-        this.set = relationParameterValue?.set instanceof SetImpl? relationParameterValue?.set:new SetImpl(relationParameterValue?.set);
-        this.toTerm = relationParameterValue?.toTerm instanceof TermImpl? relationParameterValue?.toTerm:new TermImpl(relationParameterValue?.toTerm);
+        this.set = relationParameterValue?.set;
+        this.toTerm = relationParameterValue?.toTerm;
     };
     /**
      * The deserialization information for the current model

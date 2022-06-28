@@ -24,7 +24,7 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
         super(termsAndConditionsAcceptanceStatusParameterValue);
         this.acceptedDateTime = termsAndConditionsAcceptanceStatusParameterValue?.acceptedDateTime;
         this.acceptedVersion = termsAndConditionsAcceptanceStatusParameterValue?.acceptedVersion;
-        this.termsAndConditions = termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions instanceof TermsAndConditionsImpl? termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions:new TermsAndConditionsImpl(termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions);
+        this.termsAndConditions = termsAndConditionsAcceptanceStatusParameterValue?.termsAndConditions;
         this.userDisplayName = termsAndConditionsAcceptanceStatusParameterValue?.userDisplayName;
         this.userPrincipalName = termsAndConditionsAcceptanceStatusParameterValue?.userPrincipalName;
     };

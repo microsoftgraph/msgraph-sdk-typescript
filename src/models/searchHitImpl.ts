@@ -28,7 +28,7 @@ export class SearchHitImpl implements SearchHit {
         this.contentSource = searchHitParameterValue?.contentSource;
         this.hitId = searchHitParameterValue?.hitId;
         this.rank = searchHitParameterValue?.rank;
-        this.resource = searchHitParameterValue?.resource instanceof EntityImpl? searchHitParameterValue?.resource:new EntityImpl(searchHitParameterValue?.resource);
+        this.resource = searchHitParameterValue?.resource;
         this.resultTemplateId = searchHitParameterValue?.resultTemplateId;
         this.summary = searchHitParameterValue?.summary;
     };

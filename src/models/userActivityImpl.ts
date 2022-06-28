@@ -49,17 +49,16 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         this.activitySourceHost = userActivityParameterValue?.activitySourceHost;
         this.appActivityId = userActivityParameterValue?.appActivityId;
         this.appDisplayName = userActivityParameterValue?.appDisplayName;
-        this.contentInfo = userActivityParameterValue?.contentInfo instanceof JsonImpl? userActivityParameterValue?.contentInfo:new JsonImpl(userActivityParameterValue?.contentInfo);
+        this.contentInfo = userActivityParameterValue?.contentInfo;
         this.contentUrl = userActivityParameterValue?.contentUrl;
         this.createdDateTime = userActivityParameterValue?.createdDateTime;
         this.expirationDateTime = userActivityParameterValue?.expirationDateTime;
         this.fallbackUrl = userActivityParameterValue?.fallbackUrl;
-        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; userActivityParameterValue?.historyItems?.forEach(element => {historyItemsArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
-        this.historyItems = historyItemsArrValue;
+        this.historyItems = userActivityParameterValue?.historyItems;
         this.lastModifiedDateTime = userActivityParameterValue?.lastModifiedDateTime;
         this.status = userActivityParameterValue?.status;
         this.userTimezone = userActivityParameterValue?.userTimezone;
-        this.visualElements = userActivityParameterValue?.visualElements instanceof VisualInfoImpl? userActivityParameterValue?.visualElements:new VisualInfoImpl(userActivityParameterValue?.visualElements);
+        this.visualElements = userActivityParameterValue?.visualElements;
     };
     /**
      * The deserialization information for the current model
@@ -117,7 +116,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         if(this.fallbackUrl){
             writer.writeStringValue("fallbackUrl", this.fallbackUrl);
         }
-        if(this.historyItems && this.historyItems.length != 0){        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; this.historyItems?.forEach(element => {historyItemsArrValue.push(element instanceof ActivityHistoryItemImpl? element : new ActivityHistoryItemImpl(element));});
+        if(this.historyItems && this.historyItems.length != 0){        const historyItemsArrValue: ActivityHistoryItemImpl[] = []; this.historyItems?.forEach(element => {historyItemsArrValue.push(new ActivityHistoryItemImpl(element));});
             writer.writeCollectionOfObjectValues<ActivityHistoryItemImpl>("historyItems", historyItemsArrValue);
         }
         if(this.lastModifiedDateTime){

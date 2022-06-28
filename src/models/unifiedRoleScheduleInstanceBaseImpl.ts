@@ -32,13 +32,13 @@ export class UnifiedRoleScheduleInstanceBaseImpl extends EntityImpl implements U
      */
     public constructor(unifiedRoleScheduleInstanceBaseParameterValue?: UnifiedRoleScheduleInstanceBase | undefined) {
         super(unifiedRoleScheduleInstanceBaseParameterValue);
-        this.appScope = unifiedRoleScheduleInstanceBaseParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleScheduleInstanceBaseParameterValue?.appScope:new AppScopeImpl(unifiedRoleScheduleInstanceBaseParameterValue?.appScope);
+        this.appScope = unifiedRoleScheduleInstanceBaseParameterValue?.appScope;
         this.appScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.appScopeId;
-        this.directoryScope = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope);
+        this.directoryScope = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScope;
         this.directoryScopeId = unifiedRoleScheduleInstanceBaseParameterValue?.directoryScopeId;
-        this.principal = unifiedRoleScheduleInstanceBaseParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleScheduleInstanceBaseParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleScheduleInstanceBaseParameterValue?.principal);
+        this.principal = unifiedRoleScheduleInstanceBaseParameterValue?.principal;
         this.principalId = unifiedRoleScheduleInstanceBaseParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition);
+        this.roleDefinition = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinition;
         this.roleDefinitionId = unifiedRoleScheduleInstanceBaseParameterValue?.roleDefinitionId;
     };
     /**

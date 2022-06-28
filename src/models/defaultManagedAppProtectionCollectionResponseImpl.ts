@@ -18,8 +18,7 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Defaul
     public constructor(defaultManagedAppProtectionCollectionResponseParameterValue?: DefaultManagedAppProtectionCollectionResponse | undefined) {
         this.additionalData = defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData ? defaultManagedAppProtectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = defaultManagedAppProtectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; defaultManagedAppProtectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
-        this.value = valueArrValue;
+        this.value = defaultManagedAppProtectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Defaul
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DefaultManagedAppProtectionImpl? element : new DefaultManagedAppProtectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DefaultManagedAppProtectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DefaultManagedAppProtectionImpl(element));});
             writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

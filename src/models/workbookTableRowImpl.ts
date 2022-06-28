@@ -17,7 +17,7 @@ export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow
     public constructor(workbookTableRowParameterValue?: WorkbookTableRow | undefined) {
         super(workbookTableRowParameterValue);
         this.index = workbookTableRowParameterValue?.index;
-        this.values = workbookTableRowParameterValue?.values instanceof JsonImpl? workbookTableRowParameterValue?.values:new JsonImpl(workbookTableRowParameterValue?.values);
+        this.values = workbookTableRowParameterValue?.values;
     };
     /**
      * The deserialization information for the current model

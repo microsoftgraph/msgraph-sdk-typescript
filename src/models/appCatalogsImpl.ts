@@ -14,8 +14,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
      */
     public constructor(appCatalogsParameterValue?: AppCatalogs | undefined) {
         super(appCatalogsParameterValue);
-        const teamsAppsArrValue: TeamsAppImpl[] = []; appCatalogsParameterValue?.teamsApps?.forEach(element => {teamsAppsArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
-        this.teamsApps = teamsAppsArrValue;
+        this.teamsApps = appCatalogsParameterValue?.teamsApps;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(element instanceof TeamsAppImpl? element : new TeamsAppImpl(element));});
+        if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(new TeamsAppImpl(element));});
             writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
         }
     };

@@ -2,7 +2,6 @@ import {ChangeTrackedEntityImpl} from './index';
 import {SchedulingGroup} from './schedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements SchedulingGroup {
     /** The display name for the schedulingGroup. Required. */
     public displayName?: string | undefined;
@@ -11,7 +10,7 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Sche
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
     public userIds?: string[] | undefined;
     /**
-     * Instantiates a new schedulingGroup and sets the default values.
+     * Instantiates a new SchedulingGroup and sets the default values.
      * @param schedulingGroupParameterValue 
      */
     public constructor(schedulingGroupParameterValue?: SchedulingGroup | undefined) {

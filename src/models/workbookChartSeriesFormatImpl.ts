@@ -18,8 +18,8 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
      */
     public constructor(workbookChartSeriesFormatParameterValue?: WorkbookChartSeriesFormat | undefined) {
         super(workbookChartSeriesFormatParameterValue);
-        this.fill = workbookChartSeriesFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartSeriesFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartSeriesFormatParameterValue?.fill);
-        this.line = workbookChartSeriesFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartSeriesFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartSeriesFormatParameterValue?.line);
+        this.fill = workbookChartSeriesFormatParameterValue?.fill;
+        this.line = workbookChartSeriesFormatParameterValue?.line;
     };
     /**
      * The deserialization information for the current model

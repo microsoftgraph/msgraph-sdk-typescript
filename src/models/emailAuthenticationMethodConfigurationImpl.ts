@@ -17,8 +17,7 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
     public constructor(emailAuthenticationMethodConfigurationParameterValue?: EmailAuthenticationMethodConfiguration | undefined) {
         super(emailAuthenticationMethodConfigurationParameterValue);
         this.allowExternalIdToUseEmailOtp = emailAuthenticationMethodConfigurationParameterValue?.allowExternalIdToUseEmailOtp;
-        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; emailAuthenticationMethodConfigurationParameterValue?.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
-        this.includeTargets = includeTargetsArrValue;
+        this.includeTargets = emailAuthenticationMethodConfigurationParameterValue?.includeTargets;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
         if(this.allowExternalIdToUseEmailOtp){
             writer.writeEnumValue<ExternalEmailOtpState>("allowExternalIdToUseEmailOtp", this.allowExternalIdToUseEmailOtp);
         }
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(element instanceof AuthenticationMethodTargetImpl? element : new AuthenticationMethodTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodTargetImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
     };

@@ -19,7 +19,7 @@ export class DocumentSetContentImpl implements DocumentSetContent {
      */
     public constructor(documentSetContentParameterValue?: DocumentSetContent | undefined) {
         this.additionalData = documentSetContentParameterValue?.additionalData ? documentSetContentParameterValue?.additionalData! : {};
-        this.contentType = documentSetContentParameterValue?.contentType instanceof ContentTypeInfoImpl? documentSetContentParameterValue?.contentType:new ContentTypeInfoImpl(documentSetContentParameterValue?.contentType);
+        this.contentType = documentSetContentParameterValue?.contentType;
         this.fileName = documentSetContentParameterValue?.fileName;
         this.folderName = documentSetContentParameterValue?.folderName;
     };

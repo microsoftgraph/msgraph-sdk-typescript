@@ -18,8 +18,7 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
     public constructor(resourceSpecificPermissionGrantCollectionResponseParameterValue?: ResourceSpecificPermissionGrantCollectionResponse | undefined) {
         this.additionalData = resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData ? resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = resourceSpecificPermissionGrantCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; resourceSpecificPermissionGrantCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
-        this.value = valueArrValue;
+        this.value = resourceSpecificPermissionGrantCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ResourceSpecificPermissionGrantImpl? element : new ResourceSpecificPermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceSpecificPermissionGrantImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

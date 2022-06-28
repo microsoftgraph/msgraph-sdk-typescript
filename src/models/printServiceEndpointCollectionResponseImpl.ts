@@ -18,8 +18,7 @@ export class PrintServiceEndpointCollectionResponseImpl implements PrintServiceE
     public constructor(printServiceEndpointCollectionResponseParameterValue?: PrintServiceEndpointCollectionResponse | undefined) {
         this.additionalData = printServiceEndpointCollectionResponseParameterValue?.additionalData ? printServiceEndpointCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printServiceEndpointCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrintServiceEndpointImpl[] = []; printServiceEndpointCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
-        this.value = valueArrValue;
+        this.value = printServiceEndpointCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class PrintServiceEndpointCollectionResponseImpl implements PrintServiceE
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrintServiceEndpointImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrintServiceEndpointImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrintServiceEndpointImpl(element));});
             writer.writeCollectionOfObjectValues<PrintServiceEndpointImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

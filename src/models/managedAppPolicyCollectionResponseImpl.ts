@@ -18,8 +18,7 @@ export class ManagedAppPolicyCollectionResponseImpl implements ManagedAppPolicyC
     public constructor(managedAppPolicyCollectionResponseParameterValue?: ManagedAppPolicyCollectionResponse | undefined) {
         this.additionalData = managedAppPolicyCollectionResponseParameterValue?.additionalData ? managedAppPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedAppPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedAppPolicyImpl[] = []; managedAppPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
-        this.value = valueArrValue;
+        this.value = managedAppPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ManagedAppPolicyCollectionResponseImpl implements ManagedAppPolicyC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedAppPolicyImpl? element : new ManagedAppPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

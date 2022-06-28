@@ -17,8 +17,8 @@ export class TimeSlotImpl implements TimeSlot {
      */
     public constructor(timeSlotParameterValue?: TimeSlot | undefined) {
         this.additionalData = timeSlotParameterValue?.additionalData ? timeSlotParameterValue?.additionalData! : {};
-        this.end = timeSlotParameterValue?.end instanceof DateTimeTimeZoneImpl? timeSlotParameterValue?.end:new DateTimeTimeZoneImpl(timeSlotParameterValue?.end);
-        this.start = timeSlotParameterValue?.start instanceof DateTimeTimeZoneImpl? timeSlotParameterValue?.start:new DateTimeTimeZoneImpl(timeSlotParameterValue?.start);
+        this.end = timeSlotParameterValue?.end;
+        this.start = timeSlotParameterValue?.start;
     };
     /**
      * The deserialization information for the current model

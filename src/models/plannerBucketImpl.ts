@@ -23,8 +23,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         this.name = plannerBucketParameterValue?.name;
         this.orderHint = plannerBucketParameterValue?.orderHint;
         this.planId = plannerBucketParameterValue?.planId;
-        const tasksArrValue: PlannerTaskImpl[] = []; plannerBucketParameterValue?.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
-        this.tasks = tasksArrValue;
+        this.tasks = plannerBucketParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -54,7 +53,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         if(this.planId){
             writer.writeStringValue("planId", this.planId);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

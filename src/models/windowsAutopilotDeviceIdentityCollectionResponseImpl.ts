@@ -18,8 +18,7 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Win
     public constructor(windowsAutopilotDeviceIdentityCollectionResponseParameterValue?: WindowsAutopilotDeviceIdentityCollectionResponse | undefined) {
         this.additionalData = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData ? windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof WindowsAutopilotDeviceIdentityImpl? element : new WindowsAutopilotDeviceIdentityImpl(element));});
-        this.value = valueArrValue;
+        this.value = windowsAutopilotDeviceIdentityCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Win
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof WindowsAutopilotDeviceIdentityImpl? element : new WindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new WindowsAutopilotDeviceIdentityImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

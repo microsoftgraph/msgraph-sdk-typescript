@@ -26,10 +26,10 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public constructor(usedInsightParameterValue?: UsedInsight | undefined) {
         super(usedInsightParameterValue);
-        this.lastUsed = usedInsightParameterValue?.lastUsed instanceof UsageDetailsImpl? usedInsightParameterValue?.lastUsed:new UsageDetailsImpl(usedInsightParameterValue?.lastUsed);
-        this.resource = usedInsightParameterValue?.resource instanceof EntityImpl? usedInsightParameterValue?.resource:new EntityImpl(usedInsightParameterValue?.resource);
-        this.resourceReference = usedInsightParameterValue?.resourceReference instanceof ResourceReferenceImpl? usedInsightParameterValue?.resourceReference:new ResourceReferenceImpl(usedInsightParameterValue?.resourceReference);
-        this.resourceVisualization = usedInsightParameterValue?.resourceVisualization instanceof ResourceVisualizationImpl? usedInsightParameterValue?.resourceVisualization:new ResourceVisualizationImpl(usedInsightParameterValue?.resourceVisualization);
+        this.lastUsed = usedInsightParameterValue?.lastUsed;
+        this.resource = usedInsightParameterValue?.resource;
+        this.resourceReference = usedInsightParameterValue?.resourceReference;
+        this.resourceVisualization = usedInsightParameterValue?.resourceVisualization;
     };
     /**
      * The deserialization information for the current model

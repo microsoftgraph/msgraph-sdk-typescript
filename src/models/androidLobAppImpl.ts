@@ -19,7 +19,7 @@ export class AndroidLobAppImpl extends MobileLobAppImpl implements AndroidLobApp
      */
     public constructor(androidLobAppParameterValue?: AndroidLobApp | undefined) {
         super(androidLobAppParameterValue);
-        this.minimumSupportedOperatingSystem = androidLobAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? androidLobAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(androidLobAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = androidLobAppParameterValue?.minimumSupportedOperatingSystem;
         this.packageId = androidLobAppParameterValue?.packageId;
         this.versionCode = androidLobAppParameterValue?.versionCode;
         this.versionName = androidLobAppParameterValue?.versionName;

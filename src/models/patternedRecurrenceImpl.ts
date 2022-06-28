@@ -19,8 +19,8 @@ export class PatternedRecurrenceImpl implements PatternedRecurrence {
      */
     public constructor(patternedRecurrenceParameterValue?: PatternedRecurrence | undefined) {
         this.additionalData = patternedRecurrenceParameterValue?.additionalData ? patternedRecurrenceParameterValue?.additionalData! : {};
-        this.pattern = patternedRecurrenceParameterValue?.pattern instanceof RecurrencePatternImpl? patternedRecurrenceParameterValue?.pattern:new RecurrencePatternImpl(patternedRecurrenceParameterValue?.pattern);
-        this.range = patternedRecurrenceParameterValue?.range instanceof RecurrenceRangeImpl? patternedRecurrenceParameterValue?.range:new RecurrenceRangeImpl(patternedRecurrenceParameterValue?.range);
+        this.pattern = patternedRecurrenceParameterValue?.pattern;
+        this.range = patternedRecurrenceParameterValue?.range;
     };
     /**
      * The deserialization information for the current model

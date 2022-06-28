@@ -21,8 +21,7 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         super(externalGroupParameterValue);
         this.description = externalGroupParameterValue?.description;
         this.displayName = externalGroupParameterValue?.displayName;
-        const membersArrValue: IdentityImpl[] = []; externalGroupParameterValue?.members?.forEach(element => {membersArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
-        this.members = membersArrValue;
+        this.members = externalGroupParameterValue?.members;
     };
     /**
      * The deserialization information for the current model
@@ -48,7 +47,7 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new IdentityImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
         }
     };

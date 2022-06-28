@@ -21,11 +21,11 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public constructor(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined) {
         super(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue);
-        this.androidRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction);
-        this.iosRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction);
-        this.macOSRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction);
-        this.windowsMobileRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsMobileRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsMobileRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsMobileRestriction);
-        this.windowsRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsRestriction:new DeviceEnrollmentPlatformRestrictionImpl(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsRestriction);
+        this.androidRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction;
+        this.iosRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction;
+        this.macOSRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction;
+        this.windowsMobileRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsMobileRestriction;
+        this.windowsRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsRestriction;
     };
     /**
      * The deserialization information for the current model

@@ -147,65 +147,41 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public constructor(deviceManagementParameterValue?: DeviceManagement | undefined) {
         super(deviceManagementParameterValue);
-        this.applePushNotificationCertificate = deviceManagementParameterValue?.applePushNotificationCertificate instanceof ApplePushNotificationCertificateImpl? deviceManagementParameterValue?.applePushNotificationCertificate:new ApplePushNotificationCertificateImpl(deviceManagementParameterValue?.applePushNotificationCertificate);
-        const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = []; deviceManagementParameterValue?.complianceManagementPartners?.forEach(element => {complianceManagementPartnersArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
-        this.complianceManagementPartners = complianceManagementPartnersArrValue;
-        this.conditionalAccessSettings = deviceManagementParameterValue?.conditionalAccessSettings instanceof OnPremisesConditionalAccessSettingsImpl? deviceManagementParameterValue?.conditionalAccessSettings:new OnPremisesConditionalAccessSettingsImpl(deviceManagementParameterValue?.conditionalAccessSettings);
-        const detectedAppsArrValue: DetectedAppImpl[] = []; deviceManagementParameterValue?.detectedApps?.forEach(element => {detectedAppsArrValue.push(element instanceof DetectedAppImpl? element : new DetectedAppImpl(element));});
-        this.detectedApps = detectedAppsArrValue;
-        const deviceCategoriesArrValue: DeviceCategoryImpl[] = []; deviceManagementParameterValue?.deviceCategories?.forEach(element => {deviceCategoriesArrValue.push(element instanceof DeviceCategoryImpl? element : new DeviceCategoryImpl(element));});
-        this.deviceCategories = deviceCategoriesArrValue;
-        const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = []; deviceManagementParameterValue?.deviceCompliancePolicies?.forEach(element => {deviceCompliancePoliciesArrValue.push(element instanceof DeviceCompliancePolicyImpl? element : new DeviceCompliancePolicyImpl(element));});
-        this.deviceCompliancePolicies = deviceCompliancePoliciesArrValue;
-        this.deviceCompliancePolicyDeviceStateSummary = deviceManagementParameterValue?.deviceCompliancePolicyDeviceStateSummary instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? deviceManagementParameterValue?.deviceCompliancePolicyDeviceStateSummary:new DeviceCompliancePolicyDeviceStateSummaryImpl(deviceManagementParameterValue?.deviceCompliancePolicyDeviceStateSummary);
-        const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; deviceManagementParameterValue?.deviceCompliancePolicySettingStateSummaries?.forEach(element => {deviceCompliancePolicySettingStateSummariesArrValue.push(element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element : new DeviceCompliancePolicySettingStateSummaryImpl(element));});
-        this.deviceCompliancePolicySettingStateSummaries = deviceCompliancePolicySettingStateSummariesArrValue;
-        this.deviceConfigurationDeviceStateSummaries = deviceManagementParameterValue?.deviceConfigurationDeviceStateSummaries instanceof DeviceConfigurationDeviceStateSummaryImpl? deviceManagementParameterValue?.deviceConfigurationDeviceStateSummaries:new DeviceConfigurationDeviceStateSummaryImpl(deviceManagementParameterValue?.deviceConfigurationDeviceStateSummaries);
-        const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = []; deviceManagementParameterValue?.deviceConfigurations?.forEach(element => {deviceConfigurationsArrValue.push(element instanceof DeviceConfigurationImpl? element : new DeviceConfigurationImpl(element));});
-        this.deviceConfigurations = deviceConfigurationsArrValue;
-        const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = []; deviceManagementParameterValue?.deviceEnrollmentConfigurations?.forEach(element => {deviceEnrollmentConfigurationsArrValue.push(element instanceof DeviceEnrollmentConfigurationImpl? element : new DeviceEnrollmentConfigurationImpl(element));});
-        this.deviceEnrollmentConfigurations = deviceEnrollmentConfigurationsArrValue;
-        const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = []; deviceManagementParameterValue?.deviceManagementPartners?.forEach(element => {deviceManagementPartnersArrValue.push(element instanceof DeviceManagementPartnerImpl? element : new DeviceManagementPartnerImpl(element));});
-        this.deviceManagementPartners = deviceManagementPartnersArrValue;
-        const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = []; deviceManagementParameterValue?.exchangeConnectors?.forEach(element => {exchangeConnectorsArrValue.push(element instanceof DeviceManagementExchangeConnectorImpl? element : new DeviceManagementExchangeConnectorImpl(element));});
-        this.exchangeConnectors = exchangeConnectorsArrValue;
-        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; deviceManagementParameterValue?.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
-        this.importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
+        this.applePushNotificationCertificate = deviceManagementParameterValue?.applePushNotificationCertificate;
+        this.complianceManagementPartners = deviceManagementParameterValue?.complianceManagementPartners;
+        this.conditionalAccessSettings = deviceManagementParameterValue?.conditionalAccessSettings;
+        this.detectedApps = deviceManagementParameterValue?.detectedApps;
+        this.deviceCategories = deviceManagementParameterValue?.deviceCategories;
+        this.deviceCompliancePolicies = deviceManagementParameterValue?.deviceCompliancePolicies;
+        this.deviceCompliancePolicyDeviceStateSummary = deviceManagementParameterValue?.deviceCompliancePolicyDeviceStateSummary;
+        this.deviceCompliancePolicySettingStateSummaries = deviceManagementParameterValue?.deviceCompliancePolicySettingStateSummaries;
+        this.deviceConfigurationDeviceStateSummaries = deviceManagementParameterValue?.deviceConfigurationDeviceStateSummaries;
+        this.deviceConfigurations = deviceManagementParameterValue?.deviceConfigurations;
+        this.deviceEnrollmentConfigurations = deviceManagementParameterValue?.deviceEnrollmentConfigurations;
+        this.deviceManagementPartners = deviceManagementParameterValue?.deviceManagementPartners;
+        this.exchangeConnectors = deviceManagementParameterValue?.exchangeConnectors;
+        this.importedWindowsAutopilotDeviceIdentities = deviceManagementParameterValue?.importedWindowsAutopilotDeviceIdentities;
         this.intuneAccountId = deviceManagementParameterValue?.intuneAccountId;
-        this.intuneBrand = deviceManagementParameterValue?.intuneBrand instanceof IntuneBrandImpl? deviceManagementParameterValue?.intuneBrand:new IntuneBrandImpl(deviceManagementParameterValue?.intuneBrand);
-        const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = []; deviceManagementParameterValue?.iosUpdateStatuses?.forEach(element => {iosUpdateStatusesArrValue.push(element instanceof IosUpdateDeviceStatusImpl? element : new IosUpdateDeviceStatusImpl(element));});
-        this.iosUpdateStatuses = iosUpdateStatusesArrValue;
-        this.managedDeviceOverview = deviceManagementParameterValue?.managedDeviceOverview instanceof ManagedDeviceOverviewImpl? deviceManagementParameterValue?.managedDeviceOverview:new ManagedDeviceOverviewImpl(deviceManagementParameterValue?.managedDeviceOverview);
-        const managedDevicesArrValue: ManagedDeviceImpl[] = []; deviceManagementParameterValue?.managedDevices?.forEach(element => {managedDevicesArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
-        this.managedDevices = managedDevicesArrValue;
-        const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = []; deviceManagementParameterValue?.mobileThreatDefenseConnectors?.forEach(element => {mobileThreatDefenseConnectorsArrValue.push(element instanceof MobileThreatDefenseConnectorImpl? element : new MobileThreatDefenseConnectorImpl(element));});
-        this.mobileThreatDefenseConnectors = mobileThreatDefenseConnectorsArrValue;
-        const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = []; deviceManagementParameterValue?.notificationMessageTemplates?.forEach(element => {notificationMessageTemplatesArrValue.push(element instanceof NotificationMessageTemplateImpl? element : new NotificationMessageTemplateImpl(element));});
-        this.notificationMessageTemplates = notificationMessageTemplatesArrValue;
-        const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = []; deviceManagementParameterValue?.remoteAssistancePartners?.forEach(element => {remoteAssistancePartnersArrValue.push(element instanceof RemoteAssistancePartnerImpl? element : new RemoteAssistancePartnerImpl(element));});
-        this.remoteAssistancePartners = remoteAssistancePartnersArrValue;
-        this.reports = deviceManagementParameterValue?.reports instanceof DeviceManagementReportsImpl? deviceManagementParameterValue?.reports:new DeviceManagementReportsImpl(deviceManagementParameterValue?.reports);
-        const resourceOperationsArrValue: ResourceOperationImpl[] = []; deviceManagementParameterValue?.resourceOperations?.forEach(element => {resourceOperationsArrValue.push(element instanceof ResourceOperationImpl? element : new ResourceOperationImpl(element));});
-        this.resourceOperations = resourceOperationsArrValue;
-        const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; deviceManagementParameterValue?.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof DeviceAndAppManagementRoleAssignmentImpl? element : new DeviceAndAppManagementRoleAssignmentImpl(element));});
-        this.roleAssignments = roleAssignmentsArrValue;
-        const roleDefinitionsArrValue: RoleDefinitionImpl[] = []; deviceManagementParameterValue?.roleDefinitions?.forEach(element => {roleDefinitionsArrValue.push(element instanceof RoleDefinitionImpl? element : new RoleDefinitionImpl(element));});
-        this.roleDefinitions = roleDefinitionsArrValue;
-        this.settings = deviceManagementParameterValue?.settings instanceof DeviceManagementSettingsImpl? deviceManagementParameterValue?.settings:new DeviceManagementSettingsImpl(deviceManagementParameterValue?.settings);
-        this.softwareUpdateStatusSummary = deviceManagementParameterValue?.softwareUpdateStatusSummary instanceof SoftwareUpdateStatusSummaryImpl? deviceManagementParameterValue?.softwareUpdateStatusSummary:new SoftwareUpdateStatusSummaryImpl(deviceManagementParameterValue?.softwareUpdateStatusSummary);
+        this.intuneBrand = deviceManagementParameterValue?.intuneBrand;
+        this.iosUpdateStatuses = deviceManagementParameterValue?.iosUpdateStatuses;
+        this.managedDeviceOverview = deviceManagementParameterValue?.managedDeviceOverview;
+        this.managedDevices = deviceManagementParameterValue?.managedDevices;
+        this.mobileThreatDefenseConnectors = deviceManagementParameterValue?.mobileThreatDefenseConnectors;
+        this.notificationMessageTemplates = deviceManagementParameterValue?.notificationMessageTemplates;
+        this.remoteAssistancePartners = deviceManagementParameterValue?.remoteAssistancePartners;
+        this.reports = deviceManagementParameterValue?.reports;
+        this.resourceOperations = deviceManagementParameterValue?.resourceOperations;
+        this.roleAssignments = deviceManagementParameterValue?.roleAssignments;
+        this.roleDefinitions = deviceManagementParameterValue?.roleDefinitions;
+        this.settings = deviceManagementParameterValue?.settings;
+        this.softwareUpdateStatusSummary = deviceManagementParameterValue?.softwareUpdateStatusSummary;
         this.subscriptionState = deviceManagementParameterValue?.subscriptionState;
-        const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = []; deviceManagementParameterValue?.telecomExpenseManagementPartners?.forEach(element => {telecomExpenseManagementPartnersArrValue.push(element instanceof TelecomExpenseManagementPartnerImpl? element : new TelecomExpenseManagementPartnerImpl(element));});
-        this.telecomExpenseManagementPartners = telecomExpenseManagementPartnersArrValue;
-        const termsAndConditionsArrValue: TermsAndConditionsImpl[] = []; deviceManagementParameterValue?.termsAndConditions?.forEach(element => {termsAndConditionsArrValue.push(element instanceof TermsAndConditionsImpl? element : new TermsAndConditionsImpl(element));});
-        this.termsAndConditions = termsAndConditionsArrValue;
-        const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; deviceManagementParameterValue?.troubleshootingEvents?.forEach(element => {troubleshootingEventsArrValue.push(element instanceof DeviceManagementTroubleshootingEventImpl? element : new DeviceManagementTroubleshootingEventImpl(element));});
-        this.troubleshootingEvents = troubleshootingEventsArrValue;
-        const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; deviceManagementParameterValue?.windowsAutopilotDeviceIdentities?.forEach(element => {windowsAutopilotDeviceIdentitiesArrValue.push(element instanceof WindowsAutopilotDeviceIdentityImpl? element : new WindowsAutopilotDeviceIdentityImpl(element));});
-        this.windowsAutopilotDeviceIdentities = windowsAutopilotDeviceIdentitiesArrValue;
-        const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; deviceManagementParameterValue?.windowsInformationProtectionAppLearningSummaries?.forEach(element => {windowsInformationProtectionAppLearningSummariesArrValue.push(element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element : new WindowsInformationProtectionAppLearningSummaryImpl(element));});
-        this.windowsInformationProtectionAppLearningSummaries = windowsInformationProtectionAppLearningSummariesArrValue;
-        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; deviceManagementParameterValue?.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {windowsInformationProtectionNetworkLearningSummariesArrValue.push(element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element : new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
-        this.windowsInformationProtectionNetworkLearningSummaries = windowsInformationProtectionNetworkLearningSummariesArrValue;
+        this.telecomExpenseManagementPartners = deviceManagementParameterValue?.telecomExpenseManagementPartners;
+        this.termsAndConditions = deviceManagementParameterValue?.termsAndConditions;
+        this.troubleshootingEvents = deviceManagementParameterValue?.troubleshootingEvents;
+        this.windowsAutopilotDeviceIdentities = deviceManagementParameterValue?.windowsAutopilotDeviceIdentities;
+        this.windowsInformationProtectionAppLearningSummaries = deviceManagementParameterValue?.windowsInformationProtectionAppLearningSummaries;
+        this.windowsInformationProtectionNetworkLearningSummaries = deviceManagementParameterValue?.windowsInformationProtectionNetworkLearningSummaries;
     };
     /**
      * The deserialization information for the current model
@@ -260,43 +236,43 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(this.applePushNotificationCertificate){
             writer.writeObjectValue<ApplePushNotificationCertificateImpl>("applePushNotificationCertificate", new ApplePushNotificationCertificateImpl(this.applePushNotificationCertificate));
         }
-        if(this.complianceManagementPartners && this.complianceManagementPartners.length != 0){        const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = []; this.complianceManagementPartners?.forEach(element => {complianceManagementPartnersArrValue.push(element instanceof ComplianceManagementPartnerImpl? element : new ComplianceManagementPartnerImpl(element));});
+        if(this.complianceManagementPartners && this.complianceManagementPartners.length != 0){        const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = []; this.complianceManagementPartners?.forEach(element => {complianceManagementPartnersArrValue.push(new ComplianceManagementPartnerImpl(element));});
             writer.writeCollectionOfObjectValues<ComplianceManagementPartnerImpl>("complianceManagementPartners", complianceManagementPartnersArrValue);
         }
         if(this.conditionalAccessSettings){
             writer.writeObjectValue<OnPremisesConditionalAccessSettingsImpl>("conditionalAccessSettings", new OnPremisesConditionalAccessSettingsImpl(this.conditionalAccessSettings));
         }
-        if(this.detectedApps && this.detectedApps.length != 0){        const detectedAppsArrValue: DetectedAppImpl[] = []; this.detectedApps?.forEach(element => {detectedAppsArrValue.push(element instanceof DetectedAppImpl? element : new DetectedAppImpl(element));});
+        if(this.detectedApps && this.detectedApps.length != 0){        const detectedAppsArrValue: DetectedAppImpl[] = []; this.detectedApps?.forEach(element => {detectedAppsArrValue.push(new DetectedAppImpl(element));});
             writer.writeCollectionOfObjectValues<DetectedAppImpl>("detectedApps", detectedAppsArrValue);
         }
-        if(this.deviceCategories && this.deviceCategories.length != 0){        const deviceCategoriesArrValue: DeviceCategoryImpl[] = []; this.deviceCategories?.forEach(element => {deviceCategoriesArrValue.push(element instanceof DeviceCategoryImpl? element : new DeviceCategoryImpl(element));});
+        if(this.deviceCategories && this.deviceCategories.length != 0){        const deviceCategoriesArrValue: DeviceCategoryImpl[] = []; this.deviceCategories?.forEach(element => {deviceCategoriesArrValue.push(new DeviceCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("deviceCategories", deviceCategoriesArrValue);
         }
-        if(this.deviceCompliancePolicies && this.deviceCompliancePolicies.length != 0){        const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = []; this.deviceCompliancePolicies?.forEach(element => {deviceCompliancePoliciesArrValue.push(element instanceof DeviceCompliancePolicyImpl? element : new DeviceCompliancePolicyImpl(element));});
+        if(this.deviceCompliancePolicies && this.deviceCompliancePolicies.length != 0){        const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = []; this.deviceCompliancePolicies?.forEach(element => {deviceCompliancePoliciesArrValue.push(new DeviceCompliancePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyImpl>("deviceCompliancePolicies", deviceCompliancePoliciesArrValue);
         }
         if(this.deviceCompliancePolicyDeviceStateSummary){
             writer.writeObjectValue<DeviceCompliancePolicyDeviceStateSummaryImpl>("deviceCompliancePolicyDeviceStateSummary", new DeviceCompliancePolicyDeviceStateSummaryImpl(this.deviceCompliancePolicyDeviceStateSummary));
         }
-        if(this.deviceCompliancePolicySettingStateSummaries && this.deviceCompliancePolicySettingStateSummaries.length != 0){        const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {deviceCompliancePolicySettingStateSummariesArrValue.push(element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element : new DeviceCompliancePolicySettingStateSummaryImpl(element));});
+        if(this.deviceCompliancePolicySettingStateSummaries && this.deviceCompliancePolicySettingStateSummaries.length != 0){        const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {deviceCompliancePolicySettingStateSummariesArrValue.push(new DeviceCompliancePolicySettingStateSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("deviceCompliancePolicySettingStateSummaries", deviceCompliancePolicySettingStateSummariesArrValue);
         }
         if(this.deviceConfigurationDeviceStateSummaries){
             writer.writeObjectValue<DeviceConfigurationDeviceStateSummaryImpl>("deviceConfigurationDeviceStateSummaries", new DeviceConfigurationDeviceStateSummaryImpl(this.deviceConfigurationDeviceStateSummaries));
         }
-        if(this.deviceConfigurations && this.deviceConfigurations.length != 0){        const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = []; this.deviceConfigurations?.forEach(element => {deviceConfigurationsArrValue.push(element instanceof DeviceConfigurationImpl? element : new DeviceConfigurationImpl(element));});
+        if(this.deviceConfigurations && this.deviceConfigurations.length != 0){        const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = []; this.deviceConfigurations?.forEach(element => {deviceConfigurationsArrValue.push(new DeviceConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceConfigurationImpl>("deviceConfigurations", deviceConfigurationsArrValue);
         }
-        if(this.deviceEnrollmentConfigurations && this.deviceEnrollmentConfigurations.length != 0){        const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.deviceEnrollmentConfigurations?.forEach(element => {deviceEnrollmentConfigurationsArrValue.push(element instanceof DeviceEnrollmentConfigurationImpl? element : new DeviceEnrollmentConfigurationImpl(element));});
+        if(this.deviceEnrollmentConfigurations && this.deviceEnrollmentConfigurations.length != 0){        const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.deviceEnrollmentConfigurations?.forEach(element => {deviceEnrollmentConfigurationsArrValue.push(new DeviceEnrollmentConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceEnrollmentConfigurationImpl>("deviceEnrollmentConfigurations", deviceEnrollmentConfigurationsArrValue);
         }
-        if(this.deviceManagementPartners && this.deviceManagementPartners.length != 0){        const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = []; this.deviceManagementPartners?.forEach(element => {deviceManagementPartnersArrValue.push(element instanceof DeviceManagementPartnerImpl? element : new DeviceManagementPartnerImpl(element));});
+        if(this.deviceManagementPartners && this.deviceManagementPartners.length != 0){        const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = []; this.deviceManagementPartners?.forEach(element => {deviceManagementPartnersArrValue.push(new DeviceManagementPartnerImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("deviceManagementPartners", deviceManagementPartnersArrValue);
         }
-        if(this.exchangeConnectors && this.exchangeConnectors.length != 0){        const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = []; this.exchangeConnectors?.forEach(element => {exchangeConnectorsArrValue.push(element instanceof DeviceManagementExchangeConnectorImpl? element : new DeviceManagementExchangeConnectorImpl(element));});
+        if(this.exchangeConnectors && this.exchangeConnectors.length != 0){        const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = []; this.exchangeConnectors?.forEach(element => {exchangeConnectorsArrValue.push(new DeviceManagementExchangeConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("exchangeConnectors", exchangeConnectorsArrValue);
         }
-        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element : new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }
         if(this.intuneAccountId){
@@ -305,34 +281,34 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(this.intuneBrand){
             writer.writeObjectValue<IntuneBrandImpl>("intuneBrand", new IntuneBrandImpl(this.intuneBrand));
         }
-        if(this.iosUpdateStatuses && this.iosUpdateStatuses.length != 0){        const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = []; this.iosUpdateStatuses?.forEach(element => {iosUpdateStatusesArrValue.push(element instanceof IosUpdateDeviceStatusImpl? element : new IosUpdateDeviceStatusImpl(element));});
+        if(this.iosUpdateStatuses && this.iosUpdateStatuses.length != 0){        const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = []; this.iosUpdateStatuses?.forEach(element => {iosUpdateStatusesArrValue.push(new IosUpdateDeviceStatusImpl(element));});
             writer.writeCollectionOfObjectValues<IosUpdateDeviceStatusImpl>("iosUpdateStatuses", iosUpdateStatusesArrValue);
         }
         if(this.managedDeviceOverview){
             writer.writeObjectValue<ManagedDeviceOverviewImpl>("managedDeviceOverview", new ManagedDeviceOverviewImpl(this.managedDeviceOverview));
         }
-        if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(element instanceof ManagedDeviceImpl? element : new ManagedDeviceImpl(element));});
+        if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
-        if(this.mobileThreatDefenseConnectors && this.mobileThreatDefenseConnectors.length != 0){        const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = []; this.mobileThreatDefenseConnectors?.forEach(element => {mobileThreatDefenseConnectorsArrValue.push(element instanceof MobileThreatDefenseConnectorImpl? element : new MobileThreatDefenseConnectorImpl(element));});
+        if(this.mobileThreatDefenseConnectors && this.mobileThreatDefenseConnectors.length != 0){        const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = []; this.mobileThreatDefenseConnectors?.forEach(element => {mobileThreatDefenseConnectorsArrValue.push(new MobileThreatDefenseConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("mobileThreatDefenseConnectors", mobileThreatDefenseConnectorsArrValue);
         }
-        if(this.notificationMessageTemplates && this.notificationMessageTemplates.length != 0){        const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = []; this.notificationMessageTemplates?.forEach(element => {notificationMessageTemplatesArrValue.push(element instanceof NotificationMessageTemplateImpl? element : new NotificationMessageTemplateImpl(element));});
+        if(this.notificationMessageTemplates && this.notificationMessageTemplates.length != 0){        const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = []; this.notificationMessageTemplates?.forEach(element => {notificationMessageTemplatesArrValue.push(new NotificationMessageTemplateImpl(element));});
             writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("notificationMessageTemplates", notificationMessageTemplatesArrValue);
         }
-        if(this.remoteAssistancePartners && this.remoteAssistancePartners.length != 0){        const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = []; this.remoteAssistancePartners?.forEach(element => {remoteAssistancePartnersArrValue.push(element instanceof RemoteAssistancePartnerImpl? element : new RemoteAssistancePartnerImpl(element));});
+        if(this.remoteAssistancePartners && this.remoteAssistancePartners.length != 0){        const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = []; this.remoteAssistancePartners?.forEach(element => {remoteAssistancePartnersArrValue.push(new RemoteAssistancePartnerImpl(element));});
             writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("remoteAssistancePartners", remoteAssistancePartnersArrValue);
         }
         if(this.reports){
             writer.writeObjectValue<DeviceManagementReportsImpl>("reports", new DeviceManagementReportsImpl(this.reports));
         }
-        if(this.resourceOperations && this.resourceOperations.length != 0){        const resourceOperationsArrValue: ResourceOperationImpl[] = []; this.resourceOperations?.forEach(element => {resourceOperationsArrValue.push(element instanceof ResourceOperationImpl? element : new ResourceOperationImpl(element));});
+        if(this.resourceOperations && this.resourceOperations.length != 0){        const resourceOperationsArrValue: ResourceOperationImpl[] = []; this.resourceOperations?.forEach(element => {resourceOperationsArrValue.push(new ResourceOperationImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceOperationImpl>("resourceOperations", resourceOperationsArrValue);
         }
-        if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof DeviceAndAppManagementRoleAssignmentImpl? element : new DeviceAndAppManagementRoleAssignmentImpl(element));});
+        if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(new DeviceAndAppManagementRoleAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
-        if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: RoleDefinitionImpl[] = []; this.roleDefinitions?.forEach(element => {roleDefinitionsArrValue.push(element instanceof RoleDefinitionImpl? element : new RoleDefinitionImpl(element));});
+        if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: RoleDefinitionImpl[] = []; this.roleDefinitions?.forEach(element => {roleDefinitionsArrValue.push(new RoleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<RoleDefinitionImpl>("roleDefinitions", roleDefinitionsArrValue);
         }
         if(this.settings){
@@ -344,22 +320,22 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(this.subscriptionState){
             writer.writeEnumValue<DeviceManagementSubscriptionState>("subscriptionState", this.subscriptionState);
         }
-        if(this.telecomExpenseManagementPartners && this.telecomExpenseManagementPartners.length != 0){        const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.telecomExpenseManagementPartners?.forEach(element => {telecomExpenseManagementPartnersArrValue.push(element instanceof TelecomExpenseManagementPartnerImpl? element : new TelecomExpenseManagementPartnerImpl(element));});
+        if(this.telecomExpenseManagementPartners && this.telecomExpenseManagementPartners.length != 0){        const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.telecomExpenseManagementPartners?.forEach(element => {telecomExpenseManagementPartnersArrValue.push(new TelecomExpenseManagementPartnerImpl(element));});
             writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartnerImpl>("telecomExpenseManagementPartners", telecomExpenseManagementPartnersArrValue);
         }
-        if(this.termsAndConditions && this.termsAndConditions.length != 0){        const termsAndConditionsArrValue: TermsAndConditionsImpl[] = []; this.termsAndConditions?.forEach(element => {termsAndConditionsArrValue.push(element instanceof TermsAndConditionsImpl? element : new TermsAndConditionsImpl(element));});
+        if(this.termsAndConditions && this.termsAndConditions.length != 0){        const termsAndConditionsArrValue: TermsAndConditionsImpl[] = []; this.termsAndConditions?.forEach(element => {termsAndConditionsArrValue.push(new TermsAndConditionsImpl(element));});
             writer.writeCollectionOfObjectValues<TermsAndConditionsImpl>("termsAndConditions", termsAndConditionsArrValue);
         }
-        if(this.troubleshootingEvents && this.troubleshootingEvents.length != 0){        const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.troubleshootingEvents?.forEach(element => {troubleshootingEventsArrValue.push(element instanceof DeviceManagementTroubleshootingEventImpl? element : new DeviceManagementTroubleshootingEventImpl(element));});
+        if(this.troubleshootingEvents && this.troubleshootingEvents.length != 0){        const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.troubleshootingEvents?.forEach(element => {troubleshootingEventsArrValue.push(new DeviceManagementTroubleshootingEventImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("troubleshootingEvents", troubleshootingEventsArrValue);
         }
-        if(this.windowsAutopilotDeviceIdentities && this.windowsAutopilotDeviceIdentities.length != 0){        const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.windowsAutopilotDeviceIdentities?.forEach(element => {windowsAutopilotDeviceIdentitiesArrValue.push(element instanceof WindowsAutopilotDeviceIdentityImpl? element : new WindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.windowsAutopilotDeviceIdentities && this.windowsAutopilotDeviceIdentities.length != 0){        const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.windowsAutopilotDeviceIdentities?.forEach(element => {windowsAutopilotDeviceIdentitiesArrValue.push(new WindowsAutopilotDeviceIdentityImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("windowsAutopilotDeviceIdentities", windowsAutopilotDeviceIdentitiesArrValue);
         }
-        if(this.windowsInformationProtectionAppLearningSummaries && this.windowsInformationProtectionAppLearningSummaries.length != 0){        const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {windowsInformationProtectionAppLearningSummariesArrValue.push(element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element : new WindowsInformationProtectionAppLearningSummaryImpl(element));});
+        if(this.windowsInformationProtectionAppLearningSummaries && this.windowsInformationProtectionAppLearningSummaries.length != 0){        const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {windowsInformationProtectionAppLearningSummariesArrValue.push(new WindowsInformationProtectionAppLearningSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLearningSummaryImpl>("windowsInformationProtectionAppLearningSummaries", windowsInformationProtectionAppLearningSummariesArrValue);
         }
-        if(this.windowsInformationProtectionNetworkLearningSummaries && this.windowsInformationProtectionNetworkLearningSummaries.length != 0){        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {windowsInformationProtectionNetworkLearningSummariesArrValue.push(element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element : new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
+        if(this.windowsInformationProtectionNetworkLearningSummaries && this.windowsInformationProtectionNetworkLearningSummaries.length != 0){        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {windowsInformationProtectionNetworkLearningSummariesArrValue.push(new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummaryImpl>("windowsInformationProtectionNetworkLearningSummaries", windowsInformationProtectionNetworkLearningSummariesArrValue);
         }
     };

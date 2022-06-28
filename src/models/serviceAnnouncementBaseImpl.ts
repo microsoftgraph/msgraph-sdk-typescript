@@ -22,8 +22,7 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
      */
     public constructor(serviceAnnouncementBaseParameterValue?: ServiceAnnouncementBase | undefined) {
         super(serviceAnnouncementBaseParameterValue);
-        const detailsArrValue: KeyValuePairImpl[] = []; serviceAnnouncementBaseParameterValue?.details?.forEach(element => {detailsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
-        this.details = detailsArrValue;
+        this.details = serviceAnnouncementBaseParameterValue?.details;
         this.endDateTime = serviceAnnouncementBaseParameterValue?.endDateTime;
         this.lastModifiedDateTime = serviceAnnouncementBaseParameterValue?.lastModifiedDateTime;
         this.startDateTime = serviceAnnouncementBaseParameterValue?.startDateTime;
@@ -49,7 +48,7 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.details && this.details.length != 0){        const detailsArrValue: KeyValuePairImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        if(this.details && this.details.length != 0){        const detailsArrValue: KeyValuePairImpl[] = []; this.details?.forEach(element => {detailsArrValue.push(new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("details", detailsArrValue);
         }
         if(this.endDateTime){

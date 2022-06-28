@@ -29,8 +29,7 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         this.displayName = deviceCompliancePolicyStateParameterValue?.displayName;
         this.platformType = deviceCompliancePolicyStateParameterValue?.platformType;
         this.settingCount = deviceCompliancePolicyStateParameterValue?.settingCount;
-        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = []; deviceCompliancePolicyStateParameterValue?.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceCompliancePolicySettingStateImpl? element : new DeviceCompliancePolicySettingStateImpl(element));});
-        this.settingStates = settingStatesArrValue;
+        this.settingStates = deviceCompliancePolicyStateParameterValue?.settingStates;
         this.state = deviceCompliancePolicyStateParameterValue?.state;
         this.version = deviceCompliancePolicyStateParameterValue?.version;
     };
@@ -64,7 +63,7 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         if(this.settingCount){
             writer.writeNumberValue("settingCount", this.settingCount);
         }
-        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(element instanceof DeviceCompliancePolicySettingStateImpl? element : new DeviceCompliancePolicySettingStateImpl(element));});
+        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceCompliancePolicySettingStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateImpl>("settingStates", settingStatesArrValue);
         }
         if(this.state){

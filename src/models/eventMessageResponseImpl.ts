@@ -16,7 +16,7 @@ export class EventMessageResponseImpl extends EventMessageImpl implements EventM
      */
     public constructor(eventMessageResponseParameterValue?: EventMessageResponse | undefined) {
         super(eventMessageResponseParameterValue);
-        this.proposedNewTime = eventMessageResponseParameterValue?.proposedNewTime instanceof TimeSlotImpl? eventMessageResponseParameterValue?.proposedNewTime:new TimeSlotImpl(eventMessageResponseParameterValue?.proposedNewTime);
+        this.proposedNewTime = eventMessageResponseParameterValue?.proposedNewTime;
         this.responseType = eventMessageResponseParameterValue?.responseType;
     };
     /**

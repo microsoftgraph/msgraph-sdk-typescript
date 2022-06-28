@@ -16,8 +16,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
         this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; assignPostRequestBodyParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
-        this.assignments = assignmentsArrValue;
+        this.assignments = assignPostRequestBodyParameterValue?.assignments;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element : new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new ManagedDeviceMobileAppConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

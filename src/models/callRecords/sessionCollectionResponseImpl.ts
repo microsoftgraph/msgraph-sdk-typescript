@@ -18,8 +18,7 @@ export class SessionCollectionResponseImpl implements SessionCollectionResponse 
     public constructor(sessionCollectionResponseParameterValue?: SessionCollectionResponse | undefined) {
         this.additionalData = sessionCollectionResponseParameterValue?.additionalData ? sessionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sessionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SessionImpl[] = []; sessionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
-        this.value = valueArrValue;
+        this.value = sessionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SessionCollectionResponseImpl implements SessionCollectionResponse 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SessionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SessionImpl? element : new SessionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SessionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SessionImpl(element));});
             writer.writeCollectionOfObjectValues<SessionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

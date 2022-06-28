@@ -16,7 +16,7 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
      */
     public constructor(workbookWorksheetProtectionParameterValue?: WorkbookWorksheetProtection | undefined) {
         super(workbookWorksheetProtectionParameterValue);
-        this.options = workbookWorksheetProtectionParameterValue?.options instanceof WorkbookWorksheetProtectionOptionsImpl? workbookWorksheetProtectionParameterValue?.options:new WorkbookWorksheetProtectionOptionsImpl(workbookWorksheetProtectionParameterValue?.options);
+        this.options = workbookWorksheetProtectionParameterValue?.options;
         this.protected = workbookWorksheetProtectionParameterValue?.protected;
     };
     /**

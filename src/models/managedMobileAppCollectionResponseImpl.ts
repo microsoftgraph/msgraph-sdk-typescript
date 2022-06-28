@@ -18,8 +18,7 @@ export class ManagedMobileAppCollectionResponseImpl implements ManagedMobileAppC
     public constructor(managedMobileAppCollectionResponseParameterValue?: ManagedMobileAppCollectionResponse | undefined) {
         this.additionalData = managedMobileAppCollectionResponseParameterValue?.additionalData ? managedMobileAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedMobileAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedMobileAppImpl[] = []; managedMobileAppCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
-        this.value = valueArrValue;
+        this.value = managedMobileAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ManagedMobileAppCollectionResponseImpl implements ManagedMobileAppC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

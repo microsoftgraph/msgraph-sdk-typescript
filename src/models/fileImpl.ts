@@ -19,7 +19,7 @@ export class FileImpl implements File {
      */
     public constructor(fileParameterValue?: File | undefined) {
         this.additionalData = fileParameterValue?.additionalData ? fileParameterValue?.additionalData! : {};
-        this.hashes = fileParameterValue?.hashes instanceof HashesImpl? fileParameterValue?.hashes:new HashesImpl(fileParameterValue?.hashes);
+        this.hashes = fileParameterValue?.hashes;
         this.mimeType = fileParameterValue?.mimeType;
         this.processingMetadata = fileParameterValue?.processingMetadata;
     };

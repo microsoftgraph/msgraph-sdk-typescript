@@ -20,8 +20,8 @@ export class CallRouteImpl implements CallRoute {
      */
     public constructor(callRouteParameterValue?: CallRoute | undefined) {
         this.additionalData = callRouteParameterValue?.additionalData ? callRouteParameterValue?.additionalData! : {};
-        this.final = callRouteParameterValue?.final instanceof IdentitySetImpl? callRouteParameterValue?.final:new IdentitySetImpl(callRouteParameterValue?.final);
-        this.original = callRouteParameterValue?.original instanceof IdentitySetImpl? callRouteParameterValue?.original:new IdentitySetImpl(callRouteParameterValue?.original);
+        this.final = callRouteParameterValue?.final;
+        this.original = callRouteParameterValue?.original;
         this.routingType = callRouteParameterValue?.routingType;
     };
     /**

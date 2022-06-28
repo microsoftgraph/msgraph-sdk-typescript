@@ -38,16 +38,16 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
      */
     public constructor(baseItemParameterValue?: BaseItem | undefined) {
         super(baseItemParameterValue);
-        this.createdBy = baseItemParameterValue?.createdBy instanceof IdentitySetImpl? baseItemParameterValue?.createdBy:new IdentitySetImpl(baseItemParameterValue?.createdBy);
-        this.createdByUser = baseItemParameterValue?.createdByUser instanceof UserImpl? baseItemParameterValue?.createdByUser:new UserImpl(baseItemParameterValue?.createdByUser);
+        this.createdBy = baseItemParameterValue?.createdBy;
+        this.createdByUser = baseItemParameterValue?.createdByUser;
         this.createdDateTime = baseItemParameterValue?.createdDateTime;
         this.description = baseItemParameterValue?.description;
         this.eTag = baseItemParameterValue?.eTag;
-        this.lastModifiedBy = baseItemParameterValue?.lastModifiedBy instanceof IdentitySetImpl? baseItemParameterValue?.lastModifiedBy:new IdentitySetImpl(baseItemParameterValue?.lastModifiedBy);
-        this.lastModifiedByUser = baseItemParameterValue?.lastModifiedByUser instanceof UserImpl? baseItemParameterValue?.lastModifiedByUser:new UserImpl(baseItemParameterValue?.lastModifiedByUser);
+        this.lastModifiedBy = baseItemParameterValue?.lastModifiedBy;
+        this.lastModifiedByUser = baseItemParameterValue?.lastModifiedByUser;
         this.lastModifiedDateTime = baseItemParameterValue?.lastModifiedDateTime;
         this.name = baseItemParameterValue?.name;
-        this.parentReference = baseItemParameterValue?.parentReference instanceof ItemReferenceImpl? baseItemParameterValue?.parentReference:new ItemReferenceImpl(baseItemParameterValue?.parentReference);
+        this.parentReference = baseItemParameterValue?.parentReference;
         this.webUrl = baseItemParameterValue?.webUrl;
     };
     /**

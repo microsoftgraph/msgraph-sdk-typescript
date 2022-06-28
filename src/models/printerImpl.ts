@@ -29,16 +29,13 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
      */
     public constructor(printerParameterValue?: Printer | undefined) {
         super(printerParameterValue);
-        const connectorsArrValue: PrintConnectorImpl[] = []; printerParameterValue?.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
-        this.connectors = connectorsArrValue;
+        this.connectors = printerParameterValue?.connectors;
         this.hasPhysicalDevice = printerParameterValue?.hasPhysicalDevice;
         this.isShared = printerParameterValue?.isShared;
         this.lastSeenDateTime = printerParameterValue?.lastSeenDateTime;
         this.registeredDateTime = printerParameterValue?.registeredDateTime;
-        const sharesArrValue: PrinterShareImpl[] = []; printerParameterValue?.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
-        this.shares = sharesArrValue;
-        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; printerParameterValue?.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
-        this.taskTriggers = taskTriggersArrValue;
+        this.shares = printerParameterValue?.shares;
+        this.taskTriggers = printerParameterValue?.taskTriggers;
     };
     /**
      * The deserialization information for the current model
@@ -62,7 +59,7 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(element instanceof PrintConnectorImpl? element : new PrintConnectorImpl(element));});
+        if(this.connectors && this.connectors.length != 0){        const connectorsArrValue: PrintConnectorImpl[] = []; this.connectors?.forEach(element => {connectorsArrValue.push(new PrintConnectorImpl(element));});
             writer.writeCollectionOfObjectValues<PrintConnectorImpl>("connectors", connectorsArrValue);
         }
         if(this.hasPhysicalDevice){
@@ -77,10 +74,10 @@ export class PrinterImpl extends PrinterBaseImpl implements Printer {
         if(this.registeredDateTime){
             writer.writeDateValue("registeredDateTime", this.registeredDateTime);
         }
-        if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(element instanceof PrinterShareImpl? element : new PrinterShareImpl(element));});
+        if(this.shares && this.shares.length != 0){        const sharesArrValue: PrinterShareImpl[] = []; this.shares?.forEach(element => {sharesArrValue.push(new PrinterShareImpl(element));});
             writer.writeCollectionOfObjectValues<PrinterShareImpl>("shares", sharesArrValue);
         }
-        if(this.taskTriggers && this.taskTriggers.length != 0){        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(element instanceof PrintTaskTriggerImpl? element : new PrintTaskTriggerImpl(element));});
+        if(this.taskTriggers && this.taskTriggers.length != 0){        const taskTriggersArrValue: PrintTaskTriggerImpl[] = []; this.taskTriggers?.forEach(element => {taskTriggersArrValue.push(new PrintTaskTriggerImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("taskTriggers", taskTriggersArrValue);
         }
     };

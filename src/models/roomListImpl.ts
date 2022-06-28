@@ -16,8 +16,7 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
     public constructor(roomListParameterValue?: RoomList | undefined) {
         super(roomListParameterValue);
         this.emailAddress = roomListParameterValue?.emailAddress;
-        const roomsArrValue: RoomImpl[] = []; roomListParameterValue?.rooms?.forEach(element => {roomsArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
-        this.rooms = roomsArrValue;
+        this.rooms = roomListParameterValue?.rooms;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +38,7 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
         if(this.emailAddress){
             writer.writeStringValue("emailAddress", this.emailAddress);
         }
-        if(this.rooms && this.rooms.length != 0){        const roomsArrValue: RoomImpl[] = []; this.rooms?.forEach(element => {roomsArrValue.push(element instanceof RoomImpl? element : new RoomImpl(element));});
+        if(this.rooms && this.rooms.length != 0){        const roomsArrValue: RoomImpl[] = []; this.rooms?.forEach(element => {roomsArrValue.push(new RoomImpl(element));});
             writer.writeCollectionOfObjectValues<RoomImpl>("rooms", roomsArrValue);
         }
     };

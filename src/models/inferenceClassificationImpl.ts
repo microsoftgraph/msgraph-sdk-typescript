@@ -14,8 +14,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
      */
     public constructor(inferenceClassificationParameterValue?: InferenceClassification | undefined) {
         super(inferenceClassificationParameterValue);
-        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; inferenceClassificationParameterValue?.overrides?.forEach(element => {overridesArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
-        this.overrides = overridesArrValue;
+        this.overrides = inferenceClassificationParameterValue?.overrides;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.overrides && this.overrides.length != 0){        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; this.overrides?.forEach(element => {overridesArrValue.push(element instanceof InferenceClassificationOverrideImpl? element : new InferenceClassificationOverrideImpl(element));});
+        if(this.overrides && this.overrides.length != 0){        const overridesArrValue: InferenceClassificationOverrideImpl[] = []; this.overrides?.forEach(element => {overridesArrValue.push(new InferenceClassificationOverrideImpl(element));});
             writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("overrides", overridesArrValue);
         }
     };

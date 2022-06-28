@@ -23,10 +23,8 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
      */
     public constructor(searchHitsContainerParameterValue?: SearchHitsContainer | undefined) {
         this.additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {};
-        const aggregationsArrValue: SearchAggregationImpl[] = []; searchHitsContainerParameterValue?.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof SearchAggregationImpl? element : new SearchAggregationImpl(element));});
-        this.aggregations = aggregationsArrValue;
-        const hitsArrValue: SearchHitImpl[] = []; searchHitsContainerParameterValue?.hits?.forEach(element => {hitsArrValue.push(element instanceof SearchHitImpl? element : new SearchHitImpl(element));});
-        this.hits = hitsArrValue;
+        this.aggregations = searchHitsContainerParameterValue?.aggregations;
+        this.hits = searchHitsContainerParameterValue?.hits;
         this.moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable;
         this.total = searchHitsContainerParameterValue?.total;
     };
@@ -48,10 +46,10 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(element instanceof SearchAggregationImpl? element : new SearchAggregationImpl(element));});
+        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new SearchAggregationImpl(element));});
             writer.writeCollectionOfObjectValues<SearchAggregationImpl>("aggregations", aggregationsArrValue);
         }
-        if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = []; this.hits?.forEach(element => {hitsArrValue.push(element instanceof SearchHitImpl? element : new SearchHitImpl(element));});
+        if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = []; this.hits?.forEach(element => {hitsArrValue.push(new SearchHitImpl(element));});
             writer.writeCollectionOfObjectValues<SearchHitImpl>("hits", hitsArrValue);
         }
         if(this.moreResultsAvailable){

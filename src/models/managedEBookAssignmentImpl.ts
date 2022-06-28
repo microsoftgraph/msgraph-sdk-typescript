@@ -18,7 +18,7 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
     public constructor(managedEBookAssignmentParameterValue?: ManagedEBookAssignment | undefined) {
         super(managedEBookAssignmentParameterValue);
         this.installIntent = managedEBookAssignmentParameterValue?.installIntent;
-        this.target = managedEBookAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? managedEBookAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(managedEBookAssignmentParameterValue?.target);
+        this.target = managedEBookAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

@@ -16,8 +16,7 @@ export class GetApplicablePolicyRequirementsResponseImpl implements GetApplicabl
      */
     public constructor(getApplicablePolicyRequirementsResponseParameterValue?: GetApplicablePolicyRequirementsResponse | undefined) {
         this.additionalData = getApplicablePolicyRequirementsResponseParameterValue?.additionalData ? getApplicablePolicyRequirementsResponseParameterValue?.additionalData! : {};
-        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = []; getApplicablePolicyRequirementsResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentRequestRequirementsImpl? element : new AccessPackageAssignmentRequestRequirementsImpl(element));});
-        this.value = valueArrValue;
+        this.value = getApplicablePolicyRequirementsResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetApplicablePolicyRequirementsResponseImpl implements GetApplicabl
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentRequestRequirementsImpl? element : new AccessPackageAssignmentRequestRequirementsImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentRequestRequirementsImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirementsImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

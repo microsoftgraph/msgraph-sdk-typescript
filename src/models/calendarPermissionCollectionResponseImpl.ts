@@ -18,8 +18,7 @@ export class CalendarPermissionCollectionResponseImpl implements CalendarPermiss
     public constructor(calendarPermissionCollectionResponseParameterValue?: CalendarPermissionCollectionResponse | undefined) {
         this.additionalData = calendarPermissionCollectionResponseParameterValue?.additionalData ? calendarPermissionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = calendarPermissionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CalendarPermissionImpl[] = []; calendarPermissionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
-        this.value = valueArrValue;
+        this.value = calendarPermissionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class CalendarPermissionCollectionResponseImpl implements CalendarPermiss
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: CalendarPermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CalendarPermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CalendarPermissionImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

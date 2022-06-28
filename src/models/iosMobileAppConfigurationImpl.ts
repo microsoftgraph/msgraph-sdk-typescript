@@ -16,8 +16,7 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
     public constructor(iosMobileAppConfigurationParameterValue?: IosMobileAppConfiguration | undefined) {
         super(iosMobileAppConfigurationParameterValue);
         this.encodedSettingXml = iosMobileAppConfigurationParameterValue?.encodedSettingXml;
-        const settingsArrValue: AppConfigurationSettingItemImpl[] = []; iosMobileAppConfigurationParameterValue?.settings?.forEach(element => {settingsArrValue.push(element instanceof AppConfigurationSettingItemImpl? element : new AppConfigurationSettingItemImpl(element));});
-        this.settings = settingsArrValue;
+        this.settings = iosMobileAppConfigurationParameterValue?.settings;
     };
     /**
      * The deserialization information for the current model
@@ -39,7 +38,7 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
         if(this.encodedSettingXml){
             writer.writeStringValue("encodedSettingXml", this.encodedSettingXml);
         }
-        if(this.settings && this.settings.length != 0){        const settingsArrValue: AppConfigurationSettingItemImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(element instanceof AppConfigurationSettingItemImpl? element : new AppConfigurationSettingItemImpl(element));});
+        if(this.settings && this.settings.length != 0){        const settingsArrValue: AppConfigurationSettingItemImpl[] = []; this.settings?.forEach(element => {settingsArrValue.push(new AppConfigurationSettingItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppConfigurationSettingItemImpl>("settings", settingsArrValue);
         }
     };

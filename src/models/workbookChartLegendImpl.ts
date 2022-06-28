@@ -20,7 +20,7 @@ export class WorkbookChartLegendImpl extends EntityImpl implements WorkbookChart
      */
     public constructor(workbookChartLegendParameterValue?: WorkbookChartLegend | undefined) {
         super(workbookChartLegendParameterValue);
-        this.format = workbookChartLegendParameterValue?.format instanceof WorkbookChartLegendFormatImpl? workbookChartLegendParameterValue?.format:new WorkbookChartLegendFormatImpl(workbookChartLegendParameterValue?.format);
+        this.format = workbookChartLegendParameterValue?.format;
         this.overlay = workbookChartLegendParameterValue?.overlay;
         this.position = workbookChartLegendParameterValue?.position;
         this.visible = workbookChartLegendParameterValue?.visible;

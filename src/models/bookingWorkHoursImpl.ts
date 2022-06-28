@@ -20,8 +20,7 @@ export class BookingWorkHoursImpl implements BookingWorkHours {
     public constructor(bookingWorkHoursParameterValue?: BookingWorkHours | undefined) {
         this.additionalData = bookingWorkHoursParameterValue?.additionalData ? bookingWorkHoursParameterValue?.additionalData! : {};
         this.day = bookingWorkHoursParameterValue?.day;
-        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; bookingWorkHoursParameterValue?.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof BookingWorkTimeSlotImpl? element : new BookingWorkTimeSlotImpl(element));});
-        this.timeSlots = timeSlotsArrValue;
+        this.timeSlots = bookingWorkHoursParameterValue?.timeSlots;
     };
     /**
      * The deserialization information for the current model
@@ -42,7 +41,7 @@ export class BookingWorkHoursImpl implements BookingWorkHours {
         if(this.day){
             writer.writeEnumValue<DayOfWeek>("day", this.day);
         }
-        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(element instanceof BookingWorkTimeSlotImpl? element : new BookingWorkTimeSlotImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new BookingWorkTimeSlotImpl(element));});
             writer.writeCollectionOfObjectValues<BookingWorkTimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

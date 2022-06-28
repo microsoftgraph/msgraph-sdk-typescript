@@ -22,7 +22,7 @@ export class SharingInvitationImpl implements SharingInvitation {
     public constructor(sharingInvitationParameterValue?: SharingInvitation | undefined) {
         this.additionalData = sharingInvitationParameterValue?.additionalData ? sharingInvitationParameterValue?.additionalData! : {};
         this.email = sharingInvitationParameterValue?.email;
-        this.invitedBy = sharingInvitationParameterValue?.invitedBy instanceof IdentitySetImpl? sharingInvitationParameterValue?.invitedBy:new IdentitySetImpl(sharingInvitationParameterValue?.invitedBy);
+        this.invitedBy = sharingInvitationParameterValue?.invitedBy;
         this.redeemedBy = sharingInvitationParameterValue?.redeemedBy;
         this.signInRequired = sharingInvitationParameterValue?.signInRequired;
     };

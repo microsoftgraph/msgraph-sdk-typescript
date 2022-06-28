@@ -16,7 +16,7 @@ export class ODataErrorImpl extends ApiError implements ODataError {
     public constructor(oDataErrorParameterValue?: ODataError | undefined) {
         super();
         this.additionalData = oDataErrorParameterValue?.additionalData ? oDataErrorParameterValue?.additionalData! : {};
-        this.error_escaped = oDataErrorParameterValue?.error_escaped instanceof MainErrorImpl? oDataErrorParameterValue?.error_escaped:new MainErrorImpl(oDataErrorParameterValue?.error_escaped);
+        this.error_escaped = oDataErrorParameterValue?.error_escaped;
     };
     /**
      * The deserialization information for the current model

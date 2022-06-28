@@ -22,10 +22,10 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
      */
     public constructor(workbookTableColumnParameterValue?: WorkbookTableColumn | undefined) {
         super(workbookTableColumnParameterValue);
-        this.filter = workbookTableColumnParameterValue?.filter instanceof WorkbookFilterImpl? workbookTableColumnParameterValue?.filter:new WorkbookFilterImpl(workbookTableColumnParameterValue?.filter);
+        this.filter = workbookTableColumnParameterValue?.filter;
         this.index = workbookTableColumnParameterValue?.index;
         this.name = workbookTableColumnParameterValue?.name;
-        this.values = workbookTableColumnParameterValue?.values instanceof JsonImpl? workbookTableColumnParameterValue?.values:new JsonImpl(workbookTableColumnParameterValue?.values);
+        this.values = workbookTableColumnParameterValue?.values;
     };
     /**
      * The deserialization information for the current model

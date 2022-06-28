@@ -22,9 +22,9 @@ export class TeamsTabImpl extends EntityImpl implements TeamsTab {
      */
     public constructor(teamsTabParameterValue?: TeamsTab | undefined) {
         super(teamsTabParameterValue);
-        this.configuration = teamsTabParameterValue?.configuration instanceof TeamsTabConfigurationImpl? teamsTabParameterValue?.configuration:new TeamsTabConfigurationImpl(teamsTabParameterValue?.configuration);
+        this.configuration = teamsTabParameterValue?.configuration;
         this.displayName = teamsTabParameterValue?.displayName;
-        this.teamsApp = teamsTabParameterValue?.teamsApp instanceof TeamsAppImpl? teamsTabParameterValue?.teamsApp:new TeamsAppImpl(teamsTabParameterValue?.teamsApp);
+        this.teamsApp = teamsTabParameterValue?.teamsApp;
         this.webUrl = teamsTabParameterValue?.webUrl;
     };
     /**

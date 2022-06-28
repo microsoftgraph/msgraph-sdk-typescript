@@ -37,8 +37,7 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         super(deviceCompliancePolicySettingStateSummaryParameterValue);
         this.compliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.compliantDeviceCount;
         this.conflictDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.conflictDeviceCount;
-        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; deviceCompliancePolicySettingStateSummaryParameterValue?.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
-        this.deviceComplianceSettingStates = deviceComplianceSettingStatesArrValue;
+        this.deviceComplianceSettingStates = deviceCompliancePolicySettingStateSummaryParameterValue?.deviceComplianceSettingStates;
         this.errorDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.errorDeviceCount;
         this.nonCompliantDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.nonCompliantDeviceCount;
         this.notApplicableDeviceCount = deviceCompliancePolicySettingStateSummaryParameterValue?.notApplicableDeviceCount;
@@ -80,7 +79,7 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         if(this.conflictDeviceCount){
             writer.writeNumberValue("conflictDeviceCount", this.conflictDeviceCount);
         }
-        if(this.deviceComplianceSettingStates && this.deviceComplianceSettingStates.length != 0){        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; this.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(element instanceof DeviceComplianceSettingStateImpl? element : new DeviceComplianceSettingStateImpl(element));});
+        if(this.deviceComplianceSettingStates && this.deviceComplianceSettingStates.length != 0){        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = []; this.deviceComplianceSettingStates?.forEach(element => {deviceComplianceSettingStatesArrValue.push(new DeviceComplianceSettingStateImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("deviceComplianceSettingStates", deviceComplianceSettingStatesArrValue);
         }
         if(this.errorDeviceCount){

@@ -18,8 +18,8 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
      */
     public constructor(plannerPlanDetailsParameterValue?: PlannerPlanDetails | undefined) {
         super(plannerPlanDetailsParameterValue);
-        this.categoryDescriptions = plannerPlanDetailsParameterValue?.categoryDescriptions instanceof PlannerCategoryDescriptionsImpl? plannerPlanDetailsParameterValue?.categoryDescriptions:new PlannerCategoryDescriptionsImpl(plannerPlanDetailsParameterValue?.categoryDescriptions);
-        this.sharedWith = plannerPlanDetailsParameterValue?.sharedWith instanceof PlannerUserIdsImpl? plannerPlanDetailsParameterValue?.sharedWith:new PlannerUserIdsImpl(plannerPlanDetailsParameterValue?.sharedWith);
+        this.categoryDescriptions = plannerPlanDetailsParameterValue?.categoryDescriptions;
+        this.sharedWith = plannerPlanDetailsParameterValue?.sharedWith;
     };
     /**
      * The deserialization information for the current model

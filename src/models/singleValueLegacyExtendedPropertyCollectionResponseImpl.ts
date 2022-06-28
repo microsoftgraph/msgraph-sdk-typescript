@@ -18,8 +18,7 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
     public constructor(singleValueLegacyExtendedPropertyCollectionResponseParameterValue?: SingleValueLegacyExtendedPropertyCollectionResponse | undefined) {
         this.additionalData = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData ? singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
-        this.value = valueArrValue;
+        this.value = singleValueLegacyExtendedPropertyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

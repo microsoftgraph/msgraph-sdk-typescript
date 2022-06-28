@@ -18,8 +18,7 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Unif
     public constructor(unifiedRoleAssignmentScheduleCollectionResponseParameterValue?: UnifiedRoleAssignmentScheduleCollectionResponse | undefined) {
         this.additionalData = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData ? unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleImpl? element : new UnifiedRoleAssignmentScheduleImpl(element));});
-        this.value = valueArrValue;
+        this.value = unifiedRoleAssignmentScheduleCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Unif
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleAssignmentScheduleImpl? element : new UnifiedRoleAssignmentScheduleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleAssignmentScheduleImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class EducationOutcomeCollectionResponseImpl implements EducationOutcomeC
     public constructor(educationOutcomeCollectionResponseParameterValue?: EducationOutcomeCollectionResponse | undefined) {
         this.additionalData = educationOutcomeCollectionResponseParameterValue?.additionalData ? educationOutcomeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationOutcomeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationOutcomeImpl[] = []; educationOutcomeCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationOutcomeCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationOutcomeCollectionResponseImpl implements EducationOutcomeC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationOutcomeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationOutcomeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationOutcomeImpl(element));});
             writer.writeCollectionOfObjectValues<EducationOutcomeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

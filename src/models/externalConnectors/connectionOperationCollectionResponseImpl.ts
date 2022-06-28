@@ -18,8 +18,7 @@ export class ConnectionOperationCollectionResponseImpl implements ConnectionOper
     public constructor(connectionOperationCollectionResponseParameterValue?: ConnectionOperationCollectionResponse | undefined) {
         this.additionalData = connectionOperationCollectionResponseParameterValue?.additionalData ? connectionOperationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = connectionOperationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConnectionOperationImpl[] = []; connectionOperationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
-        this.value = valueArrValue;
+        this.value = connectionOperationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ConnectionOperationCollectionResponseImpl implements ConnectionOper
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ConnectionOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConnectionOperationImpl? element : new ConnectionOperationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConnectionOperationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConnectionOperationImpl(element));});
             writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

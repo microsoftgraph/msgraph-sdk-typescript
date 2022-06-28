@@ -18,8 +18,7 @@ export class ConversationCollectionResponseImpl implements ConversationCollectio
     public constructor(conversationCollectionResponseParameterValue?: ConversationCollectionResponse | undefined) {
         this.additionalData = conversationCollectionResponseParameterValue?.additionalData ? conversationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = conversationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ConversationImpl[] = []; conversationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ConversationImpl? element : new ConversationImpl(element));});
-        this.value = valueArrValue;
+        this.value = conversationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ConversationCollectionResponseImpl implements ConversationCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ConversationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ConversationImpl? element : new ConversationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ConversationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ConversationImpl(element));});
             writer.writeCollectionOfObjectValues<ConversationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

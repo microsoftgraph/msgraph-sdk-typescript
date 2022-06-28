@@ -32,10 +32,10 @@ export class InvitationImpl extends EntityImpl implements Invitation {
      */
     public constructor(invitationParameterValue?: Invitation | undefined) {
         super(invitationParameterValue);
-        this.invitedUser = invitationParameterValue?.invitedUser instanceof UserImpl? invitationParameterValue?.invitedUser:new UserImpl(invitationParameterValue?.invitedUser);
+        this.invitedUser = invitationParameterValue?.invitedUser;
         this.invitedUserDisplayName = invitationParameterValue?.invitedUserDisplayName;
         this.invitedUserEmailAddress = invitationParameterValue?.invitedUserEmailAddress;
-        this.invitedUserMessageInfo = invitationParameterValue?.invitedUserMessageInfo instanceof InvitedUserMessageInfoImpl? invitationParameterValue?.invitedUserMessageInfo:new InvitedUserMessageInfoImpl(invitationParameterValue?.invitedUserMessageInfo);
+        this.invitedUserMessageInfo = invitationParameterValue?.invitedUserMessageInfo;
         this.invitedUserType = invitationParameterValue?.invitedUserType;
         this.inviteRedeemUrl = invitationParameterValue?.inviteRedeemUrl;
         this.inviteRedirectUrl = invitationParameterValue?.inviteRedirectUrl;

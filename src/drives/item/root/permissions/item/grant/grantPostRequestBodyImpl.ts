@@ -18,8 +18,7 @@ export class GrantPostRequestBodyImpl implements GrantPostRequestBody {
      */
     public constructor(grantPostRequestBodyParameterValue?: GrantPostRequestBody | undefined) {
         this.additionalData = grantPostRequestBodyParameterValue?.additionalData ? grantPostRequestBodyParameterValue?.additionalData! : {};
-        const recipientsArrValue: DriveRecipientImpl[] = []; grantPostRequestBodyParameterValue?.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
-        this.recipients = recipientsArrValue;
+        this.recipients = grantPostRequestBodyParameterValue?.recipients;
         this.roles = grantPostRequestBodyParameterValue?.roles;
     };
     /**
@@ -38,7 +37,7 @@ export class GrantPostRequestBodyImpl implements GrantPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
+        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(new DriveRecipientImpl(element));});
             writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }
         if(this.roles){

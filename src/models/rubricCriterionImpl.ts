@@ -15,7 +15,7 @@ export class RubricCriterionImpl implements RubricCriterion {
      */
     public constructor(rubricCriterionParameterValue?: RubricCriterion | undefined) {
         this.additionalData = rubricCriterionParameterValue?.additionalData ? rubricCriterionParameterValue?.additionalData! : {};
-        this.description = rubricCriterionParameterValue?.description instanceof EducationItemBodyImpl? rubricCriterionParameterValue?.description:new EducationItemBodyImpl(rubricCriterionParameterValue?.description);
+        this.description = rubricCriterionParameterValue?.description;
     };
     /**
      * The deserialization information for the current model

@@ -18,8 +18,7 @@ export class SecureScoreControlProfileCollectionResponseImpl implements SecureSc
     public constructor(secureScoreControlProfileCollectionResponseParameterValue?: SecureScoreControlProfileCollectionResponse | undefined) {
         this.additionalData = secureScoreControlProfileCollectionResponseParameterValue?.additionalData ? secureScoreControlProfileCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = secureScoreControlProfileCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SecureScoreControlProfileImpl[] = []; secureScoreControlProfileCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
-        this.value = valueArrValue;
+        this.value = secureScoreControlProfileCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SecureScoreControlProfileCollectionResponseImpl implements SecureSc
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreControlProfileImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreControlProfileImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SecureScoreControlProfileImpl(element));});
             writer.writeCollectionOfObjectValues<SecureScoreControlProfileImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -17,8 +17,8 @@ export class UserFlowApiConnectorConfigurationImpl implements UserFlowApiConnect
      */
     public constructor(userFlowApiConnectorConfigurationParameterValue?: UserFlowApiConnectorConfiguration | undefined) {
         this.additionalData = userFlowApiConnectorConfigurationParameterValue?.additionalData ? userFlowApiConnectorConfigurationParameterValue?.additionalData! : {};
-        this.postAttributeCollection = userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection instanceof IdentityApiConnectorImpl? userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection:new IdentityApiConnectorImpl(userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection);
-        this.postFederationSignup = userFlowApiConnectorConfigurationParameterValue?.postFederationSignup instanceof IdentityApiConnectorImpl? userFlowApiConnectorConfigurationParameterValue?.postFederationSignup:new IdentityApiConnectorImpl(userFlowApiConnectorConfigurationParameterValue?.postFederationSignup);
+        this.postAttributeCollection = userFlowApiConnectorConfigurationParameterValue?.postAttributeCollection;
+        this.postFederationSignup = userFlowApiConnectorConfigurationParameterValue?.postFederationSignup;
     };
     /**
      * The deserialization information for the current model

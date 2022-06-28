@@ -22,7 +22,7 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
      */
     public constructor(unifiedRoleManagementPolicyAssignmentParameterValue?: UnifiedRoleManagementPolicyAssignment | undefined) {
         super(unifiedRoleManagementPolicyAssignmentParameterValue);
-        this.policy = unifiedRoleManagementPolicyAssignmentParameterValue?.policy instanceof UnifiedRoleManagementPolicyImpl? unifiedRoleManagementPolicyAssignmentParameterValue?.policy:new UnifiedRoleManagementPolicyImpl(unifiedRoleManagementPolicyAssignmentParameterValue?.policy);
+        this.policy = unifiedRoleManagementPolicyAssignmentParameterValue?.policy;
         this.policyId = unifiedRoleManagementPolicyAssignmentParameterValue?.policyId;
         this.roleDefinitionId = unifiedRoleManagementPolicyAssignmentParameterValue?.roleDefinitionId;
         this.scopeId = unifiedRoleManagementPolicyAssignmentParameterValue?.scopeId;

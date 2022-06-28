@@ -18,7 +18,7 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
     public constructor(androidStoreAppParameterValue?: AndroidStoreApp | undefined) {
         super(androidStoreAppParameterValue);
         this.appStoreUrl = androidStoreAppParameterValue?.appStoreUrl;
-        this.minimumSupportedOperatingSystem = androidStoreAppParameterValue?.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? androidStoreAppParameterValue?.minimumSupportedOperatingSystem:new AndroidMinimumOperatingSystemImpl(androidStoreAppParameterValue?.minimumSupportedOperatingSystem);
+        this.minimumSupportedOperatingSystem = androidStoreAppParameterValue?.minimumSupportedOperatingSystem;
         this.packageId = androidStoreAppParameterValue?.packageId;
     };
     /**

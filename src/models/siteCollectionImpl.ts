@@ -21,7 +21,7 @@ export class SiteCollectionImpl implements SiteCollection {
         this.additionalData = siteCollectionParameterValue?.additionalData ? siteCollectionParameterValue?.additionalData! : {};
         this.dataLocationCode = siteCollectionParameterValue?.dataLocationCode;
         this.hostname = siteCollectionParameterValue?.hostname;
-        this.root = siteCollectionParameterValue?.root instanceof RootImpl? siteCollectionParameterValue?.root:new RootImpl(siteCollectionParameterValue?.root);
+        this.root = siteCollectionParameterValue?.root;
     };
     /**
      * The deserialization information for the current model

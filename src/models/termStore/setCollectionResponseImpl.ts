@@ -18,8 +18,7 @@ export class SetCollectionResponseImpl implements SetCollectionResponse {
     public constructor(setCollectionResponseParameterValue?: SetCollectionResponse | undefined) {
         this.additionalData = setCollectionResponseParameterValue?.additionalData ? setCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = setCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SetImpl[] = []; setCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
-        this.value = valueArrValue;
+        this.value = setCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SetCollectionResponseImpl implements SetCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SetImpl? element : new SetImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SetImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SetImpl(element));});
             writer.writeCollectionOfObjectValues<SetImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

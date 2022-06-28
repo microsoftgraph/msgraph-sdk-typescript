@@ -18,8 +18,7 @@ export class MobileAppCollectionResponseImpl implements MobileAppCollectionRespo
     public constructor(mobileAppCollectionResponseParameterValue?: MobileAppCollectionResponse | undefined) {
         this.additionalData = mobileAppCollectionResponseParameterValue?.additionalData ? mobileAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileAppImpl[] = []; mobileAppCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppImpl? element : new MobileAppImpl(element));});
-        this.value = valueArrValue;
+        this.value = mobileAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MobileAppCollectionResponseImpl implements MobileAppCollectionRespo
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppImpl? element : new MobileAppImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

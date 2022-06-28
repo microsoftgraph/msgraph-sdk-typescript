@@ -16,8 +16,7 @@ export class GetScheduleResponseImpl implements GetScheduleResponse {
      */
     public constructor(getScheduleResponseParameterValue?: GetScheduleResponse | undefined) {
         this.additionalData = getScheduleResponseParameterValue?.additionalData ? getScheduleResponseParameterValue?.additionalData! : {};
-        const valueArrValue: ScheduleInformationImpl[] = []; getScheduleResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ScheduleInformationImpl? element : new ScheduleInformationImpl(element));});
-        this.value = valueArrValue;
+        this.value = getScheduleResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetScheduleResponseImpl implements GetScheduleResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ScheduleInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ScheduleInformationImpl? element : new ScheduleInformationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ScheduleInformationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ScheduleInformationImpl(element));});
             writer.writeCollectionOfObjectValues<ScheduleInformationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

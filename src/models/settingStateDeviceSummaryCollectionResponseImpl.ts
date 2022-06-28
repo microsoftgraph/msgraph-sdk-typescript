@@ -18,8 +18,7 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements SettingS
     public constructor(settingStateDeviceSummaryCollectionResponseParameterValue?: SettingStateDeviceSummaryCollectionResponse | undefined) {
         this.additionalData = settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData ? settingStateDeviceSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = settingStateDeviceSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SettingStateDeviceSummaryImpl[] = []; settingStateDeviceSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
-        this.value = valueArrValue;
+        this.value = settingStateDeviceSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements SettingS
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SettingStateDeviceSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SettingStateDeviceSummaryImpl? element : new SettingStateDeviceSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SettingStateDeviceSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SettingStateDeviceSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

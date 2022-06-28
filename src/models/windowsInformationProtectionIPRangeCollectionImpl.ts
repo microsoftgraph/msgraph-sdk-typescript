@@ -19,8 +19,7 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Window
     public constructor(windowsInformationProtectionIPRangeCollectionParameterValue?: WindowsInformationProtectionIPRangeCollection | undefined) {
         this.additionalData = windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData ? windowsInformationProtectionIPRangeCollectionParameterValue?.additionalData! : {};
         this.displayName = windowsInformationProtectionIPRangeCollectionParameterValue?.displayName;
-        const rangesArrValue: IpRangeImpl[] = []; windowsInformationProtectionIPRangeCollectionParameterValue?.ranges?.forEach(element => {rangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
-        this.ranges = rangesArrValue;
+        this.ranges = windowsInformationProtectionIPRangeCollectionParameterValue?.ranges;
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +40,7 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Window
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.ranges && this.ranges.length != 0){        const rangesArrValue: IpRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
+        if(this.ranges && this.ranges.length != 0){        const rangesArrValue: IpRangeImpl[] = []; this.ranges?.forEach(element => {rangesArrValue.push(new IpRangeImpl(element));});
             writer.writeCollectionOfObjectValues<IpRangeImpl>("ranges", rangesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

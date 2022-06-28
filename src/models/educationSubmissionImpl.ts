@@ -47,22 +47,19 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
      */
     public constructor(educationSubmissionParameterValue?: EducationSubmission | undefined) {
         super(educationSubmissionParameterValue);
-        const outcomesArrValue: EducationOutcomeImpl[] = []; educationSubmissionParameterValue?.outcomes?.forEach(element => {outcomesArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
-        this.outcomes = outcomesArrValue;
-        this.reassignedBy = educationSubmissionParameterValue?.reassignedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.reassignedBy:new IdentitySetImpl(educationSubmissionParameterValue?.reassignedBy);
+        this.outcomes = educationSubmissionParameterValue?.outcomes;
+        this.reassignedBy = educationSubmissionParameterValue?.reassignedBy;
         this.reassignedDateTime = educationSubmissionParameterValue?.reassignedDateTime;
-        this.recipient = educationSubmissionParameterValue?.recipient instanceof EducationSubmissionRecipientImpl? educationSubmissionParameterValue?.recipient:new EducationSubmissionRecipientImpl(educationSubmissionParameterValue?.recipient);
-        const resourcesArrValue: EducationSubmissionResourceImpl[] = []; educationSubmissionParameterValue?.resources?.forEach(element => {resourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
-        this.resources = resourcesArrValue;
+        this.recipient = educationSubmissionParameterValue?.recipient;
+        this.resources = educationSubmissionParameterValue?.resources;
         this.resourcesFolderUrl = educationSubmissionParameterValue?.resourcesFolderUrl;
-        this.returnedBy = educationSubmissionParameterValue?.returnedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.returnedBy:new IdentitySetImpl(educationSubmissionParameterValue?.returnedBy);
+        this.returnedBy = educationSubmissionParameterValue?.returnedBy;
         this.returnedDateTime = educationSubmissionParameterValue?.returnedDateTime;
         this.status = educationSubmissionParameterValue?.status;
-        this.submittedBy = educationSubmissionParameterValue?.submittedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.submittedBy:new IdentitySetImpl(educationSubmissionParameterValue?.submittedBy);
+        this.submittedBy = educationSubmissionParameterValue?.submittedBy;
         this.submittedDateTime = educationSubmissionParameterValue?.submittedDateTime;
-        const submittedResourcesArrValue: EducationSubmissionResourceImpl[] = []; educationSubmissionParameterValue?.submittedResources?.forEach(element => {submittedResourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
-        this.submittedResources = submittedResourcesArrValue;
-        this.unsubmittedBy = educationSubmissionParameterValue?.unsubmittedBy instanceof IdentitySetImpl? educationSubmissionParameterValue?.unsubmittedBy:new IdentitySetImpl(educationSubmissionParameterValue?.unsubmittedBy);
+        this.submittedResources = educationSubmissionParameterValue?.submittedResources;
+        this.unsubmittedBy = educationSubmissionParameterValue?.unsubmittedBy;
         this.unsubmittedDateTime = educationSubmissionParameterValue?.unsubmittedDateTime;
     };
     /**
@@ -94,7 +91,7 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.outcomes && this.outcomes.length != 0){        const outcomesArrValue: EducationOutcomeImpl[] = []; this.outcomes?.forEach(element => {outcomesArrValue.push(element instanceof EducationOutcomeImpl? element : new EducationOutcomeImpl(element));});
+        if(this.outcomes && this.outcomes.length != 0){        const outcomesArrValue: EducationOutcomeImpl[] = []; this.outcomes?.forEach(element => {outcomesArrValue.push(new EducationOutcomeImpl(element));});
             writer.writeCollectionOfObjectValues<EducationOutcomeImpl>("outcomes", outcomesArrValue);
         }
         if(this.reassignedBy){
@@ -106,7 +103,7 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
         if(this.recipient){
             writer.writeObjectValue<EducationSubmissionRecipientImpl>("recipient", new EducationSubmissionRecipientImpl(this.recipient));
         }
-        if(this.resources && this.resources.length != 0){        const resourcesArrValue: EducationSubmissionResourceImpl[] = []; this.resources?.forEach(element => {resourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
+        if(this.resources && this.resources.length != 0){        const resourcesArrValue: EducationSubmissionResourceImpl[] = []; this.resources?.forEach(element => {resourcesArrValue.push(new EducationSubmissionResourceImpl(element));});
             writer.writeCollectionOfObjectValues<EducationSubmissionResourceImpl>("resources", resourcesArrValue);
         }
         if(this.resourcesFolderUrl){
@@ -127,7 +124,7 @@ export class EducationSubmissionImpl extends EntityImpl implements EducationSubm
         if(this.submittedDateTime){
             writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         }
-        if(this.submittedResources && this.submittedResources.length != 0){        const submittedResourcesArrValue: EducationSubmissionResourceImpl[] = []; this.submittedResources?.forEach(element => {submittedResourcesArrValue.push(element instanceof EducationSubmissionResourceImpl? element : new EducationSubmissionResourceImpl(element));});
+        if(this.submittedResources && this.submittedResources.length != 0){        const submittedResourcesArrValue: EducationSubmissionResourceImpl[] = []; this.submittedResources?.forEach(element => {submittedResourcesArrValue.push(new EducationSubmissionResourceImpl(element));});
             writer.writeCollectionOfObjectValues<EducationSubmissionResourceImpl>("submittedResources", submittedResourcesArrValue);
         }
         if(this.unsubmittedBy){

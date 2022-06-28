@@ -20,8 +20,7 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
         super(workbookCommentParameterValue);
         this.content = workbookCommentParameterValue?.content;
         this.contentType = workbookCommentParameterValue?.contentType;
-        const repliesArrValue: WorkbookCommentReplyImpl[] = []; workbookCommentParameterValue?.replies?.forEach(element => {repliesArrValue.push(element instanceof WorkbookCommentReplyImpl? element : new WorkbookCommentReplyImpl(element));});
-        this.replies = repliesArrValue;
+        this.replies = workbookCommentParameterValue?.replies;
     };
     /**
      * The deserialization information for the current model
@@ -47,7 +46,7 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
         if(this.contentType){
             writer.writeStringValue("contentType", this.contentType);
         }
-        if(this.replies && this.replies.length != 0){        const repliesArrValue: WorkbookCommentReplyImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(element instanceof WorkbookCommentReplyImpl? element : new WorkbookCommentReplyImpl(element));});
+        if(this.replies && this.replies.length != 0){        const repliesArrValue: WorkbookCommentReplyImpl[] = []; this.replies?.forEach(element => {repliesArrValue.push(new WorkbookCommentReplyImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookCommentReplyImpl>("replies", repliesArrValue);
         }
     };

@@ -20,7 +20,7 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
     public constructor(commsOperationParameterValue?: CommsOperation | undefined) {
         super(commsOperationParameterValue);
         this.clientContext = commsOperationParameterValue?.clientContext;
-        this.resultInfo = commsOperationParameterValue?.resultInfo instanceof ResultInfoImpl? commsOperationParameterValue?.resultInfo:new ResultInfoImpl(commsOperationParameterValue?.resultInfo);
+        this.resultInfo = commsOperationParameterValue?.resultInfo;
         this.status = commsOperationParameterValue?.status;
     };
     /**

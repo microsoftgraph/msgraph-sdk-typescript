@@ -18,8 +18,7 @@ export class DeviceComplianceUserStatusCollectionResponseImpl implements DeviceC
     public constructor(deviceComplianceUserStatusCollectionResponseParameterValue?: DeviceComplianceUserStatusCollectionResponse | undefined) {
         this.additionalData = deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData ? deviceComplianceUserStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = deviceComplianceUserStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; deviceComplianceUserStatusCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceUserStatusImpl? element : new DeviceComplianceUserStatusImpl(element));});
-        this.value = valueArrValue;
+        this.value = deviceComplianceUserStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceComplianceUserStatusCollectionResponseImpl implements DeviceC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DeviceComplianceUserStatusImpl? element : new DeviceComplianceUserStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceComplianceUserStatusImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceUserStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

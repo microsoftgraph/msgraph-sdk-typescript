@@ -13,7 +13,7 @@ export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements Man
      */
     public constructor(managedAppStatusRawParameterValue?: ManagedAppStatusRaw | undefined) {
         super(managedAppStatusRawParameterValue);
-        this.content = managedAppStatusRawParameterValue?.content instanceof JsonImpl? managedAppStatusRawParameterValue?.content:new JsonImpl(managedAppStatusRawParameterValue?.content);
+        this.content = managedAppStatusRawParameterValue?.content;
     };
     /**
      * The deserialization information for the current model

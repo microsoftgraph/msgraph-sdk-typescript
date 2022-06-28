@@ -36,7 +36,7 @@ export class SharedPCConfigurationImpl extends DeviceConfigurationImpl implement
      */
     public constructor(sharedPCConfigurationParameterValue?: SharedPCConfiguration | undefined) {
         super(sharedPCConfigurationParameterValue);
-        this.accountManagerPolicy = sharedPCConfigurationParameterValue?.accountManagerPolicy instanceof SharedPCAccountManagerPolicyImpl? sharedPCConfigurationParameterValue?.accountManagerPolicy:new SharedPCAccountManagerPolicyImpl(sharedPCConfigurationParameterValue?.accountManagerPolicy);
+        this.accountManagerPolicy = sharedPCConfigurationParameterValue?.accountManagerPolicy;
         this.allowedAccounts = sharedPCConfigurationParameterValue?.allowedAccounts;
         this.allowLocalStorage = sharedPCConfigurationParameterValue?.allowLocalStorage;
         this.disableAccountManager = sharedPCConfigurationParameterValue?.disableAccountManager;

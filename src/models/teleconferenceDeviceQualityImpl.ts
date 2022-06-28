@@ -41,8 +41,7 @@ export class TeleconferenceDeviceQualityImpl implements TeleconferenceDeviceQual
         this.deviceDescription = teleconferenceDeviceQualityParameterValue?.deviceDescription;
         this.deviceName = teleconferenceDeviceQualityParameterValue?.deviceName;
         this.mediaLegId = teleconferenceDeviceQualityParameterValue?.mediaLegId;
-        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = []; teleconferenceDeviceQualityParameterValue?.mediaQualityList?.forEach(element => {mediaQualityListArrValue.push(element instanceof TeleconferenceDeviceMediaQualityImpl? element : new TeleconferenceDeviceMediaQualityImpl(element));});
-        this.mediaQualityList = mediaQualityListArrValue;
+        this.mediaQualityList = teleconferenceDeviceQualityParameterValue?.mediaQualityList;
         this.participantId = teleconferenceDeviceQualityParameterValue?.participantId;
     };
     /**
@@ -93,7 +92,7 @@ export class TeleconferenceDeviceQualityImpl implements TeleconferenceDeviceQual
         if(this.mediaLegId){
             writer.writeStringValue("mediaLegId", this.mediaLegId);
         }
-        if(this.mediaQualityList && this.mediaQualityList.length != 0){        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = []; this.mediaQualityList?.forEach(element => {mediaQualityListArrValue.push(element instanceof TeleconferenceDeviceMediaQualityImpl? element : new TeleconferenceDeviceMediaQualityImpl(element));});
+        if(this.mediaQualityList && this.mediaQualityList.length != 0){        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = []; this.mediaQualityList?.forEach(element => {mediaQualityListArrValue.push(new TeleconferenceDeviceMediaQualityImpl(element));});
             writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQualityImpl>("mediaQualityList", mediaQualityListArrValue);
         }
         if(this.participantId){

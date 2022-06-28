@@ -14,8 +14,7 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
      */
     public constructor(userTeamworkParameterValue?: UserTeamwork | undefined) {
         super(userTeamworkParameterValue);
-        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; userTeamworkParameterValue?.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
-        this.installedApps = installedAppsArrValue;
+        this.installedApps = userTeamworkParameterValue?.installedApps;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(element instanceof UserScopeTeamsAppInstallationImpl? element : new UserScopeTeamsAppInstallationImpl(element));});
+        if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = []; this.installedApps?.forEach(element => {installedAppsArrValue.push(new UserScopeTeamsAppInstallationImpl(element));});
             writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
     };

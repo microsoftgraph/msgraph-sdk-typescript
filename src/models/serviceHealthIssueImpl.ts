@@ -38,8 +38,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         this.impactDescription = serviceHealthIssueParameterValue?.impactDescription;
         this.isResolved = serviceHealthIssueParameterValue?.isResolved;
         this.origin = serviceHealthIssueParameterValue?.origin;
-        const postsArrValue: ServiceHealthIssuePostImpl[] = []; serviceHealthIssueParameterValue?.posts?.forEach(element => {postsArrValue.push(element instanceof ServiceHealthIssuePostImpl? element : new ServiceHealthIssuePostImpl(element));});
-        this.posts = postsArrValue;
+        this.posts = serviceHealthIssueParameterValue?.posts;
         this.service = serviceHealthIssueParameterValue?.service;
         this.status = serviceHealthIssueParameterValue?.status;
     };
@@ -85,7 +84,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         if(this.origin){
             writer.writeEnumValue<ServiceHealthOrigin>("origin", this.origin);
         }
-        if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(element instanceof ServiceHealthIssuePostImpl? element : new ServiceHealthIssuePostImpl(element));});
+        if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = []; this.posts?.forEach(element => {postsArrValue.push(new ServiceHealthIssuePostImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceHealthIssuePostImpl>("posts", postsArrValue);
         }
         if(this.service){

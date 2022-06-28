@@ -20,8 +20,7 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         super(groupSettingParameterValue);
         this.displayName = groupSettingParameterValue?.displayName;
         this.templateId = groupSettingParameterValue?.templateId;
-        const valuesArrValue: SettingValueImpl[] = []; groupSettingParameterValue?.values?.forEach(element => {valuesArrValue.push(element instanceof SettingValueImpl? element : new SettingValueImpl(element));});
-        this.values = valuesArrValue;
+        this.values = groupSettingParameterValue?.values;
     };
     /**
      * The deserialization information for the current model
@@ -47,7 +46,7 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         if(this.templateId){
             writer.writeStringValue("templateId", this.templateId);
         }
-        if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(element instanceof SettingValueImpl? element : new SettingValueImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingValueImpl(element));});
             writer.writeCollectionOfObjectValues<SettingValueImpl>("values", valuesArrValue);
         }
     };

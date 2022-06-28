@@ -23,7 +23,7 @@ export class SignInLocationImpl implements SignInLocation {
         this.additionalData = signInLocationParameterValue?.additionalData ? signInLocationParameterValue?.additionalData! : {};
         this.city = signInLocationParameterValue?.city;
         this.countryOrRegion = signInLocationParameterValue?.countryOrRegion;
-        this.geoCoordinates = signInLocationParameterValue?.geoCoordinates instanceof GeoCoordinatesImpl? signInLocationParameterValue?.geoCoordinates:new GeoCoordinatesImpl(signInLocationParameterValue?.geoCoordinates);
+        this.geoCoordinates = signInLocationParameterValue?.geoCoordinates;
         this.state = signInLocationParameterValue?.state;
     };
     /**

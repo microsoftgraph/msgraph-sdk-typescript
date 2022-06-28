@@ -18,8 +18,7 @@ export class OnenoteSectionCollectionResponseImpl implements OnenoteSectionColle
     public constructor(onenoteSectionCollectionResponseParameterValue?: OnenoteSectionCollectionResponse | undefined) {
         this.additionalData = onenoteSectionCollectionResponseParameterValue?.additionalData ? onenoteSectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onenoteSectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnenoteSectionImpl[] = []; onenoteSectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
-        this.value = valueArrValue;
+        this.value = onenoteSectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OnenoteSectionCollectionResponseImpl implements OnenoteSectionColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OnenoteSectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnenoteSectionImpl? element : new OnenoteSectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OnenoteSectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnenoteSectionImpl(element));});
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

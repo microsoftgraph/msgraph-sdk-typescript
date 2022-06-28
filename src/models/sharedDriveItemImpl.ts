@@ -37,15 +37,14 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public constructor(sharedDriveItemParameterValue?: SharedDriveItem | undefined) {
         super(sharedDriveItemParameterValue);
-        this.driveItem = sharedDriveItemParameterValue?.driveItem instanceof DriveItemImpl? sharedDriveItemParameterValue?.driveItem:new DriveItemImpl(sharedDriveItemParameterValue?.driveItem);
-        const itemsArrValue: DriveItemImpl[] = []; sharedDriveItemParameterValue?.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
-        this.items = itemsArrValue;
-        this.list = sharedDriveItemParameterValue?.list instanceof ListImpl? sharedDriveItemParameterValue?.list:new ListImpl(sharedDriveItemParameterValue?.list);
-        this.listItem = sharedDriveItemParameterValue?.listItem instanceof ListItemImpl? sharedDriveItemParameterValue?.listItem:new ListItemImpl(sharedDriveItemParameterValue?.listItem);
-        this.owner = sharedDriveItemParameterValue?.owner instanceof IdentitySetImpl? sharedDriveItemParameterValue?.owner:new IdentitySetImpl(sharedDriveItemParameterValue?.owner);
-        this.permission = sharedDriveItemParameterValue?.permission instanceof PermissionImpl? sharedDriveItemParameterValue?.permission:new PermissionImpl(sharedDriveItemParameterValue?.permission);
-        this.root = sharedDriveItemParameterValue?.root instanceof DriveItemImpl? sharedDriveItemParameterValue?.root:new DriveItemImpl(sharedDriveItemParameterValue?.root);
-        this.site = sharedDriveItemParameterValue?.site instanceof SiteImpl? sharedDriveItemParameterValue?.site:new SiteImpl(sharedDriveItemParameterValue?.site);
+        this.driveItem = sharedDriveItemParameterValue?.driveItem;
+        this.items = sharedDriveItemParameterValue?.items;
+        this.list = sharedDriveItemParameterValue?.list;
+        this.listItem = sharedDriveItemParameterValue?.listItem;
+        this.owner = sharedDriveItemParameterValue?.owner;
+        this.permission = sharedDriveItemParameterValue?.permission;
+        this.root = sharedDriveItemParameterValue?.root;
+        this.site = sharedDriveItemParameterValue?.site;
     };
     /**
      * The deserialization information for the current model
@@ -73,7 +72,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
         if(this.driveItem){
             writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
         }
-        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){

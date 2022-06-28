@@ -26,7 +26,7 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
         super(workforceIntegrationParameterValue);
         this.apiVersion = workforceIntegrationParameterValue?.apiVersion;
         this.displayName = workforceIntegrationParameterValue?.displayName;
-        this.encryption = workforceIntegrationParameterValue?.encryption instanceof WorkforceIntegrationEncryptionImpl? workforceIntegrationParameterValue?.encryption:new WorkforceIntegrationEncryptionImpl(workforceIntegrationParameterValue?.encryption);
+        this.encryption = workforceIntegrationParameterValue?.encryption;
         this.isActive = workforceIntegrationParameterValue?.isActive;
         this.supportedEntities = workforceIntegrationParameterValue?.supportedEntities;
         this.url = workforceIntegrationParameterValue?.url;

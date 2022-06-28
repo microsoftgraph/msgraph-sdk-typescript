@@ -18,8 +18,7 @@ export class IdentityCollectionResponseImpl implements IdentityCollectionRespons
     public constructor(identityCollectionResponseParameterValue?: IdentityCollectionResponse | undefined) {
         this.additionalData = identityCollectionResponseParameterValue?.additionalData ? identityCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityImpl[] = []; identityCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
-        this.value = valueArrValue;
+        this.value = identityCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class IdentityCollectionResponseImpl implements IdentityCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityImpl? element : new IdentityImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

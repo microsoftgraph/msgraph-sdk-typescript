@@ -18,8 +18,7 @@ export class TemporaryAccessPassAuthenticationMethodCollectionResponseImpl imple
     public constructor(temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?: TemporaryAccessPassAuthenticationMethodCollectionResponse | undefined) {
         this.additionalData = temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.additionalData ? temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TemporaryAccessPassAuthenticationMethodImpl? element : new TemporaryAccessPassAuthenticationMethodImpl(element));});
-        this.value = valueArrValue;
+        this.value = temporaryAccessPassAuthenticationMethodCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TemporaryAccessPassAuthenticationMethodCollectionResponseImpl imple
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TemporaryAccessPassAuthenticationMethodImpl? element : new TemporaryAccessPassAuthenticationMethodImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TemporaryAccessPassAuthenticationMethodImpl(element));});
             writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethodImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

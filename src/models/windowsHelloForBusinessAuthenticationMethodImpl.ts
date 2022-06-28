@@ -21,7 +21,7 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
     public constructor(windowsHelloForBusinessAuthenticationMethodParameterValue?: WindowsHelloForBusinessAuthenticationMethod | undefined) {
         super(windowsHelloForBusinessAuthenticationMethodParameterValue);
         this.createdDateTime = windowsHelloForBusinessAuthenticationMethodParameterValue?.createdDateTime;
-        this.device = windowsHelloForBusinessAuthenticationMethodParameterValue?.device instanceof DeviceImpl? windowsHelloForBusinessAuthenticationMethodParameterValue?.device:new DeviceImpl(windowsHelloForBusinessAuthenticationMethodParameterValue?.device);
+        this.device = windowsHelloForBusinessAuthenticationMethodParameterValue?.device;
         this.displayName = windowsHelloForBusinessAuthenticationMethodParameterValue?.displayName;
         this.keyStrength = windowsHelloForBusinessAuthenticationMethodParameterValue?.keyStrength;
     };

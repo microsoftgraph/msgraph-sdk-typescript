@@ -19,7 +19,7 @@ export class ConvertIdResultImpl implements ConvertIdResult {
      */
     public constructor(convertIdResultParameterValue?: ConvertIdResult | undefined) {
         this.additionalData = convertIdResultParameterValue?.additionalData ? convertIdResultParameterValue?.additionalData! : {};
-        this.errorDetails = convertIdResultParameterValue?.errorDetails instanceof GenericErrorImpl? convertIdResultParameterValue?.errorDetails:new GenericErrorImpl(convertIdResultParameterValue?.errorDetails);
+        this.errorDetails = convertIdResultParameterValue?.errorDetails;
         this.sourceId = convertIdResultParameterValue?.sourceId;
         this.targetId = convertIdResultParameterValue?.targetId;
     };

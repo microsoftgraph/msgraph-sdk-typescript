@@ -18,8 +18,7 @@ export class OpenShiftCollectionResponseImpl implements OpenShiftCollectionRespo
     public constructor(openShiftCollectionResponseParameterValue?: OpenShiftCollectionResponse | undefined) {
         this.additionalData = openShiftCollectionResponseParameterValue?.additionalData ? openShiftCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = openShiftCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OpenShiftImpl[] = []; openShiftCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OpenShiftImpl? element : new OpenShiftImpl(element));});
-        this.value = valueArrValue;
+        this.value = openShiftCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OpenShiftCollectionResponseImpl implements OpenShiftCollectionRespo
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OpenShiftImpl? element : new OpenShiftImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OpenShiftImpl(element));});
             writer.writeCollectionOfObjectValues<OpenShiftImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

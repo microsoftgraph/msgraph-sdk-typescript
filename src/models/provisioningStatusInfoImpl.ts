@@ -18,7 +18,7 @@ export class ProvisioningStatusInfoImpl implements ProvisioningStatusInfo {
      */
     public constructor(provisioningStatusInfoParameterValue?: ProvisioningStatusInfo | undefined) {
         this.additionalData = provisioningStatusInfoParameterValue?.additionalData ? provisioningStatusInfoParameterValue?.additionalData! : {};
-        this.errorInformation = provisioningStatusInfoParameterValue?.errorInformation instanceof ProvisioningErrorInfoImpl? provisioningStatusInfoParameterValue?.errorInformation:new ProvisioningErrorInfoImpl(provisioningStatusInfoParameterValue?.errorInformation);
+        this.errorInformation = provisioningStatusInfoParameterValue?.errorInformation;
         this.status = provisioningStatusInfoParameterValue?.status;
     };
     /**

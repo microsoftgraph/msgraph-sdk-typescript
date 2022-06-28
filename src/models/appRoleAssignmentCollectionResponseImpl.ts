@@ -18,8 +18,7 @@ export class AppRoleAssignmentCollectionResponseImpl implements AppRoleAssignmen
     public constructor(appRoleAssignmentCollectionResponseParameterValue?: AppRoleAssignmentCollectionResponse | undefined) {
         this.additionalData = appRoleAssignmentCollectionResponseParameterValue?.additionalData ? appRoleAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = appRoleAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AppRoleAssignmentImpl[] = []; appRoleAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AppRoleAssignmentImpl? element : new AppRoleAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = appRoleAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AppRoleAssignmentCollectionResponseImpl implements AppRoleAssignmen
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AppRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AppRoleAssignmentImpl? element : new AppRoleAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AppRoleAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AppRoleAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class AgreementCollectionResponseImpl implements AgreementCollectionRespo
     public constructor(agreementCollectionResponseParameterValue?: AgreementCollectionResponse | undefined) {
         this.additionalData = agreementCollectionResponseParameterValue?.additionalData ? agreementCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = agreementCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AgreementImpl[] = []; agreementCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
-        this.value = valueArrValue;
+        this.value = agreementCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AgreementCollectionResponseImpl implements AgreementCollectionRespo
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AgreementImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AgreementImpl? element : new AgreementImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementImpl(element));});
             writer.writeCollectionOfObjectValues<AgreementImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

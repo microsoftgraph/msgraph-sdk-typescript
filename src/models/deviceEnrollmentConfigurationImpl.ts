@@ -26,8 +26,7 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
      */
     public constructor(deviceEnrollmentConfigurationParameterValue?: DeviceEnrollmentConfiguration | undefined) {
         super(deviceEnrollmentConfigurationParameterValue);
-        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; deviceEnrollmentConfigurationParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
-        this.assignments = assignmentsArrValue;
+        this.assignments = deviceEnrollmentConfigurationParameterValue?.assignments;
         this.createdDateTime = deviceEnrollmentConfigurationParameterValue?.createdDateTime;
         this.description = deviceEnrollmentConfigurationParameterValue?.description;
         this.displayName = deviceEnrollmentConfigurationParameterValue?.displayName;
@@ -57,7 +56,7 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof EnrollmentConfigurationAssignmentImpl? element : new EnrollmentConfigurationAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new EnrollmentConfigurationAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.createdDateTime){

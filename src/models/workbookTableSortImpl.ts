@@ -18,8 +18,7 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
      */
     public constructor(workbookTableSortParameterValue?: WorkbookTableSort | undefined) {
         super(workbookTableSortParameterValue);
-        const fieldsArrValue: WorkbookSortFieldImpl[] = []; workbookTableSortParameterValue?.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
-        this.fields = fieldsArrValue;
+        this.fields = workbookTableSortParameterValue?.fields;
         this.matchCase = workbookTableSortParameterValue?.matchCase;
         this.method = workbookTableSortParameterValue?.method;
     };
@@ -41,7 +40,7 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(element instanceof WorkbookSortFieldImpl? element : new WorkbookSortFieldImpl(element));});
+        if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = []; this.fields?.forEach(element => {fieldsArrValue.push(new WorkbookSortFieldImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookSortFieldImpl>("fields", fieldsArrValue);
         }
         if(this.matchCase){

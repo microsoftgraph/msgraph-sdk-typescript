@@ -15,8 +15,8 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
      */
     public constructor(educationPointsOutcomeParameterValue?: EducationPointsOutcome | undefined) {
         super(educationPointsOutcomeParameterValue);
-        this.points = educationPointsOutcomeParameterValue?.points instanceof EducationAssignmentPointsGradeImpl? educationPointsOutcomeParameterValue?.points:new EducationAssignmentPointsGradeImpl(educationPointsOutcomeParameterValue?.points);
-        this.publishedPoints = educationPointsOutcomeParameterValue?.publishedPoints instanceof EducationAssignmentPointsGradeImpl? educationPointsOutcomeParameterValue?.publishedPoints:new EducationAssignmentPointsGradeImpl(educationPointsOutcomeParameterValue?.publishedPoints);
+        this.points = educationPointsOutcomeParameterValue?.points;
+        this.publishedPoints = educationPointsOutcomeParameterValue?.publishedPoints;
     };
     /**
      * The deserialization information for the current model

@@ -17,8 +17,8 @@ export class RoleManagementImpl implements RoleManagement {
      */
     public constructor(roleManagementParameterValue?: RoleManagement | undefined) {
         this.additionalData = roleManagementParameterValue?.additionalData ? roleManagementParameterValue?.additionalData! : {};
-        this.directory = roleManagementParameterValue?.directory instanceof RbacApplicationImpl? roleManagementParameterValue?.directory:new RbacApplicationImpl(roleManagementParameterValue?.directory);
-        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement instanceof RbacApplicationImpl? roleManagementParameterValue?.entitlementManagement:new RbacApplicationImpl(roleManagementParameterValue?.entitlementManagement);
+        this.directory = roleManagementParameterValue?.directory;
+        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement;
     };
     /**
      * The deserialization information for the current model

@@ -22,8 +22,7 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         this.additionalData = iosNetworkUsageRuleParameterValue?.additionalData ? iosNetworkUsageRuleParameterValue?.additionalData! : {};
         this.cellularDataBlocked = iosNetworkUsageRuleParameterValue?.cellularDataBlocked;
         this.cellularDataBlockWhenRoaming = iosNetworkUsageRuleParameterValue?.cellularDataBlockWhenRoaming;
-        const managedAppsArrValue: AppListItemImpl[] = []; iosNetworkUsageRuleParameterValue?.managedApps?.forEach(element => {managedAppsArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.managedApps = managedAppsArrValue;
+        this.managedApps = iosNetworkUsageRuleParameterValue?.managedApps;
     };
     /**
      * The deserialization information for the current model
@@ -48,7 +47,7 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         if(this.cellularDataBlockWhenRoaming){
             writer.writeBooleanValue("cellularDataBlockWhenRoaming", this.cellularDataBlockWhenRoaming);
         }
-        if(this.managedApps && this.managedApps.length != 0){        const managedAppsArrValue: AppListItemImpl[] = []; this.managedApps?.forEach(element => {managedAppsArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.managedApps && this.managedApps.length != 0){        const managedAppsArrValue: AppListItemImpl[] = []; this.managedApps?.forEach(element => {managedAppsArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("managedApps", managedAppsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

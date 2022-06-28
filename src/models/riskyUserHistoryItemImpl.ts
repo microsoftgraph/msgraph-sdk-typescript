@@ -17,7 +17,7 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUser
      */
     public constructor(riskyUserHistoryItemParameterValue?: RiskyUserHistoryItem | undefined) {
         super(riskyUserHistoryItemParameterValue);
-        this.activity = riskyUserHistoryItemParameterValue?.activity instanceof RiskUserActivityImpl? riskyUserHistoryItemParameterValue?.activity:new RiskUserActivityImpl(riskyUserHistoryItemParameterValue?.activity);
+        this.activity = riskyUserHistoryItemParameterValue?.activity;
         this.initiatedBy = riskyUserHistoryItemParameterValue?.initiatedBy;
         this.userId = riskyUserHistoryItemParameterValue?.userId;
     };

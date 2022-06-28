@@ -18,8 +18,7 @@ export class UnifiedRoleEligibilityScheduleRequestCollectionResponseImpl impleme
     public constructor(unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleRequestCollectionResponse | undefined) {
         this.additionalData = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = []; unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleRequestImpl? element : new UnifiedRoleEligibilityScheduleRequestImpl(element));});
-        this.value = valueArrValue;
+        this.value = unifiedRoleEligibilityScheduleRequestCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UnifiedRoleEligibilityScheduleRequestCollectionResponseImpl impleme
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleRequestImpl? element : new UnifiedRoleEligibilityScheduleRequestImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleRequestImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequestImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

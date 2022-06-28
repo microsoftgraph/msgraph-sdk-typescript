@@ -18,8 +18,7 @@ export class UnifiedRoleEligibilityScheduleInstanceCollectionResponseImpl implem
     public constructor(unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?: UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined) {
         this.additionalData = unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.additionalData ? unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = []; unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element : new UnifiedRoleEligibilityScheduleInstanceImpl(element));});
-        this.value = valueArrValue;
+        this.value = unifiedRoleEligibilityScheduleInstanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UnifiedRoleEligibilityScheduleInstanceCollectionResponseImpl implem
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element : new UnifiedRoleEligibilityScheduleInstanceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleInstanceImpl(element));});
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

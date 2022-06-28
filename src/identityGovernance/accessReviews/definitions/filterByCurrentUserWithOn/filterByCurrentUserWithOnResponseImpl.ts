@@ -16,8 +16,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public constructor(filterByCurrentUserWithOnResponseParameterValue?: FilterByCurrentUserWithOnResponse | undefined) {
         this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
-        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; filterByCurrentUserWithOnResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
-        this.value = valueArrValue;
+        this.value = filterByCurrentUserWithOnResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewScheduleDefinitionImpl? element : new AccessReviewScheduleDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewScheduleDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewScheduleDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

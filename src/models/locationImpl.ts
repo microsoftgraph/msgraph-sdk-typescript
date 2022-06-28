@@ -33,8 +33,8 @@ export class LocationImpl implements Location {
      */
     public constructor(locationParameterValue?: Location | undefined) {
         this.additionalData = locationParameterValue?.additionalData ? locationParameterValue?.additionalData! : {};
-        this.address = locationParameterValue?.address instanceof PhysicalAddressImpl? locationParameterValue?.address:new PhysicalAddressImpl(locationParameterValue?.address);
-        this.coordinates = locationParameterValue?.coordinates instanceof OutlookGeoCoordinatesImpl? locationParameterValue?.coordinates:new OutlookGeoCoordinatesImpl(locationParameterValue?.coordinates);
+        this.address = locationParameterValue?.address;
+        this.coordinates = locationParameterValue?.coordinates;
         this.displayName = locationParameterValue?.displayName;
         this.locationEmailAddress = locationParameterValue?.locationEmailAddress;
         this.locationType = locationParameterValue?.locationType;

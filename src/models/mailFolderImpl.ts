@@ -42,19 +42,14 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
     public constructor(mailFolderParameterValue?: MailFolder | undefined) {
         super(mailFolderParameterValue);
         this.childFolderCount = mailFolderParameterValue?.childFolderCount;
-        const childFoldersArrValue: MailFolderImpl[] = []; mailFolderParameterValue?.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
-        this.childFolders = childFoldersArrValue;
+        this.childFolders = mailFolderParameterValue?.childFolders;
         this.displayName = mailFolderParameterValue?.displayName;
         this.isHidden = mailFolderParameterValue?.isHidden;
-        const messageRulesArrValue: MessageRuleImpl[] = []; mailFolderParameterValue?.messageRules?.forEach(element => {messageRulesArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
-        this.messageRules = messageRulesArrValue;
-        const messagesArrValue: MessageImpl[] = []; mailFolderParameterValue?.messages?.forEach(element => {messagesArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
-        this.messages = messagesArrValue;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; mailFolderParameterValue?.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
-        this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
+        this.messageRules = mailFolderParameterValue?.messageRules;
+        this.messages = mailFolderParameterValue?.messages;
+        this.multiValueExtendedProperties = mailFolderParameterValue?.multiValueExtendedProperties;
         this.parentFolderId = mailFolderParameterValue?.parentFolderId;
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; mailFolderParameterValue?.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
-        this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
+        this.singleValueExtendedProperties = mailFolderParameterValue?.singleValueExtendedProperties;
         this.totalItemCount = mailFolderParameterValue?.totalItemCount;
         this.unreadItemCount = mailFolderParameterValue?.unreadItemCount;
     };
@@ -87,7 +82,7 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
         if(this.childFolderCount){
             writer.writeNumberValue("childFolderCount", this.childFolderCount);
         }
-        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(element instanceof MailFolderImpl? element : new MailFolderImpl(element));});
+        if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: MailFolderImpl[] = []; this.childFolders?.forEach(element => {childFoldersArrValue.push(new MailFolderImpl(element));});
             writer.writeCollectionOfObjectValues<MailFolderImpl>("childFolders", childFoldersArrValue);
         }
         if(this.displayName){
@@ -96,19 +91,19 @@ export class MailFolderImpl extends EntityImpl implements MailFolder {
         if(this.isHidden){
             writer.writeBooleanValue("isHidden", this.isHidden);
         }
-        if(this.messageRules && this.messageRules.length != 0){        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(element instanceof MessageRuleImpl? element : new MessageRuleImpl(element));});
+        if(this.messageRules && this.messageRules.length != 0){        const messageRulesArrValue: MessageRuleImpl[] = []; this.messageRules?.forEach(element => {messageRulesArrValue.push(new MessageRuleImpl(element));});
             writer.writeCollectionOfObjectValues<MessageRuleImpl>("messageRules", messageRulesArrValue);
         }
-        if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(element instanceof MessageImpl? element : new MessageImpl(element));});
+        if(this.messages && this.messages.length != 0){        const messagesArrValue: MessageImpl[] = []; this.messages?.forEach(element => {messagesArrValue.push(new MessageImpl(element));});
             writer.writeCollectionOfObjectValues<MessageImpl>("messages", messagesArrValue);
         }
-        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.parentFolderId){
             writer.writeStringValue("parentFolderId", this.parentFolderId);
         }
-        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.totalItemCount){

@@ -16,7 +16,7 @@ export class SnoozeReminderPostRequestBodyImpl implements SnoozeReminderPostRequ
      */
     public constructor(snoozeReminderPostRequestBodyParameterValue?: SnoozeReminderPostRequestBody | undefined) {
         this.additionalData = snoozeReminderPostRequestBodyParameterValue?.additionalData ? snoozeReminderPostRequestBodyParameterValue?.additionalData! : {};
-        this.newReminderTime = snoozeReminderPostRequestBodyParameterValue?.newReminderTime instanceof DateTimeTimeZoneImpl? snoozeReminderPostRequestBodyParameterValue?.newReminderTime:new DateTimeTimeZoneImpl(snoozeReminderPostRequestBodyParameterValue?.newReminderTime);
+        this.newReminderTime = snoozeReminderPostRequestBodyParameterValue?.newReminderTime;
     };
     /**
      * The deserialization information for the current model

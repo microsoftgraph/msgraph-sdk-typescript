@@ -18,8 +18,7 @@ export class BaseItemCollectionResponseImpl implements BaseItemCollectionRespons
     public constructor(baseItemCollectionResponseParameterValue?: BaseItemCollectionResponse | undefined) {
         this.additionalData = baseItemCollectionResponseParameterValue?.additionalData ? baseItemCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = baseItemCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: BaseItemImpl[] = []; baseItemCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof BaseItemImpl? element : new BaseItemImpl(element));});
-        this.value = valueArrValue;
+        this.value = baseItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class BaseItemCollectionResponseImpl implements BaseItemCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BaseItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof BaseItemImpl? element : new BaseItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BaseItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BaseItemImpl(element));});
             writer.writeCollectionOfObjectValues<BaseItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

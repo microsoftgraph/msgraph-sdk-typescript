@@ -78,35 +78,25 @@ export class SiteImpl extends BaseItemImpl implements Site {
      */
     public constructor(siteParameterValue?: Site | undefined) {
         super(siteParameterValue);
-        this.analytics = siteParameterValue?.analytics instanceof ItemAnalyticsImpl? siteParameterValue?.analytics:new ItemAnalyticsImpl(siteParameterValue?.analytics);
-        const columnsArrValue: ColumnDefinitionImpl[] = []; siteParameterValue?.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
-        this.columns = columnsArrValue;
-        const contentTypesArrValue: ContentTypeImpl[] = []; siteParameterValue?.contentTypes?.forEach(element => {contentTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
-        this.contentTypes = contentTypesArrValue;
+        this.analytics = siteParameterValue?.analytics;
+        this.columns = siteParameterValue?.columns;
+        this.contentTypes = siteParameterValue?.contentTypes;
         this.displayName = siteParameterValue?.displayName;
-        this.drive = siteParameterValue?.drive instanceof DriveImpl? siteParameterValue?.drive:new DriveImpl(siteParameterValue?.drive);
-        const drivesArrValue: DriveImpl[] = []; siteParameterValue?.drives?.forEach(element => {drivesArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
-        this.drives = drivesArrValue;
-        this.error_escaped = siteParameterValue?.error_escaped instanceof PublicErrorImpl? siteParameterValue?.error_escaped:new PublicErrorImpl(siteParameterValue?.error_escaped);
-        const externalColumnsArrValue: ColumnDefinitionImpl[] = []; siteParameterValue?.externalColumns?.forEach(element => {externalColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
-        this.externalColumns = externalColumnsArrValue;
-        const itemsArrValue: BaseItemImpl[] = []; siteParameterValue?.items?.forEach(element => {itemsArrValue.push(element instanceof BaseItemImpl? element : new BaseItemImpl(element));});
-        this.items = itemsArrValue;
-        const listsArrValue: ListImpl[] = []; siteParameterValue?.lists?.forEach(element => {listsArrValue.push(element instanceof ListImpl? element : new ListImpl(element));});
-        this.lists = listsArrValue;
-        this.onenote = siteParameterValue?.onenote instanceof OnenoteImpl? siteParameterValue?.onenote:new OnenoteImpl(siteParameterValue?.onenote);
-        const operationsArrValue: RichLongRunningOperationImpl[] = []; siteParameterValue?.operations?.forEach(element => {operationsArrValue.push(element instanceof RichLongRunningOperationImpl? element : new RichLongRunningOperationImpl(element));});
-        this.operations = operationsArrValue;
-        const permissionsArrValue: PermissionImpl[] = []; siteParameterValue?.permissions?.forEach(element => {permissionsArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
-        this.permissions = permissionsArrValue;
-        this.root = siteParameterValue?.root instanceof RootImpl? siteParameterValue?.root:new RootImpl(siteParameterValue?.root);
-        this.sharepointIds = siteParameterValue?.sharepointIds instanceof SharepointIdsImpl? siteParameterValue?.sharepointIds:new SharepointIdsImpl(siteParameterValue?.sharepointIds);
-        this.siteCollection = siteParameterValue?.siteCollection instanceof SiteCollectionImpl? siteParameterValue?.siteCollection:new SiteCollectionImpl(siteParameterValue?.siteCollection);
-        const sitesArrValue: SiteImpl[] = []; siteParameterValue?.sites?.forEach(element => {sitesArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
-        this.sites = sitesArrValue;
-        this.termStore = siteParameterValue?.termStore instanceof StoreImpl? siteParameterValue?.termStore:new StoreImpl(siteParameterValue?.termStore);
-        const termStoresArrValue: StoreImpl[] = []; siteParameterValue?.termStores?.forEach(element => {termStoresArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
-        this.termStores = termStoresArrValue;
+        this.drive = siteParameterValue?.drive;
+        this.drives = siteParameterValue?.drives;
+        this.error_escaped = siteParameterValue?.error_escaped;
+        this.externalColumns = siteParameterValue?.externalColumns;
+        this.items = siteParameterValue?.items;
+        this.lists = siteParameterValue?.lists;
+        this.onenote = siteParameterValue?.onenote;
+        this.operations = siteParameterValue?.operations;
+        this.permissions = siteParameterValue?.permissions;
+        this.root = siteParameterValue?.root;
+        this.sharepointIds = siteParameterValue?.sharepointIds;
+        this.siteCollection = siteParameterValue?.siteCollection;
+        this.sites = siteParameterValue?.sites;
+        this.termStore = siteParameterValue?.termStore;
+        this.termStores = siteParameterValue?.termStores;
     };
     /**
      * The deserialization information for the current model
@@ -145,10 +135,10 @@ export class SiteImpl extends BaseItemImpl implements Site {
         if(this.analytics){
             writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
         }
-        if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = []; this.columns?.forEach(element => {columnsArrValue.push(new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
-        if(this.contentTypes && this.contentTypes.length != 0){        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(element instanceof ContentTypeImpl? element : new ContentTypeImpl(element));});
+        if(this.contentTypes && this.contentTypes.length != 0){        const contentTypesArrValue: ContentTypeImpl[] = []; this.contentTypes?.forEach(element => {contentTypesArrValue.push(new ContentTypeImpl(element));});
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("contentTypes", contentTypesArrValue);
         }
         if(this.displayName){
@@ -157,28 +147,28 @@ export class SiteImpl extends BaseItemImpl implements Site {
         if(this.drive){
             writer.writeObjectValue<DriveImpl>("drive", new DriveImpl(this.drive));
         }
-        if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
+        if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = []; this.drives?.forEach(element => {drivesArrValue.push(new DriveImpl(element));});
             writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
         }
         if(this.error_escaped){
             writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
         }
-        if(this.externalColumns && this.externalColumns.length != 0){        const externalColumnsArrValue: ColumnDefinitionImpl[] = []; this.externalColumns?.forEach(element => {externalColumnsArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        if(this.externalColumns && this.externalColumns.length != 0){        const externalColumnsArrValue: ColumnDefinitionImpl[] = []; this.externalColumns?.forEach(element => {externalColumnsArrValue.push(new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("externalColumns", externalColumnsArrValue);
         }
-        if(this.items && this.items.length != 0){        const itemsArrValue: BaseItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof BaseItemImpl? element : new BaseItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: BaseItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new BaseItemImpl(element));});
             writer.writeCollectionOfObjectValues<BaseItemImpl>("items", itemsArrValue);
         }
-        if(this.lists && this.lists.length != 0){        const listsArrValue: ListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(element instanceof ListImpl? element : new ListImpl(element));});
+        if(this.lists && this.lists.length != 0){        const listsArrValue: ListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new ListImpl(element));});
             writer.writeCollectionOfObjectValues<ListImpl>("lists", listsArrValue);
         }
         if(this.onenote){
             writer.writeObjectValue<OnenoteImpl>("onenote", new OnenoteImpl(this.onenote));
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(element instanceof RichLongRunningOperationImpl? element : new RichLongRunningOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: RichLongRunningOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new RichLongRunningOperationImpl(element));});
             writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("operations", operationsArrValue);
         }
-        if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(element instanceof PermissionImpl? element : new PermissionImpl(element));});
+        if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
             writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
         }
         if(this.root){
@@ -190,13 +180,13 @@ export class SiteImpl extends BaseItemImpl implements Site {
         if(this.siteCollection){
             writer.writeObjectValue<SiteCollectionImpl>("siteCollection", new SiteCollectionImpl(this.siteCollection));
         }
-        if(this.sites && this.sites.length != 0){        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(element instanceof SiteImpl? element : new SiteImpl(element));});
+        if(this.sites && this.sites.length != 0){        const sitesArrValue: SiteImpl[] = []; this.sites?.forEach(element => {sitesArrValue.push(new SiteImpl(element));});
             writer.writeCollectionOfObjectValues<SiteImpl>("sites", sitesArrValue);
         }
         if(this.termStore){
             writer.writeObjectValue<StoreImpl>("termStore", new StoreImpl(this.termStore));
         }
-        if(this.termStores && this.termStores.length != 0){        const termStoresArrValue: StoreImpl[] = []; this.termStores?.forEach(element => {termStoresArrValue.push(element instanceof StoreImpl? element : new StoreImpl(element));});
+        if(this.termStores && this.termStores.length != 0){        const termStoresArrValue: StoreImpl[] = []; this.termStores?.forEach(element => {termStoresArrValue.push(new StoreImpl(element));});
             writer.writeCollectionOfObjectValues<StoreImpl>("termStores", termStoresArrValue);
         }
     };

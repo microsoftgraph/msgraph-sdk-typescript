@@ -45,8 +45,7 @@ export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationS
         this.instanceDisplayName = deviceConfigurationSettingStateParameterValue?.instanceDisplayName;
         this.setting = deviceConfigurationSettingStateParameterValue?.setting;
         this.settingName = deviceConfigurationSettingStateParameterValue?.settingName;
-        const sourcesArrValue: SettingSourceImpl[] = []; deviceConfigurationSettingStateParameterValue?.sources?.forEach(element => {sourcesArrValue.push(element instanceof SettingSourceImpl? element : new SettingSourceImpl(element));});
-        this.sources = sourcesArrValue;
+        this.sources = deviceConfigurationSettingStateParameterValue?.sources;
         this.state = deviceConfigurationSettingStateParameterValue?.state;
         this.userEmail = deviceConfigurationSettingStateParameterValue?.userEmail;
         this.userId = deviceConfigurationSettingStateParameterValue?.userId;
@@ -97,7 +96,7 @@ export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationS
         if(this.settingName){
             writer.writeStringValue("settingName", this.settingName);
         }
-        if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = []; this.sources?.forEach(element => {sourcesArrValue.push(element instanceof SettingSourceImpl? element : new SettingSourceImpl(element));});
+        if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = []; this.sources?.forEach(element => {sourcesArrValue.push(new SettingSourceImpl(element));});
             writer.writeCollectionOfObjectValues<SettingSourceImpl>("sources", sourcesArrValue);
         }
         if(this.state){

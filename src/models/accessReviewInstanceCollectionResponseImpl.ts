@@ -18,8 +18,7 @@ export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewI
     public constructor(accessReviewInstanceCollectionResponseParameterValue?: AccessReviewInstanceCollectionResponse | undefined) {
         this.additionalData = accessReviewInstanceCollectionResponseParameterValue?.additionalData ? accessReviewInstanceCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessReviewInstanceCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessReviewInstanceImpl[] = []; accessReviewInstanceCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
-        this.value = valueArrValue;
+        this.value = accessReviewInstanceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AccessReviewInstanceCollectionResponseImpl implements AccessReviewI
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessReviewInstanceImpl? element : new AccessReviewInstanceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessReviewInstanceImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewInstanceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

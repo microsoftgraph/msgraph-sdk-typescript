@@ -18,8 +18,7 @@ export class MobileAppCategoryCollectionResponseImpl implements MobileAppCategor
     public constructor(mobileAppCategoryCollectionResponseParameterValue?: MobileAppCategoryCollectionResponse | undefined) {
         this.additionalData = mobileAppCategoryCollectionResponseParameterValue?.additionalData ? mobileAppCategoryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileAppCategoryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileAppCategoryImpl[] = []; mobileAppCategoryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
-        this.value = valueArrValue;
+        this.value = mobileAppCategoryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MobileAppCategoryCollectionResponseImpl implements MobileAppCategor
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileAppCategoryImpl? element : new MobileAppCategoryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileAppCategoryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileAppCategoryImpl(element));});
             writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

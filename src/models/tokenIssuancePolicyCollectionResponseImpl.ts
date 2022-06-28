@@ -18,8 +18,7 @@ export class TokenIssuancePolicyCollectionResponseImpl implements TokenIssuanceP
     public constructor(tokenIssuancePolicyCollectionResponseParameterValue?: TokenIssuancePolicyCollectionResponse | undefined) {
         this.additionalData = tokenIssuancePolicyCollectionResponseParameterValue?.additionalData ? tokenIssuancePolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = tokenIssuancePolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: TokenIssuancePolicyImpl[] = []; tokenIssuancePolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
-        this.value = valueArrValue;
+        this.value = tokenIssuancePolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class TokenIssuancePolicyCollectionResponseImpl implements TokenIssuanceP
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: TokenIssuancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof TokenIssuancePolicyImpl? element : new TokenIssuancePolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: TokenIssuancePolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new TokenIssuancePolicyImpl(element));});
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

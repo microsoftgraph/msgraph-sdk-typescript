@@ -18,8 +18,7 @@ export class SegmentCollectionResponseImpl implements SegmentCollectionResponse 
     public constructor(segmentCollectionResponseParameterValue?: SegmentCollectionResponse | undefined) {
         this.additionalData = segmentCollectionResponseParameterValue?.additionalData ? segmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = segmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SegmentImpl[] = []; segmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = segmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SegmentCollectionResponseImpl implements SegmentCollectionResponse 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SegmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SegmentImpl? element : new SegmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SegmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SegmentImpl(element));});
             writer.writeCollectionOfObjectValues<SegmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

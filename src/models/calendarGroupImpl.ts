@@ -20,8 +20,7 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
      */
     public constructor(calendarGroupParameterValue?: CalendarGroup | undefined) {
         super(calendarGroupParameterValue);
-        const calendarsArrValue: CalendarImpl[] = []; calendarGroupParameterValue?.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
-        this.calendars = calendarsArrValue;
+        this.calendars = calendarGroupParameterValue?.calendars;
         this.changeKey = calendarGroupParameterValue?.changeKey;
         this.classId = calendarGroupParameterValue?.classId;
         this.name = calendarGroupParameterValue?.name;
@@ -45,7 +44,7 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(element instanceof CalendarImpl? element : new CalendarImpl(element));});
+        if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = []; this.calendars?.forEach(element => {calendarsArrValue.push(new CalendarImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
         }
         if(this.changeKey){

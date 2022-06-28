@@ -21,7 +21,7 @@ export class TeamworkOnlineMeetingInfoImpl implements TeamworkOnlineMeetingInfo 
         this.additionalData = teamworkOnlineMeetingInfoParameterValue?.additionalData ? teamworkOnlineMeetingInfoParameterValue?.additionalData! : {};
         this.calendarEventId = teamworkOnlineMeetingInfoParameterValue?.calendarEventId;
         this.joinWebUrl = teamworkOnlineMeetingInfoParameterValue?.joinWebUrl;
-        this.organizer = teamworkOnlineMeetingInfoParameterValue?.organizer instanceof TeamworkUserIdentityImpl? teamworkOnlineMeetingInfoParameterValue?.organizer:new TeamworkUserIdentityImpl(teamworkOnlineMeetingInfoParameterValue?.organizer);
+        this.organizer = teamworkOnlineMeetingInfoParameterValue?.organizer;
     };
     /**
      * The deserialization information for the current model

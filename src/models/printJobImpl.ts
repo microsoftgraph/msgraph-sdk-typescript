@@ -38,17 +38,15 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
      */
     public constructor(printJobParameterValue?: PrintJob | undefined) {
         super(printJobParameterValue);
-        this.configuration = printJobParameterValue?.configuration instanceof PrintJobConfigurationImpl? printJobParameterValue?.configuration:new PrintJobConfigurationImpl(printJobParameterValue?.configuration);
-        this.createdBy = printJobParameterValue?.createdBy instanceof UserIdentityImpl? printJobParameterValue?.createdBy:new UserIdentityImpl(printJobParameterValue?.createdBy);
+        this.configuration = printJobParameterValue?.configuration;
+        this.createdBy = printJobParameterValue?.createdBy;
         this.createdDateTime = printJobParameterValue?.createdDateTime;
-        const documentsArrValue: PrintDocumentImpl[] = []; printJobParameterValue?.documents?.forEach(element => {documentsArrValue.push(element instanceof PrintDocumentImpl? element : new PrintDocumentImpl(element));});
-        this.documents = documentsArrValue;
+        this.documents = printJobParameterValue?.documents;
         this.isFetchable = printJobParameterValue?.isFetchable;
         this.redirectedFrom = printJobParameterValue?.redirectedFrom;
         this.redirectedTo = printJobParameterValue?.redirectedTo;
-        this.status = printJobParameterValue?.status instanceof PrintJobStatusImpl? printJobParameterValue?.status:new PrintJobStatusImpl(printJobParameterValue?.status);
-        const tasksArrValue: PrintTaskImpl[] = []; printJobParameterValue?.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
-        this.tasks = tasksArrValue;
+        this.status = printJobParameterValue?.status;
+        this.tasks = printJobParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -83,7 +81,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(element instanceof PrintDocumentImpl? element : new PrintDocumentImpl(element));});
+        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(new PrintDocumentImpl(element));});
             writer.writeCollectionOfObjectValues<PrintDocumentImpl>("documents", documentsArrValue);
         }
         if(this.isFetchable){
@@ -98,7 +96,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(this.status){
             writer.writeObjectValue<PrintJobStatusImpl>("status", new PrintJobStatusImpl(this.status));
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PrintTaskImpl? element : new PrintTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
     };

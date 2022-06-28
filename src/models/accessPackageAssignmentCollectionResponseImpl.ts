@@ -18,8 +18,7 @@ export class AccessPackageAssignmentCollectionResponseImpl implements AccessPack
     public constructor(accessPackageAssignmentCollectionResponseParameterValue?: AccessPackageAssignmentCollectionResponse | undefined) {
         this.additionalData = accessPackageAssignmentCollectionResponseParameterValue?.additionalData ? accessPackageAssignmentCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = accessPackageAssignmentCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AccessPackageAssignmentImpl[] = []; accessPackageAssignmentCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
-        this.value = valueArrValue;
+        this.value = accessPackageAssignmentCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AccessPackageAssignmentCollectionResponseImpl implements AccessPack
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AccessPackageAssignmentImpl? element : new AccessPackageAssignmentImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AccessPackageAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

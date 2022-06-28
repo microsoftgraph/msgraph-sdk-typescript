@@ -21,8 +21,7 @@ export class SearchAlterationImpl implements SearchAlteration {
         this.additionalData = searchAlterationParameterValue?.additionalData ? searchAlterationParameterValue?.additionalData! : {};
         this.alteredHighlightedQueryString = searchAlterationParameterValue?.alteredHighlightedQueryString;
         this.alteredQueryString = searchAlterationParameterValue?.alteredQueryString;
-        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; searchAlterationParameterValue?.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(element instanceof AlteredQueryTokenImpl? element : new AlteredQueryTokenImpl(element));});
-        this.alteredQueryTokens = alteredQueryTokensArrValue;
+        this.alteredQueryTokens = searchAlterationParameterValue?.alteredQueryTokens;
     };
     /**
      * The deserialization information for the current model
@@ -47,7 +46,7 @@ export class SearchAlterationImpl implements SearchAlteration {
         if(this.alteredQueryString){
             writer.writeStringValue("alteredQueryString", this.alteredQueryString);
         }
-        if(this.alteredQueryTokens && this.alteredQueryTokens.length != 0){        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; this.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(element instanceof AlteredQueryTokenImpl? element : new AlteredQueryTokenImpl(element));});
+        if(this.alteredQueryTokens && this.alteredQueryTokens.length != 0){        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = []; this.alteredQueryTokens?.forEach(element => {alteredQueryTokensArrValue.push(new AlteredQueryTokenImpl(element));});
             writer.writeCollectionOfObjectValues<AlteredQueryTokenImpl>("alteredQueryTokens", alteredQueryTokensArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

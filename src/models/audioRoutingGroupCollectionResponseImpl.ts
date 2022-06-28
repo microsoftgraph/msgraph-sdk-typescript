@@ -18,8 +18,7 @@ export class AudioRoutingGroupCollectionResponseImpl implements AudioRoutingGrou
     public constructor(audioRoutingGroupCollectionResponseParameterValue?: AudioRoutingGroupCollectionResponse | undefined) {
         this.additionalData = audioRoutingGroupCollectionResponseParameterValue?.additionalData ? audioRoutingGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = audioRoutingGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AudioRoutingGroupImpl[] = []; audioRoutingGroupCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
-        this.value = valueArrValue;
+        this.value = audioRoutingGroupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AudioRoutingGroupCollectionResponseImpl implements AudioRoutingGrou
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AudioRoutingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AudioRoutingGroupImpl? element : new AudioRoutingGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AudioRoutingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AudioRoutingGroupImpl(element));});
             writer.writeCollectionOfObjectValues<AudioRoutingGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

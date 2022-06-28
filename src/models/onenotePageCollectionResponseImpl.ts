@@ -18,8 +18,7 @@ export class OnenotePageCollectionResponseImpl implements OnenotePageCollectionR
     public constructor(onenotePageCollectionResponseParameterValue?: OnenotePageCollectionResponse | undefined) {
         this.additionalData = onenotePageCollectionResponseParameterValue?.additionalData ? onenotePageCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = onenotePageCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: OnenotePageImpl[] = []; onenotePageCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
-        this.value = valueArrValue;
+        this.value = onenotePageCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class OnenotePageCollectionResponseImpl implements OnenotePageCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: OnenotePageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof OnenotePageImpl? element : new OnenotePageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: OnenotePageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new OnenotePageImpl(element));});
             writer.writeCollectionOfObjectValues<OnenotePageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

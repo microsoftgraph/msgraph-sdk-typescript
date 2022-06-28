@@ -18,8 +18,7 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
      */
     public constructor(shiftItemParameterValue?: ShiftItem | undefined) {
         super(shiftItemParameterValue);
-        const activitiesArrValue: ShiftActivityImpl[] = []; shiftItemParameterValue?.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
-        this.activities = activitiesArrValue;
+        this.activities = shiftItemParameterValue?.activities;
         this.displayName = shiftItemParameterValue?.displayName;
         this.notes = shiftItemParameterValue?.notes;
     };
@@ -41,7 +40,7 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(element instanceof ShiftActivityImpl? element : new ShiftActivityImpl(element));});
+        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ShiftActivityImpl(element));});
             writer.writeCollectionOfObjectValues<ShiftActivityImpl>("activities", activitiesArrValue);
         }
         if(this.displayName){

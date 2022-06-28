@@ -18,7 +18,7 @@ export class AttendeeAvailabilityImpl implements AttendeeAvailability {
      */
     public constructor(attendeeAvailabilityParameterValue?: AttendeeAvailability | undefined) {
         this.additionalData = attendeeAvailabilityParameterValue?.additionalData ? attendeeAvailabilityParameterValue?.additionalData! : {};
-        this.attendee = attendeeAvailabilityParameterValue?.attendee instanceof AttendeeBaseImpl? attendeeAvailabilityParameterValue?.attendee:new AttendeeBaseImpl(attendeeAvailabilityParameterValue?.attendee);
+        this.attendee = attendeeAvailabilityParameterValue?.attendee;
         this.availability = attendeeAvailabilityParameterValue?.availability;
     };
     /**

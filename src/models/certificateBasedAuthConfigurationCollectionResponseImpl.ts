@@ -18,8 +18,7 @@ export class CertificateBasedAuthConfigurationCollectionResponseImpl implements 
     public constructor(certificateBasedAuthConfigurationCollectionResponseParameterValue?: CertificateBasedAuthConfigurationCollectionResponse | undefined) {
         this.additionalData = certificateBasedAuthConfigurationCollectionResponseParameterValue?.additionalData ? certificateBasedAuthConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = certificateBasedAuthConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: CertificateBasedAuthConfigurationImpl[] = []; certificateBasedAuthConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
-        this.value = valueArrValue;
+        this.value = certificateBasedAuthConfigurationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class CertificateBasedAuthConfigurationCollectionResponseImpl implements 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof CertificateBasedAuthConfigurationImpl? element : new CertificateBasedAuthConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new CertificateBasedAuthConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -16,7 +16,7 @@ export class ComplianceManagementPartnerAssignmentImpl implements ComplianceMana
      */
     public constructor(complianceManagementPartnerAssignmentParameterValue?: ComplianceManagementPartnerAssignment | undefined) {
         this.additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? complianceManagementPartnerAssignmentParameterValue?.additionalData! : {};
-        this.target = complianceManagementPartnerAssignmentParameterValue?.target instanceof DeviceAndAppManagementAssignmentTargetImpl? complianceManagementPartnerAssignmentParameterValue?.target:new DeviceAndAppManagementAssignmentTargetImpl(complianceManagementPartnerAssignmentParameterValue?.target);
+        this.target = complianceManagementPartnerAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model

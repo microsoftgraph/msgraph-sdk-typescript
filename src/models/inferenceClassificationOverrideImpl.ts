@@ -18,7 +18,7 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
     public constructor(inferenceClassificationOverrideParameterValue?: InferenceClassificationOverride | undefined) {
         super(inferenceClassificationOverrideParameterValue);
         this.classifyAs = inferenceClassificationOverrideParameterValue?.classifyAs;
-        this.senderEmailAddress = inferenceClassificationOverrideParameterValue?.senderEmailAddress instanceof EmailAddressImpl? inferenceClassificationOverrideParameterValue?.senderEmailAddress:new EmailAddressImpl(inferenceClassificationOverrideParameterValue?.senderEmailAddress);
+        this.senderEmailAddress = inferenceClassificationOverrideParameterValue?.senderEmailAddress;
     };
     /**
      * The deserialization information for the current model

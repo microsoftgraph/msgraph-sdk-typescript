@@ -47,11 +47,10 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
      */
     public constructor(educationSchoolParameterValue?: EducationSchool | undefined) {
         super(educationSchoolParameterValue);
-        this.address = educationSchoolParameterValue?.address instanceof PhysicalAddressImpl? educationSchoolParameterValue?.address:new PhysicalAddressImpl(educationSchoolParameterValue?.address);
-        this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit instanceof AdministrativeUnitImpl? educationSchoolParameterValue?.administrativeUnit:new AdministrativeUnitImpl(educationSchoolParameterValue?.administrativeUnit);
-        const classesArrValue: EducationClassImpl[] = []; educationSchoolParameterValue?.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
-        this.classes = classesArrValue;
-        this.createdBy = educationSchoolParameterValue?.createdBy instanceof IdentitySetImpl? educationSchoolParameterValue?.createdBy:new IdentitySetImpl(educationSchoolParameterValue?.createdBy);
+        this.address = educationSchoolParameterValue?.address;
+        this.administrativeUnit = educationSchoolParameterValue?.administrativeUnit;
+        this.classes = educationSchoolParameterValue?.classes;
+        this.createdBy = educationSchoolParameterValue?.createdBy;
         this.externalId = educationSchoolParameterValue?.externalId;
         this.externalPrincipalId = educationSchoolParameterValue?.externalPrincipalId;
         this.fax = educationSchoolParameterValue?.fax;
@@ -61,8 +60,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         this.principalEmail = educationSchoolParameterValue?.principalEmail;
         this.principalName = educationSchoolParameterValue?.principalName;
         this.schoolNumber = educationSchoolParameterValue?.schoolNumber;
-        const usersArrValue: EducationUserImpl[] = []; educationSchoolParameterValue?.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
-        this.users = usersArrValue;
+        this.users = educationSchoolParameterValue?.users;
     };
     /**
      * The deserialization information for the current model
@@ -99,7 +97,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(this.administrativeUnit){
             writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", new AdministrativeUnitImpl(this.administrativeUnit));
         }
-        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
             writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.createdBy){
@@ -132,7 +130,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(this.schoolNumber){
             writer.writeStringValue("schoolNumber", this.schoolNumber);
         }
-        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
             writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
     };

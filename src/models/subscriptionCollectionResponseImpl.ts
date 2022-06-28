@@ -18,8 +18,7 @@ export class SubscriptionCollectionResponseImpl implements SubscriptionCollectio
     public constructor(subscriptionCollectionResponseParameterValue?: SubscriptionCollectionResponse | undefined) {
         this.additionalData = subscriptionCollectionResponseParameterValue?.additionalData ? subscriptionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = subscriptionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SubscriptionImpl[] = []; subscriptionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
-        this.value = valueArrValue;
+        this.value = subscriptionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SubscriptionCollectionResponseImpl implements SubscriptionCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SubscriptionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SubscriptionImpl? element : new SubscriptionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SubscriptionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SubscriptionImpl(element));});
             writer.writeCollectionOfObjectValues<SubscriptionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

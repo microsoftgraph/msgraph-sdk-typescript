@@ -41,15 +41,15 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public constructor(conditionalAccessConditionSetParameterValue?: ConditionalAccessConditionSet | undefined) {
         this.additionalData = conditionalAccessConditionSetParameterValue?.additionalData ? conditionalAccessConditionSetParameterValue?.additionalData! : {};
-        this.applications = conditionalAccessConditionSetParameterValue?.applications instanceof ConditionalAccessApplicationsImpl? conditionalAccessConditionSetParameterValue?.applications:new ConditionalAccessApplicationsImpl(conditionalAccessConditionSetParameterValue?.applications);
-        this.clientApplications = conditionalAccessConditionSetParameterValue?.clientApplications instanceof ConditionalAccessClientApplicationsImpl? conditionalAccessConditionSetParameterValue?.clientApplications:new ConditionalAccessClientApplicationsImpl(conditionalAccessConditionSetParameterValue?.clientApplications);
+        this.applications = conditionalAccessConditionSetParameterValue?.applications;
+        this.clientApplications = conditionalAccessConditionSetParameterValue?.clientApplications;
         this.clientAppTypes = conditionalAccessConditionSetParameterValue?.clientAppTypes;
-        this.devices = conditionalAccessConditionSetParameterValue?.devices instanceof ConditionalAccessDevicesImpl? conditionalAccessConditionSetParameterValue?.devices:new ConditionalAccessDevicesImpl(conditionalAccessConditionSetParameterValue?.devices);
-        this.locations = conditionalAccessConditionSetParameterValue?.locations instanceof ConditionalAccessLocationsImpl? conditionalAccessConditionSetParameterValue?.locations:new ConditionalAccessLocationsImpl(conditionalAccessConditionSetParameterValue?.locations);
-        this.platforms = conditionalAccessConditionSetParameterValue?.platforms instanceof ConditionalAccessPlatformsImpl? conditionalAccessConditionSetParameterValue?.platforms:new ConditionalAccessPlatformsImpl(conditionalAccessConditionSetParameterValue?.platforms);
+        this.devices = conditionalAccessConditionSetParameterValue?.devices;
+        this.locations = conditionalAccessConditionSetParameterValue?.locations;
+        this.platforms = conditionalAccessConditionSetParameterValue?.platforms;
         this.signInRiskLevels = conditionalAccessConditionSetParameterValue?.signInRiskLevels;
         this.userRiskLevels = conditionalAccessConditionSetParameterValue?.userRiskLevels;
-        this.users = conditionalAccessConditionSetParameterValue?.users instanceof ConditionalAccessUsersImpl? conditionalAccessConditionSetParameterValue?.users:new ConditionalAccessUsersImpl(conditionalAccessConditionSetParameterValue?.users);
+        this.users = conditionalAccessConditionSetParameterValue?.users;
     };
     /**
      * The deserialization information for the current model

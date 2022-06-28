@@ -18,8 +18,8 @@ export class WorkbookChartAreaFormatImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartAreaFormatParameterValue?: WorkbookChartAreaFormat | undefined) {
         super(workbookChartAreaFormatParameterValue);
-        this.fill = workbookChartAreaFormatParameterValue?.fill instanceof WorkbookChartFillImpl? workbookChartAreaFormatParameterValue?.fill:new WorkbookChartFillImpl(workbookChartAreaFormatParameterValue?.fill);
-        this.font = workbookChartAreaFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartAreaFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartAreaFormatParameterValue?.font);
+        this.fill = workbookChartAreaFormatParameterValue?.fill;
+        this.font = workbookChartAreaFormatParameterValue?.font;
     };
     /**
      * The deserialization information for the current model

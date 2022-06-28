@@ -19,7 +19,7 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
      */
     public constructor(richLongRunningOperationParameterValue?: RichLongRunningOperation | undefined) {
         super(richLongRunningOperationParameterValue);
-        this.error_escaped = richLongRunningOperationParameterValue?.error_escaped instanceof PublicErrorImpl? richLongRunningOperationParameterValue?.error_escaped:new PublicErrorImpl(richLongRunningOperationParameterValue?.error_escaped);
+        this.error_escaped = richLongRunningOperationParameterValue?.error_escaped;
         this.percentageComplete = richLongRunningOperationParameterValue?.percentageComplete;
         this.resourceId = richLongRunningOperationParameterValue?.resourceId;
         this.type = richLongRunningOperationParameterValue?.type;

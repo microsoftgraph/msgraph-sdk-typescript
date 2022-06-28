@@ -18,8 +18,7 @@ export class AdministrativeUnitCollectionResponseImpl implements AdministrativeU
     public constructor(administrativeUnitCollectionResponseParameterValue?: AdministrativeUnitCollectionResponse | undefined) {
         this.additionalData = administrativeUnitCollectionResponseParameterValue?.additionalData ? administrativeUnitCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = administrativeUnitCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AdministrativeUnitImpl[] = []; administrativeUnitCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
-        this.value = valueArrValue;
+        this.value = administrativeUnitCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AdministrativeUnitCollectionResponseImpl implements AdministrativeU
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AdministrativeUnitImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AdministrativeUnitImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AdministrativeUnitImpl(element));});
             writer.writeCollectionOfObjectValues<AdministrativeUnitImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

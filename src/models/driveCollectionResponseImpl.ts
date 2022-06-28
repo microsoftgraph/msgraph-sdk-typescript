@@ -18,8 +18,7 @@ export class DriveCollectionResponseImpl implements DriveCollectionResponse {
     public constructor(driveCollectionResponseParameterValue?: DriveCollectionResponse | undefined) {
         this.additionalData = driveCollectionResponseParameterValue?.additionalData ? driveCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = driveCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: DriveImpl[] = []; driveCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
-        this.value = valueArrValue;
+        this.value = driveCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DriveCollectionResponseImpl implements DriveCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DriveImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof DriveImpl? element : new DriveImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DriveImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DriveImpl(element));});
             writer.writeCollectionOfObjectValues<DriveImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,7 +18,7 @@ export class WorkbookOperationErrorImpl implements WorkbookOperationError {
     public constructor(workbookOperationErrorParameterValue?: WorkbookOperationError | undefined) {
         this.additionalData = workbookOperationErrorParameterValue?.additionalData ? workbookOperationErrorParameterValue?.additionalData! : {};
         this.code = workbookOperationErrorParameterValue?.code;
-        this.innerError = workbookOperationErrorParameterValue?.innerError instanceof WorkbookOperationErrorImpl? workbookOperationErrorParameterValue?.innerError:new WorkbookOperationErrorImpl(workbookOperationErrorParameterValue?.innerError);
+        this.innerError = workbookOperationErrorParameterValue?.innerError;
         this.message = workbookOperationErrorParameterValue?.message;
     };
     /**

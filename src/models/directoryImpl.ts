@@ -22,12 +22,9 @@ export class DirectoryImpl extends EntityImpl implements Directory {
      */
     public constructor(directoryParameterValue?: Directory | undefined) {
         super(directoryParameterValue);
-        const administrativeUnitsArrValue: AdministrativeUnitImpl[] = []; directoryParameterValue?.administrativeUnits?.forEach(element => {administrativeUnitsArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
-        this.administrativeUnits = administrativeUnitsArrValue;
-        const deletedItemsArrValue: DirectoryObjectImpl[] = []; directoryParameterValue?.deletedItems?.forEach(element => {deletedItemsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.deletedItems = deletedItemsArrValue;
-        const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = []; directoryParameterValue?.federationConfigurations?.forEach(element => {federationConfigurationsArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
-        this.federationConfigurations = federationConfigurationsArrValue;
+        this.administrativeUnits = directoryParameterValue?.administrativeUnits;
+        this.deletedItems = directoryParameterValue?.deletedItems;
+        this.federationConfigurations = directoryParameterValue?.federationConfigurations;
     };
     /**
      * The deserialization information for the current model
@@ -47,13 +44,13 @@ export class DirectoryImpl extends EntityImpl implements Directory {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.administrativeUnits && this.administrativeUnits.length != 0){        const administrativeUnitsArrValue: AdministrativeUnitImpl[] = []; this.administrativeUnits?.forEach(element => {administrativeUnitsArrValue.push(element instanceof AdministrativeUnitImpl? element : new AdministrativeUnitImpl(element));});
+        if(this.administrativeUnits && this.administrativeUnits.length != 0){        const administrativeUnitsArrValue: AdministrativeUnitImpl[] = []; this.administrativeUnits?.forEach(element => {administrativeUnitsArrValue.push(new AdministrativeUnitImpl(element));});
             writer.writeCollectionOfObjectValues<AdministrativeUnitImpl>("administrativeUnits", administrativeUnitsArrValue);
         }
-        if(this.deletedItems && this.deletedItems.length != 0){        const deletedItemsArrValue: DirectoryObjectImpl[] = []; this.deletedItems?.forEach(element => {deletedItemsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.deletedItems && this.deletedItems.length != 0){        const deletedItemsArrValue: DirectoryObjectImpl[] = []; this.deletedItems?.forEach(element => {deletedItemsArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("deletedItems", deletedItemsArrValue);
         }
-        if(this.federationConfigurations && this.federationConfigurations.length != 0){        const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = []; this.federationConfigurations?.forEach(element => {federationConfigurationsArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
+        if(this.federationConfigurations && this.federationConfigurations.length != 0){        const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = []; this.federationConfigurations?.forEach(element => {federationConfigurationsArrValue.push(new IdentityProviderBaseImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("federationConfigurations", federationConfigurationsArrValue);
         }
     };

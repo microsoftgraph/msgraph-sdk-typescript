@@ -18,8 +18,7 @@ export class MobileLobAppCollectionResponseImpl implements MobileLobAppCollectio
     public constructor(mobileLobAppCollectionResponseParameterValue?: MobileLobAppCollectionResponse | undefined) {
         this.additionalData = mobileLobAppCollectionResponseParameterValue?.additionalData ? mobileLobAppCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = mobileLobAppCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MobileLobAppImpl[] = []; mobileLobAppCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MobileLobAppImpl? element : new MobileLobAppImpl(element));});
-        this.value = valueArrValue;
+        this.value = mobileLobAppCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MobileLobAppCollectionResponseImpl implements MobileLobAppCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MobileLobAppImpl? element : new MobileLobAppImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MobileLobAppImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MobileLobAppImpl(element));});
             writer.writeCollectionOfObjectValues<MobileLobAppImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

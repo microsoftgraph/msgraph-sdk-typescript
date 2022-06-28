@@ -18,8 +18,7 @@ export class RiskDetectionCollectionResponseImpl implements RiskDetectionCollect
     public constructor(riskDetectionCollectionResponseParameterValue?: RiskDetectionCollectionResponse | undefined) {
         this.additionalData = riskDetectionCollectionResponseParameterValue?.additionalData ? riskDetectionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = riskDetectionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RiskDetectionImpl[] = []; riskDetectionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
-        this.value = valueArrValue;
+        this.value = riskDetectionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class RiskDetectionCollectionResponseImpl implements RiskDetectionCollect
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RiskDetectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RiskDetectionImpl? element : new RiskDetectionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RiskDetectionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RiskDetectionImpl(element));});
             writer.writeCollectionOfObjectValues<RiskDetectionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

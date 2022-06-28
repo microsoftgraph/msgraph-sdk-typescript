@@ -28,7 +28,7 @@ export class ChatMessagePolicyViolationImpl implements ChatMessagePolicyViolatio
         this.additionalData = chatMessagePolicyViolationParameterValue?.additionalData ? chatMessagePolicyViolationParameterValue?.additionalData! : {};
         this.dlpAction = chatMessagePolicyViolationParameterValue?.dlpAction;
         this.justificationText = chatMessagePolicyViolationParameterValue?.justificationText;
-        this.policyTip = chatMessagePolicyViolationParameterValue?.policyTip instanceof ChatMessagePolicyViolationPolicyTipImpl? chatMessagePolicyViolationParameterValue?.policyTip:new ChatMessagePolicyViolationPolicyTipImpl(chatMessagePolicyViolationParameterValue?.policyTip);
+        this.policyTip = chatMessagePolicyViolationParameterValue?.policyTip;
         this.userAction = chatMessagePolicyViolationParameterValue?.userAction;
         this.verdictDetails = chatMessagePolicyViolationParameterValue?.verdictDetails;
     };

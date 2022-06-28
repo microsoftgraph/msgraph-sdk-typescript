@@ -21,7 +21,7 @@ export class AadUserConversationMemberImpl extends ConversationMemberImpl implem
         super(aadUserConversationMemberParameterValue);
         this.email = aadUserConversationMemberParameterValue?.email;
         this.tenantId = aadUserConversationMemberParameterValue?.tenantId;
-        this.user = aadUserConversationMemberParameterValue?.user instanceof UserImpl? aadUserConversationMemberParameterValue?.user:new UserImpl(aadUserConversationMemberParameterValue?.user);
+        this.user = aadUserConversationMemberParameterValue?.user;
         this.userId = aadUserConversationMemberParameterValue?.userId;
     };
     /**

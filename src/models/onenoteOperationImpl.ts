@@ -19,7 +19,7 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
      */
     public constructor(onenoteOperationParameterValue?: OnenoteOperation | undefined) {
         super(onenoteOperationParameterValue);
-        this.error_escaped = onenoteOperationParameterValue?.error_escaped instanceof OnenoteOperationErrorImpl? onenoteOperationParameterValue?.error_escaped:new OnenoteOperationErrorImpl(onenoteOperationParameterValue?.error_escaped);
+        this.error_escaped = onenoteOperationParameterValue?.error_escaped;
         this.percentComplete = onenoteOperationParameterValue?.percentComplete;
         this.resourceId = onenoteOperationParameterValue?.resourceId;
         this.resourceLocation = onenoteOperationParameterValue?.resourceLocation;

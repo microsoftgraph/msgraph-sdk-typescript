@@ -451,7 +451,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
         this.defenderBlockEndUserAccess = windows10GeneralConfigurationParameterValue?.defenderBlockEndUserAccess;
         this.defenderCloudBlockLevel = windows10GeneralConfigurationParameterValue?.defenderCloudBlockLevel;
         this.defenderDaysBeforeDeletingQuarantinedMalware = windows10GeneralConfigurationParameterValue?.defenderDaysBeforeDeletingQuarantinedMalware;
-        this.defenderDetectedMalwareActions = windows10GeneralConfigurationParameterValue?.defenderDetectedMalwareActions instanceof DefenderDetectedMalwareActionsImpl? windows10GeneralConfigurationParameterValue?.defenderDetectedMalwareActions:new DefenderDetectedMalwareActionsImpl(windows10GeneralConfigurationParameterValue?.defenderDetectedMalwareActions);
+        this.defenderDetectedMalwareActions = windows10GeneralConfigurationParameterValue?.defenderDetectedMalwareActions;
         this.defenderFileExtensionsToExclude = windows10GeneralConfigurationParameterValue?.defenderFileExtensionsToExclude;
         this.defenderFilesAndFoldersToExclude = windows10GeneralConfigurationParameterValue?.defenderFilesAndFoldersToExclude;
         this.defenderMonitorFileActivity = windows10GeneralConfigurationParameterValue?.defenderMonitorFileActivity;
@@ -501,7 +501,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
         this.edgeFirstRunUrl = windows10GeneralConfigurationParameterValue?.edgeFirstRunUrl;
         this.edgeHomepageUrls = windows10GeneralConfigurationParameterValue?.edgeHomepageUrls;
         this.edgeRequireSmartScreen = windows10GeneralConfigurationParameterValue?.edgeRequireSmartScreen;
-        this.edgeSearchEngine = windows10GeneralConfigurationParameterValue?.edgeSearchEngine instanceof EdgeSearchEngineBaseImpl? windows10GeneralConfigurationParameterValue?.edgeSearchEngine:new EdgeSearchEngineBaseImpl(windows10GeneralConfigurationParameterValue?.edgeSearchEngine);
+        this.edgeSearchEngine = windows10GeneralConfigurationParameterValue?.edgeSearchEngine;
         this.edgeSendIntranetTrafficToInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeSendIntranetTrafficToInternetExplorer;
         this.edgeSyncFavoritesWithInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeSyncFavoritesWithInternetExplorer;
         this.enterpriseCloudPrintDiscoveryEndPoint = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintDiscoveryEndPoint;
@@ -527,7 +527,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
         this.networkProxyApplySettingsDeviceWide = windows10GeneralConfigurationParameterValue?.networkProxyApplySettingsDeviceWide;
         this.networkProxyAutomaticConfigurationUrl = windows10GeneralConfigurationParameterValue?.networkProxyAutomaticConfigurationUrl;
         this.networkProxyDisableAutoDetect = windows10GeneralConfigurationParameterValue?.networkProxyDisableAutoDetect;
-        this.networkProxyServer = windows10GeneralConfigurationParameterValue?.networkProxyServer instanceof Windows10NetworkProxyServerImpl? windows10GeneralConfigurationParameterValue?.networkProxyServer:new Windows10NetworkProxyServerImpl(windows10GeneralConfigurationParameterValue?.networkProxyServer);
+        this.networkProxyServer = windows10GeneralConfigurationParameterValue?.networkProxyServer;
         this.nfcBlocked = windows10GeneralConfigurationParameterValue?.nfcBlocked;
         this.oneDriveDisableFileSync = windows10GeneralConfigurationParameterValue?.oneDriveDisableFileSync;
         this.passwordBlockSimple = windows10GeneralConfigurationParameterValue?.passwordBlockSimple;

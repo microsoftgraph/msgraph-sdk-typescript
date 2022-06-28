@@ -27,10 +27,8 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         this.description = roleDefinitionParameterValue?.description;
         this.displayName = roleDefinitionParameterValue?.displayName;
         this.isBuiltIn = roleDefinitionParameterValue?.isBuiltIn;
-        const roleAssignmentsArrValue: RoleAssignmentImpl[] = []; roleDefinitionParameterValue?.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof RoleAssignmentImpl? element : new RoleAssignmentImpl(element));});
-        this.roleAssignments = roleAssignmentsArrValue;
-        const rolePermissionsArrValue: RolePermissionImpl[] = []; roleDefinitionParameterValue?.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
-        this.rolePermissions = rolePermissionsArrValue;
+        this.roleAssignments = roleDefinitionParameterValue?.roleAssignments;
+        this.rolePermissions = roleDefinitionParameterValue?.rolePermissions;
     };
     /**
      * The deserialization information for the current model
@@ -61,10 +59,10 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         if(this.isBuiltIn){
             writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
         }
-        if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: RoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(element instanceof RoleAssignmentImpl? element : new RoleAssignmentImpl(element));});
+        if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: RoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(new RoleAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
-        if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: RolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(element instanceof RolePermissionImpl? element : new RolePermissionImpl(element));});
+        if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: RolePermissionImpl[] = []; this.rolePermissions?.forEach(element => {rolePermissionsArrValue.push(new RolePermissionImpl(element));});
             writer.writeCollectionOfObjectValues<RolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }
     };

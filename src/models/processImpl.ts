@@ -41,7 +41,7 @@ export class ProcessImpl implements Process {
         this.additionalData = processParameterValue?.additionalData ? processParameterValue?.additionalData! : {};
         this.commandLine = processParameterValue?.commandLine;
         this.createdDateTime = processParameterValue?.createdDateTime;
-        this.fileHash = processParameterValue?.fileHash instanceof FileHashImpl? processParameterValue?.fileHash:new FileHashImpl(processParameterValue?.fileHash);
+        this.fileHash = processParameterValue?.fileHash;
         this.integrityLevel = processParameterValue?.integrityLevel;
         this.isElevated = processParameterValue?.isElevated;
         this.name = processParameterValue?.name;

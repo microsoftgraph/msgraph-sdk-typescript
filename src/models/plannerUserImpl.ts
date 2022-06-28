@@ -18,10 +18,8 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
      */
     public constructor(plannerUserParameterValue?: PlannerUser | undefined) {
         super(plannerUserParameterValue);
-        const plansArrValue: PlannerPlanImpl[] = []; plannerUserParameterValue?.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
-        this.plans = plansArrValue;
-        const tasksArrValue: PlannerTaskImpl[] = []; plannerUserParameterValue?.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
-        this.tasks = tasksArrValue;
+        this.plans = plannerUserParameterValue?.plans;
+        this.tasks = plannerUserParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -40,10 +38,10 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(element instanceof PlannerPlanImpl? element : new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(element instanceof PlannerTaskImpl? element : new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
     };

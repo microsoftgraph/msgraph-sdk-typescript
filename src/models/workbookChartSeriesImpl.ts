@@ -20,10 +20,9 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
      */
     public constructor(workbookChartSeriesParameterValue?: WorkbookChartSeries | undefined) {
         super(workbookChartSeriesParameterValue);
-        this.format = workbookChartSeriesParameterValue?.format instanceof WorkbookChartSeriesFormatImpl? workbookChartSeriesParameterValue?.format:new WorkbookChartSeriesFormatImpl(workbookChartSeriesParameterValue?.format);
+        this.format = workbookChartSeriesParameterValue?.format;
         this.name = workbookChartSeriesParameterValue?.name;
-        const pointsArrValue: WorkbookChartPointImpl[] = []; workbookChartSeriesParameterValue?.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
-        this.points = pointsArrValue;
+        this.points = workbookChartSeriesParameterValue?.points;
     };
     /**
      * The deserialization information for the current model
@@ -49,7 +48,7 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(element instanceof WorkbookChartPointImpl? element : new WorkbookChartPointImpl(element));});
+        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(new WorkbookChartPointImpl(element));});
             writer.writeCollectionOfObjectValues<WorkbookChartPointImpl>("points", pointsArrValue);
         }
     };

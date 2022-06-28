@@ -19,7 +19,7 @@ export class ManagedAppPolicyDeploymentSummaryPerAppImpl implements ManagedAppPo
     public constructor(managedAppPolicyDeploymentSummaryPerAppParameterValue?: ManagedAppPolicyDeploymentSummaryPerApp | undefined) {
         this.additionalData = managedAppPolicyDeploymentSummaryPerAppParameterValue?.additionalData ? managedAppPolicyDeploymentSummaryPerAppParameterValue?.additionalData! : {};
         this.configurationAppliedUserCount = managedAppPolicyDeploymentSummaryPerAppParameterValue?.configurationAppliedUserCount;
-        this.mobileAppIdentifier = managedAppPolicyDeploymentSummaryPerAppParameterValue?.mobileAppIdentifier instanceof MobileAppIdentifierImpl? managedAppPolicyDeploymentSummaryPerAppParameterValue?.mobileAppIdentifier:new MobileAppIdentifierImpl(managedAppPolicyDeploymentSummaryPerAppParameterValue?.mobileAppIdentifier);
+        this.mobileAppIdentifier = managedAppPolicyDeploymentSummaryPerAppParameterValue?.mobileAppIdentifier;
     };
     /**
      * The deserialization information for the current model

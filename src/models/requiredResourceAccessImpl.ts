@@ -17,8 +17,7 @@ export class RequiredResourceAccessImpl implements RequiredResourceAccess {
      */
     public constructor(requiredResourceAccessParameterValue?: RequiredResourceAccess | undefined) {
         this.additionalData = requiredResourceAccessParameterValue?.additionalData ? requiredResourceAccessParameterValue?.additionalData! : {};
-        const resourceAccessArrValue: ResourceAccessImpl[] = []; requiredResourceAccessParameterValue?.resourceAccess?.forEach(element => {resourceAccessArrValue.push(element instanceof ResourceAccessImpl? element : new ResourceAccessImpl(element));});
-        this.resourceAccess = resourceAccessArrValue;
+        this.resourceAccess = requiredResourceAccessParameterValue?.resourceAccess;
         this.resourceAppId = requiredResourceAccessParameterValue?.resourceAppId;
     };
     /**
@@ -37,7 +36,7 @@ export class RequiredResourceAccessImpl implements RequiredResourceAccess {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.resourceAccess && this.resourceAccess.length != 0){        const resourceAccessArrValue: ResourceAccessImpl[] = []; this.resourceAccess?.forEach(element => {resourceAccessArrValue.push(element instanceof ResourceAccessImpl? element : new ResourceAccessImpl(element));});
+        if(this.resourceAccess && this.resourceAccess.length != 0){        const resourceAccessArrValue: ResourceAccessImpl[] = []; this.resourceAccess?.forEach(element => {resourceAccessArrValue.push(new ResourceAccessImpl(element));});
             writer.writeCollectionOfObjectValues<ResourceAccessImpl>("resourceAccess", resourceAccessArrValue);
         }
         if(this.resourceAppId){

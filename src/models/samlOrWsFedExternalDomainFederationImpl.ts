@@ -13,8 +13,7 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
      */
     public constructor(samlOrWsFedExternalDomainFederationParameterValue?: SamlOrWsFedExternalDomainFederation | undefined) {
         super(samlOrWsFedExternalDomainFederationParameterValue);
-        const domainsArrValue: ExternalDomainNameImpl[] = []; samlOrWsFedExternalDomainFederationParameterValue?.domains?.forEach(element => {domainsArrValue.push(element instanceof ExternalDomainNameImpl? element : new ExternalDomainNameImpl(element));});
-        this.domains = domainsArrValue;
+        this.domains = samlOrWsFedExternalDomainFederationParameterValue?.domains;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +31,7 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.domains && this.domains.length != 0){        const domainsArrValue: ExternalDomainNameImpl[] = []; this.domains?.forEach(element => {domainsArrValue.push(element instanceof ExternalDomainNameImpl? element : new ExternalDomainNameImpl(element));});
+        if(this.domains && this.domains.length != 0){        const domainsArrValue: ExternalDomainNameImpl[] = []; this.domains?.forEach(element => {domainsArrValue.push(new ExternalDomainNameImpl(element));});
             writer.writeCollectionOfObjectValues<ExternalDomainNameImpl>("domains", domainsArrValue);
         }
     };

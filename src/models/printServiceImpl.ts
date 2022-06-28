@@ -14,8 +14,7 @@ export class PrintServiceImpl extends EntityImpl implements PrintService {
      */
     public constructor(printServiceParameterValue?: PrintService | undefined) {
         super(printServiceParameterValue);
-        const endpointsArrValue: PrintServiceEndpointImpl[] = []; printServiceParameterValue?.endpoints?.forEach(element => {endpointsArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
-        this.endpoints = endpointsArrValue;
+        this.endpoints = printServiceParameterValue?.endpoints;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class PrintServiceImpl extends EntityImpl implements PrintService {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: PrintServiceEndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(element instanceof PrintServiceEndpointImpl? element : new PrintServiceEndpointImpl(element));});
+        if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: PrintServiceEndpointImpl[] = []; this.endpoints?.forEach(element => {endpointsArrValue.push(new PrintServiceEndpointImpl(element));});
             writer.writeCollectionOfObjectValues<PrintServiceEndpointImpl>("endpoints", endpointsArrValue);
         }
     };

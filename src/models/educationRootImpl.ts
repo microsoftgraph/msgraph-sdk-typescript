@@ -25,13 +25,10 @@ export class EducationRootImpl implements EducationRoot {
      */
     public constructor(educationRootParameterValue?: EducationRoot | undefined) {
         this.additionalData = educationRootParameterValue?.additionalData ? educationRootParameterValue?.additionalData! : {};
-        const classesArrValue: EducationClassImpl[] = []; educationRootParameterValue?.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
-        this.classes = classesArrValue;
-        this.me = educationRootParameterValue?.me instanceof EducationUserImpl? educationRootParameterValue?.me:new EducationUserImpl(educationRootParameterValue?.me);
-        const schoolsArrValue: EducationSchoolImpl[] = []; educationRootParameterValue?.schools?.forEach(element => {schoolsArrValue.push(element instanceof EducationSchoolImpl? element : new EducationSchoolImpl(element));});
-        this.schools = schoolsArrValue;
-        const usersArrValue: EducationUserImpl[] = []; educationRootParameterValue?.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
-        this.users = usersArrValue;
+        this.classes = educationRootParameterValue?.classes;
+        this.me = educationRootParameterValue?.me;
+        this.schools = educationRootParameterValue?.schools;
+        this.users = educationRootParameterValue?.users;
     };
     /**
      * The deserialization information for the current model
@@ -51,16 +48,16 @@ export class EducationRootImpl implements EducationRoot {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(element instanceof EducationClassImpl? element : new EducationClassImpl(element));});
+        if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = []; this.classes?.forEach(element => {classesArrValue.push(new EducationClassImpl(element));});
             writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.me){
             writer.writeObjectValue<EducationUserImpl>("me", new EducationUserImpl(this.me));
         }
-        if(this.schools && this.schools.length != 0){        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(element instanceof EducationSchoolImpl? element : new EducationSchoolImpl(element));});
+        if(this.schools && this.schools.length != 0){        const schoolsArrValue: EducationSchoolImpl[] = []; this.schools?.forEach(element => {schoolsArrValue.push(new EducationSchoolImpl(element));});
             writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
         }
-        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(element instanceof EducationUserImpl? element : new EducationUserImpl(element));});
+        if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = []; this.users?.forEach(element => {usersArrValue.push(new EducationUserImpl(element));});
             writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -21,7 +21,7 @@ export class ChatMessageReactionImpl implements ChatMessageReaction {
         this.additionalData = chatMessageReactionParameterValue?.additionalData ? chatMessageReactionParameterValue?.additionalData! : {};
         this.createdDateTime = chatMessageReactionParameterValue?.createdDateTime;
         this.reactionType = chatMessageReactionParameterValue?.reactionType;
-        this.user = chatMessageReactionParameterValue?.user instanceof ChatMessageReactionIdentitySetImpl? chatMessageReactionParameterValue?.user:new ChatMessageReactionIdentitySetImpl(chatMessageReactionParameterValue?.user);
+        this.user = chatMessageReactionParameterValue?.user;
     };
     /**
      * The deserialization information for the current model

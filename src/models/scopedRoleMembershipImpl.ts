@@ -20,7 +20,7 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMe
         super(scopedRoleMembershipParameterValue);
         this.administrativeUnitId = scopedRoleMembershipParameterValue?.administrativeUnitId;
         this.roleId = scopedRoleMembershipParameterValue?.roleId;
-        this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo instanceof IdentityImpl? scopedRoleMembershipParameterValue?.roleMemberInfo:new IdentityImpl(scopedRoleMembershipParameterValue?.roleMemberInfo);
+        this.roleMemberInfo = scopedRoleMembershipParameterValue?.roleMemberInfo;
     };
     /**
      * The deserialization information for the current model

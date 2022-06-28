@@ -15,7 +15,7 @@ export class RecipientImpl implements Recipient {
      */
     public constructor(recipientParameterValue?: Recipient | undefined) {
         this.additionalData = recipientParameterValue?.additionalData ? recipientParameterValue?.additionalData! : {};
-        this.emailAddress = recipientParameterValue?.emailAddress instanceof EmailAddressImpl? recipientParameterValue?.emailAddress:new EmailAddressImpl(recipientParameterValue?.emailAddress);
+        this.emailAddress = recipientParameterValue?.emailAddress;
     };
     /**
      * The deserialization information for the current model

@@ -18,8 +18,7 @@ export class SchedulingGroupCollectionResponseImpl implements SchedulingGroupCol
     public constructor(schedulingGroupCollectionResponseParameterValue?: SchedulingGroupCollectionResponse | undefined) {
         this.additionalData = schedulingGroupCollectionResponseParameterValue?.additionalData ? schedulingGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = schedulingGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SchedulingGroupImpl[] = []; schedulingGroupCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SchedulingGroupImpl? element : new SchedulingGroupImpl(element));});
-        this.value = valueArrValue;
+        this.value = schedulingGroupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SchedulingGroupCollectionResponseImpl implements SchedulingGroupCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SchedulingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SchedulingGroupImpl? element : new SchedulingGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SchedulingGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SchedulingGroupImpl(element));});
             writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -18,8 +18,7 @@ export class ColumnDefinitionCollectionResponseImpl implements ColumnDefinitionC
     public constructor(columnDefinitionCollectionResponseParameterValue?: ColumnDefinitionCollectionResponse | undefined) {
         this.additionalData = columnDefinitionCollectionResponseParameterValue?.additionalData ? columnDefinitionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = columnDefinitionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ColumnDefinitionImpl[] = []; columnDefinitionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
-        this.value = valueArrValue;
+        this.value = columnDefinitionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ColumnDefinitionCollectionResponseImpl implements ColumnDefinitionC
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ColumnDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ColumnDefinitionImpl? element : new ColumnDefinitionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ColumnDefinitionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ColumnDefinitionImpl(element));});
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

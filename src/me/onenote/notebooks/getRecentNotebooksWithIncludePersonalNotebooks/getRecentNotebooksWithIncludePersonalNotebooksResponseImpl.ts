@@ -16,8 +16,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponseImpl implemen
      */
     public constructor(getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?: GetRecentNotebooksWithIncludePersonalNotebooksResponse | undefined) {
         this.additionalData = getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?.additionalData ? getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?.additionalData! : {};
-        const valueArrValue: RecentNotebookImpl[] = []; getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RecentNotebookImpl? element : new RecentNotebookImpl(element));});
-        this.value = valueArrValue;
+        this.value = getRecentNotebooksWithIncludePersonalNotebooksResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponseImpl implemen
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: RecentNotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RecentNotebookImpl? element : new RecentNotebookImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RecentNotebookImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RecentNotebookImpl(element));});
             writer.writeCollectionOfObjectValues<RecentNotebookImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

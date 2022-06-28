@@ -26,7 +26,7 @@ export class ProvisioningStepImpl implements ProvisioningStep {
     public constructor(provisioningStepParameterValue?: ProvisioningStep | undefined) {
         this.additionalData = provisioningStepParameterValue?.additionalData ? provisioningStepParameterValue?.additionalData! : {};
         this.description = provisioningStepParameterValue?.description;
-        this.details = provisioningStepParameterValue?.details instanceof DetailsInfoImpl? provisioningStepParameterValue?.details:new DetailsInfoImpl(provisioningStepParameterValue?.details);
+        this.details = provisioningStepParameterValue?.details;
         this.name = provisioningStepParameterValue?.name;
         this.provisioningStepType = provisioningStepParameterValue?.provisioningStepType;
         this.status = provisioningStepParameterValue?.status;

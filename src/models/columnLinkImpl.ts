@@ -2,7 +2,7 @@ import {ColumnLink} from './columnLink';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
     /** The name of the column  in this content type. */
     public name?: string | undefined;

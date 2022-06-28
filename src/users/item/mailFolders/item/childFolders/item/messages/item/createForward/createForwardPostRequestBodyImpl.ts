@@ -23,9 +23,8 @@ export class CreateForwardPostRequestBodyImpl implements CreateForwardPostReques
     public constructor(createForwardPostRequestBodyParameterValue?: CreateForwardPostRequestBody | undefined) {
         this.additionalData = createForwardPostRequestBodyParameterValue?.additionalData ? createForwardPostRequestBodyParameterValue?.additionalData! : {};
         this.comment = createForwardPostRequestBodyParameterValue?.comment;
-        this.message = createForwardPostRequestBodyParameterValue?.message instanceof MessageImpl? createForwardPostRequestBodyParameterValue?.message:new MessageImpl(createForwardPostRequestBodyParameterValue?.message);
-        const toRecipientsArrValue: RecipientImpl[] = []; createForwardPostRequestBodyParameterValue?.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.toRecipients = toRecipientsArrValue;
+        this.message = createForwardPostRequestBodyParameterValue?.message;
+        this.toRecipients = createForwardPostRequestBodyParameterValue?.toRecipients;
     };
     /**
      * The deserialization information for the current model
@@ -50,7 +49,7 @@ export class CreateForwardPostRequestBodyImpl implements CreateForwardPostReques
         if(this.message){
             writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
         }
-        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

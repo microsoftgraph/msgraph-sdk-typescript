@@ -18,8 +18,7 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements FeatureRollou
     public constructor(featureRolloutPolicyCollectionResponseParameterValue?: FeatureRolloutPolicyCollectionResponse | undefined) {
         this.additionalData = featureRolloutPolicyCollectionResponseParameterValue?.additionalData ? featureRolloutPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = featureRolloutPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: FeatureRolloutPolicyImpl[] = []; featureRolloutPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof FeatureRolloutPolicyImpl? element : new FeatureRolloutPolicyImpl(element));});
-        this.value = valueArrValue;
+        this.value = featureRolloutPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements FeatureRollou
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: FeatureRolloutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof FeatureRolloutPolicyImpl? element : new FeatureRolloutPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: FeatureRolloutPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new FeatureRolloutPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

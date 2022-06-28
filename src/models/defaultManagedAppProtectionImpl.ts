@@ -41,12 +41,10 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
     public constructor(defaultManagedAppProtectionParameterValue?: DefaultManagedAppProtection | undefined) {
         super(defaultManagedAppProtectionParameterValue);
         this.appDataEncryptionType = defaultManagedAppProtectionParameterValue?.appDataEncryptionType;
-        const appsArrValue: ManagedMobileAppImpl[] = []; defaultManagedAppProtectionParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
-        this.apps = appsArrValue;
-        const customSettingsArrValue: KeyValuePairImpl[] = []; defaultManagedAppProtectionParameterValue?.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
-        this.customSettings = customSettingsArrValue;
+        this.apps = defaultManagedAppProtectionParameterValue?.apps;
+        this.customSettings = defaultManagedAppProtectionParameterValue?.customSettings;
         this.deployedAppCount = defaultManagedAppProtectionParameterValue?.deployedAppCount;
-        this.deploymentSummary = defaultManagedAppProtectionParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? defaultManagedAppProtectionParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(defaultManagedAppProtectionParameterValue?.deploymentSummary);
+        this.deploymentSummary = defaultManagedAppProtectionParameterValue?.deploymentSummary;
         this.disableAppEncryptionIfDeviceEncryptionIsEnabled = defaultManagedAppProtectionParameterValue?.disableAppEncryptionIfDeviceEncryptionIsEnabled;
         this.encryptAppData = defaultManagedAppProtectionParameterValue?.encryptAppData;
         this.faceIdBlocked = defaultManagedAppProtectionParameterValue?.faceIdBlocked;
@@ -85,10 +83,10 @@ export class DefaultManagedAppProtectionImpl extends ManagedAppProtectionImpl im
         if(this.appDataEncryptionType){
             writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         }
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
-        if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }
         if(this.deployedAppCount){

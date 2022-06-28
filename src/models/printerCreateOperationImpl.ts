@@ -16,7 +16,7 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
     public constructor(printerCreateOperationParameterValue?: PrinterCreateOperation | undefined) {
         super(printerCreateOperationParameterValue);
         this.certificate = printerCreateOperationParameterValue?.certificate;
-        this.printer = printerCreateOperationParameterValue?.printer instanceof PrinterImpl? printerCreateOperationParameterValue?.printer:new PrinterImpl(printerCreateOperationParameterValue?.printer);
+        this.printer = printerCreateOperationParameterValue?.printer;
     };
     /**
      * The deserialization information for the current model

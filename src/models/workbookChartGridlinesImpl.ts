@@ -16,7 +16,7 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookCh
      */
     public constructor(workbookChartGridlinesParameterValue?: WorkbookChartGridlines | undefined) {
         super(workbookChartGridlinesParameterValue);
-        this.format = workbookChartGridlinesParameterValue?.format instanceof WorkbookChartGridlinesFormatImpl? workbookChartGridlinesParameterValue?.format:new WorkbookChartGridlinesFormatImpl(workbookChartGridlinesParameterValue?.format);
+        this.format = workbookChartGridlinesParameterValue?.format;
         this.visible = workbookChartGridlinesParameterValue?.visible;
     };
     /**

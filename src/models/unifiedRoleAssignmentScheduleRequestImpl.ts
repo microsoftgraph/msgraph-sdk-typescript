@@ -57,21 +57,21 @@ export class UnifiedRoleAssignmentScheduleRequestImpl extends RequestImpl implem
     public constructor(unifiedRoleAssignmentScheduleRequestParameterValue?: UnifiedRoleAssignmentScheduleRequest | undefined) {
         super(unifiedRoleAssignmentScheduleRequestParameterValue);
         this.action = unifiedRoleAssignmentScheduleRequestParameterValue?.action;
-        this.activatedUsing = unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing:new UnifiedRoleEligibilityScheduleImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing);
-        this.appScope = unifiedRoleAssignmentScheduleRequestParameterValue?.appScope instanceof AppScopeImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.appScope:new AppScopeImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.appScope);
+        this.activatedUsing = unifiedRoleAssignmentScheduleRequestParameterValue?.activatedUsing;
+        this.appScope = unifiedRoleAssignmentScheduleRequestParameterValue?.appScope;
         this.appScopeId = unifiedRoleAssignmentScheduleRequestParameterValue?.appScopeId;
-        this.directoryScope = unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope instanceof DirectoryObjectImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope:new DirectoryObjectImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope);
+        this.directoryScope = unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScope;
         this.directoryScopeId = unifiedRoleAssignmentScheduleRequestParameterValue?.directoryScopeId;
         this.isValidationOnly = unifiedRoleAssignmentScheduleRequestParameterValue?.isValidationOnly;
         this.justification = unifiedRoleAssignmentScheduleRequestParameterValue?.justification;
-        this.principal = unifiedRoleAssignmentScheduleRequestParameterValue?.principal instanceof DirectoryObjectImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.principal:new DirectoryObjectImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.principal);
+        this.principal = unifiedRoleAssignmentScheduleRequestParameterValue?.principal;
         this.principalId = unifiedRoleAssignmentScheduleRequestParameterValue?.principalId;
-        this.roleDefinition = unifiedRoleAssignmentScheduleRequestParameterValue?.roleDefinition instanceof UnifiedRoleDefinitionImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.roleDefinition:new UnifiedRoleDefinitionImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.roleDefinition);
+        this.roleDefinition = unifiedRoleAssignmentScheduleRequestParameterValue?.roleDefinition;
         this.roleDefinitionId = unifiedRoleAssignmentScheduleRequestParameterValue?.roleDefinitionId;
-        this.scheduleInfo = unifiedRoleAssignmentScheduleRequestParameterValue?.scheduleInfo instanceof RequestScheduleImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.scheduleInfo:new RequestScheduleImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.scheduleInfo);
-        this.targetSchedule = unifiedRoleAssignmentScheduleRequestParameterValue?.targetSchedule instanceof UnifiedRoleAssignmentScheduleImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.targetSchedule:new UnifiedRoleAssignmentScheduleImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.targetSchedule);
+        this.scheduleInfo = unifiedRoleAssignmentScheduleRequestParameterValue?.scheduleInfo;
+        this.targetSchedule = unifiedRoleAssignmentScheduleRequestParameterValue?.targetSchedule;
         this.targetScheduleId = unifiedRoleAssignmentScheduleRequestParameterValue?.targetScheduleId;
-        this.ticketInfo = unifiedRoleAssignmentScheduleRequestParameterValue?.ticketInfo instanceof TicketInfoImpl? unifiedRoleAssignmentScheduleRequestParameterValue?.ticketInfo:new TicketInfoImpl(unifiedRoleAssignmentScheduleRequestParameterValue?.ticketInfo);
+        this.ticketInfo = unifiedRoleAssignmentScheduleRequestParameterValue?.ticketInfo;
     };
     /**
      * The deserialization information for the current model

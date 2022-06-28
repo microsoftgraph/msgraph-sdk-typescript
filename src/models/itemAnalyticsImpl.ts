@@ -4,7 +4,7 @@ import {ItemActivityStat} from './itemActivityStat';
 import {ItemAnalytics} from './itemAnalytics';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
     /** The allTime property */
     public allTime?: ItemActivityStat | undefined;
@@ -18,10 +18,9 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
      */
     public constructor(itemAnalyticsParameterValue?: ItemAnalytics | undefined) {
         super(itemAnalyticsParameterValue);
-        this.allTime = itemAnalyticsParameterValue?.allTime instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.allTime:new ItemActivityStatImpl(itemAnalyticsParameterValue?.allTime);
-        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; itemAnalyticsParameterValue?.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
-        this.itemActivityStats = itemActivityStatsArrValue;
-        this.lastSevenDays = itemAnalyticsParameterValue?.lastSevenDays instanceof ItemActivityStatImpl? itemAnalyticsParameterValue?.lastSevenDays:new ItemActivityStatImpl(itemAnalyticsParameterValue?.lastSevenDays);
+        this.allTime = itemAnalyticsParameterValue?.allTime;
+        this.itemActivityStats = itemAnalyticsParameterValue?.itemActivityStats;
+        this.lastSevenDays = itemAnalyticsParameterValue?.lastSevenDays;
     };
     /**
      * The deserialization information for the current model
@@ -44,7 +43,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
         if(this.allTime){
             writer.writeObjectValue<ItemActivityStatImpl>("allTime", new ItemActivityStatImpl(this.allTime));
         }
-        if(this.itemActivityStats && this.itemActivityStats.length != 0){        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; this.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(element instanceof ItemActivityStatImpl? element : new ItemActivityStatImpl(element));});
+        if(this.itemActivityStats && this.itemActivityStats.length != 0){        const itemActivityStatsArrValue: ItemActivityStatImpl[] = []; this.itemActivityStats?.forEach(element => {itemActivityStatsArrValue.push(new ItemActivityStatImpl(element));});
             writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("itemActivityStats", itemActivityStatsArrValue);
         }
         if(this.lastSevenDays){

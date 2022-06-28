@@ -15,8 +15,7 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
      */
     public constructor(ipNamedLocationParameterValue?: IpNamedLocation | undefined) {
         super(ipNamedLocationParameterValue);
-        const ipRangesArrValue: IpRangeImpl[] = []; ipNamedLocationParameterValue?.ipRanges?.forEach(element => {ipRangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
-        this.ipRanges = ipRangesArrValue;
+        this.ipRanges = ipNamedLocationParameterValue?.ipRanges;
         this.isTrusted = ipNamedLocationParameterValue?.isTrusted;
     };
     /**
@@ -36,7 +35,7 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.ipRanges && this.ipRanges.length != 0){        const ipRangesArrValue: IpRangeImpl[] = []; this.ipRanges?.forEach(element => {ipRangesArrValue.push(element instanceof IpRangeImpl? element : new IpRangeImpl(element));});
+        if(this.ipRanges && this.ipRanges.length != 0){        const ipRangesArrValue: IpRangeImpl[] = []; this.ipRanges?.forEach(element => {ipRangesArrValue.push(new IpRangeImpl(element));});
             writer.writeCollectionOfObjectValues<IpRangeImpl>("ipRanges", ipRangesArrValue);
         }
         if(this.isTrusted){

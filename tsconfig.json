@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
         "importHelpers": true,
-		"module": "CommonJS",
+		"module": "es6",
 		"esModuleInterop": true,
-		"target": "ES2015",
+		"target": "es6",
         "moduleResolution": "node",
         "downlevelIteration": true,
         "allowSyntheticDefaultImports": true,

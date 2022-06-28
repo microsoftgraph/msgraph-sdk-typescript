@@ -21,9 +21,9 @@ export class EducationFeedbackImpl implements EducationFeedback {
      */
     public constructor(educationFeedbackParameterValue?: EducationFeedback | undefined) {
         this.additionalData = educationFeedbackParameterValue?.additionalData ? educationFeedbackParameterValue?.additionalData! : {};
-        this.feedbackBy = educationFeedbackParameterValue?.feedbackBy instanceof IdentitySetImpl? educationFeedbackParameterValue?.feedbackBy:new IdentitySetImpl(educationFeedbackParameterValue?.feedbackBy);
+        this.feedbackBy = educationFeedbackParameterValue?.feedbackBy;
         this.feedbackDateTime = educationFeedbackParameterValue?.feedbackDateTime;
-        this.text = educationFeedbackParameterValue?.text instanceof EducationItemBodyImpl? educationFeedbackParameterValue?.text:new EducationItemBodyImpl(educationFeedbackParameterValue?.text);
+        this.text = educationFeedbackParameterValue?.text;
     };
     /**
      * The deserialization information for the current model

@@ -18,8 +18,7 @@ export class UsedInsightCollectionResponseImpl implements UsedInsightCollectionR
     public constructor(usedInsightCollectionResponseParameterValue?: UsedInsightCollectionResponse | undefined) {
         this.additionalData = usedInsightCollectionResponseParameterValue?.additionalData ? usedInsightCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = usedInsightCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: UsedInsightImpl[] = []; usedInsightCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
-        this.value = valueArrValue;
+        this.value = usedInsightCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class UsedInsightCollectionResponseImpl implements UsedInsightCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: UsedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof UsedInsightImpl? element : new UsedInsightImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UsedInsightImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UsedInsightImpl(element));});
             writer.writeCollectionOfObjectValues<UsedInsightImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

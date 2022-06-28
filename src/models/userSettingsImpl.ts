@@ -20,7 +20,7 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
         super(userSettingsParameterValue);
         this.contributionToContentDiscoveryAsOrganizationDisabled = userSettingsParameterValue?.contributionToContentDiscoveryAsOrganizationDisabled;
         this.contributionToContentDiscoveryDisabled = userSettingsParameterValue?.contributionToContentDiscoveryDisabled;
-        this.shiftPreferences = userSettingsParameterValue?.shiftPreferences instanceof ShiftPreferencesImpl? userSettingsParameterValue?.shiftPreferences:new ShiftPreferencesImpl(userSettingsParameterValue?.shiftPreferences);
+        this.shiftPreferences = userSettingsParameterValue?.shiftPreferences;
     };
     /**
      * The deserialization information for the current model

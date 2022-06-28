@@ -19,9 +19,9 @@ export class IdentitySetImpl implements IdentitySet {
      */
     public constructor(identitySetParameterValue?: IdentitySet | undefined) {
         this.additionalData = identitySetParameterValue?.additionalData ? identitySetParameterValue?.additionalData! : {};
-        this.application = identitySetParameterValue?.application instanceof IdentityImpl? identitySetParameterValue?.application:new IdentityImpl(identitySetParameterValue?.application);
-        this.device = identitySetParameterValue?.device instanceof IdentityImpl? identitySetParameterValue?.device:new IdentityImpl(identitySetParameterValue?.device);
-        this.user = identitySetParameterValue?.user instanceof IdentityImpl? identitySetParameterValue?.user:new IdentityImpl(identitySetParameterValue?.user);
+        this.application = identitySetParameterValue?.application;
+        this.device = identitySetParameterValue?.device;
+        this.user = identitySetParameterValue?.user;
     };
     /**
      * The deserialization information for the current model

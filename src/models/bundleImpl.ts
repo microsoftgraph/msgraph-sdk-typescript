@@ -17,7 +17,7 @@ export class BundleImpl implements Bundle {
      */
     public constructor(bundleParameterValue?: Bundle | undefined) {
         this.additionalData = bundleParameterValue?.additionalData ? bundleParameterValue?.additionalData! : {};
-        this.album = bundleParameterValue?.album instanceof AlbumImpl? bundleParameterValue?.album:new AlbumImpl(bundleParameterValue?.album);
+        this.album = bundleParameterValue?.album;
         this.childCount = bundleParameterValue?.childCount;
     };
     /**

@@ -18,8 +18,7 @@ export class SectionGroupCollectionResponseImpl implements SectionGroupCollectio
     public constructor(sectionGroupCollectionResponseParameterValue?: SectionGroupCollectionResponse | undefined) {
         this.additionalData = sectionGroupCollectionResponseParameterValue?.additionalData ? sectionGroupCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = sectionGroupCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: SectionGroupImpl[] = []; sectionGroupCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
-        this.value = valueArrValue;
+        this.value = sectionGroupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class SectionGroupCollectionResponseImpl implements SectionGroupCollectio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: SectionGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof SectionGroupImpl? element : new SectionGroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SectionGroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SectionGroupImpl(element));});
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

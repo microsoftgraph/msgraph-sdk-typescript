@@ -18,8 +18,7 @@ export class EducationRubricCollectionResponseImpl implements EducationRubricCol
     public constructor(educationRubricCollectionResponseParameterValue?: EducationRubricCollectionResponse | undefined) {
         this.additionalData = educationRubricCollectionResponseParameterValue?.additionalData ? educationRubricCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationRubricCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationRubricImpl[] = []; educationRubricCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationRubricImpl? element : new EducationRubricImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationRubricCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationRubricCollectionResponseImpl implements EducationRubricCol
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationRubricImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationRubricImpl? element : new EducationRubricImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationRubricImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationRubricImpl(element));});
             writer.writeCollectionOfObjectValues<EducationRubricImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

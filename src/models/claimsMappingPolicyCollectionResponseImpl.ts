@@ -18,8 +18,7 @@ export class ClaimsMappingPolicyCollectionResponseImpl implements ClaimsMappingP
     public constructor(claimsMappingPolicyCollectionResponseParameterValue?: ClaimsMappingPolicyCollectionResponse | undefined) {
         this.additionalData = claimsMappingPolicyCollectionResponseParameterValue?.additionalData ? claimsMappingPolicyCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = claimsMappingPolicyCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ClaimsMappingPolicyImpl[] = []; claimsMappingPolicyCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ClaimsMappingPolicyImpl? element : new ClaimsMappingPolicyImpl(element));});
-        this.value = valueArrValue;
+        this.value = claimsMappingPolicyCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ClaimsMappingPolicyCollectionResponseImpl implements ClaimsMappingP
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ClaimsMappingPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ClaimsMappingPolicyImpl? element : new ClaimsMappingPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ClaimsMappingPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ClaimsMappingPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

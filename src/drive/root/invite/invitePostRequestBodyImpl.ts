@@ -33,8 +33,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         this.expirationDateTime = invitePostRequestBodyParameterValue?.expirationDateTime;
         this.message = invitePostRequestBodyParameterValue?.message;
         this.password = invitePostRequestBodyParameterValue?.password;
-        const recipientsArrValue: DriveRecipientImpl[] = []; invitePostRequestBodyParameterValue?.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
-        this.recipients = recipientsArrValue;
+        this.recipients = invitePostRequestBodyParameterValue?.recipients;
         this.requireSignIn = invitePostRequestBodyParameterValue?.requireSignIn;
         this.retainInheritedPermissions = invitePostRequestBodyParameterValue?.retainInheritedPermissions;
         this.roles = invitePostRequestBodyParameterValue?.roles;
@@ -71,7 +70,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         if(this.password){
             writer.writeStringValue("password", this.password);
         }
-        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(element instanceof DriveRecipientImpl? element : new DriveRecipientImpl(element));});
+        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(new DriveRecipientImpl(element));});
             writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }
         if(this.requireSignIn){

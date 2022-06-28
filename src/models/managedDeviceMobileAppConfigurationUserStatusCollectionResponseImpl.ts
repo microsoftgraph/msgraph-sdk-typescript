@@ -18,8 +18,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatusCollectionResponseImpl
     public constructor(managedDeviceMobileAppConfigurationUserStatusCollectionResponseParameterValue?: ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse | undefined) {
         this.additionalData = managedDeviceMobileAppConfigurationUserStatusCollectionResponseParameterValue?.additionalData ? managedDeviceMobileAppConfigurationUserStatusCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = managedDeviceMobileAppConfigurationUserStatusCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; managedDeviceMobileAppConfigurationUserStatusCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element : new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
-        this.value = valueArrValue;
+        this.value = managedDeviceMobileAppConfigurationUserStatusCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatusCollectionResponseImpl
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element : new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedDeviceMobileAppConfigurationUserStatusImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatusImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

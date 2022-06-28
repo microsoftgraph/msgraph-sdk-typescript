@@ -25,7 +25,7 @@ export class SubjectRightsRequestHistoryImpl implements SubjectRightsRequestHist
      */
     public constructor(subjectRightsRequestHistoryParameterValue?: SubjectRightsRequestHistory | undefined) {
         this.additionalData = subjectRightsRequestHistoryParameterValue?.additionalData ? subjectRightsRequestHistoryParameterValue?.additionalData! : {};
-        this.changedBy = subjectRightsRequestHistoryParameterValue?.changedBy instanceof IdentitySetImpl? subjectRightsRequestHistoryParameterValue?.changedBy:new IdentitySetImpl(subjectRightsRequestHistoryParameterValue?.changedBy);
+        this.changedBy = subjectRightsRequestHistoryParameterValue?.changedBy;
         this.eventDateTime = subjectRightsRequestHistoryParameterValue?.eventDateTime;
         this.stage = subjectRightsRequestHistoryParameterValue?.stage;
         this.stageStatus = subjectRightsRequestHistoryParameterValue?.stageStatus;

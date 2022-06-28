@@ -20,9 +20,9 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
      */
     public constructor(sharePointIdentitySetParameterValue?: SharePointIdentitySet | undefined) {
         super(sharePointIdentitySetParameterValue);
-        this.group = sharePointIdentitySetParameterValue?.group instanceof IdentityImpl? sharePointIdentitySetParameterValue?.group:new IdentityImpl(sharePointIdentitySetParameterValue?.group);
-        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup instanceof SharePointIdentityImpl? sharePointIdentitySetParameterValue?.siteGroup:new SharePointIdentityImpl(sharePointIdentitySetParameterValue?.siteGroup);
-        this.siteUser = sharePointIdentitySetParameterValue?.siteUser instanceof SharePointIdentityImpl? sharePointIdentitySetParameterValue?.siteUser:new SharePointIdentityImpl(sharePointIdentitySetParameterValue?.siteUser);
+        this.group = sharePointIdentitySetParameterValue?.group;
+        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup;
+        this.siteUser = sharePointIdentitySetParameterValue?.siteUser;
     };
     /**
      * The deserialization information for the current model

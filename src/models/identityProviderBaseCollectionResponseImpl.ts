@@ -18,8 +18,7 @@ export class IdentityProviderBaseCollectionResponseImpl implements IdentityProvi
     public constructor(identityProviderBaseCollectionResponseParameterValue?: IdentityProviderBaseCollectionResponse | undefined) {
         this.additionalData = identityProviderBaseCollectionResponseParameterValue?.additionalData ? identityProviderBaseCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityProviderBaseCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityProviderBaseImpl[] = []; identityProviderBaseCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
-        this.value = valueArrValue;
+        this.value = identityProviderBaseCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class IdentityProviderBaseCollectionResponseImpl implements IdentityProvi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityProviderBaseImpl? element : new IdentityProviderBaseImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderBaseImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityProviderBaseImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

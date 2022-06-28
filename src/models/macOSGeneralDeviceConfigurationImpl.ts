@@ -38,8 +38,7 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
     public constructor(macOSGeneralDeviceConfigurationParameterValue?: MacOSGeneralDeviceConfiguration | undefined) {
         super(macOSGeneralDeviceConfigurationParameterValue);
         this.compliantAppListType = macOSGeneralDeviceConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; macOSGeneralDeviceConfigurationParameterValue?.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.compliantAppsList = compliantAppsListArrValue;
+        this.compliantAppsList = macOSGeneralDeviceConfigurationParameterValue?.compliantAppsList;
         this.emailInDomainSuffixes = macOSGeneralDeviceConfigurationParameterValue?.emailInDomainSuffixes;
         this.passwordBlockSimple = macOSGeneralDeviceConfigurationParameterValue?.passwordBlockSimple;
         this.passwordExpirationDays = macOSGeneralDeviceConfigurationParameterValue?.passwordExpirationDays;
@@ -81,7 +80,7 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
         if(this.compliantAppListType){
             writer.writeEnumValue<AppListType>("compliantAppListType", this.compliantAppListType);
         }
-        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
         if(this.emailInDomainSuffixes){

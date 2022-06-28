@@ -18,8 +18,7 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Provisio
     public constructor(provisioningObjectSummaryCollectionResponseParameterValue?: ProvisioningObjectSummaryCollectionResponse | undefined) {
         this.additionalData = provisioningObjectSummaryCollectionResponseParameterValue?.additionalData ? provisioningObjectSummaryCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = provisioningObjectSummaryCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; provisioningObjectSummaryCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
-        this.value = valueArrValue;
+        this.value = provisioningObjectSummaryCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Provisio
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ProvisioningObjectSummaryImpl? element : new ProvisioningObjectSummaryImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ProvisioningObjectSummaryImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ProvisioningObjectSummaryImpl(element));});
             writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

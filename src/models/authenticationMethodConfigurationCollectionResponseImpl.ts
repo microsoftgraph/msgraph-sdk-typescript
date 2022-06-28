@@ -18,8 +18,7 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
     public constructor(authenticationMethodConfigurationCollectionResponseParameterValue?: AuthenticationMethodConfigurationCollectionResponse | undefined) {
         this.additionalData = authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData ? authenticationMethodConfigurationCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = authenticationMethodConfigurationCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; authenticationMethodConfigurationCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
-        this.value = valueArrValue;
+        this.value = authenticationMethodConfigurationCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof AuthenticationMethodConfigurationImpl? element : new AuthenticationMethodConfigurationImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodConfigurationImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AuthenticationMethodConfigurationImpl(element));});
             writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

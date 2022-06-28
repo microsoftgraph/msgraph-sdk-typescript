@@ -59,28 +59,23 @@ export class CalendarImpl extends EntityImpl implements Calendar {
     public constructor(calendarParameterValue?: Calendar | undefined) {
         super(calendarParameterValue);
         this.allowedOnlineMeetingProviders = calendarParameterValue?.allowedOnlineMeetingProviders;
-        const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; calendarParameterValue?.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
-        this.calendarPermissions = calendarPermissionsArrValue;
-        const calendarViewArrValue: EventImpl[] = []; calendarParameterValue?.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
-        this.calendarView = calendarViewArrValue;
+        this.calendarPermissions = calendarParameterValue?.calendarPermissions;
+        this.calendarView = calendarParameterValue?.calendarView;
         this.canEdit = calendarParameterValue?.canEdit;
         this.canShare = calendarParameterValue?.canShare;
         this.canViewPrivateItems = calendarParameterValue?.canViewPrivateItems;
         this.changeKey = calendarParameterValue?.changeKey;
         this.color = calendarParameterValue?.color;
         this.defaultOnlineMeetingProvider = calendarParameterValue?.defaultOnlineMeetingProvider;
-        const eventsArrValue: EventImpl[] = []; calendarParameterValue?.events?.forEach(element => {eventsArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
-        this.events = eventsArrValue;
+        this.events = calendarParameterValue?.events;
         this.hexColor = calendarParameterValue?.hexColor;
         this.isDefaultCalendar = calendarParameterValue?.isDefaultCalendar;
         this.isRemovable = calendarParameterValue?.isRemovable;
         this.isTallyingResponses = calendarParameterValue?.isTallyingResponses;
-        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; calendarParameterValue?.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
-        this.multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
+        this.multiValueExtendedProperties = calendarParameterValue?.multiValueExtendedProperties;
         this.name = calendarParameterValue?.name;
-        this.owner = calendarParameterValue?.owner instanceof EmailAddressImpl? calendarParameterValue?.owner:new EmailAddressImpl(calendarParameterValue?.owner);
-        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; calendarParameterValue?.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
-        this.singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
+        this.owner = calendarParameterValue?.owner;
+        this.singleValueExtendedProperties = calendarParameterValue?.singleValueExtendedProperties;
     };
     /**
      * The deserialization information for the current model
@@ -118,10 +113,10 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(this.allowedOnlineMeetingProviders){
             writer.writeCollectionOfPrimitiveValues<string>("allowedOnlineMeetingProviders", this.allowedOnlineMeetingProviders);
         }
-        if(this.calendarPermissions && this.calendarPermissions.length != 0){        const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; this.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(element instanceof CalendarPermissionImpl? element : new CalendarPermissionImpl(element));});
+        if(this.calendarPermissions && this.calendarPermissions.length != 0){        const calendarPermissionsArrValue: CalendarPermissionImpl[] = []; this.calendarPermissions?.forEach(element => {calendarPermissionsArrValue.push(new CalendarPermissionImpl(element));});
             writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("calendarPermissions", calendarPermissionsArrValue);
         }
-        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = []; this.calendarView?.forEach(element => {calendarViewArrValue.push(new EventImpl(element));});
             writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
         if(this.canEdit){
@@ -142,7 +137,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(this.defaultOnlineMeetingProvider){
             writer.writeEnumValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
         }
-        if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(element instanceof EventImpl? element : new EventImpl(element));});
+        if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = []; this.events?.forEach(element => {eventsArrValue.push(new EventImpl(element));});
             writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
         if(this.hexColor){
@@ -157,7 +152,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(this.isTallyingResponses){
             writer.writeBooleanValue("isTallyingResponses", this.isTallyingResponses);
         }
-        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(element instanceof MultiValueLegacyExtendedPropertyImpl? element : new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.name){
@@ -166,7 +161,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(this.owner){
             writer.writeObjectValue<EmailAddressImpl>("owner", new EmailAddressImpl(this.owner));
         }
-        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(element instanceof SingleValueLegacyExtendedPropertyImpl? element : new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
     };

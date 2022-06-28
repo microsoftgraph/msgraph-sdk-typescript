@@ -30,10 +30,9 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
         this.activityType = sendActivityNotificationPostRequestBodyParameterValue?.activityType;
         this.additionalData = sendActivityNotificationPostRequestBodyParameterValue?.additionalData ? sendActivityNotificationPostRequestBodyParameterValue?.additionalData! : {};
         this.chainId = sendActivityNotificationPostRequestBodyParameterValue?.chainId;
-        this.previewText = sendActivityNotificationPostRequestBodyParameterValue?.previewText instanceof ItemBodyImpl? sendActivityNotificationPostRequestBodyParameterValue?.previewText:new ItemBodyImpl(sendActivityNotificationPostRequestBodyParameterValue?.previewText);
-        const templateParametersArrValue: KeyValuePairImpl[] = []; sendActivityNotificationPostRequestBodyParameterValue?.templateParameters?.forEach(element => {templateParametersArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
-        this.templateParameters = templateParametersArrValue;
-        this.topic = sendActivityNotificationPostRequestBodyParameterValue?.topic instanceof TeamworkActivityTopicImpl? sendActivityNotificationPostRequestBodyParameterValue?.topic:new TeamworkActivityTopicImpl(sendActivityNotificationPostRequestBodyParameterValue?.topic);
+        this.previewText = sendActivityNotificationPostRequestBodyParameterValue?.previewText;
+        this.templateParameters = sendActivityNotificationPostRequestBodyParameterValue?.templateParameters;
+        this.topic = sendActivityNotificationPostRequestBodyParameterValue?.topic;
     };
     /**
      * The deserialization information for the current model
@@ -63,7 +62,7 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
         if(this.previewText){
             writer.writeObjectValue<ItemBodyImpl>("previewText", new ItemBodyImpl(this.previewText));
         }
-        if(this.templateParameters && this.templateParameters.length != 0){        const templateParametersArrValue: KeyValuePairImpl[] = []; this.templateParameters?.forEach(element => {templateParametersArrValue.push(element instanceof KeyValuePairImpl? element : new KeyValuePairImpl(element));});
+        if(this.templateParameters && this.templateParameters.length != 0){        const templateParametersArrValue: KeyValuePairImpl[] = []; this.templateParameters?.forEach(element => {templateParametersArrValue.push(new KeyValuePairImpl(element));});
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("templateParameters", templateParametersArrValue);
         }
         if(this.topic){

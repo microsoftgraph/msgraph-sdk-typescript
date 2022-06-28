@@ -18,8 +18,7 @@ export class IdentityUserFlowAttributeCollectionResponseImpl implements Identity
     public constructor(identityUserFlowAttributeCollectionResponseParameterValue?: IdentityUserFlowAttributeCollectionResponse | undefined) {
         this.additionalData = identityUserFlowAttributeCollectionResponseParameterValue?.additionalData ? identityUserFlowAttributeCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = identityUserFlowAttributeCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: IdentityUserFlowAttributeImpl[] = []; identityUserFlowAttributeCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
-        this.value = valueArrValue;
+        this.value = identityUserFlowAttributeCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class IdentityUserFlowAttributeCollectionResponseImpl implements Identity
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof IdentityUserFlowAttributeImpl? element : new IdentityUserFlowAttributeImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new IdentityUserFlowAttributeImpl(element));});
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

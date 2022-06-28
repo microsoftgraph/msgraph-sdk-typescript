@@ -28,8 +28,7 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         this.notifyReviewers = adminConsentRequestPolicyParameterValue?.notifyReviewers;
         this.remindersEnabled = adminConsentRequestPolicyParameterValue?.remindersEnabled;
         this.requestDurationInDays = adminConsentRequestPolicyParameterValue?.requestDurationInDays;
-        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; adminConsentRequestPolicyParameterValue?.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
-        this.reviewers = reviewersArrValue;
+        this.reviewers = adminConsentRequestPolicyParameterValue?.reviewers;
         this.version = adminConsentRequestPolicyParameterValue?.version;
     };
     /**
@@ -65,7 +64,7 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         if(this.requestDurationInDays){
             writer.writeNumberValue("requestDurationInDays", this.requestDurationInDays);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(element instanceof AccessReviewReviewerScopeImpl? element : new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.version){

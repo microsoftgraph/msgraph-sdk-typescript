@@ -44,18 +44,17 @@ export class MailTipsImpl implements MailTips {
      */
     public constructor(mailTipsParameterValue?: MailTips | undefined) {
         this.additionalData = mailTipsParameterValue?.additionalData ? mailTipsParameterValue?.additionalData! : {};
-        this.automaticReplies = mailTipsParameterValue?.automaticReplies instanceof AutomaticRepliesMailTipsImpl? mailTipsParameterValue?.automaticReplies:new AutomaticRepliesMailTipsImpl(mailTipsParameterValue?.automaticReplies);
+        this.automaticReplies = mailTipsParameterValue?.automaticReplies;
         this.customMailTip = mailTipsParameterValue?.customMailTip;
         this.deliveryRestricted = mailTipsParameterValue?.deliveryRestricted;
-        this.emailAddress = mailTipsParameterValue?.emailAddress instanceof EmailAddressImpl? mailTipsParameterValue?.emailAddress:new EmailAddressImpl(mailTipsParameterValue?.emailAddress);
-        this.error_escaped = mailTipsParameterValue?.error_escaped instanceof MailTipsErrorImpl? mailTipsParameterValue?.error_escaped:new MailTipsErrorImpl(mailTipsParameterValue?.error_escaped);
+        this.emailAddress = mailTipsParameterValue?.emailAddress;
+        this.error_escaped = mailTipsParameterValue?.error_escaped;
         this.externalMemberCount = mailTipsParameterValue?.externalMemberCount;
         this.isModerated = mailTipsParameterValue?.isModerated;
         this.mailboxFull = mailTipsParameterValue?.mailboxFull;
         this.maxMessageSize = mailTipsParameterValue?.maxMessageSize;
         this.recipientScope = mailTipsParameterValue?.recipientScope;
-        const recipientSuggestionsArrValue: RecipientImpl[] = []; mailTipsParameterValue?.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
-        this.recipientSuggestions = recipientSuggestionsArrValue;
+        this.recipientSuggestions = mailTipsParameterValue?.recipientSuggestions;
         this.totalMemberCount = mailTipsParameterValue?.totalMemberCount;
     };
     /**
@@ -114,7 +113,7 @@ export class MailTipsImpl implements MailTips {
         if(this.recipientScope){
             writer.writeEnumValue<RecipientScopeType>("recipientScope", this.recipientScope);
         }
-        if(this.recipientSuggestions && this.recipientSuggestions.length != 0){        const recipientSuggestionsArrValue: RecipientImpl[] = []; this.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(element instanceof RecipientImpl? element : new RecipientImpl(element));});
+        if(this.recipientSuggestions && this.recipientSuggestions.length != 0){        const recipientSuggestionsArrValue: RecipientImpl[] = []; this.recipientSuggestions?.forEach(element => {recipientSuggestionsArrValue.push(new RecipientImpl(element));});
             writer.writeCollectionOfObjectValues<RecipientImpl>("recipientSuggestions", recipientSuggestionsArrValue);
         }
         if(this.totalMemberCount){

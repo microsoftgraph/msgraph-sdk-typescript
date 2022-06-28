@@ -25,12 +25,10 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
      */
     public constructor(targetedManagedAppConfigurationParameterValue?: TargetedManagedAppConfiguration | undefined) {
         super(targetedManagedAppConfigurationParameterValue);
-        const appsArrValue: ManagedMobileAppImpl[] = []; targetedManagedAppConfigurationParameterValue?.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
-        this.apps = appsArrValue;
-        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; targetedManagedAppConfigurationParameterValue?.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
-        this.assignments = assignmentsArrValue;
+        this.apps = targetedManagedAppConfigurationParameterValue?.apps;
+        this.assignments = targetedManagedAppConfigurationParameterValue?.assignments;
         this.deployedAppCount = targetedManagedAppConfigurationParameterValue?.deployedAppCount;
-        this.deploymentSummary = targetedManagedAppConfigurationParameterValue?.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? targetedManagedAppConfigurationParameterValue?.deploymentSummary:new ManagedAppPolicyDeploymentSummaryImpl(targetedManagedAppConfigurationParameterValue?.deploymentSummary);
+        this.deploymentSummary = targetedManagedAppConfigurationParameterValue?.deploymentSummary;
         this.isAssigned = targetedManagedAppConfigurationParameterValue?.isAssigned;
     };
     /**
@@ -53,10 +51,10 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(element instanceof ManagedMobileAppImpl? element : new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
-        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(element instanceof TargetedManagedAppPolicyAssignmentImpl? element : new TargetedManagedAppPolicyAssignmentImpl(element));});
+        if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = []; this.assignments?.forEach(element => {assignmentsArrValue.push(new TargetedManagedAppPolicyAssignmentImpl(element));});
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.deployedAppCount){

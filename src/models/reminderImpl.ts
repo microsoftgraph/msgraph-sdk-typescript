@@ -32,13 +32,13 @@ export class ReminderImpl implements Reminder {
     public constructor(reminderParameterValue?: Reminder | undefined) {
         this.additionalData = reminderParameterValue?.additionalData ? reminderParameterValue?.additionalData! : {};
         this.changeKey = reminderParameterValue?.changeKey;
-        this.eventEndTime = reminderParameterValue?.eventEndTime instanceof DateTimeTimeZoneImpl? reminderParameterValue?.eventEndTime:new DateTimeTimeZoneImpl(reminderParameterValue?.eventEndTime);
+        this.eventEndTime = reminderParameterValue?.eventEndTime;
         this.eventId = reminderParameterValue?.eventId;
-        this.eventLocation = reminderParameterValue?.eventLocation instanceof LocationImpl? reminderParameterValue?.eventLocation:new LocationImpl(reminderParameterValue?.eventLocation);
-        this.eventStartTime = reminderParameterValue?.eventStartTime instanceof DateTimeTimeZoneImpl? reminderParameterValue?.eventStartTime:new DateTimeTimeZoneImpl(reminderParameterValue?.eventStartTime);
+        this.eventLocation = reminderParameterValue?.eventLocation;
+        this.eventStartTime = reminderParameterValue?.eventStartTime;
         this.eventSubject = reminderParameterValue?.eventSubject;
         this.eventWebLink = reminderParameterValue?.eventWebLink;
-        this.reminderFireTime = reminderParameterValue?.reminderFireTime instanceof DateTimeTimeZoneImpl? reminderParameterValue?.reminderFireTime:new DateTimeTimeZoneImpl(reminderParameterValue?.reminderFireTime);
+        this.reminderFireTime = reminderParameterValue?.reminderFireTime;
     };
     /**
      * The deserialization information for the current model

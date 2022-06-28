@@ -18,8 +18,8 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
      */
     public constructor(workbookChartAxisFormatParameterValue?: WorkbookChartAxisFormat | undefined) {
         super(workbookChartAxisFormatParameterValue);
-        this.font = workbookChartAxisFormatParameterValue?.font instanceof WorkbookChartFontImpl? workbookChartAxisFormatParameterValue?.font:new WorkbookChartFontImpl(workbookChartAxisFormatParameterValue?.font);
-        this.line = workbookChartAxisFormatParameterValue?.line instanceof WorkbookChartLineFormatImpl? workbookChartAxisFormatParameterValue?.line:new WorkbookChartLineFormatImpl(workbookChartAxisFormatParameterValue?.line);
+        this.font = workbookChartAxisFormatParameterValue?.font;
+        this.line = workbookChartAxisFormatParameterValue?.line;
     };
     /**
      * The deserialization information for the current model

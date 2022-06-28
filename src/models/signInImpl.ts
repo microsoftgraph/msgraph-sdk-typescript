@@ -70,16 +70,15 @@ export class SignInImpl extends EntityImpl implements SignIn {
         super(signInParameterValue);
         this.appDisplayName = signInParameterValue?.appDisplayName;
         this.appId = signInParameterValue?.appId;
-        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; signInParameterValue?.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(element instanceof AppliedConditionalAccessPolicyImpl? element : new AppliedConditionalAccessPolicyImpl(element));});
-        this.appliedConditionalAccessPolicies = appliedConditionalAccessPoliciesArrValue;
+        this.appliedConditionalAccessPolicies = signInParameterValue?.appliedConditionalAccessPolicies;
         this.clientAppUsed = signInParameterValue?.clientAppUsed;
         this.conditionalAccessStatus = signInParameterValue?.conditionalAccessStatus;
         this.correlationId = signInParameterValue?.correlationId;
         this.createdDateTime = signInParameterValue?.createdDateTime;
-        this.deviceDetail = signInParameterValue?.deviceDetail instanceof DeviceDetailImpl? signInParameterValue?.deviceDetail:new DeviceDetailImpl(signInParameterValue?.deviceDetail);
+        this.deviceDetail = signInParameterValue?.deviceDetail;
         this.ipAddress = signInParameterValue?.ipAddress;
         this.isInteractive = signInParameterValue?.isInteractive;
-        this.location = signInParameterValue?.location instanceof SignInLocationImpl? signInParameterValue?.location:new SignInLocationImpl(signInParameterValue?.location);
+        this.location = signInParameterValue?.location;
         this.resourceDisplayName = signInParameterValue?.resourceDisplayName;
         this.resourceId = signInParameterValue?.resourceId;
         this.riskDetail = signInParameterValue?.riskDetail;
@@ -88,7 +87,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
         this.riskLevelAggregated = signInParameterValue?.riskLevelAggregated;
         this.riskLevelDuringSignIn = signInParameterValue?.riskLevelDuringSignIn;
         this.riskState = signInParameterValue?.riskState;
-        this.status = signInParameterValue?.status instanceof SignInStatusImpl? signInParameterValue?.status:new SignInStatusImpl(signInParameterValue?.status);
+        this.status = signInParameterValue?.status;
         this.userDisplayName = signInParameterValue?.userDisplayName;
         this.userId = signInParameterValue?.userId;
         this.userPrincipalName = signInParameterValue?.userPrincipalName;
@@ -137,7 +136,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
         if(this.appId){
             writer.writeStringValue("appId", this.appId);
         }
-        if(this.appliedConditionalAccessPolicies && this.appliedConditionalAccessPolicies.length != 0){        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; this.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(element instanceof AppliedConditionalAccessPolicyImpl? element : new AppliedConditionalAccessPolicyImpl(element));});
+        if(this.appliedConditionalAccessPolicies && this.appliedConditionalAccessPolicies.length != 0){        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = []; this.appliedConditionalAccessPolicies?.forEach(element => {appliedConditionalAccessPoliciesArrValue.push(new AppliedConditionalAccessPolicyImpl(element));});
             writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicyImpl>("appliedConditionalAccessPolicies", appliedConditionalAccessPoliciesArrValue);
         }
         if(this.clientAppUsed){

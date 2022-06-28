@@ -18,8 +18,7 @@ export class MeetingAttendanceReportCollectionResponseImpl implements MeetingAtt
     public constructor(meetingAttendanceReportCollectionResponseParameterValue?: MeetingAttendanceReportCollectionResponse | undefined) {
         this.additionalData = meetingAttendanceReportCollectionResponseParameterValue?.additionalData ? meetingAttendanceReportCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = meetingAttendanceReportCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: MeetingAttendanceReportImpl[] = []; meetingAttendanceReportCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
-        this.value = valueArrValue;
+        this.value = meetingAttendanceReportCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class MeetingAttendanceReportCollectionResponseImpl implements MeetingAtt
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: MeetingAttendanceReportImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof MeetingAttendanceReportImpl? element : new MeetingAttendanceReportImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: MeetingAttendanceReportImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new MeetingAttendanceReportImpl(element));});
             writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

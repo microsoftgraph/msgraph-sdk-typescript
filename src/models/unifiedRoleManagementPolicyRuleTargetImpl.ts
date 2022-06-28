@@ -30,8 +30,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         this.inheritableSettings = unifiedRoleManagementPolicyRuleTargetParameterValue?.inheritableSettings;
         this.level = unifiedRoleManagementPolicyRuleTargetParameterValue?.level;
         this.operations = unifiedRoleManagementPolicyRuleTargetParameterValue?.operations;
-        const targetObjectsArrValue: DirectoryObjectImpl[] = []; unifiedRoleManagementPolicyRuleTargetParameterValue?.targetObjects?.forEach(element => {targetObjectsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
-        this.targetObjects = targetObjectsArrValue;
+        this.targetObjects = unifiedRoleManagementPolicyRuleTargetParameterValue?.targetObjects;
     };
     /**
      * The deserialization information for the current model
@@ -68,7 +67,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         if(this.operations){
             writer.writeCollectionOfPrimitiveValues<string>("operations", this.operations);
         }
-        if(this.targetObjects && this.targetObjects.length != 0){        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(element instanceof DirectoryObjectImpl? element : new DirectoryObjectImpl(element));});
+        if(this.targetObjects && this.targetObjects.length != 0){        const targetObjectsArrValue: DirectoryObjectImpl[] = []; this.targetObjects?.forEach(element => {targetObjectsArrValue.push(new DirectoryObjectImpl(element));});
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("targetObjects", targetObjectsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

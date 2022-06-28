@@ -34,10 +34,10 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
      */
     public constructor(iosVppAppParameterValue?: IosVppApp | undefined) {
         super(iosVppAppParameterValue);
-        this.applicableDeviceType = iosVppAppParameterValue?.applicableDeviceType instanceof IosDeviceTypeImpl? iosVppAppParameterValue?.applicableDeviceType:new IosDeviceTypeImpl(iosVppAppParameterValue?.applicableDeviceType);
+        this.applicableDeviceType = iosVppAppParameterValue?.applicableDeviceType;
         this.appStoreUrl = iosVppAppParameterValue?.appStoreUrl;
         this.bundleId = iosVppAppParameterValue?.bundleId;
-        this.licensingType = iosVppAppParameterValue?.licensingType instanceof VppLicensingTypeImpl? iosVppAppParameterValue?.licensingType:new VppLicensingTypeImpl(iosVppAppParameterValue?.licensingType);
+        this.licensingType = iosVppAppParameterValue?.licensingType;
         this.releaseDateTime = iosVppAppParameterValue?.releaseDateTime;
         this.totalLicenseCount = iosVppAppParameterValue?.totalLicenseCount;
         this.usedLicenseCount = iosVppAppParameterValue?.usedLicenseCount;

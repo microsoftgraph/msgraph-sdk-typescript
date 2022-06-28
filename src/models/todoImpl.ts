@@ -14,8 +14,7 @@ export class TodoImpl extends EntityImpl implements Todo {
      */
     public constructor(todoParameterValue?: Todo | undefined) {
         super(todoParameterValue);
-        const listsArrValue: TodoTaskListImpl[] = []; todoParameterValue?.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
-        this.lists = listsArrValue;
+        this.lists = todoParameterValue?.lists;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +32,7 @@ export class TodoImpl extends EntityImpl implements Todo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(element instanceof TodoTaskListImpl? element : new TodoTaskListImpl(element));});
+        if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = []; this.lists?.forEach(element => {listsArrValue.push(new TodoTaskListImpl(element));});
             writer.writeCollectionOfObjectValues<TodoTaskListImpl>("lists", listsArrValue);
         }
     };

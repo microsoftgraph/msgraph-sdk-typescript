@@ -39,15 +39,15 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public constructor(eventMessageParameterValue?: EventMessage | undefined) {
         super(eventMessageParameterValue);
-        this.endDateTime = eventMessageParameterValue?.endDateTime instanceof DateTimeTimeZoneImpl? eventMessageParameterValue?.endDateTime:new DateTimeTimeZoneImpl(eventMessageParameterValue?.endDateTime);
-        this.event = eventMessageParameterValue?.event instanceof EventImpl? eventMessageParameterValue?.event:new EventImpl(eventMessageParameterValue?.event);
+        this.endDateTime = eventMessageParameterValue?.endDateTime;
+        this.event = eventMessageParameterValue?.event;
         this.isAllDay = eventMessageParameterValue?.isAllDay;
         this.isDelegated = eventMessageParameterValue?.isDelegated;
         this.isOutOfDate = eventMessageParameterValue?.isOutOfDate;
-        this.location = eventMessageParameterValue?.location instanceof LocationImpl? eventMessageParameterValue?.location:new LocationImpl(eventMessageParameterValue?.location);
+        this.location = eventMessageParameterValue?.location;
         this.meetingMessageType = eventMessageParameterValue?.meetingMessageType;
-        this.recurrence = eventMessageParameterValue?.recurrence instanceof PatternedRecurrenceImpl? eventMessageParameterValue?.recurrence:new PatternedRecurrenceImpl(eventMessageParameterValue?.recurrence);
-        this.startDateTime = eventMessageParameterValue?.startDateTime instanceof DateTimeTimeZoneImpl? eventMessageParameterValue?.startDateTime:new DateTimeTimeZoneImpl(eventMessageParameterValue?.startDateTime);
+        this.recurrence = eventMessageParameterValue?.recurrence;
+        this.startDateTime = eventMessageParameterValue?.startDateTime;
         this.type = eventMessageParameterValue?.type;
     };
     /**

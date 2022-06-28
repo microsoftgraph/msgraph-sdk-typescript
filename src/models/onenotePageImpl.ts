@@ -43,10 +43,10 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
         this.createdByAppId = onenotePageParameterValue?.createdByAppId;
         this.lastModifiedDateTime = onenotePageParameterValue?.lastModifiedDateTime;
         this.level = onenotePageParameterValue?.level;
-        this.links = onenotePageParameterValue?.links instanceof PageLinksImpl? onenotePageParameterValue?.links:new PageLinksImpl(onenotePageParameterValue?.links);
+        this.links = onenotePageParameterValue?.links;
         this.order = onenotePageParameterValue?.order;
-        this.parentNotebook = onenotePageParameterValue?.parentNotebook instanceof NotebookImpl? onenotePageParameterValue?.parentNotebook:new NotebookImpl(onenotePageParameterValue?.parentNotebook);
-        this.parentSection = onenotePageParameterValue?.parentSection instanceof OnenoteSectionImpl? onenotePageParameterValue?.parentSection:new OnenoteSectionImpl(onenotePageParameterValue?.parentSection);
+        this.parentNotebook = onenotePageParameterValue?.parentNotebook;
+        this.parentSection = onenotePageParameterValue?.parentSection;
         this.title = onenotePageParameterValue?.title;
         this.userTags = onenotePageParameterValue?.userTags;
     };

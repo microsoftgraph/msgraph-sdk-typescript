@@ -16,7 +16,7 @@ export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements UpdateWind
      */
     public constructor(updateWindowsDeviceAccountPostRequestBodyParameterValue?: UpdateWindowsDeviceAccountPostRequestBody | undefined) {
         this.additionalData = updateWindowsDeviceAccountPostRequestBodyParameterValue?.additionalData ? updateWindowsDeviceAccountPostRequestBodyParameterValue?.additionalData! : {};
-        this.updateWindowsDeviceAccountActionParameter = updateWindowsDeviceAccountPostRequestBodyParameterValue?.updateWindowsDeviceAccountActionParameter instanceof UpdateWindowsDeviceAccountActionParameterImpl? updateWindowsDeviceAccountPostRequestBodyParameterValue?.updateWindowsDeviceAccountActionParameter:new UpdateWindowsDeviceAccountActionParameterImpl(updateWindowsDeviceAccountPostRequestBodyParameterValue?.updateWindowsDeviceAccountActionParameter);
+        this.updateWindowsDeviceAccountActionParameter = updateWindowsDeviceAccountPostRequestBodyParameterValue?.updateWindowsDeviceAccountActionParameter;
     };
     /**
      * The deserialization information for the current model

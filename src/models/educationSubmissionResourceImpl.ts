@@ -17,7 +17,7 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
     public constructor(educationSubmissionResourceParameterValue?: EducationSubmissionResource | undefined) {
         super(educationSubmissionResourceParameterValue);
         this.assignmentResourceUrl = educationSubmissionResourceParameterValue?.assignmentResourceUrl;
-        this.resource = educationSubmissionResourceParameterValue?.resource instanceof EducationResourceImpl? educationSubmissionResourceParameterValue?.resource:new EducationResourceImpl(educationSubmissionResourceParameterValue?.resource);
+        this.resource = educationSubmissionResourceParameterValue?.resource;
     };
     /**
      * The deserialization information for the current model

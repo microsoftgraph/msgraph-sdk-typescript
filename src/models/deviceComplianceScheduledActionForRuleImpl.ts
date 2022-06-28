@@ -17,8 +17,7 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
     public constructor(deviceComplianceScheduledActionForRuleParameterValue?: DeviceComplianceScheduledActionForRule | undefined) {
         super(deviceComplianceScheduledActionForRuleParameterValue);
         this.ruleName = deviceComplianceScheduledActionForRuleParameterValue?.ruleName;
-        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; deviceComplianceScheduledActionForRuleParameterValue?.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(element instanceof DeviceComplianceActionItemImpl? element : new DeviceComplianceActionItemImpl(element));});
-        this.scheduledActionConfigurations = scheduledActionConfigurationsArrValue;
+        this.scheduledActionConfigurations = deviceComplianceScheduledActionForRuleParameterValue?.scheduledActionConfigurations;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
         if(this.ruleName){
             writer.writeStringValue("ruleName", this.ruleName);
         }
-        if(this.scheduledActionConfigurations && this.scheduledActionConfigurations.length != 0){        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; this.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(element instanceof DeviceComplianceActionItemImpl? element : new DeviceComplianceActionItemImpl(element));});
+        if(this.scheduledActionConfigurations && this.scheduledActionConfigurations.length != 0){        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = []; this.scheduledActionConfigurations?.forEach(element => {scheduledActionConfigurationsArrValue.push(new DeviceComplianceActionItemImpl(element));});
             writer.writeCollectionOfObjectValues<DeviceComplianceActionItemImpl>("scheduledActionConfigurations", scheduledActionConfigurationsArrValue);
         }
     };

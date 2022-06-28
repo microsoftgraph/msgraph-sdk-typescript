@@ -24,7 +24,7 @@ export class RecentNotebookImpl implements RecentNotebook {
         this.additionalData = recentNotebookParameterValue?.additionalData ? recentNotebookParameterValue?.additionalData! : {};
         this.displayName = recentNotebookParameterValue?.displayName;
         this.lastAccessedTime = recentNotebookParameterValue?.lastAccessedTime;
-        this.links = recentNotebookParameterValue?.links instanceof RecentNotebookLinksImpl? recentNotebookParameterValue?.links:new RecentNotebookLinksImpl(recentNotebookParameterValue?.links);
+        this.links = recentNotebookParameterValue?.links;
         this.sourceService = recentNotebookParameterValue?.sourceService;
     };
     /**

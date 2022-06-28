@@ -22,12 +22,9 @@ export class SecurityImpl extends EntityImpl implements Security {
      */
     public constructor(securityParameterValue?: Security | undefined) {
         super(securityParameterValue);
-        const alertsArrValue: AlertImpl[] = []; securityParameterValue?.alerts?.forEach(element => {alertsArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
-        this.alerts = alertsArrValue;
-        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; securityParameterValue?.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
-        this.secureScoreControlProfiles = secureScoreControlProfilesArrValue;
-        const secureScoresArrValue: SecureScoreImpl[] = []; securityParameterValue?.secureScores?.forEach(element => {secureScoresArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
-        this.secureScores = secureScoresArrValue;
+        this.alerts = securityParameterValue?.alerts;
+        this.secureScoreControlProfiles = securityParameterValue?.secureScoreControlProfiles;
+        this.secureScores = securityParameterValue?.secureScores;
     };
     /**
      * The deserialization information for the current model
@@ -47,13 +44,13 @@ export class SecurityImpl extends EntityImpl implements Security {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.alerts && this.alerts.length != 0){        const alertsArrValue: AlertImpl[] = []; this.alerts?.forEach(element => {alertsArrValue.push(element instanceof AlertImpl? element : new AlertImpl(element));});
+        if(this.alerts && this.alerts.length != 0){        const alertsArrValue: AlertImpl[] = []; this.alerts?.forEach(element => {alertsArrValue.push(new AlertImpl(element));});
             writer.writeCollectionOfObjectValues<AlertImpl>("alerts", alertsArrValue);
         }
-        if(this.secureScoreControlProfiles && this.secureScoreControlProfiles.length != 0){        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; this.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(element instanceof SecureScoreControlProfileImpl? element : new SecureScoreControlProfileImpl(element));});
+        if(this.secureScoreControlProfiles && this.secureScoreControlProfiles.length != 0){        const secureScoreControlProfilesArrValue: SecureScoreControlProfileImpl[] = []; this.secureScoreControlProfiles?.forEach(element => {secureScoreControlProfilesArrValue.push(new SecureScoreControlProfileImpl(element));});
             writer.writeCollectionOfObjectValues<SecureScoreControlProfileImpl>("secureScoreControlProfiles", secureScoreControlProfilesArrValue);
         }
-        if(this.secureScores && this.secureScores.length != 0){        const secureScoresArrValue: SecureScoreImpl[] = []; this.secureScores?.forEach(element => {secureScoresArrValue.push(element instanceof SecureScoreImpl? element : new SecureScoreImpl(element));});
+        if(this.secureScores && this.secureScores.length != 0){        const secureScoresArrValue: SecureScoreImpl[] = []; this.secureScores?.forEach(element => {secureScoresArrValue.push(new SecureScoreImpl(element));});
             writer.writeCollectionOfObjectValues<SecureScoreImpl>("secureScores", secureScoresArrValue);
         }
     };

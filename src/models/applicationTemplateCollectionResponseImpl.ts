@@ -18,8 +18,7 @@ export class ApplicationTemplateCollectionResponseImpl implements ApplicationTem
     public constructor(applicationTemplateCollectionResponseParameterValue?: ApplicationTemplateCollectionResponse | undefined) {
         this.additionalData = applicationTemplateCollectionResponseParameterValue?.additionalData ? applicationTemplateCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = applicationTemplateCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ApplicationTemplateImpl[] = []; applicationTemplateCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ApplicationTemplateImpl? element : new ApplicationTemplateImpl(element));});
-        this.value = valueArrValue;
+        this.value = applicationTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ApplicationTemplateCollectionResponseImpl implements ApplicationTem
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ApplicationTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ApplicationTemplateImpl? element : new ApplicationTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ApplicationTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ApplicationTemplateImpl(element));});
             writer.writeCollectionOfObjectValues<ApplicationTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

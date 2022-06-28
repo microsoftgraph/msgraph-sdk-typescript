@@ -18,8 +18,7 @@ export class PrinterCollectionResponseImpl implements PrinterCollectionResponse 
     public constructor(printerCollectionResponseParameterValue?: PrinterCollectionResponse | undefined) {
         this.additionalData = printerCollectionResponseParameterValue?.additionalData ? printerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = printerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: PrinterImpl[] = []; printerCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
-        this.value = valueArrValue;
+        this.value = printerCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class PrinterCollectionResponseImpl implements PrinterCollectionResponse 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PrinterImpl? element : new PrinterImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PrinterImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PrinterImpl(element));});
             writer.writeCollectionOfObjectValues<PrinterImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

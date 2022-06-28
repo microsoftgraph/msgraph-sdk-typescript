@@ -19,9 +19,9 @@ export class OnenoteEntityHierarchyModelImpl extends OnenoteEntitySchemaObjectMo
      */
     public constructor(onenoteEntityHierarchyModelParameterValue?: OnenoteEntityHierarchyModel | undefined) {
         super(onenoteEntityHierarchyModelParameterValue);
-        this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy instanceof IdentitySetImpl? onenoteEntityHierarchyModelParameterValue?.createdBy:new IdentitySetImpl(onenoteEntityHierarchyModelParameterValue?.createdBy);
+        this.createdBy = onenoteEntityHierarchyModelParameterValue?.createdBy;
         this.displayName = onenoteEntityHierarchyModelParameterValue?.displayName;
-        this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy instanceof IdentitySetImpl? onenoteEntityHierarchyModelParameterValue?.lastModifiedBy:new IdentitySetImpl(onenoteEntityHierarchyModelParameterValue?.lastModifiedBy);
+        this.lastModifiedBy = onenoteEntityHierarchyModelParameterValue?.lastModifiedBy;
         this.lastModifiedDateTime = onenoteEntityHierarchyModelParameterValue?.lastModifiedDateTime;
     };
     /**

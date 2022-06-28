@@ -37,8 +37,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public constructor(accessReviewScheduleSettingsParameterValue?: AccessReviewScheduleSettings | undefined) {
         this.additionalData = accessReviewScheduleSettingsParameterValue?.additionalData ? accessReviewScheduleSettingsParameterValue?.additionalData! : {};
-        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; accessReviewScheduleSettingsParameterValue?.applyActions?.forEach(element => {applyActionsArrValue.push(element instanceof AccessReviewApplyActionImpl? element : new AccessReviewApplyActionImpl(element));});
-        this.applyActions = applyActionsArrValue;
+        this.applyActions = accessReviewScheduleSettingsParameterValue?.applyActions;
         this.autoApplyDecisionsEnabled = accessReviewScheduleSettingsParameterValue?.autoApplyDecisionsEnabled;
         this.decisionHistoriesForReviewersEnabled = accessReviewScheduleSettingsParameterValue?.decisionHistoriesForReviewersEnabled;
         this.defaultDecision = accessReviewScheduleSettingsParameterValue?.defaultDecision;
@@ -47,7 +46,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
         this.justificationRequiredOnApproval = accessReviewScheduleSettingsParameterValue?.justificationRequiredOnApproval;
         this.mailNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.mailNotificationsEnabled;
         this.recommendationsEnabled = accessReviewScheduleSettingsParameterValue?.recommendationsEnabled;
-        this.recurrence = accessReviewScheduleSettingsParameterValue?.recurrence instanceof PatternedRecurrenceImpl? accessReviewScheduleSettingsParameterValue?.recurrence:new PatternedRecurrenceImpl(accessReviewScheduleSettingsParameterValue?.recurrence);
+        this.recurrence = accessReviewScheduleSettingsParameterValue?.recurrence;
         this.reminderNotificationsEnabled = accessReviewScheduleSettingsParameterValue?.reminderNotificationsEnabled;
     };
     /**
@@ -75,7 +74,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(element instanceof AccessReviewApplyActionImpl? element : new AccessReviewApplyActionImpl(element));});
+        if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = []; this.applyActions?.forEach(element => {applyActionsArrValue.push(new AccessReviewApplyActionImpl(element));});
             writer.writeCollectionOfObjectValues<AccessReviewApplyActionImpl>("applyActions", applyActionsArrValue);
         }
         if(this.autoApplyDecisionsEnabled){

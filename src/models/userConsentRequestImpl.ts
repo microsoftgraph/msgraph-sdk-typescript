@@ -4,19 +4,18 @@ import {ApprovalImpl, RequestImpl} from './index';
 import {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class UserConsentRequestImpl extends RequestImpl implements UserConsentRequest {
     /** Approval decisions associated with a request. */
     public approval?: Approval | undefined;
     /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
     public reason?: string | undefined;
     /**
-     * Instantiates a new userConsentRequest and sets the default values.
+     * Instantiates a new UserConsentRequest and sets the default values.
      * @param userConsentRequestParameterValue 
      */
     public constructor(userConsentRequestParameterValue?: UserConsentRequest | undefined) {
         super(userConsentRequestParameterValue);
-        this.approval = userConsentRequestParameterValue?.approval instanceof ApprovalImpl? userConsentRequestParameterValue?.approval:new ApprovalImpl(userConsentRequestParameterValue?.approval);
+        this.approval = userConsentRequestParameterValue?.approval;
         this.reason = userConsentRequestParameterValue?.reason;
     };
     /**

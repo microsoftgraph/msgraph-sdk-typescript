@@ -18,8 +18,7 @@ export class ChannelCollectionResponseImpl implements ChannelCollectionResponse 
     public constructor(channelCollectionResponseParameterValue?: ChannelCollectionResponse | undefined) {
         this.additionalData = channelCollectionResponseParameterValue?.additionalData ? channelCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = channelCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: ChannelImpl[] = []; channelCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
-        this.value = valueArrValue;
+        this.value = channelCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class ChannelCollectionResponseImpl implements ChannelCollectionResponse 
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ChannelImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof ChannelImpl? element : new ChannelImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChannelImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChannelImpl(element));});
             writer.writeCollectionOfObjectValues<ChannelImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

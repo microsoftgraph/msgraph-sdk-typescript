@@ -19,8 +19,7 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
      */
     public constructor(serviceHealthParameterValue?: ServiceHealth | undefined) {
         super(serviceHealthParameterValue);
-        const issuesArrValue: ServiceHealthIssueImpl[] = []; serviceHealthParameterValue?.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
-        this.issues = issuesArrValue;
+        this.issues = serviceHealthParameterValue?.issues;
         this.service = serviceHealthParameterValue?.service;
         this.status = serviceHealthParameterValue?.status;
     };
@@ -42,7 +41,7 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(element instanceof ServiceHealthIssueImpl? element : new ServiceHealthIssueImpl(element));});
+        if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = []; this.issues?.forEach(element => {issuesArrValue.push(new ServiceHealthIssueImpl(element));});
             writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
         if(this.service){

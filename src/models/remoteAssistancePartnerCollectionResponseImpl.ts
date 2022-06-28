@@ -18,8 +18,7 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements RemoteAssi
     public constructor(remoteAssistancePartnerCollectionResponseParameterValue?: RemoteAssistancePartnerCollectionResponse | undefined) {
         this.additionalData = remoteAssistancePartnerCollectionResponseParameterValue?.additionalData ? remoteAssistancePartnerCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = remoteAssistancePartnerCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: RemoteAssistancePartnerImpl[] = []; remoteAssistancePartnerCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof RemoteAssistancePartnerImpl? element : new RemoteAssistancePartnerImpl(element));});
-        this.value = valueArrValue;
+        this.value = remoteAssistancePartnerCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements RemoteAssi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof RemoteAssistancePartnerImpl? element : new RemoteAssistancePartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RemoteAssistancePartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RemoteAssistancePartnerImpl(element));});
             writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

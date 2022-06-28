@@ -18,8 +18,7 @@ export class EducationSubmissionCollectionResponseImpl implements EducationSubmi
     public constructor(educationSubmissionCollectionResponseParameterValue?: EducationSubmissionCollectionResponse | undefined) {
         this.additionalData = educationSubmissionCollectionResponseParameterValue?.additionalData ? educationSubmissionCollectionResponseParameterValue?.additionalData! : {};
         this.nextLink = educationSubmissionCollectionResponseParameterValue?.nextLink;
-        const valueArrValue: EducationSubmissionImpl[] = []; educationSubmissionCollectionResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionImpl? element : new EducationSubmissionImpl(element));});
-        this.value = valueArrValue;
+        this.value = educationSubmissionCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,7 +39,7 @@ export class EducationSubmissionCollectionResponseImpl implements EducationSubmi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: EducationSubmissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof EducationSubmissionImpl? element : new EducationSubmissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EducationSubmissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EducationSubmissionImpl(element));});
             writer.writeCollectionOfObjectValues<EducationSubmissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

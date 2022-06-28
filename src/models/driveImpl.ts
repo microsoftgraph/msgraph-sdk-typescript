@@ -43,21 +43,17 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public constructor(driveParameterValue?: Drive | undefined) {
         super(driveParameterValue);
-        const bundlesArrValue: DriveItemImpl[] = []; driveParameterValue?.bundles?.forEach(element => {bundlesArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
-        this.bundles = bundlesArrValue;
+        this.bundles = driveParameterValue?.bundles;
         this.driveType = driveParameterValue?.driveType;
-        const followingArrValue: DriveItemImpl[] = []; driveParameterValue?.following?.forEach(element => {followingArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
-        this.following = followingArrValue;
-        const itemsArrValue: DriveItemImpl[] = []; driveParameterValue?.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
-        this.items = itemsArrValue;
-        this.list = driveParameterValue?.list instanceof ListImpl? driveParameterValue?.list:new ListImpl(driveParameterValue?.list);
-        this.owner = driveParameterValue?.owner instanceof IdentitySetImpl? driveParameterValue?.owner:new IdentitySetImpl(driveParameterValue?.owner);
-        this.quota = driveParameterValue?.quota instanceof QuotaImpl? driveParameterValue?.quota:new QuotaImpl(driveParameterValue?.quota);
-        this.root = driveParameterValue?.root instanceof DriveItemImpl? driveParameterValue?.root:new DriveItemImpl(driveParameterValue?.root);
-        this.sharePointIds = driveParameterValue?.sharePointIds instanceof SharepointIdsImpl? driveParameterValue?.sharePointIds:new SharepointIdsImpl(driveParameterValue?.sharePointIds);
-        const specialArrValue: DriveItemImpl[] = []; driveParameterValue?.special?.forEach(element => {specialArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
-        this.special = specialArrValue;
-        this.system = driveParameterValue?.system instanceof SystemFacetImpl? driveParameterValue?.system:new SystemFacetImpl(driveParameterValue?.system);
+        this.following = driveParameterValue?.following;
+        this.items = driveParameterValue?.items;
+        this.list = driveParameterValue?.list;
+        this.owner = driveParameterValue?.owner;
+        this.quota = driveParameterValue?.quota;
+        this.root = driveParameterValue?.root;
+        this.sharePointIds = driveParameterValue?.sharePointIds;
+        this.special = driveParameterValue?.special;
+        this.system = driveParameterValue?.system;
     };
     /**
      * The deserialization information for the current model
@@ -85,16 +81,16 @@ export class DriveImpl extends BaseItemImpl implements Drive {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.bundles && this.bundles.length != 0){        const bundlesArrValue: DriveItemImpl[] = []; this.bundles?.forEach(element => {bundlesArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        if(this.bundles && this.bundles.length != 0){        const bundlesArrValue: DriveItemImpl[] = []; this.bundles?.forEach(element => {bundlesArrValue.push(new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("bundles", bundlesArrValue);
         }
         if(this.driveType){
             writer.writeStringValue("driveType", this.driveType);
         }
-        if(this.following && this.following.length != 0){        const followingArrValue: DriveItemImpl[] = []; this.following?.forEach(element => {followingArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        if(this.following && this.following.length != 0){        const followingArrValue: DriveItemImpl[] = []; this.following?.forEach(element => {followingArrValue.push(new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("following", followingArrValue);
         }
-        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
@@ -112,7 +108,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         if(this.sharePointIds){
             writer.writeObjectValue<SharepointIdsImpl>("sharePointIds", new SharepointIdsImpl(this.sharePointIds));
         }
-        if(this.special && this.special.length != 0){        const specialArrValue: DriveItemImpl[] = []; this.special?.forEach(element => {specialArrValue.push(element instanceof DriveItemImpl? element : new DriveItemImpl(element));});
+        if(this.special && this.special.length != 0){        const specialArrValue: DriveItemImpl[] = []; this.special?.forEach(element => {specialArrValue.push(new DriveItemImpl(element));});
             writer.writeCollectionOfObjectValues<DriveItemImpl>("special", specialArrValue);
         }
         if(this.system){

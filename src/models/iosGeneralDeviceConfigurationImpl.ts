@@ -305,15 +305,13 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         this.appleNewsBlocked = iosGeneralDeviceConfigurationParameterValue?.appleNewsBlocked;
         this.appleWatchBlockPairing = iosGeneralDeviceConfigurationParameterValue?.appleWatchBlockPairing;
         this.appleWatchForceWristDetection = iosGeneralDeviceConfigurationParameterValue?.appleWatchForceWristDetection;
-        const appsSingleAppModeListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.appsSingleAppModeList?.forEach(element => {appsSingleAppModeListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.appsSingleAppModeList = appsSingleAppModeListArrValue;
+        this.appsSingleAppModeList = iosGeneralDeviceConfigurationParameterValue?.appsSingleAppModeList;
         this.appStoreBlockAutomaticDownloads = iosGeneralDeviceConfigurationParameterValue?.appStoreBlockAutomaticDownloads;
         this.appStoreBlocked = iosGeneralDeviceConfigurationParameterValue?.appStoreBlocked;
         this.appStoreBlockInAppPurchases = iosGeneralDeviceConfigurationParameterValue?.appStoreBlockInAppPurchases;
         this.appStoreBlockUIAppInstallation = iosGeneralDeviceConfigurationParameterValue?.appStoreBlockUIAppInstallation;
         this.appStoreRequirePassword = iosGeneralDeviceConfigurationParameterValue?.appStoreRequirePassword;
-        const appsVisibilityListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.appsVisibilityList?.forEach(element => {appsVisibilityListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.appsVisibilityList = appsVisibilityListArrValue;
+        this.appsVisibilityList = iosGeneralDeviceConfigurationParameterValue?.appsVisibilityList;
         this.appsVisibilityListType = iosGeneralDeviceConfigurationParameterValue?.appsVisibilityListType;
         this.bluetoothBlockModification = iosGeneralDeviceConfigurationParameterValue?.bluetoothBlockModification;
         this.cameraBlocked = iosGeneralDeviceConfigurationParameterValue?.cameraBlocked;
@@ -326,8 +324,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         this.classroomAppBlockRemoteScreenObservation = iosGeneralDeviceConfigurationParameterValue?.classroomAppBlockRemoteScreenObservation;
         this.classroomAppForceUnpromptedScreenObservation = iosGeneralDeviceConfigurationParameterValue?.classroomAppForceUnpromptedScreenObservation;
         this.compliantAppListType = iosGeneralDeviceConfigurationParameterValue?.compliantAppListType;
-        const compliantAppsListArrValue: AppListItemImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
-        this.compliantAppsList = compliantAppsListArrValue;
+        this.compliantAppsList = iosGeneralDeviceConfigurationParameterValue?.compliantAppsList;
         this.configurationProfileBlockChanges = iosGeneralDeviceConfigurationParameterValue?.configurationProfileBlockChanges;
         this.definitionLookupBlocked = iosGeneralDeviceConfigurationParameterValue?.definitionLookupBlocked;
         this.deviceBlockEnableRestrictions = iosGeneralDeviceConfigurationParameterValue?.deviceBlockEnableRestrictions;
@@ -388,18 +385,17 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         this.lockScreenBlockPassbook = iosGeneralDeviceConfigurationParameterValue?.lockScreenBlockPassbook;
         this.lockScreenBlockTodayView = iosGeneralDeviceConfigurationParameterValue?.lockScreenBlockTodayView;
         this.mediaContentRatingApps = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingApps;
-        this.mediaContentRatingAustralia = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingAustralia instanceof MediaContentRatingAustraliaImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingAustralia:new MediaContentRatingAustraliaImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingAustralia);
-        this.mediaContentRatingCanada = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingCanada instanceof MediaContentRatingCanadaImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingCanada:new MediaContentRatingCanadaImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingCanada);
-        this.mediaContentRatingFrance = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingFrance instanceof MediaContentRatingFranceImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingFrance:new MediaContentRatingFranceImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingFrance);
-        this.mediaContentRatingGermany = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingGermany instanceof MediaContentRatingGermanyImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingGermany:new MediaContentRatingGermanyImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingGermany);
-        this.mediaContentRatingIreland = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingIreland instanceof MediaContentRatingIrelandImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingIreland:new MediaContentRatingIrelandImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingIreland);
-        this.mediaContentRatingJapan = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingJapan instanceof MediaContentRatingJapanImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingJapan:new MediaContentRatingJapanImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingJapan);
-        this.mediaContentRatingNewZealand = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingNewZealand instanceof MediaContentRatingNewZealandImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingNewZealand:new MediaContentRatingNewZealandImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingNewZealand);
-        this.mediaContentRatingUnitedKingdom = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom instanceof MediaContentRatingUnitedKingdomImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom:new MediaContentRatingUnitedKingdomImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom);
-        this.mediaContentRatingUnitedStates = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates instanceof MediaContentRatingUnitedStatesImpl? iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates:new MediaContentRatingUnitedStatesImpl(iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates);
+        this.mediaContentRatingAustralia = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingAustralia;
+        this.mediaContentRatingCanada = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingCanada;
+        this.mediaContentRatingFrance = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingFrance;
+        this.mediaContentRatingGermany = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingGermany;
+        this.mediaContentRatingIreland = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingIreland;
+        this.mediaContentRatingJapan = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingJapan;
+        this.mediaContentRatingNewZealand = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingNewZealand;
+        this.mediaContentRatingUnitedKingdom = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedKingdom;
+        this.mediaContentRatingUnitedStates = iosGeneralDeviceConfigurationParameterValue?.mediaContentRatingUnitedStates;
         this.messagesBlocked = iosGeneralDeviceConfigurationParameterValue?.messagesBlocked;
-        const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = []; iosGeneralDeviceConfigurationParameterValue?.networkUsageRules?.forEach(element => {networkUsageRulesArrValue.push(element instanceof IosNetworkUsageRuleImpl? element : new IosNetworkUsageRuleImpl(element));});
-        this.networkUsageRules = networkUsageRulesArrValue;
+        this.networkUsageRules = iosGeneralDeviceConfigurationParameterValue?.networkUsageRules;
         this.notificationsBlockSettingsModification = iosGeneralDeviceConfigurationParameterValue?.notificationsBlockSettingsModification;
         this.passcodeBlockFingerprintModification = iosGeneralDeviceConfigurationParameterValue?.passcodeBlockFingerprintModification;
         this.passcodeBlockFingerprintUnlock = iosGeneralDeviceConfigurationParameterValue?.passcodeBlockFingerprintUnlock;
@@ -603,7 +599,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(this.appleWatchForceWristDetection){
             writer.writeBooleanValue("appleWatchForceWristDetection", this.appleWatchForceWristDetection);
         }
-        if(this.appsSingleAppModeList && this.appsSingleAppModeList.length != 0){        const appsSingleAppModeListArrValue: AppListItemImpl[] = []; this.appsSingleAppModeList?.forEach(element => {appsSingleAppModeListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.appsSingleAppModeList && this.appsSingleAppModeList.length != 0){        const appsSingleAppModeListArrValue: AppListItemImpl[] = []; this.appsSingleAppModeList?.forEach(element => {appsSingleAppModeListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsSingleAppModeList", appsSingleAppModeListArrValue);
         }
         if(this.appStoreBlockAutomaticDownloads){
@@ -621,7 +617,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(this.appStoreRequirePassword){
             writer.writeBooleanValue("appStoreRequirePassword", this.appStoreRequirePassword);
         }
-        if(this.appsVisibilityList && this.appsVisibilityList.length != 0){        const appsVisibilityListArrValue: AppListItemImpl[] = []; this.appsVisibilityList?.forEach(element => {appsVisibilityListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.appsVisibilityList && this.appsVisibilityList.length != 0){        const appsVisibilityListArrValue: AppListItemImpl[] = []; this.appsVisibilityList?.forEach(element => {appsVisibilityListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsVisibilityList", appsVisibilityListArrValue);
         }
         if(this.appsVisibilityListType){
@@ -660,7 +656,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(this.compliantAppListType){
             writer.writeEnumValue<AppListType>("compliantAppListType", this.compliantAppListType);
         }
-        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(element instanceof AppListItemImpl? element : new AppListItemImpl(element));});
+        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(new AppListItemImpl(element));});
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
         if(this.configurationProfileBlockChanges){
@@ -873,7 +869,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(this.messagesBlocked){
             writer.writeBooleanValue("messagesBlocked", this.messagesBlocked);
         }
-        if(this.networkUsageRules && this.networkUsageRules.length != 0){        const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = []; this.networkUsageRules?.forEach(element => {networkUsageRulesArrValue.push(element instanceof IosNetworkUsageRuleImpl? element : new IosNetworkUsageRuleImpl(element));});
+        if(this.networkUsageRules && this.networkUsageRules.length != 0){        const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = []; this.networkUsageRules?.forEach(element => {networkUsageRulesArrValue.push(new IosNetworkUsageRuleImpl(element));});
             writer.writeCollectionOfObjectValues<IosNetworkUsageRuleImpl>("networkUsageRules", networkUsageRulesArrValue);
         }
         if(this.notificationsBlockSettingsModification){

@@ -32,7 +32,7 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
     public constructor(activityHistoryItemParameterValue?: ActivityHistoryItem | undefined) {
         super(activityHistoryItemParameterValue);
         this.activeDurationSeconds = activityHistoryItemParameterValue?.activeDurationSeconds;
-        this.activity = activityHistoryItemParameterValue?.activity instanceof UserActivityImpl? activityHistoryItemParameterValue?.activity:new UserActivityImpl(activityHistoryItemParameterValue?.activity);
+        this.activity = activityHistoryItemParameterValue?.activity;
         this.createdDateTime = activityHistoryItemParameterValue?.createdDateTime;
         this.expirationDateTime = activityHistoryItemParameterValue?.expirationDateTime;
         this.lastActiveDateTime = activityHistoryItemParameterValue?.lastActiveDateTime;

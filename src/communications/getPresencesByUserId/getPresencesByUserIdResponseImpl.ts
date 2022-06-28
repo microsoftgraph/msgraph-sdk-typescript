@@ -16,8 +16,7 @@ export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdRes
      */
     public constructor(getPresencesByUserIdResponseParameterValue?: GetPresencesByUserIdResponse | undefined) {
         this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {};
-        const valueArrValue: PresenceImpl[] = []; getPresencesByUserIdResponseParameterValue?.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
-        this.value = valueArrValue;
+        this.value = getPresencesByUserIdResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +33,7 @@ export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdRes
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(element instanceof PresenceImpl? element : new PresenceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
             writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

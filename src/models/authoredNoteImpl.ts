@@ -20,8 +20,8 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote {
      */
     public constructor(authoredNoteParameterValue?: AuthoredNote | undefined) {
         super(authoredNoteParameterValue);
-        this.author = authoredNoteParameterValue?.author instanceof IdentityImpl? authoredNoteParameterValue?.author:new IdentityImpl(authoredNoteParameterValue?.author);
-        this.content = authoredNoteParameterValue?.content instanceof ItemBodyImpl? authoredNoteParameterValue?.content:new ItemBodyImpl(authoredNoteParameterValue?.content);
+        this.author = authoredNoteParameterValue?.author;
+        this.content = authoredNoteParameterValue?.content;
         this.createdDateTime = authoredNoteParameterValue?.createdDateTime;
     };
     /**
