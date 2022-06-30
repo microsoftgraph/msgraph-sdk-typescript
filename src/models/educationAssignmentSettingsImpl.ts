@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentSettingsImpl extends EntityImpl implements EducationAssignmentSettings {
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
-    public submissionAnimationDisabled?: boolean | undefined;
+    private _submissionAnimationDisabled?: boolean | undefined;
     /**
      * Instantiates a new educationAssignmentSettings and sets the default values.
      * @param educationAssignmentSettingsParameterValue 
      */
     public constructor(educationAssignmentSettingsParameterValue?: EducationAssignmentSettings | undefined) {
         super(educationAssignmentSettingsParameterValue);
-        this.submissionAnimationDisabled = educationAssignmentSettingsParameterValue?.submissionAnimationDisabled;
+        this._submissionAnimationDisabled = educationAssignmentSettingsParameterValue?.submissionAnimationDisabled;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +32,22 @@ export class EducationAssignmentSettingsImpl extends EntityImpl implements Educa
         super.serialize(writer);
         if(this.submissionAnimationDisabled){
             writer.writeBooleanValue("submissionAnimationDisabled", this.submissionAnimationDisabled);
+        }
+    };
+    /**
+     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
+     * @returns a boolean
+     */
+    public get submissionAnimationDisabled() {
+        return this._submissionAnimationDisabled;
+    };
+    /**
+     * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
+     * @param value Value to set for the submissionAnimationDisabled property.
+     */
+    public set submissionAnimationDisabled(value: boolean | undefined) {
+        if(value) {
+            this._submissionAnimationDisabled = value;
         }
     };
 }

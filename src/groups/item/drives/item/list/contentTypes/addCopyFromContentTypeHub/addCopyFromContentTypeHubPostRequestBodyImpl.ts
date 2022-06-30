@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the addCopyFromContentTypeHub method. */
 export class AddCopyFromContentTypeHubPostRequestBodyImpl implements AddCopyFromContentTypeHubPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The contentTypeId property */
-    public contentTypeId?: string | undefined;
+    private _contentTypeId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new addCopyFromContentTypeHubPostRequestBody and sets the default values.
      * @param addCopyFromContentTypeHubPostRequestBodyParameterValue 
      */
     public constructor(addCopyFromContentTypeHubPostRequestBodyParameterValue?: AddCopyFromContentTypeHubPostRequestBody | undefined) {
-        this.additionalData = addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData ? addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData! : {};
-        this.contentTypeId = addCopyFromContentTypeHubPostRequestBodyParameterValue?.contentTypeId;
+        this._additionalData = addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData ? addCopyFromContentTypeHubPostRequestBodyParameterValue?.additionalData! : {};
+        this._contentTypeId = addCopyFromContentTypeHubPostRequestBodyParameterValue?.contentTypeId;
+    };
+    /**
+     * Gets the contentTypeId property value. The contentTypeId property
+     * @returns a string
+     */
+    public get contentTypeId() {
+        return this._contentTypeId;
+    };
+    /**
+     * Sets the contentTypeId property value. The contentTypeId property
+     * @param value Value to set for the contentTypeId property.
+     */
+    public set contentTypeId(value: string | undefined) {
+        if(value) {
+            this._contentTypeId = value;
+        }
     };
     /**
      * The deserialization information for the current model

@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PublicClientApplicationImpl implements PublicClientApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
-    public redirectUris?: string[] | undefined;
+    private _redirectUris?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new publicClientApplication and sets the default values.
      * @param publicClientApplicationParameterValue 
      */
     public constructor(publicClientApplicationParameterValue?: PublicClientApplication | undefined) {
-        this.additionalData = publicClientApplicationParameterValue?.additionalData ? publicClientApplicationParameterValue?.additionalData! : {};
-        this.redirectUris = publicClientApplicationParameterValue?.redirectUris;
+        this._additionalData = publicClientApplicationParameterValue?.additionalData ? publicClientApplicationParameterValue?.additionalData! : {};
+        this._redirectUris = publicClientApplicationParameterValue?.redirectUris;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class PublicClientApplicationImpl implements PublicClientApplication {
         return {
             "redirectUris": n => { this.redirectUris = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the redirectUris property value. Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     * @returns a string
+     */
+    public get redirectUris() {
+        return this._redirectUris;
+    };
+    /**
+     * Sets the redirectUris property value. Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     * @param value Value to set for the redirectUris property.
+     */
+    public set redirectUris(value: string[] | undefined) {
+        if(value) {
+            this._redirectUris = value;
+        }
     };
     /**
      * Serializes information the current object

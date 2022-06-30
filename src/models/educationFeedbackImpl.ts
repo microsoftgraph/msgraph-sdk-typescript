@@ -8,22 +8,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationFeedbackImpl implements EducationFeedback {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** User who created the feedback. */
-    public feedbackBy?: IdentitySet | undefined;
+    private _feedbackBy?: IdentitySet | undefined;
     /** Moment in time when the feedback was given. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public feedbackDateTime?: Date | undefined;
+    private _feedbackDateTime?: Date | undefined;
     /** Feedback. */
-    public text?: EducationItemBody | undefined;
+    private _text?: EducationItemBody | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new educationFeedback and sets the default values.
      * @param educationFeedbackParameterValue 
      */
     public constructor(educationFeedbackParameterValue?: EducationFeedback | undefined) {
-        this.additionalData = educationFeedbackParameterValue?.additionalData ? educationFeedbackParameterValue?.additionalData! : {};
-        this.feedbackBy = educationFeedbackParameterValue?.feedbackBy;
-        this.feedbackDateTime = educationFeedbackParameterValue?.feedbackDateTime;
-        this.text = educationFeedbackParameterValue?.text;
+        this._additionalData = educationFeedbackParameterValue?.additionalData ? educationFeedbackParameterValue?.additionalData! : {};
+        this._feedbackBy = educationFeedbackParameterValue?.feedbackBy;
+        this._feedbackDateTime = educationFeedbackParameterValue?.feedbackDateTime;
+        this._text = educationFeedbackParameterValue?.text;
+    };
+    /**
+     * Gets the feedbackBy property value. User who created the feedback.
+     * @returns a IdentitySetInterface
+     */
+    public get feedbackBy() {
+        return this._feedbackBy;
+    };
+    /**
+     * Sets the feedbackBy property value. User who created the feedback.
+     * @param value Value to set for the feedbackBy property.
+     */
+    public set feedbackBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._feedbackBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the feedbackDateTime property value. Moment in time when the feedback was given. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get feedbackDateTime() {
+        return this._feedbackDateTime;
+    };
+    /**
+     * Sets the feedbackDateTime property value. Moment in time when the feedback was given. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the feedbackDateTime property.
+     */
+    public set feedbackDateTime(value: Date | undefined) {
+        if(value) {
+            this._feedbackDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -43,14 +91,30 @@ export class EducationFeedbackImpl implements EducationFeedback {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.feedbackBy){
-            writer.writeObjectValue<IdentitySetImpl>("feedbackBy", new IdentitySetImpl(this.feedbackBy));
+            writer.writeObjectValue<IdentitySetImpl>("feedbackBy", (!this.feedbackBy || this.feedbackBy instanceof IdentitySetImpl? this.feedbackBy : new IdentitySetImpl(this.feedbackBy)));
         }
         if(this.feedbackDateTime){
             writer.writeDateValue("feedbackDateTime", this.feedbackDateTime);
         }
         if(this.text){
-            writer.writeObjectValue<EducationItemBodyImpl>("text", new EducationItemBodyImpl(this.text));
+            writer.writeObjectValue<EducationItemBodyImpl>("text", (!this.text || this.text instanceof EducationItemBodyImpl? this.text : new EducationItemBodyImpl(this.text)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the text property value. Feedback.
+     * @returns a EducationItemBodyInterface
+     */
+    public get text() {
+        return this._text;
+    };
+    /**
+     * Sets the text property value. Feedback.
+     * @param value Value to set for the text property.
+     */
+    public set text(value: EducationItemBody | undefined) {
+        if(value) {
+            this._text = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+        }
     };
 }

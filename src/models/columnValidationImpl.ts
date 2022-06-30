@@ -6,22 +6,90 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ColumnValidationImpl implements ColumnValidation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Default BCP 47 language tag for the description. */
-    public defaultLanguage?: string | undefined;
+    private _defaultLanguage?: string | undefined;
     /** Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails. */
-    public descriptions?: DisplayNameLocalization[] | undefined;
+    private _descriptions?: DisplayNameLocalization[] | undefined;
     /** The formula to validate column value. For examples, see Examples of common formulas in lists */
-    public formula?: string | undefined;
+    private _formula?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new columnValidation and sets the default values.
      * @param columnValidationParameterValue 
      */
     public constructor(columnValidationParameterValue?: ColumnValidation | undefined) {
-        this.additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {};
-        this.defaultLanguage = columnValidationParameterValue?.defaultLanguage;
-        this.descriptions = columnValidationParameterValue?.descriptions;
-        this.formula = columnValidationParameterValue?.formula;
+        this._additionalData = columnValidationParameterValue?.additionalData ? columnValidationParameterValue?.additionalData! : {};
+        this._defaultLanguage = columnValidationParameterValue?.defaultLanguage;
+        this._descriptions = columnValidationParameterValue?.descriptions;
+        this._formula = columnValidationParameterValue?.formula;
+    };
+    /**
+     * Gets the defaultLanguage property value. Default BCP 47 language tag for the description.
+     * @returns a string
+     */
+    public get defaultLanguage() {
+        return this._defaultLanguage;
+    };
+    /**
+     * Sets the defaultLanguage property value. Default BCP 47 language tag for the description.
+     * @param value Value to set for the defaultLanguage property.
+     */
+    public set defaultLanguage(value: string | undefined) {
+        if(value) {
+            this._defaultLanguage = value;
+        }
+    };
+    /**
+     * Gets the descriptions property value. Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
+     * @returns a DisplayNameLocalizationInterface
+     */
+    public get descriptions() {
+        return this._descriptions;
+    };
+    /**
+     * Sets the descriptions property value. Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
+     * @param value Value to set for the descriptions property.
+     */
+    public set descriptions(value: DisplayNameLocalization[] | undefined) {
+        if(value) {
+            const descriptionsArrValue: DisplayNameLocalizationImpl[] = [];
+            this.descriptions?.forEach(element => {
+                descriptionsArrValue.push((element instanceof DisplayNameLocalizationImpl? element:new DisplayNameLocalizationImpl(element)));
+            });
+            this._descriptions = descriptionsArrValue;
+        }
+    };
+    /**
+     * Gets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists
+     * @returns a string
+     */
+    public get formula() {
+        return this._formula;
+    };
+    /**
+     * Sets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists
+     * @param value Value to set for the formula property.
+     */
+    public set formula(value: string | undefined) {
+        if(value) {
+            this._formula = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -43,7 +111,10 @@ export class ColumnValidationImpl implements ColumnValidation {
         if(this.defaultLanguage){
             writer.writeStringValue("defaultLanguage", this.defaultLanguage);
         }
-        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = []; this.descriptions?.forEach(element => {descriptionsArrValue.push(new DisplayNameLocalizationImpl(element));});
+        if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = [];
+        this.descriptions?.forEach(element => {
+            descriptionsArrValue.push((element instanceof DisplayNameLocalizationImpl? element:new DisplayNameLocalizationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DisplayNameLocalizationImpl>("descriptions", descriptionsArrValue);
         }
         if(this.formula){

@@ -7,19 +7,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the copyToDefaultContentLocation method. */
 export class CopyToDefaultContentLocationPostRequestBodyImpl implements CopyToDefaultContentLocationPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The destinationFileName property */
-    public destinationFileName?: string | undefined;
+    private _destinationFileName?: string | undefined;
     /** The sourceFile property */
-    public sourceFile?: ItemReference | undefined;
+    private _sourceFile?: ItemReference | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new copyToDefaultContentLocationPostRequestBody and sets the default values.
      * @param copyToDefaultContentLocationPostRequestBodyParameterValue 
      */
     public constructor(copyToDefaultContentLocationPostRequestBodyParameterValue?: CopyToDefaultContentLocationPostRequestBody | undefined) {
-        this.additionalData = copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData ? copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData! : {};
-        this.destinationFileName = copyToDefaultContentLocationPostRequestBodyParameterValue?.destinationFileName;
-        this.sourceFile = copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile;
+        this._additionalData = copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData ? copyToDefaultContentLocationPostRequestBodyParameterValue?.additionalData! : {};
+        this._destinationFileName = copyToDefaultContentLocationPostRequestBodyParameterValue?.destinationFileName;
+        this._sourceFile = copyToDefaultContentLocationPostRequestBodyParameterValue?.sourceFile;
+    };
+    /**
+     * Gets the destinationFileName property value. The destinationFileName property
+     * @returns a string
+     */
+    public get destinationFileName() {
+        return this._destinationFileName;
+    };
+    /**
+     * Sets the destinationFileName property value. The destinationFileName property
+     * @param value Value to set for the destinationFileName property.
+     */
+    public set destinationFileName(value: string | undefined) {
+        if(value) {
+            this._destinationFileName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -41,8 +73,24 @@ export class CopyToDefaultContentLocationPostRequestBodyImpl implements CopyToDe
             writer.writeStringValue("destinationFileName", this.destinationFileName);
         }
         if(this.sourceFile){
-            writer.writeObjectValue<ItemReferenceImpl>("sourceFile", new ItemReferenceImpl(this.sourceFile));
+            writer.writeObjectValue<ItemReferenceImpl>("sourceFile", (!this.sourceFile || this.sourceFile instanceof ItemReferenceImpl? this.sourceFile : new ItemReferenceImpl(this.sourceFile)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sourceFile property value. The sourceFile property
+     * @returns a ItemReferenceInterface
+     */
+    public get sourceFile() {
+        return this._sourceFile;
+    };
+    /**
+     * Sets the sourceFile property value. The sourceFile property
+     * @param value Value to set for the sourceFile property.
+     */
+    public set sourceFile(value: ItemReference | undefined) {
+        if(value) {
+            this._sourceFile = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+        }
     };
 }

@@ -6,16 +6,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RegistrationEnforcementImpl implements RegistrationEnforcement {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Run campaigns to remind users to setup targeted authentication methods. */
-    public authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
+    private _authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * @returns a AuthenticationMethodsRegistrationCampaignInterface
+     */
+    public get authenticationMethodsRegistrationCampaign() {
+        return this._authenticationMethodsRegistrationCampaign;
+    };
+    /**
+     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * @param value Value to set for the authenticationMethodsRegistrationCampaign property.
+     */
+    public set authenticationMethodsRegistrationCampaign(value: AuthenticationMethodsRegistrationCampaign | undefined) {
+        if(value) {
+            this._authenticationMethodsRegistrationCampaign = value instanceof AuthenticationMethodsRegistrationCampaignImpl? value : new AuthenticationMethodsRegistrationCampaignImpl(value);
+        }
+    };
     /**
      * Instantiates a new registrationEnforcement and sets the default values.
      * @param registrationEnforcementParameterValue 
      */
     public constructor(registrationEnforcementParameterValue?: RegistrationEnforcement | undefined) {
-        this.additionalData = registrationEnforcementParameterValue?.additionalData ? registrationEnforcementParameterValue?.additionalData! : {};
-        this.authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign;
+        this._additionalData = registrationEnforcementParameterValue?.additionalData ? registrationEnforcementParameterValue?.additionalData! : {};
+        this._authenticationMethodsRegistrationCampaign = registrationEnforcementParameterValue?.authenticationMethodsRegistrationCampaign;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +65,7 @@ export class RegistrationEnforcementImpl implements RegistrationEnforcement {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.authenticationMethodsRegistrationCampaign){
-            writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign));
+            writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", (!this.authenticationMethodsRegistrationCampaign || this.authenticationMethodsRegistrationCampaign instanceof AuthenticationMethodsRegistrationCampaignImpl? this.authenticationMethodsRegistrationCampaign : new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

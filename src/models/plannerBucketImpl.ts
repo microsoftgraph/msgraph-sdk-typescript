@@ -7,23 +7,23 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
     /** Name of the bucket. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
-    public orderHint?: string | undefined;
+    private _orderHint?: string | undefined;
     /** Plan ID to which the bucket belongs. */
-    public planId?: string | undefined;
+    private _planId?: string | undefined;
     /** Read-only. Nullable. The collection of tasks in the bucket. */
-    public tasks?: PlannerTask[] | undefined;
+    private _tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new plannerBucket and sets the default values.
      * @param plannerBucketParameterValue 
      */
     public constructor(plannerBucketParameterValue?: PlannerBucket | undefined) {
         super(plannerBucketParameterValue);
-        this.name = plannerBucketParameterValue?.name;
-        this.orderHint = plannerBucketParameterValue?.orderHint;
-        this.planId = plannerBucketParameterValue?.planId;
-        this.tasks = plannerBucketParameterValue?.tasks;
+        this._name = plannerBucketParameterValue?.name;
+        this._orderHint = plannerBucketParameterValue?.orderHint;
+        this._planId = plannerBucketParameterValue?.planId;
+        this._tasks = plannerBucketParameterValue?.tasks;
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +36,54 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
             "planId": n => { this.planId = n.getStringValue(); },
             "tasks": n => { this.tasks = n.getCollectionOfObjectValues<PlannerTaskImpl>(createPlannerTaskFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the name property value. Name of the bucket.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Name of the bucket.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * @returns a string
+     */
+    public get orderHint() {
+        return this._orderHint;
+    };
+    /**
+     * Sets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * @param value Value to set for the orderHint property.
+     */
+    public set orderHint(value: string | undefined) {
+        if(value) {
+            this._orderHint = value;
+        }
+    };
+    /**
+     * Gets the planId property value. Plan ID to which the bucket belongs.
+     * @returns a string
+     */
+    public get planId() {
+        return this._planId;
+    };
+    /**
+     * Sets the planId property value. Plan ID to which the bucket belongs.
+     * @param value Value to set for the planId property.
+     */
+    public set planId(value: string | undefined) {
+        if(value) {
+            this._planId = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -53,8 +101,31 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         if(this.planId){
             writer.writeStringValue("planId", this.planId);
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PlannerTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = [];
+        this.tasks?.forEach(element => {
+            tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
+        }
+    };
+    /**
+     * Gets the tasks property value. Read-only. Nullable. The collection of tasks in the bucket.
+     * @returns a PlannerTaskInterface
+     */
+    public get tasks() {
+        return this._tasks;
+    };
+    /**
+     * Sets the tasks property value. Read-only. Nullable. The collection of tasks in the bucket.
+     * @param value Value to set for the tasks property.
+     */
+    public set tasks(value: PlannerTask[] | undefined) {
+        if(value) {
+            const tasksArrValue: PlannerTaskImpl[] = [];
+            this.tasks?.forEach(element => {
+                tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+            });
+            this._tasks = tasksArrValue;
         }
     };
 }

@@ -6,35 +6,99 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to call the instantiate method. */
 export class PermissionGrantConditionSetImpl extends EntityImpl implements PermissionGrantConditionSet {
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
-    public clientApplicationIds?: string[] | undefined;
+    private _clientApplicationIds?: string[] | undefined;
     /** A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all. */
-    public clientApplicationPublisherIds?: string[] | undefined;
+    private _clientApplicationPublisherIds?: string[] | undefined;
     /** Set to true to only match on client applications with a verified publisher. Set to false to match on any client app, even if it does not have a verified publisher. Default is false. */
-    public clientApplicationsFromVerifiedPublisherOnly?: boolean | undefined;
+    private _clientApplicationsFromVerifiedPublisherOnly?: boolean | undefined;
     /** A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value all to match with client apps registered in any tenant. Default is the single value all. */
-    public clientApplicationTenantIds?: string[] | undefined;
+    private _clientApplicationTenantIds?: string[] | undefined;
     /** The permission classification for the permission being granted, or all to match with any permission classification (including permissions which are not classified). Default is all. */
-    public permissionClassification?: string | undefined;
+    private _permissionClassification?: string | undefined;
     /** The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all. */
-    public permissions?: string[] | undefined;
+    private _permissions?: string[] | undefined;
     /** The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required. */
-    public permissionType?: PermissionType | undefined;
+    private _permissionType?: PermissionType | undefined;
     /** The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any. */
-    public resourceApplication?: string | undefined;
+    private _resourceApplication?: string | undefined;
+    /**
+     * Gets the clientApplicationIds property value. A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all.
+     * @returns a string
+     */
+    public get clientApplicationIds() {
+        return this._clientApplicationIds;
+    };
+    /**
+     * Sets the clientApplicationIds property value. A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all.
+     * @param value Value to set for the clientApplicationIds property.
+     */
+    public set clientApplicationIds(value: string[] | undefined) {
+        if(value) {
+            this._clientApplicationIds = value;
+        }
+    };
+    /**
+     * Gets the clientApplicationPublisherIds property value. A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all.
+     * @returns a string
+     */
+    public get clientApplicationPublisherIds() {
+        return this._clientApplicationPublisherIds;
+    };
+    /**
+     * Sets the clientApplicationPublisherIds property value. A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all.
+     * @param value Value to set for the clientApplicationPublisherIds property.
+     */
+    public set clientApplicationPublisherIds(value: string[] | undefined) {
+        if(value) {
+            this._clientApplicationPublisherIds = value;
+        }
+    };
+    /**
+     * Gets the clientApplicationsFromVerifiedPublisherOnly property value. Set to true to only match on client applications with a verified publisher. Set to false to match on any client app, even if it does not have a verified publisher. Default is false.
+     * @returns a boolean
+     */
+    public get clientApplicationsFromVerifiedPublisherOnly() {
+        return this._clientApplicationsFromVerifiedPublisherOnly;
+    };
+    /**
+     * Sets the clientApplicationsFromVerifiedPublisherOnly property value. Set to true to only match on client applications with a verified publisher. Set to false to match on any client app, even if it does not have a verified publisher. Default is false.
+     * @param value Value to set for the clientApplicationsFromVerifiedPublisherOnly property.
+     */
+    public set clientApplicationsFromVerifiedPublisherOnly(value: boolean | undefined) {
+        if(value) {
+            this._clientApplicationsFromVerifiedPublisherOnly = value;
+        }
+    };
+    /**
+     * Gets the clientApplicationTenantIds property value. A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value all to match with client apps registered in any tenant. Default is the single value all.
+     * @returns a string
+     */
+    public get clientApplicationTenantIds() {
+        return this._clientApplicationTenantIds;
+    };
+    /**
+     * Sets the clientApplicationTenantIds property value. A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value all to match with client apps registered in any tenant. Default is the single value all.
+     * @param value Value to set for the clientApplicationTenantIds property.
+     */
+    public set clientApplicationTenantIds(value: string[] | undefined) {
+        if(value) {
+            this._clientApplicationTenantIds = value;
+        }
+    };
     /**
      * Instantiates a new permissionGrantConditionSet and sets the default values.
      * @param permissionGrantConditionSetParameterValue 
      */
     public constructor(permissionGrantConditionSetParameterValue?: PermissionGrantConditionSet | undefined) {
         super(permissionGrantConditionSetParameterValue);
-        this.clientApplicationIds = permissionGrantConditionSetParameterValue?.clientApplicationIds;
-        this.clientApplicationPublisherIds = permissionGrantConditionSetParameterValue?.clientApplicationPublisherIds;
-        this.clientApplicationsFromVerifiedPublisherOnly = permissionGrantConditionSetParameterValue?.clientApplicationsFromVerifiedPublisherOnly;
-        this.clientApplicationTenantIds = permissionGrantConditionSetParameterValue?.clientApplicationTenantIds;
-        this.permissionClassification = permissionGrantConditionSetParameterValue?.permissionClassification;
-        this.permissions = permissionGrantConditionSetParameterValue?.permissions;
-        this.permissionType = permissionGrantConditionSetParameterValue?.permissionType;
-        this.resourceApplication = permissionGrantConditionSetParameterValue?.resourceApplication;
+        this._clientApplicationIds = permissionGrantConditionSetParameterValue?.clientApplicationIds;
+        this._clientApplicationPublisherIds = permissionGrantConditionSetParameterValue?.clientApplicationPublisherIds;
+        this._clientApplicationsFromVerifiedPublisherOnly = permissionGrantConditionSetParameterValue?.clientApplicationsFromVerifiedPublisherOnly;
+        this._clientApplicationTenantIds = permissionGrantConditionSetParameterValue?.clientApplicationTenantIds;
+        this._permissionClassification = permissionGrantConditionSetParameterValue?.permissionClassification;
+        this._permissions = permissionGrantConditionSetParameterValue?.permissions;
+        this._permissionType = permissionGrantConditionSetParameterValue?.permissionType;
+        this._resourceApplication = permissionGrantConditionSetParameterValue?.resourceApplication;
     };
     /**
      * The deserialization information for the current model
@@ -51,6 +115,70 @@ export class PermissionGrantConditionSetImpl extends EntityImpl implements Permi
             "permissionType": n => { this.permissionType = n.getEnumValue<PermissionType>(PermissionType); },
             "resourceApplication": n => { this.resourceApplication = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the permissionClassification property value. The permission classification for the permission being granted, or all to match with any permission classification (including permissions which are not classified). Default is all.
+     * @returns a string
+     */
+    public get permissionClassification() {
+        return this._permissionClassification;
+    };
+    /**
+     * Sets the permissionClassification property value. The permission classification for the permission being granted, or all to match with any permission classification (including permissions which are not classified). Default is all.
+     * @param value Value to set for the permissionClassification property.
+     */
+    public set permissionClassification(value: string | undefined) {
+        if(value) {
+            this._permissionClassification = value;
+        }
+    };
+    /**
+     * Gets the permissions property value. The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
+     * @returns a string
+     */
+    public get permissions() {
+        return this._permissions;
+    };
+    /**
+     * Sets the permissions property value. The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
+     * @param value Value to set for the permissions property.
+     */
+    public set permissions(value: string[] | undefined) {
+        if(value) {
+            this._permissions = value;
+        }
+    };
+    /**
+     * Gets the permissionType property value. The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.
+     * @returns a permissionType
+     */
+    public get permissionType() {
+        return this._permissionType;
+    };
+    /**
+     * Sets the permissionType property value. The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.
+     * @param value Value to set for the permissionType property.
+     */
+    public set permissionType(value: PermissionType | undefined) {
+        if(value) {
+            this._permissionType = value;
+        }
+    };
+    /**
+     * Gets the resourceApplication property value. The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any.
+     * @returns a string
+     */
+    public get resourceApplication() {
+        return this._resourceApplication;
+    };
+    /**
+     * Sets the resourceApplication property value. The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any.
+     * @param value Value to set for the resourceApplication property.
+     */
+    public set resourceApplication(value: string | undefined) {
+        if(value) {
+            this._resourceApplication = value;
+        }
     };
     /**
      * Serializes information the current object

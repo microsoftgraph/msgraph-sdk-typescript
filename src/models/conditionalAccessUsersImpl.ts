@@ -3,31 +3,95 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessUsersImpl implements ConditionalAccessUsers {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Group IDs excluded from scope of policy. */
-    public excludeGroups?: string[] | undefined;
+    private _excludeGroups?: string[] | undefined;
     /** Role IDs excluded from scope of policy. */
-    public excludeRoles?: string[] | undefined;
+    private _excludeRoles?: string[] | undefined;
     /** User IDs excluded from scope of policy and/or GuestsOrExternalUsers. */
-    public excludeUsers?: string[] | undefined;
+    private _excludeUsers?: string[] | undefined;
     /** Group IDs in scope of policy unless explicitly excluded, or All. */
-    public includeGroups?: string[] | undefined;
+    private _includeGroups?: string[] | undefined;
     /** Role IDs in scope of policy unless explicitly excluded, or All. */
-    public includeRoles?: string[] | undefined;
+    private _includeRoles?: string[] | undefined;
     /** User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers. */
-    public includeUsers?: string[] | undefined;
+    private _includeUsers?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new conditionalAccessUsers and sets the default values.
      * @param conditionalAccessUsersParameterValue 
      */
     public constructor(conditionalAccessUsersParameterValue?: ConditionalAccessUsers | undefined) {
-        this.additionalData = conditionalAccessUsersParameterValue?.additionalData ? conditionalAccessUsersParameterValue?.additionalData! : {};
-        this.excludeGroups = conditionalAccessUsersParameterValue?.excludeGroups;
-        this.excludeRoles = conditionalAccessUsersParameterValue?.excludeRoles;
-        this.excludeUsers = conditionalAccessUsersParameterValue?.excludeUsers;
-        this.includeGroups = conditionalAccessUsersParameterValue?.includeGroups;
-        this.includeRoles = conditionalAccessUsersParameterValue?.includeRoles;
-        this.includeUsers = conditionalAccessUsersParameterValue?.includeUsers;
+        this._additionalData = conditionalAccessUsersParameterValue?.additionalData ? conditionalAccessUsersParameterValue?.additionalData! : {};
+        this._excludeGroups = conditionalAccessUsersParameterValue?.excludeGroups;
+        this._excludeRoles = conditionalAccessUsersParameterValue?.excludeRoles;
+        this._excludeUsers = conditionalAccessUsersParameterValue?.excludeUsers;
+        this._includeGroups = conditionalAccessUsersParameterValue?.includeGroups;
+        this._includeRoles = conditionalAccessUsersParameterValue?.includeRoles;
+        this._includeUsers = conditionalAccessUsersParameterValue?.includeUsers;
+    };
+    /**
+     * Gets the excludeGroups property value. Group IDs excluded from scope of policy.
+     * @returns a string
+     */
+    public get excludeGroups() {
+        return this._excludeGroups;
+    };
+    /**
+     * Sets the excludeGroups property value. Group IDs excluded from scope of policy.
+     * @param value Value to set for the excludeGroups property.
+     */
+    public set excludeGroups(value: string[] | undefined) {
+        if(value) {
+            this._excludeGroups = value;
+        }
+    };
+    /**
+     * Gets the excludeRoles property value. Role IDs excluded from scope of policy.
+     * @returns a string
+     */
+    public get excludeRoles() {
+        return this._excludeRoles;
+    };
+    /**
+     * Sets the excludeRoles property value. Role IDs excluded from scope of policy.
+     * @param value Value to set for the excludeRoles property.
+     */
+    public set excludeRoles(value: string[] | undefined) {
+        if(value) {
+            this._excludeRoles = value;
+        }
+    };
+    /**
+     * Gets the excludeUsers property value. User IDs excluded from scope of policy and/or GuestsOrExternalUsers.
+     * @returns a string
+     */
+    public get excludeUsers() {
+        return this._excludeUsers;
+    };
+    /**
+     * Sets the excludeUsers property value. User IDs excluded from scope of policy and/or GuestsOrExternalUsers.
+     * @param value Value to set for the excludeUsers property.
+     */
+    public set excludeUsers(value: string[] | undefined) {
+        if(value) {
+            this._excludeUsers = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +106,54 @@ export class ConditionalAccessUsersImpl implements ConditionalAccessUsers {
             "includeRoles": n => { this.includeRoles = n.getCollectionOfPrimitiveValues<string>(); },
             "includeUsers": n => { this.includeUsers = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded, or All.
+     * @returns a string
+     */
+    public get includeGroups() {
+        return this._includeGroups;
+    };
+    /**
+     * Sets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded, or All.
+     * @param value Value to set for the includeGroups property.
+     */
+    public set includeGroups(value: string[] | undefined) {
+        if(value) {
+            this._includeGroups = value;
+        }
+    };
+    /**
+     * Gets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded, or All.
+     * @returns a string
+     */
+    public get includeRoles() {
+        return this._includeRoles;
+    };
+    /**
+     * Sets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded, or All.
+     * @param value Value to set for the includeRoles property.
+     */
+    public set includeRoles(value: string[] | undefined) {
+        if(value) {
+            this._includeRoles = value;
+        }
+    };
+    /**
+     * Gets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
+     * @returns a string
+     */
+    public get includeUsers() {
+        return this._includeUsers;
+    };
+    /**
+     * Sets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
+     * @param value Value to set for the includeUsers property.
+     */
+    public set includeUsers(value: string[] | undefined) {
+        if(value) {
+            this._includeUsers = value;
+        }
     };
     /**
      * Serializes information the current object

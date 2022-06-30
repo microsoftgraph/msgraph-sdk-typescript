@@ -4,23 +4,23 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements OfferShiftRequest {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public recipientActionDateTime?: Date | undefined;
+    private _recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request. */
-    public recipientActionMessage?: string | undefined;
+    private _recipientActionMessage?: string | undefined;
     /** User id of the recipient of the offer shift request. */
-    public recipientUserId?: string | undefined;
+    private _recipientUserId?: string | undefined;
     /** User id of the sender of the offer shift request. */
-    public senderShiftId?: string | undefined;
+    private _senderShiftId?: string | undefined;
     /**
      * Instantiates a new OfferShiftRequest and sets the default values.
      * @param offerShiftRequestParameterValue 
      */
     public constructor(offerShiftRequestParameterValue?: OfferShiftRequest | undefined) {
         super(offerShiftRequestParameterValue);
-        this.recipientActionDateTime = offerShiftRequestParameterValue?.recipientActionDateTime;
-        this.recipientActionMessage = offerShiftRequestParameterValue?.recipientActionMessage;
-        this.recipientUserId = offerShiftRequestParameterValue?.recipientUserId;
-        this.senderShiftId = offerShiftRequestParameterValue?.senderShiftId;
+        this._recipientActionDateTime = offerShiftRequestParameterValue?.recipientActionDateTime;
+        this._recipientActionMessage = offerShiftRequestParameterValue?.recipientActionMessage;
+        this._recipientUserId = offerShiftRequestParameterValue?.recipientUserId;
+        this._senderShiftId = offerShiftRequestParameterValue?.senderShiftId;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +33,70 @@ export class OfferShiftRequestImpl extends ScheduleChangeRequestImpl implements 
             "recipientUserId": n => { this.recipientUserId = n.getStringValue(); },
             "senderShiftId": n => { this.senderShiftId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the recipientActionDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get recipientActionDateTime() {
+        return this._recipientActionDateTime;
+    };
+    /**
+     * Sets the recipientActionDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the recipientActionDateTime property.
+     */
+    public set recipientActionDateTime(value: Date | undefined) {
+        if(value) {
+            this._recipientActionDateTime = value;
+        }
+    };
+    /**
+     * Gets the recipientActionMessage property value. Custom message sent by recipient of the offer shift request.
+     * @returns a string
+     */
+    public get recipientActionMessage() {
+        return this._recipientActionMessage;
+    };
+    /**
+     * Sets the recipientActionMessage property value. Custom message sent by recipient of the offer shift request.
+     * @param value Value to set for the recipientActionMessage property.
+     */
+    public set recipientActionMessage(value: string | undefined) {
+        if(value) {
+            this._recipientActionMessage = value;
+        }
+    };
+    /**
+     * Gets the recipientUserId property value. User id of the recipient of the offer shift request.
+     * @returns a string
+     */
+    public get recipientUserId() {
+        return this._recipientUserId;
+    };
+    /**
+     * Sets the recipientUserId property value. User id of the recipient of the offer shift request.
+     * @param value Value to set for the recipientUserId property.
+     */
+    public set recipientUserId(value: string | undefined) {
+        if(value) {
+            this._recipientUserId = value;
+        }
+    };
+    /**
+     * Gets the senderShiftId property value. User id of the sender of the offer shift request.
+     * @returns a string
+     */
+    public get senderShiftId() {
+        return this._senderShiftId;
+    };
+    /**
+     * Sets the senderShiftId property value. User id of the sender of the offer shift request.
+     * @param value Value to set for the senderShiftId property.
+     */
+    public set senderShiftId(value: string | undefined) {
+        if(value) {
+            this._senderShiftId = value;
+        }
     };
     /**
      * Serializes information the current object

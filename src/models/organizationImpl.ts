@@ -19,86 +19,258 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OrganizationImpl extends DirectoryObjectImpl implements Organization {
     /** The collection of service plans associated with the tenant. Not nullable. */
-    public assignedPlans?: AssignedPlan[] | undefined;
+    private _assignedPlans?: AssignedPlan[] | undefined;
     /** Resource to manage the default branding for the organization. Nullable. */
-    public branding?: OrganizationalBranding | undefined;
+    private _branding?: OrganizationalBranding | undefined;
     /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property. */
-    public businessPhones?: string[] | undefined;
+    private _businessPhones?: string[] | undefined;
     /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection. */
-    public certificateBasedAuthConfiguration?: CertificateBasedAuthConfiguration[] | undefined;
+    private _certificateBasedAuthConfiguration?: CertificateBasedAuthConfiguration[] | undefined;
     /** City name of the address for the organization. */
-    public city?: string | undefined;
+    private _city?: string | undefined;
     /** Country/region name of the address for the organization. */
-    public country?: string | undefined;
+    private _country?: string | undefined;
     /** Country or region abbreviation for the organization in ISO 3166-2 format. */
-    public countryLetterCode?: string | undefined;
+    private _countryLetterCode?: string | undefined;
     /** Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The display name for the tenant. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The collection of open extensions defined for the organization resource. Nullable. */
-    public extensions?: Extension[] | undefined;
+    private _extensions?: Extension[] | undefined;
     /** Not nullable. */
-    public marketingNotificationEmails?: string[] | undefined;
+    private _marketingNotificationEmails?: string[] | undefined;
     /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365. */
-    public mobileDeviceManagementAuthority?: MdmAuthority | undefined;
+    private _mobileDeviceManagementAuthority?: MdmAuthority | undefined;
     /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public onPremisesLastSyncDateTime?: Date | undefined;
+    private _onPremisesLastSyncDateTime?: Date | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default). */
-    public onPremisesSyncEnabled?: boolean | undefined;
+    private _onPremisesSyncEnabled?: boolean | undefined;
     /** Postal code of the address for the organization. */
-    public postalCode?: string | undefined;
+    private _postalCode?: string | undefined;
     /** The preferred language for the organization. Should follow ISO 639-1 Code; for example en. */
-    public preferredLanguage?: string | undefined;
+    private _preferredLanguage?: string | undefined;
     /** The privacy profile of an organization. */
-    public privacyProfile?: PrivacyProfile | undefined;
+    private _privacyProfile?: PrivacyProfile | undefined;
     /** Not nullable. */
-    public provisionedPlans?: ProvisionedPlan[] | undefined;
+    private _provisionedPlans?: ProvisionedPlan[] | undefined;
     /** The securityComplianceNotificationMails property */
-    public securityComplianceNotificationMails?: string[] | undefined;
+    private _securityComplianceNotificationMails?: string[] | undefined;
     /** The securityComplianceNotificationPhones property */
-    public securityComplianceNotificationPhones?: string[] | undefined;
+    private _securityComplianceNotificationPhones?: string[] | undefined;
     /** State name of the address for the organization. */
-    public state?: string | undefined;
+    private _state?: string | undefined;
     /** Street name of the address for organization. */
-    public street?: string | undefined;
+    private _street?: string | undefined;
     /** Not nullable. */
-    public technicalNotificationMails?: string[] | undefined;
+    private _technicalNotificationMails?: string[] | undefined;
     /** The tenantType property */
-    public tenantType?: string | undefined;
+    private _tenantType?: string | undefined;
     /** The collection of domains associated with this tenant. Not nullable. */
-    public verifiedDomains?: VerifiedDomain[] | undefined;
+    private _verifiedDomains?: VerifiedDomain[] | undefined;
+    /**
+     * Gets the assignedPlans property value. The collection of service plans associated with the tenant. Not nullable.
+     * @returns a AssignedPlanInterface
+     */
+    public get assignedPlans() {
+        return this._assignedPlans;
+    };
+    /**
+     * Sets the assignedPlans property value. The collection of service plans associated with the tenant. Not nullable.
+     * @param value Value to set for the assignedPlans property.
+     */
+    public set assignedPlans(value: AssignedPlan[] | undefined) {
+        if(value) {
+            const assignedPlansArrValue: AssignedPlanImpl[] = [];
+            this.assignedPlans?.forEach(element => {
+                assignedPlansArrValue.push((element instanceof AssignedPlanImpl? element:new AssignedPlanImpl(element)));
+            });
+            this._assignedPlans = assignedPlansArrValue;
+        }
+    };
+    /**
+     * Gets the branding property value. Resource to manage the default branding for the organization. Nullable.
+     * @returns a OrganizationalBrandingInterface
+     */
+    public get branding() {
+        return this._branding;
+    };
+    /**
+     * Sets the branding property value. Resource to manage the default branding for the organization. Nullable.
+     * @param value Value to set for the branding property.
+     */
+    public set branding(value: OrganizationalBranding | undefined) {
+        if(value) {
+            this._branding = value instanceof OrganizationalBrandingImpl? value : new OrganizationalBrandingImpl(value);
+        }
+    };
+    /**
+     * Gets the businessPhones property value. Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
+     * @returns a string
+     */
+    public get businessPhones() {
+        return this._businessPhones;
+    };
+    /**
+     * Sets the businessPhones property value. Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
+     * @param value Value to set for the businessPhones property.
+     */
+    public set businessPhones(value: string[] | undefined) {
+        if(value) {
+            this._businessPhones = value;
+        }
+    };
+    /**
+     * Gets the certificateBasedAuthConfiguration property value. Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     * @returns a CertificateBasedAuthConfigurationInterface
+     */
+    public get certificateBasedAuthConfiguration() {
+        return this._certificateBasedAuthConfiguration;
+    };
+    /**
+     * Sets the certificateBasedAuthConfiguration property value. Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     * @param value Value to set for the certificateBasedAuthConfiguration property.
+     */
+    public set certificateBasedAuthConfiguration(value: CertificateBasedAuthConfiguration[] | undefined) {
+        if(value) {
+            const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = [];
+            this.certificateBasedAuthConfiguration?.forEach(element => {
+                certificateBasedAuthConfigurationArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element:new CertificateBasedAuthConfigurationImpl(element)));
+            });
+            this._certificateBasedAuthConfiguration = certificateBasedAuthConfigurationArrValue;
+        }
+    };
+    /**
+     * Gets the city property value. City name of the address for the organization.
+     * @returns a string
+     */
+    public get city() {
+        return this._city;
+    };
+    /**
+     * Sets the city property value. City name of the address for the organization.
+     * @param value Value to set for the city property.
+     */
+    public set city(value: string | undefined) {
+        if(value) {
+            this._city = value;
+        }
+    };
     /**
      * Instantiates a new Organization and sets the default values.
      * @param organizationParameterValue 
      */
     public constructor(organizationParameterValue?: Organization | undefined) {
         super(organizationParameterValue);
-        this.assignedPlans = organizationParameterValue?.assignedPlans;
-        this.branding = organizationParameterValue?.branding;
-        this.businessPhones = organizationParameterValue?.businessPhones;
-        this.certificateBasedAuthConfiguration = organizationParameterValue?.certificateBasedAuthConfiguration;
-        this.city = organizationParameterValue?.city;
-        this.country = organizationParameterValue?.country;
-        this.countryLetterCode = organizationParameterValue?.countryLetterCode;
-        this.createdDateTime = organizationParameterValue?.createdDateTime;
-        this.displayName = organizationParameterValue?.displayName;
-        this.extensions = organizationParameterValue?.extensions;
-        this.marketingNotificationEmails = organizationParameterValue?.marketingNotificationEmails;
-        this.mobileDeviceManagementAuthority = organizationParameterValue?.mobileDeviceManagementAuthority;
-        this.onPremisesLastSyncDateTime = organizationParameterValue?.onPremisesLastSyncDateTime;
-        this.onPremisesSyncEnabled = organizationParameterValue?.onPremisesSyncEnabled;
-        this.postalCode = organizationParameterValue?.postalCode;
-        this.preferredLanguage = organizationParameterValue?.preferredLanguage;
-        this.privacyProfile = organizationParameterValue?.privacyProfile;
-        this.provisionedPlans = organizationParameterValue?.provisionedPlans;
-        this.securityComplianceNotificationMails = organizationParameterValue?.securityComplianceNotificationMails;
-        this.securityComplianceNotificationPhones = organizationParameterValue?.securityComplianceNotificationPhones;
-        this.state = organizationParameterValue?.state;
-        this.street = organizationParameterValue?.street;
-        this.technicalNotificationMails = organizationParameterValue?.technicalNotificationMails;
-        this.tenantType = organizationParameterValue?.tenantType;
-        this.verifiedDomains = organizationParameterValue?.verifiedDomains;
+        this._assignedPlans = organizationParameterValue?.assignedPlans;
+        this._branding = organizationParameterValue?.branding;
+        this._businessPhones = organizationParameterValue?.businessPhones;
+        this._certificateBasedAuthConfiguration = organizationParameterValue?.certificateBasedAuthConfiguration;
+        this._city = organizationParameterValue?.city;
+        this._country = organizationParameterValue?.country;
+        this._countryLetterCode = organizationParameterValue?.countryLetterCode;
+        this._createdDateTime = organizationParameterValue?.createdDateTime;
+        this._displayName = organizationParameterValue?.displayName;
+        this._extensions = organizationParameterValue?.extensions;
+        this._marketingNotificationEmails = organizationParameterValue?.marketingNotificationEmails;
+        this._mobileDeviceManagementAuthority = organizationParameterValue?.mobileDeviceManagementAuthority;
+        this._onPremisesLastSyncDateTime = organizationParameterValue?.onPremisesLastSyncDateTime;
+        this._onPremisesSyncEnabled = organizationParameterValue?.onPremisesSyncEnabled;
+        this._postalCode = organizationParameterValue?.postalCode;
+        this._preferredLanguage = organizationParameterValue?.preferredLanguage;
+        this._privacyProfile = organizationParameterValue?.privacyProfile;
+        this._provisionedPlans = organizationParameterValue?.provisionedPlans;
+        this._securityComplianceNotificationMails = organizationParameterValue?.securityComplianceNotificationMails;
+        this._securityComplianceNotificationPhones = organizationParameterValue?.securityComplianceNotificationPhones;
+        this._state = organizationParameterValue?.state;
+        this._street = organizationParameterValue?.street;
+        this._technicalNotificationMails = organizationParameterValue?.technicalNotificationMails;
+        this._tenantType = organizationParameterValue?.tenantType;
+        this._verifiedDomains = organizationParameterValue?.verifiedDomains;
+    };
+    /**
+     * Gets the country property value. Country/region name of the address for the organization.
+     * @returns a string
+     */
+    public get country() {
+        return this._country;
+    };
+    /**
+     * Sets the country property value. Country/region name of the address for the organization.
+     * @param value Value to set for the country property.
+     */
+    public set country(value: string | undefined) {
+        if(value) {
+            this._country = value;
+        }
+    };
+    /**
+     * Gets the countryLetterCode property value. Country or region abbreviation for the organization in ISO 3166-2 format.
+     * @returns a string
+     */
+    public get countryLetterCode() {
+        return this._countryLetterCode;
+    };
+    /**
+     * Sets the countryLetterCode property value. Country or region abbreviation for the organization in ISO 3166-2 format.
+     * @param value Value to set for the countryLetterCode property.
+     */
+    public set countryLetterCode(value: string | undefined) {
+        if(value) {
+            this._countryLetterCode = value;
+        }
+    };
+    /**
+     * Gets the createdDateTime property value. Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The display name for the tenant.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name for the tenant.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
+     * @returns a ExtensionInterface
+     */
+    public get extensions() {
+        return this._extensions;
+    };
+    /**
+     * Sets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
+     * @param value Value to set for the extensions property.
+     */
+    public set extensions(value: Extension[] | undefined) {
+        if(value) {
+            const extensionsArrValue: ExtensionImpl[] = [];
+            this.extensions?.forEach(element => {
+                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            });
+            this._extensions = extensionsArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -134,22 +306,192 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         };
     };
     /**
+     * Gets the marketingNotificationEmails property value. Not nullable.
+     * @returns a string
+     */
+    public get marketingNotificationEmails() {
+        return this._marketingNotificationEmails;
+    };
+    /**
+     * Sets the marketingNotificationEmails property value. Not nullable.
+     * @param value Value to set for the marketingNotificationEmails property.
+     */
+    public set marketingNotificationEmails(value: string[] | undefined) {
+        if(value) {
+            this._marketingNotificationEmails = value;
+        }
+    };
+    /**
+     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * @returns a mdmAuthority
+     */
+    public get mobileDeviceManagementAuthority() {
+        return this._mobileDeviceManagementAuthority;
+    };
+    /**
+     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * @param value Value to set for the mobileDeviceManagementAuthority property.
+     */
+    public set mobileDeviceManagementAuthority(value: MdmAuthority | undefined) {
+        if(value) {
+            this._mobileDeviceManagementAuthority = value;
+        }
+    };
+    /**
+     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get onPremisesLastSyncDateTime() {
+        return this._onPremisesLastSyncDateTime;
+    };
+    /**
+     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the onPremisesLastSyncDateTime property.
+     */
+    public set onPremisesLastSyncDateTime(value: Date | undefined) {
+        if(value) {
+            this._onPremisesLastSyncDateTime = value;
+        }
+    };
+    /**
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+     * @returns a boolean
+     */
+    public get onPremisesSyncEnabled() {
+        return this._onPremisesSyncEnabled;
+    };
+    /**
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+     * @param value Value to set for the onPremisesSyncEnabled property.
+     */
+    public set onPremisesSyncEnabled(value: boolean | undefined) {
+        if(value) {
+            this._onPremisesSyncEnabled = value;
+        }
+    };
+    /**
+     * Gets the postalCode property value. Postal code of the address for the organization.
+     * @returns a string
+     */
+    public get postalCode() {
+        return this._postalCode;
+    };
+    /**
+     * Sets the postalCode property value. Postal code of the address for the organization.
+     * @param value Value to set for the postalCode property.
+     */
+    public set postalCode(value: string | undefined) {
+        if(value) {
+            this._postalCode = value;
+        }
+    };
+    /**
+     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+     * @returns a string
+     */
+    public get preferredLanguage() {
+        return this._preferredLanguage;
+    };
+    /**
+     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+     * @param value Value to set for the preferredLanguage property.
+     */
+    public set preferredLanguage(value: string | undefined) {
+        if(value) {
+            this._preferredLanguage = value;
+        }
+    };
+    /**
+     * Gets the privacyProfile property value. The privacy profile of an organization.
+     * @returns a PrivacyProfileInterface
+     */
+    public get privacyProfile() {
+        return this._privacyProfile;
+    };
+    /**
+     * Sets the privacyProfile property value. The privacy profile of an organization.
+     * @param value Value to set for the privacyProfile property.
+     */
+    public set privacyProfile(value: PrivacyProfile | undefined) {
+        if(value) {
+            this._privacyProfile = value instanceof PrivacyProfileImpl? value : new PrivacyProfileImpl(value);
+        }
+    };
+    /**
+     * Gets the provisionedPlans property value. Not nullable.
+     * @returns a ProvisionedPlanInterface
+     */
+    public get provisionedPlans() {
+        return this._provisionedPlans;
+    };
+    /**
+     * Sets the provisionedPlans property value. Not nullable.
+     * @param value Value to set for the provisionedPlans property.
+     */
+    public set provisionedPlans(value: ProvisionedPlan[] | undefined) {
+        if(value) {
+            const provisionedPlansArrValue: ProvisionedPlanImpl[] = [];
+            this.provisionedPlans?.forEach(element => {
+                provisionedPlansArrValue.push((element instanceof ProvisionedPlanImpl? element:new ProvisionedPlanImpl(element)));
+            });
+            this._provisionedPlans = provisionedPlansArrValue;
+        }
+    };
+    /**
+     * Gets the securityComplianceNotificationMails property value. The securityComplianceNotificationMails property
+     * @returns a string
+     */
+    public get securityComplianceNotificationMails() {
+        return this._securityComplianceNotificationMails;
+    };
+    /**
+     * Sets the securityComplianceNotificationMails property value. The securityComplianceNotificationMails property
+     * @param value Value to set for the securityComplianceNotificationMails property.
+     */
+    public set securityComplianceNotificationMails(value: string[] | undefined) {
+        if(value) {
+            this._securityComplianceNotificationMails = value;
+        }
+    };
+    /**
+     * Gets the securityComplianceNotificationPhones property value. The securityComplianceNotificationPhones property
+     * @returns a string
+     */
+    public get securityComplianceNotificationPhones() {
+        return this._securityComplianceNotificationPhones;
+    };
+    /**
+     * Sets the securityComplianceNotificationPhones property value. The securityComplianceNotificationPhones property
+     * @param value Value to set for the securityComplianceNotificationPhones property.
+     */
+    public set securityComplianceNotificationPhones(value: string[] | undefined) {
+        if(value) {
+            this._securityComplianceNotificationPhones = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = []; this.assignedPlans?.forEach(element => {assignedPlansArrValue.push(new AssignedPlanImpl(element));});
+        if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = [];
+        this.assignedPlans?.forEach(element => {
+            assignedPlansArrValue.push((element instanceof AssignedPlanImpl? element:new AssignedPlanImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.branding){
-            writer.writeObjectValue<OrganizationalBrandingImpl>("branding", new OrganizationalBrandingImpl(this.branding));
+            writer.writeObjectValue<OrganizationalBrandingImpl>("branding", (!this.branding || this.branding instanceof OrganizationalBrandingImpl? this.branding : new OrganizationalBrandingImpl(this.branding)));
         }
         if(this.businessPhones){
             writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
-        if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = []; this.certificateBasedAuthConfiguration?.forEach(element => {certificateBasedAuthConfigurationArrValue.push(new CertificateBasedAuthConfigurationImpl(element));});
+        if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = [];
+        this.certificateBasedAuthConfiguration?.forEach(element => {
+            certificateBasedAuthConfigurationArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element:new CertificateBasedAuthConfigurationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("certificateBasedAuthConfiguration", certificateBasedAuthConfigurationArrValue);
         }
         if(this.city){
@@ -167,7 +509,10 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
+        this.extensions?.forEach(element => {
+            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.marketingNotificationEmails){
@@ -189,9 +534,12 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
             writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.privacyProfile){
-            writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", new PrivacyProfileImpl(this.privacyProfile));
+            writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", (!this.privacyProfile || this.privacyProfile instanceof PrivacyProfileImpl? this.privacyProfile : new PrivacyProfileImpl(this.privacyProfile)));
         }
-        if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = []; this.provisionedPlans?.forEach(element => {provisionedPlansArrValue.push(new ProvisionedPlanImpl(element));});
+        if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = [];
+        this.provisionedPlans?.forEach(element => {
+            provisionedPlansArrValue.push((element instanceof ProvisionedPlanImpl? element:new ProvisionedPlanImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
         if(this.securityComplianceNotificationMails){
@@ -212,8 +560,95 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(this.tenantType){
             writer.writeStringValue("tenantType", this.tenantType);
         }
-        if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = []; this.verifiedDomains?.forEach(element => {verifiedDomainsArrValue.push(new VerifiedDomainImpl(element));});
+        if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = [];
+        this.verifiedDomains?.forEach(element => {
+            verifiedDomainsArrValue.push((element instanceof VerifiedDomainImpl? element:new VerifiedDomainImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
+        }
+    };
+    /**
+     * Gets the state property value. State name of the address for the organization.
+     * @returns a string
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. State name of the address for the organization.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: string | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the street property value. Street name of the address for organization.
+     * @returns a string
+     */
+    public get street() {
+        return this._street;
+    };
+    /**
+     * Sets the street property value. Street name of the address for organization.
+     * @param value Value to set for the street property.
+     */
+    public set street(value: string | undefined) {
+        if(value) {
+            this._street = value;
+        }
+    };
+    /**
+     * Gets the technicalNotificationMails property value. Not nullable.
+     * @returns a string
+     */
+    public get technicalNotificationMails() {
+        return this._technicalNotificationMails;
+    };
+    /**
+     * Sets the technicalNotificationMails property value. Not nullable.
+     * @param value Value to set for the technicalNotificationMails property.
+     */
+    public set technicalNotificationMails(value: string[] | undefined) {
+        if(value) {
+            this._technicalNotificationMails = value;
+        }
+    };
+    /**
+     * Gets the tenantType property value. The tenantType property
+     * @returns a string
+     */
+    public get tenantType() {
+        return this._tenantType;
+    };
+    /**
+     * Sets the tenantType property value. The tenantType property
+     * @param value Value to set for the tenantType property.
+     */
+    public set tenantType(value: string | undefined) {
+        if(value) {
+            this._tenantType = value;
+        }
+    };
+    /**
+     * Gets the verifiedDomains property value. The collection of domains associated with this tenant. Not nullable.
+     * @returns a VerifiedDomainInterface
+     */
+    public get verifiedDomains() {
+        return this._verifiedDomains;
+    };
+    /**
+     * Sets the verifiedDomains property value. The collection of domains associated with this tenant. Not nullable.
+     * @param value Value to set for the verifiedDomains property.
+     */
+    public set verifiedDomains(value: VerifiedDomain[] | undefined) {
+        if(value) {
+            const verifiedDomainsArrValue: VerifiedDomainImpl[] = [];
+            this.verifiedDomains?.forEach(element => {
+                verifiedDomainsArrValue.push((element instanceof VerifiedDomainImpl? element:new VerifiedDomainImpl(element)));
+            });
+            this._verifiedDomains = verifiedDomainsArrValue;
         }
     };
 }

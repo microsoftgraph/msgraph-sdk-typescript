@@ -5,19 +5,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaContentRatingFranceImpl implements MediaContentRatingFrance {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Movies rating selected for France. Possible values are: allAllowed, allBlocked, agesAbove10, agesAbove12, agesAbove16, agesAbove18. */
-    public movieRating?: RatingFranceMoviesType | undefined;
+    private _movieRating?: RatingFranceMoviesType | undefined;
     /** TV rating selected for France. Possible values are: allAllowed, allBlocked, agesAbove10, agesAbove12, agesAbove16, agesAbove18. */
-    public tvRating?: RatingFranceTelevisionType | undefined;
+    private _tvRating?: RatingFranceTelevisionType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mediaContentRatingFrance and sets the default values.
      * @param mediaContentRatingFranceParameterValue 
      */
     public constructor(mediaContentRatingFranceParameterValue?: MediaContentRatingFrance | undefined) {
-        this.additionalData = mediaContentRatingFranceParameterValue?.additionalData ? mediaContentRatingFranceParameterValue?.additionalData! : {};
-        this.movieRating = mediaContentRatingFranceParameterValue?.movieRating;
-        this.tvRating = mediaContentRatingFranceParameterValue?.tvRating;
+        this._additionalData = mediaContentRatingFranceParameterValue?.additionalData ? mediaContentRatingFranceParameterValue?.additionalData! : {};
+        this._movieRating = mediaContentRatingFranceParameterValue?.movieRating;
+        this._tvRating = mediaContentRatingFranceParameterValue?.tvRating;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +44,22 @@ export class MediaContentRatingFranceImpl implements MediaContentRatingFrance {
             "movieRating": n => { this.movieRating = n.getEnumValue<RatingFranceMoviesType>(RatingFranceMoviesType); },
             "tvRating": n => { this.tvRating = n.getEnumValue<RatingFranceTelevisionType>(RatingFranceTelevisionType); },
         };
+    };
+    /**
+     * Gets the movieRating property value. Movies rating selected for France. Possible values are: allAllowed, allBlocked, agesAbove10, agesAbove12, agesAbove16, agesAbove18.
+     * @returns a ratingFranceMoviesType
+     */
+    public get movieRating() {
+        return this._movieRating;
+    };
+    /**
+     * Sets the movieRating property value. Movies rating selected for France. Possible values are: allAllowed, allBlocked, agesAbove10, agesAbove12, agesAbove16, agesAbove18.
+     * @param value Value to set for the movieRating property.
+     */
+    public set movieRating(value: RatingFranceMoviesType | undefined) {
+        if(value) {
+            this._movieRating = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -42,5 +74,21 @@ export class MediaContentRatingFranceImpl implements MediaContentRatingFrance {
             writer.writeEnumValue<RatingFranceTelevisionType>("tvRating", this.tvRating);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the tvRating property value. TV rating selected for France. Possible values are: allAllowed, allBlocked, agesAbove10, agesAbove12, agesAbove16, agesAbove18.
+     * @returns a ratingFranceTelevisionType
+     */
+    public get tvRating() {
+        return this._tvRating;
+    };
+    /**
+     * Sets the tvRating property value. TV rating selected for France. Possible values are: allAllowed, allBlocked, agesAbove10, agesAbove12, agesAbove16, agesAbove18.
+     * @param value Value to set for the tvRating property.
+     */
+    public set tvRating(value: RatingFranceTelevisionType | undefined) {
+        if(value) {
+            this._tvRating = value;
+        }
     };
 }

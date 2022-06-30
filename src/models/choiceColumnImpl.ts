@@ -3,22 +3,86 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChoiceColumnImpl implements ChoiceColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If true, allows custom values that aren't in the configured choices. */
-    public allowTextEntry?: boolean | undefined;
+    private _allowTextEntry?: boolean | undefined;
     /** The list of values available for this column. */
-    public choices?: string[] | undefined;
+    private _choices?: string[] | undefined;
     /** How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons */
-    public displayAs?: string | undefined;
+    private _displayAs?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowTextEntry property value. If true, allows custom values that aren't in the configured choices.
+     * @returns a boolean
+     */
+    public get allowTextEntry() {
+        return this._allowTextEntry;
+    };
+    /**
+     * Sets the allowTextEntry property value. If true, allows custom values that aren't in the configured choices.
+     * @param value Value to set for the allowTextEntry property.
+     */
+    public set allowTextEntry(value: boolean | undefined) {
+        if(value) {
+            this._allowTextEntry = value;
+        }
+    };
+    /**
+     * Gets the choices property value. The list of values available for this column.
+     * @returns a string
+     */
+    public get choices() {
+        return this._choices;
+    };
+    /**
+     * Sets the choices property value. The list of values available for this column.
+     * @param value Value to set for the choices property.
+     */
+    public set choices(value: string[] | undefined) {
+        if(value) {
+            this._choices = value;
+        }
+    };
     /**
      * Instantiates a new choiceColumn and sets the default values.
      * @param choiceColumnParameterValue 
      */
     public constructor(choiceColumnParameterValue?: ChoiceColumn | undefined) {
-        this.additionalData = choiceColumnParameterValue?.additionalData ? choiceColumnParameterValue?.additionalData! : {};
-        this.allowTextEntry = choiceColumnParameterValue?.allowTextEntry;
-        this.choices = choiceColumnParameterValue?.choices;
-        this.displayAs = choiceColumnParameterValue?.displayAs;
+        this._additionalData = choiceColumnParameterValue?.additionalData ? choiceColumnParameterValue?.additionalData! : {};
+        this._allowTextEntry = choiceColumnParameterValue?.allowTextEntry;
+        this._choices = choiceColumnParameterValue?.choices;
+        this._displayAs = choiceColumnParameterValue?.displayAs;
+    };
+    /**
+     * Gets the displayAs property value. How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons
+     * @returns a string
+     */
+    public get displayAs() {
+        return this._displayAs;
+    };
+    /**
+     * Sets the displayAs property value. How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons
+     * @param value Value to set for the displayAs property.
+     */
+    public set displayAs(value: string | undefined) {
+        if(value) {
+            this._displayAs = value;
+        }
     };
     /**
      * The deserialization information for the current model

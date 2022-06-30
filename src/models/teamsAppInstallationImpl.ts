@@ -9,17 +9,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of chat entities. */
 export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInstallation {
     /** The app that is installed. */
-    public teamsApp?: TeamsApp | undefined;
+    private _teamsApp?: TeamsApp | undefined;
     /** The details of this version of the app. */
-    public teamsAppDefinition?: TeamsAppDefinition | undefined;
+    private _teamsAppDefinition?: TeamsAppDefinition | undefined;
     /**
      * Instantiates a new teamsAppInstallation and sets the default values.
      * @param teamsAppInstallationParameterValue 
      */
     public constructor(teamsAppInstallationParameterValue?: TeamsAppInstallation | undefined) {
         super(teamsAppInstallationParameterValue);
-        this.teamsApp = teamsAppInstallationParameterValue?.teamsApp;
-        this.teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition;
+        this._teamsApp = teamsAppInstallationParameterValue?.teamsApp;
+        this._teamsAppDefinition = teamsAppInstallationParameterValue?.teamsAppDefinition;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +39,42 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.teamsApp){
-            writer.writeObjectValue<TeamsAppImpl>("teamsApp", new TeamsAppImpl(this.teamsApp));
+            writer.writeObjectValue<TeamsAppImpl>("teamsApp", (!this.teamsApp || this.teamsApp instanceof TeamsAppImpl? this.teamsApp : new TeamsAppImpl(this.teamsApp)));
         }
         if(this.teamsAppDefinition){
-            writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", new TeamsAppDefinitionImpl(this.teamsAppDefinition));
+            writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", (!this.teamsAppDefinition || this.teamsAppDefinition instanceof TeamsAppDefinitionImpl? this.teamsAppDefinition : new TeamsAppDefinitionImpl(this.teamsAppDefinition)));
+        }
+    };
+    /**
+     * Gets the teamsApp property value. The app that is installed.
+     * @returns a TeamsAppInterface
+     */
+    public get teamsApp() {
+        return this._teamsApp;
+    };
+    /**
+     * Sets the teamsApp property value. The app that is installed.
+     * @param value Value to set for the teamsApp property.
+     */
+    public set teamsApp(value: TeamsApp | undefined) {
+        if(value) {
+            this._teamsApp = value instanceof TeamsAppImpl? value : new TeamsAppImpl(value);
+        }
+    };
+    /**
+     * Gets the teamsAppDefinition property value. The details of this version of the app.
+     * @returns a TeamsAppDefinitionInterface
+     */
+    public get teamsAppDefinition() {
+        return this._teamsAppDefinition;
+    };
+    /**
+     * Sets the teamsAppDefinition property value. The details of this version of the app.
+     * @param value Value to set for the teamsAppDefinition property.
+     */
+    public set teamsAppDefinition(value: TeamsAppDefinition | undefined) {
+        if(value) {
+            this._teamsAppDefinition = value instanceof TeamsAppDefinitionImpl? value : new TeamsAppDefinitionImpl(value);
         }
     };
 }

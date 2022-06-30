@@ -5,23 +5,87 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of contract entities. */
 export class ContractImpl extends DirectoryObjectImpl implements Contract {
     /** Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below. */
-    public contractType?: string | undefined;
+    private _contractType?: string | undefined;
     /** The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource. */
-    public customerId?: string | undefined;
+    private _customerId?: string | undefined;
     /** A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes. */
-    public defaultDomainName?: string | undefined;
+    private _defaultDomainName?: string | undefined;
     /** A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /**
      * Instantiates a new contract and sets the default values.
      * @param contractParameterValue 
      */
     public constructor(contractParameterValue?: Contract | undefined) {
         super(contractParameterValue);
-        this.contractType = contractParameterValue?.contractType;
-        this.customerId = contractParameterValue?.customerId;
-        this.defaultDomainName = contractParameterValue?.defaultDomainName;
-        this.displayName = contractParameterValue?.displayName;
+        this._contractType = contractParameterValue?.contractType;
+        this._customerId = contractParameterValue?.customerId;
+        this._defaultDomainName = contractParameterValue?.defaultDomainName;
+        this._displayName = contractParameterValue?.displayName;
+    };
+    /**
+     * Gets the contractType property value. Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.
+     * @returns a string
+     */
+    public get contractType() {
+        return this._contractType;
+    };
+    /**
+     * Sets the contractType property value. Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.
+     * @param value Value to set for the contractType property.
+     */
+    public set contractType(value: string | undefined) {
+        if(value) {
+            this._contractType = value;
+        }
+    };
+    /**
+     * Gets the customerId property value. The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
+     * @returns a string
+     */
+    public get customerId() {
+        return this._customerId;
+    };
+    /**
+     * Sets the customerId property value. The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
+     * @param value Value to set for the customerId property.
+     */
+    public set customerId(value: string | undefined) {
+        if(value) {
+            this._customerId = value;
+        }
+    };
+    /**
+     * Gets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
+     * @returns a string
+     */
+    public get defaultDomainName() {
+        return this._defaultDomainName;
+    };
+    /**
+     * Sets the defaultDomainName property value. A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
+     * @param value Value to set for the defaultDomainName property.
+     */
+    public set defaultDomainName(value: string | undefined) {
+        if(value) {
+            this._defaultDomainName = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

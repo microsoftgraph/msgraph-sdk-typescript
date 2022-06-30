@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the dismiss method. */
 export class DismissPostRequestBodyImpl implements DismissPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The userIds property */
-    public userIds?: string[] | undefined;
+    private _userIds?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new dismissPostRequestBody and sets the default values.
      * @param dismissPostRequestBodyParameterValue 
      */
     public constructor(dismissPostRequestBodyParameterValue?: DismissPostRequestBody | undefined) {
-        this.additionalData = dismissPostRequestBodyParameterValue?.additionalData ? dismissPostRequestBodyParameterValue?.additionalData! : {};
-        this.userIds = dismissPostRequestBodyParameterValue?.userIds;
+        this._additionalData = dismissPostRequestBodyParameterValue?.additionalData ? dismissPostRequestBodyParameterValue?.additionalData! : {};
+        this._userIds = dismissPostRequestBodyParameterValue?.userIds;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class DismissPostRequestBodyImpl implements DismissPostRequestBody {
             writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the userIds property value. The userIds property
+     * @returns a string
+     */
+    public get userIds() {
+        return this._userIds;
+    };
+    /**
+     * Sets the userIds property value. The userIds property
+     * @param value Value to set for the userIds property.
+     */
+    public set userIds(value: string[] | undefined) {
+        if(value) {
+            this._userIds = value;
+        }
     };
 }

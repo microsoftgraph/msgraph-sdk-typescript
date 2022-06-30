@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LobbyBypassSettingsImpl implements LobbyBypassSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
-    public isDialInBypassEnabled?: boolean | undefined;
+    private _isDialInBypassEnabled?: boolean | undefined;
     /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
-    public scope?: LobbyBypassScope | undefined;
+    private _scope?: LobbyBypassScope | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new lobbyBypassSettings and sets the default values.
      * @param lobbyBypassSettingsParameterValue 
      */
     public constructor(lobbyBypassSettingsParameterValue?: LobbyBypassSettings | undefined) {
-        this.additionalData = lobbyBypassSettingsParameterValue?.additionalData ? lobbyBypassSettingsParameterValue?.additionalData! : {};
-        this.isDialInBypassEnabled = lobbyBypassSettingsParameterValue?.isDialInBypassEnabled;
-        this.scope = lobbyBypassSettingsParameterValue?.scope;
+        this._additionalData = lobbyBypassSettingsParameterValue?.additionalData ? lobbyBypassSettingsParameterValue?.additionalData! : {};
+        this._isDialInBypassEnabled = lobbyBypassSettingsParameterValue?.isDialInBypassEnabled;
+        this._scope = lobbyBypassSettingsParameterValue?.scope;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,38 @@ export class LobbyBypassSettingsImpl implements LobbyBypassSettings {
             "isDialInBypassEnabled": n => { this.isDialInBypassEnabled = n.getBooleanValue(); },
             "scope": n => { this.scope = n.getEnumValue<LobbyBypassScope>(LobbyBypassScope); },
         };
+    };
+    /**
+     * Gets the isDialInBypassEnabled property value. Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
+     * @returns a boolean
+     */
+    public get isDialInBypassEnabled() {
+        return this._isDialInBypassEnabled;
+    };
+    /**
+     * Sets the isDialInBypassEnabled property value. Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
+     * @param value Value to set for the isDialInBypassEnabled property.
+     */
+    public set isDialInBypassEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isDialInBypassEnabled = value;
+        }
+    };
+    /**
+     * Gets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
+     * @returns a lobbyBypassScope
+     */
+    public get scope() {
+        return this._scope;
+    };
+    /**
+     * Sets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
+     * @param value Value to set for the scope property.
+     */
+    public set scope(value: LobbyBypassScope | undefined) {
+        if(value) {
+            this._scope = value;
+        }
     };
     /**
      * Serializes information the current object

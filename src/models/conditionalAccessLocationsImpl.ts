@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessLocationsImpl implements ConditionalAccessLocations {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Location IDs excluded from scope of policy. */
-    public excludeLocations?: string[] | undefined;
+    private _excludeLocations?: string[] | undefined;
     /** Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted. */
-    public includeLocations?: string[] | undefined;
+    private _includeLocations?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new conditionalAccessLocations and sets the default values.
      * @param conditionalAccessLocationsParameterValue 
      */
     public constructor(conditionalAccessLocationsParameterValue?: ConditionalAccessLocations | undefined) {
-        this.additionalData = conditionalAccessLocationsParameterValue?.additionalData ? conditionalAccessLocationsParameterValue?.additionalData! : {};
-        this.excludeLocations = conditionalAccessLocationsParameterValue?.excludeLocations;
-        this.includeLocations = conditionalAccessLocationsParameterValue?.includeLocations;
+        this._additionalData = conditionalAccessLocationsParameterValue?.additionalData ? conditionalAccessLocationsParameterValue?.additionalData! : {};
+        this._excludeLocations = conditionalAccessLocationsParameterValue?.excludeLocations;
+        this._includeLocations = conditionalAccessLocationsParameterValue?.includeLocations;
+    };
+    /**
+     * Gets the excludeLocations property value. Location IDs excluded from scope of policy.
+     * @returns a string
+     */
+    public get excludeLocations() {
+        return this._excludeLocations;
+    };
+    /**
+     * Sets the excludeLocations property value. Location IDs excluded from scope of policy.
+     * @param value Value to set for the excludeLocations property.
+     */
+    public set excludeLocations(value: string[] | undefined) {
+        if(value) {
+            this._excludeLocations = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +58,22 @@ export class ConditionalAccessLocationsImpl implements ConditionalAccessLocation
             "excludeLocations": n => { this.excludeLocations = n.getCollectionOfPrimitiveValues<string>(); },
             "includeLocations": n => { this.includeLocations = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the includeLocations property value. Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
+     * @returns a string
+     */
+    public get includeLocations() {
+        return this._includeLocations;
+    };
+    /**
+     * Sets the includeLocations property value. Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
+     * @param value Value to set for the includeLocations property.
+     */
+    public set includeLocations(value: string[] | undefined) {
+        if(value) {
+            this._includeLocations = value;
+        }
     };
     /**
      * Serializes information the current object

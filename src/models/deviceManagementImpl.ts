@@ -72,116 +72,360 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Singleton entity that acts as a container for all device management functionality. */
 export class DeviceManagementImpl extends EntityImpl implements DeviceManagement {
     /** Apple push notification certificate. */
-    public applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
+    private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
     /** The list of Compliance Management Partners configured by the tenant. */
-    public complianceManagementPartners?: ComplianceManagementPartner[] | undefined;
+    private _complianceManagementPartners?: ComplianceManagementPartner[] | undefined;
     /** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access */
-    public conditionalAccessSettings?: OnPremisesConditionalAccessSettings | undefined;
+    private _conditionalAccessSettings?: OnPremisesConditionalAccessSettings | undefined;
     /** The list of detected apps associated with a device. */
-    public detectedApps?: DetectedApp[] | undefined;
+    private _detectedApps?: DetectedApp[] | undefined;
     /** The list of device categories with the tenant. */
-    public deviceCategories?: DeviceCategory[] | undefined;
+    private _deviceCategories?: DeviceCategory[] | undefined;
     /** The device compliance policies. */
-    public deviceCompliancePolicies?: DeviceCompliancePolicy[] | undefined;
+    private _deviceCompliancePolicies?: DeviceCompliancePolicy[] | undefined;
     /** The device compliance state summary for this account. */
-    public deviceCompliancePolicyDeviceStateSummary?: DeviceCompliancePolicyDeviceStateSummary | undefined;
+    private _deviceCompliancePolicyDeviceStateSummary?: DeviceCompliancePolicyDeviceStateSummary | undefined;
     /** The summary states of compliance policy settings for this account. */
-    public deviceCompliancePolicySettingStateSummaries?: DeviceCompliancePolicySettingStateSummary[] | undefined;
+    private _deviceCompliancePolicySettingStateSummaries?: DeviceCompliancePolicySettingStateSummary[] | undefined;
     /** The device configuration device state summary for this account. */
-    public deviceConfigurationDeviceStateSummaries?: DeviceConfigurationDeviceStateSummary | undefined;
+    private _deviceConfigurationDeviceStateSummaries?: DeviceConfigurationDeviceStateSummary | undefined;
     /** The device configurations. */
-    public deviceConfigurations?: DeviceConfiguration[] | undefined;
+    private _deviceConfigurations?: DeviceConfiguration[] | undefined;
     /** The list of device enrollment configurations */
-    public deviceEnrollmentConfigurations?: DeviceEnrollmentConfiguration[] | undefined;
+    private _deviceEnrollmentConfigurations?: DeviceEnrollmentConfiguration[] | undefined;
     /** The list of Device Management Partners configured by the tenant. */
-    public deviceManagementPartners?: DeviceManagementPartner[] | undefined;
+    private _deviceManagementPartners?: DeviceManagementPartner[] | undefined;
     /** The list of Exchange Connectors configured by the tenant. */
-    public exchangeConnectors?: DeviceManagementExchangeConnector[] | undefined;
+    private _exchangeConnectors?: DeviceManagementExchangeConnector[] | undefined;
     /** Collection of imported Windows autopilot devices. */
-    public importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
+    private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
     /** Intune Account ID for given tenant */
-    public intuneAccountId?: string | undefined;
+    private _intuneAccountId?: string | undefined;
     /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
-    public intuneBrand?: IntuneBrand | undefined;
+    private _intuneBrand?: IntuneBrand | undefined;
     /** The IOS software update installation statuses for this account. */
-    public iosUpdateStatuses?: IosUpdateDeviceStatus[] | undefined;
+    private _iosUpdateStatuses?: IosUpdateDeviceStatus[] | undefined;
     /** Device overview */
-    public managedDeviceOverview?: ManagedDeviceOverview | undefined;
+    private _managedDeviceOverview?: ManagedDeviceOverview | undefined;
     /** The list of managed devices. */
-    public managedDevices?: ManagedDevice[] | undefined;
+    private _managedDevices?: ManagedDevice[] | undefined;
     /** The list of Mobile threat Defense connectors configured by the tenant. */
-    public mobileThreatDefenseConnectors?: MobileThreatDefenseConnector[] | undefined;
+    private _mobileThreatDefenseConnectors?: MobileThreatDefenseConnector[] | undefined;
     /** The Notification Message Templates. */
-    public notificationMessageTemplates?: NotificationMessageTemplate[] | undefined;
+    private _notificationMessageTemplates?: NotificationMessageTemplate[] | undefined;
     /** The remote assist partners. */
-    public remoteAssistancePartners?: RemoteAssistancePartner[] | undefined;
+    private _remoteAssistancePartners?: RemoteAssistancePartner[] | undefined;
     /** Reports singleton */
-    public reports?: DeviceManagementReports | undefined;
+    private _reports?: DeviceManagementReports | undefined;
     /** The Resource Operations. */
-    public resourceOperations?: ResourceOperation[] | undefined;
+    private _resourceOperations?: ResourceOperation[] | undefined;
     /** The Role Assignments. */
-    public roleAssignments?: DeviceAndAppManagementRoleAssignment[] | undefined;
+    private _roleAssignments?: DeviceAndAppManagementRoleAssignment[] | undefined;
     /** The Role Definitions. */
-    public roleDefinitions?: RoleDefinition[] | undefined;
+    private _roleDefinitions?: RoleDefinition[] | undefined;
     /** Account level settings. */
-    public settings?: DeviceManagementSettings | undefined;
+    private _settings?: DeviceManagementSettings | undefined;
     /** The software update status summary. */
-    public softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | undefined;
+    private _softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | undefined;
     /** Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut. */
-    public subscriptionState?: DeviceManagementSubscriptionState | undefined;
+    private _subscriptionState?: DeviceManagementSubscriptionState | undefined;
     /** The telecom expense management partners. */
-    public telecomExpenseManagementPartners?: TelecomExpenseManagementPartner[] | undefined;
+    private _telecomExpenseManagementPartners?: TelecomExpenseManagementPartner[] | undefined;
     /** The terms and conditions associated with device management of the company. */
-    public termsAndConditions?: TermsAndConditions[] | undefined;
+    private _termsAndConditions?: TermsAndConditions[] | undefined;
     /** The list of troubleshooting events for the tenant. */
-    public troubleshootingEvents?: DeviceManagementTroubleshootingEvent[] | undefined;
+    private _troubleshootingEvents?: DeviceManagementTroubleshootingEvent[] | undefined;
     /** The Windows autopilot device identities contained collection. */
-    public windowsAutopilotDeviceIdentities?: WindowsAutopilotDeviceIdentity[] | undefined;
+    private _windowsAutopilotDeviceIdentities?: WindowsAutopilotDeviceIdentity[] | undefined;
     /** The windows information protection app learning summaries. */
-    public windowsInformationProtectionAppLearningSummaries?: WindowsInformationProtectionAppLearningSummary[] | undefined;
+    private _windowsInformationProtectionAppLearningSummaries?: WindowsInformationProtectionAppLearningSummary[] | undefined;
     /** The windows information protection network learning summaries. */
-    public windowsInformationProtectionNetworkLearningSummaries?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;
+    private _windowsInformationProtectionNetworkLearningSummaries?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;
+    /**
+     * Gets the applePushNotificationCertificate property value. Apple push notification certificate.
+     * @returns a ApplePushNotificationCertificateInterface
+     */
+    public get applePushNotificationCertificate() {
+        return this._applePushNotificationCertificate;
+    };
+    /**
+     * Sets the applePushNotificationCertificate property value. Apple push notification certificate.
+     * @param value Value to set for the applePushNotificationCertificate property.
+     */
+    public set applePushNotificationCertificate(value: ApplePushNotificationCertificate | undefined) {
+        if(value) {
+            this._applePushNotificationCertificate = value instanceof ApplePushNotificationCertificateImpl? value : new ApplePushNotificationCertificateImpl(value);
+        }
+    };
+    /**
+     * Gets the complianceManagementPartners property value. The list of Compliance Management Partners configured by the tenant.
+     * @returns a ComplianceManagementPartnerInterface
+     */
+    public get complianceManagementPartners() {
+        return this._complianceManagementPartners;
+    };
+    /**
+     * Sets the complianceManagementPartners property value. The list of Compliance Management Partners configured by the tenant.
+     * @param value Value to set for the complianceManagementPartners property.
+     */
+    public set complianceManagementPartners(value: ComplianceManagementPartner[] | undefined) {
+        if(value) {
+            const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = [];
+            this.complianceManagementPartners?.forEach(element => {
+                complianceManagementPartnersArrValue.push((element instanceof ComplianceManagementPartnerImpl? element:new ComplianceManagementPartnerImpl(element)));
+            });
+            this._complianceManagementPartners = complianceManagementPartnersArrValue;
+        }
+    };
+    /**
+     * Gets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
+     * @returns a OnPremisesConditionalAccessSettingsInterface
+     */
+    public get conditionalAccessSettings() {
+        return this._conditionalAccessSettings;
+    };
+    /**
+     * Sets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
+     * @param value Value to set for the conditionalAccessSettings property.
+     */
+    public set conditionalAccessSettings(value: OnPremisesConditionalAccessSettings | undefined) {
+        if(value) {
+            this._conditionalAccessSettings = value instanceof OnPremisesConditionalAccessSettingsImpl? value : new OnPremisesConditionalAccessSettingsImpl(value);
+        }
+    };
     /**
      * Instantiates a new deviceManagement and sets the default values.
      * @param deviceManagementParameterValue 
      */
     public constructor(deviceManagementParameterValue?: DeviceManagement | undefined) {
         super(deviceManagementParameterValue);
-        this.applePushNotificationCertificate = deviceManagementParameterValue?.applePushNotificationCertificate;
-        this.complianceManagementPartners = deviceManagementParameterValue?.complianceManagementPartners;
-        this.conditionalAccessSettings = deviceManagementParameterValue?.conditionalAccessSettings;
-        this.detectedApps = deviceManagementParameterValue?.detectedApps;
-        this.deviceCategories = deviceManagementParameterValue?.deviceCategories;
-        this.deviceCompliancePolicies = deviceManagementParameterValue?.deviceCompliancePolicies;
-        this.deviceCompliancePolicyDeviceStateSummary = deviceManagementParameterValue?.deviceCompliancePolicyDeviceStateSummary;
-        this.deviceCompliancePolicySettingStateSummaries = deviceManagementParameterValue?.deviceCompliancePolicySettingStateSummaries;
-        this.deviceConfigurationDeviceStateSummaries = deviceManagementParameterValue?.deviceConfigurationDeviceStateSummaries;
-        this.deviceConfigurations = deviceManagementParameterValue?.deviceConfigurations;
-        this.deviceEnrollmentConfigurations = deviceManagementParameterValue?.deviceEnrollmentConfigurations;
-        this.deviceManagementPartners = deviceManagementParameterValue?.deviceManagementPartners;
-        this.exchangeConnectors = deviceManagementParameterValue?.exchangeConnectors;
-        this.importedWindowsAutopilotDeviceIdentities = deviceManagementParameterValue?.importedWindowsAutopilotDeviceIdentities;
-        this.intuneAccountId = deviceManagementParameterValue?.intuneAccountId;
-        this.intuneBrand = deviceManagementParameterValue?.intuneBrand;
-        this.iosUpdateStatuses = deviceManagementParameterValue?.iosUpdateStatuses;
-        this.managedDeviceOverview = deviceManagementParameterValue?.managedDeviceOverview;
-        this.managedDevices = deviceManagementParameterValue?.managedDevices;
-        this.mobileThreatDefenseConnectors = deviceManagementParameterValue?.mobileThreatDefenseConnectors;
-        this.notificationMessageTemplates = deviceManagementParameterValue?.notificationMessageTemplates;
-        this.remoteAssistancePartners = deviceManagementParameterValue?.remoteAssistancePartners;
-        this.reports = deviceManagementParameterValue?.reports;
-        this.resourceOperations = deviceManagementParameterValue?.resourceOperations;
-        this.roleAssignments = deviceManagementParameterValue?.roleAssignments;
-        this.roleDefinitions = deviceManagementParameterValue?.roleDefinitions;
-        this.settings = deviceManagementParameterValue?.settings;
-        this.softwareUpdateStatusSummary = deviceManagementParameterValue?.softwareUpdateStatusSummary;
-        this.subscriptionState = deviceManagementParameterValue?.subscriptionState;
-        this.telecomExpenseManagementPartners = deviceManagementParameterValue?.telecomExpenseManagementPartners;
-        this.termsAndConditions = deviceManagementParameterValue?.termsAndConditions;
-        this.troubleshootingEvents = deviceManagementParameterValue?.troubleshootingEvents;
-        this.windowsAutopilotDeviceIdentities = deviceManagementParameterValue?.windowsAutopilotDeviceIdentities;
-        this.windowsInformationProtectionAppLearningSummaries = deviceManagementParameterValue?.windowsInformationProtectionAppLearningSummaries;
-        this.windowsInformationProtectionNetworkLearningSummaries = deviceManagementParameterValue?.windowsInformationProtectionNetworkLearningSummaries;
+        this._applePushNotificationCertificate = deviceManagementParameterValue?.applePushNotificationCertificate;
+        this._complianceManagementPartners = deviceManagementParameterValue?.complianceManagementPartners;
+        this._conditionalAccessSettings = deviceManagementParameterValue?.conditionalAccessSettings;
+        this._detectedApps = deviceManagementParameterValue?.detectedApps;
+        this._deviceCategories = deviceManagementParameterValue?.deviceCategories;
+        this._deviceCompliancePolicies = deviceManagementParameterValue?.deviceCompliancePolicies;
+        this._deviceCompliancePolicyDeviceStateSummary = deviceManagementParameterValue?.deviceCompliancePolicyDeviceStateSummary;
+        this._deviceCompliancePolicySettingStateSummaries = deviceManagementParameterValue?.deviceCompliancePolicySettingStateSummaries;
+        this._deviceConfigurationDeviceStateSummaries = deviceManagementParameterValue?.deviceConfigurationDeviceStateSummaries;
+        this._deviceConfigurations = deviceManagementParameterValue?.deviceConfigurations;
+        this._deviceEnrollmentConfigurations = deviceManagementParameterValue?.deviceEnrollmentConfigurations;
+        this._deviceManagementPartners = deviceManagementParameterValue?.deviceManagementPartners;
+        this._exchangeConnectors = deviceManagementParameterValue?.exchangeConnectors;
+        this._importedWindowsAutopilotDeviceIdentities = deviceManagementParameterValue?.importedWindowsAutopilotDeviceIdentities;
+        this._intuneAccountId = deviceManagementParameterValue?.intuneAccountId;
+        this._intuneBrand = deviceManagementParameterValue?.intuneBrand;
+        this._iosUpdateStatuses = deviceManagementParameterValue?.iosUpdateStatuses;
+        this._managedDeviceOverview = deviceManagementParameterValue?.managedDeviceOverview;
+        this._managedDevices = deviceManagementParameterValue?.managedDevices;
+        this._mobileThreatDefenseConnectors = deviceManagementParameterValue?.mobileThreatDefenseConnectors;
+        this._notificationMessageTemplates = deviceManagementParameterValue?.notificationMessageTemplates;
+        this._remoteAssistancePartners = deviceManagementParameterValue?.remoteAssistancePartners;
+        this._reports = deviceManagementParameterValue?.reports;
+        this._resourceOperations = deviceManagementParameterValue?.resourceOperations;
+        this._roleAssignments = deviceManagementParameterValue?.roleAssignments;
+        this._roleDefinitions = deviceManagementParameterValue?.roleDefinitions;
+        this._settings = deviceManagementParameterValue?.settings;
+        this._softwareUpdateStatusSummary = deviceManagementParameterValue?.softwareUpdateStatusSummary;
+        this._subscriptionState = deviceManagementParameterValue?.subscriptionState;
+        this._telecomExpenseManagementPartners = deviceManagementParameterValue?.telecomExpenseManagementPartners;
+        this._termsAndConditions = deviceManagementParameterValue?.termsAndConditions;
+        this._troubleshootingEvents = deviceManagementParameterValue?.troubleshootingEvents;
+        this._windowsAutopilotDeviceIdentities = deviceManagementParameterValue?.windowsAutopilotDeviceIdentities;
+        this._windowsInformationProtectionAppLearningSummaries = deviceManagementParameterValue?.windowsInformationProtectionAppLearningSummaries;
+        this._windowsInformationProtectionNetworkLearningSummaries = deviceManagementParameterValue?.windowsInformationProtectionNetworkLearningSummaries;
+    };
+    /**
+     * Gets the detectedApps property value. The list of detected apps associated with a device.
+     * @returns a DetectedAppInterface
+     */
+    public get detectedApps() {
+        return this._detectedApps;
+    };
+    /**
+     * Sets the detectedApps property value. The list of detected apps associated with a device.
+     * @param value Value to set for the detectedApps property.
+     */
+    public set detectedApps(value: DetectedApp[] | undefined) {
+        if(value) {
+            const detectedAppsArrValue: DetectedAppImpl[] = [];
+            this.detectedApps?.forEach(element => {
+                detectedAppsArrValue.push((element instanceof DetectedAppImpl? element:new DetectedAppImpl(element)));
+            });
+            this._detectedApps = detectedAppsArrValue;
+        }
+    };
+    /**
+     * Gets the deviceCategories property value. The list of device categories with the tenant.
+     * @returns a DeviceCategoryInterface
+     */
+    public get deviceCategories() {
+        return this._deviceCategories;
+    };
+    /**
+     * Sets the deviceCategories property value. The list of device categories with the tenant.
+     * @param value Value to set for the deviceCategories property.
+     */
+    public set deviceCategories(value: DeviceCategory[] | undefined) {
+        if(value) {
+            const deviceCategoriesArrValue: DeviceCategoryImpl[] = [];
+            this.deviceCategories?.forEach(element => {
+                deviceCategoriesArrValue.push((element instanceof DeviceCategoryImpl? element:new DeviceCategoryImpl(element)));
+            });
+            this._deviceCategories = deviceCategoriesArrValue;
+        }
+    };
+    /**
+     * Gets the deviceCompliancePolicies property value. The device compliance policies.
+     * @returns a DeviceCompliancePolicyInterface
+     */
+    public get deviceCompliancePolicies() {
+        return this._deviceCompliancePolicies;
+    };
+    /**
+     * Sets the deviceCompliancePolicies property value. The device compliance policies.
+     * @param value Value to set for the deviceCompliancePolicies property.
+     */
+    public set deviceCompliancePolicies(value: DeviceCompliancePolicy[] | undefined) {
+        if(value) {
+            const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = [];
+            this.deviceCompliancePolicies?.forEach(element => {
+                deviceCompliancePoliciesArrValue.push((element instanceof DeviceCompliancePolicyImpl? element:new DeviceCompliancePolicyImpl(element)));
+            });
+            this._deviceCompliancePolicies = deviceCompliancePoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the deviceCompliancePolicyDeviceStateSummary property value. The device compliance state summary for this account.
+     * @returns a DeviceCompliancePolicyDeviceStateSummaryInterface
+     */
+    public get deviceCompliancePolicyDeviceStateSummary() {
+        return this._deviceCompliancePolicyDeviceStateSummary;
+    };
+    /**
+     * Sets the deviceCompliancePolicyDeviceStateSummary property value. The device compliance state summary for this account.
+     * @param value Value to set for the deviceCompliancePolicyDeviceStateSummary property.
+     */
+    public set deviceCompliancePolicyDeviceStateSummary(value: DeviceCompliancePolicyDeviceStateSummary | undefined) {
+        if(value) {
+            this._deviceCompliancePolicyDeviceStateSummary = value instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? value : new DeviceCompliancePolicyDeviceStateSummaryImpl(value);
+        }
+    };
+    /**
+     * Gets the deviceCompliancePolicySettingStateSummaries property value. The summary states of compliance policy settings for this account.
+     * @returns a DeviceCompliancePolicySettingStateSummaryInterface
+     */
+    public get deviceCompliancePolicySettingStateSummaries() {
+        return this._deviceCompliancePolicySettingStateSummaries;
+    };
+    /**
+     * Sets the deviceCompliancePolicySettingStateSummaries property value. The summary states of compliance policy settings for this account.
+     * @param value Value to set for the deviceCompliancePolicySettingStateSummaries property.
+     */
+    public set deviceCompliancePolicySettingStateSummaries(value: DeviceCompliancePolicySettingStateSummary[] | undefined) {
+        if(value) {
+            const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = [];
+            this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {
+                deviceCompliancePolicySettingStateSummariesArrValue.push((element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element:new DeviceCompliancePolicySettingStateSummaryImpl(element)));
+            });
+            this._deviceCompliancePolicySettingStateSummaries = deviceCompliancePolicySettingStateSummariesArrValue;
+        }
+    };
+    /**
+     * Gets the deviceConfigurationDeviceStateSummaries property value. The device configuration device state summary for this account.
+     * @returns a DeviceConfigurationDeviceStateSummaryInterface
+     */
+    public get deviceConfigurationDeviceStateSummaries() {
+        return this._deviceConfigurationDeviceStateSummaries;
+    };
+    /**
+     * Sets the deviceConfigurationDeviceStateSummaries property value. The device configuration device state summary for this account.
+     * @param value Value to set for the deviceConfigurationDeviceStateSummaries property.
+     */
+    public set deviceConfigurationDeviceStateSummaries(value: DeviceConfigurationDeviceStateSummary | undefined) {
+        if(value) {
+            this._deviceConfigurationDeviceStateSummaries = value instanceof DeviceConfigurationDeviceStateSummaryImpl? value : new DeviceConfigurationDeviceStateSummaryImpl(value);
+        }
+    };
+    /**
+     * Gets the deviceConfigurations property value. The device configurations.
+     * @returns a DeviceConfigurationInterface
+     */
+    public get deviceConfigurations() {
+        return this._deviceConfigurations;
+    };
+    /**
+     * Sets the deviceConfigurations property value. The device configurations.
+     * @param value Value to set for the deviceConfigurations property.
+     */
+    public set deviceConfigurations(value: DeviceConfiguration[] | undefined) {
+        if(value) {
+            const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = [];
+            this.deviceConfigurations?.forEach(element => {
+                deviceConfigurationsArrValue.push((element instanceof DeviceConfigurationImpl? element:new DeviceConfigurationImpl(element)));
+            });
+            this._deviceConfigurations = deviceConfigurationsArrValue;
+        }
+    };
+    /**
+     * Gets the deviceEnrollmentConfigurations property value. The list of device enrollment configurations
+     * @returns a DeviceEnrollmentConfigurationInterface
+     */
+    public get deviceEnrollmentConfigurations() {
+        return this._deviceEnrollmentConfigurations;
+    };
+    /**
+     * Sets the deviceEnrollmentConfigurations property value. The list of device enrollment configurations
+     * @param value Value to set for the deviceEnrollmentConfigurations property.
+     */
+    public set deviceEnrollmentConfigurations(value: DeviceEnrollmentConfiguration[] | undefined) {
+        if(value) {
+            const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = [];
+            this.deviceEnrollmentConfigurations?.forEach(element => {
+                deviceEnrollmentConfigurationsArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element:new DeviceEnrollmentConfigurationImpl(element)));
+            });
+            this._deviceEnrollmentConfigurations = deviceEnrollmentConfigurationsArrValue;
+        }
+    };
+    /**
+     * Gets the deviceManagementPartners property value. The list of Device Management Partners configured by the tenant.
+     * @returns a DeviceManagementPartnerInterface
+     */
+    public get deviceManagementPartners() {
+        return this._deviceManagementPartners;
+    };
+    /**
+     * Sets the deviceManagementPartners property value. The list of Device Management Partners configured by the tenant.
+     * @param value Value to set for the deviceManagementPartners property.
+     */
+    public set deviceManagementPartners(value: DeviceManagementPartner[] | undefined) {
+        if(value) {
+            const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = [];
+            this.deviceManagementPartners?.forEach(element => {
+                deviceManagementPartnersArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+            });
+            this._deviceManagementPartners = deviceManagementPartnersArrValue;
+        }
+    };
+    /**
+     * Gets the exchangeConnectors property value. The list of Exchange Connectors configured by the tenant.
+     * @returns a DeviceManagementExchangeConnectorInterface
+     */
+    public get exchangeConnectors() {
+        return this._exchangeConnectors;
+    };
+    /**
+     * Sets the exchangeConnectors property value. The list of Exchange Connectors configured by the tenant.
+     * @param value Value to set for the exchangeConnectors property.
+     */
+    public set exchangeConnectors(value: DeviceManagementExchangeConnector[] | undefined) {
+        if(value) {
+            const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = [];
+            this.exchangeConnectors?.forEach(element => {
+                exchangeConnectorsArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element:new DeviceManagementExchangeConnectorImpl(element)));
+            });
+            this._exchangeConnectors = exchangeConnectorsArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -227,6 +471,250 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         };
     };
     /**
+     * Gets the importedWindowsAutopilotDeviceIdentities property value. Collection of imported Windows autopilot devices.
+     * @returns a ImportedWindowsAutopilotDeviceIdentityInterface
+     */
+    public get importedWindowsAutopilotDeviceIdentities() {
+        return this._importedWindowsAutopilotDeviceIdentities;
+    };
+    /**
+     * Sets the importedWindowsAutopilotDeviceIdentities property value. Collection of imported Windows autopilot devices.
+     * @param value Value to set for the importedWindowsAutopilotDeviceIdentities property.
+     */
+    public set importedWindowsAutopilotDeviceIdentities(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {
+        if(value) {
+            const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
+            this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
+                importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+            });
+            this._importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
+        }
+    };
+    /**
+     * Gets the intuneAccountId property value. Intune Account ID for given tenant
+     * @returns a string
+     */
+    public get intuneAccountId() {
+        return this._intuneAccountId;
+    };
+    /**
+     * Sets the intuneAccountId property value. Intune Account ID for given tenant
+     * @param value Value to set for the intuneAccountId property.
+     */
+    public set intuneAccountId(value: string | undefined) {
+        if(value) {
+            this._intuneAccountId = value;
+        }
+    };
+    /**
+     * Gets the intuneBrand property value. intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
+     * @returns a IntuneBrandInterface
+     */
+    public get intuneBrand() {
+        return this._intuneBrand;
+    };
+    /**
+     * Sets the intuneBrand property value. intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
+     * @param value Value to set for the intuneBrand property.
+     */
+    public set intuneBrand(value: IntuneBrand | undefined) {
+        if(value) {
+            this._intuneBrand = value instanceof IntuneBrandImpl? value : new IntuneBrandImpl(value);
+        }
+    };
+    /**
+     * Gets the iosUpdateStatuses property value. The IOS software update installation statuses for this account.
+     * @returns a IosUpdateDeviceStatusInterface
+     */
+    public get iosUpdateStatuses() {
+        return this._iosUpdateStatuses;
+    };
+    /**
+     * Sets the iosUpdateStatuses property value. The IOS software update installation statuses for this account.
+     * @param value Value to set for the iosUpdateStatuses property.
+     */
+    public set iosUpdateStatuses(value: IosUpdateDeviceStatus[] | undefined) {
+        if(value) {
+            const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = [];
+            this.iosUpdateStatuses?.forEach(element => {
+                iosUpdateStatusesArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element:new IosUpdateDeviceStatusImpl(element)));
+            });
+            this._iosUpdateStatuses = iosUpdateStatusesArrValue;
+        }
+    };
+    /**
+     * Gets the managedDeviceOverview property value. Device overview
+     * @returns a ManagedDeviceOverviewInterface
+     */
+    public get managedDeviceOverview() {
+        return this._managedDeviceOverview;
+    };
+    /**
+     * Sets the managedDeviceOverview property value. Device overview
+     * @param value Value to set for the managedDeviceOverview property.
+     */
+    public set managedDeviceOverview(value: ManagedDeviceOverview | undefined) {
+        if(value) {
+            this._managedDeviceOverview = value instanceof ManagedDeviceOverviewImpl? value : new ManagedDeviceOverviewImpl(value);
+        }
+    };
+    /**
+     * Gets the managedDevices property value. The list of managed devices.
+     * @returns a ManagedDeviceInterface
+     */
+    public get managedDevices() {
+        return this._managedDevices;
+    };
+    /**
+     * Sets the managedDevices property value. The list of managed devices.
+     * @param value Value to set for the managedDevices property.
+     */
+    public set managedDevices(value: ManagedDevice[] | undefined) {
+        if(value) {
+            const managedDevicesArrValue: ManagedDeviceImpl[] = [];
+            this.managedDevices?.forEach(element => {
+                managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+            });
+            this._managedDevices = managedDevicesArrValue;
+        }
+    };
+    /**
+     * Gets the mobileThreatDefenseConnectors property value. The list of Mobile threat Defense connectors configured by the tenant.
+     * @returns a MobileThreatDefenseConnectorInterface
+     */
+    public get mobileThreatDefenseConnectors() {
+        return this._mobileThreatDefenseConnectors;
+    };
+    /**
+     * Sets the mobileThreatDefenseConnectors property value. The list of Mobile threat Defense connectors configured by the tenant.
+     * @param value Value to set for the mobileThreatDefenseConnectors property.
+     */
+    public set mobileThreatDefenseConnectors(value: MobileThreatDefenseConnector[] | undefined) {
+        if(value) {
+            const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = [];
+            this.mobileThreatDefenseConnectors?.forEach(element => {
+                mobileThreatDefenseConnectorsArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element:new MobileThreatDefenseConnectorImpl(element)));
+            });
+            this._mobileThreatDefenseConnectors = mobileThreatDefenseConnectorsArrValue;
+        }
+    };
+    /**
+     * Gets the notificationMessageTemplates property value. The Notification Message Templates.
+     * @returns a NotificationMessageTemplateInterface
+     */
+    public get notificationMessageTemplates() {
+        return this._notificationMessageTemplates;
+    };
+    /**
+     * Sets the notificationMessageTemplates property value. The Notification Message Templates.
+     * @param value Value to set for the notificationMessageTemplates property.
+     */
+    public set notificationMessageTemplates(value: NotificationMessageTemplate[] | undefined) {
+        if(value) {
+            const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = [];
+            this.notificationMessageTemplates?.forEach(element => {
+                notificationMessageTemplatesArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+            });
+            this._notificationMessageTemplates = notificationMessageTemplatesArrValue;
+        }
+    };
+    /**
+     * Gets the remoteAssistancePartners property value. The remote assist partners.
+     * @returns a RemoteAssistancePartnerInterface
+     */
+    public get remoteAssistancePartners() {
+        return this._remoteAssistancePartners;
+    };
+    /**
+     * Sets the remoteAssistancePartners property value. The remote assist partners.
+     * @param value Value to set for the remoteAssistancePartners property.
+     */
+    public set remoteAssistancePartners(value: RemoteAssistancePartner[] | undefined) {
+        if(value) {
+            const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = [];
+            this.remoteAssistancePartners?.forEach(element => {
+                remoteAssistancePartnersArrValue.push((element instanceof RemoteAssistancePartnerImpl? element:new RemoteAssistancePartnerImpl(element)));
+            });
+            this._remoteAssistancePartners = remoteAssistancePartnersArrValue;
+        }
+    };
+    /**
+     * Gets the reports property value. Reports singleton
+     * @returns a DeviceManagementReportsInterface
+     */
+    public get reports() {
+        return this._reports;
+    };
+    /**
+     * Sets the reports property value. Reports singleton
+     * @param value Value to set for the reports property.
+     */
+    public set reports(value: DeviceManagementReports | undefined) {
+        if(value) {
+            this._reports = value instanceof DeviceManagementReportsImpl? value : new DeviceManagementReportsImpl(value);
+        }
+    };
+    /**
+     * Gets the resourceOperations property value. The Resource Operations.
+     * @returns a ResourceOperationInterface
+     */
+    public get resourceOperations() {
+        return this._resourceOperations;
+    };
+    /**
+     * Sets the resourceOperations property value. The Resource Operations.
+     * @param value Value to set for the resourceOperations property.
+     */
+    public set resourceOperations(value: ResourceOperation[] | undefined) {
+        if(value) {
+            const resourceOperationsArrValue: ResourceOperationImpl[] = [];
+            this.resourceOperations?.forEach(element => {
+                resourceOperationsArrValue.push((element instanceof ResourceOperationImpl? element:new ResourceOperationImpl(element)));
+            });
+            this._resourceOperations = resourceOperationsArrValue;
+        }
+    };
+    /**
+     * Gets the roleAssignments property value. The Role Assignments.
+     * @returns a DeviceAndAppManagementRoleAssignmentInterface
+     */
+    public get roleAssignments() {
+        return this._roleAssignments;
+    };
+    /**
+     * Sets the roleAssignments property value. The Role Assignments.
+     * @param value Value to set for the roleAssignments property.
+     */
+    public set roleAssignments(value: DeviceAndAppManagementRoleAssignment[] | undefined) {
+        if(value) {
+            const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = [];
+            this.roleAssignments?.forEach(element => {
+                roleAssignmentsArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element:new DeviceAndAppManagementRoleAssignmentImpl(element)));
+            });
+            this._roleAssignments = roleAssignmentsArrValue;
+        }
+    };
+    /**
+     * Gets the roleDefinitions property value. The Role Definitions.
+     * @returns a RoleDefinitionInterface
+     */
+    public get roleDefinitions() {
+        return this._roleDefinitions;
+    };
+    /**
+     * Sets the roleDefinitions property value. The Role Definitions.
+     * @param value Value to set for the roleDefinitions property.
+     */
+    public set roleDefinitions(value: RoleDefinition[] | undefined) {
+        if(value) {
+            const roleDefinitionsArrValue: RoleDefinitionImpl[] = [];
+            this.roleDefinitions?.forEach(element => {
+                roleDefinitionsArrValue.push((element instanceof RoleDefinitionImpl? element:new RoleDefinitionImpl(element)));
+            });
+            this._roleDefinitions = roleDefinitionsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -234,109 +722,349 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applePushNotificationCertificate){
-            writer.writeObjectValue<ApplePushNotificationCertificateImpl>("applePushNotificationCertificate", new ApplePushNotificationCertificateImpl(this.applePushNotificationCertificate));
+            writer.writeObjectValue<ApplePushNotificationCertificateImpl>("applePushNotificationCertificate", (!this.applePushNotificationCertificate || this.applePushNotificationCertificate instanceof ApplePushNotificationCertificateImpl? this.applePushNotificationCertificate : new ApplePushNotificationCertificateImpl(this.applePushNotificationCertificate)));
         }
-        if(this.complianceManagementPartners && this.complianceManagementPartners.length != 0){        const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = []; this.complianceManagementPartners?.forEach(element => {complianceManagementPartnersArrValue.push(new ComplianceManagementPartnerImpl(element));});
+        if(this.complianceManagementPartners && this.complianceManagementPartners.length != 0){        const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = [];
+        this.complianceManagementPartners?.forEach(element => {
+            complianceManagementPartnersArrValue.push((element instanceof ComplianceManagementPartnerImpl? element:new ComplianceManagementPartnerImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ComplianceManagementPartnerImpl>("complianceManagementPartners", complianceManagementPartnersArrValue);
         }
         if(this.conditionalAccessSettings){
-            writer.writeObjectValue<OnPremisesConditionalAccessSettingsImpl>("conditionalAccessSettings", new OnPremisesConditionalAccessSettingsImpl(this.conditionalAccessSettings));
+            writer.writeObjectValue<OnPremisesConditionalAccessSettingsImpl>("conditionalAccessSettings", (!this.conditionalAccessSettings || this.conditionalAccessSettings instanceof OnPremisesConditionalAccessSettingsImpl? this.conditionalAccessSettings : new OnPremisesConditionalAccessSettingsImpl(this.conditionalAccessSettings)));
         }
-        if(this.detectedApps && this.detectedApps.length != 0){        const detectedAppsArrValue: DetectedAppImpl[] = []; this.detectedApps?.forEach(element => {detectedAppsArrValue.push(new DetectedAppImpl(element));});
+        if(this.detectedApps && this.detectedApps.length != 0){        const detectedAppsArrValue: DetectedAppImpl[] = [];
+        this.detectedApps?.forEach(element => {
+            detectedAppsArrValue.push((element instanceof DetectedAppImpl? element:new DetectedAppImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DetectedAppImpl>("detectedApps", detectedAppsArrValue);
         }
-        if(this.deviceCategories && this.deviceCategories.length != 0){        const deviceCategoriesArrValue: DeviceCategoryImpl[] = []; this.deviceCategories?.forEach(element => {deviceCategoriesArrValue.push(new DeviceCategoryImpl(element));});
+        if(this.deviceCategories && this.deviceCategories.length != 0){        const deviceCategoriesArrValue: DeviceCategoryImpl[] = [];
+        this.deviceCategories?.forEach(element => {
+            deviceCategoriesArrValue.push((element instanceof DeviceCategoryImpl? element:new DeviceCategoryImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("deviceCategories", deviceCategoriesArrValue);
         }
-        if(this.deviceCompliancePolicies && this.deviceCompliancePolicies.length != 0){        const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = []; this.deviceCompliancePolicies?.forEach(element => {deviceCompliancePoliciesArrValue.push(new DeviceCompliancePolicyImpl(element));});
+        if(this.deviceCompliancePolicies && this.deviceCompliancePolicies.length != 0){        const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = [];
+        this.deviceCompliancePolicies?.forEach(element => {
+            deviceCompliancePoliciesArrValue.push((element instanceof DeviceCompliancePolicyImpl? element:new DeviceCompliancePolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyImpl>("deviceCompliancePolicies", deviceCompliancePoliciesArrValue);
         }
         if(this.deviceCompliancePolicyDeviceStateSummary){
-            writer.writeObjectValue<DeviceCompliancePolicyDeviceStateSummaryImpl>("deviceCompliancePolicyDeviceStateSummary", new DeviceCompliancePolicyDeviceStateSummaryImpl(this.deviceCompliancePolicyDeviceStateSummary));
+            writer.writeObjectValue<DeviceCompliancePolicyDeviceStateSummaryImpl>("deviceCompliancePolicyDeviceStateSummary", (!this.deviceCompliancePolicyDeviceStateSummary || this.deviceCompliancePolicyDeviceStateSummary instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? this.deviceCompliancePolicyDeviceStateSummary : new DeviceCompliancePolicyDeviceStateSummaryImpl(this.deviceCompliancePolicyDeviceStateSummary)));
         }
-        if(this.deviceCompliancePolicySettingStateSummaries && this.deviceCompliancePolicySettingStateSummaries.length != 0){        const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = []; this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {deviceCompliancePolicySettingStateSummariesArrValue.push(new DeviceCompliancePolicySettingStateSummaryImpl(element));});
+        if(this.deviceCompliancePolicySettingStateSummaries && this.deviceCompliancePolicySettingStateSummaries.length != 0){        const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = [];
+        this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {
+            deviceCompliancePolicySettingStateSummariesArrValue.push((element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element:new DeviceCompliancePolicySettingStateSummaryImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("deviceCompliancePolicySettingStateSummaries", deviceCompliancePolicySettingStateSummariesArrValue);
         }
         if(this.deviceConfigurationDeviceStateSummaries){
-            writer.writeObjectValue<DeviceConfigurationDeviceStateSummaryImpl>("deviceConfigurationDeviceStateSummaries", new DeviceConfigurationDeviceStateSummaryImpl(this.deviceConfigurationDeviceStateSummaries));
+            writer.writeObjectValue<DeviceConfigurationDeviceStateSummaryImpl>("deviceConfigurationDeviceStateSummaries", (!this.deviceConfigurationDeviceStateSummaries || this.deviceConfigurationDeviceStateSummaries instanceof DeviceConfigurationDeviceStateSummaryImpl? this.deviceConfigurationDeviceStateSummaries : new DeviceConfigurationDeviceStateSummaryImpl(this.deviceConfigurationDeviceStateSummaries)));
         }
-        if(this.deviceConfigurations && this.deviceConfigurations.length != 0){        const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = []; this.deviceConfigurations?.forEach(element => {deviceConfigurationsArrValue.push(new DeviceConfigurationImpl(element));});
+        if(this.deviceConfigurations && this.deviceConfigurations.length != 0){        const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = [];
+        this.deviceConfigurations?.forEach(element => {
+            deviceConfigurationsArrValue.push((element instanceof DeviceConfigurationImpl? element:new DeviceConfigurationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceConfigurationImpl>("deviceConfigurations", deviceConfigurationsArrValue);
         }
-        if(this.deviceEnrollmentConfigurations && this.deviceEnrollmentConfigurations.length != 0){        const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = []; this.deviceEnrollmentConfigurations?.forEach(element => {deviceEnrollmentConfigurationsArrValue.push(new DeviceEnrollmentConfigurationImpl(element));});
+        if(this.deviceEnrollmentConfigurations && this.deviceEnrollmentConfigurations.length != 0){        const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = [];
+        this.deviceEnrollmentConfigurations?.forEach(element => {
+            deviceEnrollmentConfigurationsArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element:new DeviceEnrollmentConfigurationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceEnrollmentConfigurationImpl>("deviceEnrollmentConfigurations", deviceEnrollmentConfigurationsArrValue);
         }
-        if(this.deviceManagementPartners && this.deviceManagementPartners.length != 0){        const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = []; this.deviceManagementPartners?.forEach(element => {deviceManagementPartnersArrValue.push(new DeviceManagementPartnerImpl(element));});
+        if(this.deviceManagementPartners && this.deviceManagementPartners.length != 0){        const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = [];
+        this.deviceManagementPartners?.forEach(element => {
+            deviceManagementPartnersArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("deviceManagementPartners", deviceManagementPartnersArrValue);
         }
-        if(this.exchangeConnectors && this.exchangeConnectors.length != 0){        const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = []; this.exchangeConnectors?.forEach(element => {exchangeConnectorsArrValue.push(new DeviceManagementExchangeConnectorImpl(element));});
+        if(this.exchangeConnectors && this.exchangeConnectors.length != 0){        const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = [];
+        this.exchangeConnectors?.forEach(element => {
+            exchangeConnectorsArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element:new DeviceManagementExchangeConnectorImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("exchangeConnectors", exchangeConnectorsArrValue);
         }
-        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
+        this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
+            importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }
         if(this.intuneAccountId){
             writer.writeStringValue("intuneAccountId", this.intuneAccountId);
         }
         if(this.intuneBrand){
-            writer.writeObjectValue<IntuneBrandImpl>("intuneBrand", new IntuneBrandImpl(this.intuneBrand));
+            writer.writeObjectValue<IntuneBrandImpl>("intuneBrand", (!this.intuneBrand || this.intuneBrand instanceof IntuneBrandImpl? this.intuneBrand : new IntuneBrandImpl(this.intuneBrand)));
         }
-        if(this.iosUpdateStatuses && this.iosUpdateStatuses.length != 0){        const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = []; this.iosUpdateStatuses?.forEach(element => {iosUpdateStatusesArrValue.push(new IosUpdateDeviceStatusImpl(element));});
+        if(this.iosUpdateStatuses && this.iosUpdateStatuses.length != 0){        const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = [];
+        this.iosUpdateStatuses?.forEach(element => {
+            iosUpdateStatusesArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element:new IosUpdateDeviceStatusImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IosUpdateDeviceStatusImpl>("iosUpdateStatuses", iosUpdateStatusesArrValue);
         }
         if(this.managedDeviceOverview){
-            writer.writeObjectValue<ManagedDeviceOverviewImpl>("managedDeviceOverview", new ManagedDeviceOverviewImpl(this.managedDeviceOverview));
+            writer.writeObjectValue<ManagedDeviceOverviewImpl>("managedDeviceOverview", (!this.managedDeviceOverview || this.managedDeviceOverview instanceof ManagedDeviceOverviewImpl? this.managedDeviceOverview : new ManagedDeviceOverviewImpl(this.managedDeviceOverview)));
         }
-        if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = []; this.managedDevices?.forEach(element => {managedDevicesArrValue.push(new ManagedDeviceImpl(element));});
+        if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = [];
+        this.managedDevices?.forEach(element => {
+            managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
-        if(this.mobileThreatDefenseConnectors && this.mobileThreatDefenseConnectors.length != 0){        const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = []; this.mobileThreatDefenseConnectors?.forEach(element => {mobileThreatDefenseConnectorsArrValue.push(new MobileThreatDefenseConnectorImpl(element));});
+        if(this.mobileThreatDefenseConnectors && this.mobileThreatDefenseConnectors.length != 0){        const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = [];
+        this.mobileThreatDefenseConnectors?.forEach(element => {
+            mobileThreatDefenseConnectorsArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element:new MobileThreatDefenseConnectorImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("mobileThreatDefenseConnectors", mobileThreatDefenseConnectorsArrValue);
         }
-        if(this.notificationMessageTemplates && this.notificationMessageTemplates.length != 0){        const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = []; this.notificationMessageTemplates?.forEach(element => {notificationMessageTemplatesArrValue.push(new NotificationMessageTemplateImpl(element));});
+        if(this.notificationMessageTemplates && this.notificationMessageTemplates.length != 0){        const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = [];
+        this.notificationMessageTemplates?.forEach(element => {
+            notificationMessageTemplatesArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("notificationMessageTemplates", notificationMessageTemplatesArrValue);
         }
-        if(this.remoteAssistancePartners && this.remoteAssistancePartners.length != 0){        const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = []; this.remoteAssistancePartners?.forEach(element => {remoteAssistancePartnersArrValue.push(new RemoteAssistancePartnerImpl(element));});
+        if(this.remoteAssistancePartners && this.remoteAssistancePartners.length != 0){        const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = [];
+        this.remoteAssistancePartners?.forEach(element => {
+            remoteAssistancePartnersArrValue.push((element instanceof RemoteAssistancePartnerImpl? element:new RemoteAssistancePartnerImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("remoteAssistancePartners", remoteAssistancePartnersArrValue);
         }
         if(this.reports){
-            writer.writeObjectValue<DeviceManagementReportsImpl>("reports", new DeviceManagementReportsImpl(this.reports));
+            writer.writeObjectValue<DeviceManagementReportsImpl>("reports", (!this.reports || this.reports instanceof DeviceManagementReportsImpl? this.reports : new DeviceManagementReportsImpl(this.reports)));
         }
-        if(this.resourceOperations && this.resourceOperations.length != 0){        const resourceOperationsArrValue: ResourceOperationImpl[] = []; this.resourceOperations?.forEach(element => {resourceOperationsArrValue.push(new ResourceOperationImpl(element));});
+        if(this.resourceOperations && this.resourceOperations.length != 0){        const resourceOperationsArrValue: ResourceOperationImpl[] = [];
+        this.resourceOperations?.forEach(element => {
+            resourceOperationsArrValue.push((element instanceof ResourceOperationImpl? element:new ResourceOperationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ResourceOperationImpl>("resourceOperations", resourceOperationsArrValue);
         }
-        if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = []; this.roleAssignments?.forEach(element => {roleAssignmentsArrValue.push(new DeviceAndAppManagementRoleAssignmentImpl(element));});
+        if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = [];
+        this.roleAssignments?.forEach(element => {
+            roleAssignmentsArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element:new DeviceAndAppManagementRoleAssignmentImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
-        if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: RoleDefinitionImpl[] = []; this.roleDefinitions?.forEach(element => {roleDefinitionsArrValue.push(new RoleDefinitionImpl(element));});
+        if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: RoleDefinitionImpl[] = [];
+        this.roleDefinitions?.forEach(element => {
+            roleDefinitionsArrValue.push((element instanceof RoleDefinitionImpl? element:new RoleDefinitionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<RoleDefinitionImpl>("roleDefinitions", roleDefinitionsArrValue);
         }
         if(this.settings){
-            writer.writeObjectValue<DeviceManagementSettingsImpl>("settings", new DeviceManagementSettingsImpl(this.settings));
+            writer.writeObjectValue<DeviceManagementSettingsImpl>("settings", (!this.settings || this.settings instanceof DeviceManagementSettingsImpl? this.settings : new DeviceManagementSettingsImpl(this.settings)));
         }
         if(this.softwareUpdateStatusSummary){
-            writer.writeObjectValue<SoftwareUpdateStatusSummaryImpl>("softwareUpdateStatusSummary", new SoftwareUpdateStatusSummaryImpl(this.softwareUpdateStatusSummary));
+            writer.writeObjectValue<SoftwareUpdateStatusSummaryImpl>("softwareUpdateStatusSummary", (!this.softwareUpdateStatusSummary || this.softwareUpdateStatusSummary instanceof SoftwareUpdateStatusSummaryImpl? this.softwareUpdateStatusSummary : new SoftwareUpdateStatusSummaryImpl(this.softwareUpdateStatusSummary)));
         }
         if(this.subscriptionState){
             writer.writeEnumValue<DeviceManagementSubscriptionState>("subscriptionState", this.subscriptionState);
         }
-        if(this.telecomExpenseManagementPartners && this.telecomExpenseManagementPartners.length != 0){        const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = []; this.telecomExpenseManagementPartners?.forEach(element => {telecomExpenseManagementPartnersArrValue.push(new TelecomExpenseManagementPartnerImpl(element));});
+        if(this.telecomExpenseManagementPartners && this.telecomExpenseManagementPartners.length != 0){        const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = [];
+        this.telecomExpenseManagementPartners?.forEach(element => {
+            telecomExpenseManagementPartnersArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element:new TelecomExpenseManagementPartnerImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartnerImpl>("telecomExpenseManagementPartners", telecomExpenseManagementPartnersArrValue);
         }
-        if(this.termsAndConditions && this.termsAndConditions.length != 0){        const termsAndConditionsArrValue: TermsAndConditionsImpl[] = []; this.termsAndConditions?.forEach(element => {termsAndConditionsArrValue.push(new TermsAndConditionsImpl(element));});
+        if(this.termsAndConditions && this.termsAndConditions.length != 0){        const termsAndConditionsArrValue: TermsAndConditionsImpl[] = [];
+        this.termsAndConditions?.forEach(element => {
+            termsAndConditionsArrValue.push((element instanceof TermsAndConditionsImpl? element:new TermsAndConditionsImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TermsAndConditionsImpl>("termsAndConditions", termsAndConditionsArrValue);
         }
-        if(this.troubleshootingEvents && this.troubleshootingEvents.length != 0){        const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = []; this.troubleshootingEvents?.forEach(element => {troubleshootingEventsArrValue.push(new DeviceManagementTroubleshootingEventImpl(element));});
+        if(this.troubleshootingEvents && this.troubleshootingEvents.length != 0){        const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = [];
+        this.troubleshootingEvents?.forEach(element => {
+            troubleshootingEventsArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element:new DeviceManagementTroubleshootingEventImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("troubleshootingEvents", troubleshootingEventsArrValue);
         }
-        if(this.windowsAutopilotDeviceIdentities && this.windowsAutopilotDeviceIdentities.length != 0){        const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = []; this.windowsAutopilotDeviceIdentities?.forEach(element => {windowsAutopilotDeviceIdentitiesArrValue.push(new WindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.windowsAutopilotDeviceIdentities && this.windowsAutopilotDeviceIdentities.length != 0){        const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = [];
+        this.windowsAutopilotDeviceIdentities?.forEach(element => {
+            windowsAutopilotDeviceIdentitiesArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element:new WindowsAutopilotDeviceIdentityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("windowsAutopilotDeviceIdentities", windowsAutopilotDeviceIdentitiesArrValue);
         }
-        if(this.windowsInformationProtectionAppLearningSummaries && this.windowsInformationProtectionAppLearningSummaries.length != 0){        const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = []; this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {windowsInformationProtectionAppLearningSummariesArrValue.push(new WindowsInformationProtectionAppLearningSummaryImpl(element));});
+        if(this.windowsInformationProtectionAppLearningSummaries && this.windowsInformationProtectionAppLearningSummaries.length != 0){        const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = [];
+        this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {
+            windowsInformationProtectionAppLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element:new WindowsInformationProtectionAppLearningSummaryImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLearningSummaryImpl>("windowsInformationProtectionAppLearningSummaries", windowsInformationProtectionAppLearningSummariesArrValue);
         }
-        if(this.windowsInformationProtectionNetworkLearningSummaries && this.windowsInformationProtectionNetworkLearningSummaries.length != 0){        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = []; this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {windowsInformationProtectionNetworkLearningSummariesArrValue.push(new WindowsInformationProtectionNetworkLearningSummaryImpl(element));});
+        if(this.windowsInformationProtectionNetworkLearningSummaries && this.windowsInformationProtectionNetworkLearningSummaries.length != 0){        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = [];
+        this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {
+            windowsInformationProtectionNetworkLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummaryImpl>("windowsInformationProtectionNetworkLearningSummaries", windowsInformationProtectionNetworkLearningSummariesArrValue);
+        }
+    };
+    /**
+     * Gets the settings property value. Account level settings.
+     * @returns a DeviceManagementSettingsInterface
+     */
+    public get settings() {
+        return this._settings;
+    };
+    /**
+     * Sets the settings property value. Account level settings.
+     * @param value Value to set for the settings property.
+     */
+    public set settings(value: DeviceManagementSettings | undefined) {
+        if(value) {
+            this._settings = value instanceof DeviceManagementSettingsImpl? value : new DeviceManagementSettingsImpl(value);
+        }
+    };
+    /**
+     * Gets the softwareUpdateStatusSummary property value. The software update status summary.
+     * @returns a SoftwareUpdateStatusSummaryInterface
+     */
+    public get softwareUpdateStatusSummary() {
+        return this._softwareUpdateStatusSummary;
+    };
+    /**
+     * Sets the softwareUpdateStatusSummary property value. The software update status summary.
+     * @param value Value to set for the softwareUpdateStatusSummary property.
+     */
+    public set softwareUpdateStatusSummary(value: SoftwareUpdateStatusSummary | undefined) {
+        if(value) {
+            this._softwareUpdateStatusSummary = value instanceof SoftwareUpdateStatusSummaryImpl? value : new SoftwareUpdateStatusSummaryImpl(value);
+        }
+    };
+    /**
+     * Gets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * @returns a deviceManagementSubscriptionState
+     */
+    public get subscriptionState() {
+        return this._subscriptionState;
+    };
+    /**
+     * Sets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * @param value Value to set for the subscriptionState property.
+     */
+    public set subscriptionState(value: DeviceManagementSubscriptionState | undefined) {
+        if(value) {
+            this._subscriptionState = value;
+        }
+    };
+    /**
+     * Gets the telecomExpenseManagementPartners property value. The telecom expense management partners.
+     * @returns a TelecomExpenseManagementPartnerInterface
+     */
+    public get telecomExpenseManagementPartners() {
+        return this._telecomExpenseManagementPartners;
+    };
+    /**
+     * Sets the telecomExpenseManagementPartners property value. The telecom expense management partners.
+     * @param value Value to set for the telecomExpenseManagementPartners property.
+     */
+    public set telecomExpenseManagementPartners(value: TelecomExpenseManagementPartner[] | undefined) {
+        if(value) {
+            const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = [];
+            this.telecomExpenseManagementPartners?.forEach(element => {
+                telecomExpenseManagementPartnersArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element:new TelecomExpenseManagementPartnerImpl(element)));
+            });
+            this._telecomExpenseManagementPartners = telecomExpenseManagementPartnersArrValue;
+        }
+    };
+    /**
+     * Gets the termsAndConditions property value. The terms and conditions associated with device management of the company.
+     * @returns a TermsAndConditionsInterface
+     */
+    public get termsAndConditions() {
+        return this._termsAndConditions;
+    };
+    /**
+     * Sets the termsAndConditions property value. The terms and conditions associated with device management of the company.
+     * @param value Value to set for the termsAndConditions property.
+     */
+    public set termsAndConditions(value: TermsAndConditions[] | undefined) {
+        if(value) {
+            const termsAndConditionsArrValue: TermsAndConditionsImpl[] = [];
+            this.termsAndConditions?.forEach(element => {
+                termsAndConditionsArrValue.push((element instanceof TermsAndConditionsImpl? element:new TermsAndConditionsImpl(element)));
+            });
+            this._termsAndConditions = termsAndConditionsArrValue;
+        }
+    };
+    /**
+     * Gets the troubleshootingEvents property value. The list of troubleshooting events for the tenant.
+     * @returns a DeviceManagementTroubleshootingEventInterface
+     */
+    public get troubleshootingEvents() {
+        return this._troubleshootingEvents;
+    };
+    /**
+     * Sets the troubleshootingEvents property value. The list of troubleshooting events for the tenant.
+     * @param value Value to set for the troubleshootingEvents property.
+     */
+    public set troubleshootingEvents(value: DeviceManagementTroubleshootingEvent[] | undefined) {
+        if(value) {
+            const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = [];
+            this.troubleshootingEvents?.forEach(element => {
+                troubleshootingEventsArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element:new DeviceManagementTroubleshootingEventImpl(element)));
+            });
+            this._troubleshootingEvents = troubleshootingEventsArrValue;
+        }
+    };
+    /**
+     * Gets the windowsAutopilotDeviceIdentities property value. The Windows autopilot device identities contained collection.
+     * @returns a WindowsAutopilotDeviceIdentityInterface
+     */
+    public get windowsAutopilotDeviceIdentities() {
+        return this._windowsAutopilotDeviceIdentities;
+    };
+    /**
+     * Sets the windowsAutopilotDeviceIdentities property value. The Windows autopilot device identities contained collection.
+     * @param value Value to set for the windowsAutopilotDeviceIdentities property.
+     */
+    public set windowsAutopilotDeviceIdentities(value: WindowsAutopilotDeviceIdentity[] | undefined) {
+        if(value) {
+            const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = [];
+            this.windowsAutopilotDeviceIdentities?.forEach(element => {
+                windowsAutopilotDeviceIdentitiesArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element:new WindowsAutopilotDeviceIdentityImpl(element)));
+            });
+            this._windowsAutopilotDeviceIdentities = windowsAutopilotDeviceIdentitiesArrValue;
+        }
+    };
+    /**
+     * Gets the windowsInformationProtectionAppLearningSummaries property value. The windows information protection app learning summaries.
+     * @returns a WindowsInformationProtectionAppLearningSummaryInterface
+     */
+    public get windowsInformationProtectionAppLearningSummaries() {
+        return this._windowsInformationProtectionAppLearningSummaries;
+    };
+    /**
+     * Sets the windowsInformationProtectionAppLearningSummaries property value. The windows information protection app learning summaries.
+     * @param value Value to set for the windowsInformationProtectionAppLearningSummaries property.
+     */
+    public set windowsInformationProtectionAppLearningSummaries(value: WindowsInformationProtectionAppLearningSummary[] | undefined) {
+        if(value) {
+            const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = [];
+            this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {
+                windowsInformationProtectionAppLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element:new WindowsInformationProtectionAppLearningSummaryImpl(element)));
+            });
+            this._windowsInformationProtectionAppLearningSummaries = windowsInformationProtectionAppLearningSummariesArrValue;
+        }
+    };
+    /**
+     * Gets the windowsInformationProtectionNetworkLearningSummaries property value. The windows information protection network learning summaries.
+     * @returns a WindowsInformationProtectionNetworkLearningSummaryInterface
+     */
+    public get windowsInformationProtectionNetworkLearningSummaries() {
+        return this._windowsInformationProtectionNetworkLearningSummaries;
+    };
+    /**
+     * Sets the windowsInformationProtectionNetworkLearningSummaries property value. The windows information protection network learning summaries.
+     * @param value Value to set for the windowsInformationProtectionNetworkLearningSummaries property.
+     */
+    public set windowsInformationProtectionNetworkLearningSummaries(value: WindowsInformationProtectionNetworkLearningSummary[] | undefined) {
+        if(value) {
+            const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = [];
+            this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {
+                windowsInformationProtectionNetworkLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
+            });
+            this._windowsInformationProtectionNetworkLearningSummaries = windowsInformationProtectionNetworkLearningSummariesArrValue;
         }
     };
 }

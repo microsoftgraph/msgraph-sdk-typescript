@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceSpecificPermissionGrantCollectionResponseImpl implements ResourceSpecificPermissionGrantCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: ResourceSpecificPermissionGrant[] | undefined;
+    private _value?: ResourceSpecificPermissionGrant[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ResourceSpecificPermissionGrantCollectionResponse and sets the default values.
      * @param resourceSpecificPermissionGrantCollectionResponseParameterValue 
      */
     public constructor(resourceSpecificPermissionGrantCollectionResponseParameterValue?: ResourceSpecificPermissionGrantCollectionResponse | undefined) {
-        this.additionalData = resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData ? resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = resourceSpecificPermissionGrantCollectionResponseParameterValue?.nextLink;
-        this.value = resourceSpecificPermissionGrantCollectionResponseParameterValue?.value;
+        this._additionalData = resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData ? resourceSpecificPermissionGrantCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = resourceSpecificPermissionGrantCollectionResponseParameterValue?.nextLink;
+        this._value = resourceSpecificPermissionGrantCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ResourceSpecificPermissionGrantImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ResourceSpecificPermissionGrantInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ResourceSpecificPermissionGrant[] | undefined) {
+        if(value) {
+            const valueArrValue: ResourceSpecificPermissionGrantImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

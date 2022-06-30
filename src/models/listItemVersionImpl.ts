@@ -6,14 +6,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItemVersion {
     /** A collection of the fields and values for this version of the list item. */
-    public fields?: FieldValueSet | undefined;
+    private _fields?: FieldValueSet | undefined;
     /**
      * Instantiates a new ListItemVersion and sets the default values.
      * @param listItemVersionParameterValue 
      */
     public constructor(listItemVersionParameterValue?: ListItemVersion | undefined) {
         super(listItemVersionParameterValue);
-        this.fields = listItemVersionParameterValue?.fields;
+        this._fields = listItemVersionParameterValue?.fields;
+    };
+    /**
+     * Gets the fields property value. A collection of the fields and values for this version of the list item.
+     * @returns a FieldValueSetInterface
+     */
+    public get fields() {
+        return this._fields;
+    };
+    /**
+     * Sets the fields property value. A collection of the fields and values for this version of the list item.
+     * @param value Value to set for the fields property.
+     */
+    public set fields(value: FieldValueSet | undefined) {
+        if(value) {
+            this._fields = value instanceof FieldValueSetImpl? value : new FieldValueSetImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +48,7 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fields){
-            writer.writeObjectValue<FieldValueSetImpl>("fields", new FieldValueSetImpl(this.fields));
+            writer.writeObjectValue<FieldValueSetImpl>("fields", (!this.fields || this.fields instanceof FieldValueSetImpl? this.fields : new FieldValueSetImpl(this.fields)));
         }
     };
 }

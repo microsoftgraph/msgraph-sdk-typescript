@@ -4,22 +4,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class Fido2KeyRestrictionsImpl implements Fido2KeyRestrictions {
     /** A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers. */
-    public aaGuids?: string[] | undefined;
+    private _aaGuids?: string[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Enforcement type. Possible values are: allow, block. */
-    public enforcementType?: Fido2RestrictionEnforcementType | undefined;
+    private _enforcementType?: Fido2RestrictionEnforcementType | undefined;
     /** Determines if the configured key enforcement is enabled. */
-    public isEnforced?: boolean | undefined;
+    private _isEnforced?: boolean | undefined;
+    /**
+     * Gets the aaGuids property value. A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers.
+     * @returns a string
+     */
+    public get aaGuids() {
+        return this._aaGuids;
+    };
+    /**
+     * Sets the aaGuids property value. A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers.
+     * @param value Value to set for the aaGuids property.
+     */
+    public set aaGuids(value: string[] | undefined) {
+        if(value) {
+            this._aaGuids = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new fido2KeyRestrictions and sets the default values.
      * @param fido2KeyRestrictionsParameterValue 
      */
     public constructor(fido2KeyRestrictionsParameterValue?: Fido2KeyRestrictions | undefined) {
-        this.aaGuids = fido2KeyRestrictionsParameterValue?.aaGuids;
-        this.additionalData = fido2KeyRestrictionsParameterValue?.additionalData ? fido2KeyRestrictionsParameterValue?.additionalData! : {};
-        this.enforcementType = fido2KeyRestrictionsParameterValue?.enforcementType;
-        this.isEnforced = fido2KeyRestrictionsParameterValue?.isEnforced;
+        this._aaGuids = fido2KeyRestrictionsParameterValue?.aaGuids;
+        this._additionalData = fido2KeyRestrictionsParameterValue?.additionalData ? fido2KeyRestrictionsParameterValue?.additionalData! : {};
+        this._enforcementType = fido2KeyRestrictionsParameterValue?.enforcementType;
+        this._isEnforced = fido2KeyRestrictionsParameterValue?.isEnforced;
+    };
+    /**
+     * Gets the enforcementType property value. Enforcement type. Possible values are: allow, block.
+     * @returns a fido2RestrictionEnforcementType
+     */
+    public get enforcementType() {
+        return this._enforcementType;
+    };
+    /**
+     * Sets the enforcementType property value. Enforcement type. Possible values are: allow, block.
+     * @param value Value to set for the enforcementType property.
+     */
+    public set enforcementType(value: Fido2RestrictionEnforcementType | undefined) {
+        if(value) {
+            this._enforcementType = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +79,22 @@ export class Fido2KeyRestrictionsImpl implements Fido2KeyRestrictions {
             "enforcementType": n => { this.enforcementType = n.getEnumValue<Fido2RestrictionEnforcementType>(Fido2RestrictionEnforcementType); },
             "isEnforced": n => { this.isEnforced = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isEnforced property value. Determines if the configured key enforcement is enabled.
+     * @returns a boolean
+     */
+    public get isEnforced() {
+        return this._isEnforced;
+    };
+    /**
+     * Sets the isEnforced property value. Determines if the configured key enforcement is enabled.
+     * @param value Value to set for the isEnforced property.
+     */
+    public set isEnforced(value: boolean | undefined) {
+        if(value) {
+            this._isEnforced = value;
+        }
     };
     /**
      * Serializes information the current object

@@ -5,17 +5,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Represents app protection and configuration status for the organization. */
 export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus {
     /** Friendly name of the status report. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Version of the entity. */
-    public version?: string | undefined;
+    private _version?: string | undefined;
     /**
      * Instantiates a new managedAppStatus and sets the default values.
      * @param managedAppStatusParameterValue 
      */
     public constructor(managedAppStatusParameterValue?: ManagedAppStatus | undefined) {
         super(managedAppStatusParameterValue);
-        this.displayName = managedAppStatusParameterValue?.displayName;
-        this.version = managedAppStatusParameterValue?.version;
+        this._displayName = managedAppStatusParameterValue?.displayName;
+        this._version = managedAppStatusParameterValue?.version;
+    };
+    /**
+     * Gets the displayName property value. Friendly name of the status report.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Friendly name of the status report.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,22 @@ export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus
         }
         if(this.version){
             writer.writeStringValue("version", this.version);
+        }
+    };
+    /**
+     * Gets the version property value. Version of the entity.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. Version of the entity.
+     * @param value Value to set for the version property.
+     */
+    public set version(value: string | undefined) {
+        if(value) {
+            this._version = value;
         }
     };
 }

@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SigningCertificateUpdateStatusImpl implements SigningCertificateUpdateStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status. */
-    public certificateUpdateResult?: string | undefined;
+    private _certificateUpdateResult?: string | undefined;
     /** Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only. */
-    public lastRunDateTime?: Date | undefined;
+    private _lastRunDateTime?: Date | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the certificateUpdateResult property value. Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
+     * @returns a string
+     */
+    public get certificateUpdateResult() {
+        return this._certificateUpdateResult;
+    };
+    /**
+     * Sets the certificateUpdateResult property value. Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
+     * @param value Value to set for the certificateUpdateResult property.
+     */
+    public set certificateUpdateResult(value: string | undefined) {
+        if(value) {
+            this._certificateUpdateResult = value;
+        }
+    };
     /**
      * Instantiates a new signingCertificateUpdateStatus and sets the default values.
      * @param signingCertificateUpdateStatusParameterValue 
      */
     public constructor(signingCertificateUpdateStatusParameterValue?: SigningCertificateUpdateStatus | undefined) {
-        this.additionalData = signingCertificateUpdateStatusParameterValue?.additionalData ? signingCertificateUpdateStatusParameterValue?.additionalData! : {};
-        this.certificateUpdateResult = signingCertificateUpdateStatusParameterValue?.certificateUpdateResult;
-        this.lastRunDateTime = signingCertificateUpdateStatusParameterValue?.lastRunDateTime;
+        this._additionalData = signingCertificateUpdateStatusParameterValue?.additionalData ? signingCertificateUpdateStatusParameterValue?.additionalData! : {};
+        this._certificateUpdateResult = signingCertificateUpdateStatusParameterValue?.certificateUpdateResult;
+        this._lastRunDateTime = signingCertificateUpdateStatusParameterValue?.lastRunDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +58,22 @@ export class SigningCertificateUpdateStatusImpl implements SigningCertificateUpd
             "certificateUpdateResult": n => { this.certificateUpdateResult = n.getStringValue(); },
             "lastRunDateTime": n => { this.lastRunDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the lastRunDateTime property value. Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
+     * @returns a Date
+     */
+    public get lastRunDateTime() {
+        return this._lastRunDateTime;
+    };
+    /**
+     * Sets the lastRunDateTime property value. Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
+     * @param value Value to set for the lastRunDateTime property.
+     */
+    public set lastRunDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastRunDateTime = value;
+        }
     };
     /**
      * Serializes information the current object

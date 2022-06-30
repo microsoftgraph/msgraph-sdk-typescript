@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class PrintUsageByUserImpl extends PrintUsageImpl implements PrintUsageByUser {
     /** The UPN of the user represented by these statistics. */
-    public userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
     /**
      * Instantiates a new PrintUsageByUser and sets the default values.
      * @param printUsageByUserParameterValue 
      */
     public constructor(printUsageByUserParameterValue?: PrintUsageByUser | undefined) {
         super(printUsageByUserParameterValue);
-        this.userPrincipalName = printUsageByUserParameterValue?.userPrincipalName;
+        this._userPrincipalName = printUsageByUserParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +31,22 @@ export class PrintUsageByUserImpl extends PrintUsageImpl implements PrintUsageBy
         super.serialize(writer);
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+        }
+    };
+    /**
+     * Gets the userPrincipalName property value. The UPN of the user represented by these statistics.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
+    };
+    /**
+     * Sets the userPrincipalName property value. The UPN of the user represented by these statistics.
+     * @param value Value to set for the userPrincipalName property.
+     */
+    public set userPrincipalName(value: string | undefined) {
+        if(value) {
+            this._userPrincipalName = value;
         }
     };
 }

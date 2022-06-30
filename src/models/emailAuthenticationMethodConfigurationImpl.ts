@@ -7,17 +7,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements EmailAuthenticationMethodConfiguration {
     /** Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021. */
-    public allowExternalIdToUseEmailOtp?: ExternalEmailOtpState | undefined;
+    private _allowExternalIdToUseEmailOtp?: ExternalEmailOtpState | undefined;
     /** A collection of users or groups who are enabled to use the authentication method. */
-    public includeTargets?: AuthenticationMethodTarget[] | undefined;
+    private _includeTargets?: AuthenticationMethodTarget[] | undefined;
+    /**
+     * Gets the allowExternalIdToUseEmailOtp property value. Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021.
+     * @returns a externalEmailOtpState
+     */
+    public get allowExternalIdToUseEmailOtp() {
+        return this._allowExternalIdToUseEmailOtp;
+    };
+    /**
+     * Sets the allowExternalIdToUseEmailOtp property value. Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021.
+     * @param value Value to set for the allowExternalIdToUseEmailOtp property.
+     */
+    public set allowExternalIdToUseEmailOtp(value: ExternalEmailOtpState | undefined) {
+        if(value) {
+            this._allowExternalIdToUseEmailOtp = value;
+        }
+    };
     /**
      * Instantiates a new EmailAuthenticationMethodConfiguration and sets the default values.
      * @param emailAuthenticationMethodConfigurationParameterValue 
      */
     public constructor(emailAuthenticationMethodConfigurationParameterValue?: EmailAuthenticationMethodConfiguration | undefined) {
         super(emailAuthenticationMethodConfigurationParameterValue);
-        this.allowExternalIdToUseEmailOtp = emailAuthenticationMethodConfigurationParameterValue?.allowExternalIdToUseEmailOtp;
-        this.includeTargets = emailAuthenticationMethodConfigurationParameterValue?.includeTargets;
+        this._allowExternalIdToUseEmailOtp = emailAuthenticationMethodConfigurationParameterValue?.allowExternalIdToUseEmailOtp;
+        this._includeTargets = emailAuthenticationMethodConfigurationParameterValue?.includeTargets;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,26 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
         };
     };
     /**
+     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * @returns a AuthenticationMethodTargetInterface
+     */
+    public get includeTargets() {
+        return this._includeTargets;
+    };
+    /**
+     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * @param value Value to set for the includeTargets property.
+     */
+    public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {
+        if(value) {
+            const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
+            this.includeTargets?.forEach(element => {
+                includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+            });
+            this._includeTargets = includeTargetsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,7 +75,10 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
         if(this.allowExternalIdToUseEmailOtp){
             writer.writeEnumValue<ExternalEmailOtpState>("allowExternalIdToUseEmailOtp", this.allowExternalIdToUseEmailOtp);
         }
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
+        this.includeTargets?.forEach(element => {
+            includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
     };

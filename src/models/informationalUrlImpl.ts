@@ -3,28 +3,44 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InformationalUrlImpl implements InformationalUrl {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** CDN URL to the application's logo, Read-only. */
-    public logoUrl?: string | undefined;
+    private _logoUrl?: string | undefined;
     /** Link to the application's marketing page. For example, https://www.contoso.com/app/marketing */
-    public marketingUrl?: string | undefined;
+    private _marketingUrl?: string | undefined;
     /** Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy */
-    public privacyStatementUrl?: string | undefined;
+    private _privacyStatementUrl?: string | undefined;
     /** Link to the application's support page. For example, https://www.contoso.com/app/support */
-    public supportUrl?: string | undefined;
+    private _supportUrl?: string | undefined;
     /** Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice */
-    public termsOfServiceUrl?: string | undefined;
+    private _termsOfServiceUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new informationalUrl and sets the default values.
      * @param informationalUrlParameterValue 
      */
     public constructor(informationalUrlParameterValue?: InformationalUrl | undefined) {
-        this.additionalData = informationalUrlParameterValue?.additionalData ? informationalUrlParameterValue?.additionalData! : {};
-        this.logoUrl = informationalUrlParameterValue?.logoUrl;
-        this.marketingUrl = informationalUrlParameterValue?.marketingUrl;
-        this.privacyStatementUrl = informationalUrlParameterValue?.privacyStatementUrl;
-        this.supportUrl = informationalUrlParameterValue?.supportUrl;
-        this.termsOfServiceUrl = informationalUrlParameterValue?.termsOfServiceUrl;
+        this._additionalData = informationalUrlParameterValue?.additionalData ? informationalUrlParameterValue?.additionalData! : {};
+        this._logoUrl = informationalUrlParameterValue?.logoUrl;
+        this._marketingUrl = informationalUrlParameterValue?.marketingUrl;
+        this._privacyStatementUrl = informationalUrlParameterValue?.privacyStatementUrl;
+        this._supportUrl = informationalUrlParameterValue?.supportUrl;
+        this._termsOfServiceUrl = informationalUrlParameterValue?.termsOfServiceUrl;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +54,54 @@ export class InformationalUrlImpl implements InformationalUrl {
             "supportUrl": n => { this.supportUrl = n.getStringValue(); },
             "termsOfServiceUrl": n => { this.termsOfServiceUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the logoUrl property value. CDN URL to the application's logo, Read-only.
+     * @returns a string
+     */
+    public get logoUrl() {
+        return this._logoUrl;
+    };
+    /**
+     * Sets the logoUrl property value. CDN URL to the application's logo, Read-only.
+     * @param value Value to set for the logoUrl property.
+     */
+    public set logoUrl(value: string | undefined) {
+        if(value) {
+            this._logoUrl = value;
+        }
+    };
+    /**
+     * Gets the marketingUrl property value. Link to the application's marketing page. For example, https://www.contoso.com/app/marketing
+     * @returns a string
+     */
+    public get marketingUrl() {
+        return this._marketingUrl;
+    };
+    /**
+     * Sets the marketingUrl property value. Link to the application's marketing page. For example, https://www.contoso.com/app/marketing
+     * @param value Value to set for the marketingUrl property.
+     */
+    public set marketingUrl(value: string | undefined) {
+        if(value) {
+            this._marketingUrl = value;
+        }
+    };
+    /**
+     * Gets the privacyStatementUrl property value. Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
+     * @returns a string
+     */
+    public get privacyStatementUrl() {
+        return this._privacyStatementUrl;
+    };
+    /**
+     * Sets the privacyStatementUrl property value. Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
+     * @param value Value to set for the privacyStatementUrl property.
+     */
+    public set privacyStatementUrl(value: string | undefined) {
+        if(value) {
+            this._privacyStatementUrl = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -61,5 +125,37 @@ export class InformationalUrlImpl implements InformationalUrl {
             writer.writeStringValue("termsOfServiceUrl", this.termsOfServiceUrl);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the supportUrl property value. Link to the application's support page. For example, https://www.contoso.com/app/support
+     * @returns a string
+     */
+    public get supportUrl() {
+        return this._supportUrl;
+    };
+    /**
+     * Sets the supportUrl property value. Link to the application's support page. For example, https://www.contoso.com/app/support
+     * @param value Value to set for the supportUrl property.
+     */
+    public set supportUrl(value: string | undefined) {
+        if(value) {
+            this._supportUrl = value;
+        }
+    };
+    /**
+     * Gets the termsOfServiceUrl property value. Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice
+     * @returns a string
+     */
+    public get termsOfServiceUrl() {
+        return this._termsOfServiceUrl;
+    };
+    /**
+     * Sets the termsOfServiceUrl property value. Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice
+     * @param value Value to set for the termsOfServiceUrl property.
+     */
+    public set termsOfServiceUrl(value: string | undefined) {
+        if(value) {
+            this._termsOfServiceUrl = value;
+        }
     };
 }

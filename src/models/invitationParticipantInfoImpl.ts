@@ -6,28 +6,44 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InvitationParticipantInfoImpl implements InvitationParticipantInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The hidden property */
-    public hidden?: boolean | undefined;
+    private _hidden?: boolean | undefined;
     /** The identity property */
-    public identity?: IdentitySet | undefined;
+    private _identity?: IdentitySet | undefined;
     /** Optional. The ID of the target participant. */
-    public participantId?: string | undefined;
+    private _participantId?: string | undefined;
     /** The removeFromDefaultAudioRoutingGroup property */
-    public removeFromDefaultAudioRoutingGroup?: boolean | undefined;
+    private _removeFromDefaultAudioRoutingGroup?: boolean | undefined;
     /** Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully. */
-    public replacesCallId?: string | undefined;
+    private _replacesCallId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new invitationParticipantInfo and sets the default values.
      * @param invitationParticipantInfoParameterValue 
      */
     public constructor(invitationParticipantInfoParameterValue?: InvitationParticipantInfo | undefined) {
-        this.additionalData = invitationParticipantInfoParameterValue?.additionalData ? invitationParticipantInfoParameterValue?.additionalData! : {};
-        this.hidden = invitationParticipantInfoParameterValue?.hidden;
-        this.identity = invitationParticipantInfoParameterValue?.identity;
-        this.participantId = invitationParticipantInfoParameterValue?.participantId;
-        this.removeFromDefaultAudioRoutingGroup = invitationParticipantInfoParameterValue?.removeFromDefaultAudioRoutingGroup;
-        this.replacesCallId = invitationParticipantInfoParameterValue?.replacesCallId;
+        this._additionalData = invitationParticipantInfoParameterValue?.additionalData ? invitationParticipantInfoParameterValue?.additionalData! : {};
+        this._hidden = invitationParticipantInfoParameterValue?.hidden;
+        this._identity = invitationParticipantInfoParameterValue?.identity;
+        this._participantId = invitationParticipantInfoParameterValue?.participantId;
+        this._removeFromDefaultAudioRoutingGroup = invitationParticipantInfoParameterValue?.removeFromDefaultAudioRoutingGroup;
+        this._replacesCallId = invitationParticipantInfoParameterValue?.replacesCallId;
     };
     /**
      * The deserialization information for the current model
@@ -43,6 +59,86 @@ export class InvitationParticipantInfoImpl implements InvitationParticipantInfo 
         };
     };
     /**
+     * Gets the hidden property value. The hidden property
+     * @returns a boolean
+     */
+    public get hidden() {
+        return this._hidden;
+    };
+    /**
+     * Sets the hidden property value. The hidden property
+     * @param value Value to set for the hidden property.
+     */
+    public set hidden(value: boolean | undefined) {
+        if(value) {
+            this._hidden = value;
+        }
+    };
+    /**
+     * Gets the identity property value. The identity property
+     * @returns a IdentitySetInterface
+     */
+    public get identity() {
+        return this._identity;
+    };
+    /**
+     * Sets the identity property value. The identity property
+     * @param value Value to set for the identity property.
+     */
+    public set identity(value: IdentitySet | undefined) {
+        if(value) {
+            this._identity = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the participantId property value. Optional. The ID of the target participant.
+     * @returns a string
+     */
+    public get participantId() {
+        return this._participantId;
+    };
+    /**
+     * Sets the participantId property value. Optional. The ID of the target participant.
+     * @param value Value to set for the participantId property.
+     */
+    public set participantId(value: string | undefined) {
+        if(value) {
+            this._participantId = value;
+        }
+    };
+    /**
+     * Gets the removeFromDefaultAudioRoutingGroup property value. The removeFromDefaultAudioRoutingGroup property
+     * @returns a boolean
+     */
+    public get removeFromDefaultAudioRoutingGroup() {
+        return this._removeFromDefaultAudioRoutingGroup;
+    };
+    /**
+     * Sets the removeFromDefaultAudioRoutingGroup property value. The removeFromDefaultAudioRoutingGroup property
+     * @param value Value to set for the removeFromDefaultAudioRoutingGroup property.
+     */
+    public set removeFromDefaultAudioRoutingGroup(value: boolean | undefined) {
+        if(value) {
+            this._removeFromDefaultAudioRoutingGroup = value;
+        }
+    };
+    /**
+     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
+     * @returns a string
+     */
+    public get replacesCallId() {
+        return this._replacesCallId;
+    };
+    /**
+     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
+     * @param value Value to set for the replacesCallId property.
+     */
+    public set replacesCallId(value: string | undefined) {
+        if(value) {
+            this._replacesCallId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -52,7 +148,7 @@ export class InvitationParticipantInfoImpl implements InvitationParticipantInfo 
             writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.identity){
-            writer.writeObjectValue<IdentitySetImpl>("identity", new IdentitySetImpl(this.identity));
+            writer.writeObjectValue<IdentitySetImpl>("identity", (!this.identity || this.identity instanceof IdentitySetImpl? this.identity : new IdentitySetImpl(this.identity)));
         }
         if(this.participantId){
             writer.writeStringValue("participantId", this.participantId);

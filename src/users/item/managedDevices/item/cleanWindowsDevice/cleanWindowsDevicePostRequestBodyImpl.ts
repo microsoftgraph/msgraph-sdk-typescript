@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the cleanWindowsDevice method. */
 export class CleanWindowsDevicePostRequestBodyImpl implements CleanWindowsDevicePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The keepUserData property */
-    public keepUserData?: boolean | undefined;
+    private _keepUserData?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new cleanWindowsDevicePostRequestBody and sets the default values.
      * @param cleanWindowsDevicePostRequestBodyParameterValue 
      */
     public constructor(cleanWindowsDevicePostRequestBodyParameterValue?: CleanWindowsDevicePostRequestBody | undefined) {
-        this.additionalData = cleanWindowsDevicePostRequestBodyParameterValue?.additionalData ? cleanWindowsDevicePostRequestBodyParameterValue?.additionalData! : {};
-        this.keepUserData = cleanWindowsDevicePostRequestBodyParameterValue?.keepUserData;
+        this._additionalData = cleanWindowsDevicePostRequestBodyParameterValue?.additionalData ? cleanWindowsDevicePostRequestBodyParameterValue?.additionalData! : {};
+        this._keepUserData = cleanWindowsDevicePostRequestBodyParameterValue?.keepUserData;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +39,22 @@ export class CleanWindowsDevicePostRequestBodyImpl implements CleanWindowsDevice
         return {
             "keepUserData": n => { this.keepUserData = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the keepUserData property value. The keepUserData property
+     * @returns a boolean
+     */
+    public get keepUserData() {
+        return this._keepUserData;
+    };
+    /**
+     * Sets the keepUserData property value. The keepUserData property
+     * @param value Value to set for the keepUserData property.
+     */
+    public set keepUserData(value: boolean | undefined) {
+        if(value) {
+            this._keepUserData = value;
+        }
     };
     /**
      * Serializes information the current object

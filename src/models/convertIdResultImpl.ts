@@ -6,22 +6,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConvertIdResultImpl implements ConvertIdResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded. */
-    public errorDetails?: GenericError | undefined;
+    private _errorDetails?: GenericError | undefined;
     /** The identifier that was converted. This value is the original, un-converted identifier. */
-    public sourceId?: string | undefined;
+    private _sourceId?: string | undefined;
     /** The converted identifier. This value is not present if the conversion failed. */
-    public targetId?: string | undefined;
+    private _targetId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new convertIdResult and sets the default values.
      * @param convertIdResultParameterValue 
      */
     public constructor(convertIdResultParameterValue?: ConvertIdResult | undefined) {
-        this.additionalData = convertIdResultParameterValue?.additionalData ? convertIdResultParameterValue?.additionalData! : {};
-        this.errorDetails = convertIdResultParameterValue?.errorDetails;
-        this.sourceId = convertIdResultParameterValue?.sourceId;
-        this.targetId = convertIdResultParameterValue?.targetId;
+        this._additionalData = convertIdResultParameterValue?.additionalData ? convertIdResultParameterValue?.additionalData! : {};
+        this._errorDetails = convertIdResultParameterValue?.errorDetails;
+        this._sourceId = convertIdResultParameterValue?.sourceId;
+        this._targetId = convertIdResultParameterValue?.targetId;
+    };
+    /**
+     * Gets the errorDetails property value. An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
+     * @returns a GenericErrorInterface
+     */
+    public get errorDetails() {
+        return this._errorDetails;
+    };
+    /**
+     * Sets the errorDetails property value. An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
+     * @param value Value to set for the errorDetails property.
+     */
+    public set errorDetails(value: GenericError | undefined) {
+        if(value) {
+            this._errorDetails = value instanceof GenericErrorImpl? value : new GenericErrorImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -41,7 +73,7 @@ export class ConvertIdResultImpl implements ConvertIdResult {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorDetails){
-            writer.writeObjectValue<GenericErrorImpl>("errorDetails", new GenericErrorImpl(this.errorDetails));
+            writer.writeObjectValue<GenericErrorImpl>("errorDetails", (!this.errorDetails || this.errorDetails instanceof GenericErrorImpl? this.errorDetails : new GenericErrorImpl(this.errorDetails)));
         }
         if(this.sourceId){
             writer.writeStringValue("sourceId", this.sourceId);
@@ -50,5 +82,37 @@ export class ConvertIdResultImpl implements ConvertIdResult {
             writer.writeStringValue("targetId", this.targetId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sourceId property value. The identifier that was converted. This value is the original, un-converted identifier.
+     * @returns a string
+     */
+    public get sourceId() {
+        return this._sourceId;
+    };
+    /**
+     * Sets the sourceId property value. The identifier that was converted. This value is the original, un-converted identifier.
+     * @param value Value to set for the sourceId property.
+     */
+    public set sourceId(value: string | undefined) {
+        if(value) {
+            this._sourceId = value;
+        }
+    };
+    /**
+     * Gets the targetId property value. The converted identifier. This value is not present if the conversion failed.
+     * @returns a string
+     */
+    public get targetId() {
+        return this._targetId;
+    };
+    /**
+     * Sets the targetId property value. The converted identifier. This value is not present if the conversion failed.
+     * @param value Value to set for the targetId property.
+     */
+    public set targetId(value: string | undefined) {
+        if(value) {
+            this._targetId = value;
+        }
     };
 }

@@ -4,25 +4,41 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PhoneImpl implements Phone {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The language property */
-    public language?: string | undefined;
+    private _language?: string | undefined;
     /** The phone number. */
-    public number?: string | undefined;
+    private _number?: string | undefined;
     /** The region property */
-    public region?: string | undefined;
+    private _region?: string | undefined;
     /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
-    public type?: PhoneType | undefined;
+    private _type?: PhoneType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new phone and sets the default values.
      * @param phoneParameterValue 
      */
     public constructor(phoneParameterValue?: Phone | undefined) {
-        this.additionalData = phoneParameterValue?.additionalData ? phoneParameterValue?.additionalData! : {};
-        this.language = phoneParameterValue?.language;
-        this.number = phoneParameterValue?.number;
-        this.region = phoneParameterValue?.region;
-        this.type = phoneParameterValue?.type;
+        this._additionalData = phoneParameterValue?.additionalData ? phoneParameterValue?.additionalData! : {};
+        this._language = phoneParameterValue?.language;
+        this._number = phoneParameterValue?.number;
+        this._region = phoneParameterValue?.region;
+        this._type = phoneParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +51,54 @@ export class PhoneImpl implements Phone {
             "region": n => { this.region = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<PhoneType>(PhoneType); },
         };
+    };
+    /**
+     * Gets the language property value. The language property
+     * @returns a string
+     */
+    public get language() {
+        return this._language;
+    };
+    /**
+     * Sets the language property value. The language property
+     * @param value Value to set for the language property.
+     */
+    public set language(value: string | undefined) {
+        if(value) {
+            this._language = value;
+        }
+    };
+    /**
+     * Gets the number property value. The phone number.
+     * @returns a string
+     */
+    public get number() {
+        return this._number;
+    };
+    /**
+     * Sets the number property value. The phone number.
+     * @param value Value to set for the number property.
+     */
+    public set number(value: string | undefined) {
+        if(value) {
+            this._number = value;
+        }
+    };
+    /**
+     * Gets the region property value. The region property
+     * @returns a string
+     */
+    public get region() {
+        return this._region;
+    };
+    /**
+     * Sets the region property value. The region property
+     * @param value Value to set for the region property.
+     */
+    public set region(value: string | undefined) {
+        if(value) {
+            this._region = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -55,5 +119,21 @@ export class PhoneImpl implements Phone {
             writer.writeEnumValue<PhoneType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * @returns a phoneType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: PhoneType | undefined) {
+        if(value) {
+            this._type = value;
+        }
     };
 }

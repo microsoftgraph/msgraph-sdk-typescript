@@ -6,26 +6,42 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class LongRunningOperationImpl extends EntityImpl implements LongRunningOperation {
     /** The createdDateTime property */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The lastActionDateTime property */
-    public lastActionDateTime?: Date | undefined;
+    private _lastActionDateTime?: Date | undefined;
     /** The resourceLocation property */
-    public resourceLocation?: string | undefined;
+    private _resourceLocation?: string | undefined;
     /** The status property */
-    public status?: LongRunningOperationStatus | undefined;
+    private _status?: LongRunningOperationStatus | undefined;
     /** The statusDetail property */
-    public statusDetail?: string | undefined;
+    private _statusDetail?: string | undefined;
     /**
      * Instantiates a new longRunningOperation and sets the default values.
      * @param longRunningOperationParameterValue 
      */
     public constructor(longRunningOperationParameterValue?: LongRunningOperation | undefined) {
         super(longRunningOperationParameterValue);
-        this.createdDateTime = longRunningOperationParameterValue?.createdDateTime;
-        this.lastActionDateTime = longRunningOperationParameterValue?.lastActionDateTime;
-        this.resourceLocation = longRunningOperationParameterValue?.resourceLocation;
-        this.status = longRunningOperationParameterValue?.status;
-        this.statusDetail = longRunningOperationParameterValue?.statusDetail;
+        this._createdDateTime = longRunningOperationParameterValue?.createdDateTime;
+        this._lastActionDateTime = longRunningOperationParameterValue?.lastActionDateTime;
+        this._resourceLocation = longRunningOperationParameterValue?.resourceLocation;
+        this._status = longRunningOperationParameterValue?.status;
+        this._statusDetail = longRunningOperationParameterValue?.statusDetail;
+    };
+    /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,38 @@ export class LongRunningOperationImpl extends EntityImpl implements LongRunningO
             "status": n => { this.status = n.getEnumValue<LongRunningOperationStatus>(LongRunningOperationStatus); },
             "statusDetail": n => { this.statusDetail = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the lastActionDateTime property value. The lastActionDateTime property
+     * @returns a Date
+     */
+    public get lastActionDateTime() {
+        return this._lastActionDateTime;
+    };
+    /**
+     * Sets the lastActionDateTime property value. The lastActionDateTime property
+     * @param value Value to set for the lastActionDateTime property.
+     */
+    public set lastActionDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastActionDateTime = value;
+        }
+    };
+    /**
+     * Gets the resourceLocation property value. The resourceLocation property
+     * @returns a string
+     */
+    public get resourceLocation() {
+        return this._resourceLocation;
+    };
+    /**
+     * Sets the resourceLocation property value. The resourceLocation property
+     * @param value Value to set for the resourceLocation property.
+     */
+    public set resourceLocation(value: string | undefined) {
+        if(value) {
+            this._resourceLocation = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -61,6 +109,38 @@ export class LongRunningOperationImpl extends EntityImpl implements LongRunningO
         }
         if(this.statusDetail){
             writer.writeStringValue("statusDetail", this.statusDetail);
+        }
+    };
+    /**
+     * Gets the status property value. The status property
+     * @returns a longRunningOperationStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status property
+     * @param value Value to set for the status property.
+     */
+    public set status(value: LongRunningOperationStatus | undefined) {
+        if(value) {
+            this._status = value;
+        }
+    };
+    /**
+     * Gets the statusDetail property value. The statusDetail property
+     * @returns a string
+     */
+    public get statusDetail() {
+        return this._statusDetail;
+    };
+    /**
+     * Sets the statusDetail property value. The statusDetail property
+     * @param value Value to set for the statusDetail property.
+     */
+    public set statusDetail(value: string | undefined) {
+        if(value) {
+            this._statusDetail = value;
         }
     };
 }

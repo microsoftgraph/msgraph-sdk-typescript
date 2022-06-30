@@ -6,14 +6,34 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements ShiftPreferences {
     /** Availability of the user to be scheduled for work and its recurrence pattern. */
-    public availability?: ShiftAvailability[] | undefined;
+    private _availability?: ShiftAvailability[] | undefined;
+    /**
+     * Gets the availability property value. Availability of the user to be scheduled for work and its recurrence pattern.
+     * @returns a ShiftAvailabilityInterface
+     */
+    public get availability() {
+        return this._availability;
+    };
+    /**
+     * Sets the availability property value. Availability of the user to be scheduled for work and its recurrence pattern.
+     * @param value Value to set for the availability property.
+     */
+    public set availability(value: ShiftAvailability[] | undefined) {
+        if(value) {
+            const availabilityArrValue: ShiftAvailabilityImpl[] = [];
+            this.availability?.forEach(element => {
+                availabilityArrValue.push((element instanceof ShiftAvailabilityImpl? element:new ShiftAvailabilityImpl(element)));
+            });
+            this._availability = availabilityArrValue;
+        }
+    };
     /**
      * Instantiates a new ShiftPreferences and sets the default values.
      * @param shiftPreferencesParameterValue 
      */
     public constructor(shiftPreferencesParameterValue?: ShiftPreferences | undefined) {
         super(shiftPreferencesParameterValue);
-        this.availability = shiftPreferencesParameterValue?.availability;
+        this._availability = shiftPreferencesParameterValue?.availability;
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +51,10 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = []; this.availability?.forEach(element => {availabilityArrValue.push(new ShiftAvailabilityImpl(element));});
+        if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = [];
+        this.availability?.forEach(element => {
+            availabilityArrValue.push((element instanceof ShiftAvailabilityImpl? element:new ShiftAvailabilityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ShiftAvailabilityImpl>("availability", availabilityArrValue);
         }
     };

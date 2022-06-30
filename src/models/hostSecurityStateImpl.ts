@@ -3,40 +3,72 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class HostSecurityStateImpl implements HostSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com). */
-    public fqdn?: string | undefined;
+    private _fqdn?: string | undefined;
     /** The isAzureAdJoined property */
-    public isAzureAdJoined?: boolean | undefined;
+    private _isAzureAdJoined?: boolean | undefined;
     /** The isAzureAdRegistered property */
-    public isAzureAdRegistered?: boolean | undefined;
+    private _isAzureAdRegistered?: boolean | undefined;
     /** True if the host is domain joined to an on-premises Active Directory domain. */
-    public isHybridAzureDomainJoined?: boolean | undefined;
+    private _isHybridAzureDomainJoined?: boolean | undefined;
     /** The local host name, without the DNS domain name. */
-    public netBiosName?: string | undefined;
+    private _netBiosName?: string | undefined;
     /** Host Operating System. (For example, Windows10, MacOS, RHEL, etc.). */
-    public os?: string | undefined;
+    private _os?: string | undefined;
     /** Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert. */
-    public privateIpAddress?: string | undefined;
+    private _privateIpAddress?: string | undefined;
     /** Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert. */
-    public publicIpAddress?: string | undefined;
+    private _publicIpAddress?: string | undefined;
     /** Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage. */
-    public riskScore?: string | undefined;
+    private _riskScore?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new hostSecurityState and sets the default values.
      * @param hostSecurityStateParameterValue 
      */
     public constructor(hostSecurityStateParameterValue?: HostSecurityState | undefined) {
-        this.additionalData = hostSecurityStateParameterValue?.additionalData ? hostSecurityStateParameterValue?.additionalData! : {};
-        this.fqdn = hostSecurityStateParameterValue?.fqdn;
-        this.isAzureAdJoined = hostSecurityStateParameterValue?.isAzureAdJoined;
-        this.isAzureAdRegistered = hostSecurityStateParameterValue?.isAzureAdRegistered;
-        this.isHybridAzureDomainJoined = hostSecurityStateParameterValue?.isHybridAzureDomainJoined;
-        this.netBiosName = hostSecurityStateParameterValue?.netBiosName;
-        this.os = hostSecurityStateParameterValue?.os;
-        this.privateIpAddress = hostSecurityStateParameterValue?.privateIpAddress;
-        this.publicIpAddress = hostSecurityStateParameterValue?.publicIpAddress;
-        this.riskScore = hostSecurityStateParameterValue?.riskScore;
+        this._additionalData = hostSecurityStateParameterValue?.additionalData ? hostSecurityStateParameterValue?.additionalData! : {};
+        this._fqdn = hostSecurityStateParameterValue?.fqdn;
+        this._isAzureAdJoined = hostSecurityStateParameterValue?.isAzureAdJoined;
+        this._isAzureAdRegistered = hostSecurityStateParameterValue?.isAzureAdRegistered;
+        this._isHybridAzureDomainJoined = hostSecurityStateParameterValue?.isHybridAzureDomainJoined;
+        this._netBiosName = hostSecurityStateParameterValue?.netBiosName;
+        this._os = hostSecurityStateParameterValue?.os;
+        this._privateIpAddress = hostSecurityStateParameterValue?.privateIpAddress;
+        this._publicIpAddress = hostSecurityStateParameterValue?.publicIpAddress;
+        this._riskScore = hostSecurityStateParameterValue?.riskScore;
+    };
+    /**
+     * Gets the fqdn property value. Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com).
+     * @returns a string
+     */
+    public get fqdn() {
+        return this._fqdn;
+    };
+    /**
+     * Sets the fqdn property value. Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com).
+     * @param value Value to set for the fqdn property.
+     */
+    public set fqdn(value: string | undefined) {
+        if(value) {
+            this._fqdn = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -54,6 +86,134 @@ export class HostSecurityStateImpl implements HostSecurityState {
             "publicIpAddress": n => { this.publicIpAddress = n.getStringValue(); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the isAzureAdJoined property value. The isAzureAdJoined property
+     * @returns a boolean
+     */
+    public get isAzureAdJoined() {
+        return this._isAzureAdJoined;
+    };
+    /**
+     * Sets the isAzureAdJoined property value. The isAzureAdJoined property
+     * @param value Value to set for the isAzureAdJoined property.
+     */
+    public set isAzureAdJoined(value: boolean | undefined) {
+        if(value) {
+            this._isAzureAdJoined = value;
+        }
+    };
+    /**
+     * Gets the isAzureAdRegistered property value. The isAzureAdRegistered property
+     * @returns a boolean
+     */
+    public get isAzureAdRegistered() {
+        return this._isAzureAdRegistered;
+    };
+    /**
+     * Sets the isAzureAdRegistered property value. The isAzureAdRegistered property
+     * @param value Value to set for the isAzureAdRegistered property.
+     */
+    public set isAzureAdRegistered(value: boolean | undefined) {
+        if(value) {
+            this._isAzureAdRegistered = value;
+        }
+    };
+    /**
+     * Gets the isHybridAzureDomainJoined property value. True if the host is domain joined to an on-premises Active Directory domain.
+     * @returns a boolean
+     */
+    public get isHybridAzureDomainJoined() {
+        return this._isHybridAzureDomainJoined;
+    };
+    /**
+     * Sets the isHybridAzureDomainJoined property value. True if the host is domain joined to an on-premises Active Directory domain.
+     * @param value Value to set for the isHybridAzureDomainJoined property.
+     */
+    public set isHybridAzureDomainJoined(value: boolean | undefined) {
+        if(value) {
+            this._isHybridAzureDomainJoined = value;
+        }
+    };
+    /**
+     * Gets the netBiosName property value. The local host name, without the DNS domain name.
+     * @returns a string
+     */
+    public get netBiosName() {
+        return this._netBiosName;
+    };
+    /**
+     * Sets the netBiosName property value. The local host name, without the DNS domain name.
+     * @param value Value to set for the netBiosName property.
+     */
+    public set netBiosName(value: string | undefined) {
+        if(value) {
+            this._netBiosName = value;
+        }
+    };
+    /**
+     * Gets the os property value. Host Operating System. (For example, Windows10, MacOS, RHEL, etc.).
+     * @returns a string
+     */
+    public get os() {
+        return this._os;
+    };
+    /**
+     * Sets the os property value. Host Operating System. (For example, Windows10, MacOS, RHEL, etc.).
+     * @param value Value to set for the os property.
+     */
+    public set os(value: string | undefined) {
+        if(value) {
+            this._os = value;
+        }
+    };
+    /**
+     * Gets the privateIpAddress property value. Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert.
+     * @returns a string
+     */
+    public get privateIpAddress() {
+        return this._privateIpAddress;
+    };
+    /**
+     * Sets the privateIpAddress property value. Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert.
+     * @param value Value to set for the privateIpAddress property.
+     */
+    public set privateIpAddress(value: string | undefined) {
+        if(value) {
+            this._privateIpAddress = value;
+        }
+    };
+    /**
+     * Gets the publicIpAddress property value. Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert.
+     * @returns a string
+     */
+    public get publicIpAddress() {
+        return this._publicIpAddress;
+    };
+    /**
+     * Sets the publicIpAddress property value. Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert.
+     * @param value Value to set for the publicIpAddress property.
+     */
+    public set publicIpAddress(value: string | undefined) {
+        if(value) {
+            this._publicIpAddress = value;
+        }
+    };
+    /**
+     * Gets the riskScore property value. Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage.
+     * @returns a string
+     */
+    public get riskScore() {
+        return this._riskScore;
+    };
+    /**
+     * Sets the riskScore property value. Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage.
+     * @param value Value to set for the riskScore property.
+     */
+    public set riskScore(value: string | undefined) {
+        if(value) {
+            this._riskScore = value;
+        }
     };
     /**
      * Serializes information the current object

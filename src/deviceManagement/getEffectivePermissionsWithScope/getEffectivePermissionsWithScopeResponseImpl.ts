@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getEffectivePermissions method. */
 export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectivePermissionsWithScopeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: RolePermission[] | undefined;
+    private _value?: RolePermission[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getEffectivePermissionsWithScopeResponse and sets the default values.
      * @param getEffectivePermissionsWithScopeResponseParameterValue 
      */
     public constructor(getEffectivePermissionsWithScopeResponseParameterValue?: GetEffectivePermissionsWithScopeResponse | undefined) {
-        this.additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {};
-        this.value = getEffectivePermissionsWithScopeResponseParameterValue?.value;
+        this._additionalData = getEffectivePermissionsWithScopeResponseParameterValue?.additionalData ? getEffectivePermissionsWithScopeResponseParameterValue?.additionalData! : {};
+        this._value = getEffectivePermissionsWithScopeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectiv
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new RolePermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof RolePermissionImpl? element:new RolePermissionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<RolePermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a RolePermissionInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: RolePermission[] | undefined) {
+        if(value) {
+            const valueArrValue: RolePermissionImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof RolePermissionImpl? element:new RolePermissionImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

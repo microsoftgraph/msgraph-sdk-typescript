@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the associateWithHubSites method. */
 export class AssociateWithHubSitesPostRequestBodyImpl implements AssociateWithHubSitesPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The hubSiteUrls property */
-    public hubSiteUrls?: string[] | undefined;
+    private _hubSiteUrls?: string[] | undefined;
     /** The propagateToExistingLists property */
-    public propagateToExistingLists?: boolean | undefined;
+    private _propagateToExistingLists?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new associateWithHubSitesPostRequestBody and sets the default values.
      * @param associateWithHubSitesPostRequestBodyParameterValue 
      */
     public constructor(associateWithHubSitesPostRequestBodyParameterValue?: AssociateWithHubSitesPostRequestBody | undefined) {
-        this.additionalData = associateWithHubSitesPostRequestBodyParameterValue?.additionalData ? associateWithHubSitesPostRequestBodyParameterValue?.additionalData! : {};
-        this.hubSiteUrls = associateWithHubSitesPostRequestBodyParameterValue?.hubSiteUrls;
-        this.propagateToExistingLists = associateWithHubSitesPostRequestBodyParameterValue?.propagateToExistingLists;
+        this._additionalData = associateWithHubSitesPostRequestBodyParameterValue?.additionalData ? associateWithHubSitesPostRequestBodyParameterValue?.additionalData! : {};
+        this._hubSiteUrls = associateWithHubSitesPostRequestBodyParameterValue?.hubSiteUrls;
+        this._propagateToExistingLists = associateWithHubSitesPostRequestBodyParameterValue?.propagateToExistingLists;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,38 @@ export class AssociateWithHubSitesPostRequestBodyImpl implements AssociateWithHu
             "hubSiteUrls": n => { this.hubSiteUrls = n.getCollectionOfPrimitiveValues<string>(); },
             "propagateToExistingLists": n => { this.propagateToExistingLists = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the hubSiteUrls property value. The hubSiteUrls property
+     * @returns a string
+     */
+    public get hubSiteUrls() {
+        return this._hubSiteUrls;
+    };
+    /**
+     * Sets the hubSiteUrls property value. The hubSiteUrls property
+     * @param value Value to set for the hubSiteUrls property.
+     */
+    public set hubSiteUrls(value: string[] | undefined) {
+        if(value) {
+            this._hubSiteUrls = value;
+        }
+    };
+    /**
+     * Gets the propagateToExistingLists property value. The propagateToExistingLists property
+     * @returns a boolean
+     */
+    public get propagateToExistingLists() {
+        return this._propagateToExistingLists;
+    };
+    /**
+     * Sets the propagateToExistingLists property value. The propagateToExistingLists property
+     * @param value Value to set for the propagateToExistingLists property.
+     */
+    public set propagateToExistingLists(value: boolean | undefined) {
+        if(value) {
+            this._propagateToExistingLists = value;
+        }
     };
     /**
      * Serializes information the current object

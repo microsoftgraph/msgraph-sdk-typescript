@@ -3,28 +3,124 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamMessagingSettingsImpl implements TeamMessagingSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If set to true, @channel mentions are allowed. */
-    public allowChannelMentions?: boolean | undefined;
+    private _allowChannelMentions?: boolean | undefined;
     /** If set to true, owners can delete any message. */
-    public allowOwnerDeleteMessages?: boolean | undefined;
+    private _allowOwnerDeleteMessages?: boolean | undefined;
     /** If set to true, @team mentions are allowed. */
-    public allowTeamMentions?: boolean | undefined;
+    private _allowTeamMentions?: boolean | undefined;
     /** If set to true, users can delete their messages. */
-    public allowUserDeleteMessages?: boolean | undefined;
+    private _allowUserDeleteMessages?: boolean | undefined;
     /** If set to true, users can edit their messages. */
-    public allowUserEditMessages?: boolean | undefined;
+    private _allowUserEditMessages?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowChannelMentions property value. If set to true, @channel mentions are allowed.
+     * @returns a boolean
+     */
+    public get allowChannelMentions() {
+        return this._allowChannelMentions;
+    };
+    /**
+     * Sets the allowChannelMentions property value. If set to true, @channel mentions are allowed.
+     * @param value Value to set for the allowChannelMentions property.
+     */
+    public set allowChannelMentions(value: boolean | undefined) {
+        if(value) {
+            this._allowChannelMentions = value;
+        }
+    };
+    /**
+     * Gets the allowOwnerDeleteMessages property value. If set to true, owners can delete any message.
+     * @returns a boolean
+     */
+    public get allowOwnerDeleteMessages() {
+        return this._allowOwnerDeleteMessages;
+    };
+    /**
+     * Sets the allowOwnerDeleteMessages property value. If set to true, owners can delete any message.
+     * @param value Value to set for the allowOwnerDeleteMessages property.
+     */
+    public set allowOwnerDeleteMessages(value: boolean | undefined) {
+        if(value) {
+            this._allowOwnerDeleteMessages = value;
+        }
+    };
+    /**
+     * Gets the allowTeamMentions property value. If set to true, @team mentions are allowed.
+     * @returns a boolean
+     */
+    public get allowTeamMentions() {
+        return this._allowTeamMentions;
+    };
+    /**
+     * Sets the allowTeamMentions property value. If set to true, @team mentions are allowed.
+     * @param value Value to set for the allowTeamMentions property.
+     */
+    public set allowTeamMentions(value: boolean | undefined) {
+        if(value) {
+            this._allowTeamMentions = value;
+        }
+    };
+    /**
+     * Gets the allowUserDeleteMessages property value. If set to true, users can delete their messages.
+     * @returns a boolean
+     */
+    public get allowUserDeleteMessages() {
+        return this._allowUserDeleteMessages;
+    };
+    /**
+     * Sets the allowUserDeleteMessages property value. If set to true, users can delete their messages.
+     * @param value Value to set for the allowUserDeleteMessages property.
+     */
+    public set allowUserDeleteMessages(value: boolean | undefined) {
+        if(value) {
+            this._allowUserDeleteMessages = value;
+        }
+    };
+    /**
+     * Gets the allowUserEditMessages property value. If set to true, users can edit their messages.
+     * @returns a boolean
+     */
+    public get allowUserEditMessages() {
+        return this._allowUserEditMessages;
+    };
+    /**
+     * Sets the allowUserEditMessages property value. If set to true, users can edit their messages.
+     * @param value Value to set for the allowUserEditMessages property.
+     */
+    public set allowUserEditMessages(value: boolean | undefined) {
+        if(value) {
+            this._allowUserEditMessages = value;
+        }
+    };
     /**
      * Instantiates a new teamMessagingSettings and sets the default values.
      * @param teamMessagingSettingsParameterValue 
      */
     public constructor(teamMessagingSettingsParameterValue?: TeamMessagingSettings | undefined) {
-        this.additionalData = teamMessagingSettingsParameterValue?.additionalData ? teamMessagingSettingsParameterValue?.additionalData! : {};
-        this.allowChannelMentions = teamMessagingSettingsParameterValue?.allowChannelMentions;
-        this.allowOwnerDeleteMessages = teamMessagingSettingsParameterValue?.allowOwnerDeleteMessages;
-        this.allowTeamMentions = teamMessagingSettingsParameterValue?.allowTeamMentions;
-        this.allowUserDeleteMessages = teamMessagingSettingsParameterValue?.allowUserDeleteMessages;
-        this.allowUserEditMessages = teamMessagingSettingsParameterValue?.allowUserEditMessages;
+        this._additionalData = teamMessagingSettingsParameterValue?.additionalData ? teamMessagingSettingsParameterValue?.additionalData! : {};
+        this._allowChannelMentions = teamMessagingSettingsParameterValue?.allowChannelMentions;
+        this._allowOwnerDeleteMessages = teamMessagingSettingsParameterValue?.allowOwnerDeleteMessages;
+        this._allowTeamMentions = teamMessagingSettingsParameterValue?.allowTeamMentions;
+        this._allowUserDeleteMessages = teamMessagingSettingsParameterValue?.allowUserDeleteMessages;
+        this._allowUserEditMessages = teamMessagingSettingsParameterValue?.allowUserEditMessages;
     };
     /**
      * The deserialization information for the current model

@@ -8,17 +8,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Contains properties used to assign a eBook to a group. */
 export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBookAssignment {
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
-    public installIntent?: InstallIntent | undefined;
+    private _installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedEBookAssignment and sets the default values.
      * @param managedEBookAssignmentParameterValue 
      */
     public constructor(managedEBookAssignmentParameterValue?: ManagedEBookAssignment | undefined) {
         super(managedEBookAssignmentParameterValue);
-        this.installIntent = managedEBookAssignmentParameterValue?.installIntent;
-        this.target = managedEBookAssignmentParameterValue?.target;
+        this._installIntent = managedEBookAssignmentParameterValue?.installIntent;
+        this._target = managedEBookAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +31,22 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
         };
     };
     /**
+     * Gets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @returns a installIntent
+     */
+    public get installIntent() {
+        return this._installIntent;
+    };
+    /**
+     * Sets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @param value Value to set for the installIntent property.
+     */
+    public set installIntent(value: InstallIntent | undefined) {
+        if(value) {
+            this._installIntent = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -41,7 +57,23 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
             writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
         }
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+        }
+    };
+    /**
+     * Gets the target property value. The assignment target for eBook.
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. The assignment target for eBook.
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

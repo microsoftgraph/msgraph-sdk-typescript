@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the auditLogRoot singleton. */
 export class InitiatorImpl extends IdentityImpl implements Initiator {
     /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
-    public initiatorType?: InitiatorType | undefined;
+    private _initiatorType?: InitiatorType | undefined;
     /**
      * Instantiates a new initiator and sets the default values.
      * @param initiatorParameterValue 
      */
     public constructor(initiatorParameterValue?: Initiator | undefined) {
         super(initiatorParameterValue);
-        this.initiatorType = initiatorParameterValue?.initiatorType;
+        this._initiatorType = initiatorParameterValue?.initiatorType;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +23,22 @@ export class InitiatorImpl extends IdentityImpl implements Initiator {
         return {...super.getFieldDeserializers(),
             "initiatorType": n => { this.initiatorType = n.getEnumValue<InitiatorType>(InitiatorType); },
         };
+    };
+    /**
+     * Gets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
+     * @returns a initiatorType
+     */
+    public get initiatorType() {
+        return this._initiatorType;
+    };
+    /**
+     * Sets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
+     * @param value Value to set for the initiatorType property.
+     */
+    public set initiatorType(value: InitiatorType | undefined) {
+        if(value) {
+            this._initiatorType = value;
+        }
     };
     /**
      * Serializes information the current object

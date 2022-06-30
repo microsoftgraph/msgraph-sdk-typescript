@@ -9,17 +9,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the informationProtection singleton. */
 export class InformationProtectionImpl extends EntityImpl implements InformationProtection {
     /** The bitlocker property */
-    public bitlocker?: Bitlocker | undefined;
+    private _bitlocker?: Bitlocker | undefined;
     /** The threatAssessmentRequests property */
-    public threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
+    private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
+    /**
+     * Gets the bitlocker property value. The bitlocker property
+     * @returns a BitlockerInterface
+     */
+    public get bitlocker() {
+        return this._bitlocker;
+    };
+    /**
+     * Sets the bitlocker property value. The bitlocker property
+     * @param value Value to set for the bitlocker property.
+     */
+    public set bitlocker(value: Bitlocker | undefined) {
+        if(value) {
+            this._bitlocker = value instanceof BitlockerImpl? value : new BitlockerImpl(value);
+        }
+    };
     /**
      * Instantiates a new informationProtection and sets the default values.
      * @param informationProtectionParameterValue 
      */
     public constructor(informationProtectionParameterValue?: InformationProtection | undefined) {
         super(informationProtectionParameterValue);
-        this.bitlocker = informationProtectionParameterValue?.bitlocker;
-        this.threatAssessmentRequests = informationProtectionParameterValue?.threatAssessmentRequests;
+        this._bitlocker = informationProtectionParameterValue?.bitlocker;
+        this._threatAssessmentRequests = informationProtectionParameterValue?.threatAssessmentRequests;
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +55,33 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bitlocker){
-            writer.writeObjectValue<BitlockerImpl>("bitlocker", new BitlockerImpl(this.bitlocker));
+            writer.writeObjectValue<BitlockerImpl>("bitlocker", (!this.bitlocker || this.bitlocker instanceof BitlockerImpl? this.bitlocker : new BitlockerImpl(this.bitlocker)));
         }
-        if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = []; this.threatAssessmentRequests?.forEach(element => {threatAssessmentRequestsArrValue.push(new ThreatAssessmentRequestImpl(element));});
+        if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = [];
+        this.threatAssessmentRequests?.forEach(element => {
+            threatAssessmentRequestsArrValue.push((element instanceof ThreatAssessmentRequestImpl? element:new ThreatAssessmentRequestImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
+        }
+    };
+    /**
+     * Gets the threatAssessmentRequests property value. The threatAssessmentRequests property
+     * @returns a ThreatAssessmentRequestInterface
+     */
+    public get threatAssessmentRequests() {
+        return this._threatAssessmentRequests;
+    };
+    /**
+     * Sets the threatAssessmentRequests property value. The threatAssessmentRequests property
+     * @param value Value to set for the threatAssessmentRequests property.
+     */
+    public set threatAssessmentRequests(value: ThreatAssessmentRequest[] | undefined) {
+        if(value) {
+            const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = [];
+            this.threatAssessmentRequests?.forEach(element => {
+                threatAssessmentRequestsArrValue.push((element instanceof ThreatAssessmentRequestImpl? element:new ThreatAssessmentRequestImpl(element)));
+            });
+            this._threatAssessmentRequests = threatAssessmentRequestsArrValue;
         }
     };
 }

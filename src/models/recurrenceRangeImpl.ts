@@ -4,28 +4,60 @@ import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter
 
 export class RecurrenceRangeImpl implements RecurrenceRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate. */
-    public endDate?: DateOnly | undefined;
+    private _endDate?: DateOnly | undefined;
     /** The number of times to repeat the event. Required and must be positive if type is numbered. */
-    public numberOfOccurrences?: number | undefined;
+    private _numberOfOccurrences?: number | undefined;
     /** Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used. */
-    public recurrenceTimeZone?: string | undefined;
+    private _recurrenceTimeZone?: string | undefined;
     /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required. */
-    public startDate?: DateOnly | undefined;
+    private _startDate?: DateOnly | undefined;
     /** The recurrence range. Possible values are: endDate, noEnd, numbered. Required. */
-    public type?: RecurrenceRangeType | undefined;
+    private _type?: RecurrenceRangeType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new recurrenceRange and sets the default values.
      * @param recurrenceRangeParameterValue 
      */
     public constructor(recurrenceRangeParameterValue?: RecurrenceRange | undefined) {
-        this.additionalData = recurrenceRangeParameterValue?.additionalData ? recurrenceRangeParameterValue?.additionalData! : {};
-        this.endDate = recurrenceRangeParameterValue?.endDate;
-        this.numberOfOccurrences = recurrenceRangeParameterValue?.numberOfOccurrences;
-        this.recurrenceTimeZone = recurrenceRangeParameterValue?.recurrenceTimeZone;
-        this.startDate = recurrenceRangeParameterValue?.startDate;
-        this.type = recurrenceRangeParameterValue?.type;
+        this._additionalData = recurrenceRangeParameterValue?.additionalData ? recurrenceRangeParameterValue?.additionalData! : {};
+        this._endDate = recurrenceRangeParameterValue?.endDate;
+        this._numberOfOccurrences = recurrenceRangeParameterValue?.numberOfOccurrences;
+        this._recurrenceTimeZone = recurrenceRangeParameterValue?.recurrenceTimeZone;
+        this._startDate = recurrenceRangeParameterValue?.startDate;
+        this._type = recurrenceRangeParameterValue?.type;
+    };
+    /**
+     * Gets the endDate property value. The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate.
+     * @returns a DateOnly
+     */
+    public get endDate() {
+        return this._endDate;
+    };
+    /**
+     * Sets the endDate property value. The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate.
+     * @param value Value to set for the endDate property.
+     */
+    public set endDate(value: DateOnly | undefined) {
+        if(value) {
+            this._endDate = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +71,38 @@ export class RecurrenceRangeImpl implements RecurrenceRange {
             "startDate": n => { this.startDate = n.getDateOnlyValue(); },
             "type": n => { this.type = n.getEnumValue<RecurrenceRangeType>(RecurrenceRangeType); },
         };
+    };
+    /**
+     * Gets the numberOfOccurrences property value. The number of times to repeat the event. Required and must be positive if type is numbered.
+     * @returns a integer
+     */
+    public get numberOfOccurrences() {
+        return this._numberOfOccurrences;
+    };
+    /**
+     * Sets the numberOfOccurrences property value. The number of times to repeat the event. Required and must be positive if type is numbered.
+     * @param value Value to set for the numberOfOccurrences property.
+     */
+    public set numberOfOccurrences(value: number | undefined) {
+        if(value) {
+            this._numberOfOccurrences = value;
+        }
+    };
+    /**
+     * Gets the recurrenceTimeZone property value. Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used.
+     * @returns a string
+     */
+    public get recurrenceTimeZone() {
+        return this._recurrenceTimeZone;
+    };
+    /**
+     * Sets the recurrenceTimeZone property value. Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used.
+     * @param value Value to set for the recurrenceTimeZone property.
+     */
+    public set recurrenceTimeZone(value: string | undefined) {
+        if(value) {
+            this._recurrenceTimeZone = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,5 +126,37 @@ export class RecurrenceRangeImpl implements RecurrenceRange {
             writer.writeEnumValue<RecurrenceRangeType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the startDate property value. The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.
+     * @returns a DateOnly
+     */
+    public get startDate() {
+        return this._startDate;
+    };
+    /**
+     * Sets the startDate property value. The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.
+     * @param value Value to set for the startDate property.
+     */
+    public set startDate(value: DateOnly | undefined) {
+        if(value) {
+            this._startDate = value;
+        }
+    };
+    /**
+     * Gets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
+     * @returns a recurrenceRangeType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: RecurrenceRangeType | undefined) {
+        if(value) {
+            this._type = value;
+        }
     };
 }

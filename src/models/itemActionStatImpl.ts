@@ -3,19 +3,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ItemActionStatImpl implements ItemActionStat {
     /** The number of times the action took place. Read-only. */
-    public actionCount?: number | undefined;
+    private _actionCount?: number | undefined;
     /** The number of distinct actors that performed the action. Read-only. */
-    public actorCount?: number | undefined;
+    private _actorCount?: number | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
+    /**
+     * Gets the actionCount property value. The number of times the action took place. Read-only.
+     * @returns a integer
+     */
+    public get actionCount() {
+        return this._actionCount;
+    };
+    /**
+     * Sets the actionCount property value. The number of times the action took place. Read-only.
+     * @param value Value to set for the actionCount property.
+     */
+    public set actionCount(value: number | undefined) {
+        if(value) {
+            this._actionCount = value;
+        }
+    };
+    /**
+     * Gets the actorCount property value. The number of distinct actors that performed the action. Read-only.
+     * @returns a integer
+     */
+    public get actorCount() {
+        return this._actorCount;
+    };
+    /**
+     * Sets the actorCount property value. The number of distinct actors that performed the action. Read-only.
+     * @param value Value to set for the actorCount property.
+     */
+    public set actorCount(value: number | undefined) {
+        if(value) {
+            this._actorCount = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new itemActionStat and sets the default values.
      * @param itemActionStatParameterValue 
      */
     public constructor(itemActionStatParameterValue?: ItemActionStat | undefined) {
-        this.actionCount = itemActionStatParameterValue?.actionCount;
-        this.actorCount = itemActionStatParameterValue?.actorCount;
-        this.additionalData = itemActionStatParameterValue?.additionalData ? itemActionStatParameterValue?.additionalData! : {};
+        this._actionCount = itemActionStatParameterValue?.actionCount;
+        this._actorCount = itemActionStatParameterValue?.actorCount;
+        this._additionalData = itemActionStatParameterValue?.additionalData ? itemActionStatParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

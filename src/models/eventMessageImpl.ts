@@ -14,41 +14,73 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EventMessageImpl extends MessageImpl implements EventMessage {
     /** The end time of the requested meeting. */
-    public endDateTime?: DateTimeTimeZone | undefined;
+    private _endDateTime?: DateTimeTimeZone | undefined;
     /** The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only. */
-    public event?: Event | undefined;
+    private _event?: Event | undefined;
     /** The isAllDay property */
-    public isAllDay?: boolean | undefined;
+    private _isAllDay?: boolean | undefined;
     /** The isDelegated property */
-    public isDelegated?: boolean | undefined;
+    private _isDelegated?: boolean | undefined;
     /** The isOutOfDate property */
-    public isOutOfDate?: boolean | undefined;
+    private _isOutOfDate?: boolean | undefined;
     /** The location property */
-    public location?: Location | undefined;
+    private _location?: Location | undefined;
     /** The meetingMessageType property */
-    public meetingMessageType?: MeetingMessageType | undefined;
+    private _meetingMessageType?: MeetingMessageType | undefined;
     /** The recurrence property */
-    public recurrence?: PatternedRecurrence | undefined;
+    private _recurrence?: PatternedRecurrence | undefined;
     /** The startDateTime property */
-    public startDateTime?: DateTimeTimeZone | undefined;
+    private _startDateTime?: DateTimeTimeZone | undefined;
     /** The type property */
-    public type?: EventType | undefined;
+    private _type?: EventType | undefined;
     /**
      * Instantiates a new EventMessage and sets the default values.
      * @param eventMessageParameterValue 
      */
     public constructor(eventMessageParameterValue?: EventMessage | undefined) {
         super(eventMessageParameterValue);
-        this.endDateTime = eventMessageParameterValue?.endDateTime;
-        this.event = eventMessageParameterValue?.event;
-        this.isAllDay = eventMessageParameterValue?.isAllDay;
-        this.isDelegated = eventMessageParameterValue?.isDelegated;
-        this.isOutOfDate = eventMessageParameterValue?.isOutOfDate;
-        this.location = eventMessageParameterValue?.location;
-        this.meetingMessageType = eventMessageParameterValue?.meetingMessageType;
-        this.recurrence = eventMessageParameterValue?.recurrence;
-        this.startDateTime = eventMessageParameterValue?.startDateTime;
-        this.type = eventMessageParameterValue?.type;
+        this._endDateTime = eventMessageParameterValue?.endDateTime;
+        this._event = eventMessageParameterValue?.event;
+        this._isAllDay = eventMessageParameterValue?.isAllDay;
+        this._isDelegated = eventMessageParameterValue?.isDelegated;
+        this._isOutOfDate = eventMessageParameterValue?.isOutOfDate;
+        this._location = eventMessageParameterValue?.location;
+        this._meetingMessageType = eventMessageParameterValue?.meetingMessageType;
+        this._recurrence = eventMessageParameterValue?.recurrence;
+        this._startDateTime = eventMessageParameterValue?.startDateTime;
+        this._type = eventMessageParameterValue?.type;
+    };
+    /**
+     * Gets the endDateTime property value. The end time of the requested meeting.
+     * @returns a DateTimeTimeZoneInterface
+     */
+    public get endDateTime() {
+        return this._endDateTime;
+    };
+    /**
+     * Sets the endDateTime property value. The end time of the requested meeting.
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: DateTimeTimeZone | undefined) {
+        if(value) {
+            this._endDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+        }
+    };
+    /**
+     * Gets the event property value. The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only.
+     * @returns a EventInterface
+     */
+    public get event() {
+        return this._event;
+    };
+    /**
+     * Sets the event property value. The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only.
+     * @param value Value to set for the event property.
+     */
+    public set event(value: Event | undefined) {
+        if(value) {
+            this._event = value instanceof EventImpl? value : new EventImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -69,6 +101,102 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
         };
     };
     /**
+     * Gets the isAllDay property value. The isAllDay property
+     * @returns a boolean
+     */
+    public get isAllDay() {
+        return this._isAllDay;
+    };
+    /**
+     * Sets the isAllDay property value. The isAllDay property
+     * @param value Value to set for the isAllDay property.
+     */
+    public set isAllDay(value: boolean | undefined) {
+        if(value) {
+            this._isAllDay = value;
+        }
+    };
+    /**
+     * Gets the isDelegated property value. The isDelegated property
+     * @returns a boolean
+     */
+    public get isDelegated() {
+        return this._isDelegated;
+    };
+    /**
+     * Sets the isDelegated property value. The isDelegated property
+     * @param value Value to set for the isDelegated property.
+     */
+    public set isDelegated(value: boolean | undefined) {
+        if(value) {
+            this._isDelegated = value;
+        }
+    };
+    /**
+     * Gets the isOutOfDate property value. The isOutOfDate property
+     * @returns a boolean
+     */
+    public get isOutOfDate() {
+        return this._isOutOfDate;
+    };
+    /**
+     * Sets the isOutOfDate property value. The isOutOfDate property
+     * @param value Value to set for the isOutOfDate property.
+     */
+    public set isOutOfDate(value: boolean | undefined) {
+        if(value) {
+            this._isOutOfDate = value;
+        }
+    };
+    /**
+     * Gets the location property value. The location property
+     * @returns a LocationInterface
+     */
+    public get location() {
+        return this._location;
+    };
+    /**
+     * Sets the location property value. The location property
+     * @param value Value to set for the location property.
+     */
+    public set location(value: Location | undefined) {
+        if(value) {
+            this._location = value instanceof LocationImpl? value : new LocationImpl(value);
+        }
+    };
+    /**
+     * Gets the meetingMessageType property value. The meetingMessageType property
+     * @returns a meetingMessageType
+     */
+    public get meetingMessageType() {
+        return this._meetingMessageType;
+    };
+    /**
+     * Sets the meetingMessageType property value. The meetingMessageType property
+     * @param value Value to set for the meetingMessageType property.
+     */
+    public set meetingMessageType(value: MeetingMessageType | undefined) {
+        if(value) {
+            this._meetingMessageType = value;
+        }
+    };
+    /**
+     * Gets the recurrence property value. The recurrence property
+     * @returns a PatternedRecurrenceInterface
+     */
+    public get recurrence() {
+        return this._recurrence;
+    };
+    /**
+     * Sets the recurrence property value. The recurrence property
+     * @param value Value to set for the recurrence property.
+     */
+    public set recurrence(value: PatternedRecurrence | undefined) {
+        if(value) {
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -76,10 +204,10 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.endDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", new DateTimeTimeZoneImpl(this.endDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", (!this.endDateTime || this.endDateTime instanceof DateTimeTimeZoneImpl? this.endDateTime : new DateTimeTimeZoneImpl(this.endDateTime)));
         }
         if(this.event){
-            writer.writeObjectValue<EventImpl>("event", new EventImpl(this.event));
+            writer.writeObjectValue<EventImpl>("event", (!this.event || this.event instanceof EventImpl? this.event : new EventImpl(this.event)));
         }
         if(this.isAllDay){
             writer.writeBooleanValue("isAllDay", this.isAllDay);
@@ -91,19 +219,51 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
             writer.writeBooleanValue("isOutOfDate", this.isOutOfDate);
         }
         if(this.location){
-            writer.writeObjectValue<LocationImpl>("location", new LocationImpl(this.location));
+            writer.writeObjectValue<LocationImpl>("location", (!this.location || this.location instanceof LocationImpl? this.location : new LocationImpl(this.location)));
         }
         if(this.meetingMessageType){
             writer.writeEnumValue<MeetingMessageType>("meetingMessageType", this.meetingMessageType);
         }
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.startDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", new DateTimeTimeZoneImpl(this.startDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (!this.startDateTime || this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime : new DateTimeTimeZoneImpl(this.startDateTime)));
         }
         if(this.type){
             writer.writeEnumValue<EventType>("type", this.type);
+        }
+    };
+    /**
+     * Gets the startDateTime property value. The startDateTime property
+     * @returns a DateTimeTimeZoneInterface
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. The startDateTime property
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: DateTimeTimeZone | undefined) {
+        if(value) {
+            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+        }
+    };
+    /**
+     * Gets the type property value. The type property
+     * @returns a eventType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: EventType | undefined) {
+        if(value) {
+            this._type = value;
         }
     };
 }

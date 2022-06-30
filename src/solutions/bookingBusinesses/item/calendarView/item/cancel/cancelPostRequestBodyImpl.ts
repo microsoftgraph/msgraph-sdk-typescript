@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the cancel method. */
 export class CancelPostRequestBodyImpl implements CancelPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The cancellationMessage property */
-    public cancellationMessage?: string | undefined;
+    private _cancellationMessage?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the cancellationMessage property value. The cancellationMessage property
+     * @returns a string
+     */
+    public get cancellationMessage() {
+        return this._cancellationMessage;
+    };
+    /**
+     * Sets the cancellationMessage property value. The cancellationMessage property
+     * @param value Value to set for the cancellationMessage property.
+     */
+    public set cancellationMessage(value: string | undefined) {
+        if(value) {
+            this._cancellationMessage = value;
+        }
+    };
     /**
      * Instantiates a new cancelPostRequestBody and sets the default values.
      * @param cancelPostRequestBodyParameterValue 
      */
     public constructor(cancelPostRequestBodyParameterValue?: CancelPostRequestBody | undefined) {
-        this.additionalData = cancelPostRequestBodyParameterValue?.additionalData ? cancelPostRequestBodyParameterValue?.additionalData! : {};
-        this.cancellationMessage = cancelPostRequestBodyParameterValue?.cancellationMessage;
+        this._additionalData = cancelPostRequestBodyParameterValue?.additionalData ? cancelPostRequestBodyParameterValue?.additionalData! : {};
+        this._cancellationMessage = cancelPostRequestBodyParameterValue?.cancellationMessage;
     };
     /**
      * The deserialization information for the current model

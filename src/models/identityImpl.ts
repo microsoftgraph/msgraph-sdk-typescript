@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IdentityImpl implements Identity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The display name of the identity. This property is read-only. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The identifier of the identity. This property is read-only. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new identity and sets the default values.
      * @param identityParameterValue 
      */
     public constructor(identityParameterValue?: Identity | undefined) {
-        this.additionalData = identityParameterValue?.additionalData ? identityParameterValue?.additionalData! : {};
-        this.displayName = identityParameterValue?.displayName;
-        this.id = identityParameterValue?.id;
+        this._additionalData = identityParameterValue?.additionalData ? identityParameterValue?.additionalData! : {};
+        this._displayName = identityParameterValue?.displayName;
+        this._id = identityParameterValue?.id;
+    };
+    /**
+     * Gets the displayName property value. The display name of the identity. This property is read-only.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name of the identity. This property is read-only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +58,22 @@ export class IdentityImpl implements Identity {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. The identifier of the identity. This property is read-only.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. The identifier of the identity. This property is read-only.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
     };
     /**
      * Serializes information the current object

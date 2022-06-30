@@ -4,35 +4,67 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class IosVppEBookImpl extends ManagedEBookImpl implements IosVppEBook {
     /** The Apple ID associated with Vpp token. */
-    public appleId?: string | undefined;
+    private _appleId?: string | undefined;
     /** Genres. */
-    public genres?: string[] | undefined;
+    private _genres?: string[] | undefined;
     /** Language. */
-    public language?: string | undefined;
+    private _language?: string | undefined;
     /** Seller. */
-    public seller?: string | undefined;
+    private _seller?: string | undefined;
     /** Total license count. */
-    public totalLicenseCount?: number | undefined;
+    private _totalLicenseCount?: number | undefined;
     /** Used license count. */
-    public usedLicenseCount?: number | undefined;
+    private _usedLicenseCount?: number | undefined;
     /** The Vpp token's organization name. */
-    public vppOrganizationName?: string | undefined;
+    private _vppOrganizationName?: string | undefined;
     /** The Vpp token ID. */
-    public vppTokenId?: string | undefined;
+    private _vppTokenId?: string | undefined;
+    /**
+     * Gets the appleId property value. The Apple ID associated with Vpp token.
+     * @returns a string
+     */
+    public get appleId() {
+        return this._appleId;
+    };
+    /**
+     * Sets the appleId property value. The Apple ID associated with Vpp token.
+     * @param value Value to set for the appleId property.
+     */
+    public set appleId(value: string | undefined) {
+        if(value) {
+            this._appleId = value;
+        }
+    };
     /**
      * Instantiates a new IosVppEBook and sets the default values.
      * @param iosVppEBookParameterValue 
      */
     public constructor(iosVppEBookParameterValue?: IosVppEBook | undefined) {
         super(iosVppEBookParameterValue);
-        this.appleId = iosVppEBookParameterValue?.appleId;
-        this.genres = iosVppEBookParameterValue?.genres;
-        this.language = iosVppEBookParameterValue?.language;
-        this.seller = iosVppEBookParameterValue?.seller;
-        this.totalLicenseCount = iosVppEBookParameterValue?.totalLicenseCount;
-        this.usedLicenseCount = iosVppEBookParameterValue?.usedLicenseCount;
-        this.vppOrganizationName = iosVppEBookParameterValue?.vppOrganizationName;
-        this.vppTokenId = iosVppEBookParameterValue?.vppTokenId;
+        this._appleId = iosVppEBookParameterValue?.appleId;
+        this._genres = iosVppEBookParameterValue?.genres;
+        this._language = iosVppEBookParameterValue?.language;
+        this._seller = iosVppEBookParameterValue?.seller;
+        this._totalLicenseCount = iosVppEBookParameterValue?.totalLicenseCount;
+        this._usedLicenseCount = iosVppEBookParameterValue?.usedLicenseCount;
+        this._vppOrganizationName = iosVppEBookParameterValue?.vppOrganizationName;
+        this._vppTokenId = iosVppEBookParameterValue?.vppTokenId;
+    };
+    /**
+     * Gets the genres property value. Genres.
+     * @returns a string
+     */
+    public get genres() {
+        return this._genres;
+    };
+    /**
+     * Sets the genres property value. Genres.
+     * @param value Value to set for the genres property.
+     */
+    public set genres(value: string[] | undefined) {
+        if(value) {
+            this._genres = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -49,6 +81,38 @@ export class IosVppEBookImpl extends ManagedEBookImpl implements IosVppEBook {
             "vppOrganizationName": n => { this.vppOrganizationName = n.getStringValue(); },
             "vppTokenId": n => { this.vppTokenId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the language property value. Language.
+     * @returns a string
+     */
+    public get language() {
+        return this._language;
+    };
+    /**
+     * Sets the language property value. Language.
+     * @param value Value to set for the language property.
+     */
+    public set language(value: string | undefined) {
+        if(value) {
+            this._language = value;
+        }
+    };
+    /**
+     * Gets the seller property value. Seller.
+     * @returns a string
+     */
+    public get seller() {
+        return this._seller;
+    };
+    /**
+     * Sets the seller property value. Seller.
+     * @param value Value to set for the seller property.
+     */
+    public set seller(value: string | undefined) {
+        if(value) {
+            this._seller = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -80,6 +144,70 @@ export class IosVppEBookImpl extends ManagedEBookImpl implements IosVppEBook {
         }
         if(this.vppTokenId){
             writer.writeStringValue("vppTokenId", this.vppTokenId);
+        }
+    };
+    /**
+     * Gets the totalLicenseCount property value. Total license count.
+     * @returns a integer
+     */
+    public get totalLicenseCount() {
+        return this._totalLicenseCount;
+    };
+    /**
+     * Sets the totalLicenseCount property value. Total license count.
+     * @param value Value to set for the totalLicenseCount property.
+     */
+    public set totalLicenseCount(value: number | undefined) {
+        if(value) {
+            this._totalLicenseCount = value;
+        }
+    };
+    /**
+     * Gets the usedLicenseCount property value. Used license count.
+     * @returns a integer
+     */
+    public get usedLicenseCount() {
+        return this._usedLicenseCount;
+    };
+    /**
+     * Sets the usedLicenseCount property value. Used license count.
+     * @param value Value to set for the usedLicenseCount property.
+     */
+    public set usedLicenseCount(value: number | undefined) {
+        if(value) {
+            this._usedLicenseCount = value;
+        }
+    };
+    /**
+     * Gets the vppOrganizationName property value. The Vpp token's organization name.
+     * @returns a string
+     */
+    public get vppOrganizationName() {
+        return this._vppOrganizationName;
+    };
+    /**
+     * Sets the vppOrganizationName property value. The Vpp token's organization name.
+     * @param value Value to set for the vppOrganizationName property.
+     */
+    public set vppOrganizationName(value: string | undefined) {
+        if(value) {
+            this._vppOrganizationName = value;
+        }
+    };
+    /**
+     * Gets the vppTokenId property value. The Vpp token ID.
+     * @returns a string
+     */
+    public get vppTokenId() {
+        return this._vppTokenId;
+    };
+    /**
+     * Sets the vppTokenId property value. The Vpp token ID.
+     * @param value Value to set for the vppTokenId property.
+     */
+    public set vppTokenId(value: string | undefined) {
+        if(value) {
+            this._vppTokenId = value;
         }
     };
 }

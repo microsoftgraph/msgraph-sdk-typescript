@@ -6,23 +6,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class CalendarSharingMessageImpl extends MessageImpl implements CalendarSharingMessage {
     /** The canAccept property */
-    public canAccept?: boolean | undefined;
+    private _canAccept?: boolean | undefined;
     /** The sharingMessageAction property */
-    public sharingMessageAction?: CalendarSharingMessageAction | undefined;
+    private _sharingMessageAction?: CalendarSharingMessageAction | undefined;
     /** The sharingMessageActions property */
-    public sharingMessageActions?: CalendarSharingMessageAction[] | undefined;
+    private _sharingMessageActions?: CalendarSharingMessageAction[] | undefined;
     /** The suggestedCalendarName property */
-    public suggestedCalendarName?: string | undefined;
+    private _suggestedCalendarName?: string | undefined;
+    /**
+     * Gets the canAccept property value. The canAccept property
+     * @returns a boolean
+     */
+    public get canAccept() {
+        return this._canAccept;
+    };
+    /**
+     * Sets the canAccept property value. The canAccept property
+     * @param value Value to set for the canAccept property.
+     */
+    public set canAccept(value: boolean | undefined) {
+        if(value) {
+            this._canAccept = value;
+        }
+    };
     /**
      * Instantiates a new CalendarSharingMessage and sets the default values.
      * @param calendarSharingMessageParameterValue 
      */
     public constructor(calendarSharingMessageParameterValue?: CalendarSharingMessage | undefined) {
         super(calendarSharingMessageParameterValue);
-        this.canAccept = calendarSharingMessageParameterValue?.canAccept;
-        this.sharingMessageAction = calendarSharingMessageParameterValue?.sharingMessageAction;
-        this.sharingMessageActions = calendarSharingMessageParameterValue?.sharingMessageActions;
-        this.suggestedCalendarName = calendarSharingMessageParameterValue?.suggestedCalendarName;
+        this._canAccept = calendarSharingMessageParameterValue?.canAccept;
+        this._sharingMessageAction = calendarSharingMessageParameterValue?.sharingMessageAction;
+        this._sharingMessageActions = calendarSharingMessageParameterValue?.sharingMessageActions;
+        this._suggestedCalendarName = calendarSharingMessageParameterValue?.suggestedCalendarName;
     };
     /**
      * The deserialization information for the current model
@@ -47,13 +63,68 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
             writer.writeBooleanValue("canAccept", this.canAccept);
         }
         if(this.sharingMessageAction){
-            writer.writeObjectValue<CalendarSharingMessageActionImpl>("sharingMessageAction", new CalendarSharingMessageActionImpl(this.sharingMessageAction));
+            writer.writeObjectValue<CalendarSharingMessageActionImpl>("sharingMessageAction", (!this.sharingMessageAction || this.sharingMessageAction instanceof CalendarSharingMessageActionImpl? this.sharingMessageAction : new CalendarSharingMessageActionImpl(this.sharingMessageAction)));
         }
-        if(this.sharingMessageActions && this.sharingMessageActions.length != 0){        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = []; this.sharingMessageActions?.forEach(element => {sharingMessageActionsArrValue.push(new CalendarSharingMessageActionImpl(element));});
+        if(this.sharingMessageActions && this.sharingMessageActions.length != 0){        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = [];
+        this.sharingMessageActions?.forEach(element => {
+            sharingMessageActionsArrValue.push((element instanceof CalendarSharingMessageActionImpl? element:new CalendarSharingMessageActionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<CalendarSharingMessageActionImpl>("sharingMessageActions", sharingMessageActionsArrValue);
         }
         if(this.suggestedCalendarName){
             writer.writeStringValue("suggestedCalendarName", this.suggestedCalendarName);
+        }
+    };
+    /**
+     * Gets the sharingMessageAction property value. The sharingMessageAction property
+     * @returns a CalendarSharingMessageActionInterface
+     */
+    public get sharingMessageAction() {
+        return this._sharingMessageAction;
+    };
+    /**
+     * Sets the sharingMessageAction property value. The sharingMessageAction property
+     * @param value Value to set for the sharingMessageAction property.
+     */
+    public set sharingMessageAction(value: CalendarSharingMessageAction | undefined) {
+        if(value) {
+            this._sharingMessageAction = value instanceof CalendarSharingMessageActionImpl? value : new CalendarSharingMessageActionImpl(value);
+        }
+    };
+    /**
+     * Gets the sharingMessageActions property value. The sharingMessageActions property
+     * @returns a CalendarSharingMessageActionInterface
+     */
+    public get sharingMessageActions() {
+        return this._sharingMessageActions;
+    };
+    /**
+     * Sets the sharingMessageActions property value. The sharingMessageActions property
+     * @param value Value to set for the sharingMessageActions property.
+     */
+    public set sharingMessageActions(value: CalendarSharingMessageAction[] | undefined) {
+        if(value) {
+            const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = [];
+            this.sharingMessageActions?.forEach(element => {
+                sharingMessageActionsArrValue.push((element instanceof CalendarSharingMessageActionImpl? element:new CalendarSharingMessageActionImpl(element)));
+            });
+            this._sharingMessageActions = sharingMessageActionsArrValue;
+        }
+    };
+    /**
+     * Gets the suggestedCalendarName property value. The suggestedCalendarName property
+     * @returns a string
+     */
+    public get suggestedCalendarName() {
+        return this._suggestedCalendarName;
+    };
+    /**
+     * Sets the suggestedCalendarName property value. The suggestedCalendarName property
+     * @param value Value to set for the suggestedCalendarName property.
+     */
+    public set suggestedCalendarName(value: string | undefined) {
+        if(value) {
+            this._suggestedCalendarName = value;
         }
     };
 }

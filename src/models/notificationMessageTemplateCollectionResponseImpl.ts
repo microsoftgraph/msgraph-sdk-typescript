@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NotificationMessageTemplateCollectionResponseImpl implements NotificationMessageTemplateCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: NotificationMessageTemplate[] | undefined;
+    private _value?: NotificationMessageTemplate[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new NotificationMessageTemplateCollectionResponse and sets the default values.
      * @param notificationMessageTemplateCollectionResponseParameterValue 
      */
     public constructor(notificationMessageTemplateCollectionResponseParameterValue?: NotificationMessageTemplateCollectionResponse | undefined) {
-        this.additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink;
-        this.value = notificationMessageTemplateCollectionResponseParameterValue?.value;
+        this._additionalData = notificationMessageTemplateCollectionResponseParameterValue?.additionalData ? notificationMessageTemplateCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = notificationMessageTemplateCollectionResponseParameterValue?.nextLink;
+        this._value = notificationMessageTemplateCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new NotificationMessageTemplateImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a NotificationMessageTemplateInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: NotificationMessageTemplate[] | undefined) {
+        if(value) {
+            const valueArrValue: NotificationMessageTemplateImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

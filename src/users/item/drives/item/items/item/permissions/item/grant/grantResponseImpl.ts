@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the grant method. */
 export class GrantResponseImpl implements GrantResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: Permission[] | undefined;
+    private _value?: Permission[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new grantResponse and sets the default values.
      * @param grantResponseParameterValue 
      */
     public constructor(grantResponseParameterValue?: GrantResponse | undefined) {
-        this.additionalData = grantResponseParameterValue?.additionalData ? grantResponseParameterValue?.additionalData! : {};
-        this.value = grantResponseParameterValue?.value;
+        this._additionalData = grantResponseParameterValue?.additionalData ? grantResponseParameterValue?.additionalData! : {};
+        this._value = grantResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GrantResponseImpl implements GrantResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PermissionImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a PermissionInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: Permission[] | undefined) {
+        if(value) {
+            const valueArrValue: PermissionImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

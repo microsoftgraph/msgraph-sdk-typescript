@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly
 
 export class BookingWorkTimeSlotImpl implements BookingWorkTimeSlot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The time of the day when work stops. For example, 17:00:00.0000000. */
-    public endTime?: TimeOnly | undefined;
+    private _endTime?: TimeOnly | undefined;
     /** The time of the day when work starts. For example, 08:00:00.0000000. */
-    public startTime?: TimeOnly | undefined;
+    private _startTime?: TimeOnly | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new bookingWorkTimeSlot and sets the default values.
      * @param bookingWorkTimeSlotParameterValue 
      */
     public constructor(bookingWorkTimeSlotParameterValue?: BookingWorkTimeSlot | undefined) {
-        this.additionalData = bookingWorkTimeSlotParameterValue?.additionalData ? bookingWorkTimeSlotParameterValue?.additionalData! : {};
-        this.endTime = bookingWorkTimeSlotParameterValue?.endTime;
-        this.startTime = bookingWorkTimeSlotParameterValue?.startTime;
+        this._additionalData = bookingWorkTimeSlotParameterValue?.additionalData ? bookingWorkTimeSlotParameterValue?.additionalData! : {};
+        this._endTime = bookingWorkTimeSlotParameterValue?.endTime;
+        this._startTime = bookingWorkTimeSlotParameterValue?.startTime;
+    };
+    /**
+     * Gets the endTime property value. The time of the day when work stops. For example, 17:00:00.0000000.
+     * @returns a TimeOnly
+     */
+    public get endTime() {
+        return this._endTime;
+    };
+    /**
+     * Sets the endTime property value. The time of the day when work stops. For example, 17:00:00.0000000.
+     * @param value Value to set for the endTime property.
+     */
+    public set endTime(value: TimeOnly | undefined) {
+        if(value) {
+            this._endTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +72,21 @@ export class BookingWorkTimeSlotImpl implements BookingWorkTimeSlot {
             writer.writeTimeOnlyValue("startTime", this.startTime);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the startTime property value. The time of the day when work starts. For example, 08:00:00.0000000.
+     * @returns a TimeOnly
+     */
+    public get startTime() {
+        return this._startTime;
+    };
+    /**
+     * Sets the startTime property value. The time of the day when work starts. For example, 08:00:00.0000000.
+     * @param value Value to set for the startTime property.
+     */
+    public set startTime(value: TimeOnly | undefined) {
+        if(value) {
+            this._startTime = value;
+        }
     };
 }

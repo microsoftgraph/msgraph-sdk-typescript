@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of externalConnection entities. */
 export class IdentityImpl extends EntityImpl implements Identity {
     /** The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system. */
-    public type?: IdentityType | undefined;
+    private _type?: IdentityType | undefined;
     /**
      * Instantiates a new identity and sets the default values.
      * @param identityParameterValue 
      */
     public constructor(identityParameterValue?: Identity | undefined) {
         super(identityParameterValue);
-        this.type = identityParameterValue?.type;
+        this._type = identityParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +33,22 @@ export class IdentityImpl extends EntityImpl implements Identity {
         super.serialize(writer);
         if(this.type){
             writer.writeEnumValue<IdentityType>("type", this.type);
+        }
+    };
+    /**
+     * Gets the type property value. The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system.
+     * @returns a identityType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: IdentityType | undefined) {
+        if(value) {
+            this._type = value;
         }
     };
 }

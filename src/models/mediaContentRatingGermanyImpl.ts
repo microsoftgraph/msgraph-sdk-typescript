@@ -5,19 +5,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaContentRatingGermanyImpl implements MediaContentRatingGermany {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Movies rating selected for Germany. Possible values are: allAllowed, allBlocked, general, agesAbove6, agesAbove12, agesAbove16, adults. */
-    public movieRating?: RatingGermanyMoviesType | undefined;
+    private _movieRating?: RatingGermanyMoviesType | undefined;
     /** TV rating selected for Germany. Possible values are: allAllowed, allBlocked, general, agesAbove6, agesAbove12, agesAbove16, adults. */
-    public tvRating?: RatingGermanyTelevisionType | undefined;
+    private _tvRating?: RatingGermanyTelevisionType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mediaContentRatingGermany and sets the default values.
      * @param mediaContentRatingGermanyParameterValue 
      */
     public constructor(mediaContentRatingGermanyParameterValue?: MediaContentRatingGermany | undefined) {
-        this.additionalData = mediaContentRatingGermanyParameterValue?.additionalData ? mediaContentRatingGermanyParameterValue?.additionalData! : {};
-        this.movieRating = mediaContentRatingGermanyParameterValue?.movieRating;
-        this.tvRating = mediaContentRatingGermanyParameterValue?.tvRating;
+        this._additionalData = mediaContentRatingGermanyParameterValue?.additionalData ? mediaContentRatingGermanyParameterValue?.additionalData! : {};
+        this._movieRating = mediaContentRatingGermanyParameterValue?.movieRating;
+        this._tvRating = mediaContentRatingGermanyParameterValue?.tvRating;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +44,22 @@ export class MediaContentRatingGermanyImpl implements MediaContentRatingGermany 
             "movieRating": n => { this.movieRating = n.getEnumValue<RatingGermanyMoviesType>(RatingGermanyMoviesType); },
             "tvRating": n => { this.tvRating = n.getEnumValue<RatingGermanyTelevisionType>(RatingGermanyTelevisionType); },
         };
+    };
+    /**
+     * Gets the movieRating property value. Movies rating selected for Germany. Possible values are: allAllowed, allBlocked, general, agesAbove6, agesAbove12, agesAbove16, adults.
+     * @returns a ratingGermanyMoviesType
+     */
+    public get movieRating() {
+        return this._movieRating;
+    };
+    /**
+     * Sets the movieRating property value. Movies rating selected for Germany. Possible values are: allAllowed, allBlocked, general, agesAbove6, agesAbove12, agesAbove16, adults.
+     * @param value Value to set for the movieRating property.
+     */
+    public set movieRating(value: RatingGermanyMoviesType | undefined) {
+        if(value) {
+            this._movieRating = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -42,5 +74,21 @@ export class MediaContentRatingGermanyImpl implements MediaContentRatingGermany 
             writer.writeEnumValue<RatingGermanyTelevisionType>("tvRating", this.tvRating);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the tvRating property value. TV rating selected for Germany. Possible values are: allAllowed, allBlocked, general, agesAbove6, agesAbove12, agesAbove16, adults.
+     * @returns a ratingGermanyTelevisionType
+     */
+    public get tvRating() {
+        return this._tvRating;
+    };
+    /**
+     * Sets the tvRating property value. TV rating selected for Germany. Possible values are: allAllowed, allBlocked, general, agesAbove6, agesAbove12, agesAbove16, adults.
+     * @param value Value to set for the tvRating property.
+     */
+    public set tvRating(value: RatingGermanyTelevisionType | undefined) {
+        if(value) {
+            this._tvRating = value;
+        }
     };
 }

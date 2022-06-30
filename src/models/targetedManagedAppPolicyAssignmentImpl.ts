@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** The type for deployment of groups or apps. */
 export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implements TargetedManagedAppPolicyAssignment {
     /** Identifier for deployment to a group or app */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new targetedManagedAppPolicyAssignment and sets the default values.
      * @param targetedManagedAppPolicyAssignmentParameterValue 
      */
     public constructor(targetedManagedAppPolicyAssignmentParameterValue?: TargetedManagedAppPolicyAssignment | undefined) {
         super(targetedManagedAppPolicyAssignmentParameterValue);
-        this.target = targetedManagedAppPolicyAssignmentParameterValue?.target;
+        this._target = targetedManagedAppPolicyAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,23 @@ export class TargetedManagedAppPolicyAssignmentImpl extends EntityImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+        }
+    };
+    /**
+     * Gets the target property value. Identifier for deployment to a group or app
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. Identifier for deployment to a group or app
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

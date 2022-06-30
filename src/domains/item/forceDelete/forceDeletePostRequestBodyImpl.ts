@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the forceDelete method. */
 export class ForceDeletePostRequestBodyImpl implements ForceDeletePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The disableUserAccounts property */
-    public disableUserAccounts?: boolean | undefined;
+    private _disableUserAccounts?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new forceDeletePostRequestBody and sets the default values.
      * @param forceDeletePostRequestBodyParameterValue 
      */
     public constructor(forceDeletePostRequestBodyParameterValue?: ForceDeletePostRequestBody | undefined) {
-        this.additionalData = forceDeletePostRequestBodyParameterValue?.additionalData ? forceDeletePostRequestBodyParameterValue?.additionalData! : {};
-        this.disableUserAccounts = forceDeletePostRequestBodyParameterValue?.disableUserAccounts;
+        this._additionalData = forceDeletePostRequestBodyParameterValue?.additionalData ? forceDeletePostRequestBodyParameterValue?.additionalData! : {};
+        this._disableUserAccounts = forceDeletePostRequestBodyParameterValue?.disableUserAccounts;
+    };
+    /**
+     * Gets the disableUserAccounts property value. The disableUserAccounts property
+     * @returns a boolean
+     */
+    public get disableUserAccounts() {
+        return this._disableUserAccounts;
+    };
+    /**
+     * Sets the disableUserAccounts property value. The disableUserAccounts property
+     * @param value Value to set for the disableUserAccounts property.
+     */
+    public set disableUserAccounts(value: boolean | undefined) {
+        if(value) {
+            this._disableUserAccounts = value;
+        }
     };
     /**
      * The deserialization information for the current model

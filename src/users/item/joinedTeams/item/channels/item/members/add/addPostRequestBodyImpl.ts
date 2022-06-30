@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the add method. */
 export class AddPostRequestBodyImpl implements AddPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The values property */
-    public values?: ConversationMember[] | undefined;
+    private _values?: ConversationMember[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new addPostRequestBody and sets the default values.
      * @param addPostRequestBodyParameterValue 
      */
     public constructor(addPostRequestBodyParameterValue?: AddPostRequestBody | undefined) {
-        this.additionalData = addPostRequestBodyParameterValue?.additionalData ? addPostRequestBodyParameterValue?.additionalData! : {};
-        this.values = addPostRequestBodyParameterValue?.values;
+        this._additionalData = addPostRequestBodyParameterValue?.additionalData ? addPostRequestBodyParameterValue?.additionalData! : {};
+        this._values = addPostRequestBodyParameterValue?.values;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class AddPostRequestBodyImpl implements AddPostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.values && this.values.length != 0){        const valuesArrValue: ConversationMemberImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new ConversationMemberImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: ConversationMemberImpl[] = [];
+        this.values?.forEach(element => {
+            valuesArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("values", valuesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the values property value. The values property
+     * @returns a ConversationMemberInterface
+     */
+    public get values() {
+        return this._values;
+    };
+    /**
+     * Sets the values property value. The values property
+     * @param value Value to set for the values property.
+     */
+    public set values(value: ConversationMember[] | undefined) {
+        if(value) {
+            const valuesArrValue: ConversationMemberImpl[] = [];
+            this.values?.forEach(element => {
+                valuesArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+            });
+            this._values = valuesArrValue;
+        }
     };
 }

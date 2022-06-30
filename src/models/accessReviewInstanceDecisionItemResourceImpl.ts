@@ -3,22 +3,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewInstanceDecisionItemResourceImpl implements AccessReviewInstanceDecisionItemResource {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Display name of the resource */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Resource ID */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
-    public type?: string | undefined;
+    private _type?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new accessReviewInstanceDecisionItemResource and sets the default values.
      * @param accessReviewInstanceDecisionItemResourceParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemResourceParameterValue?: AccessReviewInstanceDecisionItemResource | undefined) {
-        this.additionalData = accessReviewInstanceDecisionItemResourceParameterValue?.additionalData ? accessReviewInstanceDecisionItemResourceParameterValue?.additionalData! : {};
-        this.displayName = accessReviewInstanceDecisionItemResourceParameterValue?.displayName;
-        this.id = accessReviewInstanceDecisionItemResourceParameterValue?.id;
-        this.type = accessReviewInstanceDecisionItemResourceParameterValue?.type;
+        this._additionalData = accessReviewInstanceDecisionItemResourceParameterValue?.additionalData ? accessReviewInstanceDecisionItemResourceParameterValue?.additionalData! : {};
+        this._displayName = accessReviewInstanceDecisionItemResourceParameterValue?.displayName;
+        this._id = accessReviewInstanceDecisionItemResourceParameterValue?.id;
+        this._type = accessReviewInstanceDecisionItemResourceParameterValue?.type;
+    };
+    /**
+     * Gets the displayName property value. Display name of the resource
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name of the resource
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,22 @@ export class AccessReviewInstanceDecisionItemResourceImpl implements AccessRevie
             "id": n => { this.id = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. Resource ID
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Resource ID
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +95,21 @@ export class AccessReviewInstanceDecisionItemResourceImpl implements AccessRevie
             writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
+        }
     };
 }

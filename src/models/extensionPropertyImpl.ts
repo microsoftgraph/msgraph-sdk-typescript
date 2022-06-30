@@ -5,26 +5,58 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to call the instantiate method. */
 export class ExtensionPropertyImpl extends DirectoryObjectImpl implements ExtensionProperty {
     /** Display name of the application object on which this extension property is defined. Read-only. */
-    public appDisplayName?: string | undefined;
+    private _appDisplayName?: string | undefined;
     /** Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum */
-    public dataType?: string | undefined;
+    private _dataType?: string | undefined;
     /** Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only. */
-    public isSyncedFromOnPremises?: boolean | undefined;
+    private _isSyncedFromOnPremises?: boolean | undefined;
     /** Name of the extension property. Not nullable. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication */
-    public targetObjects?: string[] | undefined;
+    private _targetObjects?: string[] | undefined;
+    /**
+     * Gets the appDisplayName property value. Display name of the application object on which this extension property is defined. Read-only.
+     * @returns a string
+     */
+    public get appDisplayName() {
+        return this._appDisplayName;
+    };
+    /**
+     * Sets the appDisplayName property value. Display name of the application object on which this extension property is defined. Read-only.
+     * @param value Value to set for the appDisplayName property.
+     */
+    public set appDisplayName(value: string | undefined) {
+        if(value) {
+            this._appDisplayName = value;
+        }
+    };
     /**
      * Instantiates a new extensionProperty and sets the default values.
      * @param extensionPropertyParameterValue 
      */
     public constructor(extensionPropertyParameterValue?: ExtensionProperty | undefined) {
         super(extensionPropertyParameterValue);
-        this.appDisplayName = extensionPropertyParameterValue?.appDisplayName;
-        this.dataType = extensionPropertyParameterValue?.dataType;
-        this.isSyncedFromOnPremises = extensionPropertyParameterValue?.isSyncedFromOnPremises;
-        this.name = extensionPropertyParameterValue?.name;
-        this.targetObjects = extensionPropertyParameterValue?.targetObjects;
+        this._appDisplayName = extensionPropertyParameterValue?.appDisplayName;
+        this._dataType = extensionPropertyParameterValue?.dataType;
+        this._isSyncedFromOnPremises = extensionPropertyParameterValue?.isSyncedFromOnPremises;
+        this._name = extensionPropertyParameterValue?.name;
+        this._targetObjects = extensionPropertyParameterValue?.targetObjects;
+    };
+    /**
+     * Gets the dataType property value. Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
+     * @returns a string
+     */
+    public get dataType() {
+        return this._dataType;
+    };
+    /**
+     * Sets the dataType property value. Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
+     * @param value Value to set for the dataType property.
+     */
+    public set dataType(value: string | undefined) {
+        if(value) {
+            this._dataType = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +70,38 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
             "name": n => { this.name = n.getStringValue(); },
             "targetObjects": n => { this.targetObjects = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the isSyncedFromOnPremises property value. Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only.
+     * @returns a boolean
+     */
+    public get isSyncedFromOnPremises() {
+        return this._isSyncedFromOnPremises;
+    };
+    /**
+     * Sets the isSyncedFromOnPremises property value. Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only.
+     * @param value Value to set for the isSyncedFromOnPremises property.
+     */
+    public set isSyncedFromOnPremises(value: boolean | undefined) {
+        if(value) {
+            this._isSyncedFromOnPremises = value;
+        }
+    };
+    /**
+     * Gets the name property value. Name of the extension property. Not nullable.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Name of the extension property. Not nullable.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -60,6 +124,22 @@ export class ExtensionPropertyImpl extends DirectoryObjectImpl implements Extens
         }
         if(this.targetObjects){
             writer.writeCollectionOfPrimitiveValues<string>("targetObjects", this.targetObjects);
+        }
+    };
+    /**
+     * Gets the targetObjects property value. Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * @returns a string
+     */
+    public get targetObjects() {
+        return this._targetObjects;
+    };
+    /**
+     * Sets the targetObjects property value. Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * @param value Value to set for the targetObjects property.
+     */
+    public set targetObjects(value: string[] | undefined) {
+        if(value) {
+            this._targetObjects = value;
         }
     };
 }

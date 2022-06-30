@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewReviewerScopeImpl implements AccessReviewReviewerScope {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The query specifying who will be the reviewer. See table for examples. */
-    public query?: string | undefined;
+    private _query?: string | undefined;
     /** In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query, for example, ./manager, is specified. Possible value: decisions. */
-    public queryRoot?: string | undefined;
+    private _queryRoot?: string | undefined;
     /** The type of query. Examples include MicrosoftGraph and ARM. */
-    public queryType?: string | undefined;
+    private _queryType?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new accessReviewReviewerScope and sets the default values.
      * @param accessReviewReviewerScopeParameterValue 
      */
     public constructor(accessReviewReviewerScopeParameterValue?: AccessReviewReviewerScope | undefined) {
-        this.additionalData = accessReviewReviewerScopeParameterValue?.additionalData ? accessReviewReviewerScopeParameterValue?.additionalData! : {};
-        this.query = accessReviewReviewerScopeParameterValue?.query;
-        this.queryRoot = accessReviewReviewerScopeParameterValue?.queryRoot;
-        this.queryType = accessReviewReviewerScopeParameterValue?.queryType;
+        this._additionalData = accessReviewReviewerScopeParameterValue?.additionalData ? accessReviewReviewerScopeParameterValue?.additionalData! : {};
+        this._query = accessReviewReviewerScopeParameterValue?.query;
+        this._queryRoot = accessReviewReviewerScopeParameterValue?.queryRoot;
+        this._queryType = accessReviewReviewerScopeParameterValue?.queryType;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,54 @@ export class AccessReviewReviewerScopeImpl implements AccessReviewReviewerScope 
             "queryRoot": n => { this.queryRoot = n.getStringValue(); },
             "queryType": n => { this.queryType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the query property value. The query specifying who will be the reviewer. See table for examples.
+     * @returns a string
+     */
+    public get query() {
+        return this._query;
+    };
+    /**
+     * Sets the query property value. The query specifying who will be the reviewer. See table for examples.
+     * @param value Value to set for the query property.
+     */
+    public set query(value: string | undefined) {
+        if(value) {
+            this._query = value;
+        }
+    };
+    /**
+     * Gets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query, for example, ./manager, is specified. Possible value: decisions.
+     * @returns a string
+     */
+    public get queryRoot() {
+        return this._queryRoot;
+    };
+    /**
+     * Sets the queryRoot property value. In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query, for example, ./manager, is specified. Possible value: decisions.
+     * @param value Value to set for the queryRoot property.
+     */
+    public set queryRoot(value: string | undefined) {
+        if(value) {
+            this._queryRoot = value;
+        }
+    };
+    /**
+     * Gets the queryType property value. The type of query. Examples include MicrosoftGraph and ARM.
+     * @returns a string
+     */
+    public get queryType() {
+        return this._queryType;
+    };
+    /**
+     * Sets the queryType property value. The type of query. Examples include MicrosoftGraph and ARM.
+     * @param value Value to set for the queryType property.
+     */
+    public set queryType(value: string | undefined) {
+        if(value) {
+            this._queryType = value;
+        }
     };
     /**
      * Serializes information the current object

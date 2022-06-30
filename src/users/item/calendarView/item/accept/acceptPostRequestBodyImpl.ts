@@ -4,19 +4,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the accept method. */
 export class AcceptPostRequestBodyImpl implements AcceptPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Comment property */
-    public comment?: string | undefined;
+    private _comment?: string | undefined;
     /** The SendResponse property */
-    public sendResponse?: boolean | undefined;
+    private _sendResponse?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the comment property value. The Comment property
+     * @returns a string
+     */
+    public get comment() {
+        return this._comment;
+    };
+    /**
+     * Sets the comment property value. The Comment property
+     * @param value Value to set for the Comment property.
+     */
+    public set comment(value: string | undefined) {
+        if(value) {
+            this._comment = value;
+        }
+    };
     /**
      * Instantiates a new acceptPostRequestBody and sets the default values.
      * @param acceptPostRequestBodyParameterValue 
      */
     public constructor(acceptPostRequestBodyParameterValue?: AcceptPostRequestBody | undefined) {
-        this.additionalData = acceptPostRequestBodyParameterValue?.additionalData ? acceptPostRequestBodyParameterValue?.additionalData! : {};
-        this.comment = acceptPostRequestBodyParameterValue?.comment;
-        this.sendResponse = acceptPostRequestBodyParameterValue?.sendResponse;
+        this._additionalData = acceptPostRequestBodyParameterValue?.additionalData ? acceptPostRequestBodyParameterValue?.additionalData! : {};
+        this._comment = acceptPostRequestBodyParameterValue?.comment;
+        this._sendResponse = acceptPostRequestBodyParameterValue?.sendResponse;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +59,22 @@ export class AcceptPostRequestBodyImpl implements AcceptPostRequestBody {
             "comment": n => { this.comment = n.getStringValue(); },
             "sendResponse": n => { this.sendResponse = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the sendResponse property value. The SendResponse property
+     * @returns a boolean
+     */
+    public get sendResponse() {
+        return this._sendResponse;
+    };
+    /**
+     * Sets the sendResponse property value. The SendResponse property
+     * @param value Value to set for the SendResponse property.
+     */
+    public set sendResponse(value: boolean | undefined) {
+        if(value) {
+            this._sendResponse = value;
+        }
     };
     /**
      * Serializes information the current object

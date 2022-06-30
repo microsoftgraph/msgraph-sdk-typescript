@@ -5,19 +5,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the reject method. */
 export class RejectPostRequestBodyImpl implements RejectPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The callbackUri property */
-    public callbackUri?: string | undefined;
+    private _callbackUri?: string | undefined;
     /** The reason property */
-    public reason?: RejectReason | undefined;
+    private _reason?: RejectReason | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the callbackUri property value. The callbackUri property
+     * @returns a string
+     */
+    public get callbackUri() {
+        return this._callbackUri;
+    };
+    /**
+     * Sets the callbackUri property value. The callbackUri property
+     * @param value Value to set for the callbackUri property.
+     */
+    public set callbackUri(value: string | undefined) {
+        if(value) {
+            this._callbackUri = value;
+        }
+    };
     /**
      * Instantiates a new rejectPostRequestBody and sets the default values.
      * @param rejectPostRequestBodyParameterValue 
      */
     public constructor(rejectPostRequestBodyParameterValue?: RejectPostRequestBody | undefined) {
-        this.additionalData = rejectPostRequestBodyParameterValue?.additionalData ? rejectPostRequestBodyParameterValue?.additionalData! : {};
-        this.callbackUri = rejectPostRequestBodyParameterValue?.callbackUri;
-        this.reason = rejectPostRequestBodyParameterValue?.reason;
+        this._additionalData = rejectPostRequestBodyParameterValue?.additionalData ? rejectPostRequestBodyParameterValue?.additionalData! : {};
+        this._callbackUri = rejectPostRequestBodyParameterValue?.callbackUri;
+        this._reason = rejectPostRequestBodyParameterValue?.reason;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +60,22 @@ export class RejectPostRequestBodyImpl implements RejectPostRequestBody {
             "callbackUri": n => { this.callbackUri = n.getStringValue(); },
             "reason": n => { this.reason = n.getEnumValue<RejectReason>(RejectReason); },
         };
+    };
+    /**
+     * Gets the reason property value. The reason property
+     * @returns a rejectReason
+     */
+    public get reason() {
+        return this._reason;
+    };
+    /**
+     * Sets the reason property value. The reason property
+     * @param value Value to set for the reason property.
+     */
+    public set reason(value: RejectReason | undefined) {
+        if(value) {
+            this._reason = value;
+        }
     };
     /**
      * Serializes information the current object

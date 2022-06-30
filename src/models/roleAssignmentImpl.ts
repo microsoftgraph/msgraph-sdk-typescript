@@ -7,23 +7,55 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
 export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
     /** Description of the Role Assignment. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The display or friendly name of the role Assignment. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
-    public resourceScopes?: string[] | undefined;
+    private _resourceScopes?: string[] | undefined;
     /** Role definition this assignment is part of. */
-    public roleDefinition?: RoleDefinition | undefined;
+    private _roleDefinition?: RoleDefinition | undefined;
     /**
      * Instantiates a new roleAssignment and sets the default values.
      * @param roleAssignmentParameterValue 
      */
     public constructor(roleAssignmentParameterValue?: RoleAssignment | undefined) {
         super(roleAssignmentParameterValue);
-        this.description = roleAssignmentParameterValue?.description;
-        this.displayName = roleAssignmentParameterValue?.displayName;
-        this.resourceScopes = roleAssignmentParameterValue?.resourceScopes;
-        this.roleDefinition = roleAssignmentParameterValue?.roleDefinition;
+        this._description = roleAssignmentParameterValue?.description;
+        this._displayName = roleAssignmentParameterValue?.displayName;
+        this._resourceScopes = roleAssignmentParameterValue?.resourceScopes;
+        this._roleDefinition = roleAssignmentParameterValue?.roleDefinition;
+    };
+    /**
+     * Gets the description property value. Description of the Role Assignment.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Description of the Role Assignment.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The display or friendly name of the role Assignment.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display or friendly name of the role Assignment.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +68,38 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
             "resourceScopes": n => { this.resourceScopes = n.getCollectionOfPrimitiveValues<string>(); },
             "roleDefinition": n => { this.roleDefinition = n.getObjectValue<RoleDefinitionImpl>(createRoleDefinitionFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the resourceScopes property value. List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+     * @returns a string
+     */
+    public get resourceScopes() {
+        return this._resourceScopes;
+    };
+    /**
+     * Sets the resourceScopes property value. List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+     * @param value Value to set for the resourceScopes property.
+     */
+    public set resourceScopes(value: string[] | undefined) {
+        if(value) {
+            this._resourceScopes = value;
+        }
+    };
+    /**
+     * Gets the roleDefinition property value. Role definition this assignment is part of.
+     * @returns a RoleDefinitionInterface
+     */
+    public get roleDefinition() {
+        return this._roleDefinition;
+    };
+    /**
+     * Sets the roleDefinition property value. Role definition this assignment is part of.
+     * @param value Value to set for the roleDefinition property.
+     */
+    public set roleDefinition(value: RoleDefinition | undefined) {
+        if(value) {
+            this._roleDefinition = value instanceof RoleDefinitionImpl? value : new RoleDefinitionImpl(value);
+        }
     };
     /**
      * Serializes information the current object
@@ -54,7 +118,7 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
             writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         }
         if(this.roleDefinition){
-            writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", new RoleDefinitionImpl(this.roleDefinition));
+            writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", (!this.roleDefinition || this.roleDefinition instanceof RoleDefinitionImpl? this.roleDefinition : new RoleDefinitionImpl(this.roleDefinition)));
         }
     };
 }

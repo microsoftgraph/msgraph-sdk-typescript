@@ -6,26 +6,42 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends DeviceEnrollmentConfigurationImpl implements DeviceEnrollmentPlatformRestrictionsConfiguration {
     /** Android restrictions based on platform, platform operating system version, and device ownership */
-    public androidRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
+    private _androidRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
     /** Ios restrictions based on platform, platform operating system version, and device ownership */
-    public iosRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
+    private _iosRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
     /** Mac restrictions based on platform, platform operating system version, and device ownership */
-    public macOSRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
+    private _macOSRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
     /** Windows mobile restrictions based on platform, platform operating system version, and device ownership */
-    public windowsMobileRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
+    private _windowsMobileRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
     /** Windows restrictions based on platform, platform operating system version, and device ownership */
-    public windowsRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
+    private _windowsRestriction?: DeviceEnrollmentPlatformRestriction | undefined;
+    /**
+     * Gets the androidRestriction property value. Android restrictions based on platform, platform operating system version, and device ownership
+     * @returns a DeviceEnrollmentPlatformRestrictionInterface
+     */
+    public get androidRestriction() {
+        return this._androidRestriction;
+    };
+    /**
+     * Sets the androidRestriction property value. Android restrictions based on platform, platform operating system version, and device ownership
+     * @param value Value to set for the androidRestriction property.
+     */
+    public set androidRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
+        if(value) {
+            this._androidRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+        }
+    };
     /**
      * Instantiates a new DeviceEnrollmentPlatformRestrictionsConfiguration and sets the default values.
      * @param deviceEnrollmentPlatformRestrictionsConfigurationParameterValue 
      */
     public constructor(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined) {
         super(deviceEnrollmentPlatformRestrictionsConfigurationParameterValue);
-        this.androidRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction;
-        this.iosRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction;
-        this.macOSRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction;
-        this.windowsMobileRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsMobileRestriction;
-        this.windowsRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsRestriction;
+        this._androidRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.androidRestriction;
+        this._iosRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.iosRestriction;
+        this._macOSRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.macOSRestriction;
+        this._windowsMobileRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsMobileRestriction;
+        this._windowsRestriction = deviceEnrollmentPlatformRestrictionsConfigurationParameterValue?.windowsRestriction;
     };
     /**
      * The deserialization information for the current model
@@ -41,6 +57,38 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
         };
     };
     /**
+     * Gets the iosRestriction property value. Ios restrictions based on platform, platform operating system version, and device ownership
+     * @returns a DeviceEnrollmentPlatformRestrictionInterface
+     */
+    public get iosRestriction() {
+        return this._iosRestriction;
+    };
+    /**
+     * Sets the iosRestriction property value. Ios restrictions based on platform, platform operating system version, and device ownership
+     * @param value Value to set for the iosRestriction property.
+     */
+    public set iosRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
+        if(value) {
+            this._iosRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+        }
+    };
+    /**
+     * Gets the macOSRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
+     * @returns a DeviceEnrollmentPlatformRestrictionInterface
+     */
+    public get macOSRestriction() {
+        return this._macOSRestriction;
+    };
+    /**
+     * Sets the macOSRestriction property value. Mac restrictions based on platform, platform operating system version, and device ownership
+     * @param value Value to set for the macOSRestriction property.
+     */
+    public set macOSRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
+        if(value) {
+            this._macOSRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -48,19 +96,51 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.androidRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("androidRestriction", new DeviceEnrollmentPlatformRestrictionImpl(this.androidRestriction));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("androidRestriction", (!this.androidRestriction || this.androidRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.androidRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.androidRestriction)));
         }
         if(this.iosRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("iosRestriction", new DeviceEnrollmentPlatformRestrictionImpl(this.iosRestriction));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("iosRestriction", (!this.iosRestriction || this.iosRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.iosRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.iosRestriction)));
         }
         if(this.macOSRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("macOSRestriction", new DeviceEnrollmentPlatformRestrictionImpl(this.macOSRestriction));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("macOSRestriction", (!this.macOSRestriction || this.macOSRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.macOSRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.macOSRestriction)));
         }
         if(this.windowsMobileRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsMobileRestriction", new DeviceEnrollmentPlatformRestrictionImpl(this.windowsMobileRestriction));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsMobileRestriction", (!this.windowsMobileRestriction || this.windowsMobileRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.windowsMobileRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.windowsMobileRestriction)));
         }
         if(this.windowsRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsRestriction", new DeviceEnrollmentPlatformRestrictionImpl(this.windowsRestriction));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsRestriction", (!this.windowsRestriction || this.windowsRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.windowsRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.windowsRestriction)));
+        }
+    };
+    /**
+     * Gets the windowsMobileRestriction property value. Windows mobile restrictions based on platform, platform operating system version, and device ownership
+     * @returns a DeviceEnrollmentPlatformRestrictionInterface
+     */
+    public get windowsMobileRestriction() {
+        return this._windowsMobileRestriction;
+    };
+    /**
+     * Sets the windowsMobileRestriction property value. Windows mobile restrictions based on platform, platform operating system version, and device ownership
+     * @param value Value to set for the windowsMobileRestriction property.
+     */
+    public set windowsMobileRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
+        if(value) {
+            this._windowsMobileRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+        }
+    };
+    /**
+     * Gets the windowsRestriction property value. Windows restrictions based on platform, platform operating system version, and device ownership
+     * @returns a DeviceEnrollmentPlatformRestrictionInterface
+     */
+    public get windowsRestriction() {
+        return this._windowsRestriction;
+    };
+    /**
+     * Sets the windowsRestriction property value. Windows restrictions based on platform, platform operating system version, and device ownership
+     * @param value Value to set for the windowsRestriction property.
+     */
+    public set windowsRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
+        if(value) {
+            this._windowsRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
         }
     };
 }

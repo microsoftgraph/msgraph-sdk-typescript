@@ -3,76 +3,188 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceInfoImpl implements DeviceInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Name of the capture device driver used by the media endpoint. */
-    public captureDeviceDriver?: string | undefined;
+    private _captureDeviceDriver?: string | undefined;
     /** Name of the capture device used by the media endpoint. */
-    public captureDeviceName?: string | undefined;
+    private _captureDeviceName?: string | undefined;
     /** Fraction of the call that the media endpoint detected the capture device was not working properly. */
-    public captureNotFunctioningEventRatio?: number | undefined;
+    private _captureNotFunctioningEventRatio?: number | undefined;
     /** Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received. */
-    public cpuInsufficentEventRatio?: number | undefined;
+    private _cpuInsufficentEventRatio?: number | undefined;
     /** Fraction of the call that the media endpoint detected clipping in the captured audio that caused poor quality of the audio being sent. */
-    public deviceClippingEventRatio?: number | undefined;
+    private _deviceClippingEventRatio?: number | undefined;
     /** Fraction of the call that the media endpoint detected glitches or gaps in the audio played or captured that caused poor quality of the audio being sent or received. */
-    public deviceGlitchEventRatio?: number | undefined;
+    private _deviceGlitchEventRatio?: number | undefined;
     /** Number of times during the call that the media endpoint detected howling or screeching audio. */
-    public howlingEventCount?: number | undefined;
+    private _howlingEventCount?: number | undefined;
     /** The root mean square (RMS) of the incoming signal of up to the first 30 seconds of the call. */
-    public initialSignalLevelRootMeanSquare?: number | undefined;
+    private _initialSignalLevelRootMeanSquare?: number | undefined;
     /** Fraction of the call that the media endpoint detected low speech level that caused poor quality of the audio being sent. */
-    public lowSpeechLevelEventRatio?: number | undefined;
+    private _lowSpeechLevelEventRatio?: number | undefined;
     /** Fraction of the call that the media endpoint detected low speech to noise level that caused poor quality of the audio being sent. */
-    public lowSpeechToNoiseEventRatio?: number | undefined;
+    private _lowSpeechToNoiseEventRatio?: number | undefined;
     /** Glitches per 5 minute interval for the media endpoint's microphone. */
-    public micGlitchRate?: number | undefined;
+    private _micGlitchRate?: number | undefined;
     /** Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint. */
-    public receivedNoiseLevel?: number | undefined;
+    private _receivedNoiseLevel?: number | undefined;
     /** Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint. */
-    public receivedSignalLevel?: number | undefined;
+    private _receivedSignalLevel?: number | undefined;
     /** Name of the render device driver used by the media endpoint. */
-    public renderDeviceDriver?: string | undefined;
+    private _renderDeviceDriver?: string | undefined;
     /** Name of the render device used by the media endpoint. */
-    public renderDeviceName?: string | undefined;
+    private _renderDeviceName?: string | undefined;
     /** Fraction of the call that media endpoint detected device render is muted. */
-    public renderMuteEventRatio?: number | undefined;
+    private _renderMuteEventRatio?: number | undefined;
     /** Fraction of the call that the media endpoint detected the render device was not working properly. */
-    public renderNotFunctioningEventRatio?: number | undefined;
+    private _renderNotFunctioningEventRatio?: number | undefined;
     /** Fraction of the call that media endpoint detected device render volume is set to 0. */
-    public renderZeroVolumeEventRatio?: number | undefined;
+    private _renderZeroVolumeEventRatio?: number | undefined;
     /** Average energy level of sent audio for audio classified as mono noise or left channel of stereo noise by the media endpoint. */
-    public sentNoiseLevel?: number | undefined;
+    private _sentNoiseLevel?: number | undefined;
     /** Average energy level of sent audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint. */
-    public sentSignalLevel?: number | undefined;
+    private _sentSignalLevel?: number | undefined;
     /** Glitches per 5 minute internal for the media endpoint's loudspeaker. */
-    public speakerGlitchRate?: number | undefined;
+    private _speakerGlitchRate?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the captureDeviceDriver property value. Name of the capture device driver used by the media endpoint.
+     * @returns a string
+     */
+    public get captureDeviceDriver() {
+        return this._captureDeviceDriver;
+    };
+    /**
+     * Sets the captureDeviceDriver property value. Name of the capture device driver used by the media endpoint.
+     * @param value Value to set for the captureDeviceDriver property.
+     */
+    public set captureDeviceDriver(value: string | undefined) {
+        if(value) {
+            this._captureDeviceDriver = value;
+        }
+    };
+    /**
+     * Gets the captureDeviceName property value. Name of the capture device used by the media endpoint.
+     * @returns a string
+     */
+    public get captureDeviceName() {
+        return this._captureDeviceName;
+    };
+    /**
+     * Sets the captureDeviceName property value. Name of the capture device used by the media endpoint.
+     * @param value Value to set for the captureDeviceName property.
+     */
+    public set captureDeviceName(value: string | undefined) {
+        if(value) {
+            this._captureDeviceName = value;
+        }
+    };
+    /**
+     * Gets the captureNotFunctioningEventRatio property value. Fraction of the call that the media endpoint detected the capture device was not working properly.
+     * @returns a float
+     */
+    public get captureNotFunctioningEventRatio() {
+        return this._captureNotFunctioningEventRatio;
+    };
+    /**
+     * Sets the captureNotFunctioningEventRatio property value. Fraction of the call that the media endpoint detected the capture device was not working properly.
+     * @param value Value to set for the captureNotFunctioningEventRatio property.
+     */
+    public set captureNotFunctioningEventRatio(value: number | undefined) {
+        if(value) {
+            this._captureNotFunctioningEventRatio = value;
+        }
+    };
     /**
      * Instantiates a new deviceInfo and sets the default values.
      * @param deviceInfoParameterValue 
      */
     public constructor(deviceInfoParameterValue?: DeviceInfo | undefined) {
-        this.additionalData = deviceInfoParameterValue?.additionalData ? deviceInfoParameterValue?.additionalData! : {};
-        this.captureDeviceDriver = deviceInfoParameterValue?.captureDeviceDriver;
-        this.captureDeviceName = deviceInfoParameterValue?.captureDeviceName;
-        this.captureNotFunctioningEventRatio = deviceInfoParameterValue?.captureNotFunctioningEventRatio;
-        this.cpuInsufficentEventRatio = deviceInfoParameterValue?.cpuInsufficentEventRatio;
-        this.deviceClippingEventRatio = deviceInfoParameterValue?.deviceClippingEventRatio;
-        this.deviceGlitchEventRatio = deviceInfoParameterValue?.deviceGlitchEventRatio;
-        this.howlingEventCount = deviceInfoParameterValue?.howlingEventCount;
-        this.initialSignalLevelRootMeanSquare = deviceInfoParameterValue?.initialSignalLevelRootMeanSquare;
-        this.lowSpeechLevelEventRatio = deviceInfoParameterValue?.lowSpeechLevelEventRatio;
-        this.lowSpeechToNoiseEventRatio = deviceInfoParameterValue?.lowSpeechToNoiseEventRatio;
-        this.micGlitchRate = deviceInfoParameterValue?.micGlitchRate;
-        this.receivedNoiseLevel = deviceInfoParameterValue?.receivedNoiseLevel;
-        this.receivedSignalLevel = deviceInfoParameterValue?.receivedSignalLevel;
-        this.renderDeviceDriver = deviceInfoParameterValue?.renderDeviceDriver;
-        this.renderDeviceName = deviceInfoParameterValue?.renderDeviceName;
-        this.renderMuteEventRatio = deviceInfoParameterValue?.renderMuteEventRatio;
-        this.renderNotFunctioningEventRatio = deviceInfoParameterValue?.renderNotFunctioningEventRatio;
-        this.renderZeroVolumeEventRatio = deviceInfoParameterValue?.renderZeroVolumeEventRatio;
-        this.sentNoiseLevel = deviceInfoParameterValue?.sentNoiseLevel;
-        this.sentSignalLevel = deviceInfoParameterValue?.sentSignalLevel;
-        this.speakerGlitchRate = deviceInfoParameterValue?.speakerGlitchRate;
+        this._additionalData = deviceInfoParameterValue?.additionalData ? deviceInfoParameterValue?.additionalData! : {};
+        this._captureDeviceDriver = deviceInfoParameterValue?.captureDeviceDriver;
+        this._captureDeviceName = deviceInfoParameterValue?.captureDeviceName;
+        this._captureNotFunctioningEventRatio = deviceInfoParameterValue?.captureNotFunctioningEventRatio;
+        this._cpuInsufficentEventRatio = deviceInfoParameterValue?.cpuInsufficentEventRatio;
+        this._deviceClippingEventRatio = deviceInfoParameterValue?.deviceClippingEventRatio;
+        this._deviceGlitchEventRatio = deviceInfoParameterValue?.deviceGlitchEventRatio;
+        this._howlingEventCount = deviceInfoParameterValue?.howlingEventCount;
+        this._initialSignalLevelRootMeanSquare = deviceInfoParameterValue?.initialSignalLevelRootMeanSquare;
+        this._lowSpeechLevelEventRatio = deviceInfoParameterValue?.lowSpeechLevelEventRatio;
+        this._lowSpeechToNoiseEventRatio = deviceInfoParameterValue?.lowSpeechToNoiseEventRatio;
+        this._micGlitchRate = deviceInfoParameterValue?.micGlitchRate;
+        this._receivedNoiseLevel = deviceInfoParameterValue?.receivedNoiseLevel;
+        this._receivedSignalLevel = deviceInfoParameterValue?.receivedSignalLevel;
+        this._renderDeviceDriver = deviceInfoParameterValue?.renderDeviceDriver;
+        this._renderDeviceName = deviceInfoParameterValue?.renderDeviceName;
+        this._renderMuteEventRatio = deviceInfoParameterValue?.renderMuteEventRatio;
+        this._renderNotFunctioningEventRatio = deviceInfoParameterValue?.renderNotFunctioningEventRatio;
+        this._renderZeroVolumeEventRatio = deviceInfoParameterValue?.renderZeroVolumeEventRatio;
+        this._sentNoiseLevel = deviceInfoParameterValue?.sentNoiseLevel;
+        this._sentSignalLevel = deviceInfoParameterValue?.sentSignalLevel;
+        this._speakerGlitchRate = deviceInfoParameterValue?.speakerGlitchRate;
+    };
+    /**
+     * Gets the cpuInsufficentEventRatio property value. Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received.
+     * @returns a float
+     */
+    public get cpuInsufficentEventRatio() {
+        return this._cpuInsufficentEventRatio;
+    };
+    /**
+     * Sets the cpuInsufficentEventRatio property value. Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received.
+     * @param value Value to set for the cpuInsufficentEventRatio property.
+     */
+    public set cpuInsufficentEventRatio(value: number | undefined) {
+        if(value) {
+            this._cpuInsufficentEventRatio = value;
+        }
+    };
+    /**
+     * Gets the deviceClippingEventRatio property value. Fraction of the call that the media endpoint detected clipping in the captured audio that caused poor quality of the audio being sent.
+     * @returns a float
+     */
+    public get deviceClippingEventRatio() {
+        return this._deviceClippingEventRatio;
+    };
+    /**
+     * Sets the deviceClippingEventRatio property value. Fraction of the call that the media endpoint detected clipping in the captured audio that caused poor quality of the audio being sent.
+     * @param value Value to set for the deviceClippingEventRatio property.
+     */
+    public set deviceClippingEventRatio(value: number | undefined) {
+        if(value) {
+            this._deviceClippingEventRatio = value;
+        }
+    };
+    /**
+     * Gets the deviceGlitchEventRatio property value. Fraction of the call that the media endpoint detected glitches or gaps in the audio played or captured that caused poor quality of the audio being sent or received.
+     * @returns a float
+     */
+    public get deviceGlitchEventRatio() {
+        return this._deviceGlitchEventRatio;
+    };
+    /**
+     * Sets the deviceGlitchEventRatio property value. Fraction of the call that the media endpoint detected glitches or gaps in the audio played or captured that caused poor quality of the audio being sent or received.
+     * @param value Value to set for the deviceGlitchEventRatio property.
+     */
+    public set deviceGlitchEventRatio(value: number | undefined) {
+        if(value) {
+            this._deviceGlitchEventRatio = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -102,6 +214,230 @@ export class DeviceInfoImpl implements DeviceInfo {
             "sentSignalLevel": n => { this.sentSignalLevel = n.getNumberValue(); },
             "speakerGlitchRate": n => { this.speakerGlitchRate = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the howlingEventCount property value. Number of times during the call that the media endpoint detected howling or screeching audio.
+     * @returns a integer
+     */
+    public get howlingEventCount() {
+        return this._howlingEventCount;
+    };
+    /**
+     * Sets the howlingEventCount property value. Number of times during the call that the media endpoint detected howling or screeching audio.
+     * @param value Value to set for the howlingEventCount property.
+     */
+    public set howlingEventCount(value: number | undefined) {
+        if(value) {
+            this._howlingEventCount = value;
+        }
+    };
+    /**
+     * Gets the initialSignalLevelRootMeanSquare property value. The root mean square (RMS) of the incoming signal of up to the first 30 seconds of the call.
+     * @returns a float
+     */
+    public get initialSignalLevelRootMeanSquare() {
+        return this._initialSignalLevelRootMeanSquare;
+    };
+    /**
+     * Sets the initialSignalLevelRootMeanSquare property value. The root mean square (RMS) of the incoming signal of up to the first 30 seconds of the call.
+     * @param value Value to set for the initialSignalLevelRootMeanSquare property.
+     */
+    public set initialSignalLevelRootMeanSquare(value: number | undefined) {
+        if(value) {
+            this._initialSignalLevelRootMeanSquare = value;
+        }
+    };
+    /**
+     * Gets the lowSpeechLevelEventRatio property value. Fraction of the call that the media endpoint detected low speech level that caused poor quality of the audio being sent.
+     * @returns a float
+     */
+    public get lowSpeechLevelEventRatio() {
+        return this._lowSpeechLevelEventRatio;
+    };
+    /**
+     * Sets the lowSpeechLevelEventRatio property value. Fraction of the call that the media endpoint detected low speech level that caused poor quality of the audio being sent.
+     * @param value Value to set for the lowSpeechLevelEventRatio property.
+     */
+    public set lowSpeechLevelEventRatio(value: number | undefined) {
+        if(value) {
+            this._lowSpeechLevelEventRatio = value;
+        }
+    };
+    /**
+     * Gets the lowSpeechToNoiseEventRatio property value. Fraction of the call that the media endpoint detected low speech to noise level that caused poor quality of the audio being sent.
+     * @returns a float
+     */
+    public get lowSpeechToNoiseEventRatio() {
+        return this._lowSpeechToNoiseEventRatio;
+    };
+    /**
+     * Sets the lowSpeechToNoiseEventRatio property value. Fraction of the call that the media endpoint detected low speech to noise level that caused poor quality of the audio being sent.
+     * @param value Value to set for the lowSpeechToNoiseEventRatio property.
+     */
+    public set lowSpeechToNoiseEventRatio(value: number | undefined) {
+        if(value) {
+            this._lowSpeechToNoiseEventRatio = value;
+        }
+    };
+    /**
+     * Gets the micGlitchRate property value. Glitches per 5 minute interval for the media endpoint's microphone.
+     * @returns a float
+     */
+    public get micGlitchRate() {
+        return this._micGlitchRate;
+    };
+    /**
+     * Sets the micGlitchRate property value. Glitches per 5 minute interval for the media endpoint's microphone.
+     * @param value Value to set for the micGlitchRate property.
+     */
+    public set micGlitchRate(value: number | undefined) {
+        if(value) {
+            this._micGlitchRate = value;
+        }
+    };
+    /**
+     * Gets the receivedNoiseLevel property value. Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
+     * @returns a integer
+     */
+    public get receivedNoiseLevel() {
+        return this._receivedNoiseLevel;
+    };
+    /**
+     * Sets the receivedNoiseLevel property value. Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
+     * @param value Value to set for the receivedNoiseLevel property.
+     */
+    public set receivedNoiseLevel(value: number | undefined) {
+        if(value) {
+            this._receivedNoiseLevel = value;
+        }
+    };
+    /**
+     * Gets the receivedSignalLevel property value. Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.
+     * @returns a integer
+     */
+    public get receivedSignalLevel() {
+        return this._receivedSignalLevel;
+    };
+    /**
+     * Sets the receivedSignalLevel property value. Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.
+     * @param value Value to set for the receivedSignalLevel property.
+     */
+    public set receivedSignalLevel(value: number | undefined) {
+        if(value) {
+            this._receivedSignalLevel = value;
+        }
+    };
+    /**
+     * Gets the renderDeviceDriver property value. Name of the render device driver used by the media endpoint.
+     * @returns a string
+     */
+    public get renderDeviceDriver() {
+        return this._renderDeviceDriver;
+    };
+    /**
+     * Sets the renderDeviceDriver property value. Name of the render device driver used by the media endpoint.
+     * @param value Value to set for the renderDeviceDriver property.
+     */
+    public set renderDeviceDriver(value: string | undefined) {
+        if(value) {
+            this._renderDeviceDriver = value;
+        }
+    };
+    /**
+     * Gets the renderDeviceName property value. Name of the render device used by the media endpoint.
+     * @returns a string
+     */
+    public get renderDeviceName() {
+        return this._renderDeviceName;
+    };
+    /**
+     * Sets the renderDeviceName property value. Name of the render device used by the media endpoint.
+     * @param value Value to set for the renderDeviceName property.
+     */
+    public set renderDeviceName(value: string | undefined) {
+        if(value) {
+            this._renderDeviceName = value;
+        }
+    };
+    /**
+     * Gets the renderMuteEventRatio property value. Fraction of the call that media endpoint detected device render is muted.
+     * @returns a float
+     */
+    public get renderMuteEventRatio() {
+        return this._renderMuteEventRatio;
+    };
+    /**
+     * Sets the renderMuteEventRatio property value. Fraction of the call that media endpoint detected device render is muted.
+     * @param value Value to set for the renderMuteEventRatio property.
+     */
+    public set renderMuteEventRatio(value: number | undefined) {
+        if(value) {
+            this._renderMuteEventRatio = value;
+        }
+    };
+    /**
+     * Gets the renderNotFunctioningEventRatio property value. Fraction of the call that the media endpoint detected the render device was not working properly.
+     * @returns a float
+     */
+    public get renderNotFunctioningEventRatio() {
+        return this._renderNotFunctioningEventRatio;
+    };
+    /**
+     * Sets the renderNotFunctioningEventRatio property value. Fraction of the call that the media endpoint detected the render device was not working properly.
+     * @param value Value to set for the renderNotFunctioningEventRatio property.
+     */
+    public set renderNotFunctioningEventRatio(value: number | undefined) {
+        if(value) {
+            this._renderNotFunctioningEventRatio = value;
+        }
+    };
+    /**
+     * Gets the renderZeroVolumeEventRatio property value. Fraction of the call that media endpoint detected device render volume is set to 0.
+     * @returns a float
+     */
+    public get renderZeroVolumeEventRatio() {
+        return this._renderZeroVolumeEventRatio;
+    };
+    /**
+     * Sets the renderZeroVolumeEventRatio property value. Fraction of the call that media endpoint detected device render volume is set to 0.
+     * @param value Value to set for the renderZeroVolumeEventRatio property.
+     */
+    public set renderZeroVolumeEventRatio(value: number | undefined) {
+        if(value) {
+            this._renderZeroVolumeEventRatio = value;
+        }
+    };
+    /**
+     * Gets the sentNoiseLevel property value. Average energy level of sent audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
+     * @returns a integer
+     */
+    public get sentNoiseLevel() {
+        return this._sentNoiseLevel;
+    };
+    /**
+     * Sets the sentNoiseLevel property value. Average energy level of sent audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
+     * @param value Value to set for the sentNoiseLevel property.
+     */
+    public set sentNoiseLevel(value: number | undefined) {
+        if(value) {
+            this._sentNoiseLevel = value;
+        }
+    };
+    /**
+     * Gets the sentSignalLevel property value. Average energy level of sent audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.
+     * @returns a integer
+     */
+    public get sentSignalLevel() {
+        return this._sentSignalLevel;
+    };
+    /**
+     * Sets the sentSignalLevel property value. Average energy level of sent audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.
+     * @param value Value to set for the sentSignalLevel property.
+     */
+    public set sentSignalLevel(value: number | undefined) {
+        if(value) {
+            this._sentSignalLevel = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -173,5 +509,21 @@ export class DeviceInfoImpl implements DeviceInfo {
             writer.writeNumberValue("speakerGlitchRate", this.speakerGlitchRate);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the speakerGlitchRate property value. Glitches per 5 minute internal for the media endpoint's loudspeaker.
+     * @returns a float
+     */
+    public get speakerGlitchRate() {
+        return this._speakerGlitchRate;
+    };
+    /**
+     * Sets the speakerGlitchRate property value. Glitches per 5 minute internal for the media endpoint's loudspeaker.
+     * @param value Value to set for the speakerGlitchRate property.
+     */
+    public set speakerGlitchRate(value: number | undefined) {
+        if(value) {
+            this._speakerGlitchRate = value;
+        }
     };
 }

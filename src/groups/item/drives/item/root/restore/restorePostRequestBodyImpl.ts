@@ -7,19 +7,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the restore method. */
 export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The name property */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The parentReference property */
-    public parentReference?: ItemReference | undefined;
+    private _parentReference?: ItemReference | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new restorePostRequestBody and sets the default values.
      * @param restorePostRequestBodyParameterValue 
      */
     public constructor(restorePostRequestBodyParameterValue?: RestorePostRequestBody | undefined) {
-        this.additionalData = restorePostRequestBodyParameterValue?.additionalData ? restorePostRequestBodyParameterValue?.additionalData! : {};
-        this.name = restorePostRequestBodyParameterValue?.name;
-        this.parentReference = restorePostRequestBodyParameterValue?.parentReference;
+        this._additionalData = restorePostRequestBodyParameterValue?.additionalData ? restorePostRequestBodyParameterValue?.additionalData! : {};
+        this._name = restorePostRequestBodyParameterValue?.name;
+        this._parentReference = restorePostRequestBodyParameterValue?.parentReference;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +48,38 @@ export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
         };
     };
     /**
+     * Gets the name property value. The name property
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name property
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the parentReference property value. The parentReference property
+     * @returns a ItemReferenceInterface
+     */
+    public get parentReference() {
+        return this._parentReference;
+    };
+    /**
+     * Sets the parentReference property value. The parentReference property
+     * @param value Value to set for the parentReference property.
+     */
+    public set parentReference(value: ItemReference | undefined) {
+        if(value) {
+            this._parentReference = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -41,7 +89,7 @@ export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
             writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-            writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (!this.parentReference || this.parentReference instanceof ItemReferenceImpl? this.parentReference : new ItemReferenceImpl(this.parentReference)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

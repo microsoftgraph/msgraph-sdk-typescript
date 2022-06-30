@@ -4,22 +4,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerPlanContainerImpl implements PlannerPlanContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The identifier of the resource that contains the plan. */
-    public containerId?: string | undefined;
+    private _containerId?: string | undefined;
     /** The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. */
-    public type?: PlannerContainerType | undefined;
+    private _type?: PlannerContainerType | undefined;
     /** The full canonical URL of the container. */
-    public url?: string | undefined;
+    private _url?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new plannerPlanContainer and sets the default values.
      * @param plannerPlanContainerParameterValue 
      */
     public constructor(plannerPlanContainerParameterValue?: PlannerPlanContainer | undefined) {
-        this.additionalData = plannerPlanContainerParameterValue?.additionalData ? plannerPlanContainerParameterValue?.additionalData! : {};
-        this.containerId = plannerPlanContainerParameterValue?.containerId;
-        this.type = plannerPlanContainerParameterValue?.type;
-        this.url = plannerPlanContainerParameterValue?.url;
+        this._additionalData = plannerPlanContainerParameterValue?.additionalData ? plannerPlanContainerParameterValue?.additionalData! : {};
+        this._containerId = plannerPlanContainerParameterValue?.containerId;
+        this._type = plannerPlanContainerParameterValue?.type;
+        this._url = plannerPlanContainerParameterValue?.url;
+    };
+    /**
+     * Gets the containerId property value. The identifier of the resource that contains the plan.
+     * @returns a string
+     */
+    public get containerId() {
+        return this._containerId;
+    };
+    /**
+     * Sets the containerId property value. The identifier of the resource that contains the plan.
+     * @param value Value to set for the containerId property.
+     */
+    public set containerId(value: string | undefined) {
+        if(value) {
+            this._containerId = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -48,5 +80,37 @@ export class PlannerPlanContainerImpl implements PlannerPlanContainer {
             writer.writeStringValue("url", this.url);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     * @returns a plannerContainerType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: PlannerContainerType | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the url property value. The full canonical URL of the container.
+     * @returns a string
+     */
+    public get url() {
+        return this._url;
+    };
+    /**
+     * Sets the url property value. The full canonical URL of the container.
+     * @param value Value to set for the url property.
+     */
+    public set url(value: string | undefined) {
+        if(value) {
+            this._url = value;
+        }
     };
 }

@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class GroupCollectionResponseImpl implements GroupCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: Group[] | undefined;
+    private _value?: Group[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new GroupCollectionResponse and sets the default values.
      * @param groupCollectionResponseParameterValue 
      */
     public constructor(groupCollectionResponseParameterValue?: GroupCollectionResponse | undefined) {
-        this.additionalData = groupCollectionResponseParameterValue?.additionalData ? groupCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = groupCollectionResponseParameterValue?.nextLink;
-        this.value = groupCollectionResponseParameterValue?.value;
+        this._additionalData = groupCollectionResponseParameterValue?.additionalData ? groupCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = groupCollectionResponseParameterValue?.nextLink;
+        this._value = groupCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: GroupImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new GroupImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: GroupImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<GroupImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a GroupInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: Group[] | undefined) {
+        if(value) {
+            const valueArrValue: GroupImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

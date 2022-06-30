@@ -10,25 +10,41 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchResponseImpl implements SearchResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A collection of search results. */
-    public hitsContainers?: SearchHitsContainer[] | undefined;
+    private _hitsContainers?: SearchHitsContainer[] | undefined;
     /** Provides details of query alteration response for spelling correction. */
-    public queryAlterationResponse?: AlterationResponse | undefined;
+    private _queryAlterationResponse?: AlterationResponse | undefined;
     /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates. */
-    public resultTemplates?: ResultTemplateDictionary | undefined;
+    private _resultTemplates?: ResultTemplateDictionary | undefined;
     /** Contains the search terms sent in the initial search query. */
-    public searchTerms?: string[] | undefined;
+    private _searchTerms?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new searchResponse and sets the default values.
      * @param searchResponseParameterValue 
      */
     public constructor(searchResponseParameterValue?: SearchResponse | undefined) {
-        this.additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {};
-        this.hitsContainers = searchResponseParameterValue?.hitsContainers;
-        this.queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse;
-        this.resultTemplates = searchResponseParameterValue?.resultTemplates;
-        this.searchTerms = searchResponseParameterValue?.searchTerms;
+        this._additionalData = searchResponseParameterValue?.additionalData ? searchResponseParameterValue?.additionalData! : {};
+        this._hitsContainers = searchResponseParameterValue?.hitsContainers;
+        this._queryAlterationResponse = searchResponseParameterValue?.queryAlterationResponse;
+        this._resultTemplates = searchResponseParameterValue?.resultTemplates;
+        this._searchTerms = searchResponseParameterValue?.searchTerms;
     };
     /**
      * The deserialization information for the current model
@@ -43,19 +59,90 @@ export class SearchResponseImpl implements SearchResponse {
         };
     };
     /**
+     * Gets the hitsContainers property value. A collection of search results.
+     * @returns a SearchHitsContainerInterface
+     */
+    public get hitsContainers() {
+        return this._hitsContainers;
+    };
+    /**
+     * Sets the hitsContainers property value. A collection of search results.
+     * @param value Value to set for the hitsContainers property.
+     */
+    public set hitsContainers(value: SearchHitsContainer[] | undefined) {
+        if(value) {
+            const hitsContainersArrValue: SearchHitsContainerImpl[] = [];
+            this.hitsContainers?.forEach(element => {
+                hitsContainersArrValue.push((element instanceof SearchHitsContainerImpl? element:new SearchHitsContainerImpl(element)));
+            });
+            this._hitsContainers = hitsContainersArrValue;
+        }
+    };
+    /**
+     * Gets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
+     * @returns a AlterationResponseInterface
+     */
+    public get queryAlterationResponse() {
+        return this._queryAlterationResponse;
+    };
+    /**
+     * Sets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
+     * @param value Value to set for the queryAlterationResponse property.
+     */
+    public set queryAlterationResponse(value: AlterationResponse | undefined) {
+        if(value) {
+            this._queryAlterationResponse = value instanceof AlterationResponseImpl? value : new AlterationResponseImpl(value);
+        }
+    };
+    /**
+     * Gets the resultTemplates property value. A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
+     * @returns a ResultTemplateDictionaryInterface
+     */
+    public get resultTemplates() {
+        return this._resultTemplates;
+    };
+    /**
+     * Sets the resultTemplates property value. A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
+     * @param value Value to set for the resultTemplates property.
+     */
+    public set resultTemplates(value: ResultTemplateDictionary | undefined) {
+        if(value) {
+            this._resultTemplates = value instanceof ResultTemplateDictionaryImpl? value : new ResultTemplateDictionaryImpl(value);
+        }
+    };
+    /**
+     * Gets the searchTerms property value. Contains the search terms sent in the initial search query.
+     * @returns a string
+     */
+    public get searchTerms() {
+        return this._searchTerms;
+    };
+    /**
+     * Sets the searchTerms property value. Contains the search terms sent in the initial search query.
+     * @param value Value to set for the searchTerms property.
+     */
+    public set searchTerms(value: string[] | undefined) {
+        if(value) {
+            this._searchTerms = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = []; this.hitsContainers?.forEach(element => {hitsContainersArrValue.push(new SearchHitsContainerImpl(element));});
+        if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = [];
+        this.hitsContainers?.forEach(element => {
+            hitsContainersArrValue.push((element instanceof SearchHitsContainerImpl? element:new SearchHitsContainerImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SearchHitsContainerImpl>("hitsContainers", hitsContainersArrValue);
         }
         if(this.queryAlterationResponse){
-            writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", new AlterationResponseImpl(this.queryAlterationResponse));
+            writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", (!this.queryAlterationResponse || this.queryAlterationResponse instanceof AlterationResponseImpl? this.queryAlterationResponse : new AlterationResponseImpl(this.queryAlterationResponse)));
         }
         if(this.resultTemplates){
-            writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", new ResultTemplateDictionaryImpl(this.resultTemplates));
+            writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", (!this.resultTemplates || this.resultTemplates instanceof ResultTemplateDictionaryImpl? this.resultTemplates : new ResultTemplateDictionaryImpl(this.resultTemplates)));
         }
         if(this.searchTerms){
             writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);

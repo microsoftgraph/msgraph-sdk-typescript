@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getDirectRoutingCalls method. */
 export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl implements GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: DirectRoutingLogRow[] | undefined;
+    private _value?: DirectRoutingLogRow[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse and sets the default values.
      * @param getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue 
      */
     public constructor(getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?: GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse | undefined) {
-        this.additionalData = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
-        this.value = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.value;
+        this._additionalData = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
+        this._value = getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl imp
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: DirectRoutingLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DirectRoutingLogRowImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DirectRoutingLogRowImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof DirectRoutingLogRowImpl? element:new DirectRoutingLogRowImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DirectRoutingLogRowImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a DirectRoutingLogRowInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: DirectRoutingLogRow[] | undefined) {
+        if(value) {
+            const valueArrValue: DirectRoutingLogRowImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof DirectRoutingLogRowImpl? element:new DirectRoutingLogRowImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

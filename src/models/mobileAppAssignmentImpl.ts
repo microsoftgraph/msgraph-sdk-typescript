@@ -10,20 +10,20 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** A class containing the properties used for Group Assignment of a Mobile App. */
 export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssignment {
     /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
-    public intent?: InstallIntent | undefined;
+    private _intent?: InstallIntent | undefined;
     /** The settings for target assignment defined by the admin. */
-    public settings?: MobileAppAssignmentSettings | undefined;
+    private _settings?: MobileAppAssignmentSettings | undefined;
     /** The target group assignment defined by the admin. */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new mobileAppAssignment and sets the default values.
      * @param mobileAppAssignmentParameterValue 
      */
     public constructor(mobileAppAssignmentParameterValue?: MobileAppAssignment | undefined) {
         super(mobileAppAssignmentParameterValue);
-        this.intent = mobileAppAssignmentParameterValue?.intent;
-        this.settings = mobileAppAssignmentParameterValue?.settings;
-        this.target = mobileAppAssignmentParameterValue?.target;
+        this._intent = mobileAppAssignmentParameterValue?.intent;
+        this._settings = mobileAppAssignmentParameterValue?.settings;
+        this._target = mobileAppAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +37,22 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
         };
     };
     /**
+     * Gets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @returns a installIntent
+     */
+    public get intent() {
+        return this._intent;
+    };
+    /**
+     * Sets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @param value Value to set for the intent property.
+     */
+    public set intent(value: InstallIntent | undefined) {
+        if(value) {
+            this._intent = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -47,10 +63,42 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
             writer.writeEnumValue<InstallIntent>("intent", this.intent);
         }
         if(this.settings){
-            writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", new MobileAppAssignmentSettingsImpl(this.settings));
+            writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", (!this.settings || this.settings instanceof MobileAppAssignmentSettingsImpl? this.settings : new MobileAppAssignmentSettingsImpl(this.settings)));
         }
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+        }
+    };
+    /**
+     * Gets the settings property value. The settings for target assignment defined by the admin.
+     * @returns a MobileAppAssignmentSettingsInterface
+     */
+    public get settings() {
+        return this._settings;
+    };
+    /**
+     * Sets the settings property value. The settings for target assignment defined by the admin.
+     * @param value Value to set for the settings property.
+     */
+    public set settings(value: MobileAppAssignmentSettings | undefined) {
+        if(value) {
+            this._settings = value instanceof MobileAppAssignmentSettingsImpl? value : new MobileAppAssignmentSettingsImpl(value);
+        }
+    };
+    /**
+     * Gets the target property value. The target group assignment defined by the admin.
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. The target group assignment defined by the admin.
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

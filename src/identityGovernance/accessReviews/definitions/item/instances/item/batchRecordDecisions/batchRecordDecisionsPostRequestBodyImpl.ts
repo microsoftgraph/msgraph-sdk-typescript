@@ -4,25 +4,57 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the batchRecordDecisions method. */
 export class BatchRecordDecisionsPostRequestBodyImpl implements BatchRecordDecisionsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The decision property */
-    public decision?: string | undefined;
+    private _decision?: string | undefined;
     /** The justification property */
-    public justification?: string | undefined;
+    private _justification?: string | undefined;
     /** The principalId property */
-    public principalId?: string | undefined;
+    private _principalId?: string | undefined;
     /** The resourceId property */
-    public resourceId?: string | undefined;
+    private _resourceId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new batchRecordDecisionsPostRequestBody and sets the default values.
      * @param batchRecordDecisionsPostRequestBodyParameterValue 
      */
     public constructor(batchRecordDecisionsPostRequestBodyParameterValue?: BatchRecordDecisionsPostRequestBody | undefined) {
-        this.additionalData = batchRecordDecisionsPostRequestBodyParameterValue?.additionalData ? batchRecordDecisionsPostRequestBodyParameterValue?.additionalData! : {};
-        this.decision = batchRecordDecisionsPostRequestBodyParameterValue?.decision;
-        this.justification = batchRecordDecisionsPostRequestBodyParameterValue?.justification;
-        this.principalId = batchRecordDecisionsPostRequestBodyParameterValue?.principalId;
-        this.resourceId = batchRecordDecisionsPostRequestBodyParameterValue?.resourceId;
+        this._additionalData = batchRecordDecisionsPostRequestBodyParameterValue?.additionalData ? batchRecordDecisionsPostRequestBodyParameterValue?.additionalData! : {};
+        this._decision = batchRecordDecisionsPostRequestBodyParameterValue?.decision;
+        this._justification = batchRecordDecisionsPostRequestBodyParameterValue?.justification;
+        this._principalId = batchRecordDecisionsPostRequestBodyParameterValue?.principalId;
+        this._resourceId = batchRecordDecisionsPostRequestBodyParameterValue?.resourceId;
+    };
+    /**
+     * Gets the decision property value. The decision property
+     * @returns a string
+     */
+    public get decision() {
+        return this._decision;
+    };
+    /**
+     * Sets the decision property value. The decision property
+     * @param value Value to set for the decision property.
+     */
+    public set decision(value: string | undefined) {
+        if(value) {
+            this._decision = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +67,54 @@ export class BatchRecordDecisionsPostRequestBodyImpl implements BatchRecordDecis
             "principalId": n => { this.principalId = n.getStringValue(); },
             "resourceId": n => { this.resourceId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the justification property value. The justification property
+     * @returns a string
+     */
+    public get justification() {
+        return this._justification;
+    };
+    /**
+     * Sets the justification property value. The justification property
+     * @param value Value to set for the justification property.
+     */
+    public set justification(value: string | undefined) {
+        if(value) {
+            this._justification = value;
+        }
+    };
+    /**
+     * Gets the principalId property value. The principalId property
+     * @returns a string
+     */
+    public get principalId() {
+        return this._principalId;
+    };
+    /**
+     * Sets the principalId property value. The principalId property
+     * @param value Value to set for the principalId property.
+     */
+    public set principalId(value: string | undefined) {
+        if(value) {
+            this._principalId = value;
+        }
+    };
+    /**
+     * Gets the resourceId property value. The resourceId property
+     * @returns a string
+     */
+    public get resourceId() {
+        return this._resourceId;
+    };
+    /**
+     * Sets the resourceId property value. The resourceId property
+     * @param value Value to set for the resourceId property.
+     */
+    public set resourceId(value: string | undefined) {
+        if(value) {
+            this._resourceId = value;
+        }
     };
     /**
      * Serializes information the current object

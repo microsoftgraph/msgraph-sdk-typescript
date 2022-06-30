@@ -4,17 +4,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DomainDnsMxRecordImpl extends DomainDnsRecordImpl implements DomainDnsMxRecord {
     /** Value used when configuring the answer/destination/value of the MX record at the DNS host. */
-    public mailExchange?: string | undefined;
+    private _mailExchange?: string | undefined;
     /** Value used when configuring the Preference/Priority property of the MX record at the DNS host. */
-    public preference?: number | undefined;
+    private _preference?: number | undefined;
     /**
      * Instantiates a new DomainDnsMxRecord and sets the default values.
      * @param domainDnsMxRecordParameterValue 
      */
     public constructor(domainDnsMxRecordParameterValue?: DomainDnsMxRecord | undefined) {
         super(domainDnsMxRecordParameterValue);
-        this.mailExchange = domainDnsMxRecordParameterValue?.mailExchange;
-        this.preference = domainDnsMxRecordParameterValue?.preference;
+        this._mailExchange = domainDnsMxRecordParameterValue?.mailExchange;
+        this._preference = domainDnsMxRecordParameterValue?.preference;
     };
     /**
      * The deserialization information for the current model
@@ -25,6 +25,38 @@ export class DomainDnsMxRecordImpl extends DomainDnsRecordImpl implements Domain
             "mailExchange": n => { this.mailExchange = n.getStringValue(); },
             "preference": n => { this.preference = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the mailExchange property value. Value used when configuring the answer/destination/value of the MX record at the DNS host.
+     * @returns a string
+     */
+    public get mailExchange() {
+        return this._mailExchange;
+    };
+    /**
+     * Sets the mailExchange property value. Value used when configuring the answer/destination/value of the MX record at the DNS host.
+     * @param value Value to set for the mailExchange property.
+     */
+    public set mailExchange(value: string | undefined) {
+        if(value) {
+            this._mailExchange = value;
+        }
+    };
+    /**
+     * Gets the preference property value. Value used when configuring the Preference/Priority property of the MX record at the DNS host.
+     * @returns a integer
+     */
+    public get preference() {
+        return this._preference;
+    };
+    /**
+     * Sets the preference property value. Value used when configuring the Preference/Priority property of the MX record at the DNS host.
+     * @param value Value to set for the preference property.
+     */
+    public set preference(value: number | undefined) {
+        if(value) {
+            this._preference = value;
+        }
     };
     /**
      * Serializes information the current object

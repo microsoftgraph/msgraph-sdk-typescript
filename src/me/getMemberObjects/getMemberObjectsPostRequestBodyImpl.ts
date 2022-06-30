@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getMemberObjects method. */
 export class GetMemberObjectsPostRequestBodyImpl implements GetMemberObjectsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The securityEnabledOnly property */
-    public securityEnabledOnly?: boolean | undefined;
+    private _securityEnabledOnly?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getMemberObjectsPostRequestBody and sets the default values.
      * @param getMemberObjectsPostRequestBodyParameterValue 
      */
     public constructor(getMemberObjectsPostRequestBodyParameterValue?: GetMemberObjectsPostRequestBody | undefined) {
-        this.additionalData = getMemberObjectsPostRequestBodyParameterValue?.additionalData ? getMemberObjectsPostRequestBodyParameterValue?.additionalData! : {};
-        this.securityEnabledOnly = getMemberObjectsPostRequestBodyParameterValue?.securityEnabledOnly;
+        this._additionalData = getMemberObjectsPostRequestBodyParameterValue?.additionalData ? getMemberObjectsPostRequestBodyParameterValue?.additionalData! : {};
+        this._securityEnabledOnly = getMemberObjectsPostRequestBodyParameterValue?.securityEnabledOnly;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +39,22 @@ export class GetMemberObjectsPostRequestBodyImpl implements GetMemberObjectsPost
         return {
             "securityEnabledOnly": n => { this.securityEnabledOnly = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the securityEnabledOnly property value. The securityEnabledOnly property
+     * @returns a boolean
+     */
+    public get securityEnabledOnly() {
+        return this._securityEnabledOnly;
+    };
+    /**
+     * Sets the securityEnabledOnly property value. The securityEnabledOnly property
+     * @param value Value to set for the securityEnabledOnly property.
+     */
+    public set securityEnabledOnly(value: boolean | undefined) {
+        if(value) {
+            this._securityEnabledOnly = value;
+        }
     };
     /**
      * Serializes information the current object

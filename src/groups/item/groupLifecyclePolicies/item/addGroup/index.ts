@@ -1,5 +1,5 @@
 export * from './addGroupResponseImpl'
 export * from './addGroupPostRequestBodyImpl'
-export * from './addGroupPostRequestBody'
 export * from './addGroupRequestBuilderPostRequestConfiguration'
 export * from './addGroupResponse'
+export * from './addGroupPostRequestBody'

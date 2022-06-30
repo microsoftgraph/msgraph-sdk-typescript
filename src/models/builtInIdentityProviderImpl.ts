@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class BuiltInIdentityProviderImpl extends IdentityProviderBaseImpl implements BuiltInIdentityProvider {
     /** The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required. */
-    public identityProviderType?: string | undefined;
+    private _identityProviderType?: string | undefined;
     /**
      * Instantiates a new BuiltInIdentityProvider and sets the default values.
      * @param builtInIdentityProviderParameterValue 
      */
     public constructor(builtInIdentityProviderParameterValue?: BuiltInIdentityProvider | undefined) {
         super(builtInIdentityProviderParameterValue);
-        this.identityProviderType = builtInIdentityProviderParameterValue?.identityProviderType;
+        this._identityProviderType = builtInIdentityProviderParameterValue?.identityProviderType;
     };
     /**
      * The deserialization information for the current model
@@ -21,6 +21,22 @@ export class BuiltInIdentityProviderImpl extends IdentityProviderBaseImpl implem
         return {...super.getFieldDeserializers(),
             "identityProviderType": n => { this.identityProviderType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the identityProviderType property value. The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
+     * @returns a string
+     */
+    public get identityProviderType() {
+        return this._identityProviderType;
+    };
+    /**
+     * Sets the identityProviderType property value. The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
+     * @param value Value to set for the identityProviderType property.
+     */
+    public set identityProviderType(value: string | undefined) {
+        if(value) {
+            this._identityProviderType = value;
+        }
     };
     /**
      * Serializes information the current object

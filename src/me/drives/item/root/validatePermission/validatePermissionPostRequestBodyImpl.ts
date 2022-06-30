@@ -4,19 +4,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the validatePermission method. */
 export class ValidatePermissionPostRequestBodyImpl implements ValidatePermissionPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The challengeToken property */
-    public challengeToken?: string | undefined;
+    private _challengeToken?: string | undefined;
     /** The password property */
-    public password?: string | undefined;
+    private _password?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the challengeToken property value. The challengeToken property
+     * @returns a string
+     */
+    public get challengeToken() {
+        return this._challengeToken;
+    };
+    /**
+     * Sets the challengeToken property value. The challengeToken property
+     * @param value Value to set for the challengeToken property.
+     */
+    public set challengeToken(value: string | undefined) {
+        if(value) {
+            this._challengeToken = value;
+        }
+    };
     /**
      * Instantiates a new validatePermissionPostRequestBody and sets the default values.
      * @param validatePermissionPostRequestBodyParameterValue 
      */
     public constructor(validatePermissionPostRequestBodyParameterValue?: ValidatePermissionPostRequestBody | undefined) {
-        this.additionalData = validatePermissionPostRequestBodyParameterValue?.additionalData ? validatePermissionPostRequestBodyParameterValue?.additionalData! : {};
-        this.challengeToken = validatePermissionPostRequestBodyParameterValue?.challengeToken;
-        this.password = validatePermissionPostRequestBodyParameterValue?.password;
+        this._additionalData = validatePermissionPostRequestBodyParameterValue?.additionalData ? validatePermissionPostRequestBodyParameterValue?.additionalData! : {};
+        this._challengeToken = validatePermissionPostRequestBodyParameterValue?.challengeToken;
+        this._password = validatePermissionPostRequestBodyParameterValue?.password;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +59,22 @@ export class ValidatePermissionPostRequestBodyImpl implements ValidatePermission
             "challengeToken": n => { this.challengeToken = n.getStringValue(); },
             "password": n => { this.password = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the password property value. The password property
+     * @returns a string
+     */
+    public get password() {
+        return this._password;
+    };
+    /**
+     * Sets the password property value. The password property
+     * @param value Value to set for the password property.
+     */
+    public set password(value: string | undefined) {
+        if(value) {
+            this._password = value;
+        }
     };
     /**
      * Serializes information the current object

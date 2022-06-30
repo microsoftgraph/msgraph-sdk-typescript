@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the unmute method. */
 export class UnmutePostRequestBodyImpl implements UnmutePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The clientContext property */
-    public clientContext?: string | undefined;
+    private _clientContext?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the clientContext property value. The clientContext property
+     * @returns a string
+     */
+    public get clientContext() {
+        return this._clientContext;
+    };
+    /**
+     * Sets the clientContext property value. The clientContext property
+     * @param value Value to set for the clientContext property.
+     */
+    public set clientContext(value: string | undefined) {
+        if(value) {
+            this._clientContext = value;
+        }
+    };
     /**
      * Instantiates a new unmutePostRequestBody and sets the default values.
      * @param unmutePostRequestBodyParameterValue 
      */
     public constructor(unmutePostRequestBodyParameterValue?: UnmutePostRequestBody | undefined) {
-        this.additionalData = unmutePostRequestBodyParameterValue?.additionalData ? unmutePostRequestBodyParameterValue?.additionalData! : {};
-        this.clientContext = unmutePostRequestBodyParameterValue?.clientContext;
+        this._additionalData = unmutePostRequestBodyParameterValue?.additionalData ? unmutePostRequestBodyParameterValue?.additionalData! : {};
+        this._clientContext = unmutePostRequestBodyParameterValue?.clientContext;
     };
     /**
      * The deserialization information for the current model

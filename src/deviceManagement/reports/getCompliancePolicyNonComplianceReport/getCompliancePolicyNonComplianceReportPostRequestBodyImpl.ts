@@ -4,40 +4,72 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getCompliancePolicyNonComplianceReport method. */
 export class GetCompliancePolicyNonComplianceReportPostRequestBodyImpl implements GetCompliancePolicyNonComplianceReportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The filter property */
-    public filter?: string | undefined;
+    private _filter?: string | undefined;
     /** The groupBy property */
-    public groupBy?: string[] | undefined;
+    private _groupBy?: string[] | undefined;
     /** The name property */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The orderBy property */
-    public orderBy?: string[] | undefined;
+    private _orderBy?: string[] | undefined;
     /** The search property */
-    public search?: string | undefined;
+    private _search?: string | undefined;
     /** The select property */
-    public select?: string[] | undefined;
+    private _select?: string[] | undefined;
     /** The sessionId property */
-    public sessionId?: string | undefined;
+    private _sessionId?: string | undefined;
     /** The skip property */
-    public skip?: number | undefined;
+    private _skip?: number | undefined;
     /** The top property */
-    public top?: number | undefined;
+    private _top?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getCompliancePolicyNonComplianceReportPostRequestBody and sets the default values.
      * @param getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue 
      */
     public constructor(getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?: GetCompliancePolicyNonComplianceReportPostRequestBody | undefined) {
-        this.additionalData = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.additionalData ? getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.additionalData! : {};
-        this.filter = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.filter;
-        this.groupBy = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.groupBy;
-        this.name = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.name;
-        this.orderBy = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.orderBy;
-        this.search = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.search;
-        this.select = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.select;
-        this.sessionId = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.sessionId;
-        this.skip = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.skip;
-        this.top = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.top;
+        this._additionalData = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.additionalData ? getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.additionalData! : {};
+        this._filter = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.filter;
+        this._groupBy = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.groupBy;
+        this._name = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.name;
+        this._orderBy = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.orderBy;
+        this._search = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.search;
+        this._select = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.select;
+        this._sessionId = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.sessionId;
+        this._skip = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.skip;
+        this._top = getCompliancePolicyNonComplianceReportPostRequestBodyParameterValue?.top;
+    };
+    /**
+     * Gets the filter property value. The filter property
+     * @returns a string
+     */
+    public get filter() {
+        return this._filter;
+    };
+    /**
+     * Sets the filter property value. The filter property
+     * @param value Value to set for the filter property.
+     */
+    public set filter(value: string | undefined) {
+        if(value) {
+            this._filter = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -55,6 +87,86 @@ export class GetCompliancePolicyNonComplianceReportPostRequestBodyImpl implement
             "skip": n => { this.skip = n.getNumberValue(); },
             "top": n => { this.top = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the groupBy property value. The groupBy property
+     * @returns a string
+     */
+    public get groupBy() {
+        return this._groupBy;
+    };
+    /**
+     * Sets the groupBy property value. The groupBy property
+     * @param value Value to set for the groupBy property.
+     */
+    public set groupBy(value: string[] | undefined) {
+        if(value) {
+            this._groupBy = value;
+        }
+    };
+    /**
+     * Gets the name property value. The name property
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name property
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the orderBy property value. The orderBy property
+     * @returns a string
+     */
+    public get orderBy() {
+        return this._orderBy;
+    };
+    /**
+     * Sets the orderBy property value. The orderBy property
+     * @param value Value to set for the orderBy property.
+     */
+    public set orderBy(value: string[] | undefined) {
+        if(value) {
+            this._orderBy = value;
+        }
+    };
+    /**
+     * Gets the search property value. The search property
+     * @returns a string
+     */
+    public get search() {
+        return this._search;
+    };
+    /**
+     * Sets the search property value. The search property
+     * @param value Value to set for the search property.
+     */
+    public set search(value: string | undefined) {
+        if(value) {
+            this._search = value;
+        }
+    };
+    /**
+     * Gets the select property value. The select property
+     * @returns a string
+     */
+    public get select() {
+        return this._select;
+    };
+    /**
+     * Sets the select property value. The select property
+     * @param value Value to set for the select property.
+     */
+    public set select(value: string[] | undefined) {
+        if(value) {
+            this._select = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -90,5 +202,53 @@ export class GetCompliancePolicyNonComplianceReportPostRequestBodyImpl implement
             writer.writeNumberValue("top", this.top);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sessionId property value. The sessionId property
+     * @returns a string
+     */
+    public get sessionId() {
+        return this._sessionId;
+    };
+    /**
+     * Sets the sessionId property value. The sessionId property
+     * @param value Value to set for the sessionId property.
+     */
+    public set sessionId(value: string | undefined) {
+        if(value) {
+            this._sessionId = value;
+        }
+    };
+    /**
+     * Gets the skip property value. The skip property
+     * @returns a integer
+     */
+    public get skip() {
+        return this._skip;
+    };
+    /**
+     * Sets the skip property value. The skip property
+     * @param value Value to set for the skip property.
+     */
+    public set skip(value: number | undefined) {
+        if(value) {
+            this._skip = value;
+        }
+    };
+    /**
+     * Gets the top property value. The top property
+     * @returns a integer
+     */
+    public get top() {
+        return this._top;
+    };
+    /**
+     * Sets the top property value. The top property
+     * @param value Value to set for the top property.
+     */
+    public set top(value: number | undefined) {
+        if(value) {
+            this._top = value;
+        }
     };
 }

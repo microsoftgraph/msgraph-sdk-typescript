@@ -5,22 +5,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** BitLocker Removable Drive Policies. */
 export class BitLockerRemovableDrivePolicyImpl implements BitLockerRemovableDrivePolicy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** This policy setting determines whether BitLocker protection is required for removable data drives to be writable on a computer. */
-    public blockCrossOrganizationWriteAccess?: boolean | undefined;
+    private _blockCrossOrganizationWriteAccess?: boolean | undefined;
     /** Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256. */
-    public encryptionMethod?: BitLockerEncryptionMethod | undefined;
+    private _encryptionMethod?: BitLockerEncryptionMethod | undefined;
     /** Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect. */
-    public requireEncryptionForWriteAccess?: boolean | undefined;
+    private _requireEncryptionForWriteAccess?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the blockCrossOrganizationWriteAccess property value. This policy setting determines whether BitLocker protection is required for removable data drives to be writable on a computer.
+     * @returns a boolean
+     */
+    public get blockCrossOrganizationWriteAccess() {
+        return this._blockCrossOrganizationWriteAccess;
+    };
+    /**
+     * Sets the blockCrossOrganizationWriteAccess property value. This policy setting determines whether BitLocker protection is required for removable data drives to be writable on a computer.
+     * @param value Value to set for the blockCrossOrganizationWriteAccess property.
+     */
+    public set blockCrossOrganizationWriteAccess(value: boolean | undefined) {
+        if(value) {
+            this._blockCrossOrganizationWriteAccess = value;
+        }
+    };
     /**
      * Instantiates a new bitLockerRemovableDrivePolicy and sets the default values.
      * @param bitLockerRemovableDrivePolicyParameterValue 
      */
     public constructor(bitLockerRemovableDrivePolicyParameterValue?: BitLockerRemovableDrivePolicy | undefined) {
-        this.additionalData = bitLockerRemovableDrivePolicyParameterValue?.additionalData ? bitLockerRemovableDrivePolicyParameterValue?.additionalData! : {};
-        this.blockCrossOrganizationWriteAccess = bitLockerRemovableDrivePolicyParameterValue?.blockCrossOrganizationWriteAccess;
-        this.encryptionMethod = bitLockerRemovableDrivePolicyParameterValue?.encryptionMethod;
-        this.requireEncryptionForWriteAccess = bitLockerRemovableDrivePolicyParameterValue?.requireEncryptionForWriteAccess;
+        this._additionalData = bitLockerRemovableDrivePolicyParameterValue?.additionalData ? bitLockerRemovableDrivePolicyParameterValue?.additionalData! : {};
+        this._blockCrossOrganizationWriteAccess = bitLockerRemovableDrivePolicyParameterValue?.blockCrossOrganizationWriteAccess;
+        this._encryptionMethod = bitLockerRemovableDrivePolicyParameterValue?.encryptionMethod;
+        this._requireEncryptionForWriteAccess = bitLockerRemovableDrivePolicyParameterValue?.requireEncryptionForWriteAccess;
+    };
+    /**
+     * Gets the encryptionMethod property value. Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
+     * @returns a bitLockerEncryptionMethod
+     */
+    public get encryptionMethod() {
+        return this._encryptionMethod;
+    };
+    /**
+     * Sets the encryptionMethod property value. Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
+     * @param value Value to set for the encryptionMethod property.
+     */
+    public set encryptionMethod(value: BitLockerEncryptionMethod | undefined) {
+        if(value) {
+            this._encryptionMethod = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +80,22 @@ export class BitLockerRemovableDrivePolicyImpl implements BitLockerRemovableDriv
             "encryptionMethod": n => { this.encryptionMethod = n.getEnumValue<BitLockerEncryptionMethod>(BitLockerEncryptionMethod); },
             "requireEncryptionForWriteAccess": n => { this.requireEncryptionForWriteAccess = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the requireEncryptionForWriteAccess property value. Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect.
+     * @returns a boolean
+     */
+    public get requireEncryptionForWriteAccess() {
+        return this._requireEncryptionForWriteAccess;
+    };
+    /**
+     * Sets the requireEncryptionForWriteAccess property value. Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect.
+     * @param value Value to set for the requireEncryptionForWriteAccess property.
+     */
+    public set requireEncryptionForWriteAccess(value: boolean | undefined) {
+        if(value) {
+            this._requireEncryptionForWriteAccess = value;
+        }
     };
     /**
      * Serializes information the current object

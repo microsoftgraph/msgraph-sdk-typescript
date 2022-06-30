@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class PrintUsageByPrinterImpl extends PrintUsageImpl implements PrintUsageByPrinter {
     /** The printerId property */
-    public printerId?: string | undefined;
+    private _printerId?: string | undefined;
     /**
      * Instantiates a new PrintUsageByPrinter and sets the default values.
      * @param printUsageByPrinterParameterValue 
      */
     public constructor(printUsageByPrinterParameterValue?: PrintUsageByPrinter | undefined) {
         super(printUsageByPrinterParameterValue);
-        this.printerId = printUsageByPrinterParameterValue?.printerId;
+        this._printerId = printUsageByPrinterParameterValue?.printerId;
     };
     /**
      * The deserialization information for the current model
@@ -21,6 +21,22 @@ export class PrintUsageByPrinterImpl extends PrintUsageImpl implements PrintUsag
         return {...super.getFieldDeserializers(),
             "printerId": n => { this.printerId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the printerId property value. The printerId property
+     * @returns a string
+     */
+    public get printerId() {
+        return this._printerId;
+    };
+    /**
+     * Sets the printerId property value. The printerId property
+     * @param value Value to set for the printerId property.
+     */
+    public set printerId(value: string | undefined) {
+        if(value) {
+            this._printerId = value;
+        }
     };
     /**
      * Serializes information the current object

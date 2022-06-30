@@ -5,17 +5,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to call the instantiate method. */
 export class PolicyBaseImpl extends DirectoryObjectImpl implements PolicyBase {
     /** Description for this policy. Required. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Display name for this policy. Required. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /**
      * Instantiates a new policyBase and sets the default values.
      * @param policyBaseParameterValue 
      */
     public constructor(policyBaseParameterValue?: PolicyBase | undefined) {
         super(policyBaseParameterValue);
-        this.description = policyBaseParameterValue?.description;
-        this.displayName = policyBaseParameterValue?.displayName;
+        this._description = policyBaseParameterValue?.description;
+        this._displayName = policyBaseParameterValue?.displayName;
+    };
+    /**
+     * Gets the description property value. Description for this policy. Required.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Description for this policy. Required.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Display name for this policy. Required.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name for this policy. Required.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

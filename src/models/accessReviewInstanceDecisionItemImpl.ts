@@ -11,50 +11,130 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements AccessReviewInstanceDecisionItem {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
-    public accessReviewId?: string | undefined;
+    private _accessReviewId?: string | undefined;
     /** The identifier of the user who applied the decision. Read-only. */
-    public appliedBy?: UserIdentity | undefined;
+    private _appliedBy?: UserIdentity | undefined;
     /** The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only. */
-    public appliedDateTime?: Date | undefined;
+    private _appliedDateTime?: Date | undefined;
     /** The result of applying the decision. Possible values: New, AppliedSuccessfully, AppliedWithUnknownFailure, AppliedSuccessfullyButObjectNotFound and ApplyNotSupported. Supports $select, $orderby, and $filter (eq only). Read-only. */
-    public applyResult?: string | undefined;
+    private _applyResult?: string | undefined;
     /** Result of the review. Possible values: Approve, Deny, NotReviewed, or DontKnow. Supports $select, $orderby, and $filter (eq only). */
-    public decision?: string | undefined;
+    private _decision?: string | undefined;
     /** Justification left by the reviewer when they made the decision. */
-    public justification?: string | undefined;
+    private _justification?: string | undefined;
     /** Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only. */
-    public principal?: Identity | undefined;
+    private _principal?: Identity | undefined;
     /** Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only. */
-    public principalLink?: string | undefined;
+    private _principalLink?: string | undefined;
     /** A system-generated recommendation for the approval decision based off last interactive sign-in to tenant. Recommend approve if sign-in is within thirty days of start of review. Recommend deny if sign-in is greater than thirty days of start of review. Recommendation not available otherwise. Possible values: Approve, Deny, or NoInfoAvailable. Supports $select, $orderby, and $filter (eq only). Read-only. */
-    public recommendation?: string | undefined;
+    private _recommendation?: string | undefined;
     /** Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only. */
-    public resource?: AccessReviewInstanceDecisionItemResource | undefined;
+    private _resource?: AccessReviewInstanceDecisionItemResource | undefined;
     /** A link to the resource. For example, https://graph.microsoft.com/v1.0/servicePrincipals/c86300f3-8695-4320-9f6e-32a2555f5ff8. Supports $select. Read-only. */
-    public resourceLink?: string | undefined;
+    private _resourceLink?: string | undefined;
     /** The identifier of the reviewer. Supports $select. Read-only. */
-    public reviewedBy?: UserIdentity | undefined;
+    private _reviewedBy?: UserIdentity | undefined;
     /** The timestamp when the review decision occurred. Supports $select. Read-only. */
-    public reviewedDateTime?: Date | undefined;
+    private _reviewedDateTime?: Date | undefined;
+    /**
+     * Gets the accessReviewId property value. The identifier of the accessReviewInstance parent. Supports $select. Read-only.
+     * @returns a string
+     */
+    public get accessReviewId() {
+        return this._accessReviewId;
+    };
+    /**
+     * Sets the accessReviewId property value. The identifier of the accessReviewInstance parent. Supports $select. Read-only.
+     * @param value Value to set for the accessReviewId property.
+     */
+    public set accessReviewId(value: string | undefined) {
+        if(value) {
+            this._accessReviewId = value;
+        }
+    };
+    /**
+     * Gets the appliedBy property value. The identifier of the user who applied the decision. Read-only.
+     * @returns a UserIdentityInterface
+     */
+    public get appliedBy() {
+        return this._appliedBy;
+    };
+    /**
+     * Sets the appliedBy property value. The identifier of the user who applied the decision. Read-only.
+     * @param value Value to set for the appliedBy property.
+     */
+    public set appliedBy(value: UserIdentity | undefined) {
+        if(value) {
+            this._appliedBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+        }
+    };
+    /**
+     * Gets the appliedDateTime property value. The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only.
+     * @returns a Date
+     */
+    public get appliedDateTime() {
+        return this._appliedDateTime;
+    };
+    /**
+     * Sets the appliedDateTime property value. The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only.
+     * @param value Value to set for the appliedDateTime property.
+     */
+    public set appliedDateTime(value: Date | undefined) {
+        if(value) {
+            this._appliedDateTime = value;
+        }
+    };
+    /**
+     * Gets the applyResult property value. The result of applying the decision. Possible values: New, AppliedSuccessfully, AppliedWithUnknownFailure, AppliedSuccessfullyButObjectNotFound and ApplyNotSupported. Supports $select, $orderby, and $filter (eq only). Read-only.
+     * @returns a string
+     */
+    public get applyResult() {
+        return this._applyResult;
+    };
+    /**
+     * Sets the applyResult property value. The result of applying the decision. Possible values: New, AppliedSuccessfully, AppliedWithUnknownFailure, AppliedSuccessfullyButObjectNotFound and ApplyNotSupported. Supports $select, $orderby, and $filter (eq only). Read-only.
+     * @param value Value to set for the applyResult property.
+     */
+    public set applyResult(value: string | undefined) {
+        if(value) {
+            this._applyResult = value;
+        }
+    };
     /**
      * Instantiates a new accessReviewInstanceDecisionItem and sets the default values.
      * @param accessReviewInstanceDecisionItemParameterValue 
      */
     public constructor(accessReviewInstanceDecisionItemParameterValue?: AccessReviewInstanceDecisionItem | undefined) {
         super(accessReviewInstanceDecisionItemParameterValue);
-        this.accessReviewId = accessReviewInstanceDecisionItemParameterValue?.accessReviewId;
-        this.appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy;
-        this.appliedDateTime = accessReviewInstanceDecisionItemParameterValue?.appliedDateTime;
-        this.applyResult = accessReviewInstanceDecisionItemParameterValue?.applyResult;
-        this.decision = accessReviewInstanceDecisionItemParameterValue?.decision;
-        this.justification = accessReviewInstanceDecisionItemParameterValue?.justification;
-        this.principal = accessReviewInstanceDecisionItemParameterValue?.principal;
-        this.principalLink = accessReviewInstanceDecisionItemParameterValue?.principalLink;
-        this.recommendation = accessReviewInstanceDecisionItemParameterValue?.recommendation;
-        this.resource = accessReviewInstanceDecisionItemParameterValue?.resource;
-        this.resourceLink = accessReviewInstanceDecisionItemParameterValue?.resourceLink;
-        this.reviewedBy = accessReviewInstanceDecisionItemParameterValue?.reviewedBy;
-        this.reviewedDateTime = accessReviewInstanceDecisionItemParameterValue?.reviewedDateTime;
+        this._accessReviewId = accessReviewInstanceDecisionItemParameterValue?.accessReviewId;
+        this._appliedBy = accessReviewInstanceDecisionItemParameterValue?.appliedBy;
+        this._appliedDateTime = accessReviewInstanceDecisionItemParameterValue?.appliedDateTime;
+        this._applyResult = accessReviewInstanceDecisionItemParameterValue?.applyResult;
+        this._decision = accessReviewInstanceDecisionItemParameterValue?.decision;
+        this._justification = accessReviewInstanceDecisionItemParameterValue?.justification;
+        this._principal = accessReviewInstanceDecisionItemParameterValue?.principal;
+        this._principalLink = accessReviewInstanceDecisionItemParameterValue?.principalLink;
+        this._recommendation = accessReviewInstanceDecisionItemParameterValue?.recommendation;
+        this._resource = accessReviewInstanceDecisionItemParameterValue?.resource;
+        this._resourceLink = accessReviewInstanceDecisionItemParameterValue?.resourceLink;
+        this._reviewedBy = accessReviewInstanceDecisionItemParameterValue?.reviewedBy;
+        this._reviewedDateTime = accessReviewInstanceDecisionItemParameterValue?.reviewedDateTime;
+    };
+    /**
+     * Gets the decision property value. Result of the review. Possible values: Approve, Deny, NotReviewed, or DontKnow. Supports $select, $orderby, and $filter (eq only).
+     * @returns a string
+     */
+    public get decision() {
+        return this._decision;
+    };
+    /**
+     * Sets the decision property value. Result of the review. Possible values: Approve, Deny, NotReviewed, or DontKnow. Supports $select, $orderby, and $filter (eq only).
+     * @param value Value to set for the decision property.
+     */
+    public set decision(value: string | undefined) {
+        if(value) {
+            this._decision = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -78,6 +158,134 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
         };
     };
     /**
+     * Gets the justification property value. Justification left by the reviewer when they made the decision.
+     * @returns a string
+     */
+    public get justification() {
+        return this._justification;
+    };
+    /**
+     * Sets the justification property value. Justification left by the reviewer when they made the decision.
+     * @param value Value to set for the justification property.
+     */
+    public set justification(value: string | undefined) {
+        if(value) {
+            this._justification = value;
+        }
+    };
+    /**
+     * Gets the principal property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only.
+     * @returns a IdentityInterface
+     */
+    public get principal() {
+        return this._principal;
+    };
+    /**
+     * Sets the principal property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only.
+     * @param value Value to set for the principal property.
+     */
+    public set principal(value: Identity | undefined) {
+        if(value) {
+            this._principal = value instanceof IdentityImpl? value : new IdentityImpl(value);
+        }
+    };
+    /**
+     * Gets the principalLink property value. Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.
+     * @returns a string
+     */
+    public get principalLink() {
+        return this._principalLink;
+    };
+    /**
+     * Sets the principalLink property value. Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only.
+     * @param value Value to set for the principalLink property.
+     */
+    public set principalLink(value: string | undefined) {
+        if(value) {
+            this._principalLink = value;
+        }
+    };
+    /**
+     * Gets the recommendation property value. A system-generated recommendation for the approval decision based off last interactive sign-in to tenant. Recommend approve if sign-in is within thirty days of start of review. Recommend deny if sign-in is greater than thirty days of start of review. Recommendation not available otherwise. Possible values: Approve, Deny, or NoInfoAvailable. Supports $select, $orderby, and $filter (eq only). Read-only.
+     * @returns a string
+     */
+    public get recommendation() {
+        return this._recommendation;
+    };
+    /**
+     * Sets the recommendation property value. A system-generated recommendation for the approval decision based off last interactive sign-in to tenant. Recommend approve if sign-in is within thirty days of start of review. Recommend deny if sign-in is greater than thirty days of start of review. Recommendation not available otherwise. Possible values: Approve, Deny, or NoInfoAvailable. Supports $select, $orderby, and $filter (eq only). Read-only.
+     * @param value Value to set for the recommendation property.
+     */
+    public set recommendation(value: string | undefined) {
+        if(value) {
+            this._recommendation = value;
+        }
+    };
+    /**
+     * Gets the resource property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only.
+     * @returns a AccessReviewInstanceDecisionItemResourceInterface
+     */
+    public get resource() {
+        return this._resource;
+    };
+    /**
+     * Sets the resource property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only.
+     * @param value Value to set for the resource property.
+     */
+    public set resource(value: AccessReviewInstanceDecisionItemResource | undefined) {
+        if(value) {
+            this._resource = value instanceof AccessReviewInstanceDecisionItemResourceImpl? value : new AccessReviewInstanceDecisionItemResourceImpl(value);
+        }
+    };
+    /**
+     * Gets the resourceLink property value. A link to the resource. For example, https://graph.microsoft.com/v1.0/servicePrincipals/c86300f3-8695-4320-9f6e-32a2555f5ff8. Supports $select. Read-only.
+     * @returns a string
+     */
+    public get resourceLink() {
+        return this._resourceLink;
+    };
+    /**
+     * Sets the resourceLink property value. A link to the resource. For example, https://graph.microsoft.com/v1.0/servicePrincipals/c86300f3-8695-4320-9f6e-32a2555f5ff8. Supports $select. Read-only.
+     * @param value Value to set for the resourceLink property.
+     */
+    public set resourceLink(value: string | undefined) {
+        if(value) {
+            this._resourceLink = value;
+        }
+    };
+    /**
+     * Gets the reviewedBy property value. The identifier of the reviewer. Supports $select. Read-only.
+     * @returns a UserIdentityInterface
+     */
+    public get reviewedBy() {
+        return this._reviewedBy;
+    };
+    /**
+     * Sets the reviewedBy property value. The identifier of the reviewer. Supports $select. Read-only.
+     * @param value Value to set for the reviewedBy property.
+     */
+    public set reviewedBy(value: UserIdentity | undefined) {
+        if(value) {
+            this._reviewedBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+        }
+    };
+    /**
+     * Gets the reviewedDateTime property value. The timestamp when the review decision occurred. Supports $select. Read-only.
+     * @returns a Date
+     */
+    public get reviewedDateTime() {
+        return this._reviewedDateTime;
+    };
+    /**
+     * Sets the reviewedDateTime property value. The timestamp when the review decision occurred. Supports $select. Read-only.
+     * @param value Value to set for the reviewedDateTime property.
+     */
+    public set reviewedDateTime(value: Date | undefined) {
+        if(value) {
+            this._reviewedDateTime = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -88,7 +296,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
             writer.writeStringValue("accessReviewId", this.accessReviewId);
         }
         if(this.appliedBy){
-            writer.writeObjectValue<UserIdentityImpl>("appliedBy", new UserIdentityImpl(this.appliedBy));
+            writer.writeObjectValue<UserIdentityImpl>("appliedBy", (!this.appliedBy || this.appliedBy instanceof UserIdentityImpl? this.appliedBy : new UserIdentityImpl(this.appliedBy)));
         }
         if(this.appliedDateTime){
             writer.writeDateValue("appliedDateTime", this.appliedDateTime);
@@ -103,7 +311,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
             writer.writeStringValue("justification", this.justification);
         }
         if(this.principal){
-            writer.writeObjectValue<IdentityImpl>("principal", new IdentityImpl(this.principal));
+            writer.writeObjectValue<IdentityImpl>("principal", (!this.principal || this.principal instanceof IdentityImpl? this.principal : new IdentityImpl(this.principal)));
         }
         if(this.principalLink){
             writer.writeStringValue("principalLink", this.principalLink);
@@ -112,13 +320,13 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
             writer.writeStringValue("recommendation", this.recommendation);
         }
         if(this.resource){
-            writer.writeObjectValue<AccessReviewInstanceDecisionItemResourceImpl>("resource", new AccessReviewInstanceDecisionItemResourceImpl(this.resource));
+            writer.writeObjectValue<AccessReviewInstanceDecisionItemResourceImpl>("resource", (!this.resource || this.resource instanceof AccessReviewInstanceDecisionItemResourceImpl? this.resource : new AccessReviewInstanceDecisionItemResourceImpl(this.resource)));
         }
         if(this.resourceLink){
             writer.writeStringValue("resourceLink", this.resourceLink);
         }
         if(this.reviewedBy){
-            writer.writeObjectValue<UserIdentityImpl>("reviewedBy", new UserIdentityImpl(this.reviewedBy));
+            writer.writeObjectValue<UserIdentityImpl>("reviewedBy", (!this.reviewedBy || this.reviewedBy instanceof UserIdentityImpl? this.reviewedBy : new UserIdentityImpl(this.reviewedBy)));
         }
         if(this.reviewedDateTime){
             writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);

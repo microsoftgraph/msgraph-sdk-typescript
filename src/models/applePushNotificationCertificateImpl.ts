@@ -5,29 +5,93 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Apple push notification certificate. */
 export class ApplePushNotificationCertificateImpl extends EntityImpl implements ApplePushNotificationCertificate {
     /** Apple Id of the account used to create the MDM push certificate. */
-    public appleIdentifier?: string | undefined;
+    private _appleIdentifier?: string | undefined;
     /** Not yet documented */
-    public certificate?: string | undefined;
+    private _certificate?: string | undefined;
     /** Certificate serial number. This property is read-only. */
-    public certificateSerialNumber?: string | undefined;
+    private _certificateSerialNumber?: string | undefined;
     /** The expiration date and time for Apple push notification certificate. */
-    public expirationDateTime?: Date | undefined;
+    private _expirationDateTime?: Date | undefined;
     /** Last modified date and time for Apple push notification certificate. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** Topic Id. */
-    public topicIdentifier?: string | undefined;
+    private _topicIdentifier?: string | undefined;
+    /**
+     * Gets the appleIdentifier property value. Apple Id of the account used to create the MDM push certificate.
+     * @returns a string
+     */
+    public get appleIdentifier() {
+        return this._appleIdentifier;
+    };
+    /**
+     * Sets the appleIdentifier property value. Apple Id of the account used to create the MDM push certificate.
+     * @param value Value to set for the appleIdentifier property.
+     */
+    public set appleIdentifier(value: string | undefined) {
+        if(value) {
+            this._appleIdentifier = value;
+        }
+    };
+    /**
+     * Gets the certificate property value. Not yet documented
+     * @returns a string
+     */
+    public get certificate() {
+        return this._certificate;
+    };
+    /**
+     * Sets the certificate property value. Not yet documented
+     * @param value Value to set for the certificate property.
+     */
+    public set certificate(value: string | undefined) {
+        if(value) {
+            this._certificate = value;
+        }
+    };
+    /**
+     * Gets the certificateSerialNumber property value. Certificate serial number. This property is read-only.
+     * @returns a string
+     */
+    public get certificateSerialNumber() {
+        return this._certificateSerialNumber;
+    };
+    /**
+     * Sets the certificateSerialNumber property value. Certificate serial number. This property is read-only.
+     * @param value Value to set for the certificateSerialNumber property.
+     */
+    public set certificateSerialNumber(value: string | undefined) {
+        if(value) {
+            this._certificateSerialNumber = value;
+        }
+    };
     /**
      * Instantiates a new applePushNotificationCertificate and sets the default values.
      * @param applePushNotificationCertificateParameterValue 
      */
     public constructor(applePushNotificationCertificateParameterValue?: ApplePushNotificationCertificate | undefined) {
         super(applePushNotificationCertificateParameterValue);
-        this.appleIdentifier = applePushNotificationCertificateParameterValue?.appleIdentifier;
-        this.certificate = applePushNotificationCertificateParameterValue?.certificate;
-        this.certificateSerialNumber = applePushNotificationCertificateParameterValue?.certificateSerialNumber;
-        this.expirationDateTime = applePushNotificationCertificateParameterValue?.expirationDateTime;
-        this.lastModifiedDateTime = applePushNotificationCertificateParameterValue?.lastModifiedDateTime;
-        this.topicIdentifier = applePushNotificationCertificateParameterValue?.topicIdentifier;
+        this._appleIdentifier = applePushNotificationCertificateParameterValue?.appleIdentifier;
+        this._certificate = applePushNotificationCertificateParameterValue?.certificate;
+        this._certificateSerialNumber = applePushNotificationCertificateParameterValue?.certificateSerialNumber;
+        this._expirationDateTime = applePushNotificationCertificateParameterValue?.expirationDateTime;
+        this._lastModifiedDateTime = applePushNotificationCertificateParameterValue?.lastModifiedDateTime;
+        this._topicIdentifier = applePushNotificationCertificateParameterValue?.topicIdentifier;
+    };
+    /**
+     * Gets the expirationDateTime property value. The expiration date and time for Apple push notification certificate.
+     * @returns a Date
+     */
+    public get expirationDateTime() {
+        return this._expirationDateTime;
+    };
+    /**
+     * Sets the expirationDateTime property value. The expiration date and time for Apple push notification certificate.
+     * @param value Value to set for the expirationDateTime property.
+     */
+    public set expirationDateTime(value: Date | undefined) {
+        if(value) {
+            this._expirationDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +106,22 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "topicIdentifier": n => { this.topicIdentifier = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. Last modified date and time for Apple push notification certificate.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. Last modified date and time for Apple push notification certificate.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -67,6 +147,22 @@ export class ApplePushNotificationCertificateImpl extends EntityImpl implements 
         }
         if(this.topicIdentifier){
             writer.writeStringValue("topicIdentifier", this.topicIdentifier);
+        }
+    };
+    /**
+     * Gets the topicIdentifier property value. Topic Id.
+     * @returns a string
+     */
+    public get topicIdentifier() {
+        return this._topicIdentifier;
+    };
+    /**
+     * Sets the topicIdentifier property value. Topic Id.
+     * @param value Value to set for the topicIdentifier property.
+     */
+    public set topicIdentifier(value: string | undefined) {
+        if(value) {
+            this._topicIdentifier = value;
         }
     };
 }

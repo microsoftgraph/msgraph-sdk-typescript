@@ -4,28 +4,92 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** App for Windows information protection */
 export class WindowsInformationProtectionAppImpl implements WindowsInformationProtectionApp {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If true, app is denied protection or exemption. */
-    public denied?: boolean | undefined;
+    private _denied?: boolean | undefined;
     /** The app's description. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** App display name. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The product name. */
-    public productName?: string | undefined;
+    private _productName?: string | undefined;
     /** The publisher name */
-    public publisherName?: string | undefined;
+    private _publisherName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new windowsInformationProtectionApp and sets the default values.
      * @param windowsInformationProtectionAppParameterValue 
      */
     public constructor(windowsInformationProtectionAppParameterValue?: WindowsInformationProtectionApp | undefined) {
-        this.additionalData = windowsInformationProtectionAppParameterValue?.additionalData ? windowsInformationProtectionAppParameterValue?.additionalData! : {};
-        this.denied = windowsInformationProtectionAppParameterValue?.denied;
-        this.description = windowsInformationProtectionAppParameterValue?.description;
-        this.displayName = windowsInformationProtectionAppParameterValue?.displayName;
-        this.productName = windowsInformationProtectionAppParameterValue?.productName;
-        this.publisherName = windowsInformationProtectionAppParameterValue?.publisherName;
+        this._additionalData = windowsInformationProtectionAppParameterValue?.additionalData ? windowsInformationProtectionAppParameterValue?.additionalData! : {};
+        this._denied = windowsInformationProtectionAppParameterValue?.denied;
+        this._description = windowsInformationProtectionAppParameterValue?.description;
+        this._displayName = windowsInformationProtectionAppParameterValue?.displayName;
+        this._productName = windowsInformationProtectionAppParameterValue?.productName;
+        this._publisherName = windowsInformationProtectionAppParameterValue?.publisherName;
+    };
+    /**
+     * Gets the denied property value. If true, app is denied protection or exemption.
+     * @returns a boolean
+     */
+    public get denied() {
+        return this._denied;
+    };
+    /**
+     * Sets the denied property value. If true, app is denied protection or exemption.
+     * @param value Value to set for the denied property.
+     */
+    public set denied(value: boolean | undefined) {
+        if(value) {
+            this._denied = value;
+        }
+    };
+    /**
+     * Gets the description property value. The app's description.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The app's description.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. App display name.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. App display name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +103,38 @@ export class WindowsInformationProtectionAppImpl implements WindowsInformationPr
             "productName": n => { this.productName = n.getStringValue(); },
             "publisherName": n => { this.publisherName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the productName property value. The product name.
+     * @returns a string
+     */
+    public get productName() {
+        return this._productName;
+    };
+    /**
+     * Sets the productName property value. The product name.
+     * @param value Value to set for the productName property.
+     */
+    public set productName(value: string | undefined) {
+        if(value) {
+            this._productName = value;
+        }
+    };
+    /**
+     * Gets the publisherName property value. The publisher name
+     * @returns a string
+     */
+    public get publisherName() {
+        return this._publisherName;
+    };
+    /**
+     * Sets the publisherName property value. The publisher name
+     * @param value Value to set for the publisherName property.
+     */
+    public set publisherName(value: string | undefined) {
+        if(value) {
+            this._publisherName = value;
+        }
     };
     /**
      * Serializes information the current object

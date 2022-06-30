@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
-    public plans?: PlannerPlan[] | undefined;
+    private _plans?: PlannerPlan[] | undefined;
     /**
      * Instantiates a new plannerGroup and sets the default values.
      * @param plannerGroupParameterValue 
      */
     public constructor(plannerGroupParameterValue?: PlannerGroup | undefined) {
         super(plannerGroupParameterValue);
-        this.plans = plannerGroupParameterValue?.plans;
+        this._plans = plannerGroupParameterValue?.plans;
     };
     /**
      * The deserialization information for the current model
@@ -26,13 +26,36 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
         };
     };
     /**
+     * Gets the plans property value. Read-only. Nullable. Returns the plannerPlans owned by the group.
+     * @returns a PlannerPlanInterface
+     */
+    public get plans() {
+        return this._plans;
+    };
+    /**
+     * Sets the plans property value. Read-only. Nullable. Returns the plannerPlans owned by the group.
+     * @param value Value to set for the plans property.
+     */
+    public set plans(value: PlannerPlan[] | undefined) {
+        if(value) {
+            const plansArrValue: PlannerPlanImpl[] = [];
+            this.plans?.forEach(element => {
+                plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+            });
+            this._plans = plansArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = []; this.plans?.forEach(element => {plansArrValue.push(new PlannerPlanImpl(element));});
+        if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = [];
+        this.plans?.forEach(element => {
+            plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
     };

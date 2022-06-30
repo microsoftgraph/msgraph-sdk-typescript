@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the setPriority method. */
 export class SetPriorityPostRequestBodyImpl implements SetPriorityPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The priority property */
-    public priority?: number | undefined;
+    private _priority?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new setPriorityPostRequestBody and sets the default values.
      * @param setPriorityPostRequestBodyParameterValue 
      */
     public constructor(setPriorityPostRequestBodyParameterValue?: SetPriorityPostRequestBody | undefined) {
-        this.additionalData = setPriorityPostRequestBodyParameterValue?.additionalData ? setPriorityPostRequestBodyParameterValue?.additionalData! : {};
-        this.priority = setPriorityPostRequestBodyParameterValue?.priority;
+        this._additionalData = setPriorityPostRequestBodyParameterValue?.additionalData ? setPriorityPostRequestBodyParameterValue?.additionalData! : {};
+        this._priority = setPriorityPostRequestBodyParameterValue?.priority;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +39,22 @@ export class SetPriorityPostRequestBodyImpl implements SetPriorityPostRequestBod
         return {
             "priority": n => { this.priority = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the priority property value. The priority property
+     * @returns a integer
+     */
+    public get priority() {
+        return this._priority;
+    };
+    /**
+     * Sets the priority property value. The priority property
+     * @param value Value to set for the priority property.
+     */
+    public set priority(value: number | undefined) {
+        if(value) {
+            this._priority = value;
+        }
     };
     /**
      * Serializes information the current object

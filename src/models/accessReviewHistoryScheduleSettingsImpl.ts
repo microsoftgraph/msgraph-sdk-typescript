@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHistoryScheduleSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The recurrence property */
-    public recurrence?: PatternedRecurrence | undefined;
+    private _recurrence?: PatternedRecurrence | undefined;
     /** A duration string in ISO 8601 duration format specifying the lookback period of the generated review history data. For example, if a history definition is scheduled to run on the 1st of every month, the reportRange is P1M. In this case, on the first of every month, access review history data will be collected containing only the previous month's review data. Note: Only years, months, and days ISO 8601 properties are supported. Required. */
-    public reportRange?: string | undefined;
+    private _reportRange?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new accessReviewHistoryScheduleSettings and sets the default values.
      * @param accessReviewHistoryScheduleSettingsParameterValue 
      */
     public constructor(accessReviewHistoryScheduleSettingsParameterValue?: AccessReviewHistoryScheduleSettings | undefined) {
-        this.additionalData = accessReviewHistoryScheduleSettingsParameterValue?.additionalData ? accessReviewHistoryScheduleSettingsParameterValue?.additionalData! : {};
-        this.recurrence = accessReviewHistoryScheduleSettingsParameterValue?.recurrence;
-        this.reportRange = accessReviewHistoryScheduleSettingsParameterValue?.reportRange;
+        this._additionalData = accessReviewHistoryScheduleSettingsParameterValue?.additionalData ? accessReviewHistoryScheduleSettingsParameterValue?.additionalData! : {};
+        this._recurrence = accessReviewHistoryScheduleSettingsParameterValue?.recurrence;
+        this._reportRange = accessReviewHistoryScheduleSettingsParameterValue?.reportRange;
     };
     /**
      * The deserialization information for the current model
@@ -31,13 +47,45 @@ export class AccessReviewHistoryScheduleSettingsImpl implements AccessReviewHist
         };
     };
     /**
+     * Gets the recurrence property value. The recurrence property
+     * @returns a PatternedRecurrenceInterface
+     */
+    public get recurrence() {
+        return this._recurrence;
+    };
+    /**
+     * Sets the recurrence property value. The recurrence property
+     * @param value Value to set for the recurrence property.
+     */
+    public set recurrence(value: PatternedRecurrence | undefined) {
+        if(value) {
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+        }
+    };
+    /**
+     * Gets the reportRange property value. A duration string in ISO 8601 duration format specifying the lookback period of the generated review history data. For example, if a history definition is scheduled to run on the 1st of every month, the reportRange is P1M. In this case, on the first of every month, access review history data will be collected containing only the previous month's review data. Note: Only years, months, and days ISO 8601 properties are supported. Required.
+     * @returns a string
+     */
+    public get reportRange() {
+        return this._reportRange;
+    };
+    /**
+     * Sets the reportRange property value. A duration string in ISO 8601 duration format specifying the lookback period of the generated review history data. For example, if a history definition is scheduled to run on the 1st of every month, the reportRange is P1M. In this case, on the first of every month, access review history data will be collected containing only the previous month's review data. Note: Only years, months, and days ISO 8601 properties are supported. Required.
+     * @param value Value to set for the reportRange property.
+     */
+    public set reportRange(value: string | undefined) {
+        if(value) {
+            this._reportRange = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", new PatternedRecurrenceImpl(this.recurrence));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.reportRange){
             writer.writeStringValue("reportRange", this.reportRange);

@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkforceIntegrationEncryptionImpl implements WorkforceIntegrationEncryption {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Possible values are: sharedSecret, unknownFutureValue. */
-    public protocol?: WorkforceIntegrationEncryptionProtocol | undefined;
+    private _protocol?: WorkforceIntegrationEncryptionProtocol | undefined;
     /** Encryption shared secret. */
-    public secret?: string | undefined;
+    private _secret?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new workforceIntegrationEncryption and sets the default values.
      * @param workforceIntegrationEncryptionParameterValue 
      */
     public constructor(workforceIntegrationEncryptionParameterValue?: WorkforceIntegrationEncryption | undefined) {
-        this.additionalData = workforceIntegrationEncryptionParameterValue?.additionalData ? workforceIntegrationEncryptionParameterValue?.additionalData! : {};
-        this.protocol = workforceIntegrationEncryptionParameterValue?.protocol;
-        this.secret = workforceIntegrationEncryptionParameterValue?.secret;
+        this._additionalData = workforceIntegrationEncryptionParameterValue?.additionalData ? workforceIntegrationEncryptionParameterValue?.additionalData! : {};
+        this._protocol = workforceIntegrationEncryptionParameterValue?.protocol;
+        this._secret = workforceIntegrationEncryptionParameterValue?.secret;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,38 @@ export class WorkforceIntegrationEncryptionImpl implements WorkforceIntegrationE
             "protocol": n => { this.protocol = n.getEnumValue<WorkforceIntegrationEncryptionProtocol>(WorkforceIntegrationEncryptionProtocol); },
             "secret": n => { this.secret = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the protocol property value. Possible values are: sharedSecret, unknownFutureValue.
+     * @returns a workforceIntegrationEncryptionProtocol
+     */
+    public get protocol() {
+        return this._protocol;
+    };
+    /**
+     * Sets the protocol property value. Possible values are: sharedSecret, unknownFutureValue.
+     * @param value Value to set for the protocol property.
+     */
+    public set protocol(value: WorkforceIntegrationEncryptionProtocol | undefined) {
+        if(value) {
+            this._protocol = value;
+        }
+    };
+    /**
+     * Gets the secret property value. Encryption shared secret.
+     * @returns a string
+     */
+    public get secret() {
+        return this._secret;
+    };
+    /**
+     * Sets the secret property value. Encryption shared secret.
+     * @param value Value to set for the secret property.
+     */
+    public set secret(value: string | undefined) {
+        if(value) {
+            this._secret = value;
+        }
     };
     /**
      * Serializes information the current object

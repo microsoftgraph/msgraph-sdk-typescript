@@ -5,32 +5,80 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationDeviceStateSummaryImpl extends EntityImpl implements DeviceConfigurationDeviceStateSummary {
     /** Number of compliant devices */
-    public compliantDeviceCount?: number | undefined;
+    private _compliantDeviceCount?: number | undefined;
     /** Number of conflict devices */
-    public conflictDeviceCount?: number | undefined;
+    private _conflictDeviceCount?: number | undefined;
     /** Number of error devices */
-    public errorDeviceCount?: number | undefined;
+    private _errorDeviceCount?: number | undefined;
     /** Number of NonCompliant devices */
-    public nonCompliantDeviceCount?: number | undefined;
+    private _nonCompliantDeviceCount?: number | undefined;
     /** Number of not applicable devices */
-    public notApplicableDeviceCount?: number | undefined;
+    private _notApplicableDeviceCount?: number | undefined;
     /** Number of remediated devices */
-    public remediatedDeviceCount?: number | undefined;
+    private _remediatedDeviceCount?: number | undefined;
     /** Number of unknown devices */
-    public unknownDeviceCount?: number | undefined;
+    private _unknownDeviceCount?: number | undefined;
+    /**
+     * Gets the compliantDeviceCount property value. Number of compliant devices
+     * @returns a integer
+     */
+    public get compliantDeviceCount() {
+        return this._compliantDeviceCount;
+    };
+    /**
+     * Sets the compliantDeviceCount property value. Number of compliant devices
+     * @param value Value to set for the compliantDeviceCount property.
+     */
+    public set compliantDeviceCount(value: number | undefined) {
+        if(value) {
+            this._compliantDeviceCount = value;
+        }
+    };
+    /**
+     * Gets the conflictDeviceCount property value. Number of conflict devices
+     * @returns a integer
+     */
+    public get conflictDeviceCount() {
+        return this._conflictDeviceCount;
+    };
+    /**
+     * Sets the conflictDeviceCount property value. Number of conflict devices
+     * @param value Value to set for the conflictDeviceCount property.
+     */
+    public set conflictDeviceCount(value: number | undefined) {
+        if(value) {
+            this._conflictDeviceCount = value;
+        }
+    };
     /**
      * Instantiates a new deviceConfigurationDeviceStateSummary and sets the default values.
      * @param deviceConfigurationDeviceStateSummaryParameterValue 
      */
     public constructor(deviceConfigurationDeviceStateSummaryParameterValue?: DeviceConfigurationDeviceStateSummary | undefined) {
         super(deviceConfigurationDeviceStateSummaryParameterValue);
-        this.compliantDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.compliantDeviceCount;
-        this.conflictDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.conflictDeviceCount;
-        this.errorDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.errorDeviceCount;
-        this.nonCompliantDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.nonCompliantDeviceCount;
-        this.notApplicableDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.notApplicableDeviceCount;
-        this.remediatedDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.remediatedDeviceCount;
-        this.unknownDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.unknownDeviceCount;
+        this._compliantDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.compliantDeviceCount;
+        this._conflictDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.conflictDeviceCount;
+        this._errorDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.errorDeviceCount;
+        this._nonCompliantDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.nonCompliantDeviceCount;
+        this._notApplicableDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.notApplicableDeviceCount;
+        this._remediatedDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.remediatedDeviceCount;
+        this._unknownDeviceCount = deviceConfigurationDeviceStateSummaryParameterValue?.unknownDeviceCount;
+    };
+    /**
+     * Gets the errorDeviceCount property value. Number of error devices
+     * @returns a integer
+     */
+    public get errorDeviceCount() {
+        return this._errorDeviceCount;
+    };
+    /**
+     * Sets the errorDeviceCount property value. Number of error devices
+     * @param value Value to set for the errorDeviceCount property.
+     */
+    public set errorDeviceCount(value: number | undefined) {
+        if(value) {
+            this._errorDeviceCount = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +94,54 @@ export class DeviceConfigurationDeviceStateSummaryImpl extends EntityImpl implem
             "remediatedDeviceCount": n => { this.remediatedDeviceCount = n.getNumberValue(); },
             "unknownDeviceCount": n => { this.unknownDeviceCount = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the nonCompliantDeviceCount property value. Number of NonCompliant devices
+     * @returns a integer
+     */
+    public get nonCompliantDeviceCount() {
+        return this._nonCompliantDeviceCount;
+    };
+    /**
+     * Sets the nonCompliantDeviceCount property value. Number of NonCompliant devices
+     * @param value Value to set for the nonCompliantDeviceCount property.
+     */
+    public set nonCompliantDeviceCount(value: number | undefined) {
+        if(value) {
+            this._nonCompliantDeviceCount = value;
+        }
+    };
+    /**
+     * Gets the notApplicableDeviceCount property value. Number of not applicable devices
+     * @returns a integer
+     */
+    public get notApplicableDeviceCount() {
+        return this._notApplicableDeviceCount;
+    };
+    /**
+     * Sets the notApplicableDeviceCount property value. Number of not applicable devices
+     * @param value Value to set for the notApplicableDeviceCount property.
+     */
+    public set notApplicableDeviceCount(value: number | undefined) {
+        if(value) {
+            this._notApplicableDeviceCount = value;
+        }
+    };
+    /**
+     * Gets the remediatedDeviceCount property value. Number of remediated devices
+     * @returns a integer
+     */
+    public get remediatedDeviceCount() {
+        return this._remediatedDeviceCount;
+    };
+    /**
+     * Sets the remediatedDeviceCount property value. Number of remediated devices
+     * @param value Value to set for the remediatedDeviceCount property.
+     */
+    public set remediatedDeviceCount(value: number | undefined) {
+        if(value) {
+            this._remediatedDeviceCount = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -74,6 +170,22 @@ export class DeviceConfigurationDeviceStateSummaryImpl extends EntityImpl implem
         }
         if(this.unknownDeviceCount){
             writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
+        }
+    };
+    /**
+     * Gets the unknownDeviceCount property value. Number of unknown devices
+     * @returns a integer
+     */
+    public get unknownDeviceCount() {
+        return this._unknownDeviceCount;
+    };
+    /**
+     * Sets the unknownDeviceCount property value. Number of unknown devices
+     * @param value Value to set for the unknownDeviceCount property.
+     */
+    public set unknownDeviceCount(value: number | undefined) {
+        if(value) {
+            this._unknownDeviceCount = value;
         }
     };
 }

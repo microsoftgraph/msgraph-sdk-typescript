@@ -3,19 +3,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeZoneInformationImpl implements TimeZoneInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** An identifier for the time zone. */
-    public alias?: string | undefined;
+    private _alias?: string | undefined;
     /** A display string that represents the time zone. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the alias property value. An identifier for the time zone.
+     * @returns a string
+     */
+    public get alias() {
+        return this._alias;
+    };
+    /**
+     * Sets the alias property value. An identifier for the time zone.
+     * @param value Value to set for the alias property.
+     */
+    public set alias(value: string | undefined) {
+        if(value) {
+            this._alias = value;
+        }
+    };
     /**
      * Instantiates a new timeZoneInformation and sets the default values.
      * @param timeZoneInformationParameterValue 
      */
     public constructor(timeZoneInformationParameterValue?: TimeZoneInformation | undefined) {
-        this.additionalData = timeZoneInformationParameterValue?.additionalData ? timeZoneInformationParameterValue?.additionalData! : {};
-        this.alias = timeZoneInformationParameterValue?.alias;
-        this.displayName = timeZoneInformationParameterValue?.displayName;
+        this._additionalData = timeZoneInformationParameterValue?.additionalData ? timeZoneInformationParameterValue?.additionalData! : {};
+        this._alias = timeZoneInformationParameterValue?.alias;
+        this._displayName = timeZoneInformationParameterValue?.displayName;
+    };
+    /**
+     * Gets the displayName property value. A display string that represents the time zone.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. A display string that represents the time zone.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

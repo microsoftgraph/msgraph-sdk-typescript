@@ -7,17 +7,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome {
     /** The individual who updated the resource. */
-    public lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new educationOutcome and sets the default values.
      * @param educationOutcomeParameterValue 
      */
     public constructor(educationOutcomeParameterValue?: EducationOutcome | undefined) {
         super(educationOutcomeParameterValue);
-        this.lastModifiedBy = educationOutcomeParameterValue?.lastModifiedBy;
-        this.lastModifiedDateTime = educationOutcomeParameterValue?.lastModifiedDateTime;
+        this._lastModifiedBy = educationOutcomeParameterValue?.lastModifiedBy;
+        this._lastModifiedDateTime = educationOutcomeParameterValue?.lastModifiedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +30,38 @@ export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome
         };
     };
     /**
+     * Gets the lastModifiedBy property value. The individual who updated the resource.
+     * @returns a IdentitySetInterface
+     */
+    public get lastModifiedBy() {
+        return this._lastModifiedBy;
+    };
+    /**
+     * Sets the lastModifiedBy property value. The individual who updated the resource.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. Moment in time when the resource was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. Moment in time when the resource was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -37,7 +69,7 @@ export class EducationOutcomeImpl extends EntityImpl implements EducationOutcome
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);

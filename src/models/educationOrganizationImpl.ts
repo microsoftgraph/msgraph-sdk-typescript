@@ -6,23 +6,87 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationOrganizationImpl extends EntityImpl implements EducationOrganization {
     /** Organization description. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Organization display name. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Where this user was created from. Possible values are: sis, lms, or manual. */
-    public externalSource?: EducationExternalSource | undefined;
+    private _externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from. */
-    public externalSourceDetail?: string | undefined;
+    private _externalSourceDetail?: string | undefined;
     /**
      * Instantiates a new educationOrganization and sets the default values.
      * @param educationOrganizationParameterValue 
      */
     public constructor(educationOrganizationParameterValue?: EducationOrganization | undefined) {
         super(educationOrganizationParameterValue);
-        this.description = educationOrganizationParameterValue?.description;
-        this.displayName = educationOrganizationParameterValue?.displayName;
-        this.externalSource = educationOrganizationParameterValue?.externalSource;
-        this.externalSourceDetail = educationOrganizationParameterValue?.externalSourceDetail;
+        this._description = educationOrganizationParameterValue?.description;
+        this._displayName = educationOrganizationParameterValue?.displayName;
+        this._externalSource = educationOrganizationParameterValue?.externalSource;
+        this._externalSourceDetail = educationOrganizationParameterValue?.externalSourceDetail;
+    };
+    /**
+     * Gets the description property value. Organization description.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Organization description.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Organization display name.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Organization display name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
+     * @returns a educationExternalSource
+     */
+    public get externalSource() {
+        return this._externalSource;
+    };
+    /**
+     * Sets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
+     * @param value Value to set for the externalSource property.
+     */
+    public set externalSource(value: EducationExternalSource | undefined) {
+        if(value) {
+            this._externalSource = value;
+        }
+    };
+    /**
+     * Gets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * @returns a string
+     */
+    public get externalSourceDetail() {
+        return this._externalSourceDetail;
+    };
+    /**
+     * Sets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * @param value Value to set for the externalSourceDetail property.
+     */
+    public set externalSourceDetail(value: string | undefined) {
+        if(value) {
+            this._externalSourceDetail = value;
+        }
     };
     /**
      * The deserialization information for the current model

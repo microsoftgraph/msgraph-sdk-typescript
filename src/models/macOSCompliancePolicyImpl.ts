@@ -6,62 +6,142 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class MacOSCompliancePolicyImpl extends DeviceCompliancePolicyImpl implements MacOSCompliancePolicy {
     /** Require that devices have enabled device threat protection. */
-    public deviceThreatProtectionEnabled?: boolean | undefined;
+    private _deviceThreatProtectionEnabled?: boolean | undefined;
     /** Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. */
-    public deviceThreatProtectionRequiredSecurityLevel?: DeviceThreatProtectionLevel | undefined;
+    private _deviceThreatProtectionRequiredSecurityLevel?: DeviceThreatProtectionLevel | undefined;
     /** Corresponds to the 'Block all incoming connections' option. */
-    public firewallBlockAllIncoming?: boolean | undefined;
+    private _firewallBlockAllIncoming?: boolean | undefined;
     /** Whether the firewall should be enabled or not. */
-    public firewallEnabled?: boolean | undefined;
+    private _firewallEnabled?: boolean | undefined;
     /** Corresponds to 'Enable stealth mode.' */
-    public firewallEnableStealthMode?: boolean | undefined;
+    private _firewallEnableStealthMode?: boolean | undefined;
     /** Maximum MacOS version. */
-    public osMaximumVersion?: string | undefined;
+    private _osMaximumVersion?: string | undefined;
     /** Minimum MacOS version. */
-    public osMinimumVersion?: string | undefined;
+    private _osMinimumVersion?: string | undefined;
     /** Indicates whether or not to block simple passwords. */
-    public passwordBlockSimple?: boolean | undefined;
+    private _passwordBlockSimple?: boolean | undefined;
     /** Number of days before the password expires. Valid values 1 to 65535 */
-    public passwordExpirationDays?: number | undefined;
+    private _passwordExpirationDays?: number | undefined;
     /** The number of character sets required in the password. */
-    public passwordMinimumCharacterSetCount?: number | undefined;
+    private _passwordMinimumCharacterSetCount?: number | undefined;
     /** Minimum length of password. Valid values 4 to 14 */
-    public passwordMinimumLength?: number | undefined;
+    private _passwordMinimumLength?: number | undefined;
     /** Minutes of inactivity before a password is required. */
-    public passwordMinutesOfInactivityBeforeLock?: number | undefined;
+    private _passwordMinutesOfInactivityBeforeLock?: number | undefined;
     /** Number of previous passwords to block. Valid values 1 to 24 */
-    public passwordPreviousPasswordBlockCount?: number | undefined;
+    private _passwordPreviousPasswordBlockCount?: number | undefined;
     /** Whether or not to require a password. */
-    public passwordRequired?: boolean | undefined;
+    private _passwordRequired?: boolean | undefined;
     /** The required password type. Possible values are: deviceDefault, alphanumeric, numeric. */
-    public passwordRequiredType?: RequiredPasswordType | undefined;
+    private _passwordRequiredType?: RequiredPasswordType | undefined;
     /** Require encryption on Mac OS devices. */
-    public storageRequireEncryption?: boolean | undefined;
+    private _storageRequireEncryption?: boolean | undefined;
     /** Require that devices have enabled system integrity protection. */
-    public systemIntegrityProtectionEnabled?: boolean | undefined;
+    private _systemIntegrityProtectionEnabled?: boolean | undefined;
     /**
      * Instantiates a new MacOSCompliancePolicy and sets the default values.
      * @param macOSCompliancePolicyParameterValue 
      */
     public constructor(macOSCompliancePolicyParameterValue?: MacOSCompliancePolicy | undefined) {
         super(macOSCompliancePolicyParameterValue);
-        this.deviceThreatProtectionEnabled = macOSCompliancePolicyParameterValue?.deviceThreatProtectionEnabled;
-        this.deviceThreatProtectionRequiredSecurityLevel = macOSCompliancePolicyParameterValue?.deviceThreatProtectionRequiredSecurityLevel;
-        this.firewallBlockAllIncoming = macOSCompliancePolicyParameterValue?.firewallBlockAllIncoming;
-        this.firewallEnabled = macOSCompliancePolicyParameterValue?.firewallEnabled;
-        this.firewallEnableStealthMode = macOSCompliancePolicyParameterValue?.firewallEnableStealthMode;
-        this.osMaximumVersion = macOSCompliancePolicyParameterValue?.osMaximumVersion;
-        this.osMinimumVersion = macOSCompliancePolicyParameterValue?.osMinimumVersion;
-        this.passwordBlockSimple = macOSCompliancePolicyParameterValue?.passwordBlockSimple;
-        this.passwordExpirationDays = macOSCompliancePolicyParameterValue?.passwordExpirationDays;
-        this.passwordMinimumCharacterSetCount = macOSCompliancePolicyParameterValue?.passwordMinimumCharacterSetCount;
-        this.passwordMinimumLength = macOSCompliancePolicyParameterValue?.passwordMinimumLength;
-        this.passwordMinutesOfInactivityBeforeLock = macOSCompliancePolicyParameterValue?.passwordMinutesOfInactivityBeforeLock;
-        this.passwordPreviousPasswordBlockCount = macOSCompliancePolicyParameterValue?.passwordPreviousPasswordBlockCount;
-        this.passwordRequired = macOSCompliancePolicyParameterValue?.passwordRequired;
-        this.passwordRequiredType = macOSCompliancePolicyParameterValue?.passwordRequiredType;
-        this.storageRequireEncryption = macOSCompliancePolicyParameterValue?.storageRequireEncryption;
-        this.systemIntegrityProtectionEnabled = macOSCompliancePolicyParameterValue?.systemIntegrityProtectionEnabled;
+        this._deviceThreatProtectionEnabled = macOSCompliancePolicyParameterValue?.deviceThreatProtectionEnabled;
+        this._deviceThreatProtectionRequiredSecurityLevel = macOSCompliancePolicyParameterValue?.deviceThreatProtectionRequiredSecurityLevel;
+        this._firewallBlockAllIncoming = macOSCompliancePolicyParameterValue?.firewallBlockAllIncoming;
+        this._firewallEnabled = macOSCompliancePolicyParameterValue?.firewallEnabled;
+        this._firewallEnableStealthMode = macOSCompliancePolicyParameterValue?.firewallEnableStealthMode;
+        this._osMaximumVersion = macOSCompliancePolicyParameterValue?.osMaximumVersion;
+        this._osMinimumVersion = macOSCompliancePolicyParameterValue?.osMinimumVersion;
+        this._passwordBlockSimple = macOSCompliancePolicyParameterValue?.passwordBlockSimple;
+        this._passwordExpirationDays = macOSCompliancePolicyParameterValue?.passwordExpirationDays;
+        this._passwordMinimumCharacterSetCount = macOSCompliancePolicyParameterValue?.passwordMinimumCharacterSetCount;
+        this._passwordMinimumLength = macOSCompliancePolicyParameterValue?.passwordMinimumLength;
+        this._passwordMinutesOfInactivityBeforeLock = macOSCompliancePolicyParameterValue?.passwordMinutesOfInactivityBeforeLock;
+        this._passwordPreviousPasswordBlockCount = macOSCompliancePolicyParameterValue?.passwordPreviousPasswordBlockCount;
+        this._passwordRequired = macOSCompliancePolicyParameterValue?.passwordRequired;
+        this._passwordRequiredType = macOSCompliancePolicyParameterValue?.passwordRequiredType;
+        this._storageRequireEncryption = macOSCompliancePolicyParameterValue?.storageRequireEncryption;
+        this._systemIntegrityProtectionEnabled = macOSCompliancePolicyParameterValue?.systemIntegrityProtectionEnabled;
+    };
+    /**
+     * Gets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
+     * @returns a boolean
+     */
+    public get deviceThreatProtectionEnabled() {
+        return this._deviceThreatProtectionEnabled;
+    };
+    /**
+     * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
+     * @param value Value to set for the deviceThreatProtectionEnabled property.
+     */
+    public set deviceThreatProtectionEnabled(value: boolean | undefined) {
+        if(value) {
+            this._deviceThreatProtectionEnabled = value;
+        }
+    };
+    /**
+     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * @returns a deviceThreatProtectionLevel
+     */
+    public get deviceThreatProtectionRequiredSecurityLevel() {
+        return this._deviceThreatProtectionRequiredSecurityLevel;
+    };
+    /**
+     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * @param value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
+     */
+    public set deviceThreatProtectionRequiredSecurityLevel(value: DeviceThreatProtectionLevel | undefined) {
+        if(value) {
+            this._deviceThreatProtectionRequiredSecurityLevel = value;
+        }
+    };
+    /**
+     * Gets the firewallBlockAllIncoming property value. Corresponds to the 'Block all incoming connections' option.
+     * @returns a boolean
+     */
+    public get firewallBlockAllIncoming() {
+        return this._firewallBlockAllIncoming;
+    };
+    /**
+     * Sets the firewallBlockAllIncoming property value. Corresponds to the 'Block all incoming connections' option.
+     * @param value Value to set for the firewallBlockAllIncoming property.
+     */
+    public set firewallBlockAllIncoming(value: boolean | undefined) {
+        if(value) {
+            this._firewallBlockAllIncoming = value;
+        }
+    };
+    /**
+     * Gets the firewallEnabled property value. Whether the firewall should be enabled or not.
+     * @returns a boolean
+     */
+    public get firewallEnabled() {
+        return this._firewallEnabled;
+    };
+    /**
+     * Sets the firewallEnabled property value. Whether the firewall should be enabled or not.
+     * @param value Value to set for the firewallEnabled property.
+     */
+    public set firewallEnabled(value: boolean | undefined) {
+        if(value) {
+            this._firewallEnabled = value;
+        }
+    };
+    /**
+     * Gets the firewallEnableStealthMode property value. Corresponds to 'Enable stealth mode.'
+     * @returns a boolean
+     */
+    public get firewallEnableStealthMode() {
+        return this._firewallEnableStealthMode;
+    };
+    /**
+     * Sets the firewallEnableStealthMode property value. Corresponds to 'Enable stealth mode.'
+     * @param value Value to set for the firewallEnableStealthMode property.
+     */
+    public set firewallEnableStealthMode(value: boolean | undefined) {
+        if(value) {
+            this._firewallEnableStealthMode = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -87,6 +167,166 @@ export class MacOSCompliancePolicyImpl extends DeviceCompliancePolicyImpl implem
             "storageRequireEncryption": n => { this.storageRequireEncryption = n.getBooleanValue(); },
             "systemIntegrityProtectionEnabled": n => { this.systemIntegrityProtectionEnabled = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the osMaximumVersion property value. Maximum MacOS version.
+     * @returns a string
+     */
+    public get osMaximumVersion() {
+        return this._osMaximumVersion;
+    };
+    /**
+     * Sets the osMaximumVersion property value. Maximum MacOS version.
+     * @param value Value to set for the osMaximumVersion property.
+     */
+    public set osMaximumVersion(value: string | undefined) {
+        if(value) {
+            this._osMaximumVersion = value;
+        }
+    };
+    /**
+     * Gets the osMinimumVersion property value. Minimum MacOS version.
+     * @returns a string
+     */
+    public get osMinimumVersion() {
+        return this._osMinimumVersion;
+    };
+    /**
+     * Sets the osMinimumVersion property value. Minimum MacOS version.
+     * @param value Value to set for the osMinimumVersion property.
+     */
+    public set osMinimumVersion(value: string | undefined) {
+        if(value) {
+            this._osMinimumVersion = value;
+        }
+    };
+    /**
+     * Gets the passwordBlockSimple property value. Indicates whether or not to block simple passwords.
+     * @returns a boolean
+     */
+    public get passwordBlockSimple() {
+        return this._passwordBlockSimple;
+    };
+    /**
+     * Sets the passwordBlockSimple property value. Indicates whether or not to block simple passwords.
+     * @param value Value to set for the passwordBlockSimple property.
+     */
+    public set passwordBlockSimple(value: boolean | undefined) {
+        if(value) {
+            this._passwordBlockSimple = value;
+        }
+    };
+    /**
+     * Gets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 65535
+     * @returns a integer
+     */
+    public get passwordExpirationDays() {
+        return this._passwordExpirationDays;
+    };
+    /**
+     * Sets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 65535
+     * @param value Value to set for the passwordExpirationDays property.
+     */
+    public set passwordExpirationDays(value: number | undefined) {
+        if(value) {
+            this._passwordExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
+     * @returns a integer
+     */
+    public get passwordMinimumCharacterSetCount() {
+        return this._passwordMinimumCharacterSetCount;
+    };
+    /**
+     * Sets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
+     * @param value Value to set for the passwordMinimumCharacterSetCount property.
+     */
+    public set passwordMinimumCharacterSetCount(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumCharacterSetCount = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumLength property value. Minimum length of password. Valid values 4 to 14
+     * @returns a integer
+     */
+    public get passwordMinimumLength() {
+        return this._passwordMinimumLength;
+    };
+    /**
+     * Sets the passwordMinimumLength property value. Minimum length of password. Valid values 4 to 14
+     * @param value Value to set for the passwordMinimumLength property.
+     */
+    public set passwordMinimumLength(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
+     * @returns a integer
+     */
+    public get passwordMinutesOfInactivityBeforeLock() {
+        return this._passwordMinutesOfInactivityBeforeLock;
+    };
+    /**
+     * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
+     * @param value Value to set for the passwordMinutesOfInactivityBeforeLock property.
+     */
+    public set passwordMinutesOfInactivityBeforeLock(value: number | undefined) {
+        if(value) {
+            this._passwordMinutesOfInactivityBeforeLock = value;
+        }
+    };
+    /**
+     * Gets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 1 to 24
+     * @returns a integer
+     */
+    public get passwordPreviousPasswordBlockCount() {
+        return this._passwordPreviousPasswordBlockCount;
+    };
+    /**
+     * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 1 to 24
+     * @param value Value to set for the passwordPreviousPasswordBlockCount property.
+     */
+    public set passwordPreviousPasswordBlockCount(value: number | undefined) {
+        if(value) {
+            this._passwordPreviousPasswordBlockCount = value;
+        }
+    };
+    /**
+     * Gets the passwordRequired property value. Whether or not to require a password.
+     * @returns a boolean
+     */
+    public get passwordRequired() {
+        return this._passwordRequired;
+    };
+    /**
+     * Sets the passwordRequired property value. Whether or not to require a password.
+     * @param value Value to set for the passwordRequired property.
+     */
+    public set passwordRequired(value: boolean | undefined) {
+        if(value) {
+            this._passwordRequired = value;
+        }
+    };
+    /**
+     * Gets the passwordRequiredType property value. The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @returns a requiredPasswordType
+     */
+    public get passwordRequiredType() {
+        return this._passwordRequiredType;
+    };
+    /**
+     * Sets the passwordRequiredType property value. The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @param value Value to set for the passwordRequiredType property.
+     */
+    public set passwordRequiredType(value: RequiredPasswordType | undefined) {
+        if(value) {
+            this._passwordRequiredType = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -145,6 +385,38 @@ export class MacOSCompliancePolicyImpl extends DeviceCompliancePolicyImpl implem
         }
         if(this.systemIntegrityProtectionEnabled){
             writer.writeBooleanValue("systemIntegrityProtectionEnabled", this.systemIntegrityProtectionEnabled);
+        }
+    };
+    /**
+     * Gets the storageRequireEncryption property value. Require encryption on Mac OS devices.
+     * @returns a boolean
+     */
+    public get storageRequireEncryption() {
+        return this._storageRequireEncryption;
+    };
+    /**
+     * Sets the storageRequireEncryption property value. Require encryption on Mac OS devices.
+     * @param value Value to set for the storageRequireEncryption property.
+     */
+    public set storageRequireEncryption(value: boolean | undefined) {
+        if(value) {
+            this._storageRequireEncryption = value;
+        }
+    };
+    /**
+     * Gets the systemIntegrityProtectionEnabled property value. Require that devices have enabled system integrity protection.
+     * @returns a boolean
+     */
+    public get systemIntegrityProtectionEnabled() {
+        return this._systemIntegrityProtectionEnabled;
+    };
+    /**
+     * Sets the systemIntegrityProtectionEnabled property value. Require that devices have enabled system integrity protection.
+     * @param value Value to set for the systemIntegrityProtectionEnabled property.
+     */
+    public set systemIntegrityProtectionEnabled(value: boolean | undefined) {
+        if(value) {
+            this._systemIntegrityProtectionEnabled = value;
         }
     };
 }

@@ -6,23 +6,23 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements ManagedAndroidLobApp {
     /** The value for the minimum applicable operating system. */
-    public minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
+    private _minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
     /** The package identifier. */
-    public packageId?: string | undefined;
+    private _packageId?: string | undefined;
     /** The version code of managed Android Line of Business (LoB) app. */
-    public versionCode?: string | undefined;
+    private _versionCode?: string | undefined;
     /** The version name of managed Android Line of Business (LoB) app. */
-    public versionName?: string | undefined;
+    private _versionName?: string | undefined;
     /**
      * Instantiates a new ManagedAndroidLobApp and sets the default values.
      * @param managedAndroidLobAppParameterValue 
      */
     public constructor(managedAndroidLobAppParameterValue?: ManagedAndroidLobApp | undefined) {
         super(managedAndroidLobAppParameterValue);
-        this.minimumSupportedOperatingSystem = managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem;
-        this.packageId = managedAndroidLobAppParameterValue?.packageId;
-        this.versionCode = managedAndroidLobAppParameterValue?.versionCode;
-        this.versionName = managedAndroidLobAppParameterValue?.versionName;
+        this._minimumSupportedOperatingSystem = managedAndroidLobAppParameterValue?.minimumSupportedOperatingSystem;
+        this._packageId = managedAndroidLobAppParameterValue?.packageId;
+        this._versionCode = managedAndroidLobAppParameterValue?.versionCode;
+        this._versionName = managedAndroidLobAppParameterValue?.versionName;
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +37,38 @@ export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements
         };
     };
     /**
+     * Gets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * @returns a AndroidMinimumOperatingSystemInterface
+     */
+    public get minimumSupportedOperatingSystem() {
+        return this._minimumSupportedOperatingSystem;
+    };
+    /**
+     * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * @param value Value to set for the minimumSupportedOperatingSystem property.
+     */
+    public set minimumSupportedOperatingSystem(value: AndroidMinimumOperatingSystem | undefined) {
+        if(value) {
+            this._minimumSupportedOperatingSystem = value instanceof AndroidMinimumOperatingSystemImpl? value : new AndroidMinimumOperatingSystemImpl(value);
+        }
+    };
+    /**
+     * Gets the packageId property value. The package identifier.
+     * @returns a string
+     */
+    public get packageId() {
+        return this._packageId;
+    };
+    /**
+     * Sets the packageId property value. The package identifier.
+     * @param value Value to set for the packageId property.
+     */
+    public set packageId(value: string | undefined) {
+        if(value) {
+            this._packageId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -44,7 +76,7 @@ export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.minimumSupportedOperatingSystem){
-            writer.writeObjectValue<AndroidMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", new AndroidMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem));
+            writer.writeObjectValue<AndroidMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (!this.minimumSupportedOperatingSystem || this.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem : new AndroidMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
         }
         if(this.packageId){
             writer.writeStringValue("packageId", this.packageId);
@@ -54,6 +86,38 @@ export class ManagedAndroidLobAppImpl extends ManagedMobileLobAppImpl implements
         }
         if(this.versionName){
             writer.writeStringValue("versionName", this.versionName);
+        }
+    };
+    /**
+     * Gets the versionCode property value. The version code of managed Android Line of Business (LoB) app.
+     * @returns a string
+     */
+    public get versionCode() {
+        return this._versionCode;
+    };
+    /**
+     * Sets the versionCode property value. The version code of managed Android Line of Business (LoB) app.
+     * @param value Value to set for the versionCode property.
+     */
+    public set versionCode(value: string | undefined) {
+        if(value) {
+            this._versionCode = value;
+        }
+    };
+    /**
+     * Gets the versionName property value. The version name of managed Android Line of Business (LoB) app.
+     * @returns a string
+     */
+    public get versionName() {
+        return this._versionName;
+    };
+    /**
+     * Sets the versionName property value. The version name of managed Android Line of Business (LoB) app.
+     * @param value Value to set for the versionName property.
+     */
+    public set versionName(value: string | undefined) {
+        if(value) {
+            this._versionName = value;
         }
     };
 }

@@ -7,16 +7,52 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the onenotePatchContent method. */
 export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchContentPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The commands property */
-    public commands?: OnenotePatchContentCommand[] | undefined;
+    private _commands?: OnenotePatchContentCommand[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the commands property value. The commands property
+     * @returns a OnenotePatchContentCommandInterface
+     */
+    public get commands() {
+        return this._commands;
+    };
+    /**
+     * Sets the commands property value. The commands property
+     * @param value Value to set for the commands property.
+     */
+    public set commands(value: OnenotePatchContentCommand[] | undefined) {
+        if(value) {
+            const commandsArrValue: OnenotePatchContentCommandImpl[] = [];
+            this.commands?.forEach(element => {
+                commandsArrValue.push((element instanceof OnenotePatchContentCommandImpl? element:new OnenotePatchContentCommandImpl(element)));
+            });
+            this._commands = commandsArrValue;
+        }
+    };
     /**
      * Instantiates a new onenotePatchContentPostRequestBody and sets the default values.
      * @param onenotePatchContentPostRequestBodyParameterValue 
      */
     public constructor(onenotePatchContentPostRequestBodyParameterValue?: OnenotePatchContentPostRequestBody | undefined) {
-        this.additionalData = onenotePatchContentPostRequestBodyParameterValue?.additionalData ? onenotePatchContentPostRequestBodyParameterValue?.additionalData! : {};
-        this.commands = onenotePatchContentPostRequestBodyParameterValue?.commands;
+        this._additionalData = onenotePatchContentPostRequestBodyParameterValue?.additionalData ? onenotePatchContentPostRequestBodyParameterValue?.additionalData! : {};
+        this._commands = onenotePatchContentPostRequestBodyParameterValue?.commands;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +69,10 @@ export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchConte
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.commands && this.commands.length != 0){        const commandsArrValue: OnenotePatchContentCommandImpl[] = []; this.commands?.forEach(element => {commandsArrValue.push(new OnenotePatchContentCommandImpl(element));});
+        if(this.commands && this.commands.length != 0){        const commandsArrValue: OnenotePatchContentCommandImpl[] = [];
+        this.commands?.forEach(element => {
+            commandsArrValue.push((element instanceof OnenotePatchContentCommandImpl? element:new OnenotePatchContentCommandImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<OnenotePatchContentCommandImpl>("commands", commandsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

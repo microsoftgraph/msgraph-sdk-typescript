@@ -9,23 +9,71 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of place entities. */
 export class PlaceImpl extends EntityImpl implements Place {
     /** The street address of the place. */
-    public address?: PhysicalAddress | undefined;
+    private _address?: PhysicalAddress | undefined;
     /** The name associated with the place. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Specifies the place location in latitude, longitude and (optionally) altitude coordinates. */
-    public geoCoordinates?: OutlookGeoCoordinates | undefined;
+    private _geoCoordinates?: OutlookGeoCoordinates | undefined;
     /** The phone number of the place. */
-    public phone?: string | undefined;
+    private _phone?: string | undefined;
+    /**
+     * Gets the address property value. The street address of the place.
+     * @returns a PhysicalAddressInterface
+     */
+    public get address() {
+        return this._address;
+    };
+    /**
+     * Sets the address property value. The street address of the place.
+     * @param value Value to set for the address property.
+     */
+    public set address(value: PhysicalAddress | undefined) {
+        if(value) {
+            this._address = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+        }
+    };
     /**
      * Instantiates a new place and sets the default values.
      * @param placeParameterValue 
      */
     public constructor(placeParameterValue?: Place | undefined) {
         super(placeParameterValue);
-        this.address = placeParameterValue?.address;
-        this.displayName = placeParameterValue?.displayName;
-        this.geoCoordinates = placeParameterValue?.geoCoordinates;
-        this.phone = placeParameterValue?.phone;
+        this._address = placeParameterValue?.address;
+        this._displayName = placeParameterValue?.displayName;
+        this._geoCoordinates = placeParameterValue?.geoCoordinates;
+        this._phone = placeParameterValue?.phone;
+    };
+    /**
+     * Gets the displayName property value. The name associated with the place.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name associated with the place.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the geoCoordinates property value. Specifies the place location in latitude, longitude and (optionally) altitude coordinates.
+     * @returns a OutlookGeoCoordinatesInterface
+     */
+    public get geoCoordinates() {
+        return this._geoCoordinates;
+    };
+    /**
+     * Sets the geoCoordinates property value. Specifies the place location in latitude, longitude and (optionally) altitude coordinates.
+     * @param value Value to set for the geoCoordinates property.
+     */
+    public set geoCoordinates(value: OutlookGeoCoordinates | undefined) {
+        if(value) {
+            this._geoCoordinates = value instanceof OutlookGeoCoordinatesImpl? value : new OutlookGeoCoordinatesImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +88,22 @@ export class PlaceImpl extends EntityImpl implements Place {
         };
     };
     /**
+     * Gets the phone property value. The phone number of the place.
+     * @returns a string
+     */
+    public get phone() {
+        return this._phone;
+    };
+    /**
+     * Sets the phone property value. The phone number of the place.
+     * @param value Value to set for the phone property.
+     */
+    public set phone(value: string | undefined) {
+        if(value) {
+            this._phone = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -47,13 +111,13 @@ export class PlaceImpl extends EntityImpl implements Place {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-            writer.writeObjectValue<PhysicalAddressImpl>("address", new PhysicalAddressImpl(this.address));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", (!this.address || this.address instanceof PhysicalAddressImpl? this.address : new PhysicalAddressImpl(this.address)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.geoCoordinates){
-            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", new OutlookGeoCoordinatesImpl(this.geoCoordinates));
+            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", (!this.geoCoordinates || this.geoCoordinates instanceof OutlookGeoCoordinatesImpl? this.geoCoordinates : new OutlookGeoCoordinatesImpl(this.geoCoordinates)));
         }
         if(this.phone){
             writer.writeStringValue("phone", this.phone);

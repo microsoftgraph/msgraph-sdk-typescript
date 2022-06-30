@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FailureInfoImpl implements FailureInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Classification of why a call or portion of a call failed. */
-    public reason?: string | undefined;
+    private _reason?: string | undefined;
     /** The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue. */
-    public stage?: FailureStage | undefined;
+    private _stage?: FailureStage | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new failureInfo and sets the default values.
      * @param failureInfoParameterValue 
      */
     public constructor(failureInfoParameterValue?: FailureInfo | undefined) {
-        this.additionalData = failureInfoParameterValue?.additionalData ? failureInfoParameterValue?.additionalData! : {};
-        this.reason = failureInfoParameterValue?.reason;
-        this.stage = failureInfoParameterValue?.stage;
+        this._additionalData = failureInfoParameterValue?.additionalData ? failureInfoParameterValue?.additionalData! : {};
+        this._reason = failureInfoParameterValue?.reason;
+        this._stage = failureInfoParameterValue?.stage;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,22 @@ export class FailureInfoImpl implements FailureInfo {
             "reason": n => { this.reason = n.getStringValue(); },
             "stage": n => { this.stage = n.getEnumValue<FailureStage>(FailureStage); },
         };
+    };
+    /**
+     * Gets the reason property value. Classification of why a call or portion of a call failed.
+     * @returns a string
+     */
+    public get reason() {
+        return this._reason;
+    };
+    /**
+     * Sets the reason property value. Classification of why a call or portion of a call failed.
+     * @param value Value to set for the reason property.
+     */
+    public set reason(value: string | undefined) {
+        if(value) {
+            this._reason = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -41,5 +73,21 @@ export class FailureInfoImpl implements FailureInfo {
             writer.writeEnumValue<FailureStage>("stage", this.stage);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.
+     * @returns a failureStage
+     */
+    public get stage() {
+        return this._stage;
+    };
+    /**
+     * Sets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.
+     * @param value Value to set for the stage property.
+     */
+    public set stage(value: FailureStage | undefined) {
+        if(value) {
+            this._stage = value;
+        }
     };
 }

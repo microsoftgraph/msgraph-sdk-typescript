@@ -9,20 +9,20 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class SharePointIdentitySetImpl extends IdentitySetImpl implements SharePointIdentitySet {
     /** The group associated with this action. Optional. */
-    public group?: Identity | undefined;
+    private _group?: Identity | undefined;
     /** The SharePoint group associated with this action. Optional. */
-    public siteGroup?: SharePointIdentity | undefined;
+    private _siteGroup?: SharePointIdentity | undefined;
     /** The SharePoint user associated with this action. Optional. */
-    public siteUser?: SharePointIdentity | undefined;
+    private _siteUser?: SharePointIdentity | undefined;
     /**
      * Instantiates a new sharePointIdentitySet and sets the default values.
      * @param sharePointIdentitySetParameterValue 
      */
     public constructor(sharePointIdentitySetParameterValue?: SharePointIdentitySet | undefined) {
         super(sharePointIdentitySetParameterValue);
-        this.group = sharePointIdentitySetParameterValue?.group;
-        this.siteGroup = sharePointIdentitySetParameterValue?.siteGroup;
-        this.siteUser = sharePointIdentitySetParameterValue?.siteUser;
+        this._group = sharePointIdentitySetParameterValue?.group;
+        this._siteGroup = sharePointIdentitySetParameterValue?.siteGroup;
+        this._siteUser = sharePointIdentitySetParameterValue?.siteUser;
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +36,22 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
         };
     };
     /**
+     * Gets the group property value. The group associated with this action. Optional.
+     * @returns a IdentityInterface
+     */
+    public get group() {
+        return this._group;
+    };
+    /**
+     * Sets the group property value. The group associated with this action. Optional.
+     * @param value Value to set for the group property.
+     */
+    public set group(value: Identity | undefined) {
+        if(value) {
+            this._group = value instanceof IdentityImpl? value : new IdentityImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -43,13 +59,45 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.group){
-            writer.writeObjectValue<IdentityImpl>("group", new IdentityImpl(this.group));
+            writer.writeObjectValue<IdentityImpl>("group", (!this.group || this.group instanceof IdentityImpl? this.group : new IdentityImpl(this.group)));
         }
         if(this.siteGroup){
-            writer.writeObjectValue<SharePointIdentityImpl>("siteGroup", new SharePointIdentityImpl(this.siteGroup));
+            writer.writeObjectValue<SharePointIdentityImpl>("siteGroup", (!this.siteGroup || this.siteGroup instanceof SharePointIdentityImpl? this.siteGroup : new SharePointIdentityImpl(this.siteGroup)));
         }
         if(this.siteUser){
-            writer.writeObjectValue<SharePointIdentityImpl>("siteUser", new SharePointIdentityImpl(this.siteUser));
+            writer.writeObjectValue<SharePointIdentityImpl>("siteUser", (!this.siteUser || this.siteUser instanceof SharePointIdentityImpl? this.siteUser : new SharePointIdentityImpl(this.siteUser)));
+        }
+    };
+    /**
+     * Gets the siteGroup property value. The SharePoint group associated with this action. Optional.
+     * @returns a SharePointIdentityInterface
+     */
+    public get siteGroup() {
+        return this._siteGroup;
+    };
+    /**
+     * Sets the siteGroup property value. The SharePoint group associated with this action. Optional.
+     * @param value Value to set for the siteGroup property.
+     */
+    public set siteGroup(value: SharePointIdentity | undefined) {
+        if(value) {
+            this._siteGroup = value instanceof SharePointIdentityImpl? value : new SharePointIdentityImpl(value);
+        }
+    };
+    /**
+     * Gets the siteUser property value. The SharePoint user associated with this action. Optional.
+     * @returns a SharePointIdentityInterface
+     */
+    public get siteUser() {
+        return this._siteUser;
+    };
+    /**
+     * Sets the siteUser property value. The SharePoint user associated with this action. Optional.
+     * @param value Value to set for the siteUser property.
+     */
+    public set siteUser(value: SharePointIdentity | undefined) {
+        if(value) {
+            this._siteUser = value instanceof SharePointIdentityImpl? value : new SharePointIdentityImpl(value);
         }
     };
 }

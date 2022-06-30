@@ -9,20 +9,20 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
     /** Identity of the user which last modified the version. Read-only. */
-    public lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the version was last modified. Read-only. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** Indicates the publication status of this particular version. Read-only. */
-    public publication?: PublicationFacet | undefined;
+    private _publication?: PublicationFacet | undefined;
     /**
      * Instantiates a new baseItemVersion and sets the default values.
      * @param baseItemVersionParameterValue 
      */
     public constructor(baseItemVersionParameterValue?: BaseItemVersion | undefined) {
         super(baseItemVersionParameterValue);
-        this.lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy;
-        this.lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime;
-        this.publication = baseItemVersionParameterValue?.publication;
+        this._lastModifiedBy = baseItemVersionParameterValue?.lastModifiedBy;
+        this._lastModifiedDateTime = baseItemVersionParameterValue?.lastModifiedDateTime;
+        this._publication = baseItemVersionParameterValue?.publication;
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +36,54 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
         };
     };
     /**
+     * Gets the lastModifiedBy property value. Identity of the user which last modified the version. Read-only.
+     * @returns a IdentitySetInterface
+     */
+    public get lastModifiedBy() {
+        return this._lastModifiedBy;
+    };
+    /**
+     * Sets the lastModifiedBy property value. Identity of the user which last modified the version. Read-only.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. Date and time the version was last modified. Read-only.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. Date and time the version was last modified. Read-only.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
+     * Gets the publication property value. Indicates the publication status of this particular version. Read-only.
+     * @returns a PublicationFacetInterface
+     */
+    public get publication() {
+        return this._publication;
+    };
+    /**
+     * Sets the publication property value. Indicates the publication status of this particular version. Read-only.
+     * @param value Value to set for the publication property.
+     */
+    public set publication(value: PublicationFacet | undefined) {
+        if(value) {
+            this._publication = value instanceof PublicationFacetImpl? value : new PublicationFacetImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -43,13 +91,13 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.publication){
-            writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
+            writer.writeObjectValue<PublicationFacetImpl>("publication", (!this.publication || this.publication instanceof PublicationFacetImpl? this.publication : new PublicationFacetImpl(this.publication)));
         }
     };
 }

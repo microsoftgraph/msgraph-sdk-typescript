@@ -5,26 +5,26 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class MicrosoftStoreForBusinessAppImpl extends MobileAppImpl implements MicrosoftStoreForBusinessApp {
     /** The app license type. Possible values are: offline, online. */
-    public licenseType?: MicrosoftStoreForBusinessLicenseType | undefined;
+    private _licenseType?: MicrosoftStoreForBusinessLicenseType | undefined;
     /** The app package identifier */
-    public packageIdentityName?: string | undefined;
+    private _packageIdentityName?: string | undefined;
     /** The app product key */
-    public productKey?: string | undefined;
+    private _productKey?: string | undefined;
     /** The total number of Microsoft Store for Business licenses. */
-    public totalLicenseCount?: number | undefined;
+    private _totalLicenseCount?: number | undefined;
     /** The number of Microsoft Store for Business licenses in use. */
-    public usedLicenseCount?: number | undefined;
+    private _usedLicenseCount?: number | undefined;
     /**
      * Instantiates a new MicrosoftStoreForBusinessApp and sets the default values.
      * @param microsoftStoreForBusinessAppParameterValue 
      */
     public constructor(microsoftStoreForBusinessAppParameterValue?: MicrosoftStoreForBusinessApp | undefined) {
         super(microsoftStoreForBusinessAppParameterValue);
-        this.licenseType = microsoftStoreForBusinessAppParameterValue?.licenseType;
-        this.packageIdentityName = microsoftStoreForBusinessAppParameterValue?.packageIdentityName;
-        this.productKey = microsoftStoreForBusinessAppParameterValue?.productKey;
-        this.totalLicenseCount = microsoftStoreForBusinessAppParameterValue?.totalLicenseCount;
-        this.usedLicenseCount = microsoftStoreForBusinessAppParameterValue?.usedLicenseCount;
+        this._licenseType = microsoftStoreForBusinessAppParameterValue?.licenseType;
+        this._packageIdentityName = microsoftStoreForBusinessAppParameterValue?.packageIdentityName;
+        this._productKey = microsoftStoreForBusinessAppParameterValue?.productKey;
+        this._totalLicenseCount = microsoftStoreForBusinessAppParameterValue?.totalLicenseCount;
+        this._usedLicenseCount = microsoftStoreForBusinessAppParameterValue?.usedLicenseCount;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +38,54 @@ export class MicrosoftStoreForBusinessAppImpl extends MobileAppImpl implements M
             "totalLicenseCount": n => { this.totalLicenseCount = n.getNumberValue(); },
             "usedLicenseCount": n => { this.usedLicenseCount = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the licenseType property value. The app license type. Possible values are: offline, online.
+     * @returns a microsoftStoreForBusinessLicenseType
+     */
+    public get licenseType() {
+        return this._licenseType;
+    };
+    /**
+     * Sets the licenseType property value. The app license type. Possible values are: offline, online.
+     * @param value Value to set for the licenseType property.
+     */
+    public set licenseType(value: MicrosoftStoreForBusinessLicenseType | undefined) {
+        if(value) {
+            this._licenseType = value;
+        }
+    };
+    /**
+     * Gets the packageIdentityName property value. The app package identifier
+     * @returns a string
+     */
+    public get packageIdentityName() {
+        return this._packageIdentityName;
+    };
+    /**
+     * Sets the packageIdentityName property value. The app package identifier
+     * @param value Value to set for the packageIdentityName property.
+     */
+    public set packageIdentityName(value: string | undefined) {
+        if(value) {
+            this._packageIdentityName = value;
+        }
+    };
+    /**
+     * Gets the productKey property value. The app product key
+     * @returns a string
+     */
+    public get productKey() {
+        return this._productKey;
+    };
+    /**
+     * Sets the productKey property value. The app product key
+     * @param value Value to set for the productKey property.
+     */
+    public set productKey(value: string | undefined) {
+        if(value) {
+            this._productKey = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -60,6 +108,38 @@ export class MicrosoftStoreForBusinessAppImpl extends MobileAppImpl implements M
         }
         if(this.usedLicenseCount){
             writer.writeNumberValue("usedLicenseCount", this.usedLicenseCount);
+        }
+    };
+    /**
+     * Gets the totalLicenseCount property value. The total number of Microsoft Store for Business licenses.
+     * @returns a integer
+     */
+    public get totalLicenseCount() {
+        return this._totalLicenseCount;
+    };
+    /**
+     * Sets the totalLicenseCount property value. The total number of Microsoft Store for Business licenses.
+     * @param value Value to set for the totalLicenseCount property.
+     */
+    public set totalLicenseCount(value: number | undefined) {
+        if(value) {
+            this._totalLicenseCount = value;
+        }
+    };
+    /**
+     * Gets the usedLicenseCount property value. The number of Microsoft Store for Business licenses in use.
+     * @returns a integer
+     */
+    public get usedLicenseCount() {
+        return this._usedLicenseCount;
+    };
+    /**
+     * Sets the usedLicenseCount property value. The number of Microsoft Store for Business licenses in use.
+     * @param value Value to set for the usedLicenseCount property.
+     */
+    public set usedLicenseCount(value: number | undefined) {
+        if(value) {
+            this._usedLicenseCount = value;
         }
     };
 }

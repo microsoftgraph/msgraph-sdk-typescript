@@ -8,20 +8,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperation {
     /** The error returned by the operation. */
-    public error_escaped?: WorkbookOperationError | undefined;
+    private _error_escaped?: WorkbookOperationError | undefined;
     /** The resource URI for the result. */
-    public resourceLocation?: string | undefined;
+    private _resourceLocation?: string | undefined;
     /** The current status of the operation. Possible values are: notStarted, running, succeeded, failed. */
-    public status?: WorkbookOperationStatus | undefined;
+    private _status?: WorkbookOperationStatus | undefined;
     /**
      * Instantiates a new workbookOperation and sets the default values.
      * @param workbookOperationParameterValue 
      */
     public constructor(workbookOperationParameterValue?: WorkbookOperation | undefined) {
         super(workbookOperationParameterValue);
-        this.error_escaped = workbookOperationParameterValue?.error_escaped;
-        this.resourceLocation = workbookOperationParameterValue?.resourceLocation;
-        this.status = workbookOperationParameterValue?.status;
+        this._error_escaped = workbookOperationParameterValue?.error_escaped;
+        this._resourceLocation = workbookOperationParameterValue?.resourceLocation;
+        this._status = workbookOperationParameterValue?.status;
+    };
+    /**
+     * Gets the error property value. The error returned by the operation.
+     * @returns a WorkbookOperationErrorInterface
+     */
+    public get error_escaped() {
+        return this._error_escaped;
+    };
+    /**
+     * Sets the error property value. The error returned by the operation.
+     * @param value Value to set for the error_escaped property.
+     */
+    public set error_escaped(value: WorkbookOperationError | undefined) {
+        if(value) {
+            this._error_escaped = value instanceof WorkbookOperationErrorImpl? value : new WorkbookOperationErrorImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +51,22 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
         };
     };
     /**
+     * Gets the resourceLocation property value. The resource URI for the result.
+     * @returns a string
+     */
+    public get resourceLocation() {
+        return this._resourceLocation;
+    };
+    /**
+     * Sets the resourceLocation property value. The resource URI for the result.
+     * @param value Value to set for the resourceLocation property.
+     */
+    public set resourceLocation(value: string | undefined) {
+        if(value) {
+            this._resourceLocation = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -42,13 +74,29 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-            writer.writeObjectValue<WorkbookOperationErrorImpl>("error", new WorkbookOperationErrorImpl(this.error_escaped));
+            writer.writeObjectValue<WorkbookOperationErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof WorkbookOperationErrorImpl? this.error_escaped : new WorkbookOperationErrorImpl(this.error_escaped)));
         }
         if(this.resourceLocation){
             writer.writeStringValue("resourceLocation", this.resourceLocation);
         }
         if(this.status){
             writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
+        }
+    };
+    /**
+     * Gets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     * @returns a workbookOperationStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: WorkbookOperationStatus | undefined) {
+        if(value) {
+            this._status = value;
         }
     };
 }

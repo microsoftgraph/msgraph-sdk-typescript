@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements WorkbookChartGridlinesFormat {
     /** Represents chart line formatting. Read-only. */
-    public line?: WorkbookChartLineFormat | undefined;
+    private _line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartGridlinesFormat and sets the default values.
      * @param workbookChartGridlinesFormatParameterValue 
      */
     public constructor(workbookChartGridlinesFormatParameterValue?: WorkbookChartGridlinesFormat | undefined) {
         super(workbookChartGridlinesFormatParameterValue);
-        this.line = workbookChartGridlinesFormatParameterValue?.line;
+        this._line = workbookChartGridlinesFormatParameterValue?.line;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +26,22 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
         };
     };
     /**
+     * Gets the line property value. Represents chart line formatting. Read-only.
+     * @returns a WorkbookChartLineFormatInterface
+     */
+    public get line() {
+        return this._line;
+    };
+    /**
+     * Sets the line property value. Represents chart line formatting. Read-only.
+     * @param value Value to set for the line property.
+     */
+    public set line(value: WorkbookChartLineFormat | undefined) {
+        if(value) {
+            this._line = value instanceof WorkbookChartLineFormatImpl? value : new WorkbookChartLineFormatImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -33,7 +49,7 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.line){
-            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (!this.line || this.line instanceof WorkbookChartLineFormatImpl? this.line : new WorkbookChartLineFormatImpl(this.line)));
         }
     };
 }

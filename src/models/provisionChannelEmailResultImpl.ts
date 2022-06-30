@@ -3,16 +3,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ProvisionChannelEmailResultImpl implements ProvisionChannelEmailResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Represents the provisioned email address. */
-    public email?: string | undefined;
+    private _email?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ProvisionChannelEmailResult and sets the default values.
      * @param provisionChannelEmailResultParameterValue 
      */
     public constructor(provisionChannelEmailResultParameterValue?: ProvisionChannelEmailResult | undefined) {
-        this.additionalData = provisionChannelEmailResultParameterValue?.additionalData ? provisionChannelEmailResultParameterValue?.additionalData! : {};
-        this.email = provisionChannelEmailResultParameterValue?.email;
+        this._additionalData = provisionChannelEmailResultParameterValue?.additionalData ? provisionChannelEmailResultParameterValue?.additionalData! : {};
+        this._email = provisionChannelEmailResultParameterValue?.email;
+    };
+    /**
+     * Gets the email property value. Represents the provisioned email address.
+     * @returns a string
+     */
+    public get email() {
+        return this._email;
+    };
+    /**
+     * Sets the email property value. Represents the provisioned email address.
+     * @param value Value to set for the email property.
+     */
+    public set email(value: string | undefined) {
+        if(value) {
+            this._email = value;
+        }
     };
     /**
      * The deserialization information for the current model

@@ -5,25 +5,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device action result */
 export class DeviceActionResultImpl implements DeviceActionResult {
     /** Action name */
-    public actionName?: string | undefined;
+    private _actionName?: string | undefined;
     /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
-    public actionState?: ActionState | undefined;
+    private _actionState?: ActionState | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Time the action state was last updated */
-    public lastUpdatedDateTime?: Date | undefined;
+    private _lastUpdatedDateTime?: Date | undefined;
     /** Time the action was initiated */
-    public startDateTime?: Date | undefined;
+    private _startDateTime?: Date | undefined;
+    /**
+     * Gets the actionName property value. Action name
+     * @returns a string
+     */
+    public get actionName() {
+        return this._actionName;
+    };
+    /**
+     * Sets the actionName property value. Action name
+     * @param value Value to set for the actionName property.
+     */
+    public set actionName(value: string | undefined) {
+        if(value) {
+            this._actionName = value;
+        }
+    };
+    /**
+     * Gets the actionState property value. State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * @returns a actionState
+     */
+    public get actionState() {
+        return this._actionState;
+    };
+    /**
+     * Sets the actionState property value. State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * @param value Value to set for the actionState property.
+     */
+    public set actionState(value: ActionState | undefined) {
+        if(value) {
+            this._actionState = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new deviceActionResult and sets the default values.
      * @param deviceActionResultParameterValue 
      */
     public constructor(deviceActionResultParameterValue?: DeviceActionResult | undefined) {
-        this.actionName = deviceActionResultParameterValue?.actionName;
-        this.actionState = deviceActionResultParameterValue?.actionState;
-        this.additionalData = deviceActionResultParameterValue?.additionalData ? deviceActionResultParameterValue?.additionalData! : {};
-        this.lastUpdatedDateTime = deviceActionResultParameterValue?.lastUpdatedDateTime;
-        this.startDateTime = deviceActionResultParameterValue?.startDateTime;
+        this._actionName = deviceActionResultParameterValue?.actionName;
+        this._actionState = deviceActionResultParameterValue?.actionState;
+        this._additionalData = deviceActionResultParameterValue?.additionalData ? deviceActionResultParameterValue?.additionalData! : {};
+        this._lastUpdatedDateTime = deviceActionResultParameterValue?.lastUpdatedDateTime;
+        this._startDateTime = deviceActionResultParameterValue?.startDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +84,22 @@ export class DeviceActionResultImpl implements DeviceActionResult {
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the lastUpdatedDateTime property value. Time the action state was last updated
+     * @returns a Date
+     */
+    public get lastUpdatedDateTime() {
+        return this._lastUpdatedDateTime;
+    };
+    /**
+     * Sets the lastUpdatedDateTime property value. Time the action state was last updated
+     * @param value Value to set for the lastUpdatedDateTime property.
+     */
+    public set lastUpdatedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastUpdatedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -56,5 +120,21 @@ export class DeviceActionResultImpl implements DeviceActionResult {
             writer.writeDateValue("startDateTime", this.startDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the startDateTime property value. Time the action was initiated
+     * @returns a Date
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. Time the action was initiated
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: Date | undefined) {
+        if(value) {
+            this._startDateTime = value;
+        }
     };
 }

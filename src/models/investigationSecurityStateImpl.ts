@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class InvestigationSecurityStateImpl implements InvestigationSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The name property */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The status property */
-    public status?: string | undefined;
+    private _status?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new investigationSecurityState and sets the default values.
      * @param investigationSecurityStateParameterValue 
      */
     public constructor(investigationSecurityStateParameterValue?: InvestigationSecurityState | undefined) {
-        this.additionalData = investigationSecurityStateParameterValue?.additionalData ? investigationSecurityStateParameterValue?.additionalData! : {};
-        this.name = investigationSecurityStateParameterValue?.name;
-        this.status = investigationSecurityStateParameterValue?.status;
+        this._additionalData = investigationSecurityStateParameterValue?.additionalData ? investigationSecurityStateParameterValue?.additionalData! : {};
+        this._name = investigationSecurityStateParameterValue?.name;
+        this._status = investigationSecurityStateParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,22 @@ export class InvestigationSecurityStateImpl implements InvestigationSecurityStat
             "name": n => { this.name = n.getStringValue(); },
             "status": n => { this.status = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the name property value. The name property
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name property
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -40,5 +72,21 @@ export class InvestigationSecurityStateImpl implements InvestigationSecurityStat
             writer.writeStringValue("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the status property value. The status property
+     * @returns a string
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status property
+     * @param value Value to set for the status property.
+     */
+    public set status(value: string | undefined) {
+        if(value) {
+            this._status = value;
+        }
     };
 }

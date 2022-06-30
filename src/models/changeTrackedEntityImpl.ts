@@ -7,20 +7,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTrackedEntity {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** Identity of the person who last modified the entity. */
-    public lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new changeTrackedEntity and sets the default values.
      * @param changeTrackedEntityParameterValue 
      */
     public constructor(changeTrackedEntityParameterValue?: ChangeTrackedEntity | undefined) {
         super(changeTrackedEntityParameterValue);
-        this.createdDateTime = changeTrackedEntityParameterValue?.createdDateTime;
-        this.lastModifiedBy = changeTrackedEntityParameterValue?.lastModifiedBy;
-        this.lastModifiedDateTime = changeTrackedEntityParameterValue?.lastModifiedDateTime;
+        this._createdDateTime = changeTrackedEntityParameterValue?.createdDateTime;
+        this._lastModifiedBy = changeTrackedEntityParameterValue?.lastModifiedBy;
+        this._lastModifiedDateTime = changeTrackedEntityParameterValue?.lastModifiedDateTime;
+    };
+    /**
+     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +50,38 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
         };
     };
     /**
+     * Gets the lastModifiedBy property value. Identity of the person who last modified the entity.
+     * @returns a IdentitySetInterface
+     */
+    public get lastModifiedBy() {
+        return this._lastModifiedBy;
+    };
+    /**
+     * Sets the lastModifiedBy property value. Identity of the person who last modified the entity.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -44,7 +92,7 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);

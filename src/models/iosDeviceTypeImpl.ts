@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties of the possible iOS device types the mobile app can run on. */
 export class IosDeviceTypeImpl implements IosDeviceType {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Whether the app should run on iPads. */
-    public iPad?: boolean | undefined;
+    private _iPad?: boolean | undefined;
     /** Whether the app should run on iPhones and iPods. */
-    public iPhoneAndIPod?: boolean | undefined;
+    private _iPhoneAndIPod?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new iosDeviceType and sets the default values.
      * @param iosDeviceTypeParameterValue 
      */
     public constructor(iosDeviceTypeParameterValue?: IosDeviceType | undefined) {
-        this.additionalData = iosDeviceTypeParameterValue?.additionalData ? iosDeviceTypeParameterValue?.additionalData! : {};
-        this.iPad = iosDeviceTypeParameterValue?.iPad;
-        this.iPhoneAndIPod = iosDeviceTypeParameterValue?.iPhoneAndIPod;
+        this._additionalData = iosDeviceTypeParameterValue?.additionalData ? iosDeviceTypeParameterValue?.additionalData! : {};
+        this._iPad = iosDeviceTypeParameterValue?.iPad;
+        this._iPhoneAndIPod = iosDeviceTypeParameterValue?.iPhoneAndIPod;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,38 @@ export class IosDeviceTypeImpl implements IosDeviceType {
             "iPad": n => { this.iPad = n.getBooleanValue(); },
             "iPhoneAndIPod": n => { this.iPhoneAndIPod = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the iPad property value. Whether the app should run on iPads.
+     * @returns a boolean
+     */
+    public get iPad() {
+        return this._iPad;
+    };
+    /**
+     * Sets the iPad property value. Whether the app should run on iPads.
+     * @param value Value to set for the iPad property.
+     */
+    public set iPad(value: boolean | undefined) {
+        if(value) {
+            this._iPad = value;
+        }
+    };
+    /**
+     * Gets the iPhoneAndIPod property value. Whether the app should run on iPhones and iPods.
+     * @returns a boolean
+     */
+    public get iPhoneAndIPod() {
+        return this._iPhoneAndIPod;
+    };
+    /**
+     * Sets the iPhoneAndIPod property value. Whether the app should run on iPhones and iPods.
+     * @param value Value to set for the iPhoneAndIPod property.
+     */
+    public set iPhoneAndIPod(value: boolean | undefined) {
+        if(value) {
+            this._iPhoneAndIPod = value;
+        }
     };
     /**
      * Serializes information the current object

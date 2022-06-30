@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class StringCollectionResponseImpl implements StringCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: string[] | undefined;
+    private _value?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new StringCollectionResponse and sets the default values.
      * @param stringCollectionResponseParameterValue 
      */
     public constructor(stringCollectionResponseParameterValue?: StringCollectionResponse | undefined) {
-        this.additionalData = stringCollectionResponseParameterValue?.additionalData ? stringCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = stringCollectionResponseParameterValue?.nextLink;
-        this.value = stringCollectionResponseParameterValue?.value;
+        this._additionalData = stringCollectionResponseParameterValue?.additionalData ? stringCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = stringCollectionResponseParameterValue?.nextLink;
+        this._value = stringCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,22 @@ export class StringCollectionResponseImpl implements StringCollectionResponse {
             "@odata.nextLink": n => { this.nextLink = n.getStringValue(); },
             "value": n => { this.value = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -40,5 +72,21 @@ export class StringCollectionResponseImpl implements StringCollectionResponse {
             writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string[] | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

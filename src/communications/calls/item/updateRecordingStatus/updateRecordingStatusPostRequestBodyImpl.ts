@@ -5,19 +5,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the updateRecordingStatus method. */
 export class UpdateRecordingStatusPostRequestBodyImpl implements UpdateRecordingStatusPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The clientContext property */
-    public clientContext?: string | undefined;
+    private _clientContext?: string | undefined;
     /** The status property */
-    public status?: RecordingStatus | undefined;
+    private _status?: RecordingStatus | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the clientContext property value. The clientContext property
+     * @returns a string
+     */
+    public get clientContext() {
+        return this._clientContext;
+    };
+    /**
+     * Sets the clientContext property value. The clientContext property
+     * @param value Value to set for the clientContext property.
+     */
+    public set clientContext(value: string | undefined) {
+        if(value) {
+            this._clientContext = value;
+        }
+    };
     /**
      * Instantiates a new updateRecordingStatusPostRequestBody and sets the default values.
      * @param updateRecordingStatusPostRequestBodyParameterValue 
      */
     public constructor(updateRecordingStatusPostRequestBodyParameterValue?: UpdateRecordingStatusPostRequestBody | undefined) {
-        this.additionalData = updateRecordingStatusPostRequestBodyParameterValue?.additionalData ? updateRecordingStatusPostRequestBodyParameterValue?.additionalData! : {};
-        this.clientContext = updateRecordingStatusPostRequestBodyParameterValue?.clientContext;
-        this.status = updateRecordingStatusPostRequestBodyParameterValue?.status;
+        this._additionalData = updateRecordingStatusPostRequestBodyParameterValue?.additionalData ? updateRecordingStatusPostRequestBodyParameterValue?.additionalData! : {};
+        this._clientContext = updateRecordingStatusPostRequestBodyParameterValue?.clientContext;
+        this._status = updateRecordingStatusPostRequestBodyParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -42,5 +74,21 @@ export class UpdateRecordingStatusPostRequestBodyImpl implements UpdateRecording
             writer.writeEnumValue<RecordingStatus>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the status property value. The status property
+     * @returns a recordingStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status property
+     * @param value Value to set for the status property.
+     */
+    public set status(value: RecordingStatus | undefined) {
+        if(value) {
+            this._status = value;
+        }
     };
 }

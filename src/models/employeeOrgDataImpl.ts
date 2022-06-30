@@ -3,19 +3,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EmployeeOrgDataImpl implements EmployeeOrgData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The cost center associated with the user. Returned only on $select. Supports $filter. */
-    public costCenter?: string | undefined;
+    private _costCenter?: string | undefined;
     /** The name of the division in which the user works. Returned only on $select. Supports $filter. */
-    public division?: string | undefined;
+    private _division?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new employeeOrgData and sets the default values.
      * @param employeeOrgDataParameterValue 
      */
     public constructor(employeeOrgDataParameterValue?: EmployeeOrgData | undefined) {
-        this.additionalData = employeeOrgDataParameterValue?.additionalData ? employeeOrgDataParameterValue?.additionalData! : {};
-        this.costCenter = employeeOrgDataParameterValue?.costCenter;
-        this.division = employeeOrgDataParameterValue?.division;
+        this._additionalData = employeeOrgDataParameterValue?.additionalData ? employeeOrgDataParameterValue?.additionalData! : {};
+        this._costCenter = employeeOrgDataParameterValue?.costCenter;
+        this._division = employeeOrgDataParameterValue?.division;
+    };
+    /**
+     * Gets the costCenter property value. The cost center associated with the user. Returned only on $select. Supports $filter.
+     * @returns a string
+     */
+    public get costCenter() {
+        return this._costCenter;
+    };
+    /**
+     * Sets the costCenter property value. The cost center associated with the user. Returned only on $select. Supports $filter.
+     * @param value Value to set for the costCenter property.
+     */
+    public set costCenter(value: string | undefined) {
+        if(value) {
+            this._costCenter = value;
+        }
+    };
+    /**
+     * Gets the division property value. The name of the division in which the user works. Returned only on $select. Supports $filter.
+     * @returns a string
+     */
+    public get division() {
+        return this._division;
+    };
+    /**
+     * Sets the division property value. The name of the division in which the user works. Returned only on $select. Supports $filter.
+     * @param value Value to set for the division property.
+     */
+    public set division(value: string | undefined) {
+        if(value) {
+            this._division = value;
+        }
     };
     /**
      * The deserialization information for the current model

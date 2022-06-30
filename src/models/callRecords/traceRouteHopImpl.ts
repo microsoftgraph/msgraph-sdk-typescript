@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 
 export class TraceRouteHopImpl implements TraceRouteHop {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The network path count of this hop that was used to compute the RTT. */
-    public hopCount?: number | undefined;
+    private _hopCount?: number | undefined;
     /** IP address used for this hop in the network trace. */
-    public ipAddress?: string | undefined;
+    private _ipAddress?: string | undefined;
     /** The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in [ISO 8601][] format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator. */
-    public roundTripTime?: Duration | undefined;
+    private _roundTripTime?: Duration | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new traceRouteHop and sets the default values.
      * @param traceRouteHopParameterValue 
      */
     public constructor(traceRouteHopParameterValue?: TraceRouteHop | undefined) {
-        this.additionalData = traceRouteHopParameterValue?.additionalData ? traceRouteHopParameterValue?.additionalData! : {};
-        this.hopCount = traceRouteHopParameterValue?.hopCount;
-        this.ipAddress = traceRouteHopParameterValue?.ipAddress;
-        this.roundTripTime = traceRouteHopParameterValue?.roundTripTime;
+        this._additionalData = traceRouteHopParameterValue?.additionalData ? traceRouteHopParameterValue?.additionalData! : {};
+        this._hopCount = traceRouteHopParameterValue?.hopCount;
+        this._ipAddress = traceRouteHopParameterValue?.ipAddress;
+        this._roundTripTime = traceRouteHopParameterValue?.roundTripTime;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,54 @@ export class TraceRouteHopImpl implements TraceRouteHop {
             "ipAddress": n => { this.ipAddress = n.getStringValue(); },
             "roundTripTime": n => { this.roundTripTime = n.getDurationValue(); },
         };
+    };
+    /**
+     * Gets the hopCount property value. The network path count of this hop that was used to compute the RTT.
+     * @returns a integer
+     */
+    public get hopCount() {
+        return this._hopCount;
+    };
+    /**
+     * Sets the hopCount property value. The network path count of this hop that was used to compute the RTT.
+     * @param value Value to set for the hopCount property.
+     */
+    public set hopCount(value: number | undefined) {
+        if(value) {
+            this._hopCount = value;
+        }
+    };
+    /**
+     * Gets the ipAddress property value. IP address used for this hop in the network trace.
+     * @returns a string
+     */
+    public get ipAddress() {
+        return this._ipAddress;
+    };
+    /**
+     * Sets the ipAddress property value. IP address used for this hop in the network trace.
+     * @param value Value to set for the ipAddress property.
+     */
+    public set ipAddress(value: string | undefined) {
+        if(value) {
+            this._ipAddress = value;
+        }
+    };
+    /**
+     * Gets the roundTripTime property value. The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in [ISO 8601][] format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator.
+     * @returns a Duration
+     */
+    public get roundTripTime() {
+        return this._roundTripTime;
+    };
+    /**
+     * Sets the roundTripTime property value. The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in [ISO 8601][] format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator.
+     * @param value Value to set for the roundTripTime property.
+     */
+    public set roundTripTime(value: Duration | undefined) {
+        if(value) {
+            this._roundTripTime = value;
+        }
     };
     /**
      * Serializes information the current object

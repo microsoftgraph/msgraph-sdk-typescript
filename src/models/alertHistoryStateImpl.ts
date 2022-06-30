@@ -5,34 +5,114 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlertHistoryStateImpl implements AlertHistoryState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application. */
-    public appId?: string | undefined;
+    private _appId?: string | undefined;
     /** UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN). */
-    public assignedTo?: string | undefined;
+    private _assignedTo?: string | undefined;
     /** Comment entered by signed-in user. */
-    public comments?: string[] | undefined;
+    private _comments?: string[] | undefined;
     /** Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive. */
-    public feedback?: AlertFeedback | undefined;
+    private _feedback?: AlertFeedback | undefined;
     /** Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed. */
-    public status?: AlertStatus | undefined;
+    private _status?: AlertStatus | undefined;
     /** Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public updatedDateTime?: Date | undefined;
+    private _updatedDateTime?: Date | undefined;
     /** UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode). */
-    public user?: string | undefined;
+    private _user?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the appId property value. The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
+     * @returns a string
+     */
+    public get appId() {
+        return this._appId;
+    };
+    /**
+     * Sets the appId property value. The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
+     * @param value Value to set for the appId property.
+     */
+    public set appId(value: string | undefined) {
+        if(value) {
+            this._appId = value;
+        }
+    };
+    /**
+     * Gets the assignedTo property value. UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
+     * @returns a string
+     */
+    public get assignedTo() {
+        return this._assignedTo;
+    };
+    /**
+     * Sets the assignedTo property value. UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
+     * @param value Value to set for the assignedTo property.
+     */
+    public set assignedTo(value: string | undefined) {
+        if(value) {
+            this._assignedTo = value;
+        }
+    };
+    /**
+     * Gets the comments property value. Comment entered by signed-in user.
+     * @returns a string
+     */
+    public get comments() {
+        return this._comments;
+    };
+    /**
+     * Sets the comments property value. Comment entered by signed-in user.
+     * @param value Value to set for the comments property.
+     */
+    public set comments(value: string[] | undefined) {
+        if(value) {
+            this._comments = value;
+        }
+    };
     /**
      * Instantiates a new alertHistoryState and sets the default values.
      * @param alertHistoryStateParameterValue 
      */
     public constructor(alertHistoryStateParameterValue?: AlertHistoryState | undefined) {
-        this.additionalData = alertHistoryStateParameterValue?.additionalData ? alertHistoryStateParameterValue?.additionalData! : {};
-        this.appId = alertHistoryStateParameterValue?.appId;
-        this.assignedTo = alertHistoryStateParameterValue?.assignedTo;
-        this.comments = alertHistoryStateParameterValue?.comments;
-        this.feedback = alertHistoryStateParameterValue?.feedback;
-        this.status = alertHistoryStateParameterValue?.status;
-        this.updatedDateTime = alertHistoryStateParameterValue?.updatedDateTime;
-        this.user = alertHistoryStateParameterValue?.user;
+        this._additionalData = alertHistoryStateParameterValue?.additionalData ? alertHistoryStateParameterValue?.additionalData! : {};
+        this._appId = alertHistoryStateParameterValue?.appId;
+        this._assignedTo = alertHistoryStateParameterValue?.assignedTo;
+        this._comments = alertHistoryStateParameterValue?.comments;
+        this._feedback = alertHistoryStateParameterValue?.feedback;
+        this._status = alertHistoryStateParameterValue?.status;
+        this._updatedDateTime = alertHistoryStateParameterValue?.updatedDateTime;
+        this._user = alertHistoryStateParameterValue?.user;
+    };
+    /**
+     * Gets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
+     * @returns a alertFeedback
+     */
+    public get feedback() {
+        return this._feedback;
+    };
+    /**
+     * Sets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
+     * @param value Value to set for the feedback property.
+     */
+    public set feedback(value: AlertFeedback | undefined) {
+        if(value) {
+            this._feedback = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -77,5 +157,53 @@ export class AlertHistoryStateImpl implements AlertHistoryState {
             writer.writeStringValue("user", this.user);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
+     * @returns a alertStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: AlertStatus | undefined) {
+        if(value) {
+            this._status = value;
+        }
+    };
+    /**
+     * Gets the updatedDateTime property value. Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get updatedDateTime() {
+        return this._updatedDateTime;
+    };
+    /**
+     * Sets the updatedDateTime property value. Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the updatedDateTime property.
+     */
+    public set updatedDateTime(value: Date | undefined) {
+        if(value) {
+            this._updatedDateTime = value;
+        }
+    };
+    /**
+     * Gets the user property value. UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
+     * @returns a string
+     */
+    public get user() {
+        return this._user;
+    };
+    /**
+     * Sets the user property value. UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
+     * @param value Value to set for the user property.
+     */
+    public set user(value: string | undefined) {
+        if(value) {
+            this._user = value;
+        }
     };
 }

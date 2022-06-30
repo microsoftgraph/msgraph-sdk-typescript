@@ -3,19 +3,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchAlterationOptionsImpl implements SearchAlterationOptions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether spelling modifications are enabled. If enabled, user will get the search results for corrected query when there are no results for the original query with typos and get the spelling modification information in queryAlterationResponse property of the response. Optional. */
-    public enableModification?: boolean | undefined;
+    private _enableModification?: boolean | undefined;
     /** Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional. */
-    public enableSuggestion?: boolean | undefined;
+    private _enableSuggestion?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new searchAlterationOptions and sets the default values.
      * @param searchAlterationOptionsParameterValue 
      */
     public constructor(searchAlterationOptionsParameterValue?: SearchAlterationOptions | undefined) {
-        this.additionalData = searchAlterationOptionsParameterValue?.additionalData ? searchAlterationOptionsParameterValue?.additionalData! : {};
-        this.enableModification = searchAlterationOptionsParameterValue?.enableModification;
-        this.enableSuggestion = searchAlterationOptionsParameterValue?.enableSuggestion;
+        this._additionalData = searchAlterationOptionsParameterValue?.additionalData ? searchAlterationOptionsParameterValue?.additionalData! : {};
+        this._enableModification = searchAlterationOptionsParameterValue?.enableModification;
+        this._enableSuggestion = searchAlterationOptionsParameterValue?.enableSuggestion;
+    };
+    /**
+     * Gets the enableModification property value. Indicates whether spelling modifications are enabled. If enabled, user will get the search results for corrected query when there are no results for the original query with typos and get the spelling modification information in queryAlterationResponse property of the response. Optional.
+     * @returns a boolean
+     */
+    public get enableModification() {
+        return this._enableModification;
+    };
+    /**
+     * Sets the enableModification property value. Indicates whether spelling modifications are enabled. If enabled, user will get the search results for corrected query when there are no results for the original query with typos and get the spelling modification information in queryAlterationResponse property of the response. Optional.
+     * @param value Value to set for the enableModification property.
+     */
+    public set enableModification(value: boolean | undefined) {
+        if(value) {
+            this._enableModification = value;
+        }
+    };
+    /**
+     * Gets the enableSuggestion property value. Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional.
+     * @returns a boolean
+     */
+    public get enableSuggestion() {
+        return this._enableSuggestion;
+    };
+    /**
+     * Sets the enableSuggestion property value. Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional.
+     * @param value Value to set for the enableSuggestion property.
+     */
+    public set enableSuggestion(value: boolean | undefined) {
+        if(value) {
+            this._enableSuggestion = value;
+        }
     };
     /**
      * The deserialization information for the current model

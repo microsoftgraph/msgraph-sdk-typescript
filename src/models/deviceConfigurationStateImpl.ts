@@ -9,29 +9,45 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Device Configuration State for a given device. */
 export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceConfigurationState {
     /** The name of the policy for this policyBase */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Platform type that the policy applies to */
-    public platformType?: PolicyPlatformType | undefined;
+    private _platformType?: PolicyPlatformType | undefined;
     /** Count of how many setting a policy holds */
-    public settingCount?: number | undefined;
+    private _settingCount?: number | undefined;
     /** The settingStates property */
-    public settingStates?: DeviceConfigurationSettingState[] | undefined;
+    private _settingStates?: DeviceConfigurationSettingState[] | undefined;
     /** The compliance state of the policy */
-    public state?: ComplianceStatus | undefined;
+    private _state?: ComplianceStatus | undefined;
     /** The version of the policy */
-    public version?: number | undefined;
+    private _version?: number | undefined;
     /**
      * Instantiates a new deviceConfigurationState and sets the default values.
      * @param deviceConfigurationStateParameterValue 
      */
     public constructor(deviceConfigurationStateParameterValue?: DeviceConfigurationState | undefined) {
         super(deviceConfigurationStateParameterValue);
-        this.displayName = deviceConfigurationStateParameterValue?.displayName;
-        this.platformType = deviceConfigurationStateParameterValue?.platformType;
-        this.settingCount = deviceConfigurationStateParameterValue?.settingCount;
-        this.settingStates = deviceConfigurationStateParameterValue?.settingStates;
-        this.state = deviceConfigurationStateParameterValue?.state;
-        this.version = deviceConfigurationStateParameterValue?.version;
+        this._displayName = deviceConfigurationStateParameterValue?.displayName;
+        this._platformType = deviceConfigurationStateParameterValue?.platformType;
+        this._settingCount = deviceConfigurationStateParameterValue?.settingCount;
+        this._settingStates = deviceConfigurationStateParameterValue?.settingStates;
+        this._state = deviceConfigurationStateParameterValue?.state;
+        this._version = deviceConfigurationStateParameterValue?.version;
+    };
+    /**
+     * Gets the displayName property value. The name of the policy for this policyBase
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the policy for this policyBase
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +62,22 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
             "state": n => { this.state = n.getEnumValue<ComplianceStatus>(ComplianceStatus); },
             "version": n => { this.version = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the platformType property value. Platform type that the policy applies to
+     * @returns a policyPlatformType
+     */
+    public get platformType() {
+        return this._platformType;
+    };
+    /**
+     * Sets the platformType property value. Platform type that the policy applies to
+     * @param value Value to set for the platformType property.
+     */
+    public set platformType(value: PolicyPlatformType | undefined) {
+        if(value) {
+            this._platformType = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -63,7 +95,10 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         if(this.settingCount){
             writer.writeNumberValue("settingCount", this.settingCount);
         }
-        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = []; this.settingStates?.forEach(element => {settingStatesArrValue.push(new DeviceConfigurationSettingStateImpl(element));});
+        if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = [];
+        this.settingStates?.forEach(element => {
+            settingStatesArrValue.push((element instanceof DeviceConfigurationSettingStateImpl? element:new DeviceConfigurationSettingStateImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceConfigurationSettingStateImpl>("settingStates", settingStatesArrValue);
         }
         if(this.state){
@@ -71,6 +106,74 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         }
         if(this.version){
             writer.writeNumberValue("version", this.version);
+        }
+    };
+    /**
+     * Gets the settingCount property value. Count of how many setting a policy holds
+     * @returns a integer
+     */
+    public get settingCount() {
+        return this._settingCount;
+    };
+    /**
+     * Sets the settingCount property value. Count of how many setting a policy holds
+     * @param value Value to set for the settingCount property.
+     */
+    public set settingCount(value: number | undefined) {
+        if(value) {
+            this._settingCount = value;
+        }
+    };
+    /**
+     * Gets the settingStates property value. The settingStates property
+     * @returns a DeviceConfigurationSettingStateInterface
+     */
+    public get settingStates() {
+        return this._settingStates;
+    };
+    /**
+     * Sets the settingStates property value. The settingStates property
+     * @param value Value to set for the settingStates property.
+     */
+    public set settingStates(value: DeviceConfigurationSettingState[] | undefined) {
+        if(value) {
+            const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = [];
+            this.settingStates?.forEach(element => {
+                settingStatesArrValue.push((element instanceof DeviceConfigurationSettingStateImpl? element:new DeviceConfigurationSettingStateImpl(element)));
+            });
+            this._settingStates = settingStatesArrValue;
+        }
+    };
+    /**
+     * Gets the state property value. The compliance state of the policy
+     * @returns a complianceStatus
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The compliance state of the policy
+     * @param value Value to set for the state property.
+     */
+    public set state(value: ComplianceStatus | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the version property value. The version of the policy
+     * @returns a integer
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. The version of the policy
+     * @param value Value to set for the version property.
+     */
+    public set version(value: number | undefined) {
+        if(value) {
+            this._version = value;
         }
     };
 }

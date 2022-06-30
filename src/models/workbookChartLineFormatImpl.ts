@@ -5,14 +5,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartLineFormatImpl extends EntityImpl implements WorkbookChartLineFormat {
     /** HTML color code representing the color of lines in the chart. */
-    public color?: string | undefined;
+    private _color?: string | undefined;
+    /**
+     * Gets the color property value. HTML color code representing the color of lines in the chart.
+     * @returns a string
+     */
+    public get color() {
+        return this._color;
+    };
+    /**
+     * Sets the color property value. HTML color code representing the color of lines in the chart.
+     * @param value Value to set for the color property.
+     */
+    public set color(value: string | undefined) {
+        if(value) {
+            this._color = value;
+        }
+    };
     /**
      * Instantiates a new workbookChartLineFormat and sets the default values.
      * @param workbookChartLineFormatParameterValue 
      */
     public constructor(workbookChartLineFormatParameterValue?: WorkbookChartLineFormat | undefined) {
         super(workbookChartLineFormatParameterValue);
-        this.color = workbookChartLineFormatParameterValue?.color;
+        this._color = workbookChartLineFormatParameterValue?.color;
     };
     /**
      * The deserialization information for the current model

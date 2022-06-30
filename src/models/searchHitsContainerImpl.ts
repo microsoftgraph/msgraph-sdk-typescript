@@ -8,25 +8,61 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchHitsContainerImpl implements SearchHitsContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
-    public aggregations?: SearchAggregation[] | undefined;
+    private _aggregations?: SearchAggregation[] | undefined;
     /** A collection of the search results. */
-    public hits?: SearchHit[] | undefined;
+    private _hits?: SearchHit[] | undefined;
     /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly. */
-    public moreResultsAvailable?: boolean | undefined;
+    private _moreResultsAvailable?: boolean | undefined;
     /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query. */
-    public total?: number | undefined;
+    private _total?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
+     * @returns a SearchAggregationInterface
+     */
+    public get aggregations() {
+        return this._aggregations;
+    };
+    /**
+     * Sets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
+     * @param value Value to set for the aggregations property.
+     */
+    public set aggregations(value: SearchAggregation[] | undefined) {
+        if(value) {
+            const aggregationsArrValue: SearchAggregationImpl[] = [];
+            this.aggregations?.forEach(element => {
+                aggregationsArrValue.push((element instanceof SearchAggregationImpl? element:new SearchAggregationImpl(element)));
+            });
+            this._aggregations = aggregationsArrValue;
+        }
+    };
     /**
      * Instantiates a new searchHitsContainer and sets the default values.
      * @param searchHitsContainerParameterValue 
      */
     public constructor(searchHitsContainerParameterValue?: SearchHitsContainer | undefined) {
-        this.additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {};
-        this.aggregations = searchHitsContainerParameterValue?.aggregations;
-        this.hits = searchHitsContainerParameterValue?.hits;
-        this.moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable;
-        this.total = searchHitsContainerParameterValue?.total;
+        this._additionalData = searchHitsContainerParameterValue?.additionalData ? searchHitsContainerParameterValue?.additionalData! : {};
+        this._aggregations = searchHitsContainerParameterValue?.aggregations;
+        this._hits = searchHitsContainerParameterValue?.hits;
+        this._moreResultsAvailable = searchHitsContainerParameterValue?.moreResultsAvailable;
+        this._total = searchHitsContainerParameterValue?.total;
     };
     /**
      * The deserialization information for the current model
@@ -41,15 +77,57 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
         };
     };
     /**
+     * Gets the hits property value. A collection of the search results.
+     * @returns a SearchHitInterface
+     */
+    public get hits() {
+        return this._hits;
+    };
+    /**
+     * Sets the hits property value. A collection of the search results.
+     * @param value Value to set for the hits property.
+     */
+    public set hits(value: SearchHit[] | undefined) {
+        if(value) {
+            const hitsArrValue: SearchHitImpl[] = [];
+            this.hits?.forEach(element => {
+                hitsArrValue.push((element instanceof SearchHitImpl? element:new SearchHitImpl(element)));
+            });
+            this._hits = hitsArrValue;
+        }
+    };
+    /**
+     * Gets the moreResultsAvailable property value. Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly.
+     * @returns a boolean
+     */
+    public get moreResultsAvailable() {
+        return this._moreResultsAvailable;
+    };
+    /**
+     * Sets the moreResultsAvailable property value. Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly.
+     * @param value Value to set for the moreResultsAvailable property.
+     */
+    public set moreResultsAvailable(value: boolean | undefined) {
+        if(value) {
+            this._moreResultsAvailable = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new SearchAggregationImpl(element));});
+        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = [];
+        this.aggregations?.forEach(element => {
+            aggregationsArrValue.push((element instanceof SearchAggregationImpl? element:new SearchAggregationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SearchAggregationImpl>("aggregations", aggregationsArrValue);
         }
-        if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = []; this.hits?.forEach(element => {hitsArrValue.push(new SearchHitImpl(element));});
+        if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = [];
+        this.hits?.forEach(element => {
+            hitsArrValue.push((element instanceof SearchHitImpl? element:new SearchHitImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SearchHitImpl>("hits", hitsArrValue);
         }
         if(this.moreResultsAvailable){
@@ -59,5 +137,21 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
             writer.writeNumberValue("total", this.total);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the total property value. The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query.
+     * @returns a integer
+     */
+    public get total() {
+        return this._total;
+    };
+    /**
+     * Sets the total property value. The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query.
+     * @param value Value to set for the total property.
+     */
+    public set total(value: number | undefined) {
+        if(value) {
+            this._total = value;
+        }
     };
 }

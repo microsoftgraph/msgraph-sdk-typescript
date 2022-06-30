@@ -3,22 +3,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CloudAppSecurityStateImpl implements CloudAppSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Destination IP Address of the connection to the cloud application/service. */
-    public destinationServiceIp?: string | undefined;
+    private _destinationServiceIp?: string | undefined;
     /** Cloud application/service name (for example 'Salesforce', 'DropBox', etc.). */
-    public destinationServiceName?: string | undefined;
+    private _destinationServiceName?: string | undefined;
     /** Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage. */
-    public riskScore?: string | undefined;
+    private _riskScore?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new cloudAppSecurityState and sets the default values.
      * @param cloudAppSecurityStateParameterValue 
      */
     public constructor(cloudAppSecurityStateParameterValue?: CloudAppSecurityState | undefined) {
-        this.additionalData = cloudAppSecurityStateParameterValue?.additionalData ? cloudAppSecurityStateParameterValue?.additionalData! : {};
-        this.destinationServiceIp = cloudAppSecurityStateParameterValue?.destinationServiceIp;
-        this.destinationServiceName = cloudAppSecurityStateParameterValue?.destinationServiceName;
-        this.riskScore = cloudAppSecurityStateParameterValue?.riskScore;
+        this._additionalData = cloudAppSecurityStateParameterValue?.additionalData ? cloudAppSecurityStateParameterValue?.additionalData! : {};
+        this._destinationServiceIp = cloudAppSecurityStateParameterValue?.destinationServiceIp;
+        this._destinationServiceName = cloudAppSecurityStateParameterValue?.destinationServiceName;
+        this._riskScore = cloudAppSecurityStateParameterValue?.riskScore;
+    };
+    /**
+     * Gets the destinationServiceIp property value. Destination IP Address of the connection to the cloud application/service.
+     * @returns a string
+     */
+    public get destinationServiceIp() {
+        return this._destinationServiceIp;
+    };
+    /**
+     * Sets the destinationServiceIp property value. Destination IP Address of the connection to the cloud application/service.
+     * @param value Value to set for the destinationServiceIp property.
+     */
+    public set destinationServiceIp(value: string | undefined) {
+        if(value) {
+            this._destinationServiceIp = value;
+        }
+    };
+    /**
+     * Gets the destinationServiceName property value. Cloud application/service name (for example 'Salesforce', 'DropBox', etc.).
+     * @returns a string
+     */
+    public get destinationServiceName() {
+        return this._destinationServiceName;
+    };
+    /**
+     * Sets the destinationServiceName property value. Cloud application/service name (for example 'Salesforce', 'DropBox', etc.).
+     * @param value Value to set for the destinationServiceName property.
+     */
+    public set destinationServiceName(value: string | undefined) {
+        if(value) {
+            this._destinationServiceName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +78,22 @@ export class CloudAppSecurityStateImpl implements CloudAppSecurityState {
             "destinationServiceName": n => { this.destinationServiceName = n.getStringValue(); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the riskScore property value. Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage.
+     * @returns a string
+     */
+    public get riskScore() {
+        return this._riskScore;
+    };
+    /**
+     * Sets the riskScore property value. Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage.
+     * @param value Value to set for the riskScore property.
+     */
+    public set riskScore(value: string | undefined) {
+        if(value) {
+            this._riskScore = value;
+        }
     };
     /**
      * Serializes information the current object

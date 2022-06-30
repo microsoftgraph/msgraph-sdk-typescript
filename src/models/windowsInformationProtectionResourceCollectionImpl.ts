@@ -4,19 +4,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection Resource Collection */
 export class WindowsInformationProtectionResourceCollectionImpl implements WindowsInformationProtectionResourceCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Display name */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Collection of resources */
-    public resources?: string[] | undefined;
+    private _resources?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new windowsInformationProtectionResourceCollection and sets the default values.
      * @param windowsInformationProtectionResourceCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionResourceCollectionParameterValue?: WindowsInformationProtectionResourceCollection | undefined) {
-        this.additionalData = windowsInformationProtectionResourceCollectionParameterValue?.additionalData ? windowsInformationProtectionResourceCollectionParameterValue?.additionalData! : {};
-        this.displayName = windowsInformationProtectionResourceCollectionParameterValue?.displayName;
-        this.resources = windowsInformationProtectionResourceCollectionParameterValue?.resources;
+        this._additionalData = windowsInformationProtectionResourceCollectionParameterValue?.additionalData ? windowsInformationProtectionResourceCollectionParameterValue?.additionalData! : {};
+        this._displayName = windowsInformationProtectionResourceCollectionParameterValue?.displayName;
+        this._resources = windowsInformationProtectionResourceCollectionParameterValue?.resources;
+    };
+    /**
+     * Gets the displayName property value. Display name
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +59,22 @@ export class WindowsInformationProtectionResourceCollectionImpl implements Windo
             "displayName": n => { this.displayName = n.getStringValue(); },
             "resources": n => { this.resources = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the resources property value. Collection of resources
+     * @returns a string
+     */
+    public get resources() {
+        return this._resources;
+    };
+    /**
+     * Sets the resources property value. Collection of resources
+     * @param value Value to set for the resources property.
+     */
+    public set resources(value: string[] | undefined) {
+        if(value) {
+            this._resources = value;
+        }
     };
     /**
      * Serializes information the current object

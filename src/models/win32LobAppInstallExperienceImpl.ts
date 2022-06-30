@@ -6,19 +6,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains installation experience properties for a Win32 App */
 export class Win32LobAppInstallExperienceImpl implements Win32LobAppInstallExperience {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Device restart behavior. Possible values are: basedOnReturnCode, allow, suppress, force. */
-    public deviceRestartBehavior?: Win32LobAppRestartBehavior | undefined;
+    private _deviceRestartBehavior?: Win32LobAppRestartBehavior | undefined;
     /** Indicates the type of execution context the app runs in. Possible values are: system, user. */
-    public runAsAccount?: RunAsAccountType | undefined;
+    private _runAsAccount?: RunAsAccountType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new win32LobAppInstallExperience and sets the default values.
      * @param win32LobAppInstallExperienceParameterValue 
      */
     public constructor(win32LobAppInstallExperienceParameterValue?: Win32LobAppInstallExperience | undefined) {
-        this.additionalData = win32LobAppInstallExperienceParameterValue?.additionalData ? win32LobAppInstallExperienceParameterValue?.additionalData! : {};
-        this.deviceRestartBehavior = win32LobAppInstallExperienceParameterValue?.deviceRestartBehavior;
-        this.runAsAccount = win32LobAppInstallExperienceParameterValue?.runAsAccount;
+        this._additionalData = win32LobAppInstallExperienceParameterValue?.additionalData ? win32LobAppInstallExperienceParameterValue?.additionalData! : {};
+        this._deviceRestartBehavior = win32LobAppInstallExperienceParameterValue?.deviceRestartBehavior;
+        this._runAsAccount = win32LobAppInstallExperienceParameterValue?.runAsAccount;
+    };
+    /**
+     * Gets the deviceRestartBehavior property value. Device restart behavior. Possible values are: basedOnReturnCode, allow, suppress, force.
+     * @returns a win32LobAppRestartBehavior
+     */
+    public get deviceRestartBehavior() {
+        return this._deviceRestartBehavior;
+    };
+    /**
+     * Sets the deviceRestartBehavior property value. Device restart behavior. Possible values are: basedOnReturnCode, allow, suppress, force.
+     * @param value Value to set for the deviceRestartBehavior property.
+     */
+    public set deviceRestartBehavior(value: Win32LobAppRestartBehavior | undefined) {
+        if(value) {
+            this._deviceRestartBehavior = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -29,6 +61,22 @@ export class Win32LobAppInstallExperienceImpl implements Win32LobAppInstallExper
             "deviceRestartBehavior": n => { this.deviceRestartBehavior = n.getEnumValue<Win32LobAppRestartBehavior>(Win32LobAppRestartBehavior); },
             "runAsAccount": n => { this.runAsAccount = n.getEnumValue<RunAsAccountType>(RunAsAccountType); },
         };
+    };
+    /**
+     * Gets the runAsAccount property value. Indicates the type of execution context the app runs in. Possible values are: system, user.
+     * @returns a runAsAccountType
+     */
+    public get runAsAccount() {
+        return this._runAsAccount;
+    };
+    /**
+     * Sets the runAsAccount property value. Indicates the type of execution context the app runs in. Possible values are: system, user.
+     * @param value Value to set for the runAsAccount property.
+     */
+    public set runAsAccount(value: RunAsAccountType | undefined) {
+        if(value) {
+            this._runAsAccount = value;
+        }
     };
     /**
      * Serializes information the current object

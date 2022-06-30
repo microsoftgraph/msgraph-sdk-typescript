@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the setVerifiedPublisher method. */
 export class SetVerifiedPublisherPostRequestBodyImpl implements SetVerifiedPublisherPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The verifiedPublisherId property */
-    public verifiedPublisherId?: string | undefined;
+    private _verifiedPublisherId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new setVerifiedPublisherPostRequestBody and sets the default values.
      * @param setVerifiedPublisherPostRequestBodyParameterValue 
      */
     public constructor(setVerifiedPublisherPostRequestBodyParameterValue?: SetVerifiedPublisherPostRequestBody | undefined) {
-        this.additionalData = setVerifiedPublisherPostRequestBodyParameterValue?.additionalData ? setVerifiedPublisherPostRequestBodyParameterValue?.additionalData! : {};
-        this.verifiedPublisherId = setVerifiedPublisherPostRequestBodyParameterValue?.verifiedPublisherId;
+        this._additionalData = setVerifiedPublisherPostRequestBodyParameterValue?.additionalData ? setVerifiedPublisherPostRequestBodyParameterValue?.additionalData! : {};
+        this._verifiedPublisherId = setVerifiedPublisherPostRequestBodyParameterValue?.verifiedPublisherId;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class SetVerifiedPublisherPostRequestBodyImpl implements SetVerifiedPubli
             writer.writeStringValue("verifiedPublisherId", this.verifiedPublisherId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the verifiedPublisherId property value. The verifiedPublisherId property
+     * @returns a string
+     */
+    public get verifiedPublisherId() {
+        return this._verifiedPublisherId;
+    };
+    /**
+     * Sets the verifiedPublisherId property value. The verifiedPublisherId property
+     * @param value Value to set for the verifiedPublisherId property.
+     */
+    public set verifiedPublisherId(value: string | undefined) {
+        if(value) {
+            this._verifiedPublisherId = value;
+        }
     };
 }

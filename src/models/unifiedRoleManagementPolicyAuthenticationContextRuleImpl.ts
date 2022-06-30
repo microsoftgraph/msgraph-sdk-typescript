@@ -4,17 +4,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class UnifiedRoleManagementPolicyAuthenticationContextRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyAuthenticationContextRule {
     /** The value of the authentication context claim. */
-    public claimValue?: string | undefined;
+    private _claimValue?: string | undefined;
     /** Whether this rule is enabled. */
-    public isEnabled?: boolean | undefined;
+    private _isEnabled?: boolean | undefined;
+    /**
+     * Gets the claimValue property value. The value of the authentication context claim.
+     * @returns a string
+     */
+    public get claimValue() {
+        return this._claimValue;
+    };
+    /**
+     * Sets the claimValue property value. The value of the authentication context claim.
+     * @param value Value to set for the claimValue property.
+     */
+    public set claimValue(value: string | undefined) {
+        if(value) {
+            this._claimValue = value;
+        }
+    };
     /**
      * Instantiates a new UnifiedRoleManagementPolicyAuthenticationContextRule and sets the default values.
      * @param unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?: UnifiedRoleManagementPolicyAuthenticationContextRule | undefined) {
         super(unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue);
-        this.claimValue = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.claimValue;
-        this.isEnabled = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.isEnabled;
+        this._claimValue = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.claimValue;
+        this._isEnabled = unifiedRoleManagementPolicyAuthenticationContextRuleParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -25,6 +41,22 @@ export class UnifiedRoleManagementPolicyAuthenticationContextRuleImpl extends Un
             "claimValue": n => { this.claimValue = n.getStringValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isEnabled property value. Whether this rule is enabled.
+     * @returns a boolean
+     */
+    public get isEnabled() {
+        return this._isEnabled;
+    };
+    /**
+     * Sets the isEnabled property value. Whether this rule is enabled.
+     * @param value Value to set for the isEnabled property.
+     */
+    public set isEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isEnabled = value;
+        }
     };
     /**
      * Serializes information the current object

@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements SelfServiceSignUpAuthenticationFlowConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required. */
-    public isEnabled?: boolean | undefined;
+    private _isEnabled?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new selfServiceSignUpAuthenticationFlowConfiguration and sets the default values.
      * @param selfServiceSignUpAuthenticationFlowConfigurationParameterValue 
      */
     public constructor(selfServiceSignUpAuthenticationFlowConfigurationParameterValue?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
-        this.additionalData = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData ? selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData! : {};
-        this.isEnabled = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.isEnabled;
+        this._additionalData = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData ? selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.additionalData! : {};
+        this._isEnabled = selfServiceSignUpAuthenticationFlowConfigurationParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements Sel
         return {
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isEnabled property value. Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required.
+     * @returns a boolean
+     */
+    public get isEnabled() {
+        return this._isEnabled;
+    };
+    /**
+     * Sets the isEnabled property value. Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required.
+     * @param value Value to set for the isEnabled property.
+     */
+    public set isEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isEnabled = value;
+        }
     };
     /**
      * Serializes information the current object

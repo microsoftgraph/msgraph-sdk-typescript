@@ -7,20 +7,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAxes {
     /** Represents the category axis in a chart. Read-only. */
-    public categoryAxis?: WorkbookChartAxis | undefined;
+    private _categoryAxis?: WorkbookChartAxis | undefined;
     /** Represents the series axis of a 3-dimensional chart. Read-only. */
-    public seriesAxis?: WorkbookChartAxis | undefined;
+    private _seriesAxis?: WorkbookChartAxis | undefined;
     /** Represents the value axis in an axis. Read-only. */
-    public valueAxis?: WorkbookChartAxis | undefined;
+    private _valueAxis?: WorkbookChartAxis | undefined;
+    /**
+     * Gets the categoryAxis property value. Represents the category axis in a chart. Read-only.
+     * @returns a WorkbookChartAxisInterface
+     */
+    public get categoryAxis() {
+        return this._categoryAxis;
+    };
+    /**
+     * Sets the categoryAxis property value. Represents the category axis in a chart. Read-only.
+     * @param value Value to set for the categoryAxis property.
+     */
+    public set categoryAxis(value: WorkbookChartAxis | undefined) {
+        if(value) {
+            this._categoryAxis = value instanceof WorkbookChartAxisImpl? value : new WorkbookChartAxisImpl(value);
+        }
+    };
     /**
      * Instantiates a new workbookChartAxes and sets the default values.
      * @param workbookChartAxesParameterValue 
      */
     public constructor(workbookChartAxesParameterValue?: WorkbookChartAxes | undefined) {
         super(workbookChartAxesParameterValue);
-        this.categoryAxis = workbookChartAxesParameterValue?.categoryAxis;
-        this.seriesAxis = workbookChartAxesParameterValue?.seriesAxis;
-        this.valueAxis = workbookChartAxesParameterValue?.valueAxis;
+        this._categoryAxis = workbookChartAxesParameterValue?.categoryAxis;
+        this._seriesAxis = workbookChartAxesParameterValue?.seriesAxis;
+        this._valueAxis = workbookChartAxesParameterValue?.valueAxis;
     };
     /**
      * The deserialization information for the current model
@@ -41,13 +57,45 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categoryAxis){
-            writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", new WorkbookChartAxisImpl(this.categoryAxis));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", (!this.categoryAxis || this.categoryAxis instanceof WorkbookChartAxisImpl? this.categoryAxis : new WorkbookChartAxisImpl(this.categoryAxis)));
         }
         if(this.seriesAxis){
-            writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", new WorkbookChartAxisImpl(this.seriesAxis));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", (!this.seriesAxis || this.seriesAxis instanceof WorkbookChartAxisImpl? this.seriesAxis : new WorkbookChartAxisImpl(this.seriesAxis)));
         }
         if(this.valueAxis){
-            writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", new WorkbookChartAxisImpl(this.valueAxis));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", (!this.valueAxis || this.valueAxis instanceof WorkbookChartAxisImpl? this.valueAxis : new WorkbookChartAxisImpl(this.valueAxis)));
+        }
+    };
+    /**
+     * Gets the seriesAxis property value. Represents the series axis of a 3-dimensional chart. Read-only.
+     * @returns a WorkbookChartAxisInterface
+     */
+    public get seriesAxis() {
+        return this._seriesAxis;
+    };
+    /**
+     * Sets the seriesAxis property value. Represents the series axis of a 3-dimensional chart. Read-only.
+     * @param value Value to set for the seriesAxis property.
+     */
+    public set seriesAxis(value: WorkbookChartAxis | undefined) {
+        if(value) {
+            this._seriesAxis = value instanceof WorkbookChartAxisImpl? value : new WorkbookChartAxisImpl(value);
+        }
+    };
+    /**
+     * Gets the valueAxis property value. Represents the value axis in an axis. Read-only.
+     * @returns a WorkbookChartAxisInterface
+     */
+    public get valueAxis() {
+        return this._valueAxis;
+    };
+    /**
+     * Sets the valueAxis property value. Represents the value axis in an axis. Read-only.
+     * @param value Value to set for the valueAxis property.
+     */
+    public set valueAxis(value: WorkbookChartAxis | undefined) {
+        if(value) {
+            this._valueAxis = value instanceof WorkbookChartAxisImpl? value : new WorkbookChartAxisImpl(value);
         }
     };
 }

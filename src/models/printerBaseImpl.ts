@@ -15,38 +15,86 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the print singleton. */
 export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
     /** The capabilities of the printer/printerShare. */
-    public capabilities?: PrinterCapabilities | undefined;
+    private _capabilities?: PrinterCapabilities | undefined;
     /** The default print settings of printer/printerShare. */
-    public defaults?: PrinterDefaults | undefined;
+    private _defaults?: PrinterDefaults | undefined;
     /** The name of the printer/printerShare. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Whether the printer/printerShare is currently accepting new print jobs. */
-    public isAcceptingJobs?: boolean | undefined;
+    private _isAcceptingJobs?: boolean | undefined;
     /** The list of jobs that are queued for printing by the printer/printerShare. */
-    public jobs?: PrintJob[] | undefined;
+    private _jobs?: PrintJob[] | undefined;
     /** The physical and/or organizational location of the printer/printerShare. */
-    public location?: PrinterLocation | undefined;
+    private _location?: PrinterLocation | undefined;
     /** The manufacturer of the printer/printerShare. */
-    public manufacturer?: string | undefined;
+    private _manufacturer?: string | undefined;
     /** The model name of the printer/printerShare. */
-    public model?: string | undefined;
+    private _model?: string | undefined;
     /** The status property */
-    public status?: PrinterStatus | undefined;
+    private _status?: PrinterStatus | undefined;
+    /**
+     * Gets the capabilities property value. The capabilities of the printer/printerShare.
+     * @returns a PrinterCapabilitiesInterface
+     */
+    public get capabilities() {
+        return this._capabilities;
+    };
+    /**
+     * Sets the capabilities property value. The capabilities of the printer/printerShare.
+     * @param value Value to set for the capabilities property.
+     */
+    public set capabilities(value: PrinterCapabilities | undefined) {
+        if(value) {
+            this._capabilities = value instanceof PrinterCapabilitiesImpl? value : new PrinterCapabilitiesImpl(value);
+        }
+    };
     /**
      * Instantiates a new printerBase and sets the default values.
      * @param printerBaseParameterValue 
      */
     public constructor(printerBaseParameterValue?: PrinterBase | undefined) {
         super(printerBaseParameterValue);
-        this.capabilities = printerBaseParameterValue?.capabilities;
-        this.defaults = printerBaseParameterValue?.defaults;
-        this.displayName = printerBaseParameterValue?.displayName;
-        this.isAcceptingJobs = printerBaseParameterValue?.isAcceptingJobs;
-        this.jobs = printerBaseParameterValue?.jobs;
-        this.location = printerBaseParameterValue?.location;
-        this.manufacturer = printerBaseParameterValue?.manufacturer;
-        this.model = printerBaseParameterValue?.model;
-        this.status = printerBaseParameterValue?.status;
+        this._capabilities = printerBaseParameterValue?.capabilities;
+        this._defaults = printerBaseParameterValue?.defaults;
+        this._displayName = printerBaseParameterValue?.displayName;
+        this._isAcceptingJobs = printerBaseParameterValue?.isAcceptingJobs;
+        this._jobs = printerBaseParameterValue?.jobs;
+        this._location = printerBaseParameterValue?.location;
+        this._manufacturer = printerBaseParameterValue?.manufacturer;
+        this._model = printerBaseParameterValue?.model;
+        this._status = printerBaseParameterValue?.status;
+    };
+    /**
+     * Gets the defaults property value. The default print settings of printer/printerShare.
+     * @returns a PrinterDefaultsInterface
+     */
+    public get defaults() {
+        return this._defaults;
+    };
+    /**
+     * Sets the defaults property value. The default print settings of printer/printerShare.
+     * @param value Value to set for the defaults property.
+     */
+    public set defaults(value: PrinterDefaults | undefined) {
+        if(value) {
+            this._defaults = value instanceof PrinterDefaultsImpl? value : new PrinterDefaultsImpl(value);
+        }
+    };
+    /**
+     * Gets the displayName property value. The name of the printer/printerShare.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the printer/printerShare.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -66,6 +114,90 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         };
     };
     /**
+     * Gets the isAcceptingJobs property value. Whether the printer/printerShare is currently accepting new print jobs.
+     * @returns a boolean
+     */
+    public get isAcceptingJobs() {
+        return this._isAcceptingJobs;
+    };
+    /**
+     * Sets the isAcceptingJobs property value. Whether the printer/printerShare is currently accepting new print jobs.
+     * @param value Value to set for the isAcceptingJobs property.
+     */
+    public set isAcceptingJobs(value: boolean | undefined) {
+        if(value) {
+            this._isAcceptingJobs = value;
+        }
+    };
+    /**
+     * Gets the jobs property value. The list of jobs that are queued for printing by the printer/printerShare.
+     * @returns a PrintJobInterface
+     */
+    public get jobs() {
+        return this._jobs;
+    };
+    /**
+     * Sets the jobs property value. The list of jobs that are queued for printing by the printer/printerShare.
+     * @param value Value to set for the jobs property.
+     */
+    public set jobs(value: PrintJob[] | undefined) {
+        if(value) {
+            const jobsArrValue: PrintJobImpl[] = [];
+            this.jobs?.forEach(element => {
+                jobsArrValue.push((element instanceof PrintJobImpl? element:new PrintJobImpl(element)));
+            });
+            this._jobs = jobsArrValue;
+        }
+    };
+    /**
+     * Gets the location property value. The physical and/or organizational location of the printer/printerShare.
+     * @returns a PrinterLocationInterface
+     */
+    public get location() {
+        return this._location;
+    };
+    /**
+     * Sets the location property value. The physical and/or organizational location of the printer/printerShare.
+     * @param value Value to set for the location property.
+     */
+    public set location(value: PrinterLocation | undefined) {
+        if(value) {
+            this._location = value instanceof PrinterLocationImpl? value : new PrinterLocationImpl(value);
+        }
+    };
+    /**
+     * Gets the manufacturer property value. The manufacturer of the printer/printerShare.
+     * @returns a string
+     */
+    public get manufacturer() {
+        return this._manufacturer;
+    };
+    /**
+     * Sets the manufacturer property value. The manufacturer of the printer/printerShare.
+     * @param value Value to set for the manufacturer property.
+     */
+    public set manufacturer(value: string | undefined) {
+        if(value) {
+            this._manufacturer = value;
+        }
+    };
+    /**
+     * Gets the model property value. The model name of the printer/printerShare.
+     * @returns a string
+     */
+    public get model() {
+        return this._model;
+    };
+    /**
+     * Sets the model property value. The model name of the printer/printerShare.
+     * @param value Value to set for the model property.
+     */
+    public set model(value: string | undefined) {
+        if(value) {
+            this._model = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -73,10 +205,10 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.capabilities){
-            writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", new PrinterCapabilitiesImpl(this.capabilities));
+            writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", (!this.capabilities || this.capabilities instanceof PrinterCapabilitiesImpl? this.capabilities : new PrinterCapabilitiesImpl(this.capabilities)));
         }
         if(this.defaults){
-            writer.writeObjectValue<PrinterDefaultsImpl>("defaults", new PrinterDefaultsImpl(this.defaults));
+            writer.writeObjectValue<PrinterDefaultsImpl>("defaults", (!this.defaults || this.defaults instanceof PrinterDefaultsImpl? this.defaults : new PrinterDefaultsImpl(this.defaults)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
@@ -84,11 +216,14 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         if(this.isAcceptingJobs){
             writer.writeBooleanValue("isAcceptingJobs", this.isAcceptingJobs);
         }
-        if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = []; this.jobs?.forEach(element => {jobsArrValue.push(new PrintJobImpl(element));});
+        if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = [];
+        this.jobs?.forEach(element => {
+            jobsArrValue.push((element instanceof PrintJobImpl? element:new PrintJobImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PrintJobImpl>("jobs", jobsArrValue);
         }
         if(this.location){
-            writer.writeObjectValue<PrinterLocationImpl>("location", new PrinterLocationImpl(this.location));
+            writer.writeObjectValue<PrinterLocationImpl>("location", (!this.location || this.location instanceof PrinterLocationImpl? this.location : new PrinterLocationImpl(this.location)));
         }
         if(this.manufacturer){
             writer.writeStringValue("manufacturer", this.manufacturer);
@@ -97,7 +232,23 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
             writer.writeStringValue("model", this.model);
         }
         if(this.status){
-            writer.writeObjectValue<PrinterStatusImpl>("status", new PrinterStatusImpl(this.status));
+            writer.writeObjectValue<PrinterStatusImpl>("status", (!this.status || this.status instanceof PrinterStatusImpl? this.status : new PrinterStatusImpl(this.status)));
+        }
+    };
+    /**
+     * Gets the status property value. The status property
+     * @returns a PrinterStatusInterface
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status property
+     * @param value Value to set for the status property.
+     */
+    public set status(value: PrinterStatus | undefined) {
+        if(value) {
+            this._status = value instanceof PrinterStatusImpl? value : new PrinterStatusImpl(value);
         }
     };
 }

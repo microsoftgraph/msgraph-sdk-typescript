@@ -13,29 +13,29 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implements OnenoteSection {
     /** Indicates whether this is the user's default section. Read-only. */
-    public isDefault?: boolean | undefined;
+    private _isDefault?: boolean | undefined;
     /** Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web. */
-    public links?: SectionLinks | undefined;
+    private _links?: SectionLinks | undefined;
     /** The collection of pages in the section.  Read-only. Nullable. */
-    public pages?: OnenotePage[] | undefined;
+    private _pages?: OnenotePage[] | undefined;
     /** The pages endpoint where you can get details for all the pages in the section. Read-only. */
-    public pagesUrl?: string | undefined;
+    private _pagesUrl?: string | undefined;
     /** The notebook that contains the section.  Read-only. */
-    public parentNotebook?: Notebook | undefined;
+    private _parentNotebook?: Notebook | undefined;
     /** The section group that contains the section.  Read-only. */
-    public parentSectionGroup?: SectionGroup | undefined;
+    private _parentSectionGroup?: SectionGroup | undefined;
     /**
      * Instantiates a new onenoteSection and sets the default values.
      * @param onenoteSectionParameterValue 
      */
     public constructor(onenoteSectionParameterValue?: OnenoteSection | undefined) {
         super(onenoteSectionParameterValue);
-        this.isDefault = onenoteSectionParameterValue?.isDefault;
-        this.links = onenoteSectionParameterValue?.links;
-        this.pages = onenoteSectionParameterValue?.pages;
-        this.pagesUrl = onenoteSectionParameterValue?.pagesUrl;
-        this.parentNotebook = onenoteSectionParameterValue?.parentNotebook;
-        this.parentSectionGroup = onenoteSectionParameterValue?.parentSectionGroup;
+        this._isDefault = onenoteSectionParameterValue?.isDefault;
+        this._links = onenoteSectionParameterValue?.links;
+        this._pages = onenoteSectionParameterValue?.pages;
+        this._pagesUrl = onenoteSectionParameterValue?.pagesUrl;
+        this._parentNotebook = onenoteSectionParameterValue?.parentNotebook;
+        this._parentSectionGroup = onenoteSectionParameterValue?.parentSectionGroup;
     };
     /**
      * The deserialization information for the current model
@@ -52,6 +52,106 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
         };
     };
     /**
+     * Gets the isDefault property value. Indicates whether this is the user's default section. Read-only.
+     * @returns a boolean
+     */
+    public get isDefault() {
+        return this._isDefault;
+    };
+    /**
+     * Sets the isDefault property value. Indicates whether this is the user's default section. Read-only.
+     * @param value Value to set for the isDefault property.
+     */
+    public set isDefault(value: boolean | undefined) {
+        if(value) {
+            this._isDefault = value;
+        }
+    };
+    /**
+     * Gets the links property value. Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web.
+     * @returns a SectionLinksInterface
+     */
+    public get links() {
+        return this._links;
+    };
+    /**
+     * Sets the links property value. Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web.
+     * @param value Value to set for the links property.
+     */
+    public set links(value: SectionLinks | undefined) {
+        if(value) {
+            this._links = value instanceof SectionLinksImpl? value : new SectionLinksImpl(value);
+        }
+    };
+    /**
+     * Gets the pages property value. The collection of pages in the section.  Read-only. Nullable.
+     * @returns a OnenotePageInterface
+     */
+    public get pages() {
+        return this._pages;
+    };
+    /**
+     * Sets the pages property value. The collection of pages in the section.  Read-only. Nullable.
+     * @param value Value to set for the pages property.
+     */
+    public set pages(value: OnenotePage[] | undefined) {
+        if(value) {
+            const pagesArrValue: OnenotePageImpl[] = [];
+            this.pages?.forEach(element => {
+                pagesArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+            });
+            this._pages = pagesArrValue;
+        }
+    };
+    /**
+     * Gets the pagesUrl property value. The pages endpoint where you can get details for all the pages in the section. Read-only.
+     * @returns a string
+     */
+    public get pagesUrl() {
+        return this._pagesUrl;
+    };
+    /**
+     * Sets the pagesUrl property value. The pages endpoint where you can get details for all the pages in the section. Read-only.
+     * @param value Value to set for the pagesUrl property.
+     */
+    public set pagesUrl(value: string | undefined) {
+        if(value) {
+            this._pagesUrl = value;
+        }
+    };
+    /**
+     * Gets the parentNotebook property value. The notebook that contains the section.  Read-only.
+     * @returns a NotebookInterface
+     */
+    public get parentNotebook() {
+        return this._parentNotebook;
+    };
+    /**
+     * Sets the parentNotebook property value. The notebook that contains the section.  Read-only.
+     * @param value Value to set for the parentNotebook property.
+     */
+    public set parentNotebook(value: Notebook | undefined) {
+        if(value) {
+            this._parentNotebook = value instanceof NotebookImpl? value : new NotebookImpl(value);
+        }
+    };
+    /**
+     * Gets the parentSectionGroup property value. The section group that contains the section.  Read-only.
+     * @returns a SectionGroupInterface
+     */
+    public get parentSectionGroup() {
+        return this._parentSectionGroup;
+    };
+    /**
+     * Sets the parentSectionGroup property value. The section group that contains the section.  Read-only.
+     * @param value Value to set for the parentSectionGroup property.
+     */
+    public set parentSectionGroup(value: SectionGroup | undefined) {
+        if(value) {
+            this._parentSectionGroup = value instanceof SectionGroupImpl? value : new SectionGroupImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -62,19 +162,22 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
             writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.links){
-            writer.writeObjectValue<SectionLinksImpl>("links", new SectionLinksImpl(this.links));
+            writer.writeObjectValue<SectionLinksImpl>("links", (!this.links || this.links instanceof SectionLinksImpl? this.links : new SectionLinksImpl(this.links)));
         }
-        if(this.pages && this.pages.length != 0){        const pagesArrValue: OnenotePageImpl[] = []; this.pages?.forEach(element => {pagesArrValue.push(new OnenotePageImpl(element));});
+        if(this.pages && this.pages.length != 0){        const pagesArrValue: OnenotePageImpl[] = [];
+        this.pages?.forEach(element => {
+            pagesArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<OnenotePageImpl>("pages", pagesArrValue);
         }
         if(this.pagesUrl){
             writer.writeStringValue("pagesUrl", this.pagesUrl);
         }
         if(this.parentNotebook){
-            writer.writeObjectValue<NotebookImpl>("parentNotebook", new NotebookImpl(this.parentNotebook));
+            writer.writeObjectValue<NotebookImpl>("parentNotebook", (!this.parentNotebook || this.parentNotebook instanceof NotebookImpl? this.parentNotebook : new NotebookImpl(this.parentNotebook)));
         }
         if(this.parentSectionGroup){
-            writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", new SectionGroupImpl(this.parentSectionGroup));
+            writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", (!this.parentSectionGroup || this.parentSectionGroup instanceof SectionGroupImpl? this.parentSectionGroup : new SectionGroupImpl(this.parentSectionGroup)));
         }
     };
 }

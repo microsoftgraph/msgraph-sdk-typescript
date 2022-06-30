@@ -4,23 +4,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WindowsMobileMSIImpl extends MobileLobAppImpl implements WindowsMobileMSI {
     /** The command line. */
-    public commandLine?: string | undefined;
+    private _commandLine?: string | undefined;
     /** A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature. */
-    public ignoreVersionDetection?: boolean | undefined;
+    private _ignoreVersionDetection?: boolean | undefined;
     /** The product code. */
-    public productCode?: string | undefined;
+    private _productCode?: string | undefined;
     /** The product version of Windows Mobile MSI Line of Business (LoB) app. */
-    public productVersion?: string | undefined;
+    private _productVersion?: string | undefined;
+    /**
+     * Gets the commandLine property value. The command line.
+     * @returns a string
+     */
+    public get commandLine() {
+        return this._commandLine;
+    };
+    /**
+     * Sets the commandLine property value. The command line.
+     * @param value Value to set for the commandLine property.
+     */
+    public set commandLine(value: string | undefined) {
+        if(value) {
+            this._commandLine = value;
+        }
+    };
     /**
      * Instantiates a new WindowsMobileMSI and sets the default values.
      * @param windowsMobileMSIParameterValue 
      */
     public constructor(windowsMobileMSIParameterValue?: WindowsMobileMSI | undefined) {
         super(windowsMobileMSIParameterValue);
-        this.commandLine = windowsMobileMSIParameterValue?.commandLine;
-        this.ignoreVersionDetection = windowsMobileMSIParameterValue?.ignoreVersionDetection;
-        this.productCode = windowsMobileMSIParameterValue?.productCode;
-        this.productVersion = windowsMobileMSIParameterValue?.productVersion;
+        this._commandLine = windowsMobileMSIParameterValue?.commandLine;
+        this._ignoreVersionDetection = windowsMobileMSIParameterValue?.ignoreVersionDetection;
+        this._productCode = windowsMobileMSIParameterValue?.productCode;
+        this._productVersion = windowsMobileMSIParameterValue?.productVersion;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +49,54 @@ export class WindowsMobileMSIImpl extends MobileLobAppImpl implements WindowsMob
             "productCode": n => { this.productCode = n.getStringValue(); },
             "productVersion": n => { this.productVersion = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the ignoreVersionDetection property value. A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
+     * @returns a boolean
+     */
+    public get ignoreVersionDetection() {
+        return this._ignoreVersionDetection;
+    };
+    /**
+     * Sets the ignoreVersionDetection property value. A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
+     * @param value Value to set for the ignoreVersionDetection property.
+     */
+    public set ignoreVersionDetection(value: boolean | undefined) {
+        if(value) {
+            this._ignoreVersionDetection = value;
+        }
+    };
+    /**
+     * Gets the productCode property value. The product code.
+     * @returns a string
+     */
+    public get productCode() {
+        return this._productCode;
+    };
+    /**
+     * Sets the productCode property value. The product code.
+     * @param value Value to set for the productCode property.
+     */
+    public set productCode(value: string | undefined) {
+        if(value) {
+            this._productCode = value;
+        }
+    };
+    /**
+     * Gets the productVersion property value. The product version of Windows Mobile MSI Line of Business (LoB) app.
+     * @returns a string
+     */
+    public get productVersion() {
+        return this._productVersion;
+    };
+    /**
+     * Sets the productVersion property value. The product version of Windows Mobile MSI Line of Business (LoB) app.
+     * @param value Value to set for the productVersion property.
+     */
+    public set productVersion(value: string | undefined) {
+        if(value) {
+            this._productVersion = value;
+        }
     };
     /**
      * Serializes information the current object

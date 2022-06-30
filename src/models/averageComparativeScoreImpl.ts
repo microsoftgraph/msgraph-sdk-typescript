@@ -3,19 +3,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AverageComparativeScoreImpl implements AverageComparativeScore {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Average score within specified basis. */
-    public averageScore?: number | undefined;
+    private _averageScore?: number | undefined;
     /** Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes. */
-    public basis?: string | undefined;
+    private _basis?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the averageScore property value. Average score within specified basis.
+     * @returns a double
+     */
+    public get averageScore() {
+        return this._averageScore;
+    };
+    /**
+     * Sets the averageScore property value. Average score within specified basis.
+     * @param value Value to set for the averageScore property.
+     */
+    public set averageScore(value: number | undefined) {
+        if(value) {
+            this._averageScore = value;
+        }
+    };
+    /**
+     * Gets the basis property value. Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.
+     * @returns a string
+     */
+    public get basis() {
+        return this._basis;
+    };
+    /**
+     * Sets the basis property value. Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.
+     * @param value Value to set for the basis property.
+     */
+    public set basis(value: string | undefined) {
+        if(value) {
+            this._basis = value;
+        }
+    };
     /**
      * Instantiates a new averageComparativeScore and sets the default values.
      * @param averageComparativeScoreParameterValue 
      */
     public constructor(averageComparativeScoreParameterValue?: AverageComparativeScore | undefined) {
-        this.additionalData = averageComparativeScoreParameterValue?.additionalData ? averageComparativeScoreParameterValue?.additionalData! : {};
-        this.averageScore = averageComparativeScoreParameterValue?.averageScore;
-        this.basis = averageComparativeScoreParameterValue?.basis;
+        this._additionalData = averageComparativeScoreParameterValue?.additionalData ? averageComparativeScoreParameterValue?.additionalData! : {};
+        this._averageScore = averageComparativeScoreParameterValue?.averageScore;
+        this._basis = averageComparativeScoreParameterValue?.basis;
     };
     /**
      * The deserialization information for the current model

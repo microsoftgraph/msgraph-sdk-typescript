@@ -3,16 +3,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AgreementFileDataImpl implements AgreementFileData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)). */
-    public data?: string | undefined;
+    private _data?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new agreementFileData and sets the default values.
      * @param agreementFileDataParameterValue 
      */
     public constructor(agreementFileDataParameterValue?: AgreementFileData | undefined) {
-        this.additionalData = agreementFileDataParameterValue?.additionalData ? agreementFileDataParameterValue?.additionalData! : {};
-        this.data = agreementFileDataParameterValue?.data;
+        this._additionalData = agreementFileDataParameterValue?.additionalData ? agreementFileDataParameterValue?.additionalData! : {};
+        this._data = agreementFileDataParameterValue?.data;
+    };
+    /**
+     * Gets the data property value. Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
+     * @returns a binary
+     */
+    public get data() {
+        return this._data;
+    };
+    /**
+     * Sets the data property value. Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
+     * @param value Value to set for the data property.
+     */
+    public set data(value: string | undefined) {
+        if(value) {
+            this._data = value;
+        }
     };
     /**
      * The deserialization information for the current model

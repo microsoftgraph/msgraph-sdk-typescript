@@ -3,13 +3,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessActionImpl implements AccessAction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new accessAction and sets the default values.
      * @param accessActionParameterValue 
      */
     public constructor(accessActionParameterValue?: AccessAction | undefined) {
-        this.additionalData = accessActionParameterValue?.additionalData ? accessActionParameterValue?.additionalData! : {};
+        this._additionalData = accessActionParameterValue?.additionalData ? accessActionParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

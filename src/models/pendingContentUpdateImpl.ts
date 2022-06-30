@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PendingContentUpdateImpl implements PendingContentUpdate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Date and time the pending binary operation was queued in UTC time. Read-only. */
-    public queuedDateTime?: Date | undefined;
+    private _queuedDateTime?: Date | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new pendingContentUpdate and sets the default values.
      * @param pendingContentUpdateParameterValue 
      */
     public constructor(pendingContentUpdateParameterValue?: PendingContentUpdate | undefined) {
-        this.additionalData = pendingContentUpdateParameterValue?.additionalData ? pendingContentUpdateParameterValue?.additionalData! : {};
-        this.queuedDateTime = pendingContentUpdateParameterValue?.queuedDateTime;
+        this._additionalData = pendingContentUpdateParameterValue?.additionalData ? pendingContentUpdateParameterValue?.additionalData! : {};
+        this._queuedDateTime = pendingContentUpdateParameterValue?.queuedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class PendingContentUpdateImpl implements PendingContentUpdate {
         return {
             "queuedDateTime": n => { this.queuedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the queuedDateTime property value. Date and time the pending binary operation was queued in UTC time. Read-only.
+     * @returns a Date
+     */
+    public get queuedDateTime() {
+        return this._queuedDateTime;
+    };
+    /**
+     * Sets the queuedDateTime property value. Date and time the pending binary operation was queued in UTC time. Read-only.
+     * @param value Value to set for the queuedDateTime property.
+     */
+    public set queuedDateTime(value: Date | undefined) {
+        if(value) {
+            this._queuedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object

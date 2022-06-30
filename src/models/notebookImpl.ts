@@ -11,35 +11,35 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Notebook {
     /** Indicates whether this is the user's default notebook. Read-only. */
-    public isDefault?: boolean | undefined;
+    private _isDefault?: boolean | undefined;
     /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only. */
-    public isShared?: boolean | undefined;
+    private _isShared?: boolean | undefined;
     /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web. */
-    public links?: NotebookLinks | undefined;
+    private _links?: NotebookLinks | undefined;
     /** The section groups in the notebook. Read-only. Nullable. */
-    public sectionGroups?: SectionGroup[] | undefined;
+    private _sectionGroups?: SectionGroup[] | undefined;
     /** The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only. */
-    public sectionGroupsUrl?: string | undefined;
+    private _sectionGroupsUrl?: string | undefined;
     /** The sections in the notebook. Read-only. Nullable. */
-    public sections?: OnenoteSection[] | undefined;
+    private _sections?: OnenoteSection[] | undefined;
     /** The URL for the sections navigation property, which returns all the sections in the notebook. Read-only. */
-    public sectionsUrl?: string | undefined;
+    private _sectionsUrl?: string | undefined;
     /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only. */
-    public userRole?: OnenoteUserRole | undefined;
+    private _userRole?: OnenoteUserRole | undefined;
     /**
      * Instantiates a new Notebook and sets the default values.
      * @param notebookParameterValue 
      */
     public constructor(notebookParameterValue?: Notebook | undefined) {
         super(notebookParameterValue);
-        this.isDefault = notebookParameterValue?.isDefault;
-        this.isShared = notebookParameterValue?.isShared;
-        this.links = notebookParameterValue?.links;
-        this.sectionGroups = notebookParameterValue?.sectionGroups;
-        this.sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl;
-        this.sections = notebookParameterValue?.sections;
-        this.sectionsUrl = notebookParameterValue?.sectionsUrl;
-        this.userRole = notebookParameterValue?.userRole;
+        this._isDefault = notebookParameterValue?.isDefault;
+        this._isShared = notebookParameterValue?.isShared;
+        this._links = notebookParameterValue?.links;
+        this._sectionGroups = notebookParameterValue?.sectionGroups;
+        this._sectionGroupsUrl = notebookParameterValue?.sectionGroupsUrl;
+        this._sections = notebookParameterValue?.sections;
+        this._sectionsUrl = notebookParameterValue?.sectionsUrl;
+        this._userRole = notebookParameterValue?.userRole;
     };
     /**
      * The deserialization information for the current model
@@ -58,6 +58,126 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         };
     };
     /**
+     * Gets the isDefault property value. Indicates whether this is the user's default notebook. Read-only.
+     * @returns a boolean
+     */
+    public get isDefault() {
+        return this._isDefault;
+    };
+    /**
+     * Sets the isDefault property value. Indicates whether this is the user's default notebook. Read-only.
+     * @param value Value to set for the isDefault property.
+     */
+    public set isDefault(value: boolean | undefined) {
+        if(value) {
+            this._isDefault = value;
+        }
+    };
+    /**
+     * Gets the isShared property value. Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only.
+     * @returns a boolean
+     */
+    public get isShared() {
+        return this._isShared;
+    };
+    /**
+     * Sets the isShared property value. Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only.
+     * @param value Value to set for the isShared property.
+     */
+    public set isShared(value: boolean | undefined) {
+        if(value) {
+            this._isShared = value;
+        }
+    };
+    /**
+     * Gets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
+     * @returns a NotebookLinksInterface
+     */
+    public get links() {
+        return this._links;
+    };
+    /**
+     * Sets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
+     * @param value Value to set for the links property.
+     */
+    public set links(value: NotebookLinks | undefined) {
+        if(value) {
+            this._links = value instanceof NotebookLinksImpl? value : new NotebookLinksImpl(value);
+        }
+    };
+    /**
+     * Gets the sectionGroups property value. The section groups in the notebook. Read-only. Nullable.
+     * @returns a SectionGroupInterface
+     */
+    public get sectionGroups() {
+        return this._sectionGroups;
+    };
+    /**
+     * Sets the sectionGroups property value. The section groups in the notebook. Read-only. Nullable.
+     * @param value Value to set for the sectionGroups property.
+     */
+    public set sectionGroups(value: SectionGroup[] | undefined) {
+        if(value) {
+            const sectionGroupsArrValue: SectionGroupImpl[] = [];
+            this.sectionGroups?.forEach(element => {
+                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+            });
+            this._sectionGroups = sectionGroupsArrValue;
+        }
+    };
+    /**
+     * Gets the sectionGroupsUrl property value. The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only.
+     * @returns a string
+     */
+    public get sectionGroupsUrl() {
+        return this._sectionGroupsUrl;
+    };
+    /**
+     * Sets the sectionGroupsUrl property value. The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only.
+     * @param value Value to set for the sectionGroupsUrl property.
+     */
+    public set sectionGroupsUrl(value: string | undefined) {
+        if(value) {
+            this._sectionGroupsUrl = value;
+        }
+    };
+    /**
+     * Gets the sections property value. The sections in the notebook. Read-only. Nullable.
+     * @returns a OnenoteSectionInterface
+     */
+    public get sections() {
+        return this._sections;
+    };
+    /**
+     * Sets the sections property value. The sections in the notebook. Read-only. Nullable.
+     * @param value Value to set for the sections property.
+     */
+    public set sections(value: OnenoteSection[] | undefined) {
+        if(value) {
+            const sectionsArrValue: OnenoteSectionImpl[] = [];
+            this.sections?.forEach(element => {
+                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+            });
+            this._sections = sectionsArrValue;
+        }
+    };
+    /**
+     * Gets the sectionsUrl property value. The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.
+     * @returns a string
+     */
+    public get sectionsUrl() {
+        return this._sectionsUrl;
+    };
+    /**
+     * Sets the sectionsUrl property value. The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.
+     * @param value Value to set for the sectionsUrl property.
+     */
+    public set sectionsUrl(value: string | undefined) {
+        if(value) {
+            this._sectionsUrl = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -71,15 +191,21 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
             writer.writeBooleanValue("isShared", this.isShared);
         }
         if(this.links){
-            writer.writeObjectValue<NotebookLinksImpl>("links", new NotebookLinksImpl(this.links));
+            writer.writeObjectValue<NotebookLinksImpl>("links", (!this.links || this.links instanceof NotebookLinksImpl? this.links : new NotebookLinksImpl(this.links)));
         }
-        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = []; this.sectionGroups?.forEach(element => {sectionGroupsArrValue.push(new SectionGroupImpl(element));});
+        if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = [];
+        this.sectionGroups?.forEach(element => {
+            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
         if(this.sectionGroupsUrl){
             writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         }
-        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = []; this.sections?.forEach(element => {sectionsArrValue.push(new OnenoteSectionImpl(element));});
+        if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = [];
+        this.sections?.forEach(element => {
+            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }
         if(this.sectionsUrl){
@@ -87,6 +213,22 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         }
         if(this.userRole){
             writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
+        }
+    };
+    /**
+     * Gets the userRole property value. Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
+     * @returns a onenoteUserRole
+     */
+    public get userRole() {
+        return this._userRole;
+    };
+    /**
+     * Sets the userRole property value. Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
+     * @param value Value to set for the userRole property.
+     */
+    public set userRole(value: OnenoteUserRole | undefined) {
+        if(value) {
+            this._userRole = value;
         }
     };
 }

@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the appCatalogs singleton. */
 export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
     /** The teamsApps property */
-    public teamsApps?: TeamsApp[] | undefined;
+    private _teamsApps?: TeamsApp[] | undefined;
     /**
      * Instantiates a new appCatalogs and sets the default values.
      * @param appCatalogsParameterValue 
      */
     public constructor(appCatalogsParameterValue?: AppCatalogs | undefined) {
         super(appCatalogsParameterValue);
-        this.teamsApps = appCatalogsParameterValue?.teamsApps;
+        this._teamsApps = appCatalogsParameterValue?.teamsApps;
     };
     /**
      * The deserialization information for the current model
@@ -32,8 +32,31 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = []; this.teamsApps?.forEach(element => {teamsAppsArrValue.push(new TeamsAppImpl(element));});
+        if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = [];
+        this.teamsApps?.forEach(element => {
+            teamsAppsArrValue.push((element instanceof TeamsAppImpl? element:new TeamsAppImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
+        }
+    };
+    /**
+     * Gets the teamsApps property value. The teamsApps property
+     * @returns a TeamsAppInterface
+     */
+    public get teamsApps() {
+        return this._teamsApps;
+    };
+    /**
+     * Sets the teamsApps property value. The teamsApps property
+     * @param value Value to set for the teamsApps property.
+     */
+    public set teamsApps(value: TeamsApp[] | undefined) {
+        if(value) {
+            const teamsAppsArrValue: TeamsAppImpl[] = [];
+            this.teamsApps?.forEach(element => {
+                teamsAppsArrValue.push((element instanceof TeamsAppImpl? element:new TeamsAppImpl(element)));
+            });
+            this._teamsApps = teamsAppsArrValue;
         }
     };
 }

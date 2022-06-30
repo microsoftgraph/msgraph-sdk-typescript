@@ -3,40 +3,104 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SelfSignedCertificateImpl implements SelfSignedCertificate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Custom key identifier. */
-    public customKeyIdentifier?: string | undefined;
+    private _customKeyIdentifier?: string | undefined;
     /** The friendly name for the key. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public endDateTime?: Date | undefined;
+    private _endDateTime?: Date | undefined;
     /** The value for the key credential. Should be a base-64 encoded value. */
-    public key?: string | undefined;
+    private _key?: string | undefined;
     /** The unique identifier (GUID) for the key. */
-    public keyId?: string | undefined;
+    private _keyId?: string | undefined;
     /** The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public startDateTime?: Date | undefined;
+    private _startDateTime?: Date | undefined;
     /** The thumbprint value for the key. */
-    public thumbprint?: string | undefined;
+    private _thumbprint?: string | undefined;
     /** The type of key credential. 'AsymmetricX509Cert'. */
-    public type?: string | undefined;
+    private _type?: string | undefined;
     /** A string that describes the purpose for which the key can be used. For example, 'Verify'. */
-    public usage?: string | undefined;
+    private _usage?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new SelfSignedCertificate and sets the default values.
      * @param selfSignedCertificateParameterValue 
      */
     public constructor(selfSignedCertificateParameterValue?: SelfSignedCertificate | undefined) {
-        this.additionalData = selfSignedCertificateParameterValue?.additionalData ? selfSignedCertificateParameterValue?.additionalData! : {};
-        this.customKeyIdentifier = selfSignedCertificateParameterValue?.customKeyIdentifier;
-        this.displayName = selfSignedCertificateParameterValue?.displayName;
-        this.endDateTime = selfSignedCertificateParameterValue?.endDateTime;
-        this.key = selfSignedCertificateParameterValue?.key;
-        this.keyId = selfSignedCertificateParameterValue?.keyId;
-        this.startDateTime = selfSignedCertificateParameterValue?.startDateTime;
-        this.thumbprint = selfSignedCertificateParameterValue?.thumbprint;
-        this.type = selfSignedCertificateParameterValue?.type;
-        this.usage = selfSignedCertificateParameterValue?.usage;
+        this._additionalData = selfSignedCertificateParameterValue?.additionalData ? selfSignedCertificateParameterValue?.additionalData! : {};
+        this._customKeyIdentifier = selfSignedCertificateParameterValue?.customKeyIdentifier;
+        this._displayName = selfSignedCertificateParameterValue?.displayName;
+        this._endDateTime = selfSignedCertificateParameterValue?.endDateTime;
+        this._key = selfSignedCertificateParameterValue?.key;
+        this._keyId = selfSignedCertificateParameterValue?.keyId;
+        this._startDateTime = selfSignedCertificateParameterValue?.startDateTime;
+        this._thumbprint = selfSignedCertificateParameterValue?.thumbprint;
+        this._type = selfSignedCertificateParameterValue?.type;
+        this._usage = selfSignedCertificateParameterValue?.usage;
+    };
+    /**
+     * Gets the customKeyIdentifier property value. Custom key identifier.
+     * @returns a binary
+     */
+    public get customKeyIdentifier() {
+        return this._customKeyIdentifier;
+    };
+    /**
+     * Sets the customKeyIdentifier property value. Custom key identifier.
+     * @param value Value to set for the customKeyIdentifier property.
+     */
+    public set customKeyIdentifier(value: string | undefined) {
+        if(value) {
+            this._customKeyIdentifier = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The friendly name for the key.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The friendly name for the key.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the endDateTime property value. The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get endDateTime() {
+        return this._endDateTime;
+    };
+    /**
+     * Sets the endDateTime property value. The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: Date | undefined) {
+        if(value) {
+            this._endDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -54,6 +118,38 @@ export class SelfSignedCertificateImpl implements SelfSignedCertificate {
             "type": n => { this.type = n.getStringValue(); },
             "usage": n => { this.usage = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the key property value. The value for the key credential. Should be a base-64 encoded value.
+     * @returns a binary
+     */
+    public get key() {
+        return this._key;
+    };
+    /**
+     * Sets the key property value. The value for the key credential. Should be a base-64 encoded value.
+     * @param value Value to set for the key property.
+     */
+    public set key(value: string | undefined) {
+        if(value) {
+            this._key = value;
+        }
+    };
+    /**
+     * Gets the keyId property value. The unique identifier (GUID) for the key.
+     * @returns a string
+     */
+    public get keyId() {
+        return this._keyId;
+    };
+    /**
+     * Sets the keyId property value. The unique identifier (GUID) for the key.
+     * @param value Value to set for the keyId property.
+     */
+    public set keyId(value: string | undefined) {
+        if(value) {
+            this._keyId = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -89,5 +185,69 @@ export class SelfSignedCertificateImpl implements SelfSignedCertificate {
             writer.writeStringValue("usage", this.usage);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the startDateTime property value. The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: Date | undefined) {
+        if(value) {
+            this._startDateTime = value;
+        }
+    };
+    /**
+     * Gets the thumbprint property value. The thumbprint value for the key.
+     * @returns a string
+     */
+    public get thumbprint() {
+        return this._thumbprint;
+    };
+    /**
+     * Sets the thumbprint property value. The thumbprint value for the key.
+     * @param value Value to set for the thumbprint property.
+     */
+    public set thumbprint(value: string | undefined) {
+        if(value) {
+            this._thumbprint = value;
+        }
+    };
+    /**
+     * Gets the type property value. The type of key credential. 'AsymmetricX509Cert'.
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of key credential. 'AsymmetricX509Cert'.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the usage property value. A string that describes the purpose for which the key can be used. For example, 'Verify'.
+     * @returns a string
+     */
+    public get usage() {
+        return this._usage;
+    };
+    /**
+     * Sets the usage property value. A string that describes the purpose for which the key can be used. For example, 'Verify'.
+     * @param value Value to set for the usage property.
+     */
+    public set usage(value: string | undefined) {
+        if(value) {
+            this._usage = value;
+        }
     };
 }

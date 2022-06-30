@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for iOS Volume-Purchased Program (Vpp) Licensing Type. */
 export class VppLicensingTypeImpl implements VppLicensingType {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Whether the program supports the device licensing type. */
-    public supportsDeviceLicensing?: boolean | undefined;
+    private _supportsDeviceLicensing?: boolean | undefined;
     /** Whether the program supports the user licensing type. */
-    public supportsUserLicensing?: boolean | undefined;
+    private _supportsUserLicensing?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new vppLicensingType and sets the default values.
      * @param vppLicensingTypeParameterValue 
      */
     public constructor(vppLicensingTypeParameterValue?: VppLicensingType | undefined) {
-        this.additionalData = vppLicensingTypeParameterValue?.additionalData ? vppLicensingTypeParameterValue?.additionalData! : {};
-        this.supportsDeviceLicensing = vppLicensingTypeParameterValue?.supportsDeviceLicensing;
-        this.supportsUserLicensing = vppLicensingTypeParameterValue?.supportsUserLicensing;
+        this._additionalData = vppLicensingTypeParameterValue?.additionalData ? vppLicensingTypeParameterValue?.additionalData! : {};
+        this._supportsDeviceLicensing = vppLicensingTypeParameterValue?.supportsDeviceLicensing;
+        this._supportsUserLicensing = vppLicensingTypeParameterValue?.supportsUserLicensing;
     };
     /**
      * The deserialization information for the current model
@@ -41,5 +57,37 @@ export class VppLicensingTypeImpl implements VppLicensingType {
             writer.writeBooleanValue("supportsUserLicensing", this.supportsUserLicensing);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the supportsDeviceLicensing property value. Whether the program supports the device licensing type.
+     * @returns a boolean
+     */
+    public get supportsDeviceLicensing() {
+        return this._supportsDeviceLicensing;
+    };
+    /**
+     * Sets the supportsDeviceLicensing property value. Whether the program supports the device licensing type.
+     * @param value Value to set for the supportsDeviceLicensing property.
+     */
+    public set supportsDeviceLicensing(value: boolean | undefined) {
+        if(value) {
+            this._supportsDeviceLicensing = value;
+        }
+    };
+    /**
+     * Gets the supportsUserLicensing property value. Whether the program supports the user licensing type.
+     * @returns a boolean
+     */
+    public get supportsUserLicensing() {
+        return this._supportsUserLicensing;
+    };
+    /**
+     * Sets the supportsUserLicensing property value. Whether the program supports the user licensing type.
+     * @param value Value to set for the supportsUserLicensing property.
+     */
+    public set supportsUserLicensing(value: boolean | undefined) {
+        if(value) {
+            this._supportsUserLicensing = value;
+        }
     };
 }

@@ -5,17 +5,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories. */
 export class DeviceCategoryImpl extends EntityImpl implements DeviceCategory {
     /** Optional description for the device category. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Display name for the device category. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /**
      * Instantiates a new deviceCategory and sets the default values.
      * @param deviceCategoryParameterValue 
      */
     public constructor(deviceCategoryParameterValue?: DeviceCategory | undefined) {
         super(deviceCategoryParameterValue);
-        this.description = deviceCategoryParameterValue?.description;
-        this.displayName = deviceCategoryParameterValue?.displayName;
+        this._description = deviceCategoryParameterValue?.description;
+        this._displayName = deviceCategoryParameterValue?.displayName;
+    };
+    /**
+     * Gets the description property value. Optional description for the device category.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Optional description for the device category.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Display name for the device category.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name for the device category.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

@@ -16,122 +16,338 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ContactImpl extends OutlookItemImpl implements Contact {
     /** The name of the contact's assistant. */
-    public assistantName?: string | undefined;
+    private _assistantName?: string | undefined;
     /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public birthday?: Date | undefined;
+    private _birthday?: Date | undefined;
     /** The contact's business address. */
-    public businessAddress?: PhysicalAddress | undefined;
+    private _businessAddress?: PhysicalAddress | undefined;
     /** The business home page of the contact. */
-    public businessHomePage?: string | undefined;
+    private _businessHomePage?: string | undefined;
     /** The contact's business phone numbers. */
-    public businessPhones?: string[] | undefined;
+    private _businessPhones?: string[] | undefined;
     /** The names of the contact's children. */
-    public children?: string[] | undefined;
+    private _children?: string[] | undefined;
     /** The name of the contact's company. */
-    public companyName?: string | undefined;
+    private _companyName?: string | undefined;
     /** The contact's department. */
-    public department?: string | undefined;
+    private _department?: string | undefined;
     /** The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The contact's email addresses. */
-    public emailAddresses?: EmailAddress[] | undefined;
+    private _emailAddresses?: EmailAddress[] | undefined;
     /** The collection of open extensions defined for the contact. Nullable. */
-    public extensions?: Extension[] | undefined;
+    private _extensions?: Extension[] | undefined;
     /** The name the contact is filed under. */
-    public fileAs?: string | undefined;
+    private _fileAs?: string | undefined;
     /** The contact's generation. */
-    public generation?: string | undefined;
+    private _generation?: string | undefined;
     /** The contact's given name. */
-    public givenName?: string | undefined;
+    private _givenName?: string | undefined;
     /** The contact's home address. */
-    public homeAddress?: PhysicalAddress | undefined;
+    private _homeAddress?: PhysicalAddress | undefined;
     /** The contact's home phone numbers. */
-    public homePhones?: string[] | undefined;
+    private _homePhones?: string[] | undefined;
     /** The imAddresses property */
-    public imAddresses?: string[] | undefined;
+    private _imAddresses?: string[] | undefined;
     /** The initials property */
-    public initials?: string | undefined;
+    private _initials?: string | undefined;
     /** The jobTitle property */
-    public jobTitle?: string | undefined;
+    private _jobTitle?: string | undefined;
     /** The manager property */
-    public manager?: string | undefined;
+    private _manager?: string | undefined;
     /** The middleName property */
-    public middleName?: string | undefined;
+    private _middleName?: string | undefined;
     /** The mobilePhone property */
-    public mobilePhone?: string | undefined;
+    private _mobilePhone?: string | undefined;
     /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable. */
-    public multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
+    private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The nickName property */
-    public nickName?: string | undefined;
+    private _nickName?: string | undefined;
     /** The officeLocation property */
-    public officeLocation?: string | undefined;
+    private _officeLocation?: string | undefined;
     /** The otherAddress property */
-    public otherAddress?: PhysicalAddress | undefined;
+    private _otherAddress?: PhysicalAddress | undefined;
     /** The parentFolderId property */
-    public parentFolderId?: string | undefined;
+    private _parentFolderId?: string | undefined;
     /** The personalNotes property */
-    public personalNotes?: string | undefined;
+    private _personalNotes?: string | undefined;
     /** Optional contact picture. You can get or set a photo for a contact. */
-    public photo?: ProfilePhoto | undefined;
+    private _photo?: ProfilePhoto | undefined;
     /** The profession property */
-    public profession?: string | undefined;
+    private _profession?: string | undefined;
     /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
-    public singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
+    private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /** The spouseName property */
-    public spouseName?: string | undefined;
+    private _spouseName?: string | undefined;
     /** The surname property */
-    public surname?: string | undefined;
+    private _surname?: string | undefined;
     /** The title property */
-    public title?: string | undefined;
+    private _title?: string | undefined;
     /** The yomiCompanyName property */
-    public yomiCompanyName?: string | undefined;
+    private _yomiCompanyName?: string | undefined;
     /** The yomiGivenName property */
-    public yomiGivenName?: string | undefined;
+    private _yomiGivenName?: string | undefined;
     /** The yomiSurname property */
-    public yomiSurname?: string | undefined;
+    private _yomiSurname?: string | undefined;
+    /**
+     * Gets the assistantName property value. The name of the contact's assistant.
+     * @returns a string
+     */
+    public get assistantName() {
+        return this._assistantName;
+    };
+    /**
+     * Sets the assistantName property value. The name of the contact's assistant.
+     * @param value Value to set for the assistantName property.
+     */
+    public set assistantName(value: string | undefined) {
+        if(value) {
+            this._assistantName = value;
+        }
+    };
+    /**
+     * Gets the birthday property value. The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get birthday() {
+        return this._birthday;
+    };
+    /**
+     * Sets the birthday property value. The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the birthday property.
+     */
+    public set birthday(value: Date | undefined) {
+        if(value) {
+            this._birthday = value;
+        }
+    };
+    /**
+     * Gets the businessAddress property value. The contact's business address.
+     * @returns a PhysicalAddressInterface
+     */
+    public get businessAddress() {
+        return this._businessAddress;
+    };
+    /**
+     * Sets the businessAddress property value. The contact's business address.
+     * @param value Value to set for the businessAddress property.
+     */
+    public set businessAddress(value: PhysicalAddress | undefined) {
+        if(value) {
+            this._businessAddress = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+        }
+    };
+    /**
+     * Gets the businessHomePage property value. The business home page of the contact.
+     * @returns a string
+     */
+    public get businessHomePage() {
+        return this._businessHomePage;
+    };
+    /**
+     * Sets the businessHomePage property value. The business home page of the contact.
+     * @param value Value to set for the businessHomePage property.
+     */
+    public set businessHomePage(value: string | undefined) {
+        if(value) {
+            this._businessHomePage = value;
+        }
+    };
+    /**
+     * Gets the businessPhones property value. The contact's business phone numbers.
+     * @returns a string
+     */
+    public get businessPhones() {
+        return this._businessPhones;
+    };
+    /**
+     * Sets the businessPhones property value. The contact's business phone numbers.
+     * @param value Value to set for the businessPhones property.
+     */
+    public set businessPhones(value: string[] | undefined) {
+        if(value) {
+            this._businessPhones = value;
+        }
+    };
+    /**
+     * Gets the children property value. The names of the contact's children.
+     * @returns a string
+     */
+    public get children() {
+        return this._children;
+    };
+    /**
+     * Sets the children property value. The names of the contact's children.
+     * @param value Value to set for the children property.
+     */
+    public set children(value: string[] | undefined) {
+        if(value) {
+            this._children = value;
+        }
+    };
+    /**
+     * Gets the companyName property value. The name of the contact's company.
+     * @returns a string
+     */
+    public get companyName() {
+        return this._companyName;
+    };
+    /**
+     * Sets the companyName property value. The name of the contact's company.
+     * @param value Value to set for the companyName property.
+     */
+    public set companyName(value: string | undefined) {
+        if(value) {
+            this._companyName = value;
+        }
+    };
     /**
      * Instantiates a new Contact and sets the default values.
      * @param contactParameterValue 
      */
     public constructor(contactParameterValue?: Contact | undefined) {
         super(contactParameterValue);
-        this.assistantName = contactParameterValue?.assistantName;
-        this.birthday = contactParameterValue?.birthday;
-        this.businessAddress = contactParameterValue?.businessAddress;
-        this.businessHomePage = contactParameterValue?.businessHomePage;
-        this.businessPhones = contactParameterValue?.businessPhones;
-        this.children = contactParameterValue?.children;
-        this.companyName = contactParameterValue?.companyName;
-        this.department = contactParameterValue?.department;
-        this.displayName = contactParameterValue?.displayName;
-        this.emailAddresses = contactParameterValue?.emailAddresses;
-        this.extensions = contactParameterValue?.extensions;
-        this.fileAs = contactParameterValue?.fileAs;
-        this.generation = contactParameterValue?.generation;
-        this.givenName = contactParameterValue?.givenName;
-        this.homeAddress = contactParameterValue?.homeAddress;
-        this.homePhones = contactParameterValue?.homePhones;
-        this.imAddresses = contactParameterValue?.imAddresses;
-        this.initials = contactParameterValue?.initials;
-        this.jobTitle = contactParameterValue?.jobTitle;
-        this.manager = contactParameterValue?.manager;
-        this.middleName = contactParameterValue?.middleName;
-        this.mobilePhone = contactParameterValue?.mobilePhone;
-        this.multiValueExtendedProperties = contactParameterValue?.multiValueExtendedProperties;
-        this.nickName = contactParameterValue?.nickName;
-        this.officeLocation = contactParameterValue?.officeLocation;
-        this.otherAddress = contactParameterValue?.otherAddress;
-        this.parentFolderId = contactParameterValue?.parentFolderId;
-        this.personalNotes = contactParameterValue?.personalNotes;
-        this.photo = contactParameterValue?.photo;
-        this.profession = contactParameterValue?.profession;
-        this.singleValueExtendedProperties = contactParameterValue?.singleValueExtendedProperties;
-        this.spouseName = contactParameterValue?.spouseName;
-        this.surname = contactParameterValue?.surname;
-        this.title = contactParameterValue?.title;
-        this.yomiCompanyName = contactParameterValue?.yomiCompanyName;
-        this.yomiGivenName = contactParameterValue?.yomiGivenName;
-        this.yomiSurname = contactParameterValue?.yomiSurname;
+        this._assistantName = contactParameterValue?.assistantName;
+        this._birthday = contactParameterValue?.birthday;
+        this._businessAddress = contactParameterValue?.businessAddress;
+        this._businessHomePage = contactParameterValue?.businessHomePage;
+        this._businessPhones = contactParameterValue?.businessPhones;
+        this._children = contactParameterValue?.children;
+        this._companyName = contactParameterValue?.companyName;
+        this._department = contactParameterValue?.department;
+        this._displayName = contactParameterValue?.displayName;
+        this._emailAddresses = contactParameterValue?.emailAddresses;
+        this._extensions = contactParameterValue?.extensions;
+        this._fileAs = contactParameterValue?.fileAs;
+        this._generation = contactParameterValue?.generation;
+        this._givenName = contactParameterValue?.givenName;
+        this._homeAddress = contactParameterValue?.homeAddress;
+        this._homePhones = contactParameterValue?.homePhones;
+        this._imAddresses = contactParameterValue?.imAddresses;
+        this._initials = contactParameterValue?.initials;
+        this._jobTitle = contactParameterValue?.jobTitle;
+        this._manager = contactParameterValue?.manager;
+        this._middleName = contactParameterValue?.middleName;
+        this._mobilePhone = contactParameterValue?.mobilePhone;
+        this._multiValueExtendedProperties = contactParameterValue?.multiValueExtendedProperties;
+        this._nickName = contactParameterValue?.nickName;
+        this._officeLocation = contactParameterValue?.officeLocation;
+        this._otherAddress = contactParameterValue?.otherAddress;
+        this._parentFolderId = contactParameterValue?.parentFolderId;
+        this._personalNotes = contactParameterValue?.personalNotes;
+        this._photo = contactParameterValue?.photo;
+        this._profession = contactParameterValue?.profession;
+        this._singleValueExtendedProperties = contactParameterValue?.singleValueExtendedProperties;
+        this._spouseName = contactParameterValue?.spouseName;
+        this._surname = contactParameterValue?.surname;
+        this._title = contactParameterValue?.title;
+        this._yomiCompanyName = contactParameterValue?.yomiCompanyName;
+        this._yomiGivenName = contactParameterValue?.yomiGivenName;
+        this._yomiSurname = contactParameterValue?.yomiSurname;
+    };
+    /**
+     * Gets the department property value. The contact's department.
+     * @returns a string
+     */
+    public get department() {
+        return this._department;
+    };
+    /**
+     * Sets the department property value. The contact's department.
+     * @param value Value to set for the department property.
+     */
+    public set department(value: string | undefined) {
+        if(value) {
+            this._department = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the emailAddresses property value. The contact's email addresses.
+     * @returns a EmailAddressInterface
+     */
+    public get emailAddresses() {
+        return this._emailAddresses;
+    };
+    /**
+     * Sets the emailAddresses property value. The contact's email addresses.
+     * @param value Value to set for the emailAddresses property.
+     */
+    public set emailAddresses(value: EmailAddress[] | undefined) {
+        if(value) {
+            const emailAddressesArrValue: EmailAddressImpl[] = [];
+            this.emailAddresses?.forEach(element => {
+                emailAddressesArrValue.push((element instanceof EmailAddressImpl? element:new EmailAddressImpl(element)));
+            });
+            this._emailAddresses = emailAddressesArrValue;
+        }
+    };
+    /**
+     * Gets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * @returns a ExtensionInterface
+     */
+    public get extensions() {
+        return this._extensions;
+    };
+    /**
+     * Sets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * @param value Value to set for the extensions property.
+     */
+    public set extensions(value: Extension[] | undefined) {
+        if(value) {
+            const extensionsArrValue: ExtensionImpl[] = [];
+            this.extensions?.forEach(element => {
+                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            });
+            this._extensions = extensionsArrValue;
+        }
+    };
+    /**
+     * Gets the fileAs property value. The name the contact is filed under.
+     * @returns a string
+     */
+    public get fileAs() {
+        return this._fileAs;
+    };
+    /**
+     * Sets the fileAs property value. The name the contact is filed under.
+     * @param value Value to set for the fileAs property.
+     */
+    public set fileAs(value: string | undefined) {
+        if(value) {
+            this._fileAs = value;
+        }
+    };
+    /**
+     * Gets the generation property value. The contact's generation.
+     * @returns a string
+     */
+    public get generation() {
+        return this._generation;
+    };
+    /**
+     * Sets the generation property value. The contact's generation.
+     * @param value Value to set for the generation property.
+     */
+    public set generation(value: string | undefined) {
+        if(value) {
+            this._generation = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -179,6 +395,282 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         };
     };
     /**
+     * Gets the givenName property value. The contact's given name.
+     * @returns a string
+     */
+    public get givenName() {
+        return this._givenName;
+    };
+    /**
+     * Sets the givenName property value. The contact's given name.
+     * @param value Value to set for the givenName property.
+     */
+    public set givenName(value: string | undefined) {
+        if(value) {
+            this._givenName = value;
+        }
+    };
+    /**
+     * Gets the homeAddress property value. The contact's home address.
+     * @returns a PhysicalAddressInterface
+     */
+    public get homeAddress() {
+        return this._homeAddress;
+    };
+    /**
+     * Sets the homeAddress property value. The contact's home address.
+     * @param value Value to set for the homeAddress property.
+     */
+    public set homeAddress(value: PhysicalAddress | undefined) {
+        if(value) {
+            this._homeAddress = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+        }
+    };
+    /**
+     * Gets the homePhones property value. The contact's home phone numbers.
+     * @returns a string
+     */
+    public get homePhones() {
+        return this._homePhones;
+    };
+    /**
+     * Sets the homePhones property value. The contact's home phone numbers.
+     * @param value Value to set for the homePhones property.
+     */
+    public set homePhones(value: string[] | undefined) {
+        if(value) {
+            this._homePhones = value;
+        }
+    };
+    /**
+     * Gets the imAddresses property value. The imAddresses property
+     * @returns a string
+     */
+    public get imAddresses() {
+        return this._imAddresses;
+    };
+    /**
+     * Sets the imAddresses property value. The imAddresses property
+     * @param value Value to set for the imAddresses property.
+     */
+    public set imAddresses(value: string[] | undefined) {
+        if(value) {
+            this._imAddresses = value;
+        }
+    };
+    /**
+     * Gets the initials property value. The initials property
+     * @returns a string
+     */
+    public get initials() {
+        return this._initials;
+    };
+    /**
+     * Sets the initials property value. The initials property
+     * @param value Value to set for the initials property.
+     */
+    public set initials(value: string | undefined) {
+        if(value) {
+            this._initials = value;
+        }
+    };
+    /**
+     * Gets the jobTitle property value. The jobTitle property
+     * @returns a string
+     */
+    public get jobTitle() {
+        return this._jobTitle;
+    };
+    /**
+     * Sets the jobTitle property value. The jobTitle property
+     * @param value Value to set for the jobTitle property.
+     */
+    public set jobTitle(value: string | undefined) {
+        if(value) {
+            this._jobTitle = value;
+        }
+    };
+    /**
+     * Gets the manager property value. The manager property
+     * @returns a string
+     */
+    public get manager() {
+        return this._manager;
+    };
+    /**
+     * Sets the manager property value. The manager property
+     * @param value Value to set for the manager property.
+     */
+    public set manager(value: string | undefined) {
+        if(value) {
+            this._manager = value;
+        }
+    };
+    /**
+     * Gets the middleName property value. The middleName property
+     * @returns a string
+     */
+    public get middleName() {
+        return this._middleName;
+    };
+    /**
+     * Sets the middleName property value. The middleName property
+     * @param value Value to set for the middleName property.
+     */
+    public set middleName(value: string | undefined) {
+        if(value) {
+            this._middleName = value;
+        }
+    };
+    /**
+     * Gets the mobilePhone property value. The mobilePhone property
+     * @returns a string
+     */
+    public get mobilePhone() {
+        return this._mobilePhone;
+    };
+    /**
+     * Sets the mobilePhone property value. The mobilePhone property
+     * @param value Value to set for the mobilePhone property.
+     */
+    public set mobilePhone(value: string | undefined) {
+        if(value) {
+            this._mobilePhone = value;
+        }
+    };
+    /**
+     * Gets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the contact. Read-only. Nullable.
+     * @returns a MultiValueLegacyExtendedPropertyInterface
+     */
+    public get multiValueExtendedProperties() {
+        return this._multiValueExtendedProperties;
+    };
+    /**
+     * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the contact. Read-only. Nullable.
+     * @param value Value to set for the multiValueExtendedProperties property.
+     */
+    public set multiValueExtendedProperties(value: MultiValueLegacyExtendedProperty[] | undefined) {
+        if(value) {
+            const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
+            this.multiValueExtendedProperties?.forEach(element => {
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            });
+            this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
+        }
+    };
+    /**
+     * Gets the nickName property value. The nickName property
+     * @returns a string
+     */
+    public get nickName() {
+        return this._nickName;
+    };
+    /**
+     * Sets the nickName property value. The nickName property
+     * @param value Value to set for the nickName property.
+     */
+    public set nickName(value: string | undefined) {
+        if(value) {
+            this._nickName = value;
+        }
+    };
+    /**
+     * Gets the officeLocation property value. The officeLocation property
+     * @returns a string
+     */
+    public get officeLocation() {
+        return this._officeLocation;
+    };
+    /**
+     * Sets the officeLocation property value. The officeLocation property
+     * @param value Value to set for the officeLocation property.
+     */
+    public set officeLocation(value: string | undefined) {
+        if(value) {
+            this._officeLocation = value;
+        }
+    };
+    /**
+     * Gets the otherAddress property value. The otherAddress property
+     * @returns a PhysicalAddressInterface
+     */
+    public get otherAddress() {
+        return this._otherAddress;
+    };
+    /**
+     * Sets the otherAddress property value. The otherAddress property
+     * @param value Value to set for the otherAddress property.
+     */
+    public set otherAddress(value: PhysicalAddress | undefined) {
+        if(value) {
+            this._otherAddress = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+        }
+    };
+    /**
+     * Gets the parentFolderId property value. The parentFolderId property
+     * @returns a string
+     */
+    public get parentFolderId() {
+        return this._parentFolderId;
+    };
+    /**
+     * Sets the parentFolderId property value. The parentFolderId property
+     * @param value Value to set for the parentFolderId property.
+     */
+    public set parentFolderId(value: string | undefined) {
+        if(value) {
+            this._parentFolderId = value;
+        }
+    };
+    /**
+     * Gets the personalNotes property value. The personalNotes property
+     * @returns a string
+     */
+    public get personalNotes() {
+        return this._personalNotes;
+    };
+    /**
+     * Sets the personalNotes property value. The personalNotes property
+     * @param value Value to set for the personalNotes property.
+     */
+    public set personalNotes(value: string | undefined) {
+        if(value) {
+            this._personalNotes = value;
+        }
+    };
+    /**
+     * Gets the photo property value. Optional contact picture. You can get or set a photo for a contact.
+     * @returns a ProfilePhotoInterface
+     */
+    public get photo() {
+        return this._photo;
+    };
+    /**
+     * Sets the photo property value. Optional contact picture. You can get or set a photo for a contact.
+     * @param value Value to set for the photo property.
+     */
+    public set photo(value: ProfilePhoto | undefined) {
+        if(value) {
+            this._photo = value instanceof ProfilePhotoImpl? value : new ProfilePhotoImpl(value);
+        }
+    };
+    /**
+     * Gets the profession property value. The profession property
+     * @returns a string
+     */
+    public get profession() {
+        return this._profession;
+    };
+    /**
+     * Sets the profession property value. The profession property
+     * @param value Value to set for the profession property.
+     */
+    public set profession(value: string | undefined) {
+        if(value) {
+            this._profession = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -192,7 +684,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeDateValue("birthday", this.birthday);
         }
         if(this.businessAddress){
-            writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", new PhysicalAddressImpl(this.businessAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", (!this.businessAddress || this.businessAddress instanceof PhysicalAddressImpl? this.businessAddress : new PhysicalAddressImpl(this.businessAddress)));
         }
         if(this.businessHomePage){
             writer.writeStringValue("businessHomePage", this.businessHomePage);
@@ -212,10 +704,16 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.emailAddresses && this.emailAddresses.length != 0){        const emailAddressesArrValue: EmailAddressImpl[] = []; this.emailAddresses?.forEach(element => {emailAddressesArrValue.push(new EmailAddressImpl(element));});
+        if(this.emailAddresses && this.emailAddresses.length != 0){        const emailAddressesArrValue: EmailAddressImpl[] = [];
+        this.emailAddresses?.forEach(element => {
+            emailAddressesArrValue.push((element instanceof EmailAddressImpl? element:new EmailAddressImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<EmailAddressImpl>("emailAddresses", emailAddressesArrValue);
         }
-        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = []; this.extensions?.forEach(element => {extensionsArrValue.push(new ExtensionImpl(element));});
+        if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
+        this.extensions?.forEach(element => {
+            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.fileAs){
@@ -228,7 +726,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeStringValue("givenName", this.givenName);
         }
         if(this.homeAddress){
-            writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", new PhysicalAddressImpl(this.homeAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", (!this.homeAddress || this.homeAddress instanceof PhysicalAddressImpl? this.homeAddress : new PhysicalAddressImpl(this.homeAddress)));
         }
         if(this.homePhones){
             writer.writeCollectionOfPrimitiveValues<string>("homePhones", this.homePhones);
@@ -251,7 +749,10 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(this.mobilePhone){
             writer.writeStringValue("mobilePhone", this.mobilePhone);
         }
-        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = []; this.multiValueExtendedProperties?.forEach(element => {multiValueExtendedPropertiesArrValue.push(new MultiValueLegacyExtendedPropertyImpl(element));});
+        if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
+        this.multiValueExtendedProperties?.forEach(element => {
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.nickName){
@@ -261,7 +762,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.otherAddress){
-            writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", new PhysicalAddressImpl(this.otherAddress));
+            writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", (!this.otherAddress || this.otherAddress instanceof PhysicalAddressImpl? this.otherAddress : new PhysicalAddressImpl(this.otherAddress)));
         }
         if(this.parentFolderId){
             writer.writeStringValue("parentFolderId", this.parentFolderId);
@@ -270,12 +771,15 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeStringValue("personalNotes", this.personalNotes);
         }
         if(this.photo){
-            writer.writeObjectValue<ProfilePhotoImpl>("photo", new ProfilePhotoImpl(this.photo));
+            writer.writeObjectValue<ProfilePhotoImpl>("photo", (!this.photo || this.photo instanceof ProfilePhotoImpl? this.photo : new ProfilePhotoImpl(this.photo)));
         }
         if(this.profession){
             writer.writeStringValue("profession", this.profession);
         }
-        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = []; this.singleValueExtendedProperties?.forEach(element => {singleValueExtendedPropertiesArrValue.push(new SingleValueLegacyExtendedPropertyImpl(element));});
+        if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
+        this.singleValueExtendedProperties?.forEach(element => {
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.spouseName){
@@ -295,6 +799,122 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         }
         if(this.yomiSurname){
             writer.writeStringValue("yomiSurname", this.yomiSurname);
+        }
+    };
+    /**
+     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the contact. Read-only. Nullable.
+     * @returns a SingleValueLegacyExtendedPropertyInterface
+     */
+    public get singleValueExtendedProperties() {
+        return this._singleValueExtendedProperties;
+    };
+    /**
+     * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the contact. Read-only. Nullable.
+     * @param value Value to set for the singleValueExtendedProperties property.
+     */
+    public set singleValueExtendedProperties(value: SingleValueLegacyExtendedProperty[] | undefined) {
+        if(value) {
+            const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
+            this.singleValueExtendedProperties?.forEach(element => {
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            });
+            this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
+        }
+    };
+    /**
+     * Gets the spouseName property value. The spouseName property
+     * @returns a string
+     */
+    public get spouseName() {
+        return this._spouseName;
+    };
+    /**
+     * Sets the spouseName property value. The spouseName property
+     * @param value Value to set for the spouseName property.
+     */
+    public set spouseName(value: string | undefined) {
+        if(value) {
+            this._spouseName = value;
+        }
+    };
+    /**
+     * Gets the surname property value. The surname property
+     * @returns a string
+     */
+    public get surname() {
+        return this._surname;
+    };
+    /**
+     * Sets the surname property value. The surname property
+     * @param value Value to set for the surname property.
+     */
+    public set surname(value: string | undefined) {
+        if(value) {
+            this._surname = value;
+        }
+    };
+    /**
+     * Gets the title property value. The title property
+     * @returns a string
+     */
+    public get title() {
+        return this._title;
+    };
+    /**
+     * Sets the title property value. The title property
+     * @param value Value to set for the title property.
+     */
+    public set title(value: string | undefined) {
+        if(value) {
+            this._title = value;
+        }
+    };
+    /**
+     * Gets the yomiCompanyName property value. The yomiCompanyName property
+     * @returns a string
+     */
+    public get yomiCompanyName() {
+        return this._yomiCompanyName;
+    };
+    /**
+     * Sets the yomiCompanyName property value. The yomiCompanyName property
+     * @param value Value to set for the yomiCompanyName property.
+     */
+    public set yomiCompanyName(value: string | undefined) {
+        if(value) {
+            this._yomiCompanyName = value;
+        }
+    };
+    /**
+     * Gets the yomiGivenName property value. The yomiGivenName property
+     * @returns a string
+     */
+    public get yomiGivenName() {
+        return this._yomiGivenName;
+    };
+    /**
+     * Sets the yomiGivenName property value. The yomiGivenName property
+     * @param value Value to set for the yomiGivenName property.
+     */
+    public set yomiGivenName(value: string | undefined) {
+        if(value) {
+            this._yomiGivenName = value;
+        }
+    };
+    /**
+     * Gets the yomiSurname property value. The yomiSurname property
+     * @returns a string
+     */
+    public get yomiSurname() {
+        return this._yomiSurname;
+    };
+    /**
+     * Sets the yomiSurname property value. The yomiSurname property
+     * @param value Value to set for the yomiSurname property.
+     */
+    public set yomiSurname(value: string | undefined) {
+        if(value) {
+            this._yomiSurname = value;
         }
     };
 }

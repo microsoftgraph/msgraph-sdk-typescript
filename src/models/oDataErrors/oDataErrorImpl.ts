@@ -6,17 +6,49 @@ import {AdditionalDataHolder, ApiError, Parsable, ParseNode, SerializationWriter
 
 export class ODataErrorImpl extends ApiError implements ODataError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The error property */
-    public error_escaped?: MainError | undefined;
+    private _error_escaped?: MainError | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ODataError and sets the default values.
      * @param oDataErrorParameterValue 
      */
     public constructor(oDataErrorParameterValue?: ODataError | undefined) {
         super();
-        this.additionalData = oDataErrorParameterValue?.additionalData ? oDataErrorParameterValue?.additionalData! : {};
-        this.error_escaped = oDataErrorParameterValue?.error_escaped;
+        this._additionalData = oDataErrorParameterValue?.additionalData ? oDataErrorParameterValue?.additionalData! : {};
+        this._error_escaped = oDataErrorParameterValue?.error_escaped;
+    };
+    /**
+     * Gets the error property value. The error property
+     * @returns a MainErrorInterface
+     */
+    public get error_escaped() {
+        return this._error_escaped;
+    };
+    /**
+     * Sets the error property value. The error property
+     * @param value Value to set for the error_escaped property.
+     */
+    public set error_escaped(value: MainError | undefined) {
+        if(value) {
+            this._error_escaped = value instanceof MainErrorImpl? value : new MainErrorImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +66,7 @@ export class ODataErrorImpl extends ApiError implements ODataError {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-            writer.writeObjectValue<MainErrorImpl>("error", new MainErrorImpl(this.error_escaped));
+            writer.writeObjectValue<MainErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof MainErrorImpl? this.error_escaped : new MainErrorImpl(this.error_escaped)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AssignedLicenseImpl implements AssignedLicense {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A collection of the unique identifiers for plans that have been disabled. */
-    public disabledPlans?: string[] | undefined;
+    private _disabledPlans?: string[] | undefined;
     /** The unique identifier for the SKU. */
-    public skuId?: string | undefined;
+    private _skuId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new assignedLicense and sets the default values.
      * @param assignedLicenseParameterValue 
      */
     public constructor(assignedLicenseParameterValue?: AssignedLicense | undefined) {
-        this.additionalData = assignedLicenseParameterValue?.additionalData ? assignedLicenseParameterValue?.additionalData! : {};
-        this.disabledPlans = assignedLicenseParameterValue?.disabledPlans;
-        this.skuId = assignedLicenseParameterValue?.skuId;
+        this._additionalData = assignedLicenseParameterValue?.additionalData ? assignedLicenseParameterValue?.additionalData! : {};
+        this._disabledPlans = assignedLicenseParameterValue?.disabledPlans;
+        this._skuId = assignedLicenseParameterValue?.skuId;
+    };
+    /**
+     * Gets the disabledPlans property value. A collection of the unique identifiers for plans that have been disabled.
+     * @returns a string
+     */
+    public get disabledPlans() {
+        return this._disabledPlans;
+    };
+    /**
+     * Sets the disabledPlans property value. A collection of the unique identifiers for plans that have been disabled.
+     * @param value Value to set for the disabledPlans property.
+     */
+    public set disabledPlans(value: string[] | undefined) {
+        if(value) {
+            this._disabledPlans = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +72,21 @@ export class AssignedLicenseImpl implements AssignedLicense {
             writer.writeStringValue("skuId", this.skuId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the skuId property value. The unique identifier for the SKU.
+     * @returns a string
+     */
+    public get skuId() {
+        return this._skuId;
+    };
+    /**
+     * Sets the skuId property value. The unique identifier for the SKU.
+     * @param value Value to set for the skuId property.
+     */
+    public set skuId(value: string | undefined) {
+        if(value) {
+            this._skuId = value;
+        }
     };
 }

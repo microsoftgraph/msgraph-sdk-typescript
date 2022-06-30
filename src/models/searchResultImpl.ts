@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchResultImpl implements SearchResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results. */
-    public onClickTelemetryUrl?: string | undefined;
+    private _onClickTelemetryUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new searchResult and sets the default values.
      * @param searchResultParameterValue 
      */
     public constructor(searchResultParameterValue?: SearchResult | undefined) {
-        this.additionalData = searchResultParameterValue?.additionalData ? searchResultParameterValue?.additionalData! : {};
-        this.onClickTelemetryUrl = searchResultParameterValue?.onClickTelemetryUrl;
+        this._additionalData = searchResultParameterValue?.additionalData ? searchResultParameterValue?.additionalData! : {};
+        this._onClickTelemetryUrl = searchResultParameterValue?.onClickTelemetryUrl;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class SearchResultImpl implements SearchResult {
         return {
             "onClickTelemetryUrl": n => { this.onClickTelemetryUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the onClickTelemetryUrl property value. A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.
+     * @returns a string
+     */
+    public get onClickTelemetryUrl() {
+        return this._onClickTelemetryUrl;
+    };
+    /**
+     * Sets the onClickTelemetryUrl property value. A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.
+     * @param value Value to set for the onClickTelemetryUrl property.
+     */
+    public set onClickTelemetryUrl(value: string | undefined) {
+        if(value) {
+            this._onClickTelemetryUrl = value;
+        }
     };
     /**
      * Serializes information the current object

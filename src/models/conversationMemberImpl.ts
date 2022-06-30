@@ -5,20 +5,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of chat entities. */
 export class ConversationMemberImpl extends EntityImpl implements ConversationMember {
     /** The display name of the user. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The roles for that user. This property only contains additional qualifiers when relevant - for example, if the member has owner privileges, the roles property contains owner as one of the values. Similarly, if the member is a guest, the roles property contains guest as one of the values. A basic member should not have any values specified in the roles property. */
-    public roles?: string[] | undefined;
+    private _roles?: string[] | undefined;
     /** The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat. */
-    public visibleHistoryStartDateTime?: Date | undefined;
+    private _visibleHistoryStartDateTime?: Date | undefined;
     /**
      * Instantiates a new conversationMember and sets the default values.
      * @param conversationMemberParameterValue 
      */
     public constructor(conversationMemberParameterValue?: ConversationMember | undefined) {
         super(conversationMemberParameterValue);
-        this.displayName = conversationMemberParameterValue?.displayName;
-        this.roles = conversationMemberParameterValue?.roles;
-        this.visibleHistoryStartDateTime = conversationMemberParameterValue?.visibleHistoryStartDateTime;
+        this._displayName = conversationMemberParameterValue?.displayName;
+        this._roles = conversationMemberParameterValue?.roles;
+        this._visibleHistoryStartDateTime = conversationMemberParameterValue?.visibleHistoryStartDateTime;
+    };
+    /**
+     * Gets the displayName property value. The display name of the user.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name of the user.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,22 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
             "roles": n => { this.roles = n.getCollectionOfPrimitiveValues<string>(); },
             "visibleHistoryStartDateTime": n => { this.visibleHistoryStartDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the roles property value. The roles for that user. This property only contains additional qualifiers when relevant - for example, if the member has owner privileges, the roles property contains owner as one of the values. Similarly, if the member is a guest, the roles property contains guest as one of the values. A basic member should not have any values specified in the roles property.
+     * @returns a string
+     */
+    public get roles() {
+        return this._roles;
+    };
+    /**
+     * Sets the roles property value. The roles for that user. This property only contains additional qualifiers when relevant - for example, if the member has owner privileges, the roles property contains owner as one of the values. Similarly, if the member is a guest, the roles property contains guest as one of the values. A basic member should not have any values specified in the roles property.
+     * @param value Value to set for the roles property.
+     */
+    public set roles(value: string[] | undefined) {
+        if(value) {
+            this._roles = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -46,6 +78,22 @@ export class ConversationMemberImpl extends EntityImpl implements ConversationMe
         }
         if(this.visibleHistoryStartDateTime){
             writer.writeDateValue("visibleHistoryStartDateTime", this.visibleHistoryStartDateTime);
+        }
+    };
+    /**
+     * Gets the visibleHistoryStartDateTime property value. The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.
+     * @returns a Date
+     */
+    public get visibleHistoryStartDateTime() {
+        return this._visibleHistoryStartDateTime;
+    };
+    /**
+     * Sets the visibleHistoryStartDateTime property value. The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.
+     * @param value Value to set for the visibleHistoryStartDateTime property.
+     */
+    public set visibleHistoryStartDateTime(value: Date | undefined) {
+        if(value) {
+            this._visibleHistoryStartDateTime = value;
         }
     };
 }

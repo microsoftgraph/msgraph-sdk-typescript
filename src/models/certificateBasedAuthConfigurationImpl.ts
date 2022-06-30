@@ -7,14 +7,34 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
 export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements CertificateBasedAuthConfiguration {
     /** Collection of certificate authorities which creates a trusted certificate chain. */
-    public certificateAuthorities?: CertificateAuthority[] | undefined;
+    private _certificateAuthorities?: CertificateAuthority[] | undefined;
+    /**
+     * Gets the certificateAuthorities property value. Collection of certificate authorities which creates a trusted certificate chain.
+     * @returns a CertificateAuthorityInterface
+     */
+    public get certificateAuthorities() {
+        return this._certificateAuthorities;
+    };
+    /**
+     * Sets the certificateAuthorities property value. Collection of certificate authorities which creates a trusted certificate chain.
+     * @param value Value to set for the certificateAuthorities property.
+     */
+    public set certificateAuthorities(value: CertificateAuthority[] | undefined) {
+        if(value) {
+            const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = [];
+            this.certificateAuthorities?.forEach(element => {
+                certificateAuthoritiesArrValue.push((element instanceof CertificateAuthorityImpl? element:new CertificateAuthorityImpl(element)));
+            });
+            this._certificateAuthorities = certificateAuthoritiesArrValue;
+        }
+    };
     /**
      * Instantiates a new certificateBasedAuthConfiguration and sets the default values.
      * @param certificateBasedAuthConfigurationParameterValue 
      */
     public constructor(certificateBasedAuthConfigurationParameterValue?: CertificateBasedAuthConfiguration | undefined) {
         super(certificateBasedAuthConfigurationParameterValue);
-        this.certificateAuthorities = certificateBasedAuthConfigurationParameterValue?.certificateAuthorities;
+        this._certificateAuthorities = certificateBasedAuthConfigurationParameterValue?.certificateAuthorities;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +52,10 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = []; this.certificateAuthorities?.forEach(element => {certificateAuthoritiesArrValue.push(new CertificateAuthorityImpl(element));});
+        if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = [];
+        this.certificateAuthorities?.forEach(element => {
+            certificateAuthoritiesArrValue.push((element instanceof CertificateAuthorityImpl? element:new CertificateAuthorityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<CertificateAuthorityImpl>("certificateAuthorities", certificateAuthoritiesArrValue);
         }
     };

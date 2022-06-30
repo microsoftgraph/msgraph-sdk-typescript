@@ -11,29 +11,29 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the cloudCommunications singleton. */
 export class ParticipantImpl extends EntityImpl implements Participant {
     /** The info property */
-    public info?: ParticipantInfo | undefined;
+    private _info?: ParticipantInfo | undefined;
     /** true if the participant is in lobby. */
-    public isInLobby?: boolean | undefined;
+    private _isInLobby?: boolean | undefined;
     /** true if the participant is muted (client or server muted). */
-    public isMuted?: boolean | undefined;
+    private _isMuted?: boolean | undefined;
     /** The list of media streams. */
-    public mediaStreams?: MediaStream[] | undefined;
+    private _mediaStreams?: MediaStream[] | undefined;
     /** A blob of data provided by the participant in the roster. */
-    public metadata?: string | undefined;
+    private _metadata?: string | undefined;
     /** Information on whether the participant has recording capability. */
-    public recordingInfo?: RecordingInfo | undefined;
+    private _recordingInfo?: RecordingInfo | undefined;
     /**
      * Instantiates a new participant and sets the default values.
      * @param participantParameterValue 
      */
     public constructor(participantParameterValue?: Participant | undefined) {
         super(participantParameterValue);
-        this.info = participantParameterValue?.info;
-        this.isInLobby = participantParameterValue?.isInLobby;
-        this.isMuted = participantParameterValue?.isMuted;
-        this.mediaStreams = participantParameterValue?.mediaStreams;
-        this.metadata = participantParameterValue?.metadata;
-        this.recordingInfo = participantParameterValue?.recordingInfo;
+        this._info = participantParameterValue?.info;
+        this._isInLobby = participantParameterValue?.isInLobby;
+        this._isMuted = participantParameterValue?.isMuted;
+        this._mediaStreams = participantParameterValue?.mediaStreams;
+        this._metadata = participantParameterValue?.metadata;
+        this._recordingInfo = participantParameterValue?.recordingInfo;
     };
     /**
      * The deserialization information for the current model
@@ -50,6 +50,106 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         };
     };
     /**
+     * Gets the info property value. The info property
+     * @returns a ParticipantInfoInterface
+     */
+    public get info() {
+        return this._info;
+    };
+    /**
+     * Sets the info property value. The info property
+     * @param value Value to set for the info property.
+     */
+    public set info(value: ParticipantInfo | undefined) {
+        if(value) {
+            this._info = value instanceof ParticipantInfoImpl? value : new ParticipantInfoImpl(value);
+        }
+    };
+    /**
+     * Gets the isInLobby property value. true if the participant is in lobby.
+     * @returns a boolean
+     */
+    public get isInLobby() {
+        return this._isInLobby;
+    };
+    /**
+     * Sets the isInLobby property value. true if the participant is in lobby.
+     * @param value Value to set for the isInLobby property.
+     */
+    public set isInLobby(value: boolean | undefined) {
+        if(value) {
+            this._isInLobby = value;
+        }
+    };
+    /**
+     * Gets the isMuted property value. true if the participant is muted (client or server muted).
+     * @returns a boolean
+     */
+    public get isMuted() {
+        return this._isMuted;
+    };
+    /**
+     * Sets the isMuted property value. true if the participant is muted (client or server muted).
+     * @param value Value to set for the isMuted property.
+     */
+    public set isMuted(value: boolean | undefined) {
+        if(value) {
+            this._isMuted = value;
+        }
+    };
+    /**
+     * Gets the mediaStreams property value. The list of media streams.
+     * @returns a MediaStreamInterface
+     */
+    public get mediaStreams() {
+        return this._mediaStreams;
+    };
+    /**
+     * Sets the mediaStreams property value. The list of media streams.
+     * @param value Value to set for the mediaStreams property.
+     */
+    public set mediaStreams(value: MediaStream[] | undefined) {
+        if(value) {
+            const mediaStreamsArrValue: MediaStreamImpl[] = [];
+            this.mediaStreams?.forEach(element => {
+                mediaStreamsArrValue.push((element instanceof MediaStreamImpl? element:new MediaStreamImpl(element)));
+            });
+            this._mediaStreams = mediaStreamsArrValue;
+        }
+    };
+    /**
+     * Gets the metadata property value. A blob of data provided by the participant in the roster.
+     * @returns a string
+     */
+    public get metadata() {
+        return this._metadata;
+    };
+    /**
+     * Sets the metadata property value. A blob of data provided by the participant in the roster.
+     * @param value Value to set for the metadata property.
+     */
+    public set metadata(value: string | undefined) {
+        if(value) {
+            this._metadata = value;
+        }
+    };
+    /**
+     * Gets the recordingInfo property value. Information on whether the participant has recording capability.
+     * @returns a RecordingInfoInterface
+     */
+    public get recordingInfo() {
+        return this._recordingInfo;
+    };
+    /**
+     * Sets the recordingInfo property value. Information on whether the participant has recording capability.
+     * @param value Value to set for the recordingInfo property.
+     */
+    public set recordingInfo(value: RecordingInfo | undefined) {
+        if(value) {
+            this._recordingInfo = value instanceof RecordingInfoImpl? value : new RecordingInfoImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -57,7 +157,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.info){
-            writer.writeObjectValue<ParticipantInfoImpl>("info", new ParticipantInfoImpl(this.info));
+            writer.writeObjectValue<ParticipantInfoImpl>("info", (!this.info || this.info instanceof ParticipantInfoImpl? this.info : new ParticipantInfoImpl(this.info)));
         }
         if(this.isInLobby){
             writer.writeBooleanValue("isInLobby", this.isInLobby);
@@ -65,14 +165,17 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         if(this.isMuted){
             writer.writeBooleanValue("isMuted", this.isMuted);
         }
-        if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = []; this.mediaStreams?.forEach(element => {mediaStreamsArrValue.push(new MediaStreamImpl(element));});
+        if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = [];
+        this.mediaStreams?.forEach(element => {
+            mediaStreamsArrValue.push((element instanceof MediaStreamImpl? element:new MediaStreamImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<MediaStreamImpl>("mediaStreams", mediaStreamsArrValue);
         }
         if(this.metadata){
             writer.writeStringValue("metadata", this.metadata);
         }
         if(this.recordingInfo){
-            writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", new RecordingInfoImpl(this.recordingInfo));
+            writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", (!this.recordingInfo || this.recordingInfo instanceof RecordingInfoImpl? this.recordingInfo : new RecordingInfoImpl(this.recordingInfo)));
         }
     };
 }

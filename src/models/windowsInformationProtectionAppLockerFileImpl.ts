@@ -5,23 +5,71 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Windows Information Protection AppLocker File */
 export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl implements WindowsInformationProtectionAppLockerFile {
     /** The friendly name */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** File as a byte array */
-    public file?: string | undefined;
+    private _file?: string | undefined;
     /** SHA256 hash of the file */
-    public fileHash?: string | undefined;
+    private _fileHash?: string | undefined;
     /** Version of the entity. */
-    public version?: string | undefined;
+    private _version?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionAppLockerFile and sets the default values.
      * @param windowsInformationProtectionAppLockerFileParameterValue 
      */
     public constructor(windowsInformationProtectionAppLockerFileParameterValue?: WindowsInformationProtectionAppLockerFile | undefined) {
         super(windowsInformationProtectionAppLockerFileParameterValue);
-        this.displayName = windowsInformationProtectionAppLockerFileParameterValue?.displayName;
-        this.file = windowsInformationProtectionAppLockerFileParameterValue?.file;
-        this.fileHash = windowsInformationProtectionAppLockerFileParameterValue?.fileHash;
-        this.version = windowsInformationProtectionAppLockerFileParameterValue?.version;
+        this._displayName = windowsInformationProtectionAppLockerFileParameterValue?.displayName;
+        this._file = windowsInformationProtectionAppLockerFileParameterValue?.file;
+        this._fileHash = windowsInformationProtectionAppLockerFileParameterValue?.fileHash;
+        this._version = windowsInformationProtectionAppLockerFileParameterValue?.version;
+    };
+    /**
+     * Gets the displayName property value. The friendly name
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The friendly name
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the file property value. File as a byte array
+     * @returns a binary
+     */
+    public get file() {
+        return this._file;
+    };
+    /**
+     * Sets the file property value. File as a byte array
+     * @param value Value to set for the file property.
+     */
+    public set file(value: string | undefined) {
+        if(value) {
+            this._file = value;
+        }
+    };
+    /**
+     * Gets the fileHash property value. SHA256 hash of the file
+     * @returns a string
+     */
+    public get fileHash() {
+        return this._fileHash;
+    };
+    /**
+     * Sets the fileHash property value. SHA256 hash of the file
+     * @param value Value to set for the fileHash property.
+     */
+    public set fileHash(value: string | undefined) {
+        if(value) {
+            this._fileHash = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -53,6 +101,22 @@ export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl im
         }
         if(this.version){
             writer.writeStringValue("version", this.version);
+        }
+    };
+    /**
+     * Gets the version property value. Version of the entity.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. Version of the entity.
+     * @param value Value to set for the version property.
+     */
+    public set version(value: string | undefined) {
+        if(value) {
+            this._version = value;
         }
     };
 }

@@ -9,23 +9,55 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityGovernance singleton. */
 export class AppConsentRequestImpl extends EntityImpl implements AppConsentRequest {
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
-    public appDisplayName?: string | undefined;
+    private _appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */
-    public appId?: string | undefined;
+    private _appId?: string | undefined;
     /** A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required. */
-    public pendingScopes?: AppConsentRequestScope[] | undefined;
+    private _pendingScopes?: AppConsentRequestScope[] | undefined;
     /** A list of pending user consent requests. */
-    public userConsentRequests?: UserConsentRequest[] | undefined;
+    private _userConsentRequests?: UserConsentRequest[] | undefined;
+    /**
+     * Gets the appDisplayName property value. The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
+     * @returns a string
+     */
+    public get appDisplayName() {
+        return this._appDisplayName;
+    };
+    /**
+     * Sets the appDisplayName property value. The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
+     * @param value Value to set for the appDisplayName property.
+     */
+    public set appDisplayName(value: string | undefined) {
+        if(value) {
+            this._appDisplayName = value;
+        }
+    };
+    /**
+     * Gets the appId property value. The identifier of the application. Required. Supports $filter (eq only) and $orderby.
+     * @returns a string
+     */
+    public get appId() {
+        return this._appId;
+    };
+    /**
+     * Sets the appId property value. The identifier of the application. Required. Supports $filter (eq only) and $orderby.
+     * @param value Value to set for the appId property.
+     */
+    public set appId(value: string | undefined) {
+        if(value) {
+            this._appId = value;
+        }
+    };
     /**
      * Instantiates a new appConsentRequest and sets the default values.
      * @param appConsentRequestParameterValue 
      */
     public constructor(appConsentRequestParameterValue?: AppConsentRequest | undefined) {
         super(appConsentRequestParameterValue);
-        this.appDisplayName = appConsentRequestParameterValue?.appDisplayName;
-        this.appId = appConsentRequestParameterValue?.appId;
-        this.pendingScopes = appConsentRequestParameterValue?.pendingScopes;
-        this.userConsentRequests = appConsentRequestParameterValue?.userConsentRequests;
+        this._appDisplayName = appConsentRequestParameterValue?.appDisplayName;
+        this._appId = appConsentRequestParameterValue?.appId;
+        this._pendingScopes = appConsentRequestParameterValue?.pendingScopes;
+        this._userConsentRequests = appConsentRequestParameterValue?.userConsentRequests;
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +72,26 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         };
     };
     /**
+     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * @returns a AppConsentRequestScopeInterface
+     */
+    public get pendingScopes() {
+        return this._pendingScopes;
+    };
+    /**
+     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * @param value Value to set for the pendingScopes property.
+     */
+    public set pendingScopes(value: AppConsentRequestScope[] | undefined) {
+        if(value) {
+            const pendingScopesArrValue: AppConsentRequestScopeImpl[] = [];
+            this.pendingScopes?.forEach(element => {
+                pendingScopesArrValue.push((element instanceof AppConsentRequestScopeImpl? element:new AppConsentRequestScopeImpl(element)));
+            });
+            this._pendingScopes = pendingScopesArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -52,11 +104,37 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         if(this.appId){
             writer.writeStringValue("appId", this.appId);
         }
-        if(this.pendingScopes && this.pendingScopes.length != 0){        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = []; this.pendingScopes?.forEach(element => {pendingScopesArrValue.push(new AppConsentRequestScopeImpl(element));});
+        if(this.pendingScopes && this.pendingScopes.length != 0){        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = [];
+        this.pendingScopes?.forEach(element => {
+            pendingScopesArrValue.push((element instanceof AppConsentRequestScopeImpl? element:new AppConsentRequestScopeImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AppConsentRequestScopeImpl>("pendingScopes", pendingScopesArrValue);
         }
-        if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = []; this.userConsentRequests?.forEach(element => {userConsentRequestsArrValue.push(new UserConsentRequestImpl(element));});
+        if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = [];
+        this.userConsentRequests?.forEach(element => {
+            userConsentRequestsArrValue.push((element instanceof UserConsentRequestImpl? element:new UserConsentRequestImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("userConsentRequests", userConsentRequestsArrValue);
+        }
+    };
+    /**
+     * Gets the userConsentRequests property value. A list of pending user consent requests.
+     * @returns a UserConsentRequestInterface
+     */
+    public get userConsentRequests() {
+        return this._userConsentRequests;
+    };
+    /**
+     * Sets the userConsentRequests property value. A list of pending user consent requests.
+     * @param value Value to set for the userConsentRequests property.
+     */
+    public set userConsentRequests(value: UserConsentRequest[] | undefined) {
+        if(value) {
+            const userConsentRequestsArrValue: UserConsentRequestImpl[] = [];
+            this.userConsentRequests?.forEach(element => {
+                userConsentRequestsArrValue.push((element instanceof UserConsentRequestImpl? element:new UserConsentRequestImpl(element)));
+            });
+            this._userConsentRequests = userConsentRequestsArrValue;
         }
     };
 }

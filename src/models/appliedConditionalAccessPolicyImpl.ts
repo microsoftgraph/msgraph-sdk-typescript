@@ -4,28 +4,92 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AppliedConditionalAccessPolicyImpl implements AppliedConditionalAccessPolicy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Name of the conditional access policy. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication'). */
-    public enforcedGrantControls?: string[] | undefined;
+    private _enforcedGrantControls?: string[] | undefined;
     /** Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls'). */
-    public enforcedSessionControls?: string[] | undefined;
+    private _enforcedSessionControls?: string[] | undefined;
     /** Identifier of the conditional access policy. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. */
-    public result?: AppliedConditionalAccessPolicyResult | undefined;
+    private _result?: AppliedConditionalAccessPolicyResult | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new appliedConditionalAccessPolicy and sets the default values.
      * @param appliedConditionalAccessPolicyParameterValue 
      */
     public constructor(appliedConditionalAccessPolicyParameterValue?: AppliedConditionalAccessPolicy | undefined) {
-        this.additionalData = appliedConditionalAccessPolicyParameterValue?.additionalData ? appliedConditionalAccessPolicyParameterValue?.additionalData! : {};
-        this.displayName = appliedConditionalAccessPolicyParameterValue?.displayName;
-        this.enforcedGrantControls = appliedConditionalAccessPolicyParameterValue?.enforcedGrantControls;
-        this.enforcedSessionControls = appliedConditionalAccessPolicyParameterValue?.enforcedSessionControls;
-        this.id = appliedConditionalAccessPolicyParameterValue?.id;
-        this.result = appliedConditionalAccessPolicyParameterValue?.result;
+        this._additionalData = appliedConditionalAccessPolicyParameterValue?.additionalData ? appliedConditionalAccessPolicyParameterValue?.additionalData! : {};
+        this._displayName = appliedConditionalAccessPolicyParameterValue?.displayName;
+        this._enforcedGrantControls = appliedConditionalAccessPolicyParameterValue?.enforcedGrantControls;
+        this._enforcedSessionControls = appliedConditionalAccessPolicyParameterValue?.enforcedSessionControls;
+        this._id = appliedConditionalAccessPolicyParameterValue?.id;
+        this._result = appliedConditionalAccessPolicyParameterValue?.result;
+    };
+    /**
+     * Gets the displayName property value. Name of the conditional access policy.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Name of the conditional access policy.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
+     * @returns a string
+     */
+    public get enforcedGrantControls() {
+        return this._enforcedGrantControls;
+    };
+    /**
+     * Sets the enforcedGrantControls property value. Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
+     * @param value Value to set for the enforcedGrantControls property.
+     */
+    public set enforcedGrantControls(value: string[] | undefined) {
+        if(value) {
+            this._enforcedGrantControls = value;
+        }
+    };
+    /**
+     * Gets the enforcedSessionControls property value. Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
+     * @returns a string
+     */
+    public get enforcedSessionControls() {
+        return this._enforcedSessionControls;
+    };
+    /**
+     * Sets the enforcedSessionControls property value. Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
+     * @param value Value to set for the enforcedSessionControls property.
+     */
+    public set enforcedSessionControls(value: string[] | undefined) {
+        if(value) {
+            this._enforcedSessionControls = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +103,38 @@ export class AppliedConditionalAccessPolicyImpl implements AppliedConditionalAcc
             "id": n => { this.id = n.getStringValue(); },
             "result": n => { this.result = n.getEnumValue<AppliedConditionalAccessPolicyResult>(AppliedConditionalAccessPolicyResult); },
         };
+    };
+    /**
+     * Gets the id property value. Identifier of the conditional access policy.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Identifier of the conditional access policy.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
+     * @returns a appliedConditionalAccessPolicyResult
+     */
+    public get result() {
+        return this._result;
+    };
+    /**
+     * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
+     * @param value Value to set for the result property.
+     */
+    public set result(value: AppliedConditionalAccessPolicyResult | undefined) {
+        if(value) {
+            this._result = value;
+        }
     };
     /**
      * Serializes information the current object

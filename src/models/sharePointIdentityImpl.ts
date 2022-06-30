@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class SharePointIdentityImpl extends IdentityImpl implements SharePointIdentity {
     /** The sign in name of the SharePoint identity. */
-    public loginName?: string | undefined;
+    private _loginName?: string | undefined;
     /**
      * Instantiates a new sharePointIdentity and sets the default values.
      * @param sharePointIdentityParameterValue 
      */
     public constructor(sharePointIdentityParameterValue?: SharePointIdentity | undefined) {
         super(sharePointIdentityParameterValue);
-        this.loginName = sharePointIdentityParameterValue?.loginName;
+        this._loginName = sharePointIdentityParameterValue?.loginName;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class SharePointIdentityImpl extends IdentityImpl implements SharePointId
         return {...super.getFieldDeserializers(),
             "loginName": n => { this.loginName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the loginName property value. The sign in name of the SharePoint identity.
+     * @returns a string
+     */
+    public get loginName() {
+        return this._loginName;
+    };
+    /**
+     * Sets the loginName property value. The sign in name of the SharePoint identity.
+     * @param value Value to set for the loginName property.
+     */
+    public set loginName(value: string | undefined) {
+        if(value) {
+            this._loginName = value;
+        }
     };
     /**
      * Serializes information the current object

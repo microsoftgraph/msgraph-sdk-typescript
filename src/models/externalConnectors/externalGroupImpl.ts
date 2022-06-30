@@ -8,20 +8,52 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
     /** The description of the external group. Optional. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The friendly name of the external group. Optional. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members. */
-    public members?: Identity[] | undefined;
+    private _members?: Identity[] | undefined;
     /**
      * Instantiates a new externalGroup and sets the default values.
      * @param externalGroupParameterValue 
      */
     public constructor(externalGroupParameterValue?: ExternalGroup | undefined) {
         super(externalGroupParameterValue);
-        this.description = externalGroupParameterValue?.description;
-        this.displayName = externalGroupParameterValue?.displayName;
-        this.members = externalGroupParameterValue?.members;
+        this._description = externalGroupParameterValue?.description;
+        this._displayName = externalGroupParameterValue?.displayName;
+        this._members = externalGroupParameterValue?.members;
+    };
+    /**
+     * Gets the description property value. The description of the external group. Optional.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description of the external group. Optional.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The friendly name of the external group. Optional.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The friendly name of the external group. Optional.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +65,26 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "members": n => { this.members = n.getCollectionOfObjectValues<IdentityImpl>(createIdentityFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+     * @returns a IdentityInterface
+     */
+    public get members() {
+        return this._members;
+    };
+    /**
+     * Sets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+     * @param value Value to set for the members property.
+     */
+    public set members(value: Identity[] | undefined) {
+        if(value) {
+            const membersArrValue: IdentityImpl[] = [];
+            this.members?.forEach(element => {
+                membersArrValue.push((element instanceof IdentityImpl? element:new IdentityImpl(element)));
+            });
+            this._members = membersArrValue;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,7 +99,10 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = []; this.members?.forEach(element => {membersArrValue.push(new IdentityImpl(element));});
+        if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = [];
+        this.members?.forEach(element => {
+            membersArrValue.push((element instanceof IdentityImpl? element:new IdentityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
         }
     };

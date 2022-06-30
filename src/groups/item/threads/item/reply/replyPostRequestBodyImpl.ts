@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the reply method. */
 export class ReplyPostRequestBodyImpl implements ReplyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Post property */
-    public post?: Post | undefined;
+    private _post?: Post | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new replyPostRequestBody and sets the default values.
      * @param replyPostRequestBodyParameterValue 
      */
     public constructor(replyPostRequestBodyParameterValue?: ReplyPostRequestBody | undefined) {
-        this.additionalData = replyPostRequestBodyParameterValue?.additionalData ? replyPostRequestBodyParameterValue?.additionalData! : {};
-        this.post = replyPostRequestBodyParameterValue?.post;
+        this._additionalData = replyPostRequestBodyParameterValue?.additionalData ? replyPostRequestBodyParameterValue?.additionalData! : {};
+        this._post = replyPostRequestBodyParameterValue?.post;
     };
     /**
      * The deserialization information for the current model
@@ -28,13 +44,29 @@ export class ReplyPostRequestBodyImpl implements ReplyPostRequestBody {
         };
     };
     /**
+     * Gets the post property value. The Post property
+     * @returns a PostInterface
+     */
+    public get post() {
+        return this._post;
+    };
+    /**
+     * Sets the post property value. The Post property
+     * @param value Value to set for the Post property.
+     */
+    public set post(value: Post | undefined) {
+        if(value) {
+            this._post = value instanceof PostImpl? value : new PostImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.post){
-            writer.writeObjectValue<PostImpl>("post", new PostImpl(this.post));
+            writer.writeObjectValue<PostImpl>("post", (!this.post || this.post instanceof PostImpl? this.post : new PostImpl(this.post)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

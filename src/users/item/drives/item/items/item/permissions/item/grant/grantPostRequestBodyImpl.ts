@@ -7,19 +7,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the grant method. */
 export class GrantPostRequestBodyImpl implements GrantPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The recipients property */
-    public recipients?: DriveRecipient[] | undefined;
+    private _recipients?: DriveRecipient[] | undefined;
     /** The roles property */
-    public roles?: string[] | undefined;
+    private _roles?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new grantPostRequestBody and sets the default values.
      * @param grantPostRequestBodyParameterValue 
      */
     public constructor(grantPostRequestBodyParameterValue?: GrantPostRequestBody | undefined) {
-        this.additionalData = grantPostRequestBodyParameterValue?.additionalData ? grantPostRequestBodyParameterValue?.additionalData! : {};
-        this.recipients = grantPostRequestBodyParameterValue?.recipients;
-        this.roles = grantPostRequestBodyParameterValue?.roles;
+        this._additionalData = grantPostRequestBodyParameterValue?.additionalData ? grantPostRequestBodyParameterValue?.additionalData! : {};
+        this._recipients = grantPostRequestBodyParameterValue?.recipients;
+        this._roles = grantPostRequestBodyParameterValue?.roles;
     };
     /**
      * The deserialization information for the current model
@@ -32,12 +48,51 @@ export class GrantPostRequestBodyImpl implements GrantPostRequestBody {
         };
     };
     /**
+     * Gets the recipients property value. The recipients property
+     * @returns a DriveRecipientInterface
+     */
+    public get recipients() {
+        return this._recipients;
+    };
+    /**
+     * Sets the recipients property value. The recipients property
+     * @param value Value to set for the recipients property.
+     */
+    public set recipients(value: DriveRecipient[] | undefined) {
+        if(value) {
+            const recipientsArrValue: DriveRecipientImpl[] = [];
+            this.recipients?.forEach(element => {
+                recipientsArrValue.push((element instanceof DriveRecipientImpl? element:new DriveRecipientImpl(element)));
+            });
+            this._recipients = recipientsArrValue;
+        }
+    };
+    /**
+     * Gets the roles property value. The roles property
+     * @returns a string
+     */
+    public get roles() {
+        return this._roles;
+    };
+    /**
+     * Sets the roles property value. The roles property
+     * @param value Value to set for the roles property.
+     */
+    public set roles(value: string[] | undefined) {
+        if(value) {
+            this._roles = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(new DriveRecipientImpl(element));});
+        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = [];
+        this.recipients?.forEach(element => {
+            recipientsArrValue.push((element instanceof DriveRecipientImpl? element:new DriveRecipientImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }
         if(this.roles){

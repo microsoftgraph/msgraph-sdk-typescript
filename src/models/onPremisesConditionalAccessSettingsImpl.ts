@@ -5,23 +5,55 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant. */
 export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implements OnPremisesConditionalAccessSettings {
     /** Indicates if on premises conditional access is enabled for this organization */
-    public enabled?: boolean | undefined;
+    private _enabled?: boolean | undefined;
     /** User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy. */
-    public excludedGroups?: string[] | undefined;
+    private _excludedGroups?: string[] | undefined;
     /** User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access. */
-    public includedGroups?: string[] | undefined;
+    private _includedGroups?: string[] | undefined;
     /** Override the default access rule when allowing a device to ensure access is granted. */
-    public overrideDefaultRule?: boolean | undefined;
+    private _overrideDefaultRule?: boolean | undefined;
     /**
      * Instantiates a new onPremisesConditionalAccessSettings and sets the default values.
      * @param onPremisesConditionalAccessSettingsParameterValue 
      */
     public constructor(onPremisesConditionalAccessSettingsParameterValue?: OnPremisesConditionalAccessSettings | undefined) {
         super(onPremisesConditionalAccessSettingsParameterValue);
-        this.enabled = onPremisesConditionalAccessSettingsParameterValue?.enabled;
-        this.excludedGroups = onPremisesConditionalAccessSettingsParameterValue?.excludedGroups;
-        this.includedGroups = onPremisesConditionalAccessSettingsParameterValue?.includedGroups;
-        this.overrideDefaultRule = onPremisesConditionalAccessSettingsParameterValue?.overrideDefaultRule;
+        this._enabled = onPremisesConditionalAccessSettingsParameterValue?.enabled;
+        this._excludedGroups = onPremisesConditionalAccessSettingsParameterValue?.excludedGroups;
+        this._includedGroups = onPremisesConditionalAccessSettingsParameterValue?.includedGroups;
+        this._overrideDefaultRule = onPremisesConditionalAccessSettingsParameterValue?.overrideDefaultRule;
+    };
+    /**
+     * Gets the enabled property value. Indicates if on premises conditional access is enabled for this organization
+     * @returns a boolean
+     */
+    public get enabled() {
+        return this._enabled;
+    };
+    /**
+     * Sets the enabled property value. Indicates if on premises conditional access is enabled for this organization
+     * @param value Value to set for the enabled property.
+     */
+    public set enabled(value: boolean | undefined) {
+        if(value) {
+            this._enabled = value;
+        }
+    };
+    /**
+     * Gets the excludedGroups property value. User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
+     * @returns a string
+     */
+    public get excludedGroups() {
+        return this._excludedGroups;
+    };
+    /**
+     * Sets the excludedGroups property value. User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
+     * @param value Value to set for the excludedGroups property.
+     */
+    public set excludedGroups(value: string[] | undefined) {
+        if(value) {
+            this._excludedGroups = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +66,38 @@ export class OnPremisesConditionalAccessSettingsImpl extends EntityImpl implemen
             "includedGroups": n => { this.includedGroups = n.getCollectionOfPrimitiveValues<string>(); },
             "overrideDefaultRule": n => { this.overrideDefaultRule = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the includedGroups property value. User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+     * @returns a string
+     */
+    public get includedGroups() {
+        return this._includedGroups;
+    };
+    /**
+     * Sets the includedGroups property value. User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+     * @param value Value to set for the includedGroups property.
+     */
+    public set includedGroups(value: string[] | undefined) {
+        if(value) {
+            this._includedGroups = value;
+        }
+    };
+    /**
+     * Gets the overrideDefaultRule property value. Override the default access rule when allowing a device to ensure access is granted.
+     * @returns a boolean
+     */
+    public get overrideDefaultRule() {
+        return this._overrideDefaultRule;
+    };
+    /**
+     * Sets the overrideDefaultRule property value. Override the default access rule when allowing a device to ensure access is granted.
+     * @param value Value to set for the overrideDefaultRule property.
+     */
+    public set overrideDefaultRule(value: boolean | undefined) {
+        if(value) {
+            this._overrideDefaultRule = value;
+        }
     };
     /**
      * Serializes information the current object

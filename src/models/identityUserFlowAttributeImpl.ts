@@ -7,23 +7,71 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowAttributeImpl extends EntityImpl implements IdentityUserFlowAttribute {
     /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime. */
-    public dataType?: IdentityUserFlowAttributeDataType | undefined;
+    private _dataType?: IdentityUserFlowAttributeDataType | undefined;
     /** The description of the user flow attribute that's shown to the user at the time of sign-up. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The display name of the user flow attribute. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required. */
-    public userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
+    private _userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
     /**
      * Instantiates a new identityUserFlowAttribute and sets the default values.
      * @param identityUserFlowAttributeParameterValue 
      */
     public constructor(identityUserFlowAttributeParameterValue?: IdentityUserFlowAttribute | undefined) {
         super(identityUserFlowAttributeParameterValue);
-        this.dataType = identityUserFlowAttributeParameterValue?.dataType;
-        this.description = identityUserFlowAttributeParameterValue?.description;
-        this.displayName = identityUserFlowAttributeParameterValue?.displayName;
-        this.userFlowAttributeType = identityUserFlowAttributeParameterValue?.userFlowAttributeType;
+        this._dataType = identityUserFlowAttributeParameterValue?.dataType;
+        this._description = identityUserFlowAttributeParameterValue?.description;
+        this._displayName = identityUserFlowAttributeParameterValue?.displayName;
+        this._userFlowAttributeType = identityUserFlowAttributeParameterValue?.userFlowAttributeType;
+    };
+    /**
+     * Gets the dataType property value. The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime.
+     * @returns a identityUserFlowAttributeDataType
+     */
+    public get dataType() {
+        return this._dataType;
+    };
+    /**
+     * Sets the dataType property value. The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime.
+     * @param value Value to set for the dataType property.
+     */
+    public set dataType(value: IdentityUserFlowAttributeDataType | undefined) {
+        if(value) {
+            this._dataType = value;
+        }
+    };
+    /**
+     * Gets the description property value. The description of the user flow attribute that's shown to the user at the time of sign-up.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description of the user flow attribute that's shown to the user at the time of sign-up.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The display name of the user flow attribute.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name of the user flow attribute.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -55,6 +103,22 @@ export class IdentityUserFlowAttributeImpl extends EntityImpl implements Identit
         }
         if(this.userFlowAttributeType){
             writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
+        }
+    };
+    /**
+     * Gets the userFlowAttributeType property value. The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required.
+     * @returns a identityUserFlowAttributeType
+     */
+    public get userFlowAttributeType() {
+        return this._userFlowAttributeType;
+    };
+    /**
+     * Sets the userFlowAttributeType property value. The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required.
+     * @param value Value to set for the userFlowAttributeType property.
+     */
+    public set userFlowAttributeType(value: IdentityUserFlowAttributeType | undefined) {
+        if(value) {
+            this._userFlowAttributeType = value;
         }
     };
 }

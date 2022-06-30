@@ -9,17 +9,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartDataLabelFormatImpl extends EntityImpl implements WorkbookChartDataLabelFormat {
     /** Represents the fill format of the current chart data label. Read-only. */
-    public fill?: WorkbookChartFill | undefined;
+    private _fill?: WorkbookChartFill | undefined;
     /** Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only. */
-    public font?: WorkbookChartFont | undefined;
+    private _font?: WorkbookChartFont | undefined;
     /**
      * Instantiates a new workbookChartDataLabelFormat and sets the default values.
      * @param workbookChartDataLabelFormatParameterValue 
      */
     public constructor(workbookChartDataLabelFormatParameterValue?: WorkbookChartDataLabelFormat | undefined) {
         super(workbookChartDataLabelFormatParameterValue);
-        this.fill = workbookChartDataLabelFormatParameterValue?.fill;
-        this.font = workbookChartDataLabelFormatParameterValue?.font;
+        this._fill = workbookChartDataLabelFormatParameterValue?.fill;
+        this._font = workbookChartDataLabelFormatParameterValue?.font;
+    };
+    /**
+     * Gets the fill property value. Represents the fill format of the current chart data label. Read-only.
+     * @returns a WorkbookChartFillInterface
+     */
+    public get fill() {
+        return this._fill;
+    };
+    /**
+     * Sets the fill property value. Represents the fill format of the current chart data label. Read-only.
+     * @param value Value to set for the fill property.
+     */
+    public set fill(value: WorkbookChartFill | undefined) {
+        if(value) {
+            this._fill = value instanceof WorkbookChartFillImpl? value : new WorkbookChartFillImpl(value);
+        }
+    };
+    /**
+     * Gets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only.
+     * @returns a WorkbookChartFontInterface
+     */
+    public get font() {
+        return this._font;
+    };
+    /**
+     * Sets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only.
+     * @param value Value to set for the font property.
+     */
+    public set font(value: WorkbookChartFont | undefined) {
+        if(value) {
+            this._font = value instanceof WorkbookChartFontImpl? value : new WorkbookChartFontImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,10 +71,10 @@ export class WorkbookChartDataLabelFormatImpl extends EntityImpl implements Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-            writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", (!this.fill || this.fill instanceof WorkbookChartFillImpl? this.fill : new WorkbookChartFillImpl(this.fill)));
         }
         if(this.font){
-            writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
+            writer.writeObjectValue<WorkbookChartFontImpl>("font", (!this.font || this.font instanceof WorkbookChartFontImpl? this.font : new WorkbookChartFontImpl(this.font)));
         }
     };
 }

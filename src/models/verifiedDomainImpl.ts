@@ -3,28 +3,60 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class VerifiedDomainImpl implements VerifiedDomain {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** For example, Email, OfficeCommunicationsOnline. */
-    public capabilities?: string | undefined;
+    private _capabilities?: string | undefined;
     /** true if this is the default domain associated with the tenant; otherwise, false. */
-    public isDefault?: boolean | undefined;
+    private _isDefault?: boolean | undefined;
     /** true if this is the initial domain associated with the tenant; otherwise, false. */
-    public isInitial?: boolean | undefined;
+    private _isInitial?: boolean | undefined;
     /** The domain name; for example, contoso.onmicrosoft.com. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** For example, Managed. */
-    public type?: string | undefined;
+    private _type?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the capabilities property value. For example, Email, OfficeCommunicationsOnline.
+     * @returns a string
+     */
+    public get capabilities() {
+        return this._capabilities;
+    };
+    /**
+     * Sets the capabilities property value. For example, Email, OfficeCommunicationsOnline.
+     * @param value Value to set for the capabilities property.
+     */
+    public set capabilities(value: string | undefined) {
+        if(value) {
+            this._capabilities = value;
+        }
+    };
     /**
      * Instantiates a new verifiedDomain and sets the default values.
      * @param verifiedDomainParameterValue 
      */
     public constructor(verifiedDomainParameterValue?: VerifiedDomain | undefined) {
-        this.additionalData = verifiedDomainParameterValue?.additionalData ? verifiedDomainParameterValue?.additionalData! : {};
-        this.capabilities = verifiedDomainParameterValue?.capabilities;
-        this.isDefault = verifiedDomainParameterValue?.isDefault;
-        this.isInitial = verifiedDomainParameterValue?.isInitial;
-        this.name = verifiedDomainParameterValue?.name;
-        this.type = verifiedDomainParameterValue?.type;
+        this._additionalData = verifiedDomainParameterValue?.additionalData ? verifiedDomainParameterValue?.additionalData! : {};
+        this._capabilities = verifiedDomainParameterValue?.capabilities;
+        this._isDefault = verifiedDomainParameterValue?.isDefault;
+        this._isInitial = verifiedDomainParameterValue?.isInitial;
+        this._name = verifiedDomainParameterValue?.name;
+        this._type = verifiedDomainParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +70,54 @@ export class VerifiedDomainImpl implements VerifiedDomain {
             "name": n => { this.name = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the isDefault property value. true if this is the default domain associated with the tenant; otherwise, false.
+     * @returns a boolean
+     */
+    public get isDefault() {
+        return this._isDefault;
+    };
+    /**
+     * Sets the isDefault property value. true if this is the default domain associated with the tenant; otherwise, false.
+     * @param value Value to set for the isDefault property.
+     */
+    public set isDefault(value: boolean | undefined) {
+        if(value) {
+            this._isDefault = value;
+        }
+    };
+    /**
+     * Gets the isInitial property value. true if this is the initial domain associated with the tenant; otherwise, false.
+     * @returns a boolean
+     */
+    public get isInitial() {
+        return this._isInitial;
+    };
+    /**
+     * Sets the isInitial property value. true if this is the initial domain associated with the tenant; otherwise, false.
+     * @param value Value to set for the isInitial property.
+     */
+    public set isInitial(value: boolean | undefined) {
+        if(value) {
+            this._isInitial = value;
+        }
+    };
+    /**
+     * Gets the name property value. The domain name; for example, contoso.onmicrosoft.com.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The domain name; for example, contoso.onmicrosoft.com.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -61,5 +141,21 @@ export class VerifiedDomainImpl implements VerifiedDomain {
             writer.writeStringValue("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. For example, Managed.
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. For example, Managed.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
+        }
     };
 }

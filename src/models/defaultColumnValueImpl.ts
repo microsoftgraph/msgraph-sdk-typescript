@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DefaultColumnValueImpl implements DefaultColumnValue {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The formula used to compute the default value for this column. */
-    public formula?: string | undefined;
+    private _formula?: string | undefined;
     /** The direct value to use as the default value for this column. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new defaultColumnValue and sets the default values.
      * @param defaultColumnValueParameterValue 
      */
     public constructor(defaultColumnValueParameterValue?: DefaultColumnValue | undefined) {
-        this.additionalData = defaultColumnValueParameterValue?.additionalData ? defaultColumnValueParameterValue?.additionalData! : {};
-        this.formula = defaultColumnValueParameterValue?.formula;
-        this.value = defaultColumnValueParameterValue?.value;
+        this._additionalData = defaultColumnValueParameterValue?.additionalData ? defaultColumnValueParameterValue?.additionalData! : {};
+        this._formula = defaultColumnValueParameterValue?.formula;
+        this._value = defaultColumnValueParameterValue?.value;
+    };
+    /**
+     * Gets the formula property value. The formula used to compute the default value for this column.
+     * @returns a string
+     */
+    public get formula() {
+        return this._formula;
+    };
+    /**
+     * Sets the formula property value. The formula used to compute the default value for this column.
+     * @param value Value to set for the formula property.
+     */
+    public set formula(value: string | undefined) {
+        if(value) {
+            this._formula = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +72,21 @@ export class DefaultColumnValueImpl implements DefaultColumnValue {
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The direct value to use as the default value for this column.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The direct value to use as the default value for this column.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

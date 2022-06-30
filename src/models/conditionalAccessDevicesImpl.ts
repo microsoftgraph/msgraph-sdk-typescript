@@ -6,16 +6,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessDevicesImpl implements ConditionalAccessDevices {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set. */
-    public deviceFilter?: ConditionalAccessFilter | undefined;
+    private _deviceFilter?: ConditionalAccessFilter | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new conditionalAccessDevices and sets the default values.
      * @param conditionalAccessDevicesParameterValue 
      */
     public constructor(conditionalAccessDevicesParameterValue?: ConditionalAccessDevices | undefined) {
-        this.additionalData = conditionalAccessDevicesParameterValue?.additionalData ? conditionalAccessDevicesParameterValue?.additionalData! : {};
-        this.deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter;
+        this._additionalData = conditionalAccessDevicesParameterValue?.additionalData ? conditionalAccessDevicesParameterValue?.additionalData! : {};
+        this._deviceFilter = conditionalAccessDevicesParameterValue?.deviceFilter;
+    };
+    /**
+     * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+     * @returns a ConditionalAccessFilterInterface
+     */
+    public get deviceFilter() {
+        return this._deviceFilter;
+    };
+    /**
+     * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+     * @param value Value to set for the deviceFilter property.
+     */
+    public set deviceFilter(value: ConditionalAccessFilter | undefined) {
+        if(value) {
+            this._deviceFilter = value instanceof ConditionalAccessFilterImpl? value : new ConditionalAccessFilterImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +65,7 @@ export class ConditionalAccessDevicesImpl implements ConditionalAccessDevices {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceFilter){
-            writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", new ConditionalAccessFilterImpl(this.deviceFilter));
+            writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", (!this.deviceFilter || this.deviceFilter instanceof ConditionalAccessFilterImpl? this.deviceFilter : new ConditionalAccessFilterImpl(this.deviceFilter)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

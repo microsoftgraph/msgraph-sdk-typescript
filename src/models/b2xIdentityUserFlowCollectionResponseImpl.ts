@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUserFlowCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: B2xIdentityUserFlow[] | undefined;
+    private _value?: B2xIdentityUserFlow[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new B2xIdentityUserFlowCollectionResponse and sets the default values.
      * @param b2xIdentityUserFlowCollectionResponseParameterValue 
      */
     public constructor(b2xIdentityUserFlowCollectionResponseParameterValue?: B2xIdentityUserFlowCollectionResponse | undefined) {
-        this.additionalData = b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData ? b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = b2xIdentityUserFlowCollectionResponseParameterValue?.nextLink;
-        this.value = b2xIdentityUserFlowCollectionResponseParameterValue?.value;
+        this._additionalData = b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData ? b2xIdentityUserFlowCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = b2xIdentityUserFlowCollectionResponseParameterValue?.nextLink;
+        this._value = b2xIdentityUserFlowCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: B2xIdentityUserFlowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new B2xIdentityUserFlowImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: B2xIdentityUserFlowImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof B2xIdentityUserFlowImpl? element:new B2xIdentityUserFlowImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a B2xIdentityUserFlowInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: B2xIdentityUserFlow[] | undefined) {
+        if(value) {
+            const valueArrValue: B2xIdentityUserFlowImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof B2xIdentityUserFlowImpl? element:new B2xIdentityUserFlowImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

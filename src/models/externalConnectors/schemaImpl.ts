@@ -8,17 +8,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of externalConnection entities. */
 export class SchemaImpl extends EntityImpl implements Schema {
     /** Must be set to microsoft.graph.externalItem. Required. */
-    public baseType?: string | undefined;
+    private _baseType?: string | undefined;
     /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
-    public properties?: Property[] | undefined;
+    private _properties?: Property[] | undefined;
+    /**
+     * Gets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
+     * @returns a string
+     */
+    public get baseType() {
+        return this._baseType;
+    };
+    /**
+     * Sets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
+     * @param value Value to set for the baseType property.
+     */
+    public set baseType(value: string | undefined) {
+        if(value) {
+            this._baseType = value;
+        }
+    };
     /**
      * Instantiates a new schema and sets the default values.
      * @param schemaParameterValue 
      */
     public constructor(schemaParameterValue?: Schema | undefined) {
         super(schemaParameterValue);
-        this.baseType = schemaParameterValue?.baseType;
-        this.properties = schemaParameterValue?.properties;
+        this._baseType = schemaParameterValue?.baseType;
+        this._properties = schemaParameterValue?.properties;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,26 @@ export class SchemaImpl extends EntityImpl implements Schema {
         };
     };
     /**
+     * Gets the properties property value. The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
+     * @returns a PropertyInterface
+     */
+    public get properties() {
+        return this._properties;
+    };
+    /**
+     * Sets the properties property value. The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
+     * @param value Value to set for the properties property.
+     */
+    public set properties(value: Property[] | undefined) {
+        if(value) {
+            const propertiesArrValue: PropertyImpl[] = [];
+            this.properties?.forEach(element => {
+                propertiesArrValue.push((element instanceof PropertyImpl? element:new PropertyImpl(element)));
+            });
+            this._properties = propertiesArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -40,7 +76,10 @@ export class SchemaImpl extends EntityImpl implements Schema {
         if(this.baseType){
             writer.writeStringValue("baseType", this.baseType);
         }
-        if(this.properties && this.properties.length != 0){        const propertiesArrValue: PropertyImpl[] = []; this.properties?.forEach(element => {propertiesArrValue.push(new PropertyImpl(element));});
+        if(this.properties && this.properties.length != 0){        const propertiesArrValue: PropertyImpl[] = [];
+        this.properties?.forEach(element => {
+            propertiesArrValue.push((element instanceof PropertyImpl? element:new PropertyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PropertyImpl>("properties", propertiesArrValue);
         }
     };

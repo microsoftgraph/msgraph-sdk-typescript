@@ -6,31 +6,63 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class QuotaImpl implements Quota {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
-    public deleted?: number | undefined;
+    private _deleted?: number | undefined;
     /** Total space remaining before reaching the quota limit, in bytes. Read-only. */
-    public remaining?: number | undefined;
+    private _remaining?: number | undefined;
     /** Enumeration value that indicates the state of the storage space. Read-only. */
-    public state?: string | undefined;
+    private _state?: string | undefined;
     /** Information about the drive's storage quota plans. Only in Personal OneDrive. */
-    public storagePlanInformation?: StoragePlanInformation | undefined;
+    private _storagePlanInformation?: StoragePlanInformation | undefined;
     /** Total allowed storage space, in bytes. Read-only. */
-    public total?: number | undefined;
+    private _total?: number | undefined;
     /** Total space used, in bytes. Read-only. */
-    public used?: number | undefined;
+    private _used?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new quota and sets the default values.
      * @param quotaParameterValue 
      */
     public constructor(quotaParameterValue?: Quota | undefined) {
-        this.additionalData = quotaParameterValue?.additionalData ? quotaParameterValue?.additionalData! : {};
-        this.deleted = quotaParameterValue?.deleted;
-        this.remaining = quotaParameterValue?.remaining;
-        this.state = quotaParameterValue?.state;
-        this.storagePlanInformation = quotaParameterValue?.storagePlanInformation;
-        this.total = quotaParameterValue?.total;
-        this.used = quotaParameterValue?.used;
+        this._additionalData = quotaParameterValue?.additionalData ? quotaParameterValue?.additionalData! : {};
+        this._deleted = quotaParameterValue?.deleted;
+        this._remaining = quotaParameterValue?.remaining;
+        this._state = quotaParameterValue?.state;
+        this._storagePlanInformation = quotaParameterValue?.storagePlanInformation;
+        this._total = quotaParameterValue?.total;
+        this._used = quotaParameterValue?.used;
+    };
+    /**
+     * Gets the deleted property value. Total space consumed by files in the recycle bin, in bytes. Read-only.
+     * @returns a int64
+     */
+    public get deleted() {
+        return this._deleted;
+    };
+    /**
+     * Sets the deleted property value. Total space consumed by files in the recycle bin, in bytes. Read-only.
+     * @param value Value to set for the deleted property.
+     */
+    public set deleted(value: number | undefined) {
+        if(value) {
+            this._deleted = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -45,6 +77,22 @@ export class QuotaImpl implements Quota {
             "total": n => { this.total = n.getNumberValue(); },
             "used": n => { this.used = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the remaining property value. Total space remaining before reaching the quota limit, in bytes. Read-only.
+     * @returns a int64
+     */
+    public get remaining() {
+        return this._remaining;
+    };
+    /**
+     * Sets the remaining property value. Total space remaining before reaching the quota limit, in bytes. Read-only.
+     * @param value Value to set for the remaining property.
+     */
+    public set remaining(value: number | undefined) {
+        if(value) {
+            this._remaining = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,7 +110,7 @@ export class QuotaImpl implements Quota {
             writer.writeStringValue("state", this.state);
         }
         if(this.storagePlanInformation){
-            writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", new StoragePlanInformationImpl(this.storagePlanInformation));
+            writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", (!this.storagePlanInformation || this.storagePlanInformation instanceof StoragePlanInformationImpl? this.storagePlanInformation : new StoragePlanInformationImpl(this.storagePlanInformation)));
         }
         if(this.total){
             writer.writeNumberValue("total", this.total);
@@ -71,5 +119,69 @@ export class QuotaImpl implements Quota {
             writer.writeNumberValue("used", this.used);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. Enumeration value that indicates the state of the storage space. Read-only.
+     * @returns a string
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. Enumeration value that indicates the state of the storage space. Read-only.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: string | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the storagePlanInformation property value. Information about the drive's storage quota plans. Only in Personal OneDrive.
+     * @returns a StoragePlanInformationInterface
+     */
+    public get storagePlanInformation() {
+        return this._storagePlanInformation;
+    };
+    /**
+     * Sets the storagePlanInformation property value. Information about the drive's storage quota plans. Only in Personal OneDrive.
+     * @param value Value to set for the storagePlanInformation property.
+     */
+    public set storagePlanInformation(value: StoragePlanInformation | undefined) {
+        if(value) {
+            this._storagePlanInformation = value instanceof StoragePlanInformationImpl? value : new StoragePlanInformationImpl(value);
+        }
+    };
+    /**
+     * Gets the total property value. Total allowed storage space, in bytes. Read-only.
+     * @returns a int64
+     */
+    public get total() {
+        return this._total;
+    };
+    /**
+     * Sets the total property value. Total allowed storage space, in bytes. Read-only.
+     * @param value Value to set for the total property.
+     */
+    public set total(value: number | undefined) {
+        if(value) {
+            this._total = value;
+        }
+    };
+    /**
+     * Gets the used property value. Total space used, in bytes. Read-only.
+     * @returns a int64
+     */
+    public get used() {
+        return this._used;
+    };
+    /**
+     * Sets the used property value. Total space used, in bytes. Read-only.
+     * @param value Value to set for the used property.
+     */
+    public set used(value: number | undefined) {
+        if(value) {
+            this._used = value;
+        }
     };
 }

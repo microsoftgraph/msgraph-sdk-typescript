@@ -5,17 +5,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the cloudCommunications singleton. */
 export class PresenceImpl extends EntityImpl implements Presence {
     /** The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly. */
-    public activity?: string | undefined;
+    private _activity?: string | undefined;
     /** The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown */
-    public availability?: string | undefined;
+    private _availability?: string | undefined;
+    /**
+     * Gets the activity property value. The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
+     * @returns a string
+     */
+    public get activity() {
+        return this._activity;
+    };
+    /**
+     * Sets the activity property value. The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
+     * @param value Value to set for the activity property.
+     */
+    public set activity(value: string | undefined) {
+        if(value) {
+            this._activity = value;
+        }
+    };
+    /**
+     * Gets the availability property value. The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
+     * @returns a string
+     */
+    public get availability() {
+        return this._availability;
+    };
+    /**
+     * Sets the availability property value. The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
+     * @param value Value to set for the availability property.
+     */
+    public set availability(value: string | undefined) {
+        if(value) {
+            this._availability = value;
+        }
+    };
     /**
      * Instantiates a new presence and sets the default values.
      * @param presenceParameterValue 
      */
     public constructor(presenceParameterValue?: Presence | undefined) {
         super(presenceParameterValue);
-        this.activity = presenceParameterValue?.activity;
-        this.availability = presenceParameterValue?.availability;
+        this._activity = presenceParameterValue?.activity;
+        this._availability = presenceParameterValue?.availability;
     };
     /**
      * The deserialization information for the current model

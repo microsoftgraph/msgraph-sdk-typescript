@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlteredQueryTokenImpl implements AlteredQueryToken {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Defines the length of a changed segment. */
-    public length?: number | undefined;
+    private _length?: number | undefined;
     /** Defines the offset of a changed segment. */
-    public offset?: number | undefined;
+    private _offset?: number | undefined;
     /** Represents the corrected segment string. */
-    public suggestion?: string | undefined;
+    private _suggestion?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new alteredQueryToken and sets the default values.
      * @param alteredQueryTokenParameterValue 
      */
     public constructor(alteredQueryTokenParameterValue?: AlteredQueryToken | undefined) {
-        this.additionalData = alteredQueryTokenParameterValue?.additionalData ? alteredQueryTokenParameterValue?.additionalData! : {};
-        this.length = alteredQueryTokenParameterValue?.length;
-        this.offset = alteredQueryTokenParameterValue?.offset;
-        this.suggestion = alteredQueryTokenParameterValue?.suggestion;
+        this._additionalData = alteredQueryTokenParameterValue?.additionalData ? alteredQueryTokenParameterValue?.additionalData! : {};
+        this._length = alteredQueryTokenParameterValue?.length;
+        this._offset = alteredQueryTokenParameterValue?.offset;
+        this._suggestion = alteredQueryTokenParameterValue?.suggestion;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,38 @@ export class AlteredQueryTokenImpl implements AlteredQueryToken {
             "offset": n => { this.offset = n.getNumberValue(); },
             "suggestion": n => { this.suggestion = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the length property value. Defines the length of a changed segment.
+     * @returns a integer
+     */
+    public get length() {
+        return this._length;
+    };
+    /**
+     * Sets the length property value. Defines the length of a changed segment.
+     * @param value Value to set for the length property.
+     */
+    public set length(value: number | undefined) {
+        if(value) {
+            this._length = value;
+        }
+    };
+    /**
+     * Gets the offset property value. Defines the offset of a changed segment.
+     * @returns a integer
+     */
+    public get offset() {
+        return this._offset;
+    };
+    /**
+     * Sets the offset property value. Defines the offset of a changed segment.
+     * @param value Value to set for the offset property.
+     */
+    public set offset(value: number | undefined) {
+        if(value) {
+            this._offset = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +95,21 @@ export class AlteredQueryTokenImpl implements AlteredQueryToken {
             writer.writeStringValue("suggestion", this.suggestion);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the suggestion property value. Represents the corrected segment string.
+     * @returns a string
+     */
+    public get suggestion() {
+        return this._suggestion;
+    };
+    /**
+     * Sets the suggestion property value. Represents the corrected segment string.
+     * @param value Value to set for the suggestion property.
+     */
+    public set suggestion(value: string | undefined) {
+        if(value) {
+            this._suggestion = value;
+        }
     };
 }

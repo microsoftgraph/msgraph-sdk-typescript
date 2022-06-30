@@ -2,17 +2,17 @@ import {ColumnLink} from './columnLink';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
     /** The name of the column  in this content type. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /**
      * Instantiates a new columnLink and sets the default values.
      * @param columnLinkParameterValue 
      */
     public constructor(columnLinkParameterValue?: ColumnLink | undefined) {
         super(columnLinkParameterValue);
-        this.name = columnLinkParameterValue?.name;
+        this._name = columnLinkParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class ColumnLinkImpl extends EntityImpl implements ColumnLink {
         return {...super.getFieldDeserializers(),
             "name": n => { this.name = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the name property value. The name of the column  in this content type.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name of the column  in this content type.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object

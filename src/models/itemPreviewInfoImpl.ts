@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ItemPreviewInfoImpl implements ItemPreviewInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The getUrl property */
-    public getUrl?: string | undefined;
+    private _getUrl?: string | undefined;
     /** The postParameters property */
-    public postParameters?: string | undefined;
+    private _postParameters?: string | undefined;
     /** The postUrl property */
-    public postUrl?: string | undefined;
+    private _postUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ItemPreviewInfo and sets the default values.
      * @param itemPreviewInfoParameterValue 
      */
     public constructor(itemPreviewInfoParameterValue?: ItemPreviewInfo | undefined) {
-        this.additionalData = itemPreviewInfoParameterValue?.additionalData ? itemPreviewInfoParameterValue?.additionalData! : {};
-        this.getUrl = itemPreviewInfoParameterValue?.getUrl;
-        this.postParameters = itemPreviewInfoParameterValue?.postParameters;
-        this.postUrl = itemPreviewInfoParameterValue?.postUrl;
+        this._additionalData = itemPreviewInfoParameterValue?.additionalData ? itemPreviewInfoParameterValue?.additionalData! : {};
+        this._getUrl = itemPreviewInfoParameterValue?.getUrl;
+        this._postParameters = itemPreviewInfoParameterValue?.postParameters;
+        this._postUrl = itemPreviewInfoParameterValue?.postUrl;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,54 @@ export class ItemPreviewInfoImpl implements ItemPreviewInfo {
             "postParameters": n => { this.postParameters = n.getStringValue(); },
             "postUrl": n => { this.postUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the getUrl property value. The getUrl property
+     * @returns a string
+     */
+    public get getUrl() {
+        return this._getUrl;
+    };
+    /**
+     * Sets the getUrl property value. The getUrl property
+     * @param value Value to set for the getUrl property.
+     */
+    public set getUrl(value: string | undefined) {
+        if(value) {
+            this._getUrl = value;
+        }
+    };
+    /**
+     * Gets the postParameters property value. The postParameters property
+     * @returns a string
+     */
+    public get postParameters() {
+        return this._postParameters;
+    };
+    /**
+     * Sets the postParameters property value. The postParameters property
+     * @param value Value to set for the postParameters property.
+     */
+    public set postParameters(value: string | undefined) {
+        if(value) {
+            this._postParameters = value;
+        }
+    };
+    /**
+     * Gets the postUrl property value. The postUrl property
+     * @returns a string
+     */
+    public get postUrl() {
+        return this._postUrl;
+    };
+    /**
+     * Sets the postUrl property value. The postUrl property
+     * @param value Value to set for the postUrl property.
+     */
+    public set postUrl(value: string | undefined) {
+        if(value) {
+            this._postUrl = value;
+        }
     };
     /**
      * Serializes information the current object

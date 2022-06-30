@@ -9,22 +9,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the forward method. */
 export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Comment property */
-    public comment?: string | undefined;
+    private _comment?: string | undefined;
     /** The Message property */
-    public message?: Message | undefined;
+    private _message?: Message | undefined;
     /** The ToRecipients property */
-    public toRecipients?: Recipient[] | undefined;
+    private _toRecipients?: Recipient[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the comment property value. The Comment property
+     * @returns a string
+     */
+    public get comment() {
+        return this._comment;
+    };
+    /**
+     * Sets the comment property value. The Comment property
+     * @param value Value to set for the Comment property.
+     */
+    public set comment(value: string | undefined) {
+        if(value) {
+            this._comment = value;
+        }
+    };
     /**
      * Instantiates a new forwardPostRequestBody and sets the default values.
      * @param forwardPostRequestBodyParameterValue 
      */
     public constructor(forwardPostRequestBodyParameterValue?: ForwardPostRequestBody | undefined) {
-        this.additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {};
-        this.comment = forwardPostRequestBodyParameterValue?.comment;
-        this.message = forwardPostRequestBodyParameterValue?.message;
-        this.toRecipients = forwardPostRequestBodyParameterValue?.toRecipients;
+        this._additionalData = forwardPostRequestBodyParameterValue?.additionalData ? forwardPostRequestBodyParameterValue?.additionalData! : {};
+        this._comment = forwardPostRequestBodyParameterValue?.comment;
+        this._message = forwardPostRequestBodyParameterValue?.message;
+        this._toRecipients = forwardPostRequestBodyParameterValue?.toRecipients;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +70,22 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
         };
     };
     /**
+     * Gets the message property value. The Message property
+     * @returns a MessageInterface
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The Message property
+     * @param value Value to set for the Message property.
+     */
+    public set message(value: Message | undefined) {
+        if(value) {
+            this._message = value instanceof MessageImpl? value : new MessageImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -47,11 +95,34 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
             writer.writeStringValue("comment", this.comment);
         }
         if(this.message){
-            writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
+            writer.writeObjectValue<MessageImpl>("message", (!this.message || this.message instanceof MessageImpl? this.message : new MessageImpl(this.message)));
         }
-        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = []; this.toRecipients?.forEach(element => {toRecipientsArrValue.push(new RecipientImpl(element));});
+        if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = [];
+        this.toRecipients?.forEach(element => {
+            toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the toRecipients property value. The ToRecipients property
+     * @returns a RecipientInterface
+     */
+    public get toRecipients() {
+        return this._toRecipients;
+    };
+    /**
+     * Sets the toRecipients property value. The ToRecipients property
+     * @param value Value to set for the ToRecipients property.
+     */
+    public set toRecipients(value: Recipient[] | undefined) {
+        if(value) {
+            const toRecipientsArrValue: RecipientImpl[] = [];
+            this.ToRecipients?.forEach(element => {
+                toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            });
+            this._toRecipients = toRecipientsArrValue;
+        }
     };
 }

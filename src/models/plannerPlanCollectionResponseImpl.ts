@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: PlannerPlan[] | undefined;
+    private _value?: PlannerPlan[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new PlannerPlanCollectionResponse and sets the default values.
      * @param plannerPlanCollectionResponseParameterValue 
      */
     public constructor(plannerPlanCollectionResponseParameterValue?: PlannerPlanCollectionResponse | undefined) {
-        this.additionalData = plannerPlanCollectionResponseParameterValue?.additionalData ? plannerPlanCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = plannerPlanCollectionResponseParameterValue?.nextLink;
-        this.value = plannerPlanCollectionResponseParameterValue?.value;
+        this._additionalData = plannerPlanCollectionResponseParameterValue?.additionalData ? plannerPlanCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = plannerPlanCollectionResponseParameterValue?.nextLink;
+        this._value = plannerPlanCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: PlannerPlanImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PlannerPlanImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PlannerPlanImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a PlannerPlanInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: PlannerPlan[] | undefined) {
+        if(value) {
+            const valueArrValue: PlannerPlanImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

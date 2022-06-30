@@ -7,19 +7,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection Proxied Domain Collection */
 export class WindowsInformationProtectionProxiedDomainCollectionImpl implements WindowsInformationProtectionProxiedDomainCollection {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Display name */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Collection of proxied domains */
-    public proxiedDomains?: ProxiedDomain[] | undefined;
+    private _proxiedDomains?: ProxiedDomain[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new windowsInformationProtectionProxiedDomainCollection and sets the default values.
      * @param windowsInformationProtectionProxiedDomainCollectionParameterValue 
      */
     public constructor(windowsInformationProtectionProxiedDomainCollectionParameterValue?: WindowsInformationProtectionProxiedDomainCollection | undefined) {
-        this.additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData! : {};
-        this.displayName = windowsInformationProtectionProxiedDomainCollectionParameterValue?.displayName;
-        this.proxiedDomains = windowsInformationProtectionProxiedDomainCollectionParameterValue?.proxiedDomains;
+        this._additionalData = windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData ? windowsInformationProtectionProxiedDomainCollectionParameterValue?.additionalData! : {};
+        this._displayName = windowsInformationProtectionProxiedDomainCollectionParameterValue?.displayName;
+        this._proxiedDomains = windowsInformationProtectionProxiedDomainCollectionParameterValue?.proxiedDomains;
+    };
+    /**
+     * Gets the displayName property value. Display name
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +64,26 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
         };
     };
     /**
+     * Gets the proxiedDomains property value. Collection of proxied domains
+     * @returns a ProxiedDomainInterface
+     */
+    public get proxiedDomains() {
+        return this._proxiedDomains;
+    };
+    /**
+     * Sets the proxiedDomains property value. Collection of proxied domains
+     * @param value Value to set for the proxiedDomains property.
+     */
+    public set proxiedDomains(value: ProxiedDomain[] | undefined) {
+        if(value) {
+            const proxiedDomainsArrValue: ProxiedDomainImpl[] = [];
+            this.proxiedDomains?.forEach(element => {
+                proxiedDomainsArrValue.push((element instanceof ProxiedDomainImpl? element:new ProxiedDomainImpl(element)));
+            });
+            this._proxiedDomains = proxiedDomainsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -40,7 +92,10 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = []; this.proxiedDomains?.forEach(element => {proxiedDomainsArrValue.push(new ProxiedDomainImpl(element));});
+        if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = [];
+        this.proxiedDomains?.forEach(element => {
+            proxiedDomainsArrValue.push((element instanceof ProxiedDomainImpl? element:new ProxiedDomainImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ProxiedDomainImpl>("proxiedDomains", proxiedDomainsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

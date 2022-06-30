@@ -1,5 +1,5 @@
 export * from './queryPostRequestBodyImpl'
 export * from './queryResponseImpl'
-export * from './queryResponse'
-export * from './queryPostRequestBody'
 export * from './queryRequestBuilderPostRequestConfiguration'
+export * from './queryPostRequestBody'
+export * from './queryResponse'

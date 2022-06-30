@@ -9,20 +9,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChartSeries {
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
-    public format?: WorkbookChartSeriesFormat | undefined;
+    private _format?: WorkbookChartSeriesFormat | undefined;
     /** Represents the name of a series in a chart. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** Represents a collection of all points in the series. Read-only. */
-    public points?: WorkbookChartPoint[] | undefined;
+    private _points?: WorkbookChartPoint[] | undefined;
     /**
      * Instantiates a new workbookChartSeries and sets the default values.
      * @param workbookChartSeriesParameterValue 
      */
     public constructor(workbookChartSeriesParameterValue?: WorkbookChartSeries | undefined) {
         super(workbookChartSeriesParameterValue);
-        this.format = workbookChartSeriesParameterValue?.format;
-        this.name = workbookChartSeriesParameterValue?.name;
-        this.points = workbookChartSeriesParameterValue?.points;
+        this._format = workbookChartSeriesParameterValue?.format;
+        this._name = workbookChartSeriesParameterValue?.name;
+        this._points = workbookChartSeriesParameterValue?.points;
+    };
+    /**
+     * Gets the format property value. Represents the formatting of a chart series, which includes fill and line formatting. Read-only.
+     * @returns a WorkbookChartSeriesFormatInterface
+     */
+    public get format() {
+        return this._format;
+    };
+    /**
+     * Sets the format property value. Represents the formatting of a chart series, which includes fill and line formatting. Read-only.
+     * @param value Value to set for the format property.
+     */
+    public set format(value: WorkbookChartSeriesFormat | undefined) {
+        if(value) {
+            this._format = value instanceof WorkbookChartSeriesFormatImpl? value : new WorkbookChartSeriesFormatImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +52,42 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         };
     };
     /**
+     * Gets the name property value. Represents the name of a series in a chart.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Represents the name of a series in a chart.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the points property value. Represents a collection of all points in the series. Read-only.
+     * @returns a WorkbookChartPointInterface
+     */
+    public get points() {
+        return this._points;
+    };
+    /**
+     * Sets the points property value. Represents a collection of all points in the series. Read-only.
+     * @param value Value to set for the points property.
+     */
+    public set points(value: WorkbookChartPoint[] | undefined) {
+        if(value) {
+            const pointsArrValue: WorkbookChartPointImpl[] = [];
+            this.points?.forEach(element => {
+                pointsArrValue.push((element instanceof WorkbookChartPointImpl? element:new WorkbookChartPointImpl(element)));
+            });
+            this._points = pointsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -43,12 +95,15 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartSeriesFormatImpl>("format", new WorkbookChartSeriesFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartSeriesFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartSeriesFormatImpl? this.format : new WorkbookChartSeriesFormatImpl(this.format)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
-        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = []; this.points?.forEach(element => {pointsArrValue.push(new WorkbookChartPointImpl(element));});
+        if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = [];
+        this.points?.forEach(element => {
+            pointsArrValue.push((element instanceof WorkbookChartPointImpl? element:new WorkbookChartPointImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WorkbookChartPointImpl>("points", pointsArrValue);
         }
     };

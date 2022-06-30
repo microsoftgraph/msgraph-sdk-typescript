@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the addGroup method. */
 export class AddGroupResponseImpl implements AddGroupResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: boolean | undefined;
+    private _value?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new addGroupResponse and sets the default values.
      * @param addGroupResponseParameterValue 
      */
     public constructor(addGroupResponseParameterValue?: AddGroupResponse | undefined) {
-        this.additionalData = addGroupResponseParameterValue?.additionalData ? addGroupResponseParameterValue?.additionalData! : {};
-        this.value = addGroupResponseParameterValue?.value;
+        this._additionalData = addGroupResponseParameterValue?.additionalData ? addGroupResponseParameterValue?.additionalData! : {};
+        this._value = addGroupResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class AddGroupResponseImpl implements AddGroupResponse {
             writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a boolean
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: boolean | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

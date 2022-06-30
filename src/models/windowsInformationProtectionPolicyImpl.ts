@@ -5,47 +5,63 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WindowsInformationProtectionPolicyImpl extends WindowsInformationProtectionImpl implements WindowsInformationProtectionPolicy {
     /** Offline interval before app data is wiped (days) */
-    public daysWithoutContactBeforeUnenroll?: number | undefined;
+    private _daysWithoutContactBeforeUnenroll?: number | undefined;
     /** Enrollment url for the MDM */
-    public mdmEnrollmentUrl?: string | undefined;
+    private _mdmEnrollmentUrl?: string | undefined;
     /** Specifies the maximum amount of time (in minutes) allowed after the device is idle that will cause the device to become PIN or password locked.   Range is an integer X where 0 <= X <= 999. */
-    public minutesOfInactivityBeforeDeviceLock?: number | undefined;
+    private _minutesOfInactivityBeforeDeviceLock?: number | undefined;
     /** Integer value that specifies the number of past PINs that can be associated to a user account that can't be reused. The largest number you can configure for this policy setting is 50. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then storage of previous PINs is not required. This node was added in Windows 10, version 1511. Default is 0. */
-    public numberOfPastPinsRemembered?: number | undefined;
+    private _numberOfPastPinsRemembered?: number | undefined;
     /** The number of authentication failures allowed before the device will be wiped. A value of 0 disables device wipe functionality. Range is an integer X where 4 <= X <= 16 for desktop and 0 <= X <= 999 for mobile devices. */
-    public passwordMaximumAttemptCount?: number | undefined;
+    private _passwordMaximumAttemptCount?: number | undefined;
     /** Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0. */
-    public pinExpirationDays?: number | undefined;
+    private _pinExpirationDays?: number | undefined;
     /** Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow. */
-    public pinLowercaseLetters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
+    private _pinLowercaseLetters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
     /** Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest. */
-    public pinMinimumLength?: number | undefined;
+    private _pinMinimumLength?: number | undefined;
     /** Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! ' # $ % & ' ( )  + , - . / : ; < = > ? @ [ / ] ^  ` { */
-    public pinSpecialCharacters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
+    private _pinSpecialCharacters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
     /** Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow. */
-    public pinUppercaseLetters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
+    private _pinUppercaseLetters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
     /** New property in RS2, pending documentation */
-    public revokeOnMdmHandoffDisabled?: boolean | undefined;
+    private _revokeOnMdmHandoffDisabled?: boolean | undefined;
     /** Boolean value that sets Windows Hello for Business as a method for signing into Windows. */
-    public windowsHelloForBusinessBlocked?: boolean | undefined;
+    private _windowsHelloForBusinessBlocked?: boolean | undefined;
     /**
      * Instantiates a new WindowsInformationProtectionPolicy and sets the default values.
      * @param windowsInformationProtectionPolicyParameterValue 
      */
     public constructor(windowsInformationProtectionPolicyParameterValue?: WindowsInformationProtectionPolicy | undefined) {
         super(windowsInformationProtectionPolicyParameterValue);
-        this.daysWithoutContactBeforeUnenroll = windowsInformationProtectionPolicyParameterValue?.daysWithoutContactBeforeUnenroll;
-        this.mdmEnrollmentUrl = windowsInformationProtectionPolicyParameterValue?.mdmEnrollmentUrl;
-        this.minutesOfInactivityBeforeDeviceLock = windowsInformationProtectionPolicyParameterValue?.minutesOfInactivityBeforeDeviceLock;
-        this.numberOfPastPinsRemembered = windowsInformationProtectionPolicyParameterValue?.numberOfPastPinsRemembered;
-        this.passwordMaximumAttemptCount = windowsInformationProtectionPolicyParameterValue?.passwordMaximumAttemptCount;
-        this.pinExpirationDays = windowsInformationProtectionPolicyParameterValue?.pinExpirationDays;
-        this.pinLowercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinLowercaseLetters;
-        this.pinMinimumLength = windowsInformationProtectionPolicyParameterValue?.pinMinimumLength;
-        this.pinSpecialCharacters = windowsInformationProtectionPolicyParameterValue?.pinSpecialCharacters;
-        this.pinUppercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinUppercaseLetters;
-        this.revokeOnMdmHandoffDisabled = windowsInformationProtectionPolicyParameterValue?.revokeOnMdmHandoffDisabled;
-        this.windowsHelloForBusinessBlocked = windowsInformationProtectionPolicyParameterValue?.windowsHelloForBusinessBlocked;
+        this._daysWithoutContactBeforeUnenroll = windowsInformationProtectionPolicyParameterValue?.daysWithoutContactBeforeUnenroll;
+        this._mdmEnrollmentUrl = windowsInformationProtectionPolicyParameterValue?.mdmEnrollmentUrl;
+        this._minutesOfInactivityBeforeDeviceLock = windowsInformationProtectionPolicyParameterValue?.minutesOfInactivityBeforeDeviceLock;
+        this._numberOfPastPinsRemembered = windowsInformationProtectionPolicyParameterValue?.numberOfPastPinsRemembered;
+        this._passwordMaximumAttemptCount = windowsInformationProtectionPolicyParameterValue?.passwordMaximumAttemptCount;
+        this._pinExpirationDays = windowsInformationProtectionPolicyParameterValue?.pinExpirationDays;
+        this._pinLowercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinLowercaseLetters;
+        this._pinMinimumLength = windowsInformationProtectionPolicyParameterValue?.pinMinimumLength;
+        this._pinSpecialCharacters = windowsInformationProtectionPolicyParameterValue?.pinSpecialCharacters;
+        this._pinUppercaseLetters = windowsInformationProtectionPolicyParameterValue?.pinUppercaseLetters;
+        this._revokeOnMdmHandoffDisabled = windowsInformationProtectionPolicyParameterValue?.revokeOnMdmHandoffDisabled;
+        this._windowsHelloForBusinessBlocked = windowsInformationProtectionPolicyParameterValue?.windowsHelloForBusinessBlocked;
+    };
+    /**
+     * Gets the daysWithoutContactBeforeUnenroll property value. Offline interval before app data is wiped (days)
+     * @returns a integer
+     */
+    public get daysWithoutContactBeforeUnenroll() {
+        return this._daysWithoutContactBeforeUnenroll;
+    };
+    /**
+     * Sets the daysWithoutContactBeforeUnenroll property value. Offline interval before app data is wiped (days)
+     * @param value Value to set for the daysWithoutContactBeforeUnenroll property.
+     */
+    public set daysWithoutContactBeforeUnenroll(value: number | undefined) {
+        if(value) {
+            this._daysWithoutContactBeforeUnenroll = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -66,6 +82,166 @@ export class WindowsInformationProtectionPolicyImpl extends WindowsInformationPr
             "revokeOnMdmHandoffDisabled": n => { this.revokeOnMdmHandoffDisabled = n.getBooleanValue(); },
             "windowsHelloForBusinessBlocked": n => { this.windowsHelloForBusinessBlocked = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the mdmEnrollmentUrl property value. Enrollment url for the MDM
+     * @returns a string
+     */
+    public get mdmEnrollmentUrl() {
+        return this._mdmEnrollmentUrl;
+    };
+    /**
+     * Sets the mdmEnrollmentUrl property value. Enrollment url for the MDM
+     * @param value Value to set for the mdmEnrollmentUrl property.
+     */
+    public set mdmEnrollmentUrl(value: string | undefined) {
+        if(value) {
+            this._mdmEnrollmentUrl = value;
+        }
+    };
+    /**
+     * Gets the minutesOfInactivityBeforeDeviceLock property value. Specifies the maximum amount of time (in minutes) allowed after the device is idle that will cause the device to become PIN or password locked.   Range is an integer X where 0 <= X <= 999.
+     * @returns a integer
+     */
+    public get minutesOfInactivityBeforeDeviceLock() {
+        return this._minutesOfInactivityBeforeDeviceLock;
+    };
+    /**
+     * Sets the minutesOfInactivityBeforeDeviceLock property value. Specifies the maximum amount of time (in minutes) allowed after the device is idle that will cause the device to become PIN or password locked.   Range is an integer X where 0 <= X <= 999.
+     * @param value Value to set for the minutesOfInactivityBeforeDeviceLock property.
+     */
+    public set minutesOfInactivityBeforeDeviceLock(value: number | undefined) {
+        if(value) {
+            this._minutesOfInactivityBeforeDeviceLock = value;
+        }
+    };
+    /**
+     * Gets the numberOfPastPinsRemembered property value. Integer value that specifies the number of past PINs that can be associated to a user account that can't be reused. The largest number you can configure for this policy setting is 50. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then storage of previous PINs is not required. This node was added in Windows 10, version 1511. Default is 0.
+     * @returns a integer
+     */
+    public get numberOfPastPinsRemembered() {
+        return this._numberOfPastPinsRemembered;
+    };
+    /**
+     * Sets the numberOfPastPinsRemembered property value. Integer value that specifies the number of past PINs that can be associated to a user account that can't be reused. The largest number you can configure for this policy setting is 50. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then storage of previous PINs is not required. This node was added in Windows 10, version 1511. Default is 0.
+     * @param value Value to set for the numberOfPastPinsRemembered property.
+     */
+    public set numberOfPastPinsRemembered(value: number | undefined) {
+        if(value) {
+            this._numberOfPastPinsRemembered = value;
+        }
+    };
+    /**
+     * Gets the passwordMaximumAttemptCount property value. The number of authentication failures allowed before the device will be wiped. A value of 0 disables device wipe functionality. Range is an integer X where 4 <= X <= 16 for desktop and 0 <= X <= 999 for mobile devices.
+     * @returns a integer
+     */
+    public get passwordMaximumAttemptCount() {
+        return this._passwordMaximumAttemptCount;
+    };
+    /**
+     * Sets the passwordMaximumAttemptCount property value. The number of authentication failures allowed before the device will be wiped. A value of 0 disables device wipe functionality. Range is an integer X where 4 <= X <= 16 for desktop and 0 <= X <= 999 for mobile devices.
+     * @param value Value to set for the passwordMaximumAttemptCount property.
+     */
+    public set passwordMaximumAttemptCount(value: number | undefined) {
+        if(value) {
+            this._passwordMaximumAttemptCount = value;
+        }
+    };
+    /**
+     * Gets the pinExpirationDays property value. Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0.
+     * @returns a integer
+     */
+    public get pinExpirationDays() {
+        return this._pinExpirationDays;
+    };
+    /**
+     * Sets the pinExpirationDays property value. Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0.
+     * @param value Value to set for the pinExpirationDays property.
+     */
+    public set pinExpirationDays(value: number | undefined) {
+        if(value) {
+            this._pinExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the pinLowercaseLetters property value. Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * @returns a windowsInformationProtectionPinCharacterRequirements
+     */
+    public get pinLowercaseLetters() {
+        return this._pinLowercaseLetters;
+    };
+    /**
+     * Sets the pinLowercaseLetters property value. Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * @param value Value to set for the pinLowercaseLetters property.
+     */
+    public set pinLowercaseLetters(value: WindowsInformationProtectionPinCharacterRequirements | undefined) {
+        if(value) {
+            this._pinLowercaseLetters = value;
+        }
+    };
+    /**
+     * Gets the pinMinimumLength property value. Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest.
+     * @returns a integer
+     */
+    public get pinMinimumLength() {
+        return this._pinMinimumLength;
+    };
+    /**
+     * Sets the pinMinimumLength property value. Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest.
+     * @param value Value to set for the pinMinimumLength property.
+     */
+    public set pinMinimumLength(value: number | undefined) {
+        if(value) {
+            this._pinMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the pinSpecialCharacters property value. Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! ' # $ % & ' ( )  + , - . / : ; < = > ? @ [ / ] ^  ` {
+     * @returns a windowsInformationProtectionPinCharacterRequirements
+     */
+    public get pinSpecialCharacters() {
+        return this._pinSpecialCharacters;
+    };
+    /**
+     * Sets the pinSpecialCharacters property value. Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! ' # $ % & ' ( )  + , - . / : ; < = > ? @ [ / ] ^  ` {
+     * @param value Value to set for the pinSpecialCharacters property.
+     */
+    public set pinSpecialCharacters(value: WindowsInformationProtectionPinCharacterRequirements | undefined) {
+        if(value) {
+            this._pinSpecialCharacters = value;
+        }
+    };
+    /**
+     * Gets the pinUppercaseLetters property value. Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * @returns a windowsInformationProtectionPinCharacterRequirements
+     */
+    public get pinUppercaseLetters() {
+        return this._pinUppercaseLetters;
+    };
+    /**
+     * Sets the pinUppercaseLetters property value. Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * @param value Value to set for the pinUppercaseLetters property.
+     */
+    public set pinUppercaseLetters(value: WindowsInformationProtectionPinCharacterRequirements | undefined) {
+        if(value) {
+            this._pinUppercaseLetters = value;
+        }
+    };
+    /**
+     * Gets the revokeOnMdmHandoffDisabled property value. New property in RS2, pending documentation
+     * @returns a boolean
+     */
+    public get revokeOnMdmHandoffDisabled() {
+        return this._revokeOnMdmHandoffDisabled;
+    };
+    /**
+     * Sets the revokeOnMdmHandoffDisabled property value. New property in RS2, pending documentation
+     * @param value Value to set for the revokeOnMdmHandoffDisabled property.
+     */
+    public set revokeOnMdmHandoffDisabled(value: boolean | undefined) {
+        if(value) {
+            this._revokeOnMdmHandoffDisabled = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -109,6 +285,22 @@ export class WindowsInformationProtectionPolicyImpl extends WindowsInformationPr
         }
         if(this.windowsHelloForBusinessBlocked){
             writer.writeBooleanValue("windowsHelloForBusinessBlocked", this.windowsHelloForBusinessBlocked);
+        }
+    };
+    /**
+     * Gets the windowsHelloForBusinessBlocked property value. Boolean value that sets Windows Hello for Business as a method for signing into Windows.
+     * @returns a boolean
+     */
+    public get windowsHelloForBusinessBlocked() {
+        return this._windowsHelloForBusinessBlocked;
+    };
+    /**
+     * Sets the windowsHelloForBusinessBlocked property value. Boolean value that sets Windows Hello for Business as a method for signing into Windows.
+     * @param value Value to set for the windowsHelloForBusinessBlocked property.
+     */
+    public set windowsHelloForBusinessBlocked(value: boolean | undefined) {
+        if(value) {
+            this._windowsHelloForBusinessBlocked = value;
         }
     };
 }

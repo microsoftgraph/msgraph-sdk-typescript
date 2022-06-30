@@ -8,20 +8,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CommsOperationImpl extends EntityImpl implements CommsOperation {
     /** Unique Client Context string. Max limit is 256 chars. */
-    public clientContext?: string | undefined;
+    private _clientContext?: string | undefined;
     /** The result information. Read-only. */
-    public resultInfo?: ResultInfo | undefined;
+    private _resultInfo?: ResultInfo | undefined;
     /** Possible values are: notStarted, running, completed, failed. Read-only. */
-    public status?: OperationStatus | undefined;
+    private _status?: OperationStatus | undefined;
+    /**
+     * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
+     * @returns a string
+     */
+    public get clientContext() {
+        return this._clientContext;
+    };
+    /**
+     * Sets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
+     * @param value Value to set for the clientContext property.
+     */
+    public set clientContext(value: string | undefined) {
+        if(value) {
+            this._clientContext = value;
+        }
+    };
     /**
      * Instantiates a new commsOperation and sets the default values.
      * @param commsOperationParameterValue 
      */
     public constructor(commsOperationParameterValue?: CommsOperation | undefined) {
         super(commsOperationParameterValue);
-        this.clientContext = commsOperationParameterValue?.clientContext;
-        this.resultInfo = commsOperationParameterValue?.resultInfo;
-        this.status = commsOperationParameterValue?.status;
+        this._clientContext = commsOperationParameterValue?.clientContext;
+        this._resultInfo = commsOperationParameterValue?.resultInfo;
+        this._status = commsOperationParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +51,22 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
         };
     };
     /**
+     * Gets the resultInfo property value. The result information. Read-only.
+     * @returns a ResultInfoInterface
+     */
+    public get resultInfo() {
+        return this._resultInfo;
+    };
+    /**
+     * Sets the resultInfo property value. The result information. Read-only.
+     * @param value Value to set for the resultInfo property.
+     */
+    public set resultInfo(value: ResultInfo | undefined) {
+        if(value) {
+            this._resultInfo = value instanceof ResultInfoImpl? value : new ResultInfoImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -45,10 +77,26 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
             writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.resultInfo){
-            writer.writeObjectValue<ResultInfoImpl>("resultInfo", new ResultInfoImpl(this.resultInfo));
+            writer.writeObjectValue<ResultInfoImpl>("resultInfo", (!this.resultInfo || this.resultInfo instanceof ResultInfoImpl? this.resultInfo : new ResultInfoImpl(this.resultInfo)));
         }
         if(this.status){
             writer.writeEnumValue<OperationStatus>("status", this.status);
+        }
+    };
+    /**
+     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * @returns a operationStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: OperationStatus | undefined) {
+        if(value) {
+            this._status = value;
         }
     };
 }

@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getPstnCalls method. */
 export class GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl implements GetPstnCallsWithFromDateTimeWithToDateTimeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: PstnCallLogRow[] | undefined;
+    private _value?: PstnCallLogRow[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getPstnCallsWithFromDateTimeWithToDateTimeResponse and sets the default values.
      * @param getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue 
      */
     public constructor(getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?: GetPstnCallsWithFromDateTimeWithToDateTimeResponse | undefined) {
-        this.additionalData = getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
-        this.value = getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.value;
+        this._additionalData = getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData ? getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.additionalData! : {};
+        this._value = getPstnCallsWithFromDateTimeWithToDateTimeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl implements G
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: PstnCallLogRowImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PstnCallLogRowImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PstnCallLogRowImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof PstnCallLogRowImpl? element:new PstnCallLogRowImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PstnCallLogRowImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a PstnCallLogRowInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: PstnCallLogRow[] | undefined) {
+        if(value) {
+            const valueArrValue: PstnCallLogRowImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof PstnCallLogRowImpl? element:new PstnCallLogRowImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

@@ -7,14 +7,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartPointFormatImpl extends EntityImpl implements WorkbookChartPointFormat {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
-    public fill?: WorkbookChartFill | undefined;
+    private _fill?: WorkbookChartFill | undefined;
     /**
      * Instantiates a new workbookChartPointFormat and sets the default values.
      * @param workbookChartPointFormatParameterValue 
      */
     public constructor(workbookChartPointFormatParameterValue?: WorkbookChartPointFormat | undefined) {
         super(workbookChartPointFormatParameterValue);
-        this.fill = workbookChartPointFormatParameterValue?.fill;
+        this._fill = workbookChartPointFormatParameterValue?.fill;
+    };
+    /**
+     * Gets the fill property value. Represents the fill format of a chart, which includes background formating information. Read-only.
+     * @returns a WorkbookChartFillInterface
+     */
+    public get fill() {
+        return this._fill;
+    };
+    /**
+     * Sets the fill property value. Represents the fill format of a chart, which includes background formating information. Read-only.
+     * @param value Value to set for the fill property.
+     */
+    public set fill(value: WorkbookChartFill | undefined) {
+        if(value) {
+            this._fill = value instanceof WorkbookChartFillImpl? value : new WorkbookChartFillImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +49,7 @@ export class WorkbookChartPointFormatImpl extends EntityImpl implements Workbook
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-            writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", (!this.fill || this.fill instanceof WorkbookChartFillImpl? this.fill : new WorkbookChartFillImpl(this.fill)));
         }
     };
 }

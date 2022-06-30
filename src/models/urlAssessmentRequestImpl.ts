@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class UrlAssessmentRequestImpl extends ThreatAssessmentRequestImpl implements UrlAssessmentRequest {
     /** The URL string. */
-    public url?: string | undefined;
+    private _url?: string | undefined;
     /**
      * Instantiates a new UrlAssessmentRequest and sets the default values.
      * @param urlAssessmentRequestParameterValue 
      */
     public constructor(urlAssessmentRequestParameterValue?: UrlAssessmentRequest | undefined) {
         super(urlAssessmentRequestParameterValue);
-        this.url = urlAssessmentRequestParameterValue?.url;
+        this._url = urlAssessmentRequestParameterValue?.url;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +31,22 @@ export class UrlAssessmentRequestImpl extends ThreatAssessmentRequestImpl implem
         super.serialize(writer);
         if(this.url){
             writer.writeStringValue("url", this.url);
+        }
+    };
+    /**
+     * Gets the url property value. The URL string.
+     * @returns a string
+     */
+    public get url() {
+        return this._url;
+    };
+    /**
+     * Sets the url property value. The URL string.
+     * @param value Value to set for the url property.
+     */
+    public set url(value: string | undefined) {
+        if(value) {
+            this._url = value;
         }
     };
 }

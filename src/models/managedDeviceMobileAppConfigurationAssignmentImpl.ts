@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Contains the properties used to assign an MDM app configuration to a group. */
 export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationAssignment {
     /** Assignment target that the T&C policy is assigned to. */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedDeviceMobileAppConfigurationAssignment and sets the default values.
      * @param managedDeviceMobileAppConfigurationAssignmentParameterValue 
      */
     public constructor(managedDeviceMobileAppConfigurationAssignmentParameterValue?: ManagedDeviceMobileAppConfigurationAssignment | undefined) {
         super(managedDeviceMobileAppConfigurationAssignmentParameterValue);
-        this.target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target;
+        this._target = managedDeviceMobileAppConfigurationAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,23 @@ export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+        }
+    };
+    /**
+     * Gets the target property value. Assignment target that the T&C policy is assigned to.
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. Assignment target that the T&C policy is assigned to.
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

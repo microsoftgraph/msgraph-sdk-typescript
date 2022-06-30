@@ -6,31 +6,95 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookSortFieldImpl implements WorkbookSortField {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Represents whether the sorting is done in an ascending fashion. */
-    public ascending?: boolean | undefined;
+    private _ascending?: boolean | undefined;
     /** Represents the color that is the target of the condition if the sorting is on font or cell color. */
-    public color?: string | undefined;
+    private _color?: string | undefined;
     /** Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber. */
-    public dataOption?: string | undefined;
+    private _dataOption?: string | undefined;
     /** Represents the icon that is the target of the condition if the sorting is on the cell's icon. */
-    public icon?: WorkbookIcon | undefined;
+    private _icon?: WorkbookIcon | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
-    public key?: number | undefined;
+    private _key?: number | undefined;
     /** Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon. */
-    public sortOn?: string | undefined;
+    private _sortOn?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the ascending property value. Represents whether the sorting is done in an ascending fashion.
+     * @returns a boolean
+     */
+    public get ascending() {
+        return this._ascending;
+    };
+    /**
+     * Sets the ascending property value. Represents whether the sorting is done in an ascending fashion.
+     * @param value Value to set for the ascending property.
+     */
+    public set ascending(value: boolean | undefined) {
+        if(value) {
+            this._ascending = value;
+        }
+    };
+    /**
+     * Gets the color property value. Represents the color that is the target of the condition if the sorting is on font or cell color.
+     * @returns a string
+     */
+    public get color() {
+        return this._color;
+    };
+    /**
+     * Sets the color property value. Represents the color that is the target of the condition if the sorting is on font or cell color.
+     * @param value Value to set for the color property.
+     */
+    public set color(value: string | undefined) {
+        if(value) {
+            this._color = value;
+        }
+    };
     /**
      * Instantiates a new workbookSortField and sets the default values.
      * @param workbookSortFieldParameterValue 
      */
     public constructor(workbookSortFieldParameterValue?: WorkbookSortField | undefined) {
-        this.additionalData = workbookSortFieldParameterValue?.additionalData ? workbookSortFieldParameterValue?.additionalData! : {};
-        this.ascending = workbookSortFieldParameterValue?.ascending;
-        this.color = workbookSortFieldParameterValue?.color;
-        this.dataOption = workbookSortFieldParameterValue?.dataOption;
-        this.icon = workbookSortFieldParameterValue?.icon;
-        this.key = workbookSortFieldParameterValue?.key;
-        this.sortOn = workbookSortFieldParameterValue?.sortOn;
+        this._additionalData = workbookSortFieldParameterValue?.additionalData ? workbookSortFieldParameterValue?.additionalData! : {};
+        this._ascending = workbookSortFieldParameterValue?.ascending;
+        this._color = workbookSortFieldParameterValue?.color;
+        this._dataOption = workbookSortFieldParameterValue?.dataOption;
+        this._icon = workbookSortFieldParameterValue?.icon;
+        this._key = workbookSortFieldParameterValue?.key;
+        this._sortOn = workbookSortFieldParameterValue?.sortOn;
+    };
+    /**
+     * Gets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * @returns a string
+     */
+    public get dataOption() {
+        return this._dataOption;
+    };
+    /**
+     * Sets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * @param value Value to set for the dataOption property.
+     */
+    public set dataOption(value: string | undefined) {
+        if(value) {
+            this._dataOption = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -45,6 +109,38 @@ export class WorkbookSortFieldImpl implements WorkbookSortField {
             "key": n => { this.key = n.getNumberValue(); },
             "sortOn": n => { this.sortOn = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the icon property value. Represents the icon that is the target of the condition if the sorting is on the cell's icon.
+     * @returns a WorkbookIconInterface
+     */
+    public get icon() {
+        return this._icon;
+    };
+    /**
+     * Sets the icon property value. Represents the icon that is the target of the condition if the sorting is on the cell's icon.
+     * @param value Value to set for the icon property.
+     */
+    public set icon(value: WorkbookIcon | undefined) {
+        if(value) {
+            this._icon = value instanceof WorkbookIconImpl? value : new WorkbookIconImpl(value);
+        }
+    };
+    /**
+     * Gets the key property value. Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row).
+     * @returns a integer
+     */
+    public get key() {
+        return this._key;
+    };
+    /**
+     * Sets the key property value. Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row).
+     * @param value Value to set for the key property.
+     */
+    public set key(value: number | undefined) {
+        if(value) {
+            this._key = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,7 +158,7 @@ export class WorkbookSortFieldImpl implements WorkbookSortField {
             writer.writeStringValue("dataOption", this.dataOption);
         }
         if(this.icon){
-            writer.writeObjectValue<WorkbookIconImpl>("icon", new WorkbookIconImpl(this.icon));
+            writer.writeObjectValue<WorkbookIconImpl>("icon", (!this.icon || this.icon instanceof WorkbookIconImpl? this.icon : new WorkbookIconImpl(this.icon)));
         }
         if(this.key){
             writer.writeNumberValue("key", this.key);
@@ -71,5 +167,21 @@ export class WorkbookSortFieldImpl implements WorkbookSortField {
             writer.writeStringValue("sortOn", this.sortOn);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * @returns a string
+     */
+    public get sortOn() {
+        return this._sortOn;
+    };
+    /**
+     * Sets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * @param value Value to set for the sortOn property.
+     */
+    public set sortOn(value: string | undefined) {
+        if(value) {
+            this._sortOn = value;
+        }
     };
 }

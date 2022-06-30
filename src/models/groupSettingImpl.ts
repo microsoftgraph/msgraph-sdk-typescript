@@ -7,20 +7,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class GroupSettingImpl extends EntityImpl implements GroupSetting {
     /** Display name of this group of settings, which comes from the associated template. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only. */
-    public templateId?: string | undefined;
+    private _templateId?: string | undefined;
     /** Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object. */
-    public values?: SettingValue[] | undefined;
+    private _values?: SettingValue[] | undefined;
     /**
      * Instantiates a new groupSetting and sets the default values.
      * @param groupSettingParameterValue 
      */
     public constructor(groupSettingParameterValue?: GroupSetting | undefined) {
         super(groupSettingParameterValue);
-        this.displayName = groupSettingParameterValue?.displayName;
-        this.templateId = groupSettingParameterValue?.templateId;
-        this.values = groupSettingParameterValue?.values;
+        this._displayName = groupSettingParameterValue?.displayName;
+        this._templateId = groupSettingParameterValue?.templateId;
+        this._values = groupSettingParameterValue?.values;
+    };
+    /**
+     * Gets the displayName property value. Display name of this group of settings, which comes from the associated template.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name of this group of settings, which comes from the associated template.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -46,8 +62,47 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         if(this.templateId){
             writer.writeStringValue("templateId", this.templateId);
         }
-        if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = []; this.values?.forEach(element => {valuesArrValue.push(new SettingValueImpl(element));});
+        if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = [];
+        this.values?.forEach(element => {
+            valuesArrValue.push((element instanceof SettingValueImpl? element:new SettingValueImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SettingValueImpl>("values", valuesArrValue);
+        }
+    };
+    /**
+     * Gets the templateId property value. Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only.
+     * @returns a string
+     */
+    public get templateId() {
+        return this._templateId;
+    };
+    /**
+     * Sets the templateId property value. Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only.
+     * @param value Value to set for the templateId property.
+     */
+    public set templateId(value: string | undefined) {
+        if(value) {
+            this._templateId = value;
+        }
+    };
+    /**
+     * Gets the values property value. Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object.
+     * @returns a SettingValueInterface
+     */
+    public get values() {
+        return this._values;
+    };
+    /**
+     * Sets the values property value. Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object.
+     * @param value Value to set for the values property.
+     */
+    public set values(value: SettingValue[] | undefined) {
+        if(value) {
+            const valuesArrValue: SettingValueImpl[] = [];
+            this.values?.forEach(element => {
+                valuesArrValue.push((element instanceof SettingValueImpl? element:new SettingValueImpl(element)));
+            });
+            this._values = valuesArrValue;
         }
     };
 }

@@ -4,22 +4,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WebsiteImpl implements Website {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The URL of the website. */
-    public address?: string | undefined;
+    private _address?: string | undefined;
     /** The display name of the web site. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Possible values are: other, home, work, blog, profile. */
-    public type?: WebsiteType | undefined;
+    private _type?: WebsiteType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the address property value. The URL of the website.
+     * @returns a string
+     */
+    public get address() {
+        return this._address;
+    };
+    /**
+     * Sets the address property value. The URL of the website.
+     * @param value Value to set for the address property.
+     */
+    public set address(value: string | undefined) {
+        if(value) {
+            this._address = value;
+        }
+    };
     /**
      * Instantiates a new website and sets the default values.
      * @param websiteParameterValue 
      */
     public constructor(websiteParameterValue?: Website | undefined) {
-        this.additionalData = websiteParameterValue?.additionalData ? websiteParameterValue?.additionalData! : {};
-        this.address = websiteParameterValue?.address;
-        this.displayName = websiteParameterValue?.displayName;
-        this.type = websiteParameterValue?.type;
+        this._additionalData = websiteParameterValue?.additionalData ? websiteParameterValue?.additionalData! : {};
+        this._address = websiteParameterValue?.address;
+        this._displayName = websiteParameterValue?.displayName;
+        this._type = websiteParameterValue?.type;
+    };
+    /**
+     * Gets the displayName property value. The display name of the web site.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name of the web site.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -48,5 +96,21 @@ export class WebsiteImpl implements Website {
             writer.writeEnumValue<WebsiteType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. Possible values are: other, home, work, blog, profile.
+     * @returns a websiteType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. Possible values are: other, home, work, blog, profile.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: WebsiteType | undefined) {
+        if(value) {
+            this._type = value;
+        }
     };
 }

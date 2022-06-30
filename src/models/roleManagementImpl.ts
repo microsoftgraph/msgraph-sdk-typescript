@@ -6,19 +6,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RoleManagementImpl implements RoleManagement {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The directory property */
-    public directory?: RbacApplication | undefined;
+    private _directory?: RbacApplication | undefined;
     /** Container for roles and assignments for entitlement management resources. */
-    public entitlementManagement?: RbacApplication | undefined;
+    private _entitlementManagement?: RbacApplication | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new RoleManagement and sets the default values.
      * @param roleManagementParameterValue 
      */
     public constructor(roleManagementParameterValue?: RoleManagement | undefined) {
-        this.additionalData = roleManagementParameterValue?.additionalData ? roleManagementParameterValue?.additionalData! : {};
-        this.directory = roleManagementParameterValue?.directory;
-        this.entitlementManagement = roleManagementParameterValue?.entitlementManagement;
+        this._additionalData = roleManagementParameterValue?.additionalData ? roleManagementParameterValue?.additionalData! : {};
+        this._directory = roleManagementParameterValue?.directory;
+        this._entitlementManagement = roleManagementParameterValue?.entitlementManagement;
+    };
+    /**
+     * Gets the directory property value. The directory property
+     * @returns a RbacApplicationInterface
+     */
+    public get directory() {
+        return this._directory;
+    };
+    /**
+     * Sets the directory property value. The directory property
+     * @param value Value to set for the directory property.
+     */
+    public set directory(value: RbacApplication | undefined) {
+        if(value) {
+            this._directory = value instanceof RbacApplicationImpl? value : new RbacApplicationImpl(value);
+        }
+    };
+    /**
+     * Gets the entitlementManagement property value. Container for roles and assignments for entitlement management resources.
+     * @returns a RbacApplicationInterface
+     */
+    public get entitlementManagement() {
+        return this._entitlementManagement;
+    };
+    /**
+     * Sets the entitlementManagement property value. Container for roles and assignments for entitlement management resources.
+     * @param value Value to set for the entitlementManagement property.
+     */
+    public set entitlementManagement(value: RbacApplication | undefined) {
+        if(value) {
+            this._entitlementManagement = value instanceof RbacApplicationImpl? value : new RbacApplicationImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -37,10 +85,10 @@ export class RoleManagementImpl implements RoleManagement {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.directory){
-            writer.writeObjectValue<RbacApplicationImpl>("directory", new RbacApplicationImpl(this.directory));
+            writer.writeObjectValue<RbacApplicationImpl>("directory", (!this.directory || this.directory instanceof RbacApplicationImpl? this.directory : new RbacApplicationImpl(this.directory)));
         }
         if(this.entitlementManagement){
-            writer.writeObjectValue<RbacApplicationImpl>("entitlementManagement", new RbacApplicationImpl(this.entitlementManagement));
+            writer.writeObjectValue<RbacApplicationImpl>("entitlementManagement", (!this.entitlementManagement || this.entitlementManagement instanceof RbacApplicationImpl? this.entitlementManagement : new RbacApplicationImpl(this.entitlementManagement)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

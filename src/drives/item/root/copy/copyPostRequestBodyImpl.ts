@@ -7,19 +7,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the copy method. */
 export class CopyPostRequestBodyImpl implements CopyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The name property */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The parentReference property */
-    public parentReference?: ItemReference | undefined;
+    private _parentReference?: ItemReference | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new copyPostRequestBody and sets the default values.
      * @param copyPostRequestBodyParameterValue 
      */
     public constructor(copyPostRequestBodyParameterValue?: CopyPostRequestBody | undefined) {
-        this.additionalData = copyPostRequestBodyParameterValue?.additionalData ? copyPostRequestBodyParameterValue?.additionalData! : {};
-        this.name = copyPostRequestBodyParameterValue?.name;
-        this.parentReference = copyPostRequestBodyParameterValue?.parentReference;
+        this._additionalData = copyPostRequestBodyParameterValue?.additionalData ? copyPostRequestBodyParameterValue?.additionalData! : {};
+        this._name = copyPostRequestBodyParameterValue?.name;
+        this._parentReference = copyPostRequestBodyParameterValue?.parentReference;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +48,38 @@ export class CopyPostRequestBodyImpl implements CopyPostRequestBody {
         };
     };
     /**
+     * Gets the name property value. The name property
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name property
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the parentReference property value. The parentReference property
+     * @returns a ItemReferenceInterface
+     */
+    public get parentReference() {
+        return this._parentReference;
+    };
+    /**
+     * Sets the parentReference property value. The parentReference property
+     * @param value Value to set for the parentReference property.
+     */
+    public set parentReference(value: ItemReference | undefined) {
+        if(value) {
+            this._parentReference = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -41,7 +89,7 @@ export class CopyPostRequestBodyImpl implements CopyPostRequestBody {
             writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-            writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (!this.parentReference || this.parentReference instanceof ItemReferenceImpl? this.parentReference : new ItemReferenceImpl(this.parentReference)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

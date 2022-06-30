@@ -6,25 +6,57 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SharingInvitationImpl implements SharingInvitation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The email address provided for the recipient of the sharing invitation. Read-only. */
-    public email?: string | undefined;
+    private _email?: string | undefined;
     /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only. */
-    public invitedBy?: IdentitySet | undefined;
+    private _invitedBy?: IdentitySet | undefined;
     /** The redeemedBy property */
-    public redeemedBy?: string | undefined;
+    private _redeemedBy?: string | undefined;
     /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
-    public signInRequired?: boolean | undefined;
+    private _signInRequired?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new sharingInvitation and sets the default values.
      * @param sharingInvitationParameterValue 
      */
     public constructor(sharingInvitationParameterValue?: SharingInvitation | undefined) {
-        this.additionalData = sharingInvitationParameterValue?.additionalData ? sharingInvitationParameterValue?.additionalData! : {};
-        this.email = sharingInvitationParameterValue?.email;
-        this.invitedBy = sharingInvitationParameterValue?.invitedBy;
-        this.redeemedBy = sharingInvitationParameterValue?.redeemedBy;
-        this.signInRequired = sharingInvitationParameterValue?.signInRequired;
+        this._additionalData = sharingInvitationParameterValue?.additionalData ? sharingInvitationParameterValue?.additionalData! : {};
+        this._email = sharingInvitationParameterValue?.email;
+        this._invitedBy = sharingInvitationParameterValue?.invitedBy;
+        this._redeemedBy = sharingInvitationParameterValue?.redeemedBy;
+        this._signInRequired = sharingInvitationParameterValue?.signInRequired;
+    };
+    /**
+     * Gets the email property value. The email address provided for the recipient of the sharing invitation. Read-only.
+     * @returns a string
+     */
+    public get email() {
+        return this._email;
+    };
+    /**
+     * Sets the email property value. The email address provided for the recipient of the sharing invitation. Read-only.
+     * @param value Value to set for the email property.
+     */
+    public set email(value: string | undefined) {
+        if(value) {
+            this._email = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +71,38 @@ export class SharingInvitationImpl implements SharingInvitation {
         };
     };
     /**
+     * Gets the invitedBy property value. Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
+     * @returns a IdentitySetInterface
+     */
+    public get invitedBy() {
+        return this._invitedBy;
+    };
+    /**
+     * Sets the invitedBy property value. Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
+     * @param value Value to set for the invitedBy property.
+     */
+    public set invitedBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._invitedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the redeemedBy property value. The redeemedBy property
+     * @returns a string
+     */
+    public get redeemedBy() {
+        return this._redeemedBy;
+    };
+    /**
+     * Sets the redeemedBy property value. The redeemedBy property
+     * @param value Value to set for the redeemedBy property.
+     */
+    public set redeemedBy(value: string | undefined) {
+        if(value) {
+            this._redeemedBy = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -48,7 +112,7 @@ export class SharingInvitationImpl implements SharingInvitation {
             writer.writeStringValue("email", this.email);
         }
         if(this.invitedBy){
-            writer.writeObjectValue<IdentitySetImpl>("invitedBy", new IdentitySetImpl(this.invitedBy));
+            writer.writeObjectValue<IdentitySetImpl>("invitedBy", (!this.invitedBy || this.invitedBy instanceof IdentitySetImpl? this.invitedBy : new IdentitySetImpl(this.invitedBy)));
         }
         if(this.redeemedBy){
             writer.writeStringValue("redeemedBy", this.redeemedBy);
@@ -57,5 +121,21 @@ export class SharingInvitationImpl implements SharingInvitation {
             writer.writeBooleanValue("signInRequired", this.signInRequired);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the signInRequired property value. If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
+     * @returns a boolean
+     */
+    public get signInRequired() {
+        return this._signInRequired;
+    };
+    /**
+     * Sets the signInRequired property value. If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
+     * @param value Value to set for the signInRequired property.
+     */
+    public set signInRequired(value: boolean | undefined) {
+        if(value) {
+            this._signInRequired = value;
+        }
     };
 }

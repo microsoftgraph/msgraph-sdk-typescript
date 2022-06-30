@@ -9,23 +9,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTableColumn {
     /** Retrieve the filter applied to the column. Read-only. */
-    public filter?: WorkbookFilter | undefined;
+    private _filter?: WorkbookFilter | undefined;
     /** Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only. */
-    public index?: number | undefined;
+    private _index?: number | undefined;
     /** Returns the name of the table column. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string. */
-    public values?: Json | undefined;
+    private _values?: Json | undefined;
     /**
      * Instantiates a new workbookTableColumn and sets the default values.
      * @param workbookTableColumnParameterValue 
      */
     public constructor(workbookTableColumnParameterValue?: WorkbookTableColumn | undefined) {
         super(workbookTableColumnParameterValue);
-        this.filter = workbookTableColumnParameterValue?.filter;
-        this.index = workbookTableColumnParameterValue?.index;
-        this.name = workbookTableColumnParameterValue?.name;
-        this.values = workbookTableColumnParameterValue?.values;
+        this._filter = workbookTableColumnParameterValue?.filter;
+        this._index = workbookTableColumnParameterValue?.index;
+        this._name = workbookTableColumnParameterValue?.name;
+        this._values = workbookTableColumnParameterValue?.values;
+    };
+    /**
+     * Gets the filter property value. Retrieve the filter applied to the column. Read-only.
+     * @returns a WorkbookFilterInterface
+     */
+    public get filter() {
+        return this._filter;
+    };
+    /**
+     * Sets the filter property value. Retrieve the filter applied to the column. Read-only.
+     * @param value Value to set for the filter property.
+     */
+    public set filter(value: WorkbookFilter | undefined) {
+        if(value) {
+            this._filter = value instanceof WorkbookFilterImpl? value : new WorkbookFilterImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +56,38 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
         };
     };
     /**
+     * Gets the index property value. Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only.
+     * @returns a integer
+     */
+    public get index() {
+        return this._index;
+    };
+    /**
+     * Sets the index property value. Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only.
+     * @param value Value to set for the index property.
+     */
+    public set index(value: number | undefined) {
+        if(value) {
+            this._index = value;
+        }
+    };
+    /**
+     * Gets the name property value. Returns the name of the table column.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Returns the name of the table column.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -47,7 +95,7 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.filter){
-            writer.writeObjectValue<WorkbookFilterImpl>("filter", new WorkbookFilterImpl(this.filter));
+            writer.writeObjectValue<WorkbookFilterImpl>("filter", (!this.filter || this.filter instanceof WorkbookFilterImpl? this.filter : new WorkbookFilterImpl(this.filter)));
         }
         if(this.index){
             writer.writeNumberValue("index", this.index);
@@ -56,7 +104,23 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
             writer.writeStringValue("name", this.name);
         }
         if(this.values){
-            writer.writeObjectValue<JsonImpl>("values", new JsonImpl(this.values));
+            writer.writeObjectValue<JsonImpl>("values", (!this.values || this.values instanceof JsonImpl? this.values : new JsonImpl(this.values)));
+        }
+    };
+    /**
+     * Gets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
+     * @returns a JsonInterface
+     */
+    public get values() {
+        return this._values;
+    };
+    /**
+     * Sets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
+     * @param value Value to set for the values property.
+     */
+    public set values(value: Json | undefined) {
+        if(value) {
+            this._values = value instanceof JsonImpl? value : new JsonImpl(value);
         }
     };
 }

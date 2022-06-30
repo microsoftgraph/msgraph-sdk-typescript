@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DomainDnsTxtRecordImpl extends DomainDnsRecordImpl implements DomainDnsTxtRecord {
     /** Value used when configuring the text property at the DNS host. */
-    public text?: string | undefined;
+    private _text?: string | undefined;
     /**
      * Instantiates a new DomainDnsTxtRecord and sets the default values.
      * @param domainDnsTxtRecordParameterValue 
      */
     public constructor(domainDnsTxtRecordParameterValue?: DomainDnsTxtRecord | undefined) {
         super(domainDnsTxtRecordParameterValue);
-        this.text = domainDnsTxtRecordParameterValue?.text;
+        this._text = domainDnsTxtRecordParameterValue?.text;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +31,22 @@ export class DomainDnsTxtRecordImpl extends DomainDnsRecordImpl implements Domai
         super.serialize(writer);
         if(this.text){
             writer.writeStringValue("text", this.text);
+        }
+    };
+    /**
+     * Gets the text property value. Value used when configuring the text property at the DNS host.
+     * @returns a string
+     */
+    public get text() {
+        return this._text;
+    };
+    /**
+     * Sets the text property value. Value used when configuring the text property at the DNS host.
+     * @param value Value to set for the text property.
+     */
+    public set text(value: string | undefined) {
+        if(value) {
+            this._text = value;
         }
     };
 }

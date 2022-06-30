@@ -5,29 +5,61 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFont {
     /** Represents the bold status of font. */
-    public bold?: boolean | undefined;
+    private _bold?: boolean | undefined;
     /** HTML color code representation of the text color. E.g. #FF0000 represents Red. */
-    public color?: string | undefined;
+    private _color?: string | undefined;
     /** Represents the italic status of the font. */
-    public italic?: boolean | undefined;
+    private _italic?: boolean | undefined;
     /** Font name (e.g. 'Calibri') */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** Size of the font (e.g. 11) */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /** Type of underline applied to the font. The possible values are: None, Single. */
-    public underline?: string | undefined;
+    private _underline?: string | undefined;
+    /**
+     * Gets the bold property value. Represents the bold status of font.
+     * @returns a boolean
+     */
+    public get bold() {
+        return this._bold;
+    };
+    /**
+     * Sets the bold property value. Represents the bold status of font.
+     * @param value Value to set for the bold property.
+     */
+    public set bold(value: boolean | undefined) {
+        if(value) {
+            this._bold = value;
+        }
+    };
+    /**
+     * Gets the color property value. HTML color code representation of the text color. E.g. #FF0000 represents Red.
+     * @returns a string
+     */
+    public get color() {
+        return this._color;
+    };
+    /**
+     * Sets the color property value. HTML color code representation of the text color. E.g. #FF0000 represents Red.
+     * @param value Value to set for the color property.
+     */
+    public set color(value: string | undefined) {
+        if(value) {
+            this._color = value;
+        }
+    };
     /**
      * Instantiates a new workbookChartFont and sets the default values.
      * @param workbookChartFontParameterValue 
      */
     public constructor(workbookChartFontParameterValue?: WorkbookChartFont | undefined) {
         super(workbookChartFontParameterValue);
-        this.bold = workbookChartFontParameterValue?.bold;
-        this.color = workbookChartFontParameterValue?.color;
-        this.italic = workbookChartFontParameterValue?.italic;
-        this.name = workbookChartFontParameterValue?.name;
-        this.size = workbookChartFontParameterValue?.size;
-        this.underline = workbookChartFontParameterValue?.underline;
+        this._bold = workbookChartFontParameterValue?.bold;
+        this._color = workbookChartFontParameterValue?.color;
+        this._italic = workbookChartFontParameterValue?.italic;
+        this._name = workbookChartFontParameterValue?.name;
+        this._size = workbookChartFontParameterValue?.size;
+        this._underline = workbookChartFontParameterValue?.underline;
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +74,38 @@ export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFo
             "size": n => { this.size = n.getNumberValue(); },
             "underline": n => { this.underline = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the italic property value. Represents the italic status of the font.
+     * @returns a boolean
+     */
+    public get italic() {
+        return this._italic;
+    };
+    /**
+     * Sets the italic property value. Represents the italic status of the font.
+     * @param value Value to set for the italic property.
+     */
+    public set italic(value: boolean | undefined) {
+        if(value) {
+            this._italic = value;
+        }
+    };
+    /**
+     * Gets the name property value. Font name (e.g. 'Calibri')
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Font name (e.g. 'Calibri')
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -67,6 +131,38 @@ export class WorkbookChartFontImpl extends EntityImpl implements WorkbookChartFo
         }
         if(this.underline){
             writer.writeStringValue("underline", this.underline);
+        }
+    };
+    /**
+     * Gets the size property value. Size of the font (e.g. 11)
+     * @returns a double
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. Size of the font (e.g. 11)
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
+        }
+    };
+    /**
+     * Gets the underline property value. Type of underline applied to the font. The possible values are: None, Single.
+     * @returns a string
+     */
+    public get underline() {
+        return this._underline;
+    };
+    /**
+     * Sets the underline property value. Type of underline applied to the font. The possible values are: None, Single.
+     * @param value Value to set for the underline property.
+     */
+    public set underline(value: string | undefined) {
+        if(value) {
+            this._underline = value;
         }
     };
 }

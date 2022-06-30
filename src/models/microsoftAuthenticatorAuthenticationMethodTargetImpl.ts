@@ -5,14 +5,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class MicrosoftAuthenticatorAuthenticationMethodTargetImpl extends AuthenticationMethodTargetImpl implements MicrosoftAuthenticatorAuthenticationMethodTarget {
     /** Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any. */
-    public authenticationMode?: MicrosoftAuthenticatorAuthenticationMode | undefined;
+    private _authenticationMode?: MicrosoftAuthenticatorAuthenticationMode | undefined;
+    /**
+     * Gets the authenticationMode property value. Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+     * @returns a microsoftAuthenticatorAuthenticationMode
+     */
+    public get authenticationMode() {
+        return this._authenticationMode;
+    };
+    /**
+     * Sets the authenticationMode property value. Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+     * @param value Value to set for the authenticationMode property.
+     */
+    public set authenticationMode(value: MicrosoftAuthenticatorAuthenticationMode | undefined) {
+        if(value) {
+            this._authenticationMode = value;
+        }
+    };
     /**
      * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodTarget and sets the default values.
      * @param microsoftAuthenticatorAuthenticationMethodTargetParameterValue 
      */
     public constructor(microsoftAuthenticatorAuthenticationMethodTargetParameterValue?: MicrosoftAuthenticatorAuthenticationMethodTarget | undefined) {
         super(microsoftAuthenticatorAuthenticationMethodTargetParameterValue);
-        this.authenticationMode = microsoftAuthenticatorAuthenticationMethodTargetParameterValue?.authenticationMode;
+        this._authenticationMode = microsoftAuthenticatorAuthenticationMethodTargetParameterValue?.authenticationMode;
     };
     /**
      * The deserialization information for the current model

@@ -3,25 +3,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessGrantControlsImpl implements ConditionalAccessGrantControls {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue. */
-    public builtInControls?: string[] | undefined;
+    private _builtInControls?: string[] | undefined;
     /** List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview). */
-    public customAuthenticationFactors?: string[] | undefined;
+    private _customAuthenticationFactors?: string[] | undefined;
     /** Defines the relationship of the grant controls. Possible values: AND, OR. */
-    public operator?: string | undefined;
+    private _operator?: string | undefined;
     /** List of terms of use IDs required by the policy. */
-    public termsOfUse?: string[] | undefined;
+    private _termsOfUse?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
+     * @returns a string
+     */
+    public get builtInControls() {
+        return this._builtInControls;
+    };
+    /**
+     * Sets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
+     * @param value Value to set for the builtInControls property.
+     */
+    public set builtInControls(value: string[] | undefined) {
+        if(value) {
+            this._builtInControls = value;
+        }
+    };
     /**
      * Instantiates a new conditionalAccessGrantControls and sets the default values.
      * @param conditionalAccessGrantControlsParameterValue 
      */
     public constructor(conditionalAccessGrantControlsParameterValue?: ConditionalAccessGrantControls | undefined) {
-        this.additionalData = conditionalAccessGrantControlsParameterValue?.additionalData ? conditionalAccessGrantControlsParameterValue?.additionalData! : {};
-        this.builtInControls = conditionalAccessGrantControlsParameterValue?.builtInControls;
-        this.customAuthenticationFactors = conditionalAccessGrantControlsParameterValue?.customAuthenticationFactors;
-        this.operator = conditionalAccessGrantControlsParameterValue?.operator;
-        this.termsOfUse = conditionalAccessGrantControlsParameterValue?.termsOfUse;
+        this._additionalData = conditionalAccessGrantControlsParameterValue?.additionalData ? conditionalAccessGrantControlsParameterValue?.additionalData! : {};
+        this._builtInControls = conditionalAccessGrantControlsParameterValue?.builtInControls;
+        this._customAuthenticationFactors = conditionalAccessGrantControlsParameterValue?.customAuthenticationFactors;
+        this._operator = conditionalAccessGrantControlsParameterValue?.operator;
+        this._termsOfUse = conditionalAccessGrantControlsParameterValue?.termsOfUse;
+    };
+    /**
+     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).
+     * @returns a string
+     */
+    public get customAuthenticationFactors() {
+        return this._customAuthenticationFactors;
+    };
+    /**
+     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).
+     * @param value Value to set for the customAuthenticationFactors property.
+     */
+    public set customAuthenticationFactors(value: string[] | undefined) {
+        if(value) {
+            this._customAuthenticationFactors = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +82,22 @@ export class ConditionalAccessGrantControlsImpl implements ConditionalAccessGran
             "operator": n => { this.operator = n.getStringValue(); },
             "termsOfUse": n => { this.termsOfUse = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the operator property value. Defines the relationship of the grant controls. Possible values: AND, OR.
+     * @returns a string
+     */
+    public get operator() {
+        return this._operator;
+    };
+    /**
+     * Sets the operator property value. Defines the relationship of the grant controls. Possible values: AND, OR.
+     * @param value Value to set for the operator property.
+     */
+    public set operator(value: string | undefined) {
+        if(value) {
+            this._operator = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -54,5 +118,21 @@ export class ConditionalAccessGrantControlsImpl implements ConditionalAccessGran
             writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the termsOfUse property value. List of terms of use IDs required by the policy.
+     * @returns a string
+     */
+    public get termsOfUse() {
+        return this._termsOfUse;
+    };
+    /**
+     * Sets the termsOfUse property value. List of terms of use IDs required by the policy.
+     * @param value Value to set for the termsOfUse property.
+     */
+    public set termsOfUse(value: string[] | undefined) {
+        if(value) {
+            this._termsOfUse = value;
+        }
     };
 }

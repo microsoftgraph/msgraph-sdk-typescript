@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessionControlImpl implements PersistentBrowserSessionControl {
     /** Possible values are: always, never. */
-    public mode?: PersistentBrowserSessionMode | undefined;
+    private _mode?: PersistentBrowserSessionMode | undefined;
     /**
      * Instantiates a new persistentBrowserSessionControl and sets the default values.
      * @param persistentBrowserSessionControlParameterValue 
      */
     public constructor(persistentBrowserSessionControlParameterValue?: PersistentBrowserSessionControl | undefined) {
         super(persistentBrowserSessionControlParameterValue);
-        this.mode = persistentBrowserSessionControlParameterValue?.mode;
+        this._mode = persistentBrowserSessionControlParameterValue?.mode;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +23,22 @@ export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessio
         return {...super.getFieldDeserializers(),
             "mode": n => { this.mode = n.getEnumValue<PersistentBrowserSessionMode>(PersistentBrowserSessionMode); },
         };
+    };
+    /**
+     * Gets the mode property value. Possible values are: always, never.
+     * @returns a persistentBrowserSessionMode
+     */
+    public get mode() {
+        return this._mode;
+    };
+    /**
+     * Sets the mode property value. Possible values are: always, never.
+     * @param value Value to set for the mode property.
+     */
+    public set mode(value: PersistentBrowserSessionMode | undefined) {
+        if(value) {
+            this._mode = value;
+        }
     };
     /**
      * Serializes information the current object

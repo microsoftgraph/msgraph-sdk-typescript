@@ -3,22 +3,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ErrorDetailsImpl implements ErrorDetails {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The code property */
-    public code?: string | undefined;
+    private _code?: string | undefined;
     /** The message property */
-    public message?: string | undefined;
+    private _message?: string | undefined;
     /** The target property */
-    public target?: string | undefined;
+    private _target?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the code property value. The code property
+     * @returns a string
+     */
+    public get code() {
+        return this._code;
+    };
+    /**
+     * Sets the code property value. The code property
+     * @param value Value to set for the code property.
+     */
+    public set code(value: string | undefined) {
+        if(value) {
+            this._code = value;
+        }
+    };
     /**
      * Instantiates a new ErrorDetails and sets the default values.
      * @param errorDetailsParameterValue 
      */
     public constructor(errorDetailsParameterValue?: ErrorDetails | undefined) {
-        this.additionalData = errorDetailsParameterValue?.additionalData ? errorDetailsParameterValue?.additionalData! : {};
-        this.code = errorDetailsParameterValue?.code;
-        this.message = errorDetailsParameterValue?.message;
-        this.target = errorDetailsParameterValue?.target;
+        this._additionalData = errorDetailsParameterValue?.additionalData ? errorDetailsParameterValue?.additionalData! : {};
+        this._code = errorDetailsParameterValue?.code;
+        this._message = errorDetailsParameterValue?.message;
+        this._target = errorDetailsParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,22 @@ export class ErrorDetailsImpl implements ErrorDetails {
             "message": n => { this.message = n.getStringValue(); },
             "target": n => { this.target = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the message property value. The message property
+     * @returns a string
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The message property
+     * @param value Value to set for the message property.
+     */
+    public set message(value: string | undefined) {
+        if(value) {
+            this._message = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +95,21 @@ export class ErrorDetailsImpl implements ErrorDetails {
             writer.writeStringValue("target", this.target);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the target property value. The target property
+     * @returns a string
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. The target property
+     * @param value Value to set for the target property.
+     */
+    public set target(value: string | undefined) {
+        if(value) {
+            this._target = value;
+        }
     };
 }

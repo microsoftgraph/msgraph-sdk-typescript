@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AgreementCollectionResponseImpl implements AgreementCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: Agreement[] | undefined;
+    private _value?: Agreement[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new AgreementCollectionResponse and sets the default values.
      * @param agreementCollectionResponseParameterValue 
      */
     public constructor(agreementCollectionResponseParameterValue?: AgreementCollectionResponse | undefined) {
-        this.additionalData = agreementCollectionResponseParameterValue?.additionalData ? agreementCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = agreementCollectionResponseParameterValue?.nextLink;
-        this.value = agreementCollectionResponseParameterValue?.value;
+        this._additionalData = agreementCollectionResponseParameterValue?.additionalData ? agreementCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = agreementCollectionResponseParameterValue?.nextLink;
+        this._value = agreementCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class AgreementCollectionResponseImpl implements AgreementCollectionRespo
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class AgreementCollectionResponseImpl implements AgreementCollectionRespo
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: AgreementImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new AgreementImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: AgreementImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof AgreementImpl? element:new AgreementImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AgreementImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a AgreementInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: Agreement[] | undefined) {
+        if(value) {
+            const valueArrValue: AgreementImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof AgreementImpl? element:new AgreementImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

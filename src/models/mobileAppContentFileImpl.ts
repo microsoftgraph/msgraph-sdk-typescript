@@ -6,38 +6,86 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Contains properties for a single installer file that is associated with a given mobileAppContent version. */
 export class MobileAppContentFileImpl extends EntityImpl implements MobileAppContentFile {
     /** The Azure Storage URI. */
-    public azureStorageUri?: string | undefined;
+    private _azureStorageUri?: string | undefined;
     /** The time the Azure storage Uri expires. */
-    public azureStorageUriExpirationDateTime?: Date | undefined;
+    private _azureStorageUriExpirationDateTime?: Date | undefined;
     /** The time the file was created. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** A value indicating whether the file is committed. */
-    public isCommitted?: boolean | undefined;
+    private _isCommitted?: boolean | undefined;
     /** The manifest information. */
-    public manifest?: string | undefined;
+    private _manifest?: string | undefined;
     /** the file name. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The size of the file prior to encryption. */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /** The size of the file after encryption. */
-    public sizeEncrypted?: number | undefined;
+    private _sizeEncrypted?: number | undefined;
     /** The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut. */
-    public uploadState?: MobileAppContentFileUploadState | undefined;
+    private _uploadState?: MobileAppContentFileUploadState | undefined;
+    /**
+     * Gets the azureStorageUri property value. The Azure Storage URI.
+     * @returns a string
+     */
+    public get azureStorageUri() {
+        return this._azureStorageUri;
+    };
+    /**
+     * Sets the azureStorageUri property value. The Azure Storage URI.
+     * @param value Value to set for the azureStorageUri property.
+     */
+    public set azureStorageUri(value: string | undefined) {
+        if(value) {
+            this._azureStorageUri = value;
+        }
+    };
+    /**
+     * Gets the azureStorageUriExpirationDateTime property value. The time the Azure storage Uri expires.
+     * @returns a Date
+     */
+    public get azureStorageUriExpirationDateTime() {
+        return this._azureStorageUriExpirationDateTime;
+    };
+    /**
+     * Sets the azureStorageUriExpirationDateTime property value. The time the Azure storage Uri expires.
+     * @param value Value to set for the azureStorageUriExpirationDateTime property.
+     */
+    public set azureStorageUriExpirationDateTime(value: Date | undefined) {
+        if(value) {
+            this._azureStorageUriExpirationDateTime = value;
+        }
+    };
     /**
      * Instantiates a new mobileAppContentFile and sets the default values.
      * @param mobileAppContentFileParameterValue 
      */
     public constructor(mobileAppContentFileParameterValue?: MobileAppContentFile | undefined) {
         super(mobileAppContentFileParameterValue);
-        this.azureStorageUri = mobileAppContentFileParameterValue?.azureStorageUri;
-        this.azureStorageUriExpirationDateTime = mobileAppContentFileParameterValue?.azureStorageUriExpirationDateTime;
-        this.createdDateTime = mobileAppContentFileParameterValue?.createdDateTime;
-        this.isCommitted = mobileAppContentFileParameterValue?.isCommitted;
-        this.manifest = mobileAppContentFileParameterValue?.manifest;
-        this.name = mobileAppContentFileParameterValue?.name;
-        this.size = mobileAppContentFileParameterValue?.size;
-        this.sizeEncrypted = mobileAppContentFileParameterValue?.sizeEncrypted;
-        this.uploadState = mobileAppContentFileParameterValue?.uploadState;
+        this._azureStorageUri = mobileAppContentFileParameterValue?.azureStorageUri;
+        this._azureStorageUriExpirationDateTime = mobileAppContentFileParameterValue?.azureStorageUriExpirationDateTime;
+        this._createdDateTime = mobileAppContentFileParameterValue?.createdDateTime;
+        this._isCommitted = mobileAppContentFileParameterValue?.isCommitted;
+        this._manifest = mobileAppContentFileParameterValue?.manifest;
+        this._name = mobileAppContentFileParameterValue?.name;
+        this._size = mobileAppContentFileParameterValue?.size;
+        this._sizeEncrypted = mobileAppContentFileParameterValue?.sizeEncrypted;
+        this._uploadState = mobileAppContentFileParameterValue?.uploadState;
+    };
+    /**
+     * Gets the createdDateTime property value. The time the file was created.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The time the file was created.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -55,6 +103,54 @@ export class MobileAppContentFileImpl extends EntityImpl implements MobileAppCon
             "sizeEncrypted": n => { this.sizeEncrypted = n.getNumberValue(); },
             "uploadState": n => { this.uploadState = n.getEnumValue<MobileAppContentFileUploadState>(MobileAppContentFileUploadState); },
         };
+    };
+    /**
+     * Gets the isCommitted property value. A value indicating whether the file is committed.
+     * @returns a boolean
+     */
+    public get isCommitted() {
+        return this._isCommitted;
+    };
+    /**
+     * Sets the isCommitted property value. A value indicating whether the file is committed.
+     * @param value Value to set for the isCommitted property.
+     */
+    public set isCommitted(value: boolean | undefined) {
+        if(value) {
+            this._isCommitted = value;
+        }
+    };
+    /**
+     * Gets the manifest property value. The manifest information.
+     * @returns a binary
+     */
+    public get manifest() {
+        return this._manifest;
+    };
+    /**
+     * Sets the manifest property value. The manifest information.
+     * @param value Value to set for the manifest property.
+     */
+    public set manifest(value: string | undefined) {
+        if(value) {
+            this._manifest = value;
+        }
+    };
+    /**
+     * Gets the name property value. the file name.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. the file name.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -89,6 +185,54 @@ export class MobileAppContentFileImpl extends EntityImpl implements MobileAppCon
         }
         if(this.uploadState){
             writer.writeEnumValue<MobileAppContentFileUploadState>("uploadState", this.uploadState);
+        }
+    };
+    /**
+     * Gets the size property value. The size of the file prior to encryption.
+     * @returns a int64
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. The size of the file prior to encryption.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
+        }
+    };
+    /**
+     * Gets the sizeEncrypted property value. The size of the file after encryption.
+     * @returns a int64
+     */
+    public get sizeEncrypted() {
+        return this._sizeEncrypted;
+    };
+    /**
+     * Sets the sizeEncrypted property value. The size of the file after encryption.
+     * @param value Value to set for the sizeEncrypted property.
+     */
+    public set sizeEncrypted(value: number | undefined) {
+        if(value) {
+            this._sizeEncrypted = value;
+        }
+    };
+    /**
+     * Gets the uploadState property value. The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * @returns a mobileAppContentFileUploadState
+     */
+    public get uploadState() {
+        return this._uploadState;
+    };
+    /**
+     * Sets the uploadState property value. The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * @param value Value to set for the uploadState property.
+     */
+    public set uploadState(value: MobileAppContentFileUploadState | undefined) {
+        if(value) {
+            this._uploadState = value;
         }
     };
 }

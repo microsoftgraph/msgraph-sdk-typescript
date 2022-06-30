@@ -3,22 +3,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ModifiedPropertyImpl implements ModifiedProperty {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Name of property that was modified. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** New property value. */
-    public newValue?: string | undefined;
+    private _newValue?: string | undefined;
     /** Old property value. */
-    public oldValue?: string | undefined;
+    private _oldValue?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new modifiedProperty and sets the default values.
      * @param modifiedPropertyParameterValue 
      */
     public constructor(modifiedPropertyParameterValue?: ModifiedProperty | undefined) {
-        this.additionalData = modifiedPropertyParameterValue?.additionalData ? modifiedPropertyParameterValue?.additionalData! : {};
-        this.displayName = modifiedPropertyParameterValue?.displayName;
-        this.newValue = modifiedPropertyParameterValue?.newValue;
-        this.oldValue = modifiedPropertyParameterValue?.oldValue;
+        this._additionalData = modifiedPropertyParameterValue?.additionalData ? modifiedPropertyParameterValue?.additionalData! : {};
+        this._displayName = modifiedPropertyParameterValue?.displayName;
+        this._newValue = modifiedPropertyParameterValue?.newValue;
+        this._oldValue = modifiedPropertyParameterValue?.oldValue;
+    };
+    /**
+     * Gets the displayName property value. Name of property that was modified.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Name of property that was modified.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,38 @@ export class ModifiedPropertyImpl implements ModifiedProperty {
             "newValue": n => { this.newValue = n.getStringValue(); },
             "oldValue": n => { this.oldValue = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the newValue property value. New property value.
+     * @returns a string
+     */
+    public get newValue() {
+        return this._newValue;
+    };
+    /**
+     * Sets the newValue property value. New property value.
+     * @param value Value to set for the newValue property.
+     */
+    public set newValue(value: string | undefined) {
+        if(value) {
+            this._newValue = value;
+        }
+    };
+    /**
+     * Gets the oldValue property value. Old property value.
+     * @returns a string
+     */
+    public get oldValue() {
+        return this._oldValue;
+    };
+    /**
+     * Sets the oldValue property value. Old property value.
+     * @param value Value to set for the oldValue property.
+     */
+    public set oldValue(value: string | undefined) {
+        if(value) {
+            this._oldValue = value;
+        }
     };
     /**
      * Serializes information the current object

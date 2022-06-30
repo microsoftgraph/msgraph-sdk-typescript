@@ -7,23 +7,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartTitle {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
-    public format?: WorkbookChartTitleFormat | undefined;
+    private _format?: WorkbookChartTitleFormat | undefined;
     /** Boolean value representing if the chart title will overlay the chart or not. */
-    public overlay?: boolean | undefined;
+    private _overlay?: boolean | undefined;
     /** Represents the title text of a chart. */
-    public text?: string | undefined;
+    private _text?: string | undefined;
     /** A boolean value the represents the visibility of a chart title object. */
-    public visible?: boolean | undefined;
+    private _visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartTitle and sets the default values.
      * @param workbookChartTitleParameterValue 
      */
     public constructor(workbookChartTitleParameterValue?: WorkbookChartTitle | undefined) {
         super(workbookChartTitleParameterValue);
-        this.format = workbookChartTitleParameterValue?.format;
-        this.overlay = workbookChartTitleParameterValue?.overlay;
-        this.text = workbookChartTitleParameterValue?.text;
-        this.visible = workbookChartTitleParameterValue?.visible;
+        this._format = workbookChartTitleParameterValue?.format;
+        this._overlay = workbookChartTitleParameterValue?.overlay;
+        this._text = workbookChartTitleParameterValue?.text;
+        this._visible = workbookChartTitleParameterValue?.visible;
+    };
+    /**
+     * Gets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.
+     * @returns a WorkbookChartTitleFormatInterface
+     */
+    public get format() {
+        return this._format;
+    };
+    /**
+     * Sets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.
+     * @param value Value to set for the format property.
+     */
+    public set format(value: WorkbookChartTitleFormat | undefined) {
+        if(value) {
+            this._format = value instanceof WorkbookChartTitleFormatImpl? value : new WorkbookChartTitleFormatImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +54,22 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
         };
     };
     /**
+     * Gets the overlay property value. Boolean value representing if the chart title will overlay the chart or not.
+     * @returns a boolean
+     */
+    public get overlay() {
+        return this._overlay;
+    };
+    /**
+     * Sets the overlay property value. Boolean value representing if the chart title will overlay the chart or not.
+     * @param value Value to set for the overlay property.
+     */
+    public set overlay(value: boolean | undefined) {
+        if(value) {
+            this._overlay = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -45,7 +77,7 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", new WorkbookChartTitleFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartTitleFormatImpl? this.format : new WorkbookChartTitleFormatImpl(this.format)));
         }
         if(this.overlay){
             writer.writeBooleanValue("overlay", this.overlay);
@@ -55,6 +87,38 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
         }
         if(this.visible){
             writer.writeBooleanValue("visible", this.visible);
+        }
+    };
+    /**
+     * Gets the text property value. Represents the title text of a chart.
+     * @returns a string
+     */
+    public get text() {
+        return this._text;
+    };
+    /**
+     * Sets the text property value. Represents the title text of a chart.
+     * @param value Value to set for the text property.
+     */
+    public set text(value: string | undefined) {
+        if(value) {
+            this._text = value;
+        }
+    };
+    /**
+     * Gets the visible property value. A boolean value the represents the visibility of a chart title object.
+     * @returns a boolean
+     */
+    public get visible() {
+        return this._visible;
+    };
+    /**
+     * Sets the visible property value. A boolean value the represents the visibility of a chart title object.
+     * @param value Value to set for the visible property.
+     */
+    public set visible(value: boolean | undefined) {
+        if(value) {
+            this._visible = value;
         }
     };
 }

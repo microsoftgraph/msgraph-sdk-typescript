@@ -24,68 +24,196 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRightsRequest {
     /** Identity that the request is assigned to. */
-    public assignedTo?: Identity | undefined;
+    private _assignedTo?: Identity | undefined;
     /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public closedDateTime?: Date | undefined;
+    private _closedDateTime?: Date | undefined;
     /** Identity information for the entity that created the request. */
-    public createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | undefined;
     /** The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** Information about the data subject. */
-    public dataSubject?: DataSubject | undefined;
+    private _dataSubject?: DataSubject | undefined;
     /** The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue. */
-    public dataSubjectType?: DataSubjectType | undefined;
+    private _dataSubjectType?: DataSubjectType | undefined;
     /** Description for the request. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The name of the request. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Collection of history change events. */
-    public history?: SubjectRightsRequestHistory[] | undefined;
+    private _history?: SubjectRightsRequestHistory[] | undefined;
     /** Insight about the request. */
-    public insight?: SubjectRightsRequestDetail | undefined;
+    private _insight?: SubjectRightsRequestDetail | undefined;
     /** The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public internalDueDateTime?: Date | undefined;
+    private _internalDueDateTime?: Date | undefined;
     /** Identity information for the entity that last modified the request. */
-    public lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | undefined;
     /** The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** List of notes associated with the request. */
-    public notes?: AuthoredNote[] | undefined;
+    private _notes?: AuthoredNote[] | undefined;
     /** List of regulations that this request will fulfill. */
-    public regulations?: string[] | undefined;
+    private _regulations?: string[] | undefined;
     /** Information about the different stages for the request. */
-    public stages?: SubjectRightsRequestStageDetail[] | undefined;
+    private _stages?: SubjectRightsRequestStageDetail[] | undefined;
     /** The status of the request. Possible values are: active, closed, unknownFutureValue. */
-    public status?: SubjectRightsRequestStatus | undefined;
+    private _status?: SubjectRightsRequestStatus | undefined;
     /** Information about the Microsoft Teams team that was created for the request. */
-    public team?: Team | undefined;
+    private _team?: Team | undefined;
     /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue. */
-    public type?: SubjectRightsRequestType | undefined;
+    private _type?: SubjectRightsRequestType | undefined;
+    /**
+     * Gets the assignedTo property value. Identity that the request is assigned to.
+     * @returns a IdentityInterface
+     */
+    public get assignedTo() {
+        return this._assignedTo;
+    };
+    /**
+     * Sets the assignedTo property value. Identity that the request is assigned to.
+     * @param value Value to set for the assignedTo property.
+     */
+    public set assignedTo(value: Identity | undefined) {
+        if(value) {
+            this._assignedTo = value instanceof IdentityImpl? value : new IdentityImpl(value);
+        }
+    };
+    /**
+     * Gets the closedDateTime property value. The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get closedDateTime() {
+        return this._closedDateTime;
+    };
+    /**
+     * Sets the closedDateTime property value. The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the closedDateTime property.
+     */
+    public set closedDateTime(value: Date | undefined) {
+        if(value) {
+            this._closedDateTime = value;
+        }
+    };
     /**
      * Instantiates a new subjectRightsRequest and sets the default values.
      * @param subjectRightsRequestParameterValue 
      */
     public constructor(subjectRightsRequestParameterValue?: SubjectRightsRequest | undefined) {
         super(subjectRightsRequestParameterValue);
-        this.assignedTo = subjectRightsRequestParameterValue?.assignedTo;
-        this.closedDateTime = subjectRightsRequestParameterValue?.closedDateTime;
-        this.createdBy = subjectRightsRequestParameterValue?.createdBy;
-        this.createdDateTime = subjectRightsRequestParameterValue?.createdDateTime;
-        this.dataSubject = subjectRightsRequestParameterValue?.dataSubject;
-        this.dataSubjectType = subjectRightsRequestParameterValue?.dataSubjectType;
-        this.description = subjectRightsRequestParameterValue?.description;
-        this.displayName = subjectRightsRequestParameterValue?.displayName;
-        this.history = subjectRightsRequestParameterValue?.history;
-        this.insight = subjectRightsRequestParameterValue?.insight;
-        this.internalDueDateTime = subjectRightsRequestParameterValue?.internalDueDateTime;
-        this.lastModifiedBy = subjectRightsRequestParameterValue?.lastModifiedBy;
-        this.lastModifiedDateTime = subjectRightsRequestParameterValue?.lastModifiedDateTime;
-        this.notes = subjectRightsRequestParameterValue?.notes;
-        this.regulations = subjectRightsRequestParameterValue?.regulations;
-        this.stages = subjectRightsRequestParameterValue?.stages;
-        this.status = subjectRightsRequestParameterValue?.status;
-        this.team = subjectRightsRequestParameterValue?.team;
-        this.type = subjectRightsRequestParameterValue?.type;
+        this._assignedTo = subjectRightsRequestParameterValue?.assignedTo;
+        this._closedDateTime = subjectRightsRequestParameterValue?.closedDateTime;
+        this._createdBy = subjectRightsRequestParameterValue?.createdBy;
+        this._createdDateTime = subjectRightsRequestParameterValue?.createdDateTime;
+        this._dataSubject = subjectRightsRequestParameterValue?.dataSubject;
+        this._dataSubjectType = subjectRightsRequestParameterValue?.dataSubjectType;
+        this._description = subjectRightsRequestParameterValue?.description;
+        this._displayName = subjectRightsRequestParameterValue?.displayName;
+        this._history = subjectRightsRequestParameterValue?.history;
+        this._insight = subjectRightsRequestParameterValue?.insight;
+        this._internalDueDateTime = subjectRightsRequestParameterValue?.internalDueDateTime;
+        this._lastModifiedBy = subjectRightsRequestParameterValue?.lastModifiedBy;
+        this._lastModifiedDateTime = subjectRightsRequestParameterValue?.lastModifiedDateTime;
+        this._notes = subjectRightsRequestParameterValue?.notes;
+        this._regulations = subjectRightsRequestParameterValue?.regulations;
+        this._stages = subjectRightsRequestParameterValue?.stages;
+        this._status = subjectRightsRequestParameterValue?.status;
+        this._team = subjectRightsRequestParameterValue?.team;
+        this._type = subjectRightsRequestParameterValue?.type;
+    };
+    /**
+     * Gets the createdBy property value. Identity information for the entity that created the request.
+     * @returns a IdentitySetInterface
+     */
+    public get createdBy() {
+        return this._createdBy;
+    };
+    /**
+     * Sets the createdBy property value. Identity information for the entity that created the request.
+     * @param value Value to set for the createdBy property.
+     */
+    public set createdBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the createdDateTime property value. The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the dataSubject property value. Information about the data subject.
+     * @returns a DataSubjectInterface
+     */
+    public get dataSubject() {
+        return this._dataSubject;
+    };
+    /**
+     * Sets the dataSubject property value. Information about the data subject.
+     * @param value Value to set for the dataSubject property.
+     */
+    public set dataSubject(value: DataSubject | undefined) {
+        if(value) {
+            this._dataSubject = value instanceof DataSubjectImpl? value : new DataSubjectImpl(value);
+        }
+    };
+    /**
+     * Gets the dataSubjectType property value. The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
+     * @returns a dataSubjectType
+     */
+    public get dataSubjectType() {
+        return this._dataSubjectType;
+    };
+    /**
+     * Sets the dataSubjectType property value. The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
+     * @param value Value to set for the dataSubjectType property.
+     */
+    public set dataSubjectType(value: DataSubjectType | undefined) {
+        if(value) {
+            this._dataSubjectType = value;
+        }
+    };
+    /**
+     * Gets the description property value. Description for the request.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Description for the request.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The name of the request.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the request.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -115,6 +243,126 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
         };
     };
     /**
+     * Gets the history property value. Collection of history change events.
+     * @returns a SubjectRightsRequestHistoryInterface
+     */
+    public get history() {
+        return this._history;
+    };
+    /**
+     * Sets the history property value. Collection of history change events.
+     * @param value Value to set for the history property.
+     */
+    public set history(value: SubjectRightsRequestHistory[] | undefined) {
+        if(value) {
+            const historyArrValue: SubjectRightsRequestHistoryImpl[] = [];
+            this.history?.forEach(element => {
+                historyArrValue.push((element instanceof SubjectRightsRequestHistoryImpl? element:new SubjectRightsRequestHistoryImpl(element)));
+            });
+            this._history = historyArrValue;
+        }
+    };
+    /**
+     * Gets the insight property value. Insight about the request.
+     * @returns a SubjectRightsRequestDetailInterface
+     */
+    public get insight() {
+        return this._insight;
+    };
+    /**
+     * Sets the insight property value. Insight about the request.
+     * @param value Value to set for the insight property.
+     */
+    public set insight(value: SubjectRightsRequestDetail | undefined) {
+        if(value) {
+            this._insight = value instanceof SubjectRightsRequestDetailImpl? value : new SubjectRightsRequestDetailImpl(value);
+        }
+    };
+    /**
+     * Gets the internalDueDateTime property value. The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get internalDueDateTime() {
+        return this._internalDueDateTime;
+    };
+    /**
+     * Sets the internalDueDateTime property value. The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the internalDueDateTime property.
+     */
+    public set internalDueDateTime(value: Date | undefined) {
+        if(value) {
+            this._internalDueDateTime = value;
+        }
+    };
+    /**
+     * Gets the lastModifiedBy property value. Identity information for the entity that last modified the request.
+     * @returns a IdentitySetInterface
+     */
+    public get lastModifiedBy() {
+        return this._lastModifiedBy;
+    };
+    /**
+     * Sets the lastModifiedBy property value. Identity information for the entity that last modified the request.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
+     * Gets the notes property value. List of notes associated with the request.
+     * @returns a AuthoredNoteInterface
+     */
+    public get notes() {
+        return this._notes;
+    };
+    /**
+     * Sets the notes property value. List of notes associated with the request.
+     * @param value Value to set for the notes property.
+     */
+    public set notes(value: AuthoredNote[] | undefined) {
+        if(value) {
+            const notesArrValue: AuthoredNoteImpl[] = [];
+            this.notes?.forEach(element => {
+                notesArrValue.push((element instanceof AuthoredNoteImpl? element:new AuthoredNoteImpl(element)));
+            });
+            this._notes = notesArrValue;
+        }
+    };
+    /**
+     * Gets the regulations property value. List of regulations that this request will fulfill.
+     * @returns a string
+     */
+    public get regulations() {
+        return this._regulations;
+    };
+    /**
+     * Sets the regulations property value. List of regulations that this request will fulfill.
+     * @param value Value to set for the regulations property.
+     */
+    public set regulations(value: string[] | undefined) {
+        if(value) {
+            this._regulations = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -122,19 +370,19 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.assignedTo){
-            writer.writeObjectValue<IdentityImpl>("assignedTo", new IdentityImpl(this.assignedTo));
+            writer.writeObjectValue<IdentityImpl>("assignedTo", (!this.assignedTo || this.assignedTo instanceof IdentityImpl? this.assignedTo : new IdentityImpl(this.assignedTo)));
         }
         if(this.closedDateTime){
             writer.writeDateValue("closedDateTime", this.closedDateTime);
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.dataSubject){
-            writer.writeObjectValue<DataSubjectImpl>("dataSubject", new DataSubjectImpl(this.dataSubject));
+            writer.writeObjectValue<DataSubjectImpl>("dataSubject", (!this.dataSubject || this.dataSubject instanceof DataSubjectImpl? this.dataSubject : new DataSubjectImpl(this.dataSubject)));
         }
         if(this.dataSubjectType){
             writer.writeEnumValue<DataSubjectType>("dataSubjectType", this.dataSubjectType);
@@ -145,38 +393,115 @@ export class SubjectRightsRequestImpl extends EntityImpl implements SubjectRight
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
-        if(this.history && this.history.length != 0){        const historyArrValue: SubjectRightsRequestHistoryImpl[] = []; this.history?.forEach(element => {historyArrValue.push(new SubjectRightsRequestHistoryImpl(element));});
+        if(this.history && this.history.length != 0){        const historyArrValue: SubjectRightsRequestHistoryImpl[] = [];
+        this.history?.forEach(element => {
+            historyArrValue.push((element instanceof SubjectRightsRequestHistoryImpl? element:new SubjectRightsRequestHistoryImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SubjectRightsRequestHistoryImpl>("history", historyArrValue);
         }
         if(this.insight){
-            writer.writeObjectValue<SubjectRightsRequestDetailImpl>("insight", new SubjectRightsRequestDetailImpl(this.insight));
+            writer.writeObjectValue<SubjectRightsRequestDetailImpl>("insight", (!this.insight || this.insight instanceof SubjectRightsRequestDetailImpl? this.insight : new SubjectRightsRequestDetailImpl(this.insight)));
         }
         if(this.internalDueDateTime){
             writer.writeDateValue("internalDueDateTime", this.internalDueDateTime);
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
-        if(this.notes && this.notes.length != 0){        const notesArrValue: AuthoredNoteImpl[] = []; this.notes?.forEach(element => {notesArrValue.push(new AuthoredNoteImpl(element));});
+        if(this.notes && this.notes.length != 0){        const notesArrValue: AuthoredNoteImpl[] = [];
+        this.notes?.forEach(element => {
+            notesArrValue.push((element instanceof AuthoredNoteImpl? element:new AuthoredNoteImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("notes", notesArrValue);
         }
         if(this.regulations){
             writer.writeCollectionOfPrimitiveValues<string>("regulations", this.regulations);
         }
-        if(this.stages && this.stages.length != 0){        const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = []; this.stages?.forEach(element => {stagesArrValue.push(new SubjectRightsRequestStageDetailImpl(element));});
+        if(this.stages && this.stages.length != 0){        const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = [];
+        this.stages?.forEach(element => {
+            stagesArrValue.push((element instanceof SubjectRightsRequestStageDetailImpl? element:new SubjectRightsRequestStageDetailImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetailImpl>("stages", stagesArrValue);
         }
         if(this.status){
             writer.writeEnumValue<SubjectRightsRequestStatus>("status", this.status);
         }
         if(this.team){
-            writer.writeObjectValue<TeamImpl>("team", new TeamImpl(this.team));
+            writer.writeObjectValue<TeamImpl>("team", (!this.team || this.team instanceof TeamImpl? this.team : new TeamImpl(this.team)));
         }
         if(this.type){
             writer.writeEnumValue<SubjectRightsRequestType>("type", this.type);
+        }
+    };
+    /**
+     * Gets the stages property value. Information about the different stages for the request.
+     * @returns a SubjectRightsRequestStageDetailInterface
+     */
+    public get stages() {
+        return this._stages;
+    };
+    /**
+     * Sets the stages property value. Information about the different stages for the request.
+     * @param value Value to set for the stages property.
+     */
+    public set stages(value: SubjectRightsRequestStageDetail[] | undefined) {
+        if(value) {
+            const stagesArrValue: SubjectRightsRequestStageDetailImpl[] = [];
+            this.stages?.forEach(element => {
+                stagesArrValue.push((element instanceof SubjectRightsRequestStageDetailImpl? element:new SubjectRightsRequestStageDetailImpl(element)));
+            });
+            this._stages = stagesArrValue;
+        }
+    };
+    /**
+     * Gets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
+     * @returns a subjectRightsRequestStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: SubjectRightsRequestStatus | undefined) {
+        if(value) {
+            this._status = value;
+        }
+    };
+    /**
+     * Gets the team property value. Information about the Microsoft Teams team that was created for the request.
+     * @returns a TeamInterface
+     */
+    public get team() {
+        return this._team;
+    };
+    /**
+     * Sets the team property value. Information about the Microsoft Teams team that was created for the request.
+     * @param value Value to set for the team property.
+     */
+    public set team(value: Team | undefined) {
+        if(value) {
+            this._team = value instanceof TeamImpl? value : new TeamImpl(value);
+        }
+    };
+    /**
+     * Gets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
+     * @returns a subjectRightsRequestType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: SubjectRightsRequestType | undefined) {
+        if(value) {
+            this._type = value;
         }
     };
 }

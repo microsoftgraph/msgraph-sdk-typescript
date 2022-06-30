@@ -8,25 +8,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RubricLevelImpl implements RubricLevel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The description of this rubric level. */
-    public description?: EducationItemBody | undefined;
+    private _description?: EducationItemBody | undefined;
     /** The name of this rubric level. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric. */
-    public grading?: EducationAssignmentGradeType | undefined;
+    private _grading?: EducationAssignmentGradeType | undefined;
     /** The ID of this resource. */
-    public levelId?: string | undefined;
+    private _levelId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new rubricLevel and sets the default values.
      * @param rubricLevelParameterValue 
      */
     public constructor(rubricLevelParameterValue?: RubricLevel | undefined) {
-        this.additionalData = rubricLevelParameterValue?.additionalData ? rubricLevelParameterValue?.additionalData! : {};
-        this.description = rubricLevelParameterValue?.description;
-        this.displayName = rubricLevelParameterValue?.displayName;
-        this.grading = rubricLevelParameterValue?.grading;
-        this.levelId = rubricLevelParameterValue?.levelId;
+        this._additionalData = rubricLevelParameterValue?.additionalData ? rubricLevelParameterValue?.additionalData! : {};
+        this._description = rubricLevelParameterValue?.description;
+        this._displayName = rubricLevelParameterValue?.displayName;
+        this._grading = rubricLevelParameterValue?.grading;
+        this._levelId = rubricLevelParameterValue?.levelId;
+    };
+    /**
+     * Gets the description property value. The description of this rubric level.
+     * @returns a EducationItemBodyInterface
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description of this rubric level.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: EducationItemBody | undefined) {
+        if(value) {
+            this._description = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+        }
+    };
+    /**
+     * Gets the displayName property value. The name of this rubric level.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of this rubric level.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -41,19 +89,51 @@ export class RubricLevelImpl implements RubricLevel {
         };
     };
     /**
+     * Gets the grading property value. Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric.
+     * @returns a EducationAssignmentGradeTypeInterface
+     */
+    public get grading() {
+        return this._grading;
+    };
+    /**
+     * Sets the grading property value. Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric.
+     * @param value Value to set for the grading property.
+     */
+    public set grading(value: EducationAssignmentGradeType | undefined) {
+        if(value) {
+            this._grading = value instanceof EducationAssignmentGradeTypeImpl? value : new EducationAssignmentGradeTypeImpl(value);
+        }
+    };
+    /**
+     * Gets the levelId property value. The ID of this resource.
+     * @returns a string
+     */
+    public get levelId() {
+        return this._levelId;
+    };
+    /**
+     * Sets the levelId property value. The ID of this resource.
+     * @param value Value to set for the levelId property.
+     */
+    public set levelId(value: string | undefined) {
+        if(value) {
+            this._levelId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-            writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", (!this.description || this.description instanceof EducationItemBodyImpl? this.description : new EducationItemBodyImpl(this.description)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", new EducationAssignmentGradeTypeImpl(this.grading));
+            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", (!this.grading || this.grading instanceof EducationAssignmentGradeTypeImpl? this.grading : new EducationAssignmentGradeTypeImpl(this.grading)));
         }
         if(this.levelId){
             writer.writeStringValue("levelId", this.levelId);

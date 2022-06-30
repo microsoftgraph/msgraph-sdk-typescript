@@ -4,17 +4,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WindowsDefenderAdvancedThreatProtectionConfigurationImpl extends DeviceConfigurationImpl implements WindowsDefenderAdvancedThreatProtectionConfiguration {
     /** Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule */
-    public allowSampleSharing?: boolean | undefined;
+    private _allowSampleSharing?: boolean | undefined;
     /** Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency. */
-    public enableExpeditedTelemetryReporting?: boolean | undefined;
+    private _enableExpeditedTelemetryReporting?: boolean | undefined;
+    /**
+     * Gets the allowSampleSharing property value. Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
+     * @returns a boolean
+     */
+    public get allowSampleSharing() {
+        return this._allowSampleSharing;
+    };
+    /**
+     * Sets the allowSampleSharing property value. Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
+     * @param value Value to set for the allowSampleSharing property.
+     */
+    public set allowSampleSharing(value: boolean | undefined) {
+        if(value) {
+            this._allowSampleSharing = value;
+        }
+    };
     /**
      * Instantiates a new WindowsDefenderAdvancedThreatProtectionConfiguration and sets the default values.
      * @param windowsDefenderAdvancedThreatProtectionConfigurationParameterValue 
      */
     public constructor(windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?: WindowsDefenderAdvancedThreatProtectionConfiguration | undefined) {
         super(windowsDefenderAdvancedThreatProtectionConfigurationParameterValue);
-        this.allowSampleSharing = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.allowSampleSharing;
-        this.enableExpeditedTelemetryReporting = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.enableExpeditedTelemetryReporting;
+        this._allowSampleSharing = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.allowSampleSharing;
+        this._enableExpeditedTelemetryReporting = windowsDefenderAdvancedThreatProtectionConfigurationParameterValue?.enableExpeditedTelemetryReporting;
+    };
+    /**
+     * Gets the enableExpeditedTelemetryReporting property value. Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
+     * @returns a boolean
+     */
+    public get enableExpeditedTelemetryReporting() {
+        return this._enableExpeditedTelemetryReporting;
+    };
+    /**
+     * Sets the enableExpeditedTelemetryReporting property value. Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
+     * @param value Value to set for the enableExpeditedTelemetryReporting property.
+     */
+    public set enableExpeditedTelemetryReporting(value: boolean | undefined) {
+        if(value) {
+            this._enableExpeditedTelemetryReporting = value;
+        }
     };
     /**
      * The deserialization information for the current model

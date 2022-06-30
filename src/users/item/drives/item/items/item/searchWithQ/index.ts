@@ -1,3 +1,3 @@
 export * from './searchWithQResponseImpl'
-export * from './searchWithQRequestBuilderGetRequestConfiguration'
 export * from './searchWithQResponse'
+export * from './searchWithQRequestBuilderGetRequestConfiguration'

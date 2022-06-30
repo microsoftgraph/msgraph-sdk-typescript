@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the archive method. */
 export class ArchivePostRequestBodyImpl implements ArchivePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The messageIds property */
-    public messageIds?: string[] | undefined;
+    private _messageIds?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new archivePostRequestBody and sets the default values.
      * @param archivePostRequestBodyParameterValue 
      */
     public constructor(archivePostRequestBodyParameterValue?: ArchivePostRequestBody | undefined) {
-        this.additionalData = archivePostRequestBodyParameterValue?.additionalData ? archivePostRequestBodyParameterValue?.additionalData! : {};
-        this.messageIds = archivePostRequestBodyParameterValue?.messageIds;
+        this._additionalData = archivePostRequestBodyParameterValue?.additionalData ? archivePostRequestBodyParameterValue?.additionalData! : {};
+        this._messageIds = archivePostRequestBodyParameterValue?.messageIds;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +39,22 @@ export class ArchivePostRequestBodyImpl implements ArchivePostRequestBody {
         return {
             "messageIds": n => { this.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the messageIds property value. The messageIds property
+     * @returns a string
+     */
+    public get messageIds() {
+        return this._messageIds;
+    };
+    /**
+     * Sets the messageIds property value. The messageIds property
+     * @param value Value to set for the messageIds property.
+     */
+    public set messageIds(value: string[] | undefined) {
+        if(value) {
+            this._messageIds = value;
+        }
     };
     /**
      * Serializes information the current object

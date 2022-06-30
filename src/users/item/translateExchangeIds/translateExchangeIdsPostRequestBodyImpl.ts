@@ -5,22 +5,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the translateExchangeIds method. */
 export class TranslateExchangeIdsPostRequestBodyImpl implements TranslateExchangeIdsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The InputIds property */
-    public inputIds?: string[] | undefined;
+    private _inputIds?: string[] | undefined;
     /** The SourceIdType property */
-    public sourceIdType?: ExchangeIdFormat | undefined;
+    private _sourceIdType?: ExchangeIdFormat | undefined;
     /** The TargetIdType property */
-    public targetIdType?: ExchangeIdFormat | undefined;
+    private _targetIdType?: ExchangeIdFormat | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new translateExchangeIdsPostRequestBody and sets the default values.
      * @param translateExchangeIdsPostRequestBodyParameterValue 
      */
     public constructor(translateExchangeIdsPostRequestBodyParameterValue?: TranslateExchangeIdsPostRequestBody | undefined) {
-        this.additionalData = translateExchangeIdsPostRequestBodyParameterValue?.additionalData ? translateExchangeIdsPostRequestBodyParameterValue?.additionalData! : {};
-        this.inputIds = translateExchangeIdsPostRequestBodyParameterValue?.inputIds;
-        this.sourceIdType = translateExchangeIdsPostRequestBodyParameterValue?.sourceIdType;
-        this.targetIdType = translateExchangeIdsPostRequestBodyParameterValue?.targetIdType;
+        this._additionalData = translateExchangeIdsPostRequestBodyParameterValue?.additionalData ? translateExchangeIdsPostRequestBodyParameterValue?.additionalData! : {};
+        this._inputIds = translateExchangeIdsPostRequestBodyParameterValue?.inputIds;
+        this._sourceIdType = translateExchangeIdsPostRequestBodyParameterValue?.sourceIdType;
+        this._targetIdType = translateExchangeIdsPostRequestBodyParameterValue?.targetIdType;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +48,22 @@ export class TranslateExchangeIdsPostRequestBodyImpl implements TranslateExchang
             "sourceIdType": n => { this.sourceIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); },
             "targetIdType": n => { this.targetIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); },
         };
+    };
+    /**
+     * Gets the inputIds property value. The InputIds property
+     * @returns a string
+     */
+    public get inputIds() {
+        return this._inputIds;
+    };
+    /**
+     * Sets the inputIds property value. The InputIds property
+     * @param value Value to set for the InputIds property.
+     */
+    public set inputIds(value: string[] | undefined) {
+        if(value) {
+            this._inputIds = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -49,5 +81,37 @@ export class TranslateExchangeIdsPostRequestBodyImpl implements TranslateExchang
             writer.writeEnumValue<ExchangeIdFormat>("targetIdType", this.targetIdType);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sourceIdType property value. The SourceIdType property
+     * @returns a exchangeIdFormat
+     */
+    public get sourceIdType() {
+        return this._sourceIdType;
+    };
+    /**
+     * Sets the sourceIdType property value. The SourceIdType property
+     * @param value Value to set for the SourceIdType property.
+     */
+    public set sourceIdType(value: ExchangeIdFormat | undefined) {
+        if(value) {
+            this._sourceIdType = value;
+        }
+    };
+    /**
+     * Gets the targetIdType property value. The TargetIdType property
+     * @returns a exchangeIdFormat
+     */
+    public get targetIdType() {
+        return this._targetIdType;
+    };
+    /**
+     * Sets the targetIdType property value. The TargetIdType property
+     * @param value Value to set for the TargetIdType property.
+     */
+    public set targetIdType(value: ExchangeIdFormat | undefined) {
+        if(value) {
+            this._targetIdType = value;
+        }
     };
 }

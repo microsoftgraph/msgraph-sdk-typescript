@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TicketInfoImpl implements TicketInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The ticket number. */
-    public ticketNumber?: string | undefined;
+    private _ticketNumber?: string | undefined;
     /** The description of the ticket system. */
-    public ticketSystem?: string | undefined;
+    private _ticketSystem?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ticketInfo and sets the default values.
      * @param ticketInfoParameterValue 
      */
     public constructor(ticketInfoParameterValue?: TicketInfo | undefined) {
-        this.additionalData = ticketInfoParameterValue?.additionalData ? ticketInfoParameterValue?.additionalData! : {};
-        this.ticketNumber = ticketInfoParameterValue?.ticketNumber;
-        this.ticketSystem = ticketInfoParameterValue?.ticketSystem;
+        this._additionalData = ticketInfoParameterValue?.additionalData ? ticketInfoParameterValue?.additionalData! : {};
+        this._ticketNumber = ticketInfoParameterValue?.ticketNumber;
+        this._ticketSystem = ticketInfoParameterValue?.ticketSystem;
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +56,37 @@ export class TicketInfoImpl implements TicketInfo {
             writer.writeStringValue("ticketSystem", this.ticketSystem);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the ticketNumber property value. The ticket number.
+     * @returns a string
+     */
+    public get ticketNumber() {
+        return this._ticketNumber;
+    };
+    /**
+     * Sets the ticketNumber property value. The ticket number.
+     * @param value Value to set for the ticketNumber property.
+     */
+    public set ticketNumber(value: string | undefined) {
+        if(value) {
+            this._ticketNumber = value;
+        }
+    };
+    /**
+     * Gets the ticketSystem property value. The description of the ticket system.
+     * @returns a string
+     */
+    public get ticketSystem() {
+        return this._ticketSystem;
+    };
+    /**
+     * Sets the ticketSystem property value. The description of the ticket system.
+     * @param value Value to set for the ticketSystem property.
+     */
+    public set ticketSystem(value: string | undefined) {
+        if(value) {
+            this._ticketSystem = value;
+        }
     };
 }

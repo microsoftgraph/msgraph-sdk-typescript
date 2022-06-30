@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the exportPersonalData method. */
 export class ExportPersonalDataPostRequestBodyImpl implements ExportPersonalDataPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The storageLocation property */
-    public storageLocation?: string | undefined;
+    private _storageLocation?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new exportPersonalDataPostRequestBody and sets the default values.
      * @param exportPersonalDataPostRequestBodyParameterValue 
      */
     public constructor(exportPersonalDataPostRequestBodyParameterValue?: ExportPersonalDataPostRequestBody | undefined) {
-        this.additionalData = exportPersonalDataPostRequestBodyParameterValue?.additionalData ? exportPersonalDataPostRequestBodyParameterValue?.additionalData! : {};
-        this.storageLocation = exportPersonalDataPostRequestBodyParameterValue?.storageLocation;
+        this._additionalData = exportPersonalDataPostRequestBodyParameterValue?.additionalData ? exportPersonalDataPostRequestBodyParameterValue?.additionalData! : {};
+        this._storageLocation = exportPersonalDataPostRequestBodyParameterValue?.storageLocation;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class ExportPersonalDataPostRequestBodyImpl implements ExportPersonalData
             writer.writeStringValue("storageLocation", this.storageLocation);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the storageLocation property value. The storageLocation property
+     * @returns a string
+     */
+    public get storageLocation() {
+        return this._storageLocation;
+    };
+    /**
+     * Sets the storageLocation property value. The storageLocation property
+     * @param value Value to set for the storageLocation property.
+     */
+    public set storageLocation(value: string | undefined) {
+        if(value) {
+            this._storageLocation = value;
+        }
     };
 }

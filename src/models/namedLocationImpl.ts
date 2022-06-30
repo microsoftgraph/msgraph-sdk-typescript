@@ -5,20 +5,52 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class NamedLocationImpl extends EntityImpl implements NamedLocation {
     /** The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** Human-readable name of the location. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    public modifiedDateTime?: Date | undefined;
+    private _modifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new namedLocation and sets the default values.
      * @param namedLocationParameterValue 
      */
     public constructor(namedLocationParameterValue?: NamedLocation | undefined) {
         super(namedLocationParameterValue);
-        this.createdDateTime = namedLocationParameterValue?.createdDateTime;
-        this.displayName = namedLocationParameterValue?.displayName;
-        this.modifiedDateTime = namedLocationParameterValue?.modifiedDateTime;
+        this._createdDateTime = namedLocationParameterValue?.createdDateTime;
+        this._displayName = namedLocationParameterValue?.displayName;
+        this._modifiedDateTime = namedLocationParameterValue?.modifiedDateTime;
+    };
+    /**
+     * Gets the createdDateTime property value. The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Human-readable name of the location.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Human-readable name of the location.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,22 @@ export class NamedLocationImpl extends EntityImpl implements NamedLocation {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "modifiedDateTime": n => { this.modifiedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the modifiedDateTime property value. The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get modifiedDateTime() {
+        return this._modifiedDateTime;
+    };
+    /**
+     * Sets the modifiedDateTime property value. The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the modifiedDateTime property.
+     */
+    public set modifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._modifiedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object

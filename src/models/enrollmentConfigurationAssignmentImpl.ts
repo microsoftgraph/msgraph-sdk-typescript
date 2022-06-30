@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Enrollment Configuration Assignment */
 export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements EnrollmentConfigurationAssignment {
     /** Represents an assignment to managed devices in the tenant */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new enrollmentConfigurationAssignment and sets the default values.
      * @param enrollmentConfigurationAssignmentParameterValue 
      */
     public constructor(enrollmentConfigurationAssignmentParameterValue?: EnrollmentConfigurationAssignment | undefined) {
         super(enrollmentConfigurationAssignmentParameterValue);
-        this.target = enrollmentConfigurationAssignmentParameterValue?.target;
+        this._target = enrollmentConfigurationAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,23 @@ export class EnrollmentConfigurationAssignmentImpl extends EntityImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+        }
+    };
+    /**
+     * Gets the target property value. Represents an assignment to managed devices in the tenant
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. Represents an assignment to managed devices in the tenant
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

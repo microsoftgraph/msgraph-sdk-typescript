@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class RestrictedSignInImpl extends SignInImpl implements RestrictedSignIn {
     /** The targetTenantId property */
-    public targetTenantId?: string | undefined;
+    private _targetTenantId?: string | undefined;
     /**
      * Instantiates a new RestrictedSignIn and sets the default values.
      * @param restrictedSignInParameterValue 
      */
     public constructor(restrictedSignInParameterValue?: RestrictedSignIn | undefined) {
         super(restrictedSignInParameterValue);
-        this.targetTenantId = restrictedSignInParameterValue?.targetTenantId;
+        this._targetTenantId = restrictedSignInParameterValue?.targetTenantId;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +31,22 @@ export class RestrictedSignInImpl extends SignInImpl implements RestrictedSignIn
         super.serialize(writer);
         if(this.targetTenantId){
             writer.writeStringValue("targetTenantId", this.targetTenantId);
+        }
+    };
+    /**
+     * Gets the targetTenantId property value. The targetTenantId property
+     * @returns a string
+     */
+    public get targetTenantId() {
+        return this._targetTenantId;
+    };
+    /**
+     * Sets the targetTenantId property value. The targetTenantId property
+     * @param value Value to set for the targetTenantId property.
+     */
+    public set targetTenantId(value: string | undefined) {
+        if(value) {
+            this._targetTenantId = value;
         }
     };
 }

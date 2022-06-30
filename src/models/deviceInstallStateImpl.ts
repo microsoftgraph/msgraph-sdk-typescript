@@ -6,35 +6,83 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Contains properties for the installation state for a device. */
 export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallState {
     /** Device Id. */
-    public deviceId?: string | undefined;
+    private _deviceId?: string | undefined;
     /** Device name. */
-    public deviceName?: string | undefined;
+    private _deviceName?: string | undefined;
     /** The error code for install failures. */
-    public errorCode?: string | undefined;
+    private _errorCode?: string | undefined;
     /** The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown. */
-    public installState?: InstallState | undefined;
+    private _installState?: InstallState | undefined;
     /** Last sync date and time. */
-    public lastSyncDateTime?: Date | undefined;
+    private _lastSyncDateTime?: Date | undefined;
     /** OS Description. */
-    public osDescription?: string | undefined;
+    private _osDescription?: string | undefined;
     /** OS Version. */
-    public osVersion?: string | undefined;
+    private _osVersion?: string | undefined;
     /** Device User Name. */
-    public userName?: string | undefined;
+    private _userName?: string | undefined;
     /**
      * Instantiates a new deviceInstallState and sets the default values.
      * @param deviceInstallStateParameterValue 
      */
     public constructor(deviceInstallStateParameterValue?: DeviceInstallState | undefined) {
         super(deviceInstallStateParameterValue);
-        this.deviceId = deviceInstallStateParameterValue?.deviceId;
-        this.deviceName = deviceInstallStateParameterValue?.deviceName;
-        this.errorCode = deviceInstallStateParameterValue?.errorCode;
-        this.installState = deviceInstallStateParameterValue?.installState;
-        this.lastSyncDateTime = deviceInstallStateParameterValue?.lastSyncDateTime;
-        this.osDescription = deviceInstallStateParameterValue?.osDescription;
-        this.osVersion = deviceInstallStateParameterValue?.osVersion;
-        this.userName = deviceInstallStateParameterValue?.userName;
+        this._deviceId = deviceInstallStateParameterValue?.deviceId;
+        this._deviceName = deviceInstallStateParameterValue?.deviceName;
+        this._errorCode = deviceInstallStateParameterValue?.errorCode;
+        this._installState = deviceInstallStateParameterValue?.installState;
+        this._lastSyncDateTime = deviceInstallStateParameterValue?.lastSyncDateTime;
+        this._osDescription = deviceInstallStateParameterValue?.osDescription;
+        this._osVersion = deviceInstallStateParameterValue?.osVersion;
+        this._userName = deviceInstallStateParameterValue?.userName;
+    };
+    /**
+     * Gets the deviceId property value. Device Id.
+     * @returns a string
+     */
+    public get deviceId() {
+        return this._deviceId;
+    };
+    /**
+     * Sets the deviceId property value. Device Id.
+     * @param value Value to set for the deviceId property.
+     */
+    public set deviceId(value: string | undefined) {
+        if(value) {
+            this._deviceId = value;
+        }
+    };
+    /**
+     * Gets the deviceName property value. Device name.
+     * @returns a string
+     */
+    public get deviceName() {
+        return this._deviceName;
+    };
+    /**
+     * Sets the deviceName property value. Device name.
+     * @param value Value to set for the deviceName property.
+     */
+    public set deviceName(value: string | undefined) {
+        if(value) {
+            this._deviceName = value;
+        }
+    };
+    /**
+     * Gets the errorCode property value. The error code for install failures.
+     * @returns a string
+     */
+    public get errorCode() {
+        return this._errorCode;
+    };
+    /**
+     * Sets the errorCode property value. The error code for install failures.
+     * @param value Value to set for the errorCode property.
+     */
+    public set errorCode(value: string | undefined) {
+        if(value) {
+            this._errorCode = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -51,6 +99,70 @@ export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallS
             "osVersion": n => { this.osVersion = n.getStringValue(); },
             "userName": n => { this.userName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the installState property value. The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+     * @returns a installState
+     */
+    public get installState() {
+        return this._installState;
+    };
+    /**
+     * Sets the installState property value. The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+     * @param value Value to set for the installState property.
+     */
+    public set installState(value: InstallState | undefined) {
+        if(value) {
+            this._installState = value;
+        }
+    };
+    /**
+     * Gets the lastSyncDateTime property value. Last sync date and time.
+     * @returns a Date
+     */
+    public get lastSyncDateTime() {
+        return this._lastSyncDateTime;
+    };
+    /**
+     * Sets the lastSyncDateTime property value. Last sync date and time.
+     * @param value Value to set for the lastSyncDateTime property.
+     */
+    public set lastSyncDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastSyncDateTime = value;
+        }
+    };
+    /**
+     * Gets the osDescription property value. OS Description.
+     * @returns a string
+     */
+    public get osDescription() {
+        return this._osDescription;
+    };
+    /**
+     * Sets the osDescription property value. OS Description.
+     * @param value Value to set for the osDescription property.
+     */
+    public set osDescription(value: string | undefined) {
+        if(value) {
+            this._osDescription = value;
+        }
+    };
+    /**
+     * Gets the osVersion property value. OS Version.
+     * @returns a string
+     */
+    public get osVersion() {
+        return this._osVersion;
+    };
+    /**
+     * Sets the osVersion property value. OS Version.
+     * @param value Value to set for the osVersion property.
+     */
+    public set osVersion(value: string | undefined) {
+        if(value) {
+            this._osVersion = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -82,6 +194,22 @@ export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallS
         }
         if(this.userName){
             writer.writeStringValue("userName", this.userName);
+        }
+    };
+    /**
+     * Gets the userName property value. Device User Name.
+     * @returns a string
+     */
+    public get userName() {
+        return this._userName;
+    };
+    /**
+     * Sets the userName property value. Device User Name.
+     * @param value Value to set for the userName property.
+     */
+    public set userName(value: string | undefined) {
+        if(value) {
+            this._userName = value;
         }
     };
 }

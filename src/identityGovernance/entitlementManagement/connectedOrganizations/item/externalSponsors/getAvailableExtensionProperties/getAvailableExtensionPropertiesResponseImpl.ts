@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getAvailableExtensionProperties method. */
 export class GetAvailableExtensionPropertiesResponseImpl implements GetAvailableExtensionPropertiesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: ExtensionProperty[] | undefined;
+    private _value?: ExtensionProperty[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getAvailableExtensionPropertiesResponse and sets the default values.
      * @param getAvailableExtensionPropertiesResponseParameterValue 
      */
     public constructor(getAvailableExtensionPropertiesResponseParameterValue?: GetAvailableExtensionPropertiesResponse | undefined) {
-        this.additionalData = getAvailableExtensionPropertiesResponseParameterValue?.additionalData ? getAvailableExtensionPropertiesResponseParameterValue?.additionalData! : {};
-        this.value = getAvailableExtensionPropertiesResponseParameterValue?.value;
+        this._additionalData = getAvailableExtensionPropertiesResponseParameterValue?.additionalData ? getAvailableExtensionPropertiesResponseParameterValue?.additionalData! : {};
+        this._value = getAvailableExtensionPropertiesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetAvailableExtensionPropertiesResponseImpl implements GetAvailable
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ExtensionPropertyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ExtensionPropertyImpl? element:new ExtensionPropertyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ExtensionPropertyInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ExtensionProperty[] | undefined) {
+        if(value) {
+            const valueArrValue: ExtensionPropertyImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ExtensionPropertyImpl? element:new ExtensionPropertyImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

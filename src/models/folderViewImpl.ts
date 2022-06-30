@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FolderViewImpl implements FolderView {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The method by which the folder should be sorted. */
-    public sortBy?: string | undefined;
+    private _sortBy?: string | undefined;
     /** If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending. */
-    public sortOrder?: string | undefined;
+    private _sortOrder?: string | undefined;
     /** The type of view that should be used to represent the folder. */
-    public viewType?: string | undefined;
+    private _viewType?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new folderView and sets the default values.
      * @param folderViewParameterValue 
      */
     public constructor(folderViewParameterValue?: FolderView | undefined) {
-        this.additionalData = folderViewParameterValue?.additionalData ? folderViewParameterValue?.additionalData! : {};
-        this.sortBy = folderViewParameterValue?.sortBy;
-        this.sortOrder = folderViewParameterValue?.sortOrder;
-        this.viewType = folderViewParameterValue?.viewType;
+        this._additionalData = folderViewParameterValue?.additionalData ? folderViewParameterValue?.additionalData! : {};
+        this._sortBy = folderViewParameterValue?.sortBy;
+        this._sortOrder = folderViewParameterValue?.sortOrder;
+        this._viewType = folderViewParameterValue?.viewType;
     };
     /**
      * The deserialization information for the current model
@@ -47,5 +63,53 @@ export class FolderViewImpl implements FolderView {
             writer.writeStringValue("viewType", this.viewType);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sortBy property value. The method by which the folder should be sorted.
+     * @returns a string
+     */
+    public get sortBy() {
+        return this._sortBy;
+    };
+    /**
+     * Sets the sortBy property value. The method by which the folder should be sorted.
+     * @param value Value to set for the sortBy property.
+     */
+    public set sortBy(value: string | undefined) {
+        if(value) {
+            this._sortBy = value;
+        }
+    };
+    /**
+     * Gets the sortOrder property value. If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.
+     * @returns a string
+     */
+    public get sortOrder() {
+        return this._sortOrder;
+    };
+    /**
+     * Sets the sortOrder property value. If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.
+     * @param value Value to set for the sortOrder property.
+     */
+    public set sortOrder(value: string | undefined) {
+        if(value) {
+            this._sortOrder = value;
+        }
+    };
+    /**
+     * Gets the viewType property value. The type of view that should be used to represent the folder.
+     * @returns a string
+     */
+    public get viewType() {
+        return this._viewType;
+    };
+    /**
+     * Sets the viewType property value. The type of view that should be used to represent the folder.
+     * @param value Value to set for the viewType property.
+     */
+    public set viewType(value: string | undefined) {
+        if(value) {
+            this._viewType = value;
+        }
     };
 }

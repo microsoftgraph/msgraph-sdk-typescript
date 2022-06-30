@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class FreeBusyErrorImpl implements FreeBusyError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Describes the error. */
-    public message?: string | undefined;
+    private _message?: string | undefined;
     /** The response code from querying for the availability of the user, distribution list, or resource. */
-    public responseCode?: string | undefined;
+    private _responseCode?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new freeBusyError and sets the default values.
      * @param freeBusyErrorParameterValue 
      */
     public constructor(freeBusyErrorParameterValue?: FreeBusyError | undefined) {
-        this.additionalData = freeBusyErrorParameterValue?.additionalData ? freeBusyErrorParameterValue?.additionalData! : {};
-        this.message = freeBusyErrorParameterValue?.message;
-        this.responseCode = freeBusyErrorParameterValue?.responseCode;
+        this._additionalData = freeBusyErrorParameterValue?.additionalData ? freeBusyErrorParameterValue?.additionalData! : {};
+        this._message = freeBusyErrorParameterValue?.message;
+        this._responseCode = freeBusyErrorParameterValue?.responseCode;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,38 @@ export class FreeBusyErrorImpl implements FreeBusyError {
             "message": n => { this.message = n.getStringValue(); },
             "responseCode": n => { this.responseCode = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the message property value. Describes the error.
+     * @returns a string
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. Describes the error.
+     * @param value Value to set for the message property.
+     */
+    public set message(value: string | undefined) {
+        if(value) {
+            this._message = value;
+        }
+    };
+    /**
+     * Gets the responseCode property value. The response code from querying for the availability of the user, distribution list, or resource.
+     * @returns a string
+     */
+    public get responseCode() {
+        return this._responseCode;
+    };
+    /**
+     * Sets the responseCode property value. The response code from querying for the availability of the user, distribution list, or resource.
+     * @param value Value to set for the responseCode property.
+     */
+    public set responseCode(value: string | undefined) {
+        if(value) {
+            this._responseCode = value;
+        }
     };
     /**
      * Serializes information the current object

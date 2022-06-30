@@ -5,22 +5,38 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 /** This type represents when and to whom to send an e-mail reminder. */
 export class BookingReminderImpl implements BookingReminder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The message in the reminder. */
-    public message?: string | undefined;
+    private _message?: string | undefined;
     /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
-    public offset?: Duration | undefined;
+    private _offset?: Duration | undefined;
     /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue. */
-    public recipients?: BookingReminderRecipients | undefined;
+    private _recipients?: BookingReminderRecipients | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new bookingReminder and sets the default values.
      * @param bookingReminderParameterValue 
      */
     public constructor(bookingReminderParameterValue?: BookingReminder | undefined) {
-        this.additionalData = bookingReminderParameterValue?.additionalData ? bookingReminderParameterValue?.additionalData! : {};
-        this.message = bookingReminderParameterValue?.message;
-        this.offset = bookingReminderParameterValue?.offset;
-        this.recipients = bookingReminderParameterValue?.recipients;
+        this._additionalData = bookingReminderParameterValue?.additionalData ? bookingReminderParameterValue?.additionalData! : {};
+        this._message = bookingReminderParameterValue?.message;
+        this._offset = bookingReminderParameterValue?.offset;
+        this._recipients = bookingReminderParameterValue?.recipients;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +48,54 @@ export class BookingReminderImpl implements BookingReminder {
             "offset": n => { this.offset = n.getDurationValue(); },
             "recipients": n => { this.recipients = n.getEnumValue<BookingReminderRecipients>(BookingReminderRecipients); },
         };
+    };
+    /**
+     * Gets the message property value. The message in the reminder.
+     * @returns a string
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The message in the reminder.
+     * @param value Value to set for the message property.
+     */
+    public set message(value: string | undefined) {
+        if(value) {
+            this._message = value;
+        }
+    };
+    /**
+     * Gets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
+     * @returns a Duration
+     */
+    public get offset() {
+        return this._offset;
+    };
+    /**
+     * Sets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
+     * @param value Value to set for the offset property.
+     */
+    public set offset(value: Duration | undefined) {
+        if(value) {
+            this._offset = value;
+        }
+    };
+    /**
+     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * @returns a bookingReminderRecipients
+     */
+    public get recipients() {
+        return this._recipients;
+    };
+    /**
+     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * @param value Value to set for the recipients property.
+     */
+    public set recipients(value: BookingReminderRecipients | undefined) {
+        if(value) {
+            this._recipients = value;
+        }
     };
     /**
      * Serializes information the current object

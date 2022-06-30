@@ -4,26 +4,26 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class UnifiedRoleManagementPolicyNotificationRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyNotificationRule {
     /** Indicates whether a default recipient will receive the notification email. */
-    public isDefaultRecipientsEnabled?: boolean | undefined;
+    private _isDefaultRecipientsEnabled?: boolean | undefined;
     /** The level of notification. The possible values are None, Critical, All. */
-    public notificationLevel?: string | undefined;
+    private _notificationLevel?: string | undefined;
     /** The list of recipients of the email notifications. */
-    public notificationRecipients?: string[] | undefined;
+    private _notificationRecipients?: string[] | undefined;
     /** The type of notification. Only Email is supported. */
-    public notificationType?: string | undefined;
+    private _notificationType?: string | undefined;
     /** The type of recipient of the notification. The possible values are Requestor, Approver, Admin. */
-    public recipientType?: string | undefined;
+    private _recipientType?: string | undefined;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyNotificationRule and sets the default values.
      * @param unifiedRoleManagementPolicyNotificationRuleParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyNotificationRuleParameterValue?: UnifiedRoleManagementPolicyNotificationRule | undefined) {
         super(unifiedRoleManagementPolicyNotificationRuleParameterValue);
-        this.isDefaultRecipientsEnabled = unifiedRoleManagementPolicyNotificationRuleParameterValue?.isDefaultRecipientsEnabled;
-        this.notificationLevel = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationLevel;
-        this.notificationRecipients = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationRecipients;
-        this.notificationType = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationType;
-        this.recipientType = unifiedRoleManagementPolicyNotificationRuleParameterValue?.recipientType;
+        this._isDefaultRecipientsEnabled = unifiedRoleManagementPolicyNotificationRuleParameterValue?.isDefaultRecipientsEnabled;
+        this._notificationLevel = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationLevel;
+        this._notificationRecipients = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationRecipients;
+        this._notificationType = unifiedRoleManagementPolicyNotificationRuleParameterValue?.notificationType;
+        this._recipientType = unifiedRoleManagementPolicyNotificationRuleParameterValue?.recipientType;
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +37,86 @@ export class UnifiedRoleManagementPolicyNotificationRuleImpl extends UnifiedRole
             "notificationType": n => { this.notificationType = n.getStringValue(); },
             "recipientType": n => { this.recipientType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the isDefaultRecipientsEnabled property value. Indicates whether a default recipient will receive the notification email.
+     * @returns a boolean
+     */
+    public get isDefaultRecipientsEnabled() {
+        return this._isDefaultRecipientsEnabled;
+    };
+    /**
+     * Sets the isDefaultRecipientsEnabled property value. Indicates whether a default recipient will receive the notification email.
+     * @param value Value to set for the isDefaultRecipientsEnabled property.
+     */
+    public set isDefaultRecipientsEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isDefaultRecipientsEnabled = value;
+        }
+    };
+    /**
+     * Gets the notificationLevel property value. The level of notification. The possible values are None, Critical, All.
+     * @returns a string
+     */
+    public get notificationLevel() {
+        return this._notificationLevel;
+    };
+    /**
+     * Sets the notificationLevel property value. The level of notification. The possible values are None, Critical, All.
+     * @param value Value to set for the notificationLevel property.
+     */
+    public set notificationLevel(value: string | undefined) {
+        if(value) {
+            this._notificationLevel = value;
+        }
+    };
+    /**
+     * Gets the notificationRecipients property value. The list of recipients of the email notifications.
+     * @returns a string
+     */
+    public get notificationRecipients() {
+        return this._notificationRecipients;
+    };
+    /**
+     * Sets the notificationRecipients property value. The list of recipients of the email notifications.
+     * @param value Value to set for the notificationRecipients property.
+     */
+    public set notificationRecipients(value: string[] | undefined) {
+        if(value) {
+            this._notificationRecipients = value;
+        }
+    };
+    /**
+     * Gets the notificationType property value. The type of notification. Only Email is supported.
+     * @returns a string
+     */
+    public get notificationType() {
+        return this._notificationType;
+    };
+    /**
+     * Sets the notificationType property value. The type of notification. Only Email is supported.
+     * @param value Value to set for the notificationType property.
+     */
+    public set notificationType(value: string | undefined) {
+        if(value) {
+            this._notificationType = value;
+        }
+    };
+    /**
+     * Gets the recipientType property value. The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
+     * @returns a string
+     */
+    public get recipientType() {
+        return this._recipientType;
+    };
+    /**
+     * Sets the recipientType property value. The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
+     * @param value Value to set for the recipientType property.
+     */
+    public set recipientType(value: string | undefined) {
+        if(value) {
+            this._recipientType = value;
+        }
     };
     /**
      * Serializes information the current object

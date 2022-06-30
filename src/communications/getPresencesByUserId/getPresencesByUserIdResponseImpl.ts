@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getPresencesByUserId method. */
 export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: Presence[] | undefined;
+    private _value?: Presence[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getPresencesByUserIdResponse and sets the default values.
      * @param getPresencesByUserIdResponseParameterValue 
      */
     public constructor(getPresencesByUserIdResponseParameterValue?: GetPresencesByUserIdResponse | undefined) {
-        this.additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {};
-        this.value = getPresencesByUserIdResponseParameterValue?.value;
+        this._additionalData = getPresencesByUserIdResponseParameterValue?.additionalData ? getPresencesByUserIdResponseParameterValue?.additionalData! : {};
+        this._value = getPresencesByUserIdResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdRes
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new PresenceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof PresenceImpl? element:new PresenceImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a PresenceInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: Presence[] | undefined) {
+        if(value) {
+            const valueArrValue: PresenceImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof PresenceImpl? element:new PresenceImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

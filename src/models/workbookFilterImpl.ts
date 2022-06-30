@@ -7,14 +7,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
     /** The currently applied filter on the given column. Read-only. */
-    public criteria?: WorkbookFilterCriteria | undefined;
+    private _criteria?: WorkbookFilterCriteria | undefined;
     /**
      * Instantiates a new workbookFilter and sets the default values.
      * @param workbookFilterParameterValue 
      */
     public constructor(workbookFilterParameterValue?: WorkbookFilter | undefined) {
         super(workbookFilterParameterValue);
-        this.criteria = workbookFilterParameterValue?.criteria;
+        this._criteria = workbookFilterParameterValue?.criteria;
+    };
+    /**
+     * Gets the criteria property value. The currently applied filter on the given column. Read-only.
+     * @returns a WorkbookFilterCriteriaInterface
+     */
+    public get criteria() {
+        return this._criteria;
+    };
+    /**
+     * Sets the criteria property value. The currently applied filter on the given column. Read-only.
+     * @param value Value to set for the criteria property.
+     */
+    public set criteria(value: WorkbookFilterCriteria | undefined) {
+        if(value) {
+            this._criteria = value instanceof WorkbookFilterCriteriaImpl? value : new WorkbookFilterCriteriaImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +49,7 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.criteria){
-            writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", new WorkbookFilterCriteriaImpl(this.criteria));
+            writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", (!this.criteria || this.criteria instanceof WorkbookFilterCriteriaImpl? this.criteria : new WorkbookFilterCriteriaImpl(this.criteria)));
         }
     };
 }

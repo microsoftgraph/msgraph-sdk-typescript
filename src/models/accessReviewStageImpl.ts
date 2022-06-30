@@ -9,29 +9,85 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewStageImpl extends EntityImpl implements AccessReviewStage {
     /** Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed. */
-    public decisions?: AccessReviewInstanceDecisionItem[] | undefined;
+    private _decisions?: AccessReviewInstanceDecisionItem[] | undefined;
     /** DateTime when review stage is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This property is the cumulative total of the durationInDays for all stages. Read-only. */
-    public endDateTime?: Date | undefined;
+    private _endDateTime?: Date | undefined;
     /** This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. */
-    public fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
+    private _fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
     /** This collection of access review scopes is used to define who the reviewers are. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. */
-    public reviewers?: AccessReviewReviewerScope[] | undefined;
+    private _reviewers?: AccessReviewReviewerScope[] | undefined;
     /** DateTime when review stage is scheduled to start. May be in the future. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    public startDateTime?: Date | undefined;
+    private _startDateTime?: Date | undefined;
     /** Specifies the status of an accessReviewStage. Possible values: Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. Supports $orderby, and $filter (eq only). Read-only. */
-    public status?: string | undefined;
+    private _status?: string | undefined;
     /**
      * Instantiates a new accessReviewStage and sets the default values.
      * @param accessReviewStageParameterValue 
      */
     public constructor(accessReviewStageParameterValue?: AccessReviewStage | undefined) {
         super(accessReviewStageParameterValue);
-        this.decisions = accessReviewStageParameterValue?.decisions;
-        this.endDateTime = accessReviewStageParameterValue?.endDateTime;
-        this.fallbackReviewers = accessReviewStageParameterValue?.fallbackReviewers;
-        this.reviewers = accessReviewStageParameterValue?.reviewers;
-        this.startDateTime = accessReviewStageParameterValue?.startDateTime;
-        this.status = accessReviewStageParameterValue?.status;
+        this._decisions = accessReviewStageParameterValue?.decisions;
+        this._endDateTime = accessReviewStageParameterValue?.endDateTime;
+        this._fallbackReviewers = accessReviewStageParameterValue?.fallbackReviewers;
+        this._reviewers = accessReviewStageParameterValue?.reviewers;
+        this._startDateTime = accessReviewStageParameterValue?.startDateTime;
+        this._status = accessReviewStageParameterValue?.status;
+    };
+    /**
+     * Gets the decisions property value. Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+     * @returns a AccessReviewInstanceDecisionItemInterface
+     */
+    public get decisions() {
+        return this._decisions;
+    };
+    /**
+     * Sets the decisions property value. Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+     * @param value Value to set for the decisions property.
+     */
+    public set decisions(value: AccessReviewInstanceDecisionItem[] | undefined) {
+        if(value) {
+            const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
+            this.decisions?.forEach(element => {
+                decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+            });
+            this._decisions = decisionsArrValue;
+        }
+    };
+    /**
+     * Gets the endDateTime property value. DateTime when review stage is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This property is the cumulative total of the durationInDays for all stages. Read-only.
+     * @returns a Date
+     */
+    public get endDateTime() {
+        return this._endDateTime;
+    };
+    /**
+     * Sets the endDateTime property value. DateTime when review stage is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This property is the cumulative total of the durationInDays for all stages. Read-only.
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: Date | undefined) {
+        if(value) {
+            this._endDateTime = value;
+        }
+    };
+    /**
+     * Gets the fallbackReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist.
+     * @returns a AccessReviewReviewerScopeInterface
+     */
+    public get fallbackReviewers() {
+        return this._fallbackReviewers;
+    };
+    /**
+     * Sets the fallbackReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist.
+     * @param value Value to set for the fallbackReviewers property.
+     */
+    public set fallbackReviewers(value: AccessReviewReviewerScope[] | undefined) {
+        if(value) {
+            const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+            this.fallbackReviewers?.forEach(element => {
+                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            });
+            this._fallbackReviewers = fallbackReviewersArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -48,22 +104,51 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         };
     };
     /**
+     * Gets the reviewers property value. This collection of access review scopes is used to define who the reviewers are. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.
+     * @returns a AccessReviewReviewerScopeInterface
+     */
+    public get reviewers() {
+        return this._reviewers;
+    };
+    /**
+     * Sets the reviewers property value. This collection of access review scopes is used to define who the reviewers are. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.
+     * @param value Value to set for the reviewers property.
+     */
+    public set reviewers(value: AccessReviewReviewerScope[] | undefined) {
+        if(value) {
+            const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+            this.reviewers?.forEach(element => {
+                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            });
+            this._reviewers = reviewersArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = []; this.decisions?.forEach(element => {decisionsArrValue.push(new AccessReviewInstanceDecisionItemImpl(element));});
+        if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
+        this.decisions?.forEach(element => {
+            decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("decisions", decisionsArrValue);
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+        this.fallbackReviewers?.forEach(element => {
+            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+        this.reviewers?.forEach(element => {
+            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.startDateTime){
@@ -71,6 +156,38 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         }
         if(this.status){
             writer.writeStringValue("status", this.status);
+        }
+    };
+    /**
+     * Gets the startDateTime property value. DateTime when review stage is scheduled to start. May be in the future. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. DateTime when review stage is scheduled to start. May be in the future. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: Date | undefined) {
+        if(value) {
+            this._startDateTime = value;
+        }
+    };
+    /**
+     * Gets the status property value. Specifies the status of an accessReviewStage. Possible values: Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. Supports $orderby, and $filter (eq only). Read-only.
+     * @returns a string
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. Specifies the status of an accessReviewStage. Possible values: Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. Supports $orderby, and $filter (eq only). Read-only.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: string | undefined) {
+        if(value) {
+            this._status = value;
         }
     };
 }

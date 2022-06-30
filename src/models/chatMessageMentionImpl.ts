@@ -6,22 +6,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatMessageMentionImpl implements ChatMessageMention {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body. */
-    public id?: number | undefined;
+    private _id?: number | undefined;
     /** The entity (user, application, team, or channel) that was @mentioned. */
-    public mentioned?: ChatMessageMentionedIdentitySet | undefined;
+    private _mentioned?: ChatMessageMentionedIdentitySet | undefined;
     /** String used to represent the mention. For example, a user's display name, a team name. */
-    public mentionText?: string | undefined;
+    private _mentionText?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new chatMessageMention and sets the default values.
      * @param chatMessageMentionParameterValue 
      */
     public constructor(chatMessageMentionParameterValue?: ChatMessageMention | undefined) {
-        this.additionalData = chatMessageMentionParameterValue?.additionalData ? chatMessageMentionParameterValue?.additionalData! : {};
-        this.id = chatMessageMentionParameterValue?.id;
-        this.mentioned = chatMessageMentionParameterValue?.mentioned;
-        this.mentionText = chatMessageMentionParameterValue?.mentionText;
+        this._additionalData = chatMessageMentionParameterValue?.additionalData ? chatMessageMentionParameterValue?.additionalData! : {};
+        this._id = chatMessageMentionParameterValue?.id;
+        this._mentioned = chatMessageMentionParameterValue?.mentioned;
+        this._mentionText = chatMessageMentionParameterValue?.mentionText;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +51,54 @@ export class ChatMessageMentionImpl implements ChatMessageMention {
         };
     };
     /**
+     * Gets the id property value. Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body.
+     * @returns a integer
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: number | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the mentioned property value. The entity (user, application, team, or channel) that was @mentioned.
+     * @returns a ChatMessageMentionedIdentitySetInterface
+     */
+    public get mentioned() {
+        return this._mentioned;
+    };
+    /**
+     * Sets the mentioned property value. The entity (user, application, team, or channel) that was @mentioned.
+     * @param value Value to set for the mentioned property.
+     */
+    public set mentioned(value: ChatMessageMentionedIdentitySet | undefined) {
+        if(value) {
+            this._mentioned = value instanceof ChatMessageMentionedIdentitySetImpl? value : new ChatMessageMentionedIdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the mentionText property value. String used to represent the mention. For example, a user's display name, a team name.
+     * @returns a string
+     */
+    public get mentionText() {
+        return this._mentionText;
+    };
+    /**
+     * Sets the mentionText property value. String used to represent the mention. For example, a user's display name, a team name.
+     * @param value Value to set for the mentionText property.
+     */
+    public set mentionText(value: string | undefined) {
+        if(value) {
+            this._mentionText = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -44,7 +108,7 @@ export class ChatMessageMentionImpl implements ChatMessageMention {
             writer.writeNumberValue("id", this.id);
         }
         if(this.mentioned){
-            writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", new ChatMessageMentionedIdentitySetImpl(this.mentioned));
+            writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", (!this.mentioned || this.mentioned instanceof ChatMessageMentionedIdentitySetImpl? this.mentioned : new ChatMessageMentionedIdentitySetImpl(this.mentioned)));
         }
         if(this.mentionText){
             writer.writeStringValue("mentionText", this.mentionText);

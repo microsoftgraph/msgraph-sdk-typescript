@@ -4,25 +4,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintJobStatusImpl implements PrintJobStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A human-readable description of the print job's current processing state. Read-only. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Additional details for print job state. Valid values are described in the following table. Read-only. */
-    public details?: string[] | undefined;
+    private _details?: string[] | undefined;
     /** True if the job was acknowledged by a printer; false otherwise. Read-only. */
-    public isAcquiredByPrinter?: boolean | undefined;
+    private _isAcquiredByPrinter?: boolean | undefined;
     /** The print job's current processing state. Valid values are described in the following table. Read-only. */
-    public state?: PrintJobProcessingState | undefined;
+    private _state?: PrintJobProcessingState | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new printJobStatus and sets the default values.
      * @param printJobStatusParameterValue 
      */
     public constructor(printJobStatusParameterValue?: PrintJobStatus | undefined) {
-        this.additionalData = printJobStatusParameterValue?.additionalData ? printJobStatusParameterValue?.additionalData! : {};
-        this.description = printJobStatusParameterValue?.description;
-        this.details = printJobStatusParameterValue?.details;
-        this.isAcquiredByPrinter = printJobStatusParameterValue?.isAcquiredByPrinter;
-        this.state = printJobStatusParameterValue?.state;
+        this._additionalData = printJobStatusParameterValue?.additionalData ? printJobStatusParameterValue?.additionalData! : {};
+        this._description = printJobStatusParameterValue?.description;
+        this._details = printJobStatusParameterValue?.details;
+        this._isAcquiredByPrinter = printJobStatusParameterValue?.isAcquiredByPrinter;
+        this._state = printJobStatusParameterValue?.state;
+    };
+    /**
+     * Gets the description property value. A human-readable description of the print job's current processing state. Read-only.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. A human-readable description of the print job's current processing state. Read-only.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
+     * @returns a string
+     */
+    public get details() {
+        return this._details;
+    };
+    /**
+     * Sets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
+     * @param value Value to set for the details property.
+     */
+    public set details(value: string[] | undefined) {
+        if(value) {
+            this._details = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +83,22 @@ export class PrintJobStatusImpl implements PrintJobStatus {
             "isAcquiredByPrinter": n => { this.isAcquiredByPrinter = n.getBooleanValue(); },
             "state": n => { this.state = n.getEnumValue<PrintJobProcessingState>(PrintJobProcessingState); },
         };
+    };
+    /**
+     * Gets the isAcquiredByPrinter property value. True if the job was acknowledged by a printer; false otherwise. Read-only.
+     * @returns a boolean
+     */
+    public get isAcquiredByPrinter() {
+        return this._isAcquiredByPrinter;
+    };
+    /**
+     * Sets the isAcquiredByPrinter property value. True if the job was acknowledged by a printer; false otherwise. Read-only.
+     * @param value Value to set for the isAcquiredByPrinter property.
+     */
+    public set isAcquiredByPrinter(value: boolean | undefined) {
+        if(value) {
+            this._isAcquiredByPrinter = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -55,5 +119,21 @@ export class PrintJobStatusImpl implements PrintJobStatus {
             writer.writeEnumValue<PrintJobProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * @returns a printJobProcessingState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: PrintJobProcessingState | undefined) {
+        if(value) {
+            this._state = value;
+        }
     };
 }

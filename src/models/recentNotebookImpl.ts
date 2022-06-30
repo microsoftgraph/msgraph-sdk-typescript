@@ -7,25 +7,57 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RecentNotebookImpl implements RecentNotebook {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The name of the notebook. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    public lastAccessedTime?: Date | undefined;
+    private _lastAccessedTime?: Date | undefined;
     /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web. */
-    public links?: RecentNotebookLinks | undefined;
+    private _links?: RecentNotebookLinks | undefined;
     /** The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive. */
-    public sourceService?: OnenoteSourceService | undefined;
+    private _sourceService?: OnenoteSourceService | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new recentNotebook and sets the default values.
      * @param recentNotebookParameterValue 
      */
     public constructor(recentNotebookParameterValue?: RecentNotebook | undefined) {
-        this.additionalData = recentNotebookParameterValue?.additionalData ? recentNotebookParameterValue?.additionalData! : {};
-        this.displayName = recentNotebookParameterValue?.displayName;
-        this.lastAccessedTime = recentNotebookParameterValue?.lastAccessedTime;
-        this.links = recentNotebookParameterValue?.links;
-        this.sourceService = recentNotebookParameterValue?.sourceService;
+        this._additionalData = recentNotebookParameterValue?.additionalData ? recentNotebookParameterValue?.additionalData! : {};
+        this._displayName = recentNotebookParameterValue?.displayName;
+        this._lastAccessedTime = recentNotebookParameterValue?.lastAccessedTime;
+        this._links = recentNotebookParameterValue?.links;
+        this._sourceService = recentNotebookParameterValue?.sourceService;
+    };
+    /**
+     * Gets the displayName property value. The name of the notebook.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the notebook.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +72,38 @@ export class RecentNotebookImpl implements RecentNotebook {
         };
     };
     /**
+     * Gets the lastAccessedTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get lastAccessedTime() {
+        return this._lastAccessedTime;
+    };
+    /**
+     * Sets the lastAccessedTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the lastAccessedTime property.
+     */
+    public set lastAccessedTime(value: Date | undefined) {
+        if(value) {
+            this._lastAccessedTime = value;
+        }
+    };
+    /**
+     * Gets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
+     * @returns a RecentNotebookLinksInterface
+     */
+    public get links() {
+        return this._links;
+    };
+    /**
+     * Sets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
+     * @param value Value to set for the links property.
+     */
+    public set links(value: RecentNotebookLinks | undefined) {
+        if(value) {
+            this._links = value instanceof RecentNotebookLinksImpl? value : new RecentNotebookLinksImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -52,11 +116,27 @@ export class RecentNotebookImpl implements RecentNotebook {
             writer.writeDateValue("lastAccessedTime", this.lastAccessedTime);
         }
         if(this.links){
-            writer.writeObjectValue<RecentNotebookLinksImpl>("links", new RecentNotebookLinksImpl(this.links));
+            writer.writeObjectValue<RecentNotebookLinksImpl>("links", (!this.links || this.links instanceof RecentNotebookLinksImpl? this.links : new RecentNotebookLinksImpl(this.links)));
         }
         if(this.sourceService){
             writer.writeEnumValue<OnenoteSourceService>("sourceService", this.sourceService);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sourceService property value. The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive.
+     * @returns a onenoteSourceService
+     */
+    public get sourceService() {
+        return this._sourceService;
+    };
+    /**
+     * Sets the sourceService property value. The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive.
+     * @param value Value to set for the sourceService property.
+     */
+    public set sourceService(value: OnenoteSourceService | undefined) {
+        if(value) {
+            this._sourceService = value;
+        }
     };
 }

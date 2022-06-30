@@ -5,17 +5,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the auditLogRoot singleton. */
 export class UserIdentityImpl extends IdentityImpl implements UserIdentity {
     /** Indicates the client IP address used by user performing the activity (audit log only). */
-    public ipAddress?: string | undefined;
+    private _ipAddress?: string | undefined;
     /** The userPrincipalName attribute of the user. */
-    public userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
     /**
      * Instantiates a new userIdentity and sets the default values.
      * @param userIdentityParameterValue 
      */
     public constructor(userIdentityParameterValue?: UserIdentity | undefined) {
         super(userIdentityParameterValue);
-        this.ipAddress = userIdentityParameterValue?.ipAddress;
-        this.userPrincipalName = userIdentityParameterValue?.userPrincipalName;
+        this._ipAddress = userIdentityParameterValue?.ipAddress;
+        this._userPrincipalName = userIdentityParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +26,22 @@ export class UserIdentityImpl extends IdentityImpl implements UserIdentity {
             "ipAddress": n => { this.ipAddress = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
+     * @returns a string
+     */
+    public get ipAddress() {
+        return this._ipAddress;
+    };
+    /**
+     * Sets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
+     * @param value Value to set for the ipAddress property.
+     */
+    public set ipAddress(value: string | undefined) {
+        if(value) {
+            this._ipAddress = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -39,6 +55,22 @@ export class UserIdentityImpl extends IdentityImpl implements UserIdentity {
         }
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+        }
+    };
+    /**
+     * Gets the userPrincipalName property value. The userPrincipalName attribute of the user.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
+    };
+    /**
+     * Sets the userPrincipalName property value. The userPrincipalName attribute of the user.
+     * @param value Value to set for the userPrincipalName property.
+     */
+    public set userPrincipalName(value: string | undefined) {
+        if(value) {
+            this._userPrincipalName = value;
         }
     };
 }

@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BookingServiceCollectionResponseImpl implements BookingServiceCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: BookingService[] | undefined;
+    private _value?: BookingService[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new BookingServiceCollectionResponse and sets the default values.
      * @param bookingServiceCollectionResponseParameterValue 
      */
     public constructor(bookingServiceCollectionResponseParameterValue?: BookingServiceCollectionResponse | undefined) {
-        this.additionalData = bookingServiceCollectionResponseParameterValue?.additionalData ? bookingServiceCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = bookingServiceCollectionResponseParameterValue?.nextLink;
-        this.value = bookingServiceCollectionResponseParameterValue?.value;
+        this._additionalData = bookingServiceCollectionResponseParameterValue?.additionalData ? bookingServiceCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = bookingServiceCollectionResponseParameterValue?.nextLink;
+        this._value = bookingServiceCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class BookingServiceCollectionResponseImpl implements BookingServiceColle
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class BookingServiceCollectionResponseImpl implements BookingServiceColle
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: BookingServiceImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new BookingServiceImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: BookingServiceImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof BookingServiceImpl? element:new BookingServiceImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<BookingServiceImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a BookingServiceInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: BookingService[] | undefined) {
+        if(value) {
+            const valueArrValue: BookingServiceImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof BookingServiceImpl? element:new BookingServiceImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

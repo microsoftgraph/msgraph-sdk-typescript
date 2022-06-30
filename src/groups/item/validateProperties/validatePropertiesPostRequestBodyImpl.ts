@@ -4,22 +4,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the validateProperties method. */
 export class ValidatePropertiesPostRequestBodyImpl implements ValidatePropertiesPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The displayName property */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The mailNickname property */
-    public mailNickname?: string | undefined;
+    private _mailNickname?: string | undefined;
     /** The onBehalfOfUserId property */
-    public onBehalfOfUserId?: string | undefined;
+    private _onBehalfOfUserId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new validatePropertiesPostRequestBody and sets the default values.
      * @param validatePropertiesPostRequestBodyParameterValue 
      */
     public constructor(validatePropertiesPostRequestBodyParameterValue?: ValidatePropertiesPostRequestBody | undefined) {
-        this.additionalData = validatePropertiesPostRequestBodyParameterValue?.additionalData ? validatePropertiesPostRequestBodyParameterValue?.additionalData! : {};
-        this.displayName = validatePropertiesPostRequestBodyParameterValue?.displayName;
-        this.mailNickname = validatePropertiesPostRequestBodyParameterValue?.mailNickname;
-        this.onBehalfOfUserId = validatePropertiesPostRequestBodyParameterValue?.onBehalfOfUserId;
+        this._additionalData = validatePropertiesPostRequestBodyParameterValue?.additionalData ? validatePropertiesPostRequestBodyParameterValue?.additionalData! : {};
+        this._displayName = validatePropertiesPostRequestBodyParameterValue?.displayName;
+        this._mailNickname = validatePropertiesPostRequestBodyParameterValue?.mailNickname;
+        this._onBehalfOfUserId = validatePropertiesPostRequestBodyParameterValue?.onBehalfOfUserId;
+    };
+    /**
+     * Gets the displayName property value. The displayName property
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +63,38 @@ export class ValidatePropertiesPostRequestBodyImpl implements ValidateProperties
             "mailNickname": n => { this.mailNickname = n.getStringValue(); },
             "onBehalfOfUserId": n => { this.onBehalfOfUserId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the mailNickname property value. The mailNickname property
+     * @returns a string
+     */
+    public get mailNickname() {
+        return this._mailNickname;
+    };
+    /**
+     * Sets the mailNickname property value. The mailNickname property
+     * @param value Value to set for the mailNickname property.
+     */
+    public set mailNickname(value: string | undefined) {
+        if(value) {
+            this._mailNickname = value;
+        }
+    };
+    /**
+     * Gets the onBehalfOfUserId property value. The onBehalfOfUserId property
+     * @returns a string
+     */
+    public get onBehalfOfUserId() {
+        return this._onBehalfOfUserId;
+    };
+    /**
+     * Sets the onBehalfOfUserId property value. The onBehalfOfUserId property
+     * @param value Value to set for the onBehalfOfUserId property.
+     */
+    public set onBehalfOfUserId(value: string | undefined) {
+        if(value) {
+            this._onBehalfOfUserId = value;
+        }
     };
     /**
      * Serializes information the current object

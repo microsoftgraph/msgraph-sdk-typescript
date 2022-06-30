@@ -3,28 +3,76 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CertificationImpl implements Certification {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** URL that shows certification details for the application. */
-    public certificationDetailsUrl?: string | undefined;
+    private _certificationDetailsUrl?: string | undefined;
     /** The timestamp when the current certification for the application will expire. */
-    public certificationExpirationDateTime?: Date | undefined;
+    private _certificationExpirationDateTime?: Date | undefined;
     /** Indicates whether the application is certified by Microsoft. */
-    public isCertifiedByMicrosoft?: boolean | undefined;
+    private _isCertifiedByMicrosoft?: boolean | undefined;
     /** Indicates whether the application has been self-attested by the application developer or the publisher. */
-    public isPublisherAttested?: boolean | undefined;
+    private _isPublisherAttested?: boolean | undefined;
     /** The timestamp when the certification for the application was most recently added or updated. */
-    public lastCertificationDateTime?: Date | undefined;
+    private _lastCertificationDateTime?: Date | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the certificationDetailsUrl property value. URL that shows certification details for the application.
+     * @returns a string
+     */
+    public get certificationDetailsUrl() {
+        return this._certificationDetailsUrl;
+    };
+    /**
+     * Sets the certificationDetailsUrl property value. URL that shows certification details for the application.
+     * @param value Value to set for the certificationDetailsUrl property.
+     */
+    public set certificationDetailsUrl(value: string | undefined) {
+        if(value) {
+            this._certificationDetailsUrl = value;
+        }
+    };
+    /**
+     * Gets the certificationExpirationDateTime property value. The timestamp when the current certification for the application will expire.
+     * @returns a Date
+     */
+    public get certificationExpirationDateTime() {
+        return this._certificationExpirationDateTime;
+    };
+    /**
+     * Sets the certificationExpirationDateTime property value. The timestamp when the current certification for the application will expire.
+     * @param value Value to set for the certificationExpirationDateTime property.
+     */
+    public set certificationExpirationDateTime(value: Date | undefined) {
+        if(value) {
+            this._certificationExpirationDateTime = value;
+        }
+    };
     /**
      * Instantiates a new certification and sets the default values.
      * @param certificationParameterValue 
      */
     public constructor(certificationParameterValue?: Certification | undefined) {
-        this.additionalData = certificationParameterValue?.additionalData ? certificationParameterValue?.additionalData! : {};
-        this.certificationDetailsUrl = certificationParameterValue?.certificationDetailsUrl;
-        this.certificationExpirationDateTime = certificationParameterValue?.certificationExpirationDateTime;
-        this.isCertifiedByMicrosoft = certificationParameterValue?.isCertifiedByMicrosoft;
-        this.isPublisherAttested = certificationParameterValue?.isPublisherAttested;
-        this.lastCertificationDateTime = certificationParameterValue?.lastCertificationDateTime;
+        this._additionalData = certificationParameterValue?.additionalData ? certificationParameterValue?.additionalData! : {};
+        this._certificationDetailsUrl = certificationParameterValue?.certificationDetailsUrl;
+        this._certificationExpirationDateTime = certificationParameterValue?.certificationExpirationDateTime;
+        this._isCertifiedByMicrosoft = certificationParameterValue?.isCertifiedByMicrosoft;
+        this._isPublisherAttested = certificationParameterValue?.isPublisherAttested;
+        this._lastCertificationDateTime = certificationParameterValue?.lastCertificationDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +86,54 @@ export class CertificationImpl implements Certification {
             "isPublisherAttested": n => { this.isPublisherAttested = n.getBooleanValue(); },
             "lastCertificationDateTime": n => { this.lastCertificationDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the isCertifiedByMicrosoft property value. Indicates whether the application is certified by Microsoft.
+     * @returns a boolean
+     */
+    public get isCertifiedByMicrosoft() {
+        return this._isCertifiedByMicrosoft;
+    };
+    /**
+     * Sets the isCertifiedByMicrosoft property value. Indicates whether the application is certified by Microsoft.
+     * @param value Value to set for the isCertifiedByMicrosoft property.
+     */
+    public set isCertifiedByMicrosoft(value: boolean | undefined) {
+        if(value) {
+            this._isCertifiedByMicrosoft = value;
+        }
+    };
+    /**
+     * Gets the isPublisherAttested property value. Indicates whether the application has been self-attested by the application developer or the publisher.
+     * @returns a boolean
+     */
+    public get isPublisherAttested() {
+        return this._isPublisherAttested;
+    };
+    /**
+     * Sets the isPublisherAttested property value. Indicates whether the application has been self-attested by the application developer or the publisher.
+     * @param value Value to set for the isPublisherAttested property.
+     */
+    public set isPublisherAttested(value: boolean | undefined) {
+        if(value) {
+            this._isPublisherAttested = value;
+        }
+    };
+    /**
+     * Gets the lastCertificationDateTime property value. The timestamp when the certification for the application was most recently added or updated.
+     * @returns a Date
+     */
+    public get lastCertificationDateTime() {
+        return this._lastCertificationDateTime;
+    };
+    /**
+     * Sets the lastCertificationDateTime property value. The timestamp when the certification for the application was most recently added or updated.
+     * @param value Value to set for the lastCertificationDateTime property.
+     */
+    public set lastCertificationDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastCertificationDateTime = value;
+        }
     };
     /**
      * Serializes information the current object

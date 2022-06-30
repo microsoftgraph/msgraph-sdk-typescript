@@ -12,44 +12,128 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the auditLogRoot singleton. */
 export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public activityDateTime?: Date | undefined;
+    private _activityDateTime?: Date | undefined;
     /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
-    public activityDisplayName?: string | undefined;
+    private _activityDisplayName?: string | undefined;
     /** Indicates additional details on the activity. */
-    public additionalDetails?: KeyValue[] | undefined;
+    private _additionalDetails?: KeyValue[] | undefined;
     /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */
-    public category?: string | undefined;
+    private _category?: string | undefined;
     /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. */
-    public correlationId?: string | undefined;
+    private _correlationId?: string | undefined;
     /** The initiatedBy property */
-    public initiatedBy?: AuditActivityInitiator | undefined;
+    private _initiatedBy?: AuditActivityInitiator | undefined;
     /** Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. */
-    public loggedByService?: string | undefined;
+    private _loggedByService?: string | undefined;
     /** Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete. */
-    public operationType?: string | undefined;
+    private _operationType?: string | undefined;
     /** Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue. */
-    public result?: OperationResult | undefined;
+    private _result?: OperationResult | undefined;
     /** Indicates the reason for failure if the result is failure or timeout. */
-    public resultReason?: string | undefined;
+    private _resultReason?: string | undefined;
     /** Information about the resource that changed due to the activity. */
-    public targetResources?: TargetResource[] | undefined;
+    private _targetResources?: TargetResource[] | undefined;
+    /**
+     * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get activityDateTime() {
+        return this._activityDateTime;
+    };
+    /**
+     * Sets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the activityDateTime property.
+     */
+    public set activityDateTime(value: Date | undefined) {
+        if(value) {
+            this._activityDateTime = value;
+        }
+    };
+    /**
+     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
+     * @returns a string
+     */
+    public get activityDisplayName() {
+        return this._activityDisplayName;
+    };
+    /**
+     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
+     * @param value Value to set for the activityDisplayName property.
+     */
+    public set activityDisplayName(value: string | undefined) {
+        if(value) {
+            this._activityDisplayName = value;
+        }
+    };
+    /**
+     * Gets the additionalDetails property value. Indicates additional details on the activity.
+     * @returns a KeyValueInterface
+     */
+    public get additionalDetails() {
+        return this._additionalDetails;
+    };
+    /**
+     * Sets the additionalDetails property value. Indicates additional details on the activity.
+     * @param value Value to set for the additionalDetails property.
+     */
+    public set additionalDetails(value: KeyValue[] | undefined) {
+        if(value) {
+            const additionalDetailsArrValue: KeyValueImpl[] = [];
+            this.additionalDetails?.forEach(element => {
+                additionalDetailsArrValue.push((element instanceof KeyValueImpl? element:new KeyValueImpl(element)));
+            });
+            this._additionalDetails = additionalDetailsArrValue;
+        }
+    };
+    /**
+     * Gets the category property value. Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * @returns a string
+     */
+    public get category() {
+        return this._category;
+    };
+    /**
+     * Sets the category property value. Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * @param value Value to set for the category property.
+     */
+    public set category(value: string | undefined) {
+        if(value) {
+            this._category = value;
+        }
+    };
     /**
      * Instantiates a new directoryAudit and sets the default values.
      * @param directoryAuditParameterValue 
      */
     public constructor(directoryAuditParameterValue?: DirectoryAudit | undefined) {
         super(directoryAuditParameterValue);
-        this.activityDateTime = directoryAuditParameterValue?.activityDateTime;
-        this.activityDisplayName = directoryAuditParameterValue?.activityDisplayName;
-        this.additionalDetails = directoryAuditParameterValue?.additionalDetails;
-        this.category = directoryAuditParameterValue?.category;
-        this.correlationId = directoryAuditParameterValue?.correlationId;
-        this.initiatedBy = directoryAuditParameterValue?.initiatedBy;
-        this.loggedByService = directoryAuditParameterValue?.loggedByService;
-        this.operationType = directoryAuditParameterValue?.operationType;
-        this.result = directoryAuditParameterValue?.result;
-        this.resultReason = directoryAuditParameterValue?.resultReason;
-        this.targetResources = directoryAuditParameterValue?.targetResources;
+        this._activityDateTime = directoryAuditParameterValue?.activityDateTime;
+        this._activityDisplayName = directoryAuditParameterValue?.activityDisplayName;
+        this._additionalDetails = directoryAuditParameterValue?.additionalDetails;
+        this._category = directoryAuditParameterValue?.category;
+        this._correlationId = directoryAuditParameterValue?.correlationId;
+        this._initiatedBy = directoryAuditParameterValue?.initiatedBy;
+        this._loggedByService = directoryAuditParameterValue?.loggedByService;
+        this._operationType = directoryAuditParameterValue?.operationType;
+        this._result = directoryAuditParameterValue?.result;
+        this._resultReason = directoryAuditParameterValue?.resultReason;
+        this._targetResources = directoryAuditParameterValue?.targetResources;
+    };
+    /**
+     * Gets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.
+     * @returns a string
+     */
+    public get correlationId() {
+        return this._correlationId;
+    };
+    /**
+     * Sets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.
+     * @param value Value to set for the correlationId property.
+     */
+    public set correlationId(value: string | undefined) {
+        if(value) {
+            this._correlationId = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -71,6 +155,86 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         };
     };
     /**
+     * Gets the initiatedBy property value. The initiatedBy property
+     * @returns a AuditActivityInitiatorInterface
+     */
+    public get initiatedBy() {
+        return this._initiatedBy;
+    };
+    /**
+     * Sets the initiatedBy property value. The initiatedBy property
+     * @param value Value to set for the initiatedBy property.
+     */
+    public set initiatedBy(value: AuditActivityInitiator | undefined) {
+        if(value) {
+            this._initiatedBy = value instanceof AuditActivityInitiatorImpl? value : new AuditActivityInitiatorImpl(value);
+        }
+    };
+    /**
+     * Gets the loggedByService property value. Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.
+     * @returns a string
+     */
+    public get loggedByService() {
+        return this._loggedByService;
+    };
+    /**
+     * Sets the loggedByService property value. Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.
+     * @param value Value to set for the loggedByService property.
+     */
+    public set loggedByService(value: string | undefined) {
+        if(value) {
+            this._loggedByService = value;
+        }
+    };
+    /**
+     * Gets the operationType property value. Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete.
+     * @returns a string
+     */
+    public get operationType() {
+        return this._operationType;
+    };
+    /**
+     * Sets the operationType property value. Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete.
+     * @param value Value to set for the operationType property.
+     */
+    public set operationType(value: string | undefined) {
+        if(value) {
+            this._operationType = value;
+        }
+    };
+    /**
+     * Gets the result property value. Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
+     * @returns a operationResult
+     */
+    public get result() {
+        return this._result;
+    };
+    /**
+     * Sets the result property value. Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
+     * @param value Value to set for the result property.
+     */
+    public set result(value: OperationResult | undefined) {
+        if(value) {
+            this._result = value;
+        }
+    };
+    /**
+     * Gets the resultReason property value. Indicates the reason for failure if the result is failure or timeout.
+     * @returns a string
+     */
+    public get resultReason() {
+        return this._resultReason;
+    };
+    /**
+     * Sets the resultReason property value. Indicates the reason for failure if the result is failure or timeout.
+     * @param value Value to set for the resultReason property.
+     */
+    public set resultReason(value: string | undefined) {
+        if(value) {
+            this._resultReason = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -83,7 +247,10 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(this.activityDisplayName){
             writer.writeStringValue("activityDisplayName", this.activityDisplayName);
         }
-        if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = []; this.additionalDetails?.forEach(element => {additionalDetailsArrValue.push(new KeyValueImpl(element));});
+        if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = [];
+        this.additionalDetails?.forEach(element => {
+            additionalDetailsArrValue.push((element instanceof KeyValueImpl? element:new KeyValueImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<KeyValueImpl>("additionalDetails", additionalDetailsArrValue);
         }
         if(this.category){
@@ -93,7 +260,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
             writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.initiatedBy){
-            writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", new AuditActivityInitiatorImpl(this.initiatedBy));
+            writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", (!this.initiatedBy || this.initiatedBy instanceof AuditActivityInitiatorImpl? this.initiatedBy : new AuditActivityInitiatorImpl(this.initiatedBy)));
         }
         if(this.loggedByService){
             writer.writeStringValue("loggedByService", this.loggedByService);
@@ -107,8 +274,31 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(this.resultReason){
             writer.writeStringValue("resultReason", this.resultReason);
         }
-        if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = []; this.targetResources?.forEach(element => {targetResourcesArrValue.push(new TargetResourceImpl(element));});
+        if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = [];
+        this.targetResources?.forEach(element => {
+            targetResourcesArrValue.push((element instanceof TargetResourceImpl? element:new TargetResourceImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
+        }
+    };
+    /**
+     * Gets the targetResources property value. Information about the resource that changed due to the activity.
+     * @returns a TargetResourceInterface
+     */
+    public get targetResources() {
+        return this._targetResources;
+    };
+    /**
+     * Sets the targetResources property value. Information about the resource that changed due to the activity.
+     * @param value Value to set for the targetResources property.
+     */
+    public set targetResources(value: TargetResource[] | undefined) {
+        if(value) {
+            const targetResourcesArrValue: TargetResourceImpl[] = [];
+            this.targetResources?.forEach(element => {
+                targetResourcesArrValue.push((element instanceof TargetResourceImpl? element:new TargetResourceImpl(element)));
+            });
+            this._targetResources = targetResourcesArrValue;
         }
     };
 }

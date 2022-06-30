@@ -6,19 +6,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RubricQualityFeedbackModelImpl implements RubricQualityFeedbackModel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specific feedback for one quality of this rubric. */
-    public feedback?: EducationItemBody | undefined;
+    private _feedback?: EducationItemBody | undefined;
     /** The ID of the rubricQuality that this feedback is related to. */
-    public qualityId?: string | undefined;
+    private _qualityId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new rubricQualityFeedbackModel and sets the default values.
      * @param rubricQualityFeedbackModelParameterValue 
      */
     public constructor(rubricQualityFeedbackModelParameterValue?: RubricQualityFeedbackModel | undefined) {
-        this.additionalData = rubricQualityFeedbackModelParameterValue?.additionalData ? rubricQualityFeedbackModelParameterValue?.additionalData! : {};
-        this.feedback = rubricQualityFeedbackModelParameterValue?.feedback;
-        this.qualityId = rubricQualityFeedbackModelParameterValue?.qualityId;
+        this._additionalData = rubricQualityFeedbackModelParameterValue?.additionalData ? rubricQualityFeedbackModelParameterValue?.additionalData! : {};
+        this._feedback = rubricQualityFeedbackModelParameterValue?.feedback;
+        this._qualityId = rubricQualityFeedbackModelParameterValue?.qualityId;
+    };
+    /**
+     * Gets the feedback property value. Specific feedback for one quality of this rubric.
+     * @returns a EducationItemBodyInterface
+     */
+    public get feedback() {
+        return this._feedback;
+    };
+    /**
+     * Sets the feedback property value. Specific feedback for one quality of this rubric.
+     * @param value Value to set for the feedback property.
+     */
+    public set feedback(value: EducationItemBody | undefined) {
+        if(value) {
+            this._feedback = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,13 +63,29 @@ export class RubricQualityFeedbackModelImpl implements RubricQualityFeedbackMode
         };
     };
     /**
+     * Gets the qualityId property value. The ID of the rubricQuality that this feedback is related to.
+     * @returns a string
+     */
+    public get qualityId() {
+        return this._qualityId;
+    };
+    /**
+     * Sets the qualityId property value. The ID of the rubricQuality that this feedback is related to.
+     * @param value Value to set for the qualityId property.
+     */
+    public set qualityId(value: string | undefined) {
+        if(value) {
+            this._qualityId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.feedback){
-            writer.writeObjectValue<EducationItemBodyImpl>("feedback", new EducationItemBodyImpl(this.feedback));
+            writer.writeObjectValue<EducationItemBodyImpl>("feedback", (!this.feedback || this.feedback instanceof EducationItemBodyImpl? this.feedback : new EducationItemBodyImpl(this.feedback)));
         }
         if(this.qualityId){
             writer.writeStringValue("qualityId", this.qualityId);

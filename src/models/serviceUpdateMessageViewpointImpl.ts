@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ServiceUpdateMessageViewpointImpl implements ServiceUpdateMessageViewpoint {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether the user archived the message. */
-    public isArchived?: boolean | undefined;
+    private _isArchived?: boolean | undefined;
     /** Indicates whether the user marked the message as favorite. */
-    public isFavorited?: boolean | undefined;
+    private _isFavorited?: boolean | undefined;
     /** Indicates whether the user read the message. */
-    public isRead?: boolean | undefined;
+    private _isRead?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new serviceUpdateMessageViewpoint and sets the default values.
      * @param serviceUpdateMessageViewpointParameterValue 
      */
     public constructor(serviceUpdateMessageViewpointParameterValue?: ServiceUpdateMessageViewpoint | undefined) {
-        this.additionalData = serviceUpdateMessageViewpointParameterValue?.additionalData ? serviceUpdateMessageViewpointParameterValue?.additionalData! : {};
-        this.isArchived = serviceUpdateMessageViewpointParameterValue?.isArchived;
-        this.isFavorited = serviceUpdateMessageViewpointParameterValue?.isFavorited;
-        this.isRead = serviceUpdateMessageViewpointParameterValue?.isRead;
+        this._additionalData = serviceUpdateMessageViewpointParameterValue?.additionalData ? serviceUpdateMessageViewpointParameterValue?.additionalData! : {};
+        this._isArchived = serviceUpdateMessageViewpointParameterValue?.isArchived;
+        this._isFavorited = serviceUpdateMessageViewpointParameterValue?.isFavorited;
+        this._isRead = serviceUpdateMessageViewpointParameterValue?.isRead;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,54 @@ export class ServiceUpdateMessageViewpointImpl implements ServiceUpdateMessageVi
             "isFavorited": n => { this.isFavorited = n.getBooleanValue(); },
             "isRead": n => { this.isRead = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isArchived property value. Indicates whether the user archived the message.
+     * @returns a boolean
+     */
+    public get isArchived() {
+        return this._isArchived;
+    };
+    /**
+     * Sets the isArchived property value. Indicates whether the user archived the message.
+     * @param value Value to set for the isArchived property.
+     */
+    public set isArchived(value: boolean | undefined) {
+        if(value) {
+            this._isArchived = value;
+        }
+    };
+    /**
+     * Gets the isFavorited property value. Indicates whether the user marked the message as favorite.
+     * @returns a boolean
+     */
+    public get isFavorited() {
+        return this._isFavorited;
+    };
+    /**
+     * Sets the isFavorited property value. Indicates whether the user marked the message as favorite.
+     * @param value Value to set for the isFavorited property.
+     */
+    public set isFavorited(value: boolean | undefined) {
+        if(value) {
+            this._isFavorited = value;
+        }
+    };
+    /**
+     * Gets the isRead property value. Indicates whether the user read the message.
+     * @returns a boolean
+     */
+    public get isRead() {
+        return this._isRead;
+    };
+    /**
+     * Sets the isRead property value. Indicates whether the user read the message.
+     * @param value Value to set for the isRead property.
+     */
+    public set isRead(value: boolean | undefined) {
+        if(value) {
+            this._isRead = value;
+        }
     };
     /**
      * Serializes information the current object

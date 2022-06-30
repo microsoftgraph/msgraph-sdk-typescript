@@ -3,28 +3,76 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SecureScoreControlStateUpdateImpl implements SecureScoreControlStateUpdate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Assigns the control to the user who will take the action. */
-    public assignedTo?: string | undefined;
+    private _assignedTo?: string | undefined;
     /** Provides optional comment about the control. */
-    public comment?: string | undefined;
+    private _comment?: string | undefined;
     /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty). */
-    public state?: string | undefined;
+    private _state?: string | undefined;
     /** ID of the user who updated tenant state. */
-    public updatedBy?: string | undefined;
+    private _updatedBy?: string | undefined;
     /** Time at which the control state was updated. */
-    public updatedDateTime?: Date | undefined;
+    private _updatedDateTime?: Date | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the assignedTo property value. Assigns the control to the user who will take the action.
+     * @returns a string
+     */
+    public get assignedTo() {
+        return this._assignedTo;
+    };
+    /**
+     * Sets the assignedTo property value. Assigns the control to the user who will take the action.
+     * @param value Value to set for the assignedTo property.
+     */
+    public set assignedTo(value: string | undefined) {
+        if(value) {
+            this._assignedTo = value;
+        }
+    };
+    /**
+     * Gets the comment property value. Provides optional comment about the control.
+     * @returns a string
+     */
+    public get comment() {
+        return this._comment;
+    };
+    /**
+     * Sets the comment property value. Provides optional comment about the control.
+     * @param value Value to set for the comment property.
+     */
+    public set comment(value: string | undefined) {
+        if(value) {
+            this._comment = value;
+        }
+    };
     /**
      * Instantiates a new secureScoreControlStateUpdate and sets the default values.
      * @param secureScoreControlStateUpdateParameterValue 
      */
     public constructor(secureScoreControlStateUpdateParameterValue?: SecureScoreControlStateUpdate | undefined) {
-        this.additionalData = secureScoreControlStateUpdateParameterValue?.additionalData ? secureScoreControlStateUpdateParameterValue?.additionalData! : {};
-        this.assignedTo = secureScoreControlStateUpdateParameterValue?.assignedTo;
-        this.comment = secureScoreControlStateUpdateParameterValue?.comment;
-        this.state = secureScoreControlStateUpdateParameterValue?.state;
-        this.updatedBy = secureScoreControlStateUpdateParameterValue?.updatedBy;
-        this.updatedDateTime = secureScoreControlStateUpdateParameterValue?.updatedDateTime;
+        this._additionalData = secureScoreControlStateUpdateParameterValue?.additionalData ? secureScoreControlStateUpdateParameterValue?.additionalData! : {};
+        this._assignedTo = secureScoreControlStateUpdateParameterValue?.assignedTo;
+        this._comment = secureScoreControlStateUpdateParameterValue?.comment;
+        this._state = secureScoreControlStateUpdateParameterValue?.state;
+        this._updatedBy = secureScoreControlStateUpdateParameterValue?.updatedBy;
+        this._updatedDateTime = secureScoreControlStateUpdateParameterValue?.updatedDateTime;
     };
     /**
      * The deserialization information for the current model
@@ -61,5 +109,53 @@ export class SecureScoreControlStateUpdateImpl implements SecureScoreControlStat
             writer.writeDateValue("updatedDateTime", this.updatedDateTime);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
+     * @returns a string
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
+     * @param value Value to set for the state property.
+     */
+    public set state(value: string | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the updatedBy property value. ID of the user who updated tenant state.
+     * @returns a string
+     */
+    public get updatedBy() {
+        return this._updatedBy;
+    };
+    /**
+     * Sets the updatedBy property value. ID of the user who updated tenant state.
+     * @param value Value to set for the updatedBy property.
+     */
+    public set updatedBy(value: string | undefined) {
+        if(value) {
+            this._updatedBy = value;
+        }
+    };
+    /**
+     * Gets the updatedDateTime property value. Time at which the control state was updated.
+     * @returns a Date
+     */
+    public get updatedDateTime() {
+        return this._updatedDateTime;
+    };
+    /**
+     * Sets the updatedDateTime property value. Time at which the control state was updated.
+     * @param value Value to set for the updatedDateTime property.
+     */
+    public set updatedDateTime(value: Date | undefined) {
+        if(value) {
+            this._updatedDateTime = value;
+        }
     };
 }

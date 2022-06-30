@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl implements AgreementFileLocalization {
     /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
-    public versions?: AgreementFileVersion[] | undefined;
+    private _versions?: AgreementFileVersion[] | undefined;
     /**
      * Instantiates a new agreementFileLocalization and sets the default values.
      * @param agreementFileLocalizationParameterValue 
      */
     public constructor(agreementFileLocalizationParameterValue?: AgreementFileLocalization | undefined) {
         super(agreementFileLocalizationParameterValue);
-        this.versions = agreementFileLocalizationParameterValue?.versions;
+        this._versions = agreementFileLocalizationParameterValue?.versions;
     };
     /**
      * The deserialization information for the current model
@@ -32,8 +32,31 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new AgreementFileVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = [];
+        this.versions?.forEach(element => {
+            versionsArrValue.push((element instanceof AgreementFileVersionImpl? element:new AgreementFileVersionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
+        }
+    };
+    /**
+     * Gets the versions property value. Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
+     * @returns a AgreementFileVersionInterface
+     */
+    public get versions() {
+        return this._versions;
+    };
+    /**
+     * Sets the versions property value. Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
+     * @param value Value to set for the versions property.
+     */
+    public set versions(value: AgreementFileVersion[] | undefined) {
+        if(value) {
+            const versionsArrValue: AgreementFileVersionImpl[] = [];
+            this.versions?.forEach(element => {
+                versionsArrValue.push((element instanceof AgreementFileVersionImpl? element:new AgreementFileVersionImpl(element)));
+            });
+            this._versions = versionsArrValue;
         }
     };
 }

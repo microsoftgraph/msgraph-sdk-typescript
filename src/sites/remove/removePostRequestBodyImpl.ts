@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the remove method. */
 export class RemovePostRequestBodyImpl implements RemovePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: Site[] | undefined;
+    private _value?: Site[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new removePostRequestBody and sets the default values.
      * @param removePostRequestBodyParameterValue 
      */
     public constructor(removePostRequestBodyParameterValue?: RemovePostRequestBody | undefined) {
-        this.additionalData = removePostRequestBodyParameterValue?.additionalData ? removePostRequestBodyParameterValue?.additionalData! : {};
-        this.value = removePostRequestBodyParameterValue?.value;
+        this._additionalData = removePostRequestBodyParameterValue?.additionalData ? removePostRequestBodyParameterValue?.additionalData! : {};
+        this._value = removePostRequestBodyParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class RemovePostRequestBodyImpl implements RemovePostRequestBody {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new SiteImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof SiteImpl? element:new SiteImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a SiteInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: Site[] | undefined) {
+        if(value) {
+            const valueArrValue: SiteImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof SiteImpl? element:new SiteImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

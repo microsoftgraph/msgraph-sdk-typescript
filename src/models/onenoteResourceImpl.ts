@@ -4,17 +4,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OnenoteResourceImpl extends OnenoteEntityBaseModelImpl implements OnenoteResource {
     /** The content stream */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** The URL for downloading the content */
-    public contentUrl?: string | undefined;
+    private _contentUrl?: string | undefined;
     /**
      * Instantiates a new OnenoteResource and sets the default values.
      * @param onenoteResourceParameterValue 
      */
     public constructor(onenoteResourceParameterValue?: OnenoteResource | undefined) {
         super(onenoteResourceParameterValue);
-        this.content = onenoteResourceParameterValue?.content;
-        this.contentUrl = onenoteResourceParameterValue?.contentUrl;
+        this._content = onenoteResourceParameterValue?.content;
+        this._contentUrl = onenoteResourceParameterValue?.contentUrl;
+    };
+    /**
+     * Gets the content property value. The content stream
+     * @returns a binary
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The content stream
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
+    };
+    /**
+     * Gets the contentUrl property value. The URL for downloading the content
+     * @returns a string
+     */
+    public get contentUrl() {
+        return this._contentUrl;
+    };
+    /**
+     * Sets the contentUrl property value. The URL for downloading the content
+     * @param value Value to set for the contentUrl property.
+     */
+    public set contentUrl(value: string | undefined) {
+        if(value) {
+            this._contentUrl = value;
+        }
     };
     /**
      * The deserialization information for the current model

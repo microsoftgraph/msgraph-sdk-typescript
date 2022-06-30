@@ -5,26 +5,58 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements ServiceAnnouncementAttachment {
     /** The attachment content. */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** The contentType property */
-    public contentType?: string | undefined;
+    private _contentType?: string | undefined;
     /** The lastModifiedDateTime property */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** The name property */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The size property */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new serviceAnnouncementAttachment and sets the default values.
      * @param serviceAnnouncementAttachmentParameterValue 
      */
     public constructor(serviceAnnouncementAttachmentParameterValue?: ServiceAnnouncementAttachment | undefined) {
         super(serviceAnnouncementAttachmentParameterValue);
-        this.content = serviceAnnouncementAttachmentParameterValue?.content;
-        this.contentType = serviceAnnouncementAttachmentParameterValue?.contentType;
-        this.lastModifiedDateTime = serviceAnnouncementAttachmentParameterValue?.lastModifiedDateTime;
-        this.name = serviceAnnouncementAttachmentParameterValue?.name;
-        this.size = serviceAnnouncementAttachmentParameterValue?.size;
+        this._content = serviceAnnouncementAttachmentParameterValue?.content;
+        this._contentType = serviceAnnouncementAttachmentParameterValue?.contentType;
+        this._lastModifiedDateTime = serviceAnnouncementAttachmentParameterValue?.lastModifiedDateTime;
+        this._name = serviceAnnouncementAttachmentParameterValue?.name;
+        this._size = serviceAnnouncementAttachmentParameterValue?.size;
+    };
+    /**
+     * Gets the content property value. The attachment content.
+     * @returns a binary
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The attachment content.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
+    };
+    /**
+     * Gets the contentType property value. The contentType property
+     * @returns a string
+     */
+    public get contentType() {
+        return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. The contentType property
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        if(value) {
+            this._contentType = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +70,38 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Ser
             "name": n => { this.name = n.getStringValue(); },
             "size": n => { this.size = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
+     * Gets the name property value. The name property
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name property
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -60,6 +124,22 @@ export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Ser
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
+        }
+    };
+    /**
+     * Gets the size property value. The size property
+     * @returns a integer
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. The size property
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
         }
     };
 }

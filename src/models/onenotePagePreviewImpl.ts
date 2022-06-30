@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OnenotePagePreviewImpl implements OnenotePagePreview {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The links property */
-    public links?: OnenotePagePreviewLinks | undefined;
+    private _links?: OnenotePagePreviewLinks | undefined;
     /** The previewText property */
-    public previewText?: string | undefined;
+    private _previewText?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new OnenotePagePreview and sets the default values.
      * @param onenotePagePreviewParameterValue 
      */
     public constructor(onenotePagePreviewParameterValue?: OnenotePagePreview | undefined) {
-        this.additionalData = onenotePagePreviewParameterValue?.additionalData ? onenotePagePreviewParameterValue?.additionalData! : {};
-        this.links = onenotePagePreviewParameterValue?.links;
-        this.previewText = onenotePagePreviewParameterValue?.previewText;
+        this._additionalData = onenotePagePreviewParameterValue?.additionalData ? onenotePagePreviewParameterValue?.additionalData! : {};
+        this._links = onenotePagePreviewParameterValue?.links;
+        this._previewText = onenotePagePreviewParameterValue?.previewText;
     };
     /**
      * The deserialization information for the current model
@@ -31,13 +47,45 @@ export class OnenotePagePreviewImpl implements OnenotePagePreview {
         };
     };
     /**
+     * Gets the links property value. The links property
+     * @returns a OnenotePagePreviewLinksInterface
+     */
+    public get links() {
+        return this._links;
+    };
+    /**
+     * Sets the links property value. The links property
+     * @param value Value to set for the links property.
+     */
+    public set links(value: OnenotePagePreviewLinks | undefined) {
+        if(value) {
+            this._links = value instanceof OnenotePagePreviewLinksImpl? value : new OnenotePagePreviewLinksImpl(value);
+        }
+    };
+    /**
+     * Gets the previewText property value. The previewText property
+     * @returns a string
+     */
+    public get previewText() {
+        return this._previewText;
+    };
+    /**
+     * Sets the previewText property value. The previewText property
+     * @param value Value to set for the previewText property.
+     */
+    public set previewText(value: string | undefined) {
+        if(value) {
+            this._previewText = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.links){
-            writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", new OnenotePagePreviewLinksImpl(this.links));
+            writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", (!this.links || this.links instanceof OnenotePagePreviewLinksImpl? this.links : new OnenotePagePreviewLinksImpl(this.links)));
         }
         if(this.previewText){
             writer.writeStringValue("previewText", this.previewText);

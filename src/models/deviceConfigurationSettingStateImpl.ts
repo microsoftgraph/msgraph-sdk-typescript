@@ -8,49 +8,113 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device Configuration Setting State for a given device. */
 export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationSettingState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Current value of setting on device */
-    public currentValue?: string | undefined;
+    private _currentValue?: string | undefined;
     /** Error code for the setting */
-    public errorCode?: number | undefined;
+    private _errorCode?: number | undefined;
     /** Error description */
-    public errorDescription?: string | undefined;
+    private _errorDescription?: string | undefined;
     /** Name of setting instance that is being reported. */
-    public instanceDisplayName?: string | undefined;
+    private _instanceDisplayName?: string | undefined;
     /** The setting that is being reported */
-    public setting?: string | undefined;
+    private _setting?: string | undefined;
     /** Localized/user friendly setting name that is being reported */
-    public settingName?: string | undefined;
+    private _settingName?: string | undefined;
     /** Contributing policies */
-    public sources?: SettingSource[] | undefined;
+    private _sources?: SettingSource[] | undefined;
     /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
-    public state?: ComplianceStatus | undefined;
+    private _state?: ComplianceStatus | undefined;
     /** UserEmail */
-    public userEmail?: string | undefined;
+    private _userEmail?: string | undefined;
     /** UserId */
-    public userId?: string | undefined;
+    private _userId?: string | undefined;
     /** UserName */
-    public userName?: string | undefined;
+    private _userName?: string | undefined;
     /** UserPrincipalName. */
-    public userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new deviceConfigurationSettingState and sets the default values.
      * @param deviceConfigurationSettingStateParameterValue 
      */
     public constructor(deviceConfigurationSettingStateParameterValue?: DeviceConfigurationSettingState | undefined) {
-        this.additionalData = deviceConfigurationSettingStateParameterValue?.additionalData ? deviceConfigurationSettingStateParameterValue?.additionalData! : {};
-        this.currentValue = deviceConfigurationSettingStateParameterValue?.currentValue;
-        this.errorCode = deviceConfigurationSettingStateParameterValue?.errorCode;
-        this.errorDescription = deviceConfigurationSettingStateParameterValue?.errorDescription;
-        this.instanceDisplayName = deviceConfigurationSettingStateParameterValue?.instanceDisplayName;
-        this.setting = deviceConfigurationSettingStateParameterValue?.setting;
-        this.settingName = deviceConfigurationSettingStateParameterValue?.settingName;
-        this.sources = deviceConfigurationSettingStateParameterValue?.sources;
-        this.state = deviceConfigurationSettingStateParameterValue?.state;
-        this.userEmail = deviceConfigurationSettingStateParameterValue?.userEmail;
-        this.userId = deviceConfigurationSettingStateParameterValue?.userId;
-        this.userName = deviceConfigurationSettingStateParameterValue?.userName;
-        this.userPrincipalName = deviceConfigurationSettingStateParameterValue?.userPrincipalName;
+        this._additionalData = deviceConfigurationSettingStateParameterValue?.additionalData ? deviceConfigurationSettingStateParameterValue?.additionalData! : {};
+        this._currentValue = deviceConfigurationSettingStateParameterValue?.currentValue;
+        this._errorCode = deviceConfigurationSettingStateParameterValue?.errorCode;
+        this._errorDescription = deviceConfigurationSettingStateParameterValue?.errorDescription;
+        this._instanceDisplayName = deviceConfigurationSettingStateParameterValue?.instanceDisplayName;
+        this._setting = deviceConfigurationSettingStateParameterValue?.setting;
+        this._settingName = deviceConfigurationSettingStateParameterValue?.settingName;
+        this._sources = deviceConfigurationSettingStateParameterValue?.sources;
+        this._state = deviceConfigurationSettingStateParameterValue?.state;
+        this._userEmail = deviceConfigurationSettingStateParameterValue?.userEmail;
+        this._userId = deviceConfigurationSettingStateParameterValue?.userId;
+        this._userName = deviceConfigurationSettingStateParameterValue?.userName;
+        this._userPrincipalName = deviceConfigurationSettingStateParameterValue?.userPrincipalName;
+    };
+    /**
+     * Gets the currentValue property value. Current value of setting on device
+     * @returns a string
+     */
+    public get currentValue() {
+        return this._currentValue;
+    };
+    /**
+     * Sets the currentValue property value. Current value of setting on device
+     * @param value Value to set for the currentValue property.
+     */
+    public set currentValue(value: string | undefined) {
+        if(value) {
+            this._currentValue = value;
+        }
+    };
+    /**
+     * Gets the errorCode property value. Error code for the setting
+     * @returns a int64
+     */
+    public get errorCode() {
+        return this._errorCode;
+    };
+    /**
+     * Sets the errorCode property value. Error code for the setting
+     * @param value Value to set for the errorCode property.
+     */
+    public set errorCode(value: number | undefined) {
+        if(value) {
+            this._errorCode = value;
+        }
+    };
+    /**
+     * Gets the errorDescription property value. Error description
+     * @returns a string
+     */
+    public get errorDescription() {
+        return this._errorDescription;
+    };
+    /**
+     * Sets the errorDescription property value. Error description
+     * @param value Value to set for the errorDescription property.
+     */
+    public set errorDescription(value: string | undefined) {
+        if(value) {
+            this._errorDescription = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -71,6 +135,22 @@ export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationS
             "userName": n => { this.userName = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the instanceDisplayName property value. Name of setting instance that is being reported.
+     * @returns a string
+     */
+    public get instanceDisplayName() {
+        return this._instanceDisplayName;
+    };
+    /**
+     * Sets the instanceDisplayName property value. Name of setting instance that is being reported.
+     * @param value Value to set for the instanceDisplayName property.
+     */
+    public set instanceDisplayName(value: string | undefined) {
+        if(value) {
+            this._instanceDisplayName = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -96,7 +176,10 @@ export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationS
         if(this.settingName){
             writer.writeStringValue("settingName", this.settingName);
         }
-        if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = []; this.sources?.forEach(element => {sourcesArrValue.push(new SettingSourceImpl(element));});
+        if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = [];
+        this.sources?.forEach(element => {
+            sourcesArrValue.push((element instanceof SettingSourceImpl? element:new SettingSourceImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SettingSourceImpl>("sources", sourcesArrValue);
         }
         if(this.state){
@@ -115,5 +198,137 @@ export class DeviceConfigurationSettingStateImpl implements DeviceConfigurationS
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the setting property value. The setting that is being reported
+     * @returns a string
+     */
+    public get setting() {
+        return this._setting;
+    };
+    /**
+     * Sets the setting property value. The setting that is being reported
+     * @param value Value to set for the setting property.
+     */
+    public set setting(value: string | undefined) {
+        if(value) {
+            this._setting = value;
+        }
+    };
+    /**
+     * Gets the settingName property value. Localized/user friendly setting name that is being reported
+     * @returns a string
+     */
+    public get settingName() {
+        return this._settingName;
+    };
+    /**
+     * Sets the settingName property value. Localized/user friendly setting name that is being reported
+     * @param value Value to set for the settingName property.
+     */
+    public set settingName(value: string | undefined) {
+        if(value) {
+            this._settingName = value;
+        }
+    };
+    /**
+     * Gets the sources property value. Contributing policies
+     * @returns a SettingSourceInterface
+     */
+    public get sources() {
+        return this._sources;
+    };
+    /**
+     * Sets the sources property value. Contributing policies
+     * @param value Value to set for the sources property.
+     */
+    public set sources(value: SettingSource[] | undefined) {
+        if(value) {
+            const sourcesArrValue: SettingSourceImpl[] = [];
+            this.sources?.forEach(element => {
+                sourcesArrValue.push((element instanceof SettingSourceImpl? element:new SettingSourceImpl(element)));
+            });
+            this._sources = sourcesArrValue;
+        }
+    };
+    /**
+     * Gets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * @returns a complianceStatus
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: ComplianceStatus | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the userEmail property value. UserEmail
+     * @returns a string
+     */
+    public get userEmail() {
+        return this._userEmail;
+    };
+    /**
+     * Sets the userEmail property value. UserEmail
+     * @param value Value to set for the userEmail property.
+     */
+    public set userEmail(value: string | undefined) {
+        if(value) {
+            this._userEmail = value;
+        }
+    };
+    /**
+     * Gets the userId property value. UserId
+     * @returns a string
+     */
+    public get userId() {
+        return this._userId;
+    };
+    /**
+     * Sets the userId property value. UserId
+     * @param value Value to set for the userId property.
+     */
+    public set userId(value: string | undefined) {
+        if(value) {
+            this._userId = value;
+        }
+    };
+    /**
+     * Gets the userName property value. UserName
+     * @returns a string
+     */
+    public get userName() {
+        return this._userName;
+    };
+    /**
+     * Sets the userName property value. UserName
+     * @param value Value to set for the userName property.
+     */
+    public set userName(value: string | undefined) {
+        if(value) {
+            this._userName = value;
+        }
+    };
+    /**
+     * Gets the userPrincipalName property value. UserPrincipalName.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
+    };
+    /**
+     * Sets the userPrincipalName property value. UserPrincipalName.
+     * @param value Value to set for the userPrincipalName property.
+     */
+    public set userPrincipalName(value: string | undefined) {
+        if(value) {
+            this._userPrincipalName = value;
+        }
     };
 }

@@ -9,41 +9,89 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
     /** The applicable iOS Device Type. */
-    public applicableDeviceType?: IosDeviceType | undefined;
+    private _applicableDeviceType?: IosDeviceType | undefined;
     /** The store URL. */
-    public appStoreUrl?: string | undefined;
+    private _appStoreUrl?: string | undefined;
     /** The Identity Name. */
-    public bundleId?: string | undefined;
+    private _bundleId?: string | undefined;
     /** The supported License Type. */
-    public licensingType?: VppLicensingType | undefined;
+    private _licensingType?: VppLicensingType | undefined;
     /** The VPP application release date and time. */
-    public releaseDateTime?: Date | undefined;
+    private _releaseDateTime?: Date | undefined;
     /** The total number of VPP licenses. */
-    public totalLicenseCount?: number | undefined;
+    private _totalLicenseCount?: number | undefined;
     /** The number of VPP licenses in use. */
-    public usedLicenseCount?: number | undefined;
+    private _usedLicenseCount?: number | undefined;
     /** The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education. */
-    public vppTokenAccountType?: VppTokenAccountType | undefined;
+    private _vppTokenAccountType?: VppTokenAccountType | undefined;
     /** The Apple Id associated with the given Apple Volume Purchase Program Token. */
-    public vppTokenAppleId?: string | undefined;
+    private _vppTokenAppleId?: string | undefined;
     /** The organization associated with the Apple Volume Purchase Program Token */
-    public vppTokenOrganizationName?: string | undefined;
+    private _vppTokenOrganizationName?: string | undefined;
+    /**
+     * Gets the applicableDeviceType property value. The applicable iOS Device Type.
+     * @returns a IosDeviceTypeInterface
+     */
+    public get applicableDeviceType() {
+        return this._applicableDeviceType;
+    };
+    /**
+     * Sets the applicableDeviceType property value. The applicable iOS Device Type.
+     * @param value Value to set for the applicableDeviceType property.
+     */
+    public set applicableDeviceType(value: IosDeviceType | undefined) {
+        if(value) {
+            this._applicableDeviceType = value instanceof IosDeviceTypeImpl? value : new IosDeviceTypeImpl(value);
+        }
+    };
+    /**
+     * Gets the appStoreUrl property value. The store URL.
+     * @returns a string
+     */
+    public get appStoreUrl() {
+        return this._appStoreUrl;
+    };
+    /**
+     * Sets the appStoreUrl property value. The store URL.
+     * @param value Value to set for the appStoreUrl property.
+     */
+    public set appStoreUrl(value: string | undefined) {
+        if(value) {
+            this._appStoreUrl = value;
+        }
+    };
+    /**
+     * Gets the bundleId property value. The Identity Name.
+     * @returns a string
+     */
+    public get bundleId() {
+        return this._bundleId;
+    };
+    /**
+     * Sets the bundleId property value. The Identity Name.
+     * @param value Value to set for the bundleId property.
+     */
+    public set bundleId(value: string | undefined) {
+        if(value) {
+            this._bundleId = value;
+        }
+    };
     /**
      * Instantiates a new IosVppApp and sets the default values.
      * @param iosVppAppParameterValue 
      */
     public constructor(iosVppAppParameterValue?: IosVppApp | undefined) {
         super(iosVppAppParameterValue);
-        this.applicableDeviceType = iosVppAppParameterValue?.applicableDeviceType;
-        this.appStoreUrl = iosVppAppParameterValue?.appStoreUrl;
-        this.bundleId = iosVppAppParameterValue?.bundleId;
-        this.licensingType = iosVppAppParameterValue?.licensingType;
-        this.releaseDateTime = iosVppAppParameterValue?.releaseDateTime;
-        this.totalLicenseCount = iosVppAppParameterValue?.totalLicenseCount;
-        this.usedLicenseCount = iosVppAppParameterValue?.usedLicenseCount;
-        this.vppTokenAccountType = iosVppAppParameterValue?.vppTokenAccountType;
-        this.vppTokenAppleId = iosVppAppParameterValue?.vppTokenAppleId;
-        this.vppTokenOrganizationName = iosVppAppParameterValue?.vppTokenOrganizationName;
+        this._applicableDeviceType = iosVppAppParameterValue?.applicableDeviceType;
+        this._appStoreUrl = iosVppAppParameterValue?.appStoreUrl;
+        this._bundleId = iosVppAppParameterValue?.bundleId;
+        this._licensingType = iosVppAppParameterValue?.licensingType;
+        this._releaseDateTime = iosVppAppParameterValue?.releaseDateTime;
+        this._totalLicenseCount = iosVppAppParameterValue?.totalLicenseCount;
+        this._usedLicenseCount = iosVppAppParameterValue?.usedLicenseCount;
+        this._vppTokenAccountType = iosVppAppParameterValue?.vppTokenAccountType;
+        this._vppTokenAppleId = iosVppAppParameterValue?.vppTokenAppleId;
+        this._vppTokenOrganizationName = iosVppAppParameterValue?.vppTokenOrganizationName;
     };
     /**
      * The deserialization information for the current model
@@ -64,6 +112,38 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
         };
     };
     /**
+     * Gets the licensingType property value. The supported License Type.
+     * @returns a VppLicensingTypeInterface
+     */
+    public get licensingType() {
+        return this._licensingType;
+    };
+    /**
+     * Sets the licensingType property value. The supported License Type.
+     * @param value Value to set for the licensingType property.
+     */
+    public set licensingType(value: VppLicensingType | undefined) {
+        if(value) {
+            this._licensingType = value instanceof VppLicensingTypeImpl? value : new VppLicensingTypeImpl(value);
+        }
+    };
+    /**
+     * Gets the releaseDateTime property value. The VPP application release date and time.
+     * @returns a Date
+     */
+    public get releaseDateTime() {
+        return this._releaseDateTime;
+    };
+    /**
+     * Sets the releaseDateTime property value. The VPP application release date and time.
+     * @param value Value to set for the releaseDateTime property.
+     */
+    public set releaseDateTime(value: Date | undefined) {
+        if(value) {
+            this._releaseDateTime = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -71,7 +151,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicableDeviceType){
-            writer.writeObjectValue<IosDeviceTypeImpl>("applicableDeviceType", new IosDeviceTypeImpl(this.applicableDeviceType));
+            writer.writeObjectValue<IosDeviceTypeImpl>("applicableDeviceType", (!this.applicableDeviceType || this.applicableDeviceType instanceof IosDeviceTypeImpl? this.applicableDeviceType : new IosDeviceTypeImpl(this.applicableDeviceType)));
         }
         if(this.appStoreUrl){
             writer.writeStringValue("appStoreUrl", this.appStoreUrl);
@@ -80,7 +160,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
             writer.writeStringValue("bundleId", this.bundleId);
         }
         if(this.licensingType){
-            writer.writeObjectValue<VppLicensingTypeImpl>("licensingType", new VppLicensingTypeImpl(this.licensingType));
+            writer.writeObjectValue<VppLicensingTypeImpl>("licensingType", (!this.licensingType || this.licensingType instanceof VppLicensingTypeImpl? this.licensingType : new VppLicensingTypeImpl(this.licensingType)));
         }
         if(this.releaseDateTime){
             writer.writeDateValue("releaseDateTime", this.releaseDateTime);
@@ -99,6 +179,86 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
         }
         if(this.vppTokenOrganizationName){
             writer.writeStringValue("vppTokenOrganizationName", this.vppTokenOrganizationName);
+        }
+    };
+    /**
+     * Gets the totalLicenseCount property value. The total number of VPP licenses.
+     * @returns a integer
+     */
+    public get totalLicenseCount() {
+        return this._totalLicenseCount;
+    };
+    /**
+     * Sets the totalLicenseCount property value. The total number of VPP licenses.
+     * @param value Value to set for the totalLicenseCount property.
+     */
+    public set totalLicenseCount(value: number | undefined) {
+        if(value) {
+            this._totalLicenseCount = value;
+        }
+    };
+    /**
+     * Gets the usedLicenseCount property value. The number of VPP licenses in use.
+     * @returns a integer
+     */
+    public get usedLicenseCount() {
+        return this._usedLicenseCount;
+    };
+    /**
+     * Sets the usedLicenseCount property value. The number of VPP licenses in use.
+     * @param value Value to set for the usedLicenseCount property.
+     */
+    public set usedLicenseCount(value: number | undefined) {
+        if(value) {
+            this._usedLicenseCount = value;
+        }
+    };
+    /**
+     * Gets the vppTokenAccountType property value. The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
+     * @returns a vppTokenAccountType
+     */
+    public get vppTokenAccountType() {
+        return this._vppTokenAccountType;
+    };
+    /**
+     * Sets the vppTokenAccountType property value. The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
+     * @param value Value to set for the vppTokenAccountType property.
+     */
+    public set vppTokenAccountType(value: VppTokenAccountType | undefined) {
+        if(value) {
+            this._vppTokenAccountType = value;
+        }
+    };
+    /**
+     * Gets the vppTokenAppleId property value. The Apple Id associated with the given Apple Volume Purchase Program Token.
+     * @returns a string
+     */
+    public get vppTokenAppleId() {
+        return this._vppTokenAppleId;
+    };
+    /**
+     * Sets the vppTokenAppleId property value. The Apple Id associated with the given Apple Volume Purchase Program Token.
+     * @param value Value to set for the vppTokenAppleId property.
+     */
+    public set vppTokenAppleId(value: string | undefined) {
+        if(value) {
+            this._vppTokenAppleId = value;
+        }
+    };
+    /**
+     * Gets the vppTokenOrganizationName property value. The organization associated with the Apple Volume Purchase Program Token
+     * @returns a string
+     */
+    public get vppTokenOrganizationName() {
+        return this._vppTokenOrganizationName;
+    };
+    /**
+     * Sets the vppTokenOrganizationName property value. The organization associated with the Apple Volume Purchase Program Token
+     * @param value Value to set for the vppTokenOrganizationName property.
+     */
+    public set vppTokenOrganizationName(value: string | undefined) {
+        if(value) {
+            this._vppTokenOrganizationName = value;
         }
     };
 }

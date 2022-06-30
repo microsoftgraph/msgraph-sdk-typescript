@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class PlannerBucketTaskBoardTaskFormatImpl extends EntityImpl implements PlannerBucketTaskBoardTaskFormat {
     /** Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here. */
-    public orderHint?: string | undefined;
+    private _orderHint?: string | undefined;
     /**
      * Instantiates a new plannerBucketTaskBoardTaskFormat and sets the default values.
      * @param plannerBucketTaskBoardTaskFormatParameterValue 
      */
     public constructor(plannerBucketTaskBoardTaskFormatParameterValue?: PlannerBucketTaskBoardTaskFormat | undefined) {
         super(plannerBucketTaskBoardTaskFormatParameterValue);
-        this.orderHint = plannerBucketTaskBoardTaskFormatParameterValue?.orderHint;
+        this._orderHint = plannerBucketTaskBoardTaskFormatParameterValue?.orderHint;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class PlannerBucketTaskBoardTaskFormatImpl extends EntityImpl implements 
         return {...super.getFieldDeserializers(),
             "orderHint": n => { this.orderHint = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the orderHint property value. Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
+     * @returns a string
+     */
+    public get orderHint() {
+        return this._orderHint;
+    };
+    /**
+     * Sets the orderHint property value. Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
+     * @param value Value to set for the orderHint property.
+     */
+    public set orderHint(value: string | undefined) {
+        if(value) {
+            this._orderHint = value;
+        }
     };
     /**
      * Serializes information the current object

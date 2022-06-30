@@ -24,614 +24,1942 @@ import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kio
 
 export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl implements Windows10GeneralConfiguration {
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
-    public accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
+    private _accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
     /** Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only). */
-    public antiTheftModeBlocked?: boolean | undefined;
+    private _antiTheftModeBlocked?: boolean | undefined;
     /** Indicates whether apps from AppX packages signed with a trusted certificate can be side loaded. Possible values are: notConfigured, blocked, allowed. */
-    public appsAllowTrustedAppsSideloading?: StateManagementSetting | undefined;
+    private _appsAllowTrustedAppsSideloading?: StateManagementSetting | undefined;
     /** Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded. */
-    public appsBlockWindowsStoreOriginatedApps?: boolean | undefined;
+    private _appsBlockWindowsStoreOriginatedApps?: boolean | undefined;
     /** Specify a list of allowed Bluetooth services and profiles in hex formatted strings. */
-    public bluetoothAllowedServices?: string[] | undefined;
+    private _bluetoothAllowedServices?: string[] | undefined;
     /** Whether or not to Block the user from using bluetooth advertising. */
-    public bluetoothBlockAdvertising?: boolean | undefined;
+    private _bluetoothBlockAdvertising?: boolean | undefined;
     /** Whether or not to Block the user from using bluetooth discoverable mode. */
-    public bluetoothBlockDiscoverableMode?: boolean | undefined;
+    private _bluetoothBlockDiscoverableMode?: boolean | undefined;
     /** Whether or not to Block the user from using bluetooth. */
-    public bluetoothBlocked?: boolean | undefined;
+    private _bluetoothBlocked?: boolean | undefined;
     /** Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device. */
-    public bluetoothBlockPrePairing?: boolean | undefined;
+    private _bluetoothBlockPrePairing?: boolean | undefined;
     /** Whether or not to Block the user from accessing the camera of the device. */
-    public cameraBlocked?: boolean | undefined;
+    private _cameraBlocked?: boolean | undefined;
     /** Whether or not to Block the user from using data over cellular while roaming. */
-    public cellularBlockDataWhenRoaming?: boolean | undefined;
+    private _cellularBlockDataWhenRoaming?: boolean | undefined;
     /** Whether or not to Block the user from using VPN over cellular. */
-    public cellularBlockVpn?: boolean | undefined;
+    private _cellularBlockVpn?: boolean | undefined;
     /** Whether or not to Block the user from using VPN when roaming over cellular. */
-    public cellularBlockVpnWhenRoaming?: boolean | undefined;
+    private _cellularBlockVpnWhenRoaming?: boolean | undefined;
     /** Whether or not to Block the user from doing manual root certificate installation. */
-    public certificatesBlockManualRootCertificateInstallation?: boolean | undefined;
+    private _certificatesBlockManualRootCertificateInstallation?: boolean | undefined;
     /** Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences. */
-    public connectedDevicesServiceBlocked?: boolean | undefined;
+    private _connectedDevicesServiceBlocked?: boolean | undefined;
     /** Whether or not to Block the user from using copy paste. */
-    public copyPasteBlocked?: boolean | undefined;
+    private _copyPasteBlocked?: boolean | undefined;
     /** Whether or not to Block the user from using Cortana. */
-    public cortanaBlocked?: boolean | undefined;
+    private _cortanaBlocked?: boolean | undefined;
     /** Whether or not to block end user access to Defender. */
-    public defenderBlockEndUserAccess?: boolean | undefined;
+    private _defenderBlockEndUserAccess?: boolean | undefined;
     /** Specifies the level of cloud-delivered protection. Possible values are: notConfigured, high, highPlus, zeroTolerance. */
-    public defenderCloudBlockLevel?: DefenderCloudBlockLevelType | undefined;
+    private _defenderCloudBlockLevel?: DefenderCloudBlockLevelType | undefined;
     /** Number of days before deleting quarantined malware. Valid values 0 to 90 */
-    public defenderDaysBeforeDeletingQuarantinedMalware?: number | undefined;
+    private _defenderDaysBeforeDeletingQuarantinedMalware?: number | undefined;
     /** Gets or sets Defender’s actions to take on detected Malware per threat level. */
-    public defenderDetectedMalwareActions?: DefenderDetectedMalwareActions | undefined;
+    private _defenderDetectedMalwareActions?: DefenderDetectedMalwareActions | undefined;
     /** File extensions to exclude from scans and real time protection. */
-    public defenderFileExtensionsToExclude?: string[] | undefined;
+    private _defenderFileExtensionsToExclude?: string[] | undefined;
     /** Files and folder to exclude from scans and real time protection. */
-    public defenderFilesAndFoldersToExclude?: string[] | undefined;
+    private _defenderFilesAndFoldersToExclude?: string[] | undefined;
     /** Value for monitoring file activity. Possible values are: userDefined, disable, monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly. */
-    public defenderMonitorFileActivity?: DefenderMonitorFileActivity | undefined;
+    private _defenderMonitorFileActivity?: DefenderMonitorFileActivity | undefined;
     /** Processes to exclude from scans and real time protection. */
-    public defenderProcessesToExclude?: string[] | undefined;
+    private _defenderProcessesToExclude?: string[] | undefined;
     /** The configuration for how to prompt user for sample submission. Possible values are: userDefined, alwaysPrompt, promptBeforeSendingPersonalData, neverSendData, sendAllDataWithoutPrompting. */
-    public defenderPromptForSampleSubmission?: DefenderPromptForSampleSubmission | undefined;
+    private _defenderPromptForSampleSubmission?: DefenderPromptForSampleSubmission | undefined;
     /** Indicates whether or not to require behavior monitoring. */
-    public defenderRequireBehaviorMonitoring?: boolean | undefined;
+    private _defenderRequireBehaviorMonitoring?: boolean | undefined;
     /** Indicates whether or not to require cloud protection. */
-    public defenderRequireCloudProtection?: boolean | undefined;
+    private _defenderRequireCloudProtection?: boolean | undefined;
     /** Indicates whether or not to require network inspection system. */
-    public defenderRequireNetworkInspectionSystem?: boolean | undefined;
+    private _defenderRequireNetworkInspectionSystem?: boolean | undefined;
     /** Indicates whether or not to require real time monitoring. */
-    public defenderRequireRealTimeMonitoring?: boolean | undefined;
+    private _defenderRequireRealTimeMonitoring?: boolean | undefined;
     /** Indicates whether or not to scan archive files. */
-    public defenderScanArchiveFiles?: boolean | undefined;
+    private _defenderScanArchiveFiles?: boolean | undefined;
     /** Indicates whether or not to scan downloads. */
-    public defenderScanDownloads?: boolean | undefined;
+    private _defenderScanDownloads?: boolean | undefined;
     /** Indicates whether or not to scan incoming mail messages. */
-    public defenderScanIncomingMail?: boolean | undefined;
+    private _defenderScanIncomingMail?: boolean | undefined;
     /** Indicates whether or not to scan mapped network drives during full scan. */
-    public defenderScanMappedNetworkDrivesDuringFullScan?: boolean | undefined;
+    private _defenderScanMappedNetworkDrivesDuringFullScan?: boolean | undefined;
     /** Max CPU usage percentage during scan. Valid values 0 to 100 */
-    public defenderScanMaxCpu?: number | undefined;
+    private _defenderScanMaxCpu?: number | undefined;
     /** Indicates whether or not to scan files opened from a network folder. */
-    public defenderScanNetworkFiles?: boolean | undefined;
+    private _defenderScanNetworkFiles?: boolean | undefined;
     /** Indicates whether or not to scan removable drives during full scan. */
-    public defenderScanRemovableDrivesDuringFullScan?: boolean | undefined;
+    private _defenderScanRemovableDrivesDuringFullScan?: boolean | undefined;
     /** Indicates whether or not to scan scripts loaded in Internet Explorer browser. */
-    public defenderScanScriptsLoadedInInternetExplorer?: boolean | undefined;
+    private _defenderScanScriptsLoadedInInternetExplorer?: boolean | undefined;
     /** The defender system scan type. Possible values are: userDefined, disabled, quick, full. */
-    public defenderScanType?: DefenderScanType | undefined;
+    private _defenderScanType?: DefenderScanType | undefined;
     /** The time to perform a daily quick scan. */
-    public defenderScheduledQuickScanTime?: TimeOnly | undefined;
+    private _defenderScheduledQuickScanTime?: TimeOnly | undefined;
     /** The defender time for the system scan. */
-    public defenderScheduledScanTime?: TimeOnly | undefined;
+    private _defenderScheduledScanTime?: TimeOnly | undefined;
     /** The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24 */
-    public defenderSignatureUpdateIntervalInHours?: number | undefined;
+    private _defenderSignatureUpdateIntervalInHours?: number | undefined;
     /** Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan. */
-    public defenderSystemScanSchedule?: WeeklySchedule | undefined;
+    private _defenderSystemScanSchedule?: WeeklySchedule | undefined;
     /** Indicates whether or not to allow developer unlock. Possible values are: notConfigured, blocked, allowed. */
-    public developerUnlockSetting?: StateManagementSetting | undefined;
+    private _developerUnlockSetting?: StateManagementSetting | undefined;
     /** Indicates whether or not to Block the user from resetting their phone. */
-    public deviceManagementBlockFactoryResetOnMobile?: boolean | undefined;
+    private _deviceManagementBlockFactoryResetOnMobile?: boolean | undefined;
     /** Indicates whether or not to Block the user from doing manual un-enrollment from device management. */
-    public deviceManagementBlockManualUnenroll?: boolean | undefined;
+    private _deviceManagementBlockManualUnenroll?: boolean | undefined;
     /** Gets or sets a value allowing the device to send diagnostic and usage telemetry data, such as Watson. Possible values are: userDefined, none, basic, enhanced, full. */
-    public diagnosticsDataSubmissionMode?: DiagnosticDataSubmissionMode | undefined;
+    private _diagnosticsDataSubmissionMode?: DiagnosticDataSubmissionMode | undefined;
     /** Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge. */
-    public edgeAllowStartPagesModification?: boolean | undefined;
+    private _edgeAllowStartPagesModification?: boolean | undefined;
     /** Indicates whether or not to prevent access to about flags on Edge browser. */
-    public edgeBlockAccessToAboutFlags?: boolean | undefined;
+    private _edgeBlockAccessToAboutFlags?: boolean | undefined;
     /** Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services. */
-    public edgeBlockAddressBarDropdown?: boolean | undefined;
+    private _edgeBlockAddressBarDropdown?: boolean | undefined;
     /** Indicates whether or not to block auto fill. */
-    public edgeBlockAutofill?: boolean | undefined;
+    private _edgeBlockAutofill?: boolean | undefined;
     /** Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues. */
-    public edgeBlockCompatibilityList?: boolean | undefined;
+    private _edgeBlockCompatibilityList?: boolean | undefined;
     /** Indicates whether or not to block developer tools in the Edge browser. */
-    public edgeBlockDeveloperTools?: boolean | undefined;
+    private _edgeBlockDeveloperTools?: boolean | undefined;
     /** Indicates whether or not to Block the user from using the Edge browser. */
-    public edgeBlocked?: boolean | undefined;
+    private _edgeBlocked?: boolean | undefined;
     /** Indicates whether or not to block extensions in the Edge browser. */
-    public edgeBlockExtensions?: boolean | undefined;
+    private _edgeBlockExtensions?: boolean | undefined;
     /** Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser. */
-    public edgeBlockInPrivateBrowsing?: boolean | undefined;
+    private _edgeBlockInPrivateBrowsing?: boolean | undefined;
     /** Indicates whether or not to Block the user from using JavaScript. */
-    public edgeBlockJavaScript?: boolean | undefined;
+    private _edgeBlockJavaScript?: boolean | undefined;
     /** Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge. */
-    public edgeBlockLiveTileDataCollection?: boolean | undefined;
+    private _edgeBlockLiveTileDataCollection?: boolean | undefined;
     /** Indicates whether or not to Block password manager. */
-    public edgeBlockPasswordManager?: boolean | undefined;
+    private _edgeBlockPasswordManager?: boolean | undefined;
     /** Indicates whether or not to block popups. */
-    public edgeBlockPopups?: boolean | undefined;
+    private _edgeBlockPopups?: boolean | undefined;
     /** Indicates whether or not to block the user from using the search suggestions in the address bar. */
-    public edgeBlockSearchSuggestions?: boolean | undefined;
+    private _edgeBlockSearchSuggestions?: boolean | undefined;
     /** Indicates whether or not to Block the user from sending the do not track header. */
-    public edgeBlockSendingDoNotTrackHeader?: boolean | undefined;
+    private _edgeBlockSendingDoNotTrackHeader?: boolean | undefined;
     /** Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead. */
-    public edgeBlockSendingIntranetTrafficToInternetExplorer?: boolean | undefined;
+    private _edgeBlockSendingIntranetTrafficToInternetExplorer?: boolean | undefined;
     /** Clear browsing data on exiting Microsoft Edge. */
-    public edgeClearBrowsingDataOnExit?: boolean | undefined;
+    private _edgeClearBrowsingDataOnExit?: boolean | undefined;
     /** Indicates which cookies to block in the Edge browser. Possible values are: userDefined, allow, blockThirdParty, blockAll. */
-    public edgeCookiePolicy?: EdgeCookiePolicy | undefined;
+    private _edgeCookiePolicy?: EdgeCookiePolicy | undefined;
     /** Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page. */
-    public edgeDisableFirstRunPage?: boolean | undefined;
+    private _edgeDisableFirstRunPage?: boolean | undefined;
     /** Indicates the enterprise mode site list location. Could be a local file, local network or http location. */
-    public edgeEnterpriseModeSiteListLocation?: string | undefined;
+    private _edgeEnterpriseModeSiteListLocation?: string | undefined;
     /** The first run URL for when Edge browser is opened for the first time. */
-    public edgeFirstRunUrl?: string | undefined;
+    private _edgeFirstRunUrl?: string | undefined;
     /** The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser. */
-    public edgeHomepageUrls?: string[] | undefined;
+    private _edgeHomepageUrls?: string[] | undefined;
     /** Indicates whether or not to Require the user to use the smart screen filter. */
-    public edgeRequireSmartScreen?: boolean | undefined;
+    private _edgeRequireSmartScreen?: boolean | undefined;
     /** Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set. */
-    public edgeSearchEngine?: EdgeSearchEngineBase | undefined;
+    private _edgeSearchEngine?: EdgeSearchEngineBase | undefined;
     /** Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. */
-    public edgeSendIntranetTrafficToInternetExplorer?: boolean | undefined;
+    private _edgeSendIntranetTrafficToInternetExplorer?: boolean | undefined;
     /** Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers. */
-    public edgeSyncFavoritesWithInternetExplorer?: boolean | undefined;
+    private _edgeSyncFavoritesWithInternetExplorer?: boolean | undefined;
     /** Endpoint for discovering cloud printers. */
-    public enterpriseCloudPrintDiscoveryEndPoint?: string | undefined;
+    private _enterpriseCloudPrintDiscoveryEndPoint?: string | undefined;
     /** Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535 */
-    public enterpriseCloudPrintDiscoveryMaxLimit?: number | undefined;
+    private _enterpriseCloudPrintDiscoveryMaxLimit?: number | undefined;
     /** OAuth resource URI for printer discovery service as configured in Azure portal. */
-    public enterpriseCloudPrintMopriaDiscoveryResourceIdentifier?: string | undefined;
+    private _enterpriseCloudPrintMopriaDiscoveryResourceIdentifier?: string | undefined;
     /** Authentication endpoint for acquiring OAuth tokens. */
-    public enterpriseCloudPrintOAuthAuthority?: string | undefined;
+    private _enterpriseCloudPrintOAuthAuthority?: string | undefined;
     /** GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority. */
-    public enterpriseCloudPrintOAuthClientIdentifier?: string | undefined;
+    private _enterpriseCloudPrintOAuthClientIdentifier?: string | undefined;
     /** OAuth resource URI for print service as configured in the Azure portal. */
-    public enterpriseCloudPrintResourceIdentifier?: string | undefined;
+    private _enterpriseCloudPrintResourceIdentifier?: string | undefined;
     /** Indicates whether or not to enable device discovery UX. */
-    public experienceBlockDeviceDiscovery?: boolean | undefined;
+    private _experienceBlockDeviceDiscovery?: boolean | undefined;
     /** Indicates whether or not to allow the error dialog from displaying if no SIM card is detected. */
-    public experienceBlockErrorDialogWhenNoSIM?: boolean | undefined;
+    private _experienceBlockErrorDialogWhenNoSIM?: boolean | undefined;
     /** Indicates whether or not to enable task switching on the device. */
-    public experienceBlockTaskSwitcher?: boolean | undefined;
+    private _experienceBlockTaskSwitcher?: boolean | undefined;
     /** Indicates whether or not to block DVR and broadcasting. */
-    public gameDvrBlocked?: boolean | undefined;
+    private _gameDvrBlocked?: boolean | undefined;
     /** Indicates whether or not to Block the user from using internet sharing. */
-    public internetSharingBlocked?: boolean | undefined;
+    private _internetSharingBlocked?: boolean | undefined;
     /** Indicates whether or not to Block the user from location services. */
-    public locationServicesBlocked?: boolean | undefined;
+    private _locationServicesBlocked?: boolean | undefined;
     /** Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored. */
-    public lockScreenAllowTimeoutConfiguration?: boolean | undefined;
+    private _lockScreenAllowTimeoutConfiguration?: boolean | undefined;
     /** Indicates whether or not to block action center notifications over lock screen. */
-    public lockScreenBlockActionCenterNotifications?: boolean | undefined;
+    private _lockScreenBlockActionCenterNotifications?: boolean | undefined;
     /** Indicates whether or not the user can interact with Cortana using speech while the system is locked. */
-    public lockScreenBlockCortana?: boolean | undefined;
+    private _lockScreenBlockCortana?: boolean | undefined;
     /** Indicates whether to allow toast notifications above the device lock screen. */
-    public lockScreenBlockToastNotifications?: boolean | undefined;
+    private _lockScreenBlockToastNotifications?: boolean | undefined;
     /** Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800 */
-    public lockScreenTimeoutInSeconds?: number | undefined;
+    private _lockScreenTimeoutInSeconds?: number | undefined;
     /** Disables the ability to quickly switch between users that are logged on simultaneously without logging off. */
-    public logonBlockFastUserSwitching?: boolean | undefined;
+    private _logonBlockFastUserSwitching?: boolean | undefined;
     /** Indicates whether or not to Block a Microsoft account. */
-    public microsoftAccountBlocked?: boolean | undefined;
+    private _microsoftAccountBlocked?: boolean | undefined;
     /** Indicates whether or not to Block Microsoft account settings sync. */
-    public microsoftAccountBlockSettingsSync?: boolean | undefined;
+    private _microsoftAccountBlockSettingsSync?: boolean | undefined;
     /** If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM. */
-    public networkProxyApplySettingsDeviceWide?: boolean | undefined;
+    private _networkProxyApplySettingsDeviceWide?: boolean | undefined;
     /** Address to the proxy auto-config (PAC) script you want to use. */
-    public networkProxyAutomaticConfigurationUrl?: string | undefined;
+    private _networkProxyAutomaticConfigurationUrl?: string | undefined;
     /** Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script. */
-    public networkProxyDisableAutoDetect?: boolean | undefined;
+    private _networkProxyDisableAutoDetect?: boolean | undefined;
     /** Specifies manual proxy server settings. */
-    public networkProxyServer?: Windows10NetworkProxyServer | undefined;
+    private _networkProxyServer?: Windows10NetworkProxyServer | undefined;
     /** Indicates whether or not to Block the user from using near field communication. */
-    public nfcBlocked?: boolean | undefined;
+    private _nfcBlocked?: boolean | undefined;
     /** Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive. */
-    public oneDriveDisableFileSync?: boolean | undefined;
+    private _oneDriveDisableFileSync?: boolean | undefined;
     /** Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords. */
-    public passwordBlockSimple?: boolean | undefined;
+    private _passwordBlockSimple?: boolean | undefined;
     /** The password expiration in days. Valid values 0 to 730 */
-    public passwordExpirationDays?: number | undefined;
+    private _passwordExpirationDays?: number | undefined;
     /** The number of character sets required in the password. */
-    public passwordMinimumCharacterSetCount?: number | undefined;
+    private _passwordMinimumCharacterSetCount?: number | undefined;
     /** The minimum password length. Valid values 4 to 16 */
-    public passwordMinimumLength?: number | undefined;
+    private _passwordMinimumLength?: number | undefined;
     /** The minutes of inactivity before the screen times out. */
-    public passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    private _passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
     /** The number of previous passwords to prevent reuse of. Valid values 0 to 50 */
-    public passwordPreviousPasswordBlockCount?: number | undefined;
+    private _passwordPreviousPasswordBlockCount?: number | undefined;
     /** Indicates whether or not to require the user to have a password. */
-    public passwordRequired?: boolean | undefined;
+    private _passwordRequired?: boolean | undefined;
     /** The required password type. Possible values are: deviceDefault, alphanumeric, numeric. */
-    public passwordRequiredType?: RequiredPasswordType | undefined;
+    private _passwordRequiredType?: RequiredPasswordType | undefined;
     /** Indicates whether or not to require a password upon resuming from an idle state. */
-    public passwordRequireWhenResumeFromIdleState?: boolean | undefined;
+    private _passwordRequireWhenResumeFromIdleState?: boolean | undefined;
     /** The number of sign in failures before factory reset. Valid values 0 to 999 */
-    public passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    private _passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
     /** A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image. */
-    public personalizationDesktopImageUrl?: string | undefined;
+    private _personalizationDesktopImageUrl?: string | undefined;
     /** A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image. */
-    public personalizationLockScreenImageUrl?: string | undefined;
+    private _personalizationLockScreenImageUrl?: string | undefined;
     /** Enables or disables the use of advertising ID. Added in Windows 10, version 1607. Possible values are: notConfigured, blocked, allowed. */
-    public privacyAdvertisingId?: StateManagementSetting | undefined;
+    private _privacyAdvertisingId?: StateManagementSetting | undefined;
     /** Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps. */
-    public privacyAutoAcceptPairingAndConsentPrompts?: boolean | undefined;
+    private _privacyAutoAcceptPairingAndConsentPrompts?: boolean | undefined;
     /** Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications. */
-    public privacyBlockInputPersonalization?: boolean | undefined;
+    private _privacyBlockInputPersonalization?: boolean | undefined;
     /** Indicates whether or not to Block the user from reset protection mode. */
-    public resetProtectionModeBlocked?: boolean | undefined;
+    private _resetProtectionModeBlocked?: boolean | undefined;
     /** Specifies what filter level of safe search is required. Possible values are: userDefined, strict, moderate. */
-    public safeSearchFilter?: SafeSearchFilterType | undefined;
+    private _safeSearchFilter?: SafeSearchFilterType | undefined;
     /** Indicates whether or not to Block the user from taking Screenshots. */
-    public screenCaptureBlocked?: boolean | undefined;
+    private _screenCaptureBlocked?: boolean | undefined;
     /** Specifies if search can use diacritics. */
-    public searchBlockDiacritics?: boolean | undefined;
+    private _searchBlockDiacritics?: boolean | undefined;
     /** Specifies whether to use automatic language detection when indexing content and properties. */
-    public searchDisableAutoLanguageDetection?: boolean | undefined;
+    private _searchDisableAutoLanguageDetection?: boolean | undefined;
     /** Indicates whether or not to disable the search indexer backoff feature. */
-    public searchDisableIndexerBackoff?: boolean | undefined;
+    private _searchDisableIndexerBackoff?: boolean | undefined;
     /** Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer. */
-    public searchDisableIndexingEncryptedItems?: boolean | undefined;
+    private _searchDisableIndexingEncryptedItems?: boolean | undefined;
     /** Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed. */
-    public searchDisableIndexingRemovableDrive?: boolean | undefined;
+    private _searchDisableIndexingRemovableDrive?: boolean | undefined;
     /** Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops. */
-    public searchEnableAutomaticIndexSizeManangement?: boolean | undefined;
+    private _searchEnableAutomaticIndexSizeManangement?: boolean | undefined;
     /** Indicates whether or not to block remote queries of this computer’s index. */
-    public searchEnableRemoteQueries?: boolean | undefined;
+    private _searchEnableRemoteQueries?: boolean | undefined;
     /** Indicates whether or not to block access to Accounts in Settings app. */
-    public settingsBlockAccountsPage?: boolean | undefined;
+    private _settingsBlockAccountsPage?: boolean | undefined;
     /** Indicates whether or not to block the user from installing provisioning packages. */
-    public settingsBlockAddProvisioningPackage?: boolean | undefined;
+    private _settingsBlockAddProvisioningPackage?: boolean | undefined;
     /** Indicates whether or not to block access to Apps in Settings app. */
-    public settingsBlockAppsPage?: boolean | undefined;
+    private _settingsBlockAppsPage?: boolean | undefined;
     /** Indicates whether or not to block the user from changing the language settings. */
-    public settingsBlockChangeLanguage?: boolean | undefined;
+    private _settingsBlockChangeLanguage?: boolean | undefined;
     /** Indicates whether or not to block the user from changing power and sleep settings. */
-    public settingsBlockChangePowerSleep?: boolean | undefined;
+    private _settingsBlockChangePowerSleep?: boolean | undefined;
     /** Indicates whether or not to block the user from changing the region settings. */
-    public settingsBlockChangeRegion?: boolean | undefined;
+    private _settingsBlockChangeRegion?: boolean | undefined;
     /** Indicates whether or not to block the user from changing date and time settings. */
-    public settingsBlockChangeSystemTime?: boolean | undefined;
+    private _settingsBlockChangeSystemTime?: boolean | undefined;
     /** Indicates whether or not to block access to Devices in Settings app. */
-    public settingsBlockDevicesPage?: boolean | undefined;
+    private _settingsBlockDevicesPage?: boolean | undefined;
     /** Indicates whether or not to block access to Ease of Access in Settings app. */
-    public settingsBlockEaseOfAccessPage?: boolean | undefined;
+    private _settingsBlockEaseOfAccessPage?: boolean | undefined;
     /** Indicates whether or not to block the user from editing the device name. */
-    public settingsBlockEditDeviceName?: boolean | undefined;
+    private _settingsBlockEditDeviceName?: boolean | undefined;
     /** Indicates whether or not to block access to Gaming in Settings app. */
-    public settingsBlockGamingPage?: boolean | undefined;
+    private _settingsBlockGamingPage?: boolean | undefined;
     /** Indicates whether or not to block access to Network & Internet in Settings app. */
-    public settingsBlockNetworkInternetPage?: boolean | undefined;
+    private _settingsBlockNetworkInternetPage?: boolean | undefined;
     /** Indicates whether or not to block access to Personalization in Settings app. */
-    public settingsBlockPersonalizationPage?: boolean | undefined;
+    private _settingsBlockPersonalizationPage?: boolean | undefined;
     /** Indicates whether or not to block access to Privacy in Settings app. */
-    public settingsBlockPrivacyPage?: boolean | undefined;
+    private _settingsBlockPrivacyPage?: boolean | undefined;
     /** Indicates whether or not to block the runtime configuration agent from removing provisioning packages. */
-    public settingsBlockRemoveProvisioningPackage?: boolean | undefined;
+    private _settingsBlockRemoveProvisioningPackage?: boolean | undefined;
     /** Indicates whether or not to block access to Settings app. */
-    public settingsBlockSettingsApp?: boolean | undefined;
+    private _settingsBlockSettingsApp?: boolean | undefined;
     /** Indicates whether or not to block access to System in Settings app. */
-    public settingsBlockSystemPage?: boolean | undefined;
+    private _settingsBlockSystemPage?: boolean | undefined;
     /** Indicates whether or not to block access to Time & Language in Settings app. */
-    public settingsBlockTimeLanguagePage?: boolean | undefined;
+    private _settingsBlockTimeLanguagePage?: boolean | undefined;
     /** Indicates whether or not to block access to Update & Security in Settings app. */
-    public settingsBlockUpdateSecurityPage?: boolean | undefined;
+    private _settingsBlockUpdateSecurityPage?: boolean | undefined;
     /** Indicates whether or not to block multiple users of the same app to share data. */
-    public sharedUserAppDataAllowed?: boolean | undefined;
+    private _sharedUserAppDataAllowed?: boolean | undefined;
     /** Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites. */
-    public smartScreenBlockPromptOverride?: boolean | undefined;
+    private _smartScreenBlockPromptOverride?: boolean | undefined;
     /** Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files */
-    public smartScreenBlockPromptOverrideForFiles?: boolean | undefined;
+    private _smartScreenBlockPromptOverrideForFiles?: boolean | undefined;
     /** This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store. */
-    public smartScreenEnableAppInstallControl?: boolean | undefined;
+    private _smartScreenEnableAppInstallControl?: boolean | undefined;
     /** Indicates whether or not to block the user from unpinning apps from taskbar. */
-    public startBlockUnpinningAppsFromTaskbar?: boolean | undefined;
+    private _startBlockUnpinningAppsFromTaskbar?: boolean | undefined;
     /** Setting the value of this collapses the app list, removes the app list entirely, or disables the corresponding toggle in the Settings app. Possible values are: userDefined, collapse, remove, disableSettingsApp. */
-    public startMenuAppListVisibility?: WindowsStartMenuAppListVisibilityType | undefined;
+    private _startMenuAppListVisibility?: WindowsStartMenuAppListVisibilityType | undefined;
     /** Enabling this policy hides the change account setting from appearing in the user tile in the start menu. */
-    public startMenuHideChangeAccountSettings?: boolean | undefined;
+    private _startMenuHideChangeAccountSettings?: boolean | undefined;
     /** Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app. */
-    public startMenuHideFrequentlyUsedApps?: boolean | undefined;
+    private _startMenuHideFrequentlyUsedApps?: boolean | undefined;
     /** Enabling this policy hides hibernate from appearing in the power button in the start menu. */
-    public startMenuHideHibernate?: boolean | undefined;
+    private _startMenuHideHibernate?: boolean | undefined;
     /** Enabling this policy hides lock from appearing in the user tile in the start menu. */
-    public startMenuHideLock?: boolean | undefined;
+    private _startMenuHideLock?: boolean | undefined;
     /** Enabling this policy hides the power button from appearing in the start menu. */
-    public startMenuHidePowerButton?: boolean | undefined;
+    private _startMenuHidePowerButton?: boolean | undefined;
     /** Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app. */
-    public startMenuHideRecentJumpLists?: boolean | undefined;
+    private _startMenuHideRecentJumpLists?: boolean | undefined;
     /** Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app. */
-    public startMenuHideRecentlyAddedApps?: boolean | undefined;
+    private _startMenuHideRecentlyAddedApps?: boolean | undefined;
     /** Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu. */
-    public startMenuHideRestartOptions?: boolean | undefined;
+    private _startMenuHideRestartOptions?: boolean | undefined;
     /** Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu. */
-    public startMenuHideShutDown?: boolean | undefined;
+    private _startMenuHideShutDown?: boolean | undefined;
     /** Enabling this policy hides sign out from appearing in the user tile in the start menu. */
-    public startMenuHideSignOut?: boolean | undefined;
+    private _startMenuHideSignOut?: boolean | undefined;
     /** Enabling this policy hides sleep from appearing in the power button in the start menu. */
-    public startMenuHideSleep?: boolean | undefined;
+    private _startMenuHideSleep?: boolean | undefined;
     /** Enabling this policy hides switch account from appearing in the user tile in the start menu. */
-    public startMenuHideSwitchAccount?: boolean | undefined;
+    private _startMenuHideSwitchAccount?: boolean | undefined;
     /** Enabling this policy hides the user tile from appearing in the start menu. */
-    public startMenuHideUserTile?: boolean | undefined;
+    private _startMenuHideUserTile?: boolean | undefined;
     /** This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array. */
-    public startMenuLayoutEdgeAssetsXml?: string | undefined;
+    private _startMenuLayoutEdgeAssetsXml?: string | undefined;
     /** Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format. */
-    public startMenuLayoutXml?: string | undefined;
+    private _startMenuLayoutXml?: string | undefined;
     /** Allows admins to decide how the Start menu is displayed. Possible values are: userDefined, fullScreen, nonFullScreen. */
-    public startMenuMode?: WindowsStartMenuModeType | undefined;
+    private _startMenuMode?: WindowsStartMenuModeType | undefined;
     /** Enforces the visibility (Show/Hide) of the Documents folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderDocuments?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderDocuments?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the Downloads folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderDownloads?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderDownloads?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the FileExplorer shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderFileExplorer?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderFileExplorer?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the HomeGroup folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderHomeGroup?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderHomeGroup?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the Music folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderMusic?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderMusic?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the Network folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderNetwork?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderNetwork?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the PersonalFolder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderPersonalFolder?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderPersonalFolder?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the Pictures folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderPictures?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderPictures?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the Settings folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderSettings?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderSettings?: VisibilitySetting | undefined;
     /** Enforces the visibility (Show/Hide) of the Videos folder shortcut on the Start menu. Possible values are: notConfigured, hide, show. */
-    public startMenuPinnedFolderVideos?: VisibilitySetting | undefined;
+    private _startMenuPinnedFolderVideos?: VisibilitySetting | undefined;
     /** Indicates whether or not to Block the user from using removable storage. */
-    public storageBlockRemovableStorage?: boolean | undefined;
+    private _storageBlockRemovableStorage?: boolean | undefined;
     /** Indicating whether or not to require encryption on a mobile device. */
-    public storageRequireMobileDeviceEncryption?: boolean | undefined;
+    private _storageRequireMobileDeviceEncryption?: boolean | undefined;
     /** Indicates whether application data is restricted to the system drive. */
-    public storageRestrictAppDataToSystemVolume?: boolean | undefined;
+    private _storageRestrictAppDataToSystemVolume?: boolean | undefined;
     /** Indicates whether the installation of applications is restricted to the system drive. */
-    public storageRestrictAppInstallToSystemVolume?: boolean | undefined;
+    private _storageRestrictAppInstallToSystemVolume?: boolean | undefined;
     /** Whether the device is required to connect to the network. */
-    public tenantLockdownRequireNetworkDuringOutOfBoxExperience?: boolean | undefined;
+    private _tenantLockdownRequireNetworkDuringOutOfBoxExperience?: boolean | undefined;
     /** Indicates whether or not to Block the user from USB connection. */
-    public usbBlocked?: boolean | undefined;
+    private _usbBlocked?: boolean | undefined;
     /** Indicates whether or not to Block the user from voice recording. */
-    public voiceRecordingBlocked?: boolean | undefined;
+    private _voiceRecordingBlocked?: boolean | undefined;
     /** Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC */
-    public webRtcBlockLocalhostIpAddress?: boolean | undefined;
+    private _webRtcBlockLocalhostIpAddress?: boolean | undefined;
     /** Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked. */
-    public wiFiBlockAutomaticConnectHotspots?: boolean | undefined;
+    private _wiFiBlockAutomaticConnectHotspots?: boolean | undefined;
     /** Indicates whether or not to Block the user from using Wi-Fi. */
-    public wiFiBlocked?: boolean | undefined;
+    private _wiFiBlocked?: boolean | undefined;
     /** Indicates whether or not to Block the user from using Wi-Fi manual configuration. */
-    public wiFiBlockManualConfiguration?: boolean | undefined;
+    private _wiFiBlockManualConfiguration?: boolean | undefined;
     /** Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500 */
-    public wiFiScanInterval?: number | undefined;
+    private _wiFiScanInterval?: number | undefined;
     /** Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles. */
-    public windowsSpotlightBlockConsumerSpecificFeatures?: boolean | undefined;
+    private _windowsSpotlightBlockConsumerSpecificFeatures?: boolean | undefined;
     /** Allows IT admins to turn off all Windows Spotlight features */
-    public windowsSpotlightBlocked?: boolean | undefined;
+    private _windowsSpotlightBlocked?: boolean | undefined;
     /** Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed */
-    public windowsSpotlightBlockOnActionCenter?: boolean | undefined;
+    private _windowsSpotlightBlockOnActionCenter?: boolean | undefined;
     /** Block personalized content in Windows spotlight based on user’s device usage. */
-    public windowsSpotlightBlockTailoredExperiences?: boolean | undefined;
+    private _windowsSpotlightBlockTailoredExperiences?: boolean | undefined;
     /** Block third party content delivered via Windows Spotlight */
-    public windowsSpotlightBlockThirdPartyNotifications?: boolean | undefined;
+    private _windowsSpotlightBlockThirdPartyNotifications?: boolean | undefined;
     /** Block Windows Spotlight Windows welcome experience */
-    public windowsSpotlightBlockWelcomeExperience?: boolean | undefined;
+    private _windowsSpotlightBlockWelcomeExperience?: boolean | undefined;
     /** Allows IT admins to turn off the popup of Windows Tips. */
-    public windowsSpotlightBlockWindowsTips?: boolean | undefined;
+    private _windowsSpotlightBlockWindowsTips?: boolean | undefined;
     /** Specifies the type of Spotlight. Possible values are: notConfigured, disabled, enabled. */
-    public windowsSpotlightConfigureOnLockScreen?: WindowsSpotlightEnablementSettings | undefined;
+    private _windowsSpotlightConfigureOnLockScreen?: WindowsSpotlightEnablementSettings | undefined;
     /** Indicates whether or not to block automatic update of apps from Windows Store. */
-    public windowsStoreBlockAutoUpdate?: boolean | undefined;
+    private _windowsStoreBlockAutoUpdate?: boolean | undefined;
     /** Indicates whether or not to Block the user from using the Windows store. */
-    public windowsStoreBlocked?: boolean | undefined;
+    private _windowsStoreBlocked?: boolean | undefined;
     /** Indicates whether or not to enable Private Store Only. */
-    public windowsStoreEnablePrivateStoreOnly?: boolean | undefined;
+    private _windowsStoreEnablePrivateStoreOnly?: boolean | undefined;
     /** Indicates whether or not to allow other devices from discovering this PC for projection. */
-    public wirelessDisplayBlockProjectionToThisDevice?: boolean | undefined;
+    private _wirelessDisplayBlockProjectionToThisDevice?: boolean | undefined;
     /** Indicates whether or not to allow user input from wireless display receiver. */
-    public wirelessDisplayBlockUserInputFromReceiver?: boolean | undefined;
+    private _wirelessDisplayBlockUserInputFromReceiver?: boolean | undefined;
     /** Indicates whether or not to require a PIN for new devices to initiate pairing. */
-    public wirelessDisplayRequirePinForPairing?: boolean | undefined;
+    private _wirelessDisplayRequirePinForPairing?: boolean | undefined;
+    /**
+     * Gets the accountsBlockAddingNonMicrosoftAccountEmail property value. Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
+     * @returns a boolean
+     */
+    public get accountsBlockAddingNonMicrosoftAccountEmail() {
+        return this._accountsBlockAddingNonMicrosoftAccountEmail;
+    };
+    /**
+     * Sets the accountsBlockAddingNonMicrosoftAccountEmail property value. Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
+     * @param value Value to set for the accountsBlockAddingNonMicrosoftAccountEmail property.
+     */
+    public set accountsBlockAddingNonMicrosoftAccountEmail(value: boolean | undefined) {
+        if(value) {
+            this._accountsBlockAddingNonMicrosoftAccountEmail = value;
+        }
+    };
+    /**
+     * Gets the antiTheftModeBlocked property value. Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).
+     * @returns a boolean
+     */
+    public get antiTheftModeBlocked() {
+        return this._antiTheftModeBlocked;
+    };
+    /**
+     * Sets the antiTheftModeBlocked property value. Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).
+     * @param value Value to set for the antiTheftModeBlocked property.
+     */
+    public set antiTheftModeBlocked(value: boolean | undefined) {
+        if(value) {
+            this._antiTheftModeBlocked = value;
+        }
+    };
+    /**
+     * Gets the appsAllowTrustedAppsSideloading property value. Indicates whether apps from AppX packages signed with a trusted certificate can be side loaded. Possible values are: notConfigured, blocked, allowed.
+     * @returns a stateManagementSetting
+     */
+    public get appsAllowTrustedAppsSideloading() {
+        return this._appsAllowTrustedAppsSideloading;
+    };
+    /**
+     * Sets the appsAllowTrustedAppsSideloading property value. Indicates whether apps from AppX packages signed with a trusted certificate can be side loaded. Possible values are: notConfigured, blocked, allowed.
+     * @param value Value to set for the appsAllowTrustedAppsSideloading property.
+     */
+    public set appsAllowTrustedAppsSideloading(value: StateManagementSetting | undefined) {
+        if(value) {
+            this._appsAllowTrustedAppsSideloading = value;
+        }
+    };
+    /**
+     * Gets the appsBlockWindowsStoreOriginatedApps property value. Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.
+     * @returns a boolean
+     */
+    public get appsBlockWindowsStoreOriginatedApps() {
+        return this._appsBlockWindowsStoreOriginatedApps;
+    };
+    /**
+     * Sets the appsBlockWindowsStoreOriginatedApps property value. Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.
+     * @param value Value to set for the appsBlockWindowsStoreOriginatedApps property.
+     */
+    public set appsBlockWindowsStoreOriginatedApps(value: boolean | undefined) {
+        if(value) {
+            this._appsBlockWindowsStoreOriginatedApps = value;
+        }
+    };
+    /**
+     * Gets the bluetoothAllowedServices property value. Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
+     * @returns a string
+     */
+    public get bluetoothAllowedServices() {
+        return this._bluetoothAllowedServices;
+    };
+    /**
+     * Sets the bluetoothAllowedServices property value. Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
+     * @param value Value to set for the bluetoothAllowedServices property.
+     */
+    public set bluetoothAllowedServices(value: string[] | undefined) {
+        if(value) {
+            this._bluetoothAllowedServices = value;
+        }
+    };
+    /**
+     * Gets the bluetoothBlockAdvertising property value. Whether or not to Block the user from using bluetooth advertising.
+     * @returns a boolean
+     */
+    public get bluetoothBlockAdvertising() {
+        return this._bluetoothBlockAdvertising;
+    };
+    /**
+     * Sets the bluetoothBlockAdvertising property value. Whether or not to Block the user from using bluetooth advertising.
+     * @param value Value to set for the bluetoothBlockAdvertising property.
+     */
+    public set bluetoothBlockAdvertising(value: boolean | undefined) {
+        if(value) {
+            this._bluetoothBlockAdvertising = value;
+        }
+    };
+    /**
+     * Gets the bluetoothBlockDiscoverableMode property value. Whether or not to Block the user from using bluetooth discoverable mode.
+     * @returns a boolean
+     */
+    public get bluetoothBlockDiscoverableMode() {
+        return this._bluetoothBlockDiscoverableMode;
+    };
+    /**
+     * Sets the bluetoothBlockDiscoverableMode property value. Whether or not to Block the user from using bluetooth discoverable mode.
+     * @param value Value to set for the bluetoothBlockDiscoverableMode property.
+     */
+    public set bluetoothBlockDiscoverableMode(value: boolean | undefined) {
+        if(value) {
+            this._bluetoothBlockDiscoverableMode = value;
+        }
+    };
+    /**
+     * Gets the bluetoothBlocked property value. Whether or not to Block the user from using bluetooth.
+     * @returns a boolean
+     */
+    public get bluetoothBlocked() {
+        return this._bluetoothBlocked;
+    };
+    /**
+     * Sets the bluetoothBlocked property value. Whether or not to Block the user from using bluetooth.
+     * @param value Value to set for the bluetoothBlocked property.
+     */
+    public set bluetoothBlocked(value: boolean | undefined) {
+        if(value) {
+            this._bluetoothBlocked = value;
+        }
+    };
+    /**
+     * Gets the bluetoothBlockPrePairing property value. Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.
+     * @returns a boolean
+     */
+    public get bluetoothBlockPrePairing() {
+        return this._bluetoothBlockPrePairing;
+    };
+    /**
+     * Sets the bluetoothBlockPrePairing property value. Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.
+     * @param value Value to set for the bluetoothBlockPrePairing property.
+     */
+    public set bluetoothBlockPrePairing(value: boolean | undefined) {
+        if(value) {
+            this._bluetoothBlockPrePairing = value;
+        }
+    };
+    /**
+     * Gets the cameraBlocked property value. Whether or not to Block the user from accessing the camera of the device.
+     * @returns a boolean
+     */
+    public get cameraBlocked() {
+        return this._cameraBlocked;
+    };
+    /**
+     * Sets the cameraBlocked property value. Whether or not to Block the user from accessing the camera of the device.
+     * @param value Value to set for the cameraBlocked property.
+     */
+    public set cameraBlocked(value: boolean | undefined) {
+        if(value) {
+            this._cameraBlocked = value;
+        }
+    };
+    /**
+     * Gets the cellularBlockDataWhenRoaming property value. Whether or not to Block the user from using data over cellular while roaming.
+     * @returns a boolean
+     */
+    public get cellularBlockDataWhenRoaming() {
+        return this._cellularBlockDataWhenRoaming;
+    };
+    /**
+     * Sets the cellularBlockDataWhenRoaming property value. Whether or not to Block the user from using data over cellular while roaming.
+     * @param value Value to set for the cellularBlockDataWhenRoaming property.
+     */
+    public set cellularBlockDataWhenRoaming(value: boolean | undefined) {
+        if(value) {
+            this._cellularBlockDataWhenRoaming = value;
+        }
+    };
+    /**
+     * Gets the cellularBlockVpn property value. Whether or not to Block the user from using VPN over cellular.
+     * @returns a boolean
+     */
+    public get cellularBlockVpn() {
+        return this._cellularBlockVpn;
+    };
+    /**
+     * Sets the cellularBlockVpn property value. Whether or not to Block the user from using VPN over cellular.
+     * @param value Value to set for the cellularBlockVpn property.
+     */
+    public set cellularBlockVpn(value: boolean | undefined) {
+        if(value) {
+            this._cellularBlockVpn = value;
+        }
+    };
+    /**
+     * Gets the cellularBlockVpnWhenRoaming property value. Whether or not to Block the user from using VPN when roaming over cellular.
+     * @returns a boolean
+     */
+    public get cellularBlockVpnWhenRoaming() {
+        return this._cellularBlockVpnWhenRoaming;
+    };
+    /**
+     * Sets the cellularBlockVpnWhenRoaming property value. Whether or not to Block the user from using VPN when roaming over cellular.
+     * @param value Value to set for the cellularBlockVpnWhenRoaming property.
+     */
+    public set cellularBlockVpnWhenRoaming(value: boolean | undefined) {
+        if(value) {
+            this._cellularBlockVpnWhenRoaming = value;
+        }
+    };
+    /**
+     * Gets the certificatesBlockManualRootCertificateInstallation property value. Whether or not to Block the user from doing manual root certificate installation.
+     * @returns a boolean
+     */
+    public get certificatesBlockManualRootCertificateInstallation() {
+        return this._certificatesBlockManualRootCertificateInstallation;
+    };
+    /**
+     * Sets the certificatesBlockManualRootCertificateInstallation property value. Whether or not to Block the user from doing manual root certificate installation.
+     * @param value Value to set for the certificatesBlockManualRootCertificateInstallation property.
+     */
+    public set certificatesBlockManualRootCertificateInstallation(value: boolean | undefined) {
+        if(value) {
+            this._certificatesBlockManualRootCertificateInstallation = value;
+        }
+    };
+    /**
+     * Gets the connectedDevicesServiceBlocked property value. Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.
+     * @returns a boolean
+     */
+    public get connectedDevicesServiceBlocked() {
+        return this._connectedDevicesServiceBlocked;
+    };
+    /**
+     * Sets the connectedDevicesServiceBlocked property value. Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.
+     * @param value Value to set for the connectedDevicesServiceBlocked property.
+     */
+    public set connectedDevicesServiceBlocked(value: boolean | undefined) {
+        if(value) {
+            this._connectedDevicesServiceBlocked = value;
+        }
+    };
     /**
      * Instantiates a new Windows10GeneralConfiguration and sets the default values.
      * @param windows10GeneralConfigurationParameterValue 
      */
     public constructor(windows10GeneralConfigurationParameterValue?: Windows10GeneralConfiguration | undefined) {
         super(windows10GeneralConfigurationParameterValue);
-        this.accountsBlockAddingNonMicrosoftAccountEmail = windows10GeneralConfigurationParameterValue?.accountsBlockAddingNonMicrosoftAccountEmail;
-        this.antiTheftModeBlocked = windows10GeneralConfigurationParameterValue?.antiTheftModeBlocked;
-        this.appsAllowTrustedAppsSideloading = windows10GeneralConfigurationParameterValue?.appsAllowTrustedAppsSideloading;
-        this.appsBlockWindowsStoreOriginatedApps = windows10GeneralConfigurationParameterValue?.appsBlockWindowsStoreOriginatedApps;
-        this.bluetoothAllowedServices = windows10GeneralConfigurationParameterValue?.bluetoothAllowedServices;
-        this.bluetoothBlockAdvertising = windows10GeneralConfigurationParameterValue?.bluetoothBlockAdvertising;
-        this.bluetoothBlockDiscoverableMode = windows10GeneralConfigurationParameterValue?.bluetoothBlockDiscoverableMode;
-        this.bluetoothBlocked = windows10GeneralConfigurationParameterValue?.bluetoothBlocked;
-        this.bluetoothBlockPrePairing = windows10GeneralConfigurationParameterValue?.bluetoothBlockPrePairing;
-        this.cameraBlocked = windows10GeneralConfigurationParameterValue?.cameraBlocked;
-        this.cellularBlockDataWhenRoaming = windows10GeneralConfigurationParameterValue?.cellularBlockDataWhenRoaming;
-        this.cellularBlockVpn = windows10GeneralConfigurationParameterValue?.cellularBlockVpn;
-        this.cellularBlockVpnWhenRoaming = windows10GeneralConfigurationParameterValue?.cellularBlockVpnWhenRoaming;
-        this.certificatesBlockManualRootCertificateInstallation = windows10GeneralConfigurationParameterValue?.certificatesBlockManualRootCertificateInstallation;
-        this.connectedDevicesServiceBlocked = windows10GeneralConfigurationParameterValue?.connectedDevicesServiceBlocked;
-        this.copyPasteBlocked = windows10GeneralConfigurationParameterValue?.copyPasteBlocked;
-        this.cortanaBlocked = windows10GeneralConfigurationParameterValue?.cortanaBlocked;
-        this.defenderBlockEndUserAccess = windows10GeneralConfigurationParameterValue?.defenderBlockEndUserAccess;
-        this.defenderCloudBlockLevel = windows10GeneralConfigurationParameterValue?.defenderCloudBlockLevel;
-        this.defenderDaysBeforeDeletingQuarantinedMalware = windows10GeneralConfigurationParameterValue?.defenderDaysBeforeDeletingQuarantinedMalware;
-        this.defenderDetectedMalwareActions = windows10GeneralConfigurationParameterValue?.defenderDetectedMalwareActions;
-        this.defenderFileExtensionsToExclude = windows10GeneralConfigurationParameterValue?.defenderFileExtensionsToExclude;
-        this.defenderFilesAndFoldersToExclude = windows10GeneralConfigurationParameterValue?.defenderFilesAndFoldersToExclude;
-        this.defenderMonitorFileActivity = windows10GeneralConfigurationParameterValue?.defenderMonitorFileActivity;
-        this.defenderProcessesToExclude = windows10GeneralConfigurationParameterValue?.defenderProcessesToExclude;
-        this.defenderPromptForSampleSubmission = windows10GeneralConfigurationParameterValue?.defenderPromptForSampleSubmission;
-        this.defenderRequireBehaviorMonitoring = windows10GeneralConfigurationParameterValue?.defenderRequireBehaviorMonitoring;
-        this.defenderRequireCloudProtection = windows10GeneralConfigurationParameterValue?.defenderRequireCloudProtection;
-        this.defenderRequireNetworkInspectionSystem = windows10GeneralConfigurationParameterValue?.defenderRequireNetworkInspectionSystem;
-        this.defenderRequireRealTimeMonitoring = windows10GeneralConfigurationParameterValue?.defenderRequireRealTimeMonitoring;
-        this.defenderScanArchiveFiles = windows10GeneralConfigurationParameterValue?.defenderScanArchiveFiles;
-        this.defenderScanDownloads = windows10GeneralConfigurationParameterValue?.defenderScanDownloads;
-        this.defenderScanIncomingMail = windows10GeneralConfigurationParameterValue?.defenderScanIncomingMail;
-        this.defenderScanMappedNetworkDrivesDuringFullScan = windows10GeneralConfigurationParameterValue?.defenderScanMappedNetworkDrivesDuringFullScan;
-        this.defenderScanMaxCpu = windows10GeneralConfigurationParameterValue?.defenderScanMaxCpu;
-        this.defenderScanNetworkFiles = windows10GeneralConfigurationParameterValue?.defenderScanNetworkFiles;
-        this.defenderScanRemovableDrivesDuringFullScan = windows10GeneralConfigurationParameterValue?.defenderScanRemovableDrivesDuringFullScan;
-        this.defenderScanScriptsLoadedInInternetExplorer = windows10GeneralConfigurationParameterValue?.defenderScanScriptsLoadedInInternetExplorer;
-        this.defenderScanType = windows10GeneralConfigurationParameterValue?.defenderScanType;
-        this.defenderScheduledQuickScanTime = windows10GeneralConfigurationParameterValue?.defenderScheduledQuickScanTime;
-        this.defenderScheduledScanTime = windows10GeneralConfigurationParameterValue?.defenderScheduledScanTime;
-        this.defenderSignatureUpdateIntervalInHours = windows10GeneralConfigurationParameterValue?.defenderSignatureUpdateIntervalInHours;
-        this.defenderSystemScanSchedule = windows10GeneralConfigurationParameterValue?.defenderSystemScanSchedule;
-        this.developerUnlockSetting = windows10GeneralConfigurationParameterValue?.developerUnlockSetting;
-        this.deviceManagementBlockFactoryResetOnMobile = windows10GeneralConfigurationParameterValue?.deviceManagementBlockFactoryResetOnMobile;
-        this.deviceManagementBlockManualUnenroll = windows10GeneralConfigurationParameterValue?.deviceManagementBlockManualUnenroll;
-        this.diagnosticsDataSubmissionMode = windows10GeneralConfigurationParameterValue?.diagnosticsDataSubmissionMode;
-        this.edgeAllowStartPagesModification = windows10GeneralConfigurationParameterValue?.edgeAllowStartPagesModification;
-        this.edgeBlockAccessToAboutFlags = windows10GeneralConfigurationParameterValue?.edgeBlockAccessToAboutFlags;
-        this.edgeBlockAddressBarDropdown = windows10GeneralConfigurationParameterValue?.edgeBlockAddressBarDropdown;
-        this.edgeBlockAutofill = windows10GeneralConfigurationParameterValue?.edgeBlockAutofill;
-        this.edgeBlockCompatibilityList = windows10GeneralConfigurationParameterValue?.edgeBlockCompatibilityList;
-        this.edgeBlockDeveloperTools = windows10GeneralConfigurationParameterValue?.edgeBlockDeveloperTools;
-        this.edgeBlocked = windows10GeneralConfigurationParameterValue?.edgeBlocked;
-        this.edgeBlockExtensions = windows10GeneralConfigurationParameterValue?.edgeBlockExtensions;
-        this.edgeBlockInPrivateBrowsing = windows10GeneralConfigurationParameterValue?.edgeBlockInPrivateBrowsing;
-        this.edgeBlockJavaScript = windows10GeneralConfigurationParameterValue?.edgeBlockJavaScript;
-        this.edgeBlockLiveTileDataCollection = windows10GeneralConfigurationParameterValue?.edgeBlockLiveTileDataCollection;
-        this.edgeBlockPasswordManager = windows10GeneralConfigurationParameterValue?.edgeBlockPasswordManager;
-        this.edgeBlockPopups = windows10GeneralConfigurationParameterValue?.edgeBlockPopups;
-        this.edgeBlockSearchSuggestions = windows10GeneralConfigurationParameterValue?.edgeBlockSearchSuggestions;
-        this.edgeBlockSendingDoNotTrackHeader = windows10GeneralConfigurationParameterValue?.edgeBlockSendingDoNotTrackHeader;
-        this.edgeBlockSendingIntranetTrafficToInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeBlockSendingIntranetTrafficToInternetExplorer;
-        this.edgeClearBrowsingDataOnExit = windows10GeneralConfigurationParameterValue?.edgeClearBrowsingDataOnExit;
-        this.edgeCookiePolicy = windows10GeneralConfigurationParameterValue?.edgeCookiePolicy;
-        this.edgeDisableFirstRunPage = windows10GeneralConfigurationParameterValue?.edgeDisableFirstRunPage;
-        this.edgeEnterpriseModeSiteListLocation = windows10GeneralConfigurationParameterValue?.edgeEnterpriseModeSiteListLocation;
-        this.edgeFirstRunUrl = windows10GeneralConfigurationParameterValue?.edgeFirstRunUrl;
-        this.edgeHomepageUrls = windows10GeneralConfigurationParameterValue?.edgeHomepageUrls;
-        this.edgeRequireSmartScreen = windows10GeneralConfigurationParameterValue?.edgeRequireSmartScreen;
-        this.edgeSearchEngine = windows10GeneralConfigurationParameterValue?.edgeSearchEngine;
-        this.edgeSendIntranetTrafficToInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeSendIntranetTrafficToInternetExplorer;
-        this.edgeSyncFavoritesWithInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeSyncFavoritesWithInternetExplorer;
-        this.enterpriseCloudPrintDiscoveryEndPoint = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintDiscoveryEndPoint;
-        this.enterpriseCloudPrintDiscoveryMaxLimit = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintDiscoveryMaxLimit;
-        this.enterpriseCloudPrintMopriaDiscoveryResourceIdentifier = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintMopriaDiscoveryResourceIdentifier;
-        this.enterpriseCloudPrintOAuthAuthority = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintOAuthAuthority;
-        this.enterpriseCloudPrintOAuthClientIdentifier = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintOAuthClientIdentifier;
-        this.enterpriseCloudPrintResourceIdentifier = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintResourceIdentifier;
-        this.experienceBlockDeviceDiscovery = windows10GeneralConfigurationParameterValue?.experienceBlockDeviceDiscovery;
-        this.experienceBlockErrorDialogWhenNoSIM = windows10GeneralConfigurationParameterValue?.experienceBlockErrorDialogWhenNoSIM;
-        this.experienceBlockTaskSwitcher = windows10GeneralConfigurationParameterValue?.experienceBlockTaskSwitcher;
-        this.gameDvrBlocked = windows10GeneralConfigurationParameterValue?.gameDvrBlocked;
-        this.internetSharingBlocked = windows10GeneralConfigurationParameterValue?.internetSharingBlocked;
-        this.locationServicesBlocked = windows10GeneralConfigurationParameterValue?.locationServicesBlocked;
-        this.lockScreenAllowTimeoutConfiguration = windows10GeneralConfigurationParameterValue?.lockScreenAllowTimeoutConfiguration;
-        this.lockScreenBlockActionCenterNotifications = windows10GeneralConfigurationParameterValue?.lockScreenBlockActionCenterNotifications;
-        this.lockScreenBlockCortana = windows10GeneralConfigurationParameterValue?.lockScreenBlockCortana;
-        this.lockScreenBlockToastNotifications = windows10GeneralConfigurationParameterValue?.lockScreenBlockToastNotifications;
-        this.lockScreenTimeoutInSeconds = windows10GeneralConfigurationParameterValue?.lockScreenTimeoutInSeconds;
-        this.logonBlockFastUserSwitching = windows10GeneralConfigurationParameterValue?.logonBlockFastUserSwitching;
-        this.microsoftAccountBlocked = windows10GeneralConfigurationParameterValue?.microsoftAccountBlocked;
-        this.microsoftAccountBlockSettingsSync = windows10GeneralConfigurationParameterValue?.microsoftAccountBlockSettingsSync;
-        this.networkProxyApplySettingsDeviceWide = windows10GeneralConfigurationParameterValue?.networkProxyApplySettingsDeviceWide;
-        this.networkProxyAutomaticConfigurationUrl = windows10GeneralConfigurationParameterValue?.networkProxyAutomaticConfigurationUrl;
-        this.networkProxyDisableAutoDetect = windows10GeneralConfigurationParameterValue?.networkProxyDisableAutoDetect;
-        this.networkProxyServer = windows10GeneralConfigurationParameterValue?.networkProxyServer;
-        this.nfcBlocked = windows10GeneralConfigurationParameterValue?.nfcBlocked;
-        this.oneDriveDisableFileSync = windows10GeneralConfigurationParameterValue?.oneDriveDisableFileSync;
-        this.passwordBlockSimple = windows10GeneralConfigurationParameterValue?.passwordBlockSimple;
-        this.passwordExpirationDays = windows10GeneralConfigurationParameterValue?.passwordExpirationDays;
-        this.passwordMinimumCharacterSetCount = windows10GeneralConfigurationParameterValue?.passwordMinimumCharacterSetCount;
-        this.passwordMinimumLength = windows10GeneralConfigurationParameterValue?.passwordMinimumLength;
-        this.passwordMinutesOfInactivityBeforeScreenTimeout = windows10GeneralConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
-        this.passwordPreviousPasswordBlockCount = windows10GeneralConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
-        this.passwordRequired = windows10GeneralConfigurationParameterValue?.passwordRequired;
-        this.passwordRequiredType = windows10GeneralConfigurationParameterValue?.passwordRequiredType;
-        this.passwordRequireWhenResumeFromIdleState = windows10GeneralConfigurationParameterValue?.passwordRequireWhenResumeFromIdleState;
-        this.passwordSignInFailureCountBeforeFactoryReset = windows10GeneralConfigurationParameterValue?.passwordSignInFailureCountBeforeFactoryReset;
-        this.personalizationDesktopImageUrl = windows10GeneralConfigurationParameterValue?.personalizationDesktopImageUrl;
-        this.personalizationLockScreenImageUrl = windows10GeneralConfigurationParameterValue?.personalizationLockScreenImageUrl;
-        this.privacyAdvertisingId = windows10GeneralConfigurationParameterValue?.privacyAdvertisingId;
-        this.privacyAutoAcceptPairingAndConsentPrompts = windows10GeneralConfigurationParameterValue?.privacyAutoAcceptPairingAndConsentPrompts;
-        this.privacyBlockInputPersonalization = windows10GeneralConfigurationParameterValue?.privacyBlockInputPersonalization;
-        this.resetProtectionModeBlocked = windows10GeneralConfigurationParameterValue?.resetProtectionModeBlocked;
-        this.safeSearchFilter = windows10GeneralConfigurationParameterValue?.safeSearchFilter;
-        this.screenCaptureBlocked = windows10GeneralConfigurationParameterValue?.screenCaptureBlocked;
-        this.searchBlockDiacritics = windows10GeneralConfigurationParameterValue?.searchBlockDiacritics;
-        this.searchDisableAutoLanguageDetection = windows10GeneralConfigurationParameterValue?.searchDisableAutoLanguageDetection;
-        this.searchDisableIndexerBackoff = windows10GeneralConfigurationParameterValue?.searchDisableIndexerBackoff;
-        this.searchDisableIndexingEncryptedItems = windows10GeneralConfigurationParameterValue?.searchDisableIndexingEncryptedItems;
-        this.searchDisableIndexingRemovableDrive = windows10GeneralConfigurationParameterValue?.searchDisableIndexingRemovableDrive;
-        this.searchEnableAutomaticIndexSizeManangement = windows10GeneralConfigurationParameterValue?.searchEnableAutomaticIndexSizeManangement;
-        this.searchEnableRemoteQueries = windows10GeneralConfigurationParameterValue?.searchEnableRemoteQueries;
-        this.settingsBlockAccountsPage = windows10GeneralConfigurationParameterValue?.settingsBlockAccountsPage;
-        this.settingsBlockAddProvisioningPackage = windows10GeneralConfigurationParameterValue?.settingsBlockAddProvisioningPackage;
-        this.settingsBlockAppsPage = windows10GeneralConfigurationParameterValue?.settingsBlockAppsPage;
-        this.settingsBlockChangeLanguage = windows10GeneralConfigurationParameterValue?.settingsBlockChangeLanguage;
-        this.settingsBlockChangePowerSleep = windows10GeneralConfigurationParameterValue?.settingsBlockChangePowerSleep;
-        this.settingsBlockChangeRegion = windows10GeneralConfigurationParameterValue?.settingsBlockChangeRegion;
-        this.settingsBlockChangeSystemTime = windows10GeneralConfigurationParameterValue?.settingsBlockChangeSystemTime;
-        this.settingsBlockDevicesPage = windows10GeneralConfigurationParameterValue?.settingsBlockDevicesPage;
-        this.settingsBlockEaseOfAccessPage = windows10GeneralConfigurationParameterValue?.settingsBlockEaseOfAccessPage;
-        this.settingsBlockEditDeviceName = windows10GeneralConfigurationParameterValue?.settingsBlockEditDeviceName;
-        this.settingsBlockGamingPage = windows10GeneralConfigurationParameterValue?.settingsBlockGamingPage;
-        this.settingsBlockNetworkInternetPage = windows10GeneralConfigurationParameterValue?.settingsBlockNetworkInternetPage;
-        this.settingsBlockPersonalizationPage = windows10GeneralConfigurationParameterValue?.settingsBlockPersonalizationPage;
-        this.settingsBlockPrivacyPage = windows10GeneralConfigurationParameterValue?.settingsBlockPrivacyPage;
-        this.settingsBlockRemoveProvisioningPackage = windows10GeneralConfigurationParameterValue?.settingsBlockRemoveProvisioningPackage;
-        this.settingsBlockSettingsApp = windows10GeneralConfigurationParameterValue?.settingsBlockSettingsApp;
-        this.settingsBlockSystemPage = windows10GeneralConfigurationParameterValue?.settingsBlockSystemPage;
-        this.settingsBlockTimeLanguagePage = windows10GeneralConfigurationParameterValue?.settingsBlockTimeLanguagePage;
-        this.settingsBlockUpdateSecurityPage = windows10GeneralConfigurationParameterValue?.settingsBlockUpdateSecurityPage;
-        this.sharedUserAppDataAllowed = windows10GeneralConfigurationParameterValue?.sharedUserAppDataAllowed;
-        this.smartScreenBlockPromptOverride = windows10GeneralConfigurationParameterValue?.smartScreenBlockPromptOverride;
-        this.smartScreenBlockPromptOverrideForFiles = windows10GeneralConfigurationParameterValue?.smartScreenBlockPromptOverrideForFiles;
-        this.smartScreenEnableAppInstallControl = windows10GeneralConfigurationParameterValue?.smartScreenEnableAppInstallControl;
-        this.startBlockUnpinningAppsFromTaskbar = windows10GeneralConfigurationParameterValue?.startBlockUnpinningAppsFromTaskbar;
-        this.startMenuAppListVisibility = windows10GeneralConfigurationParameterValue?.startMenuAppListVisibility;
-        this.startMenuHideChangeAccountSettings = windows10GeneralConfigurationParameterValue?.startMenuHideChangeAccountSettings;
-        this.startMenuHideFrequentlyUsedApps = windows10GeneralConfigurationParameterValue?.startMenuHideFrequentlyUsedApps;
-        this.startMenuHideHibernate = windows10GeneralConfigurationParameterValue?.startMenuHideHibernate;
-        this.startMenuHideLock = windows10GeneralConfigurationParameterValue?.startMenuHideLock;
-        this.startMenuHidePowerButton = windows10GeneralConfigurationParameterValue?.startMenuHidePowerButton;
-        this.startMenuHideRecentJumpLists = windows10GeneralConfigurationParameterValue?.startMenuHideRecentJumpLists;
-        this.startMenuHideRecentlyAddedApps = windows10GeneralConfigurationParameterValue?.startMenuHideRecentlyAddedApps;
-        this.startMenuHideRestartOptions = windows10GeneralConfigurationParameterValue?.startMenuHideRestartOptions;
-        this.startMenuHideShutDown = windows10GeneralConfigurationParameterValue?.startMenuHideShutDown;
-        this.startMenuHideSignOut = windows10GeneralConfigurationParameterValue?.startMenuHideSignOut;
-        this.startMenuHideSleep = windows10GeneralConfigurationParameterValue?.startMenuHideSleep;
-        this.startMenuHideSwitchAccount = windows10GeneralConfigurationParameterValue?.startMenuHideSwitchAccount;
-        this.startMenuHideUserTile = windows10GeneralConfigurationParameterValue?.startMenuHideUserTile;
-        this.startMenuLayoutEdgeAssetsXml = windows10GeneralConfigurationParameterValue?.startMenuLayoutEdgeAssetsXml;
-        this.startMenuLayoutXml = windows10GeneralConfigurationParameterValue?.startMenuLayoutXml;
-        this.startMenuMode = windows10GeneralConfigurationParameterValue?.startMenuMode;
-        this.startMenuPinnedFolderDocuments = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderDocuments;
-        this.startMenuPinnedFolderDownloads = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderDownloads;
-        this.startMenuPinnedFolderFileExplorer = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderFileExplorer;
-        this.startMenuPinnedFolderHomeGroup = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderHomeGroup;
-        this.startMenuPinnedFolderMusic = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderMusic;
-        this.startMenuPinnedFolderNetwork = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderNetwork;
-        this.startMenuPinnedFolderPersonalFolder = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderPersonalFolder;
-        this.startMenuPinnedFolderPictures = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderPictures;
-        this.startMenuPinnedFolderSettings = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderSettings;
-        this.startMenuPinnedFolderVideos = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderVideos;
-        this.storageBlockRemovableStorage = windows10GeneralConfigurationParameterValue?.storageBlockRemovableStorage;
-        this.storageRequireMobileDeviceEncryption = windows10GeneralConfigurationParameterValue?.storageRequireMobileDeviceEncryption;
-        this.storageRestrictAppDataToSystemVolume = windows10GeneralConfigurationParameterValue?.storageRestrictAppDataToSystemVolume;
-        this.storageRestrictAppInstallToSystemVolume = windows10GeneralConfigurationParameterValue?.storageRestrictAppInstallToSystemVolume;
-        this.tenantLockdownRequireNetworkDuringOutOfBoxExperience = windows10GeneralConfigurationParameterValue?.tenantLockdownRequireNetworkDuringOutOfBoxExperience;
-        this.usbBlocked = windows10GeneralConfigurationParameterValue?.usbBlocked;
-        this.voiceRecordingBlocked = windows10GeneralConfigurationParameterValue?.voiceRecordingBlocked;
-        this.webRtcBlockLocalhostIpAddress = windows10GeneralConfigurationParameterValue?.webRtcBlockLocalhostIpAddress;
-        this.wiFiBlockAutomaticConnectHotspots = windows10GeneralConfigurationParameterValue?.wiFiBlockAutomaticConnectHotspots;
-        this.wiFiBlocked = windows10GeneralConfigurationParameterValue?.wiFiBlocked;
-        this.wiFiBlockManualConfiguration = windows10GeneralConfigurationParameterValue?.wiFiBlockManualConfiguration;
-        this.wiFiScanInterval = windows10GeneralConfigurationParameterValue?.wiFiScanInterval;
-        this.windowsSpotlightBlockConsumerSpecificFeatures = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockConsumerSpecificFeatures;
-        this.windowsSpotlightBlocked = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlocked;
-        this.windowsSpotlightBlockOnActionCenter = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockOnActionCenter;
-        this.windowsSpotlightBlockTailoredExperiences = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockTailoredExperiences;
-        this.windowsSpotlightBlockThirdPartyNotifications = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockThirdPartyNotifications;
-        this.windowsSpotlightBlockWelcomeExperience = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockWelcomeExperience;
-        this.windowsSpotlightBlockWindowsTips = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockWindowsTips;
-        this.windowsSpotlightConfigureOnLockScreen = windows10GeneralConfigurationParameterValue?.windowsSpotlightConfigureOnLockScreen;
-        this.windowsStoreBlockAutoUpdate = windows10GeneralConfigurationParameterValue?.windowsStoreBlockAutoUpdate;
-        this.windowsStoreBlocked = windows10GeneralConfigurationParameterValue?.windowsStoreBlocked;
-        this.windowsStoreEnablePrivateStoreOnly = windows10GeneralConfigurationParameterValue?.windowsStoreEnablePrivateStoreOnly;
-        this.wirelessDisplayBlockProjectionToThisDevice = windows10GeneralConfigurationParameterValue?.wirelessDisplayBlockProjectionToThisDevice;
-        this.wirelessDisplayBlockUserInputFromReceiver = windows10GeneralConfigurationParameterValue?.wirelessDisplayBlockUserInputFromReceiver;
-        this.wirelessDisplayRequirePinForPairing = windows10GeneralConfigurationParameterValue?.wirelessDisplayRequirePinForPairing;
+        this._accountsBlockAddingNonMicrosoftAccountEmail = windows10GeneralConfigurationParameterValue?.accountsBlockAddingNonMicrosoftAccountEmail;
+        this._antiTheftModeBlocked = windows10GeneralConfigurationParameterValue?.antiTheftModeBlocked;
+        this._appsAllowTrustedAppsSideloading = windows10GeneralConfigurationParameterValue?.appsAllowTrustedAppsSideloading;
+        this._appsBlockWindowsStoreOriginatedApps = windows10GeneralConfigurationParameterValue?.appsBlockWindowsStoreOriginatedApps;
+        this._bluetoothAllowedServices = windows10GeneralConfigurationParameterValue?.bluetoothAllowedServices;
+        this._bluetoothBlockAdvertising = windows10GeneralConfigurationParameterValue?.bluetoothBlockAdvertising;
+        this._bluetoothBlockDiscoverableMode = windows10GeneralConfigurationParameterValue?.bluetoothBlockDiscoverableMode;
+        this._bluetoothBlocked = windows10GeneralConfigurationParameterValue?.bluetoothBlocked;
+        this._bluetoothBlockPrePairing = windows10GeneralConfigurationParameterValue?.bluetoothBlockPrePairing;
+        this._cameraBlocked = windows10GeneralConfigurationParameterValue?.cameraBlocked;
+        this._cellularBlockDataWhenRoaming = windows10GeneralConfigurationParameterValue?.cellularBlockDataWhenRoaming;
+        this._cellularBlockVpn = windows10GeneralConfigurationParameterValue?.cellularBlockVpn;
+        this._cellularBlockVpnWhenRoaming = windows10GeneralConfigurationParameterValue?.cellularBlockVpnWhenRoaming;
+        this._certificatesBlockManualRootCertificateInstallation = windows10GeneralConfigurationParameterValue?.certificatesBlockManualRootCertificateInstallation;
+        this._connectedDevicesServiceBlocked = windows10GeneralConfigurationParameterValue?.connectedDevicesServiceBlocked;
+        this._copyPasteBlocked = windows10GeneralConfigurationParameterValue?.copyPasteBlocked;
+        this._cortanaBlocked = windows10GeneralConfigurationParameterValue?.cortanaBlocked;
+        this._defenderBlockEndUserAccess = windows10GeneralConfigurationParameterValue?.defenderBlockEndUserAccess;
+        this._defenderCloudBlockLevel = windows10GeneralConfigurationParameterValue?.defenderCloudBlockLevel;
+        this._defenderDaysBeforeDeletingQuarantinedMalware = windows10GeneralConfigurationParameterValue?.defenderDaysBeforeDeletingQuarantinedMalware;
+        this._defenderDetectedMalwareActions = windows10GeneralConfigurationParameterValue?.defenderDetectedMalwareActions;
+        this._defenderFileExtensionsToExclude = windows10GeneralConfigurationParameterValue?.defenderFileExtensionsToExclude;
+        this._defenderFilesAndFoldersToExclude = windows10GeneralConfigurationParameterValue?.defenderFilesAndFoldersToExclude;
+        this._defenderMonitorFileActivity = windows10GeneralConfigurationParameterValue?.defenderMonitorFileActivity;
+        this._defenderProcessesToExclude = windows10GeneralConfigurationParameterValue?.defenderProcessesToExclude;
+        this._defenderPromptForSampleSubmission = windows10GeneralConfigurationParameterValue?.defenderPromptForSampleSubmission;
+        this._defenderRequireBehaviorMonitoring = windows10GeneralConfigurationParameterValue?.defenderRequireBehaviorMonitoring;
+        this._defenderRequireCloudProtection = windows10GeneralConfigurationParameterValue?.defenderRequireCloudProtection;
+        this._defenderRequireNetworkInspectionSystem = windows10GeneralConfigurationParameterValue?.defenderRequireNetworkInspectionSystem;
+        this._defenderRequireRealTimeMonitoring = windows10GeneralConfigurationParameterValue?.defenderRequireRealTimeMonitoring;
+        this._defenderScanArchiveFiles = windows10GeneralConfigurationParameterValue?.defenderScanArchiveFiles;
+        this._defenderScanDownloads = windows10GeneralConfigurationParameterValue?.defenderScanDownloads;
+        this._defenderScanIncomingMail = windows10GeneralConfigurationParameterValue?.defenderScanIncomingMail;
+        this._defenderScanMappedNetworkDrivesDuringFullScan = windows10GeneralConfigurationParameterValue?.defenderScanMappedNetworkDrivesDuringFullScan;
+        this._defenderScanMaxCpu = windows10GeneralConfigurationParameterValue?.defenderScanMaxCpu;
+        this._defenderScanNetworkFiles = windows10GeneralConfigurationParameterValue?.defenderScanNetworkFiles;
+        this._defenderScanRemovableDrivesDuringFullScan = windows10GeneralConfigurationParameterValue?.defenderScanRemovableDrivesDuringFullScan;
+        this._defenderScanScriptsLoadedInInternetExplorer = windows10GeneralConfigurationParameterValue?.defenderScanScriptsLoadedInInternetExplorer;
+        this._defenderScanType = windows10GeneralConfigurationParameterValue?.defenderScanType;
+        this._defenderScheduledQuickScanTime = windows10GeneralConfigurationParameterValue?.defenderScheduledQuickScanTime;
+        this._defenderScheduledScanTime = windows10GeneralConfigurationParameterValue?.defenderScheduledScanTime;
+        this._defenderSignatureUpdateIntervalInHours = windows10GeneralConfigurationParameterValue?.defenderSignatureUpdateIntervalInHours;
+        this._defenderSystemScanSchedule = windows10GeneralConfigurationParameterValue?.defenderSystemScanSchedule;
+        this._developerUnlockSetting = windows10GeneralConfigurationParameterValue?.developerUnlockSetting;
+        this._deviceManagementBlockFactoryResetOnMobile = windows10GeneralConfigurationParameterValue?.deviceManagementBlockFactoryResetOnMobile;
+        this._deviceManagementBlockManualUnenroll = windows10GeneralConfigurationParameterValue?.deviceManagementBlockManualUnenroll;
+        this._diagnosticsDataSubmissionMode = windows10GeneralConfigurationParameterValue?.diagnosticsDataSubmissionMode;
+        this._edgeAllowStartPagesModification = windows10GeneralConfigurationParameterValue?.edgeAllowStartPagesModification;
+        this._edgeBlockAccessToAboutFlags = windows10GeneralConfigurationParameterValue?.edgeBlockAccessToAboutFlags;
+        this._edgeBlockAddressBarDropdown = windows10GeneralConfigurationParameterValue?.edgeBlockAddressBarDropdown;
+        this._edgeBlockAutofill = windows10GeneralConfigurationParameterValue?.edgeBlockAutofill;
+        this._edgeBlockCompatibilityList = windows10GeneralConfigurationParameterValue?.edgeBlockCompatibilityList;
+        this._edgeBlockDeveloperTools = windows10GeneralConfigurationParameterValue?.edgeBlockDeveloperTools;
+        this._edgeBlocked = windows10GeneralConfigurationParameterValue?.edgeBlocked;
+        this._edgeBlockExtensions = windows10GeneralConfigurationParameterValue?.edgeBlockExtensions;
+        this._edgeBlockInPrivateBrowsing = windows10GeneralConfigurationParameterValue?.edgeBlockInPrivateBrowsing;
+        this._edgeBlockJavaScript = windows10GeneralConfigurationParameterValue?.edgeBlockJavaScript;
+        this._edgeBlockLiveTileDataCollection = windows10GeneralConfigurationParameterValue?.edgeBlockLiveTileDataCollection;
+        this._edgeBlockPasswordManager = windows10GeneralConfigurationParameterValue?.edgeBlockPasswordManager;
+        this._edgeBlockPopups = windows10GeneralConfigurationParameterValue?.edgeBlockPopups;
+        this._edgeBlockSearchSuggestions = windows10GeneralConfigurationParameterValue?.edgeBlockSearchSuggestions;
+        this._edgeBlockSendingDoNotTrackHeader = windows10GeneralConfigurationParameterValue?.edgeBlockSendingDoNotTrackHeader;
+        this._edgeBlockSendingIntranetTrafficToInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeBlockSendingIntranetTrafficToInternetExplorer;
+        this._edgeClearBrowsingDataOnExit = windows10GeneralConfigurationParameterValue?.edgeClearBrowsingDataOnExit;
+        this._edgeCookiePolicy = windows10GeneralConfigurationParameterValue?.edgeCookiePolicy;
+        this._edgeDisableFirstRunPage = windows10GeneralConfigurationParameterValue?.edgeDisableFirstRunPage;
+        this._edgeEnterpriseModeSiteListLocation = windows10GeneralConfigurationParameterValue?.edgeEnterpriseModeSiteListLocation;
+        this._edgeFirstRunUrl = windows10GeneralConfigurationParameterValue?.edgeFirstRunUrl;
+        this._edgeHomepageUrls = windows10GeneralConfigurationParameterValue?.edgeHomepageUrls;
+        this._edgeRequireSmartScreen = windows10GeneralConfigurationParameterValue?.edgeRequireSmartScreen;
+        this._edgeSearchEngine = windows10GeneralConfigurationParameterValue?.edgeSearchEngine;
+        this._edgeSendIntranetTrafficToInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeSendIntranetTrafficToInternetExplorer;
+        this._edgeSyncFavoritesWithInternetExplorer = windows10GeneralConfigurationParameterValue?.edgeSyncFavoritesWithInternetExplorer;
+        this._enterpriseCloudPrintDiscoveryEndPoint = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintDiscoveryEndPoint;
+        this._enterpriseCloudPrintDiscoveryMaxLimit = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintDiscoveryMaxLimit;
+        this._enterpriseCloudPrintMopriaDiscoveryResourceIdentifier = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintMopriaDiscoveryResourceIdentifier;
+        this._enterpriseCloudPrintOAuthAuthority = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintOAuthAuthority;
+        this._enterpriseCloudPrintOAuthClientIdentifier = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintOAuthClientIdentifier;
+        this._enterpriseCloudPrintResourceIdentifier = windows10GeneralConfigurationParameterValue?.enterpriseCloudPrintResourceIdentifier;
+        this._experienceBlockDeviceDiscovery = windows10GeneralConfigurationParameterValue?.experienceBlockDeviceDiscovery;
+        this._experienceBlockErrorDialogWhenNoSIM = windows10GeneralConfigurationParameterValue?.experienceBlockErrorDialogWhenNoSIM;
+        this._experienceBlockTaskSwitcher = windows10GeneralConfigurationParameterValue?.experienceBlockTaskSwitcher;
+        this._gameDvrBlocked = windows10GeneralConfigurationParameterValue?.gameDvrBlocked;
+        this._internetSharingBlocked = windows10GeneralConfigurationParameterValue?.internetSharingBlocked;
+        this._locationServicesBlocked = windows10GeneralConfigurationParameterValue?.locationServicesBlocked;
+        this._lockScreenAllowTimeoutConfiguration = windows10GeneralConfigurationParameterValue?.lockScreenAllowTimeoutConfiguration;
+        this._lockScreenBlockActionCenterNotifications = windows10GeneralConfigurationParameterValue?.lockScreenBlockActionCenterNotifications;
+        this._lockScreenBlockCortana = windows10GeneralConfigurationParameterValue?.lockScreenBlockCortana;
+        this._lockScreenBlockToastNotifications = windows10GeneralConfigurationParameterValue?.lockScreenBlockToastNotifications;
+        this._lockScreenTimeoutInSeconds = windows10GeneralConfigurationParameterValue?.lockScreenTimeoutInSeconds;
+        this._logonBlockFastUserSwitching = windows10GeneralConfigurationParameterValue?.logonBlockFastUserSwitching;
+        this._microsoftAccountBlocked = windows10GeneralConfigurationParameterValue?.microsoftAccountBlocked;
+        this._microsoftAccountBlockSettingsSync = windows10GeneralConfigurationParameterValue?.microsoftAccountBlockSettingsSync;
+        this._networkProxyApplySettingsDeviceWide = windows10GeneralConfigurationParameterValue?.networkProxyApplySettingsDeviceWide;
+        this._networkProxyAutomaticConfigurationUrl = windows10GeneralConfigurationParameterValue?.networkProxyAutomaticConfigurationUrl;
+        this._networkProxyDisableAutoDetect = windows10GeneralConfigurationParameterValue?.networkProxyDisableAutoDetect;
+        this._networkProxyServer = windows10GeneralConfigurationParameterValue?.networkProxyServer;
+        this._nfcBlocked = windows10GeneralConfigurationParameterValue?.nfcBlocked;
+        this._oneDriveDisableFileSync = windows10GeneralConfigurationParameterValue?.oneDriveDisableFileSync;
+        this._passwordBlockSimple = windows10GeneralConfigurationParameterValue?.passwordBlockSimple;
+        this._passwordExpirationDays = windows10GeneralConfigurationParameterValue?.passwordExpirationDays;
+        this._passwordMinimumCharacterSetCount = windows10GeneralConfigurationParameterValue?.passwordMinimumCharacterSetCount;
+        this._passwordMinimumLength = windows10GeneralConfigurationParameterValue?.passwordMinimumLength;
+        this._passwordMinutesOfInactivityBeforeScreenTimeout = windows10GeneralConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
+        this._passwordPreviousPasswordBlockCount = windows10GeneralConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
+        this._passwordRequired = windows10GeneralConfigurationParameterValue?.passwordRequired;
+        this._passwordRequiredType = windows10GeneralConfigurationParameterValue?.passwordRequiredType;
+        this._passwordRequireWhenResumeFromIdleState = windows10GeneralConfigurationParameterValue?.passwordRequireWhenResumeFromIdleState;
+        this._passwordSignInFailureCountBeforeFactoryReset = windows10GeneralConfigurationParameterValue?.passwordSignInFailureCountBeforeFactoryReset;
+        this._personalizationDesktopImageUrl = windows10GeneralConfigurationParameterValue?.personalizationDesktopImageUrl;
+        this._personalizationLockScreenImageUrl = windows10GeneralConfigurationParameterValue?.personalizationLockScreenImageUrl;
+        this._privacyAdvertisingId = windows10GeneralConfigurationParameterValue?.privacyAdvertisingId;
+        this._privacyAutoAcceptPairingAndConsentPrompts = windows10GeneralConfigurationParameterValue?.privacyAutoAcceptPairingAndConsentPrompts;
+        this._privacyBlockInputPersonalization = windows10GeneralConfigurationParameterValue?.privacyBlockInputPersonalization;
+        this._resetProtectionModeBlocked = windows10GeneralConfigurationParameterValue?.resetProtectionModeBlocked;
+        this._safeSearchFilter = windows10GeneralConfigurationParameterValue?.safeSearchFilter;
+        this._screenCaptureBlocked = windows10GeneralConfigurationParameterValue?.screenCaptureBlocked;
+        this._searchBlockDiacritics = windows10GeneralConfigurationParameterValue?.searchBlockDiacritics;
+        this._searchDisableAutoLanguageDetection = windows10GeneralConfigurationParameterValue?.searchDisableAutoLanguageDetection;
+        this._searchDisableIndexerBackoff = windows10GeneralConfigurationParameterValue?.searchDisableIndexerBackoff;
+        this._searchDisableIndexingEncryptedItems = windows10GeneralConfigurationParameterValue?.searchDisableIndexingEncryptedItems;
+        this._searchDisableIndexingRemovableDrive = windows10GeneralConfigurationParameterValue?.searchDisableIndexingRemovableDrive;
+        this._searchEnableAutomaticIndexSizeManangement = windows10GeneralConfigurationParameterValue?.searchEnableAutomaticIndexSizeManangement;
+        this._searchEnableRemoteQueries = windows10GeneralConfigurationParameterValue?.searchEnableRemoteQueries;
+        this._settingsBlockAccountsPage = windows10GeneralConfigurationParameterValue?.settingsBlockAccountsPage;
+        this._settingsBlockAddProvisioningPackage = windows10GeneralConfigurationParameterValue?.settingsBlockAddProvisioningPackage;
+        this._settingsBlockAppsPage = windows10GeneralConfigurationParameterValue?.settingsBlockAppsPage;
+        this._settingsBlockChangeLanguage = windows10GeneralConfigurationParameterValue?.settingsBlockChangeLanguage;
+        this._settingsBlockChangePowerSleep = windows10GeneralConfigurationParameterValue?.settingsBlockChangePowerSleep;
+        this._settingsBlockChangeRegion = windows10GeneralConfigurationParameterValue?.settingsBlockChangeRegion;
+        this._settingsBlockChangeSystemTime = windows10GeneralConfigurationParameterValue?.settingsBlockChangeSystemTime;
+        this._settingsBlockDevicesPage = windows10GeneralConfigurationParameterValue?.settingsBlockDevicesPage;
+        this._settingsBlockEaseOfAccessPage = windows10GeneralConfigurationParameterValue?.settingsBlockEaseOfAccessPage;
+        this._settingsBlockEditDeviceName = windows10GeneralConfigurationParameterValue?.settingsBlockEditDeviceName;
+        this._settingsBlockGamingPage = windows10GeneralConfigurationParameterValue?.settingsBlockGamingPage;
+        this._settingsBlockNetworkInternetPage = windows10GeneralConfigurationParameterValue?.settingsBlockNetworkInternetPage;
+        this._settingsBlockPersonalizationPage = windows10GeneralConfigurationParameterValue?.settingsBlockPersonalizationPage;
+        this._settingsBlockPrivacyPage = windows10GeneralConfigurationParameterValue?.settingsBlockPrivacyPage;
+        this._settingsBlockRemoveProvisioningPackage = windows10GeneralConfigurationParameterValue?.settingsBlockRemoveProvisioningPackage;
+        this._settingsBlockSettingsApp = windows10GeneralConfigurationParameterValue?.settingsBlockSettingsApp;
+        this._settingsBlockSystemPage = windows10GeneralConfigurationParameterValue?.settingsBlockSystemPage;
+        this._settingsBlockTimeLanguagePage = windows10GeneralConfigurationParameterValue?.settingsBlockTimeLanguagePage;
+        this._settingsBlockUpdateSecurityPage = windows10GeneralConfigurationParameterValue?.settingsBlockUpdateSecurityPage;
+        this._sharedUserAppDataAllowed = windows10GeneralConfigurationParameterValue?.sharedUserAppDataAllowed;
+        this._smartScreenBlockPromptOverride = windows10GeneralConfigurationParameterValue?.smartScreenBlockPromptOverride;
+        this._smartScreenBlockPromptOverrideForFiles = windows10GeneralConfigurationParameterValue?.smartScreenBlockPromptOverrideForFiles;
+        this._smartScreenEnableAppInstallControl = windows10GeneralConfigurationParameterValue?.smartScreenEnableAppInstallControl;
+        this._startBlockUnpinningAppsFromTaskbar = windows10GeneralConfigurationParameterValue?.startBlockUnpinningAppsFromTaskbar;
+        this._startMenuAppListVisibility = windows10GeneralConfigurationParameterValue?.startMenuAppListVisibility;
+        this._startMenuHideChangeAccountSettings = windows10GeneralConfigurationParameterValue?.startMenuHideChangeAccountSettings;
+        this._startMenuHideFrequentlyUsedApps = windows10GeneralConfigurationParameterValue?.startMenuHideFrequentlyUsedApps;
+        this._startMenuHideHibernate = windows10GeneralConfigurationParameterValue?.startMenuHideHibernate;
+        this._startMenuHideLock = windows10GeneralConfigurationParameterValue?.startMenuHideLock;
+        this._startMenuHidePowerButton = windows10GeneralConfigurationParameterValue?.startMenuHidePowerButton;
+        this._startMenuHideRecentJumpLists = windows10GeneralConfigurationParameterValue?.startMenuHideRecentJumpLists;
+        this._startMenuHideRecentlyAddedApps = windows10GeneralConfigurationParameterValue?.startMenuHideRecentlyAddedApps;
+        this._startMenuHideRestartOptions = windows10GeneralConfigurationParameterValue?.startMenuHideRestartOptions;
+        this._startMenuHideShutDown = windows10GeneralConfigurationParameterValue?.startMenuHideShutDown;
+        this._startMenuHideSignOut = windows10GeneralConfigurationParameterValue?.startMenuHideSignOut;
+        this._startMenuHideSleep = windows10GeneralConfigurationParameterValue?.startMenuHideSleep;
+        this._startMenuHideSwitchAccount = windows10GeneralConfigurationParameterValue?.startMenuHideSwitchAccount;
+        this._startMenuHideUserTile = windows10GeneralConfigurationParameterValue?.startMenuHideUserTile;
+        this._startMenuLayoutEdgeAssetsXml = windows10GeneralConfigurationParameterValue?.startMenuLayoutEdgeAssetsXml;
+        this._startMenuLayoutXml = windows10GeneralConfigurationParameterValue?.startMenuLayoutXml;
+        this._startMenuMode = windows10GeneralConfigurationParameterValue?.startMenuMode;
+        this._startMenuPinnedFolderDocuments = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderDocuments;
+        this._startMenuPinnedFolderDownloads = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderDownloads;
+        this._startMenuPinnedFolderFileExplorer = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderFileExplorer;
+        this._startMenuPinnedFolderHomeGroup = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderHomeGroup;
+        this._startMenuPinnedFolderMusic = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderMusic;
+        this._startMenuPinnedFolderNetwork = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderNetwork;
+        this._startMenuPinnedFolderPersonalFolder = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderPersonalFolder;
+        this._startMenuPinnedFolderPictures = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderPictures;
+        this._startMenuPinnedFolderSettings = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderSettings;
+        this._startMenuPinnedFolderVideos = windows10GeneralConfigurationParameterValue?.startMenuPinnedFolderVideos;
+        this._storageBlockRemovableStorage = windows10GeneralConfigurationParameterValue?.storageBlockRemovableStorage;
+        this._storageRequireMobileDeviceEncryption = windows10GeneralConfigurationParameterValue?.storageRequireMobileDeviceEncryption;
+        this._storageRestrictAppDataToSystemVolume = windows10GeneralConfigurationParameterValue?.storageRestrictAppDataToSystemVolume;
+        this._storageRestrictAppInstallToSystemVolume = windows10GeneralConfigurationParameterValue?.storageRestrictAppInstallToSystemVolume;
+        this._tenantLockdownRequireNetworkDuringOutOfBoxExperience = windows10GeneralConfigurationParameterValue?.tenantLockdownRequireNetworkDuringOutOfBoxExperience;
+        this._usbBlocked = windows10GeneralConfigurationParameterValue?.usbBlocked;
+        this._voiceRecordingBlocked = windows10GeneralConfigurationParameterValue?.voiceRecordingBlocked;
+        this._webRtcBlockLocalhostIpAddress = windows10GeneralConfigurationParameterValue?.webRtcBlockLocalhostIpAddress;
+        this._wiFiBlockAutomaticConnectHotspots = windows10GeneralConfigurationParameterValue?.wiFiBlockAutomaticConnectHotspots;
+        this._wiFiBlocked = windows10GeneralConfigurationParameterValue?.wiFiBlocked;
+        this._wiFiBlockManualConfiguration = windows10GeneralConfigurationParameterValue?.wiFiBlockManualConfiguration;
+        this._wiFiScanInterval = windows10GeneralConfigurationParameterValue?.wiFiScanInterval;
+        this._windowsSpotlightBlockConsumerSpecificFeatures = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockConsumerSpecificFeatures;
+        this._windowsSpotlightBlocked = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlocked;
+        this._windowsSpotlightBlockOnActionCenter = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockOnActionCenter;
+        this._windowsSpotlightBlockTailoredExperiences = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockTailoredExperiences;
+        this._windowsSpotlightBlockThirdPartyNotifications = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockThirdPartyNotifications;
+        this._windowsSpotlightBlockWelcomeExperience = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockWelcomeExperience;
+        this._windowsSpotlightBlockWindowsTips = windows10GeneralConfigurationParameterValue?.windowsSpotlightBlockWindowsTips;
+        this._windowsSpotlightConfigureOnLockScreen = windows10GeneralConfigurationParameterValue?.windowsSpotlightConfigureOnLockScreen;
+        this._windowsStoreBlockAutoUpdate = windows10GeneralConfigurationParameterValue?.windowsStoreBlockAutoUpdate;
+        this._windowsStoreBlocked = windows10GeneralConfigurationParameterValue?.windowsStoreBlocked;
+        this._windowsStoreEnablePrivateStoreOnly = windows10GeneralConfigurationParameterValue?.windowsStoreEnablePrivateStoreOnly;
+        this._wirelessDisplayBlockProjectionToThisDevice = windows10GeneralConfigurationParameterValue?.wirelessDisplayBlockProjectionToThisDevice;
+        this._wirelessDisplayBlockUserInputFromReceiver = windows10GeneralConfigurationParameterValue?.wirelessDisplayBlockUserInputFromReceiver;
+        this._wirelessDisplayRequirePinForPairing = windows10GeneralConfigurationParameterValue?.wirelessDisplayRequirePinForPairing;
+    };
+    /**
+     * Gets the copyPasteBlocked property value. Whether or not to Block the user from using copy paste.
+     * @returns a boolean
+     */
+    public get copyPasteBlocked() {
+        return this._copyPasteBlocked;
+    };
+    /**
+     * Sets the copyPasteBlocked property value. Whether or not to Block the user from using copy paste.
+     * @param value Value to set for the copyPasteBlocked property.
+     */
+    public set copyPasteBlocked(value: boolean | undefined) {
+        if(value) {
+            this._copyPasteBlocked = value;
+        }
+    };
+    /**
+     * Gets the cortanaBlocked property value. Whether or not to Block the user from using Cortana.
+     * @returns a boolean
+     */
+    public get cortanaBlocked() {
+        return this._cortanaBlocked;
+    };
+    /**
+     * Sets the cortanaBlocked property value. Whether or not to Block the user from using Cortana.
+     * @param value Value to set for the cortanaBlocked property.
+     */
+    public set cortanaBlocked(value: boolean | undefined) {
+        if(value) {
+            this._cortanaBlocked = value;
+        }
+    };
+    /**
+     * Gets the defenderBlockEndUserAccess property value. Whether or not to block end user access to Defender.
+     * @returns a boolean
+     */
+    public get defenderBlockEndUserAccess() {
+        return this._defenderBlockEndUserAccess;
+    };
+    /**
+     * Sets the defenderBlockEndUserAccess property value. Whether or not to block end user access to Defender.
+     * @param value Value to set for the defenderBlockEndUserAccess property.
+     */
+    public set defenderBlockEndUserAccess(value: boolean | undefined) {
+        if(value) {
+            this._defenderBlockEndUserAccess = value;
+        }
+    };
+    /**
+     * Gets the defenderCloudBlockLevel property value. Specifies the level of cloud-delivered protection. Possible values are: notConfigured, high, highPlus, zeroTolerance.
+     * @returns a defenderCloudBlockLevelType
+     */
+    public get defenderCloudBlockLevel() {
+        return this._defenderCloudBlockLevel;
+    };
+    /**
+     * Sets the defenderCloudBlockLevel property value. Specifies the level of cloud-delivered protection. Possible values are: notConfigured, high, highPlus, zeroTolerance.
+     * @param value Value to set for the defenderCloudBlockLevel property.
+     */
+    public set defenderCloudBlockLevel(value: DefenderCloudBlockLevelType | undefined) {
+        if(value) {
+            this._defenderCloudBlockLevel = value;
+        }
+    };
+    /**
+     * Gets the defenderDaysBeforeDeletingQuarantinedMalware property value. Number of days before deleting quarantined malware. Valid values 0 to 90
+     * @returns a integer
+     */
+    public get defenderDaysBeforeDeletingQuarantinedMalware() {
+        return this._defenderDaysBeforeDeletingQuarantinedMalware;
+    };
+    /**
+     * Sets the defenderDaysBeforeDeletingQuarantinedMalware property value. Number of days before deleting quarantined malware. Valid values 0 to 90
+     * @param value Value to set for the defenderDaysBeforeDeletingQuarantinedMalware property.
+     */
+    public set defenderDaysBeforeDeletingQuarantinedMalware(value: number | undefined) {
+        if(value) {
+            this._defenderDaysBeforeDeletingQuarantinedMalware = value;
+        }
+    };
+    /**
+     * Gets the defenderDetectedMalwareActions property value. Gets or sets Defender’s actions to take on detected Malware per threat level.
+     * @returns a DefenderDetectedMalwareActionsInterface
+     */
+    public get defenderDetectedMalwareActions() {
+        return this._defenderDetectedMalwareActions;
+    };
+    /**
+     * Sets the defenderDetectedMalwareActions property value. Gets or sets Defender’s actions to take on detected Malware per threat level.
+     * @param value Value to set for the defenderDetectedMalwareActions property.
+     */
+    public set defenderDetectedMalwareActions(value: DefenderDetectedMalwareActions | undefined) {
+        if(value) {
+            this._defenderDetectedMalwareActions = value instanceof DefenderDetectedMalwareActionsImpl? value : new DefenderDetectedMalwareActionsImpl(value);
+        }
+    };
+    /**
+     * Gets the defenderFileExtensionsToExclude property value. File extensions to exclude from scans and real time protection.
+     * @returns a string
+     */
+    public get defenderFileExtensionsToExclude() {
+        return this._defenderFileExtensionsToExclude;
+    };
+    /**
+     * Sets the defenderFileExtensionsToExclude property value. File extensions to exclude from scans and real time protection.
+     * @param value Value to set for the defenderFileExtensionsToExclude property.
+     */
+    public set defenderFileExtensionsToExclude(value: string[] | undefined) {
+        if(value) {
+            this._defenderFileExtensionsToExclude = value;
+        }
+    };
+    /**
+     * Gets the defenderFilesAndFoldersToExclude property value. Files and folder to exclude from scans and real time protection.
+     * @returns a string
+     */
+    public get defenderFilesAndFoldersToExclude() {
+        return this._defenderFilesAndFoldersToExclude;
+    };
+    /**
+     * Sets the defenderFilesAndFoldersToExclude property value. Files and folder to exclude from scans and real time protection.
+     * @param value Value to set for the defenderFilesAndFoldersToExclude property.
+     */
+    public set defenderFilesAndFoldersToExclude(value: string[] | undefined) {
+        if(value) {
+            this._defenderFilesAndFoldersToExclude = value;
+        }
+    };
+    /**
+     * Gets the defenderMonitorFileActivity property value. Value for monitoring file activity. Possible values are: userDefined, disable, monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
+     * @returns a defenderMonitorFileActivity
+     */
+    public get defenderMonitorFileActivity() {
+        return this._defenderMonitorFileActivity;
+    };
+    /**
+     * Sets the defenderMonitorFileActivity property value. Value for monitoring file activity. Possible values are: userDefined, disable, monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
+     * @param value Value to set for the defenderMonitorFileActivity property.
+     */
+    public set defenderMonitorFileActivity(value: DefenderMonitorFileActivity | undefined) {
+        if(value) {
+            this._defenderMonitorFileActivity = value;
+        }
+    };
+    /**
+     * Gets the defenderProcessesToExclude property value. Processes to exclude from scans and real time protection.
+     * @returns a string
+     */
+    public get defenderProcessesToExclude() {
+        return this._defenderProcessesToExclude;
+    };
+    /**
+     * Sets the defenderProcessesToExclude property value. Processes to exclude from scans and real time protection.
+     * @param value Value to set for the defenderProcessesToExclude property.
+     */
+    public set defenderProcessesToExclude(value: string[] | undefined) {
+        if(value) {
+            this._defenderProcessesToExclude = value;
+        }
+    };
+    /**
+     * Gets the defenderPromptForSampleSubmission property value. The configuration for how to prompt user for sample submission. Possible values are: userDefined, alwaysPrompt, promptBeforeSendingPersonalData, neverSendData, sendAllDataWithoutPrompting.
+     * @returns a defenderPromptForSampleSubmission
+     */
+    public get defenderPromptForSampleSubmission() {
+        return this._defenderPromptForSampleSubmission;
+    };
+    /**
+     * Sets the defenderPromptForSampleSubmission property value. The configuration for how to prompt user for sample submission. Possible values are: userDefined, alwaysPrompt, promptBeforeSendingPersonalData, neverSendData, sendAllDataWithoutPrompting.
+     * @param value Value to set for the defenderPromptForSampleSubmission property.
+     */
+    public set defenderPromptForSampleSubmission(value: DefenderPromptForSampleSubmission | undefined) {
+        if(value) {
+            this._defenderPromptForSampleSubmission = value;
+        }
+    };
+    /**
+     * Gets the defenderRequireBehaviorMonitoring property value. Indicates whether or not to require behavior monitoring.
+     * @returns a boolean
+     */
+    public get defenderRequireBehaviorMonitoring() {
+        return this._defenderRequireBehaviorMonitoring;
+    };
+    /**
+     * Sets the defenderRequireBehaviorMonitoring property value. Indicates whether or not to require behavior monitoring.
+     * @param value Value to set for the defenderRequireBehaviorMonitoring property.
+     */
+    public set defenderRequireBehaviorMonitoring(value: boolean | undefined) {
+        if(value) {
+            this._defenderRequireBehaviorMonitoring = value;
+        }
+    };
+    /**
+     * Gets the defenderRequireCloudProtection property value. Indicates whether or not to require cloud protection.
+     * @returns a boolean
+     */
+    public get defenderRequireCloudProtection() {
+        return this._defenderRequireCloudProtection;
+    };
+    /**
+     * Sets the defenderRequireCloudProtection property value. Indicates whether or not to require cloud protection.
+     * @param value Value to set for the defenderRequireCloudProtection property.
+     */
+    public set defenderRequireCloudProtection(value: boolean | undefined) {
+        if(value) {
+            this._defenderRequireCloudProtection = value;
+        }
+    };
+    /**
+     * Gets the defenderRequireNetworkInspectionSystem property value. Indicates whether or not to require network inspection system.
+     * @returns a boolean
+     */
+    public get defenderRequireNetworkInspectionSystem() {
+        return this._defenderRequireNetworkInspectionSystem;
+    };
+    /**
+     * Sets the defenderRequireNetworkInspectionSystem property value. Indicates whether or not to require network inspection system.
+     * @param value Value to set for the defenderRequireNetworkInspectionSystem property.
+     */
+    public set defenderRequireNetworkInspectionSystem(value: boolean | undefined) {
+        if(value) {
+            this._defenderRequireNetworkInspectionSystem = value;
+        }
+    };
+    /**
+     * Gets the defenderRequireRealTimeMonitoring property value. Indicates whether or not to require real time monitoring.
+     * @returns a boolean
+     */
+    public get defenderRequireRealTimeMonitoring() {
+        return this._defenderRequireRealTimeMonitoring;
+    };
+    /**
+     * Sets the defenderRequireRealTimeMonitoring property value. Indicates whether or not to require real time monitoring.
+     * @param value Value to set for the defenderRequireRealTimeMonitoring property.
+     */
+    public set defenderRequireRealTimeMonitoring(value: boolean | undefined) {
+        if(value) {
+            this._defenderRequireRealTimeMonitoring = value;
+        }
+    };
+    /**
+     * Gets the defenderScanArchiveFiles property value. Indicates whether or not to scan archive files.
+     * @returns a boolean
+     */
+    public get defenderScanArchiveFiles() {
+        return this._defenderScanArchiveFiles;
+    };
+    /**
+     * Sets the defenderScanArchiveFiles property value. Indicates whether or not to scan archive files.
+     * @param value Value to set for the defenderScanArchiveFiles property.
+     */
+    public set defenderScanArchiveFiles(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanArchiveFiles = value;
+        }
+    };
+    /**
+     * Gets the defenderScanDownloads property value. Indicates whether or not to scan downloads.
+     * @returns a boolean
+     */
+    public get defenderScanDownloads() {
+        return this._defenderScanDownloads;
+    };
+    /**
+     * Sets the defenderScanDownloads property value. Indicates whether or not to scan downloads.
+     * @param value Value to set for the defenderScanDownloads property.
+     */
+    public set defenderScanDownloads(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanDownloads = value;
+        }
+    };
+    /**
+     * Gets the defenderScanIncomingMail property value. Indicates whether or not to scan incoming mail messages.
+     * @returns a boolean
+     */
+    public get defenderScanIncomingMail() {
+        return this._defenderScanIncomingMail;
+    };
+    /**
+     * Sets the defenderScanIncomingMail property value. Indicates whether or not to scan incoming mail messages.
+     * @param value Value to set for the defenderScanIncomingMail property.
+     */
+    public set defenderScanIncomingMail(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanIncomingMail = value;
+        }
+    };
+    /**
+     * Gets the defenderScanMappedNetworkDrivesDuringFullScan property value. Indicates whether or not to scan mapped network drives during full scan.
+     * @returns a boolean
+     */
+    public get defenderScanMappedNetworkDrivesDuringFullScan() {
+        return this._defenderScanMappedNetworkDrivesDuringFullScan;
+    };
+    /**
+     * Sets the defenderScanMappedNetworkDrivesDuringFullScan property value. Indicates whether or not to scan mapped network drives during full scan.
+     * @param value Value to set for the defenderScanMappedNetworkDrivesDuringFullScan property.
+     */
+    public set defenderScanMappedNetworkDrivesDuringFullScan(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanMappedNetworkDrivesDuringFullScan = value;
+        }
+    };
+    /**
+     * Gets the defenderScanMaxCpu property value. Max CPU usage percentage during scan. Valid values 0 to 100
+     * @returns a integer
+     */
+    public get defenderScanMaxCpu() {
+        return this._defenderScanMaxCpu;
+    };
+    /**
+     * Sets the defenderScanMaxCpu property value. Max CPU usage percentage during scan. Valid values 0 to 100
+     * @param value Value to set for the defenderScanMaxCpu property.
+     */
+    public set defenderScanMaxCpu(value: number | undefined) {
+        if(value) {
+            this._defenderScanMaxCpu = value;
+        }
+    };
+    /**
+     * Gets the defenderScanNetworkFiles property value. Indicates whether or not to scan files opened from a network folder.
+     * @returns a boolean
+     */
+    public get defenderScanNetworkFiles() {
+        return this._defenderScanNetworkFiles;
+    };
+    /**
+     * Sets the defenderScanNetworkFiles property value. Indicates whether or not to scan files opened from a network folder.
+     * @param value Value to set for the defenderScanNetworkFiles property.
+     */
+    public set defenderScanNetworkFiles(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanNetworkFiles = value;
+        }
+    };
+    /**
+     * Gets the defenderScanRemovableDrivesDuringFullScan property value. Indicates whether or not to scan removable drives during full scan.
+     * @returns a boolean
+     */
+    public get defenderScanRemovableDrivesDuringFullScan() {
+        return this._defenderScanRemovableDrivesDuringFullScan;
+    };
+    /**
+     * Sets the defenderScanRemovableDrivesDuringFullScan property value. Indicates whether or not to scan removable drives during full scan.
+     * @param value Value to set for the defenderScanRemovableDrivesDuringFullScan property.
+     */
+    public set defenderScanRemovableDrivesDuringFullScan(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanRemovableDrivesDuringFullScan = value;
+        }
+    };
+    /**
+     * Gets the defenderScanScriptsLoadedInInternetExplorer property value. Indicates whether or not to scan scripts loaded in Internet Explorer browser.
+     * @returns a boolean
+     */
+    public get defenderScanScriptsLoadedInInternetExplorer() {
+        return this._defenderScanScriptsLoadedInInternetExplorer;
+    };
+    /**
+     * Sets the defenderScanScriptsLoadedInInternetExplorer property value. Indicates whether or not to scan scripts loaded in Internet Explorer browser.
+     * @param value Value to set for the defenderScanScriptsLoadedInInternetExplorer property.
+     */
+    public set defenderScanScriptsLoadedInInternetExplorer(value: boolean | undefined) {
+        if(value) {
+            this._defenderScanScriptsLoadedInInternetExplorer = value;
+        }
+    };
+    /**
+     * Gets the defenderScanType property value. The defender system scan type. Possible values are: userDefined, disabled, quick, full.
+     * @returns a defenderScanType
+     */
+    public get defenderScanType() {
+        return this._defenderScanType;
+    };
+    /**
+     * Sets the defenderScanType property value. The defender system scan type. Possible values are: userDefined, disabled, quick, full.
+     * @param value Value to set for the defenderScanType property.
+     */
+    public set defenderScanType(value: DefenderScanType | undefined) {
+        if(value) {
+            this._defenderScanType = value;
+        }
+    };
+    /**
+     * Gets the defenderScheduledQuickScanTime property value. The time to perform a daily quick scan.
+     * @returns a TimeOnly
+     */
+    public get defenderScheduledQuickScanTime() {
+        return this._defenderScheduledQuickScanTime;
+    };
+    /**
+     * Sets the defenderScheduledQuickScanTime property value. The time to perform a daily quick scan.
+     * @param value Value to set for the defenderScheduledQuickScanTime property.
+     */
+    public set defenderScheduledQuickScanTime(value: TimeOnly | undefined) {
+        if(value) {
+            this._defenderScheduledQuickScanTime = value;
+        }
+    };
+    /**
+     * Gets the defenderScheduledScanTime property value. The defender time for the system scan.
+     * @returns a TimeOnly
+     */
+    public get defenderScheduledScanTime() {
+        return this._defenderScheduledScanTime;
+    };
+    /**
+     * Sets the defenderScheduledScanTime property value. The defender time for the system scan.
+     * @param value Value to set for the defenderScheduledScanTime property.
+     */
+    public set defenderScheduledScanTime(value: TimeOnly | undefined) {
+        if(value) {
+            this._defenderScheduledScanTime = value;
+        }
+    };
+    /**
+     * Gets the defenderSignatureUpdateIntervalInHours property value. The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24
+     * @returns a integer
+     */
+    public get defenderSignatureUpdateIntervalInHours() {
+        return this._defenderSignatureUpdateIntervalInHours;
+    };
+    /**
+     * Sets the defenderSignatureUpdateIntervalInHours property value. The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24
+     * @param value Value to set for the defenderSignatureUpdateIntervalInHours property.
+     */
+    public set defenderSignatureUpdateIntervalInHours(value: number | undefined) {
+        if(value) {
+            this._defenderSignatureUpdateIntervalInHours = value;
+        }
+    };
+    /**
+     * Gets the defenderSystemScanSchedule property value. Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * @returns a weeklySchedule
+     */
+    public get defenderSystemScanSchedule() {
+        return this._defenderSystemScanSchedule;
+    };
+    /**
+     * Sets the defenderSystemScanSchedule property value. Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * @param value Value to set for the defenderSystemScanSchedule property.
+     */
+    public set defenderSystemScanSchedule(value: WeeklySchedule | undefined) {
+        if(value) {
+            this._defenderSystemScanSchedule = value;
+        }
+    };
+    /**
+     * Gets the developerUnlockSetting property value. Indicates whether or not to allow developer unlock. Possible values are: notConfigured, blocked, allowed.
+     * @returns a stateManagementSetting
+     */
+    public get developerUnlockSetting() {
+        return this._developerUnlockSetting;
+    };
+    /**
+     * Sets the developerUnlockSetting property value. Indicates whether or not to allow developer unlock. Possible values are: notConfigured, blocked, allowed.
+     * @param value Value to set for the developerUnlockSetting property.
+     */
+    public set developerUnlockSetting(value: StateManagementSetting | undefined) {
+        if(value) {
+            this._developerUnlockSetting = value;
+        }
+    };
+    /**
+     * Gets the deviceManagementBlockFactoryResetOnMobile property value. Indicates whether or not to Block the user from resetting their phone.
+     * @returns a boolean
+     */
+    public get deviceManagementBlockFactoryResetOnMobile() {
+        return this._deviceManagementBlockFactoryResetOnMobile;
+    };
+    /**
+     * Sets the deviceManagementBlockFactoryResetOnMobile property value. Indicates whether or not to Block the user from resetting their phone.
+     * @param value Value to set for the deviceManagementBlockFactoryResetOnMobile property.
+     */
+    public set deviceManagementBlockFactoryResetOnMobile(value: boolean | undefined) {
+        if(value) {
+            this._deviceManagementBlockFactoryResetOnMobile = value;
+        }
+    };
+    /**
+     * Gets the deviceManagementBlockManualUnenroll property value. Indicates whether or not to Block the user from doing manual un-enrollment from device management.
+     * @returns a boolean
+     */
+    public get deviceManagementBlockManualUnenroll() {
+        return this._deviceManagementBlockManualUnenroll;
+    };
+    /**
+     * Sets the deviceManagementBlockManualUnenroll property value. Indicates whether or not to Block the user from doing manual un-enrollment from device management.
+     * @param value Value to set for the deviceManagementBlockManualUnenroll property.
+     */
+    public set deviceManagementBlockManualUnenroll(value: boolean | undefined) {
+        if(value) {
+            this._deviceManagementBlockManualUnenroll = value;
+        }
+    };
+    /**
+     * Gets the diagnosticsDataSubmissionMode property value. Gets or sets a value allowing the device to send diagnostic and usage telemetry data, such as Watson. Possible values are: userDefined, none, basic, enhanced, full.
+     * @returns a diagnosticDataSubmissionMode
+     */
+    public get diagnosticsDataSubmissionMode() {
+        return this._diagnosticsDataSubmissionMode;
+    };
+    /**
+     * Sets the diagnosticsDataSubmissionMode property value. Gets or sets a value allowing the device to send diagnostic and usage telemetry data, such as Watson. Possible values are: userDefined, none, basic, enhanced, full.
+     * @param value Value to set for the diagnosticsDataSubmissionMode property.
+     */
+    public set diagnosticsDataSubmissionMode(value: DiagnosticDataSubmissionMode | undefined) {
+        if(value) {
+            this._diagnosticsDataSubmissionMode = value;
+        }
+    };
+    /**
+     * Gets the edgeAllowStartPagesModification property value. Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.
+     * @returns a boolean
+     */
+    public get edgeAllowStartPagesModification() {
+        return this._edgeAllowStartPagesModification;
+    };
+    /**
+     * Sets the edgeAllowStartPagesModification property value. Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.
+     * @param value Value to set for the edgeAllowStartPagesModification property.
+     */
+    public set edgeAllowStartPagesModification(value: boolean | undefined) {
+        if(value) {
+            this._edgeAllowStartPagesModification = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockAccessToAboutFlags property value. Indicates whether or not to prevent access to about flags on Edge browser.
+     * @returns a boolean
+     */
+    public get edgeBlockAccessToAboutFlags() {
+        return this._edgeBlockAccessToAboutFlags;
+    };
+    /**
+     * Sets the edgeBlockAccessToAboutFlags property value. Indicates whether or not to prevent access to about flags on Edge browser.
+     * @param value Value to set for the edgeBlockAccessToAboutFlags property.
+     */
+    public set edgeBlockAccessToAboutFlags(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockAccessToAboutFlags = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockAddressBarDropdown property value. Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services.
+     * @returns a boolean
+     */
+    public get edgeBlockAddressBarDropdown() {
+        return this._edgeBlockAddressBarDropdown;
+    };
+    /**
+     * Sets the edgeBlockAddressBarDropdown property value. Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services.
+     * @param value Value to set for the edgeBlockAddressBarDropdown property.
+     */
+    public set edgeBlockAddressBarDropdown(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockAddressBarDropdown = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockAutofill property value. Indicates whether or not to block auto fill.
+     * @returns a boolean
+     */
+    public get edgeBlockAutofill() {
+        return this._edgeBlockAutofill;
+    };
+    /**
+     * Sets the edgeBlockAutofill property value. Indicates whether or not to block auto fill.
+     * @param value Value to set for the edgeBlockAutofill property.
+     */
+    public set edgeBlockAutofill(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockAutofill = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockCompatibilityList property value. Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues.
+     * @returns a boolean
+     */
+    public get edgeBlockCompatibilityList() {
+        return this._edgeBlockCompatibilityList;
+    };
+    /**
+     * Sets the edgeBlockCompatibilityList property value. Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues.
+     * @param value Value to set for the edgeBlockCompatibilityList property.
+     */
+    public set edgeBlockCompatibilityList(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockCompatibilityList = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockDeveloperTools property value. Indicates whether or not to block developer tools in the Edge browser.
+     * @returns a boolean
+     */
+    public get edgeBlockDeveloperTools() {
+        return this._edgeBlockDeveloperTools;
+    };
+    /**
+     * Sets the edgeBlockDeveloperTools property value. Indicates whether or not to block developer tools in the Edge browser.
+     * @param value Value to set for the edgeBlockDeveloperTools property.
+     */
+    public set edgeBlockDeveloperTools(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockDeveloperTools = value;
+        }
+    };
+    /**
+     * Gets the edgeBlocked property value. Indicates whether or not to Block the user from using the Edge browser.
+     * @returns a boolean
+     */
+    public get edgeBlocked() {
+        return this._edgeBlocked;
+    };
+    /**
+     * Sets the edgeBlocked property value. Indicates whether or not to Block the user from using the Edge browser.
+     * @param value Value to set for the edgeBlocked property.
+     */
+    public set edgeBlocked(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlocked = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockExtensions property value. Indicates whether or not to block extensions in the Edge browser.
+     * @returns a boolean
+     */
+    public get edgeBlockExtensions() {
+        return this._edgeBlockExtensions;
+    };
+    /**
+     * Sets the edgeBlockExtensions property value. Indicates whether or not to block extensions in the Edge browser.
+     * @param value Value to set for the edgeBlockExtensions property.
+     */
+    public set edgeBlockExtensions(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockExtensions = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockInPrivateBrowsing property value. Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.
+     * @returns a boolean
+     */
+    public get edgeBlockInPrivateBrowsing() {
+        return this._edgeBlockInPrivateBrowsing;
+    };
+    /**
+     * Sets the edgeBlockInPrivateBrowsing property value. Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.
+     * @param value Value to set for the edgeBlockInPrivateBrowsing property.
+     */
+    public set edgeBlockInPrivateBrowsing(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockInPrivateBrowsing = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockJavaScript property value. Indicates whether or not to Block the user from using JavaScript.
+     * @returns a boolean
+     */
+    public get edgeBlockJavaScript() {
+        return this._edgeBlockJavaScript;
+    };
+    /**
+     * Sets the edgeBlockJavaScript property value. Indicates whether or not to Block the user from using JavaScript.
+     * @param value Value to set for the edgeBlockJavaScript property.
+     */
+    public set edgeBlockJavaScript(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockJavaScript = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockLiveTileDataCollection property value. Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge.
+     * @returns a boolean
+     */
+    public get edgeBlockLiveTileDataCollection() {
+        return this._edgeBlockLiveTileDataCollection;
+    };
+    /**
+     * Sets the edgeBlockLiveTileDataCollection property value. Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge.
+     * @param value Value to set for the edgeBlockLiveTileDataCollection property.
+     */
+    public set edgeBlockLiveTileDataCollection(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockLiveTileDataCollection = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockPasswordManager property value. Indicates whether or not to Block password manager.
+     * @returns a boolean
+     */
+    public get edgeBlockPasswordManager() {
+        return this._edgeBlockPasswordManager;
+    };
+    /**
+     * Sets the edgeBlockPasswordManager property value. Indicates whether or not to Block password manager.
+     * @param value Value to set for the edgeBlockPasswordManager property.
+     */
+    public set edgeBlockPasswordManager(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockPasswordManager = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockPopups property value. Indicates whether or not to block popups.
+     * @returns a boolean
+     */
+    public get edgeBlockPopups() {
+        return this._edgeBlockPopups;
+    };
+    /**
+     * Sets the edgeBlockPopups property value. Indicates whether or not to block popups.
+     * @param value Value to set for the edgeBlockPopups property.
+     */
+    public set edgeBlockPopups(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockPopups = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockSearchSuggestions property value. Indicates whether or not to block the user from using the search suggestions in the address bar.
+     * @returns a boolean
+     */
+    public get edgeBlockSearchSuggestions() {
+        return this._edgeBlockSearchSuggestions;
+    };
+    /**
+     * Sets the edgeBlockSearchSuggestions property value. Indicates whether or not to block the user from using the search suggestions in the address bar.
+     * @param value Value to set for the edgeBlockSearchSuggestions property.
+     */
+    public set edgeBlockSearchSuggestions(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockSearchSuggestions = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockSendingDoNotTrackHeader property value. Indicates whether or not to Block the user from sending the do not track header.
+     * @returns a boolean
+     */
+    public get edgeBlockSendingDoNotTrackHeader() {
+        return this._edgeBlockSendingDoNotTrackHeader;
+    };
+    /**
+     * Sets the edgeBlockSendingDoNotTrackHeader property value. Indicates whether or not to Block the user from sending the do not track header.
+     * @param value Value to set for the edgeBlockSendingDoNotTrackHeader property.
+     */
+    public set edgeBlockSendingDoNotTrackHeader(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockSendingDoNotTrackHeader = value;
+        }
+    };
+    /**
+     * Gets the edgeBlockSendingIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.
+     * @returns a boolean
+     */
+    public get edgeBlockSendingIntranetTrafficToInternetExplorer() {
+        return this._edgeBlockSendingIntranetTrafficToInternetExplorer;
+    };
+    /**
+     * Sets the edgeBlockSendingIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.
+     * @param value Value to set for the edgeBlockSendingIntranetTrafficToInternetExplorer property.
+     */
+    public set edgeBlockSendingIntranetTrafficToInternetExplorer(value: boolean | undefined) {
+        if(value) {
+            this._edgeBlockSendingIntranetTrafficToInternetExplorer = value;
+        }
+    };
+    /**
+     * Gets the edgeClearBrowsingDataOnExit property value. Clear browsing data on exiting Microsoft Edge.
+     * @returns a boolean
+     */
+    public get edgeClearBrowsingDataOnExit() {
+        return this._edgeClearBrowsingDataOnExit;
+    };
+    /**
+     * Sets the edgeClearBrowsingDataOnExit property value. Clear browsing data on exiting Microsoft Edge.
+     * @param value Value to set for the edgeClearBrowsingDataOnExit property.
+     */
+    public set edgeClearBrowsingDataOnExit(value: boolean | undefined) {
+        if(value) {
+            this._edgeClearBrowsingDataOnExit = value;
+        }
+    };
+    /**
+     * Gets the edgeCookiePolicy property value. Indicates which cookies to block in the Edge browser. Possible values are: userDefined, allow, blockThirdParty, blockAll.
+     * @returns a edgeCookiePolicy
+     */
+    public get edgeCookiePolicy() {
+        return this._edgeCookiePolicy;
+    };
+    /**
+     * Sets the edgeCookiePolicy property value. Indicates which cookies to block in the Edge browser. Possible values are: userDefined, allow, blockThirdParty, blockAll.
+     * @param value Value to set for the edgeCookiePolicy property.
+     */
+    public set edgeCookiePolicy(value: EdgeCookiePolicy | undefined) {
+        if(value) {
+            this._edgeCookiePolicy = value;
+        }
+    };
+    /**
+     * Gets the edgeDisableFirstRunPage property value. Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.
+     * @returns a boolean
+     */
+    public get edgeDisableFirstRunPage() {
+        return this._edgeDisableFirstRunPage;
+    };
+    /**
+     * Sets the edgeDisableFirstRunPage property value. Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.
+     * @param value Value to set for the edgeDisableFirstRunPage property.
+     */
+    public set edgeDisableFirstRunPage(value: boolean | undefined) {
+        if(value) {
+            this._edgeDisableFirstRunPage = value;
+        }
+    };
+    /**
+     * Gets the edgeEnterpriseModeSiteListLocation property value. Indicates the enterprise mode site list location. Could be a local file, local network or http location.
+     * @returns a string
+     */
+    public get edgeEnterpriseModeSiteListLocation() {
+        return this._edgeEnterpriseModeSiteListLocation;
+    };
+    /**
+     * Sets the edgeEnterpriseModeSiteListLocation property value. Indicates the enterprise mode site list location. Could be a local file, local network or http location.
+     * @param value Value to set for the edgeEnterpriseModeSiteListLocation property.
+     */
+    public set edgeEnterpriseModeSiteListLocation(value: string | undefined) {
+        if(value) {
+            this._edgeEnterpriseModeSiteListLocation = value;
+        }
+    };
+    /**
+     * Gets the edgeFirstRunUrl property value. The first run URL for when Edge browser is opened for the first time.
+     * @returns a string
+     */
+    public get edgeFirstRunUrl() {
+        return this._edgeFirstRunUrl;
+    };
+    /**
+     * Sets the edgeFirstRunUrl property value. The first run URL for when Edge browser is opened for the first time.
+     * @param value Value to set for the edgeFirstRunUrl property.
+     */
+    public set edgeFirstRunUrl(value: string | undefined) {
+        if(value) {
+            this._edgeFirstRunUrl = value;
+        }
+    };
+    /**
+     * Gets the edgeHomepageUrls property value. The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
+     * @returns a string
+     */
+    public get edgeHomepageUrls() {
+        return this._edgeHomepageUrls;
+    };
+    /**
+     * Sets the edgeHomepageUrls property value. The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
+     * @param value Value to set for the edgeHomepageUrls property.
+     */
+    public set edgeHomepageUrls(value: string[] | undefined) {
+        if(value) {
+            this._edgeHomepageUrls = value;
+        }
+    };
+    /**
+     * Gets the edgeRequireSmartScreen property value. Indicates whether or not to Require the user to use the smart screen filter.
+     * @returns a boolean
+     */
+    public get edgeRequireSmartScreen() {
+        return this._edgeRequireSmartScreen;
+    };
+    /**
+     * Sets the edgeRequireSmartScreen property value. Indicates whether or not to Require the user to use the smart screen filter.
+     * @param value Value to set for the edgeRequireSmartScreen property.
+     */
+    public set edgeRequireSmartScreen(value: boolean | undefined) {
+        if(value) {
+            this._edgeRequireSmartScreen = value;
+        }
+    };
+    /**
+     * Gets the edgeSearchEngine property value. Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
+     * @returns a EdgeSearchEngineBaseInterface
+     */
+    public get edgeSearchEngine() {
+        return this._edgeSearchEngine;
+    };
+    /**
+     * Sets the edgeSearchEngine property value. Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
+     * @param value Value to set for the edgeSearchEngine property.
+     */
+    public set edgeSearchEngine(value: EdgeSearchEngineBase | undefined) {
+        if(value) {
+            this._edgeSearchEngine = value instanceof EdgeSearchEngineBaseImpl? value : new EdgeSearchEngineBaseImpl(value);
+        }
+    };
+    /**
+     * Gets the edgeSendIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.
+     * @returns a boolean
+     */
+    public get edgeSendIntranetTrafficToInternetExplorer() {
+        return this._edgeSendIntranetTrafficToInternetExplorer;
+    };
+    /**
+     * Sets the edgeSendIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.
+     * @param value Value to set for the edgeSendIntranetTrafficToInternetExplorer property.
+     */
+    public set edgeSendIntranetTrafficToInternetExplorer(value: boolean | undefined) {
+        if(value) {
+            this._edgeSendIntranetTrafficToInternetExplorer = value;
+        }
+    };
+    /**
+     * Gets the edgeSyncFavoritesWithInternetExplorer property value. Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.
+     * @returns a boolean
+     */
+    public get edgeSyncFavoritesWithInternetExplorer() {
+        return this._edgeSyncFavoritesWithInternetExplorer;
+    };
+    /**
+     * Sets the edgeSyncFavoritesWithInternetExplorer property value. Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.
+     * @param value Value to set for the edgeSyncFavoritesWithInternetExplorer property.
+     */
+    public set edgeSyncFavoritesWithInternetExplorer(value: boolean | undefined) {
+        if(value) {
+            this._edgeSyncFavoritesWithInternetExplorer = value;
+        }
+    };
+    /**
+     * Gets the enterpriseCloudPrintDiscoveryEndPoint property value. Endpoint for discovering cloud printers.
+     * @returns a string
+     */
+    public get enterpriseCloudPrintDiscoveryEndPoint() {
+        return this._enterpriseCloudPrintDiscoveryEndPoint;
+    };
+    /**
+     * Sets the enterpriseCloudPrintDiscoveryEndPoint property value. Endpoint for discovering cloud printers.
+     * @param value Value to set for the enterpriseCloudPrintDiscoveryEndPoint property.
+     */
+    public set enterpriseCloudPrintDiscoveryEndPoint(value: string | undefined) {
+        if(value) {
+            this._enterpriseCloudPrintDiscoveryEndPoint = value;
+        }
+    };
+    /**
+     * Gets the enterpriseCloudPrintDiscoveryMaxLimit property value. Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535
+     * @returns a integer
+     */
+    public get enterpriseCloudPrintDiscoveryMaxLimit() {
+        return this._enterpriseCloudPrintDiscoveryMaxLimit;
+    };
+    /**
+     * Sets the enterpriseCloudPrintDiscoveryMaxLimit property value. Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535
+     * @param value Value to set for the enterpriseCloudPrintDiscoveryMaxLimit property.
+     */
+    public set enterpriseCloudPrintDiscoveryMaxLimit(value: number | undefined) {
+        if(value) {
+            this._enterpriseCloudPrintDiscoveryMaxLimit = value;
+        }
+    };
+    /**
+     * Gets the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property value. OAuth resource URI for printer discovery service as configured in Azure portal.
+     * @returns a string
+     */
+    public get enterpriseCloudPrintMopriaDiscoveryResourceIdentifier() {
+        return this._enterpriseCloudPrintMopriaDiscoveryResourceIdentifier;
+    };
+    /**
+     * Sets the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property value. OAuth resource URI for printer discovery service as configured in Azure portal.
+     * @param value Value to set for the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property.
+     */
+    public set enterpriseCloudPrintMopriaDiscoveryResourceIdentifier(value: string | undefined) {
+        if(value) {
+            this._enterpriseCloudPrintMopriaDiscoveryResourceIdentifier = value;
+        }
+    };
+    /**
+     * Gets the enterpriseCloudPrintOAuthAuthority property value. Authentication endpoint for acquiring OAuth tokens.
+     * @returns a string
+     */
+    public get enterpriseCloudPrintOAuthAuthority() {
+        return this._enterpriseCloudPrintOAuthAuthority;
+    };
+    /**
+     * Sets the enterpriseCloudPrintOAuthAuthority property value. Authentication endpoint for acquiring OAuth tokens.
+     * @param value Value to set for the enterpriseCloudPrintOAuthAuthority property.
+     */
+    public set enterpriseCloudPrintOAuthAuthority(value: string | undefined) {
+        if(value) {
+            this._enterpriseCloudPrintOAuthAuthority = value;
+        }
+    };
+    /**
+     * Gets the enterpriseCloudPrintOAuthClientIdentifier property value. GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.
+     * @returns a string
+     */
+    public get enterpriseCloudPrintOAuthClientIdentifier() {
+        return this._enterpriseCloudPrintOAuthClientIdentifier;
+    };
+    /**
+     * Sets the enterpriseCloudPrintOAuthClientIdentifier property value. GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.
+     * @param value Value to set for the enterpriseCloudPrintOAuthClientIdentifier property.
+     */
+    public set enterpriseCloudPrintOAuthClientIdentifier(value: string | undefined) {
+        if(value) {
+            this._enterpriseCloudPrintOAuthClientIdentifier = value;
+        }
+    };
+    /**
+     * Gets the enterpriseCloudPrintResourceIdentifier property value. OAuth resource URI for print service as configured in the Azure portal.
+     * @returns a string
+     */
+    public get enterpriseCloudPrintResourceIdentifier() {
+        return this._enterpriseCloudPrintResourceIdentifier;
+    };
+    /**
+     * Sets the enterpriseCloudPrintResourceIdentifier property value. OAuth resource URI for print service as configured in the Azure portal.
+     * @param value Value to set for the enterpriseCloudPrintResourceIdentifier property.
+     */
+    public set enterpriseCloudPrintResourceIdentifier(value: string | undefined) {
+        if(value) {
+            this._enterpriseCloudPrintResourceIdentifier = value;
+        }
+    };
+    /**
+     * Gets the experienceBlockDeviceDiscovery property value. Indicates whether or not to enable device discovery UX.
+     * @returns a boolean
+     */
+    public get experienceBlockDeviceDiscovery() {
+        return this._experienceBlockDeviceDiscovery;
+    };
+    /**
+     * Sets the experienceBlockDeviceDiscovery property value. Indicates whether or not to enable device discovery UX.
+     * @param value Value to set for the experienceBlockDeviceDiscovery property.
+     */
+    public set experienceBlockDeviceDiscovery(value: boolean | undefined) {
+        if(value) {
+            this._experienceBlockDeviceDiscovery = value;
+        }
+    };
+    /**
+     * Gets the experienceBlockErrorDialogWhenNoSIM property value. Indicates whether or not to allow the error dialog from displaying if no SIM card is detected.
+     * @returns a boolean
+     */
+    public get experienceBlockErrorDialogWhenNoSIM() {
+        return this._experienceBlockErrorDialogWhenNoSIM;
+    };
+    /**
+     * Sets the experienceBlockErrorDialogWhenNoSIM property value. Indicates whether or not to allow the error dialog from displaying if no SIM card is detected.
+     * @param value Value to set for the experienceBlockErrorDialogWhenNoSIM property.
+     */
+    public set experienceBlockErrorDialogWhenNoSIM(value: boolean | undefined) {
+        if(value) {
+            this._experienceBlockErrorDialogWhenNoSIM = value;
+        }
+    };
+    /**
+     * Gets the experienceBlockTaskSwitcher property value. Indicates whether or not to enable task switching on the device.
+     * @returns a boolean
+     */
+    public get experienceBlockTaskSwitcher() {
+        return this._experienceBlockTaskSwitcher;
+    };
+    /**
+     * Sets the experienceBlockTaskSwitcher property value. Indicates whether or not to enable task switching on the device.
+     * @param value Value to set for the experienceBlockTaskSwitcher property.
+     */
+    public set experienceBlockTaskSwitcher(value: boolean | undefined) {
+        if(value) {
+            this._experienceBlockTaskSwitcher = value;
+        }
+    };
+    /**
+     * Gets the gameDvrBlocked property value. Indicates whether or not to block DVR and broadcasting.
+     * @returns a boolean
+     */
+    public get gameDvrBlocked() {
+        return this._gameDvrBlocked;
+    };
+    /**
+     * Sets the gameDvrBlocked property value. Indicates whether or not to block DVR and broadcasting.
+     * @param value Value to set for the gameDvrBlocked property.
+     */
+    public set gameDvrBlocked(value: boolean | undefined) {
+        if(value) {
+            this._gameDvrBlocked = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -843,6 +2171,662 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
         };
     };
     /**
+     * Gets the internetSharingBlocked property value. Indicates whether or not to Block the user from using internet sharing.
+     * @returns a boolean
+     */
+    public get internetSharingBlocked() {
+        return this._internetSharingBlocked;
+    };
+    /**
+     * Sets the internetSharingBlocked property value. Indicates whether or not to Block the user from using internet sharing.
+     * @param value Value to set for the internetSharingBlocked property.
+     */
+    public set internetSharingBlocked(value: boolean | undefined) {
+        if(value) {
+            this._internetSharingBlocked = value;
+        }
+    };
+    /**
+     * Gets the locationServicesBlocked property value. Indicates whether or not to Block the user from location services.
+     * @returns a boolean
+     */
+    public get locationServicesBlocked() {
+        return this._locationServicesBlocked;
+    };
+    /**
+     * Sets the locationServicesBlocked property value. Indicates whether or not to Block the user from location services.
+     * @param value Value to set for the locationServicesBlocked property.
+     */
+    public set locationServicesBlocked(value: boolean | undefined) {
+        if(value) {
+            this._locationServicesBlocked = value;
+        }
+    };
+    /**
+     * Gets the lockScreenAllowTimeoutConfiguration property value. Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.
+     * @returns a boolean
+     */
+    public get lockScreenAllowTimeoutConfiguration() {
+        return this._lockScreenAllowTimeoutConfiguration;
+    };
+    /**
+     * Sets the lockScreenAllowTimeoutConfiguration property value. Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.
+     * @param value Value to set for the lockScreenAllowTimeoutConfiguration property.
+     */
+    public set lockScreenAllowTimeoutConfiguration(value: boolean | undefined) {
+        if(value) {
+            this._lockScreenAllowTimeoutConfiguration = value;
+        }
+    };
+    /**
+     * Gets the lockScreenBlockActionCenterNotifications property value. Indicates whether or not to block action center notifications over lock screen.
+     * @returns a boolean
+     */
+    public get lockScreenBlockActionCenterNotifications() {
+        return this._lockScreenBlockActionCenterNotifications;
+    };
+    /**
+     * Sets the lockScreenBlockActionCenterNotifications property value. Indicates whether or not to block action center notifications over lock screen.
+     * @param value Value to set for the lockScreenBlockActionCenterNotifications property.
+     */
+    public set lockScreenBlockActionCenterNotifications(value: boolean | undefined) {
+        if(value) {
+            this._lockScreenBlockActionCenterNotifications = value;
+        }
+    };
+    /**
+     * Gets the lockScreenBlockCortana property value. Indicates whether or not the user can interact with Cortana using speech while the system is locked.
+     * @returns a boolean
+     */
+    public get lockScreenBlockCortana() {
+        return this._lockScreenBlockCortana;
+    };
+    /**
+     * Sets the lockScreenBlockCortana property value. Indicates whether or not the user can interact with Cortana using speech while the system is locked.
+     * @param value Value to set for the lockScreenBlockCortana property.
+     */
+    public set lockScreenBlockCortana(value: boolean | undefined) {
+        if(value) {
+            this._lockScreenBlockCortana = value;
+        }
+    };
+    /**
+     * Gets the lockScreenBlockToastNotifications property value. Indicates whether to allow toast notifications above the device lock screen.
+     * @returns a boolean
+     */
+    public get lockScreenBlockToastNotifications() {
+        return this._lockScreenBlockToastNotifications;
+    };
+    /**
+     * Sets the lockScreenBlockToastNotifications property value. Indicates whether to allow toast notifications above the device lock screen.
+     * @param value Value to set for the lockScreenBlockToastNotifications property.
+     */
+    public set lockScreenBlockToastNotifications(value: boolean | undefined) {
+        if(value) {
+            this._lockScreenBlockToastNotifications = value;
+        }
+    };
+    /**
+     * Gets the lockScreenTimeoutInSeconds property value. Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800
+     * @returns a integer
+     */
+    public get lockScreenTimeoutInSeconds() {
+        return this._lockScreenTimeoutInSeconds;
+    };
+    /**
+     * Sets the lockScreenTimeoutInSeconds property value. Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800
+     * @param value Value to set for the lockScreenTimeoutInSeconds property.
+     */
+    public set lockScreenTimeoutInSeconds(value: number | undefined) {
+        if(value) {
+            this._lockScreenTimeoutInSeconds = value;
+        }
+    };
+    /**
+     * Gets the logonBlockFastUserSwitching property value. Disables the ability to quickly switch between users that are logged on simultaneously without logging off.
+     * @returns a boolean
+     */
+    public get logonBlockFastUserSwitching() {
+        return this._logonBlockFastUserSwitching;
+    };
+    /**
+     * Sets the logonBlockFastUserSwitching property value. Disables the ability to quickly switch between users that are logged on simultaneously without logging off.
+     * @param value Value to set for the logonBlockFastUserSwitching property.
+     */
+    public set logonBlockFastUserSwitching(value: boolean | undefined) {
+        if(value) {
+            this._logonBlockFastUserSwitching = value;
+        }
+    };
+    /**
+     * Gets the microsoftAccountBlocked property value. Indicates whether or not to Block a Microsoft account.
+     * @returns a boolean
+     */
+    public get microsoftAccountBlocked() {
+        return this._microsoftAccountBlocked;
+    };
+    /**
+     * Sets the microsoftAccountBlocked property value. Indicates whether or not to Block a Microsoft account.
+     * @param value Value to set for the microsoftAccountBlocked property.
+     */
+    public set microsoftAccountBlocked(value: boolean | undefined) {
+        if(value) {
+            this._microsoftAccountBlocked = value;
+        }
+    };
+    /**
+     * Gets the microsoftAccountBlockSettingsSync property value. Indicates whether or not to Block Microsoft account settings sync.
+     * @returns a boolean
+     */
+    public get microsoftAccountBlockSettingsSync() {
+        return this._microsoftAccountBlockSettingsSync;
+    };
+    /**
+     * Sets the microsoftAccountBlockSettingsSync property value. Indicates whether or not to Block Microsoft account settings sync.
+     * @param value Value to set for the microsoftAccountBlockSettingsSync property.
+     */
+    public set microsoftAccountBlockSettingsSync(value: boolean | undefined) {
+        if(value) {
+            this._microsoftAccountBlockSettingsSync = value;
+        }
+    };
+    /**
+     * Gets the networkProxyApplySettingsDeviceWide property value. If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.
+     * @returns a boolean
+     */
+    public get networkProxyApplySettingsDeviceWide() {
+        return this._networkProxyApplySettingsDeviceWide;
+    };
+    /**
+     * Sets the networkProxyApplySettingsDeviceWide property value. If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.
+     * @param value Value to set for the networkProxyApplySettingsDeviceWide property.
+     */
+    public set networkProxyApplySettingsDeviceWide(value: boolean | undefined) {
+        if(value) {
+            this._networkProxyApplySettingsDeviceWide = value;
+        }
+    };
+    /**
+     * Gets the networkProxyAutomaticConfigurationUrl property value. Address to the proxy auto-config (PAC) script you want to use.
+     * @returns a string
+     */
+    public get networkProxyAutomaticConfigurationUrl() {
+        return this._networkProxyAutomaticConfigurationUrl;
+    };
+    /**
+     * Sets the networkProxyAutomaticConfigurationUrl property value. Address to the proxy auto-config (PAC) script you want to use.
+     * @param value Value to set for the networkProxyAutomaticConfigurationUrl property.
+     */
+    public set networkProxyAutomaticConfigurationUrl(value: string | undefined) {
+        if(value) {
+            this._networkProxyAutomaticConfigurationUrl = value;
+        }
+    };
+    /**
+     * Gets the networkProxyDisableAutoDetect property value. Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.
+     * @returns a boolean
+     */
+    public get networkProxyDisableAutoDetect() {
+        return this._networkProxyDisableAutoDetect;
+    };
+    /**
+     * Sets the networkProxyDisableAutoDetect property value. Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.
+     * @param value Value to set for the networkProxyDisableAutoDetect property.
+     */
+    public set networkProxyDisableAutoDetect(value: boolean | undefined) {
+        if(value) {
+            this._networkProxyDisableAutoDetect = value;
+        }
+    };
+    /**
+     * Gets the networkProxyServer property value. Specifies manual proxy server settings.
+     * @returns a Windows10NetworkProxyServerInterface
+     */
+    public get networkProxyServer() {
+        return this._networkProxyServer;
+    };
+    /**
+     * Sets the networkProxyServer property value. Specifies manual proxy server settings.
+     * @param value Value to set for the networkProxyServer property.
+     */
+    public set networkProxyServer(value: Windows10NetworkProxyServer | undefined) {
+        if(value) {
+            this._networkProxyServer = value instanceof Windows10NetworkProxyServerImpl? value : new Windows10NetworkProxyServerImpl(value);
+        }
+    };
+    /**
+     * Gets the nfcBlocked property value. Indicates whether or not to Block the user from using near field communication.
+     * @returns a boolean
+     */
+    public get nfcBlocked() {
+        return this._nfcBlocked;
+    };
+    /**
+     * Sets the nfcBlocked property value. Indicates whether or not to Block the user from using near field communication.
+     * @param value Value to set for the nfcBlocked property.
+     */
+    public set nfcBlocked(value: boolean | undefined) {
+        if(value) {
+            this._nfcBlocked = value;
+        }
+    };
+    /**
+     * Gets the oneDriveDisableFileSync property value. Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive.
+     * @returns a boolean
+     */
+    public get oneDriveDisableFileSync() {
+        return this._oneDriveDisableFileSync;
+    };
+    /**
+     * Sets the oneDriveDisableFileSync property value. Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive.
+     * @param value Value to set for the oneDriveDisableFileSync property.
+     */
+    public set oneDriveDisableFileSync(value: boolean | undefined) {
+        if(value) {
+            this._oneDriveDisableFileSync = value;
+        }
+    };
+    /**
+     * Gets the passwordBlockSimple property value. Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords.
+     * @returns a boolean
+     */
+    public get passwordBlockSimple() {
+        return this._passwordBlockSimple;
+    };
+    /**
+     * Sets the passwordBlockSimple property value. Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords.
+     * @param value Value to set for the passwordBlockSimple property.
+     */
+    public set passwordBlockSimple(value: boolean | undefined) {
+        if(value) {
+            this._passwordBlockSimple = value;
+        }
+    };
+    /**
+     * Gets the passwordExpirationDays property value. The password expiration in days. Valid values 0 to 730
+     * @returns a integer
+     */
+    public get passwordExpirationDays() {
+        return this._passwordExpirationDays;
+    };
+    /**
+     * Sets the passwordExpirationDays property value. The password expiration in days. Valid values 0 to 730
+     * @param value Value to set for the passwordExpirationDays property.
+     */
+    public set passwordExpirationDays(value: number | undefined) {
+        if(value) {
+            this._passwordExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
+     * @returns a integer
+     */
+    public get passwordMinimumCharacterSetCount() {
+        return this._passwordMinimumCharacterSetCount;
+    };
+    /**
+     * Sets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
+     * @param value Value to set for the passwordMinimumCharacterSetCount property.
+     */
+    public set passwordMinimumCharacterSetCount(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumCharacterSetCount = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumLength property value. The minimum password length. Valid values 4 to 16
+     * @returns a integer
+     */
+    public get passwordMinimumLength() {
+        return this._passwordMinimumLength;
+    };
+    /**
+     * Sets the passwordMinimumLength property value. The minimum password length. Valid values 4 to 16
+     * @param value Value to set for the passwordMinimumLength property.
+     */
+    public set passwordMinimumLength(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the passwordMinutesOfInactivityBeforeScreenTimeout property value. The minutes of inactivity before the screen times out.
+     * @returns a integer
+     */
+    public get passwordMinutesOfInactivityBeforeScreenTimeout() {
+        return this._passwordMinutesOfInactivityBeforeScreenTimeout;
+    };
+    /**
+     * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. The minutes of inactivity before the screen times out.
+     * @param value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     */
+    public set passwordMinutesOfInactivityBeforeScreenTimeout(value: number | undefined) {
+        if(value) {
+            this._passwordMinutesOfInactivityBeforeScreenTimeout = value;
+        }
+    };
+    /**
+     * Gets the passwordPreviousPasswordBlockCount property value. The number of previous passwords to prevent reuse of. Valid values 0 to 50
+     * @returns a integer
+     */
+    public get passwordPreviousPasswordBlockCount() {
+        return this._passwordPreviousPasswordBlockCount;
+    };
+    /**
+     * Sets the passwordPreviousPasswordBlockCount property value. The number of previous passwords to prevent reuse of. Valid values 0 to 50
+     * @param value Value to set for the passwordPreviousPasswordBlockCount property.
+     */
+    public set passwordPreviousPasswordBlockCount(value: number | undefined) {
+        if(value) {
+            this._passwordPreviousPasswordBlockCount = value;
+        }
+    };
+    /**
+     * Gets the passwordRequired property value. Indicates whether or not to require the user to have a password.
+     * @returns a boolean
+     */
+    public get passwordRequired() {
+        return this._passwordRequired;
+    };
+    /**
+     * Sets the passwordRequired property value. Indicates whether or not to require the user to have a password.
+     * @param value Value to set for the passwordRequired property.
+     */
+    public set passwordRequired(value: boolean | undefined) {
+        if(value) {
+            this._passwordRequired = value;
+        }
+    };
+    /**
+     * Gets the passwordRequiredType property value. The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @returns a requiredPasswordType
+     */
+    public get passwordRequiredType() {
+        return this._passwordRequiredType;
+    };
+    /**
+     * Sets the passwordRequiredType property value. The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @param value Value to set for the passwordRequiredType property.
+     */
+    public set passwordRequiredType(value: RequiredPasswordType | undefined) {
+        if(value) {
+            this._passwordRequiredType = value;
+        }
+    };
+    /**
+     * Gets the passwordRequireWhenResumeFromIdleState property value. Indicates whether or not to require a password upon resuming from an idle state.
+     * @returns a boolean
+     */
+    public get passwordRequireWhenResumeFromIdleState() {
+        return this._passwordRequireWhenResumeFromIdleState;
+    };
+    /**
+     * Sets the passwordRequireWhenResumeFromIdleState property value. Indicates whether or not to require a password upon resuming from an idle state.
+     * @param value Value to set for the passwordRequireWhenResumeFromIdleState property.
+     */
+    public set passwordRequireWhenResumeFromIdleState(value: boolean | undefined) {
+        if(value) {
+            this._passwordRequireWhenResumeFromIdleState = value;
+        }
+    };
+    /**
+     * Gets the passwordSignInFailureCountBeforeFactoryReset property value. The number of sign in failures before factory reset. Valid values 0 to 999
+     * @returns a integer
+     */
+    public get passwordSignInFailureCountBeforeFactoryReset() {
+        return this._passwordSignInFailureCountBeforeFactoryReset;
+    };
+    /**
+     * Sets the passwordSignInFailureCountBeforeFactoryReset property value. The number of sign in failures before factory reset. Valid values 0 to 999
+     * @param value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     */
+    public set passwordSignInFailureCountBeforeFactoryReset(value: number | undefined) {
+        if(value) {
+            this._passwordSignInFailureCountBeforeFactoryReset = value;
+        }
+    };
+    /**
+     * Gets the personalizationDesktopImageUrl property value. A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
+     * @returns a string
+     */
+    public get personalizationDesktopImageUrl() {
+        return this._personalizationDesktopImageUrl;
+    };
+    /**
+     * Sets the personalizationDesktopImageUrl property value. A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
+     * @param value Value to set for the personalizationDesktopImageUrl property.
+     */
+    public set personalizationDesktopImageUrl(value: string | undefined) {
+        if(value) {
+            this._personalizationDesktopImageUrl = value;
+        }
+    };
+    /**
+     * Gets the personalizationLockScreenImageUrl property value. A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
+     * @returns a string
+     */
+    public get personalizationLockScreenImageUrl() {
+        return this._personalizationLockScreenImageUrl;
+    };
+    /**
+     * Sets the personalizationLockScreenImageUrl property value. A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
+     * @param value Value to set for the personalizationLockScreenImageUrl property.
+     */
+    public set personalizationLockScreenImageUrl(value: string | undefined) {
+        if(value) {
+            this._personalizationLockScreenImageUrl = value;
+        }
+    };
+    /**
+     * Gets the privacyAdvertisingId property value. Enables or disables the use of advertising ID. Added in Windows 10, version 1607. Possible values are: notConfigured, blocked, allowed.
+     * @returns a stateManagementSetting
+     */
+    public get privacyAdvertisingId() {
+        return this._privacyAdvertisingId;
+    };
+    /**
+     * Sets the privacyAdvertisingId property value. Enables or disables the use of advertising ID. Added in Windows 10, version 1607. Possible values are: notConfigured, blocked, allowed.
+     * @param value Value to set for the privacyAdvertisingId property.
+     */
+    public set privacyAdvertisingId(value: StateManagementSetting | undefined) {
+        if(value) {
+            this._privacyAdvertisingId = value;
+        }
+    };
+    /**
+     * Gets the privacyAutoAcceptPairingAndConsentPrompts property value. Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.
+     * @returns a boolean
+     */
+    public get privacyAutoAcceptPairingAndConsentPrompts() {
+        return this._privacyAutoAcceptPairingAndConsentPrompts;
+    };
+    /**
+     * Sets the privacyAutoAcceptPairingAndConsentPrompts property value. Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.
+     * @param value Value to set for the privacyAutoAcceptPairingAndConsentPrompts property.
+     */
+    public set privacyAutoAcceptPairingAndConsentPrompts(value: boolean | undefined) {
+        if(value) {
+            this._privacyAutoAcceptPairingAndConsentPrompts = value;
+        }
+    };
+    /**
+     * Gets the privacyBlockInputPersonalization property value. Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.
+     * @returns a boolean
+     */
+    public get privacyBlockInputPersonalization() {
+        return this._privacyBlockInputPersonalization;
+    };
+    /**
+     * Sets the privacyBlockInputPersonalization property value. Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.
+     * @param value Value to set for the privacyBlockInputPersonalization property.
+     */
+    public set privacyBlockInputPersonalization(value: boolean | undefined) {
+        if(value) {
+            this._privacyBlockInputPersonalization = value;
+        }
+    };
+    /**
+     * Gets the resetProtectionModeBlocked property value. Indicates whether or not to Block the user from reset protection mode.
+     * @returns a boolean
+     */
+    public get resetProtectionModeBlocked() {
+        return this._resetProtectionModeBlocked;
+    };
+    /**
+     * Sets the resetProtectionModeBlocked property value. Indicates whether or not to Block the user from reset protection mode.
+     * @param value Value to set for the resetProtectionModeBlocked property.
+     */
+    public set resetProtectionModeBlocked(value: boolean | undefined) {
+        if(value) {
+            this._resetProtectionModeBlocked = value;
+        }
+    };
+    /**
+     * Gets the safeSearchFilter property value. Specifies what filter level of safe search is required. Possible values are: userDefined, strict, moderate.
+     * @returns a safeSearchFilterType
+     */
+    public get safeSearchFilter() {
+        return this._safeSearchFilter;
+    };
+    /**
+     * Sets the safeSearchFilter property value. Specifies what filter level of safe search is required. Possible values are: userDefined, strict, moderate.
+     * @param value Value to set for the safeSearchFilter property.
+     */
+    public set safeSearchFilter(value: SafeSearchFilterType | undefined) {
+        if(value) {
+            this._safeSearchFilter = value;
+        }
+    };
+    /**
+     * Gets the screenCaptureBlocked property value. Indicates whether or not to Block the user from taking Screenshots.
+     * @returns a boolean
+     */
+    public get screenCaptureBlocked() {
+        return this._screenCaptureBlocked;
+    };
+    /**
+     * Sets the screenCaptureBlocked property value. Indicates whether or not to Block the user from taking Screenshots.
+     * @param value Value to set for the screenCaptureBlocked property.
+     */
+    public set screenCaptureBlocked(value: boolean | undefined) {
+        if(value) {
+            this._screenCaptureBlocked = value;
+        }
+    };
+    /**
+     * Gets the searchBlockDiacritics property value. Specifies if search can use diacritics.
+     * @returns a boolean
+     */
+    public get searchBlockDiacritics() {
+        return this._searchBlockDiacritics;
+    };
+    /**
+     * Sets the searchBlockDiacritics property value. Specifies if search can use diacritics.
+     * @param value Value to set for the searchBlockDiacritics property.
+     */
+    public set searchBlockDiacritics(value: boolean | undefined) {
+        if(value) {
+            this._searchBlockDiacritics = value;
+        }
+    };
+    /**
+     * Gets the searchDisableAutoLanguageDetection property value. Specifies whether to use automatic language detection when indexing content and properties.
+     * @returns a boolean
+     */
+    public get searchDisableAutoLanguageDetection() {
+        return this._searchDisableAutoLanguageDetection;
+    };
+    /**
+     * Sets the searchDisableAutoLanguageDetection property value. Specifies whether to use automatic language detection when indexing content and properties.
+     * @param value Value to set for the searchDisableAutoLanguageDetection property.
+     */
+    public set searchDisableAutoLanguageDetection(value: boolean | undefined) {
+        if(value) {
+            this._searchDisableAutoLanguageDetection = value;
+        }
+    };
+    /**
+     * Gets the searchDisableIndexerBackoff property value. Indicates whether or not to disable the search indexer backoff feature.
+     * @returns a boolean
+     */
+    public get searchDisableIndexerBackoff() {
+        return this._searchDisableIndexerBackoff;
+    };
+    /**
+     * Sets the searchDisableIndexerBackoff property value. Indicates whether or not to disable the search indexer backoff feature.
+     * @param value Value to set for the searchDisableIndexerBackoff property.
+     */
+    public set searchDisableIndexerBackoff(value: boolean | undefined) {
+        if(value) {
+            this._searchDisableIndexerBackoff = value;
+        }
+    };
+    /**
+     * Gets the searchDisableIndexingEncryptedItems property value. Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer.
+     * @returns a boolean
+     */
+    public get searchDisableIndexingEncryptedItems() {
+        return this._searchDisableIndexingEncryptedItems;
+    };
+    /**
+     * Sets the searchDisableIndexingEncryptedItems property value. Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer.
+     * @param value Value to set for the searchDisableIndexingEncryptedItems property.
+     */
+    public set searchDisableIndexingEncryptedItems(value: boolean | undefined) {
+        if(value) {
+            this._searchDisableIndexingEncryptedItems = value;
+        }
+    };
+    /**
+     * Gets the searchDisableIndexingRemovableDrive property value. Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.
+     * @returns a boolean
+     */
+    public get searchDisableIndexingRemovableDrive() {
+        return this._searchDisableIndexingRemovableDrive;
+    };
+    /**
+     * Sets the searchDisableIndexingRemovableDrive property value. Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.
+     * @param value Value to set for the searchDisableIndexingRemovableDrive property.
+     */
+    public set searchDisableIndexingRemovableDrive(value: boolean | undefined) {
+        if(value) {
+            this._searchDisableIndexingRemovableDrive = value;
+        }
+    };
+    /**
+     * Gets the searchEnableAutomaticIndexSizeManangement property value. Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.
+     * @returns a boolean
+     */
+    public get searchEnableAutomaticIndexSizeManangement() {
+        return this._searchEnableAutomaticIndexSizeManangement;
+    };
+    /**
+     * Sets the searchEnableAutomaticIndexSizeManangement property value. Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.
+     * @param value Value to set for the searchEnableAutomaticIndexSizeManangement property.
+     */
+    public set searchEnableAutomaticIndexSizeManangement(value: boolean | undefined) {
+        if(value) {
+            this._searchEnableAutomaticIndexSizeManangement = value;
+        }
+    };
+    /**
+     * Gets the searchEnableRemoteQueries property value. Indicates whether or not to block remote queries of this computer’s index.
+     * @returns a boolean
+     */
+    public get searchEnableRemoteQueries() {
+        return this._searchEnableRemoteQueries;
+    };
+    /**
+     * Sets the searchEnableRemoteQueries property value. Indicates whether or not to block remote queries of this computer’s index.
+     * @param value Value to set for the searchEnableRemoteQueries property.
+     */
+    public set searchEnableRemoteQueries(value: boolean | undefined) {
+        if(value) {
+            this._searchEnableRemoteQueries = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -910,7 +2894,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeNumberValue("defenderDaysBeforeDeletingQuarantinedMalware", this.defenderDaysBeforeDeletingQuarantinedMalware);
         }
         if(this.defenderDetectedMalwareActions){
-            writer.writeObjectValue<DefenderDetectedMalwareActionsImpl>("defenderDetectedMalwareActions", new DefenderDetectedMalwareActionsImpl(this.defenderDetectedMalwareActions));
+            writer.writeObjectValue<DefenderDetectedMalwareActionsImpl>("defenderDetectedMalwareActions", (!this.defenderDetectedMalwareActions || this.defenderDetectedMalwareActions instanceof DefenderDetectedMalwareActionsImpl? this.defenderDetectedMalwareActions : new DefenderDetectedMalwareActionsImpl(this.defenderDetectedMalwareActions)));
         }
         if(this.defenderFileExtensionsToExclude){
             writer.writeCollectionOfPrimitiveValues<string>("defenderFileExtensionsToExclude", this.defenderFileExtensionsToExclude);
@@ -1060,7 +3044,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeBooleanValue("edgeRequireSmartScreen", this.edgeRequireSmartScreen);
         }
         if(this.edgeSearchEngine){
-            writer.writeObjectValue<EdgeSearchEngineBaseImpl>("edgeSearchEngine", new EdgeSearchEngineBaseImpl(this.edgeSearchEngine));
+            writer.writeObjectValue<EdgeSearchEngineBaseImpl>("edgeSearchEngine", (!this.edgeSearchEngine || this.edgeSearchEngine instanceof EdgeSearchEngineBaseImpl? this.edgeSearchEngine : new EdgeSearchEngineBaseImpl(this.edgeSearchEngine)));
         }
         if(this.edgeSendIntranetTrafficToInternetExplorer){
             writer.writeBooleanValue("edgeSendIntranetTrafficToInternetExplorer", this.edgeSendIntranetTrafficToInternetExplorer);
@@ -1138,7 +3122,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeBooleanValue("networkProxyDisableAutoDetect", this.networkProxyDisableAutoDetect);
         }
         if(this.networkProxyServer){
-            writer.writeObjectValue<Windows10NetworkProxyServerImpl>("networkProxyServer", new Windows10NetworkProxyServerImpl(this.networkProxyServer));
+            writer.writeObjectValue<Windows10NetworkProxyServerImpl>("networkProxyServer", (!this.networkProxyServer || this.networkProxyServer instanceof Windows10NetworkProxyServerImpl? this.networkProxyServer : new Windows10NetworkProxyServerImpl(this.networkProxyServer)));
         }
         if(this.nfcBlocked){
             writer.writeBooleanValue("nfcBlocked", this.nfcBlocked);
@@ -1451,6 +3435,1238 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
         }
         if(this.wirelessDisplayRequirePinForPairing){
             writer.writeBooleanValue("wirelessDisplayRequirePinForPairing", this.wirelessDisplayRequirePinForPairing);
+        }
+    };
+    /**
+     * Gets the settingsBlockAccountsPage property value. Indicates whether or not to block access to Accounts in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockAccountsPage() {
+        return this._settingsBlockAccountsPage;
+    };
+    /**
+     * Sets the settingsBlockAccountsPage property value. Indicates whether or not to block access to Accounts in Settings app.
+     * @param value Value to set for the settingsBlockAccountsPage property.
+     */
+    public set settingsBlockAccountsPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockAccountsPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockAddProvisioningPackage property value. Indicates whether or not to block the user from installing provisioning packages.
+     * @returns a boolean
+     */
+    public get settingsBlockAddProvisioningPackage() {
+        return this._settingsBlockAddProvisioningPackage;
+    };
+    /**
+     * Sets the settingsBlockAddProvisioningPackage property value. Indicates whether or not to block the user from installing provisioning packages.
+     * @param value Value to set for the settingsBlockAddProvisioningPackage property.
+     */
+    public set settingsBlockAddProvisioningPackage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockAddProvisioningPackage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockAppsPage property value. Indicates whether or not to block access to Apps in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockAppsPage() {
+        return this._settingsBlockAppsPage;
+    };
+    /**
+     * Sets the settingsBlockAppsPage property value. Indicates whether or not to block access to Apps in Settings app.
+     * @param value Value to set for the settingsBlockAppsPage property.
+     */
+    public set settingsBlockAppsPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockAppsPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockChangeLanguage property value. Indicates whether or not to block the user from changing the language settings.
+     * @returns a boolean
+     */
+    public get settingsBlockChangeLanguage() {
+        return this._settingsBlockChangeLanguage;
+    };
+    /**
+     * Sets the settingsBlockChangeLanguage property value. Indicates whether or not to block the user from changing the language settings.
+     * @param value Value to set for the settingsBlockChangeLanguage property.
+     */
+    public set settingsBlockChangeLanguage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockChangeLanguage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockChangePowerSleep property value. Indicates whether or not to block the user from changing power and sleep settings.
+     * @returns a boolean
+     */
+    public get settingsBlockChangePowerSleep() {
+        return this._settingsBlockChangePowerSleep;
+    };
+    /**
+     * Sets the settingsBlockChangePowerSleep property value. Indicates whether or not to block the user from changing power and sleep settings.
+     * @param value Value to set for the settingsBlockChangePowerSleep property.
+     */
+    public set settingsBlockChangePowerSleep(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockChangePowerSleep = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockChangeRegion property value. Indicates whether or not to block the user from changing the region settings.
+     * @returns a boolean
+     */
+    public get settingsBlockChangeRegion() {
+        return this._settingsBlockChangeRegion;
+    };
+    /**
+     * Sets the settingsBlockChangeRegion property value. Indicates whether or not to block the user from changing the region settings.
+     * @param value Value to set for the settingsBlockChangeRegion property.
+     */
+    public set settingsBlockChangeRegion(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockChangeRegion = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockChangeSystemTime property value. Indicates whether or not to block the user from changing date and time settings.
+     * @returns a boolean
+     */
+    public get settingsBlockChangeSystemTime() {
+        return this._settingsBlockChangeSystemTime;
+    };
+    /**
+     * Sets the settingsBlockChangeSystemTime property value. Indicates whether or not to block the user from changing date and time settings.
+     * @param value Value to set for the settingsBlockChangeSystemTime property.
+     */
+    public set settingsBlockChangeSystemTime(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockChangeSystemTime = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockDevicesPage property value. Indicates whether or not to block access to Devices in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockDevicesPage() {
+        return this._settingsBlockDevicesPage;
+    };
+    /**
+     * Sets the settingsBlockDevicesPage property value. Indicates whether or not to block access to Devices in Settings app.
+     * @param value Value to set for the settingsBlockDevicesPage property.
+     */
+    public set settingsBlockDevicesPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockDevicesPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockEaseOfAccessPage property value. Indicates whether or not to block access to Ease of Access in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockEaseOfAccessPage() {
+        return this._settingsBlockEaseOfAccessPage;
+    };
+    /**
+     * Sets the settingsBlockEaseOfAccessPage property value. Indicates whether or not to block access to Ease of Access in Settings app.
+     * @param value Value to set for the settingsBlockEaseOfAccessPage property.
+     */
+    public set settingsBlockEaseOfAccessPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockEaseOfAccessPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockEditDeviceName property value. Indicates whether or not to block the user from editing the device name.
+     * @returns a boolean
+     */
+    public get settingsBlockEditDeviceName() {
+        return this._settingsBlockEditDeviceName;
+    };
+    /**
+     * Sets the settingsBlockEditDeviceName property value. Indicates whether or not to block the user from editing the device name.
+     * @param value Value to set for the settingsBlockEditDeviceName property.
+     */
+    public set settingsBlockEditDeviceName(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockEditDeviceName = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockGamingPage property value. Indicates whether or not to block access to Gaming in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockGamingPage() {
+        return this._settingsBlockGamingPage;
+    };
+    /**
+     * Sets the settingsBlockGamingPage property value. Indicates whether or not to block access to Gaming in Settings app.
+     * @param value Value to set for the settingsBlockGamingPage property.
+     */
+    public set settingsBlockGamingPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockGamingPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockNetworkInternetPage property value. Indicates whether or not to block access to Network & Internet in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockNetworkInternetPage() {
+        return this._settingsBlockNetworkInternetPage;
+    };
+    /**
+     * Sets the settingsBlockNetworkInternetPage property value. Indicates whether or not to block access to Network & Internet in Settings app.
+     * @param value Value to set for the settingsBlockNetworkInternetPage property.
+     */
+    public set settingsBlockNetworkInternetPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockNetworkInternetPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockPersonalizationPage property value. Indicates whether or not to block access to Personalization in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockPersonalizationPage() {
+        return this._settingsBlockPersonalizationPage;
+    };
+    /**
+     * Sets the settingsBlockPersonalizationPage property value. Indicates whether or not to block access to Personalization in Settings app.
+     * @param value Value to set for the settingsBlockPersonalizationPage property.
+     */
+    public set settingsBlockPersonalizationPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockPersonalizationPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockPrivacyPage property value. Indicates whether or not to block access to Privacy in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockPrivacyPage() {
+        return this._settingsBlockPrivacyPage;
+    };
+    /**
+     * Sets the settingsBlockPrivacyPage property value. Indicates whether or not to block access to Privacy in Settings app.
+     * @param value Value to set for the settingsBlockPrivacyPage property.
+     */
+    public set settingsBlockPrivacyPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockPrivacyPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockRemoveProvisioningPackage property value. Indicates whether or not to block the runtime configuration agent from removing provisioning packages.
+     * @returns a boolean
+     */
+    public get settingsBlockRemoveProvisioningPackage() {
+        return this._settingsBlockRemoveProvisioningPackage;
+    };
+    /**
+     * Sets the settingsBlockRemoveProvisioningPackage property value. Indicates whether or not to block the runtime configuration agent from removing provisioning packages.
+     * @param value Value to set for the settingsBlockRemoveProvisioningPackage property.
+     */
+    public set settingsBlockRemoveProvisioningPackage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockRemoveProvisioningPackage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockSettingsApp property value. Indicates whether or not to block access to Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockSettingsApp() {
+        return this._settingsBlockSettingsApp;
+    };
+    /**
+     * Sets the settingsBlockSettingsApp property value. Indicates whether or not to block access to Settings app.
+     * @param value Value to set for the settingsBlockSettingsApp property.
+     */
+    public set settingsBlockSettingsApp(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockSettingsApp = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockSystemPage property value. Indicates whether or not to block access to System in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockSystemPage() {
+        return this._settingsBlockSystemPage;
+    };
+    /**
+     * Sets the settingsBlockSystemPage property value. Indicates whether or not to block access to System in Settings app.
+     * @param value Value to set for the settingsBlockSystemPage property.
+     */
+    public set settingsBlockSystemPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockSystemPage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockTimeLanguagePage property value. Indicates whether or not to block access to Time & Language in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockTimeLanguagePage() {
+        return this._settingsBlockTimeLanguagePage;
+    };
+    /**
+     * Sets the settingsBlockTimeLanguagePage property value. Indicates whether or not to block access to Time & Language in Settings app.
+     * @param value Value to set for the settingsBlockTimeLanguagePage property.
+     */
+    public set settingsBlockTimeLanguagePage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockTimeLanguagePage = value;
+        }
+    };
+    /**
+     * Gets the settingsBlockUpdateSecurityPage property value. Indicates whether or not to block access to Update & Security in Settings app.
+     * @returns a boolean
+     */
+    public get settingsBlockUpdateSecurityPage() {
+        return this._settingsBlockUpdateSecurityPage;
+    };
+    /**
+     * Sets the settingsBlockUpdateSecurityPage property value. Indicates whether or not to block access to Update & Security in Settings app.
+     * @param value Value to set for the settingsBlockUpdateSecurityPage property.
+     */
+    public set settingsBlockUpdateSecurityPage(value: boolean | undefined) {
+        if(value) {
+            this._settingsBlockUpdateSecurityPage = value;
+        }
+    };
+    /**
+     * Gets the sharedUserAppDataAllowed property value. Indicates whether or not to block multiple users of the same app to share data.
+     * @returns a boolean
+     */
+    public get sharedUserAppDataAllowed() {
+        return this._sharedUserAppDataAllowed;
+    };
+    /**
+     * Sets the sharedUserAppDataAllowed property value. Indicates whether or not to block multiple users of the same app to share data.
+     * @param value Value to set for the sharedUserAppDataAllowed property.
+     */
+    public set sharedUserAppDataAllowed(value: boolean | undefined) {
+        if(value) {
+            this._sharedUserAppDataAllowed = value;
+        }
+    };
+    /**
+     * Gets the smartScreenBlockPromptOverride property value. Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.
+     * @returns a boolean
+     */
+    public get smartScreenBlockPromptOverride() {
+        return this._smartScreenBlockPromptOverride;
+    };
+    /**
+     * Sets the smartScreenBlockPromptOverride property value. Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.
+     * @param value Value to set for the smartScreenBlockPromptOverride property.
+     */
+    public set smartScreenBlockPromptOverride(value: boolean | undefined) {
+        if(value) {
+            this._smartScreenBlockPromptOverride = value;
+        }
+    };
+    /**
+     * Gets the smartScreenBlockPromptOverrideForFiles property value. Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files
+     * @returns a boolean
+     */
+    public get smartScreenBlockPromptOverrideForFiles() {
+        return this._smartScreenBlockPromptOverrideForFiles;
+    };
+    /**
+     * Sets the smartScreenBlockPromptOverrideForFiles property value. Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files
+     * @param value Value to set for the smartScreenBlockPromptOverrideForFiles property.
+     */
+    public set smartScreenBlockPromptOverrideForFiles(value: boolean | undefined) {
+        if(value) {
+            this._smartScreenBlockPromptOverrideForFiles = value;
+        }
+    };
+    /**
+     * Gets the smartScreenEnableAppInstallControl property value. This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store.
+     * @returns a boolean
+     */
+    public get smartScreenEnableAppInstallControl() {
+        return this._smartScreenEnableAppInstallControl;
+    };
+    /**
+     * Sets the smartScreenEnableAppInstallControl property value. This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store.
+     * @param value Value to set for the smartScreenEnableAppInstallControl property.
+     */
+    public set smartScreenEnableAppInstallControl(value: boolean | undefined) {
+        if(value) {
+            this._smartScreenEnableAppInstallControl = value;
+        }
+    };
+    /**
+     * Gets the startBlockUnpinningAppsFromTaskbar property value. Indicates whether or not to block the user from unpinning apps from taskbar.
+     * @returns a boolean
+     */
+    public get startBlockUnpinningAppsFromTaskbar() {
+        return this._startBlockUnpinningAppsFromTaskbar;
+    };
+    /**
+     * Sets the startBlockUnpinningAppsFromTaskbar property value. Indicates whether or not to block the user from unpinning apps from taskbar.
+     * @param value Value to set for the startBlockUnpinningAppsFromTaskbar property.
+     */
+    public set startBlockUnpinningAppsFromTaskbar(value: boolean | undefined) {
+        if(value) {
+            this._startBlockUnpinningAppsFromTaskbar = value;
+        }
+    };
+    /**
+     * Gets the startMenuAppListVisibility property value. Setting the value of this collapses the app list, removes the app list entirely, or disables the corresponding toggle in the Settings app. Possible values are: userDefined, collapse, remove, disableSettingsApp.
+     * @returns a windowsStartMenuAppListVisibilityType
+     */
+    public get startMenuAppListVisibility() {
+        return this._startMenuAppListVisibility;
+    };
+    /**
+     * Sets the startMenuAppListVisibility property value. Setting the value of this collapses the app list, removes the app list entirely, or disables the corresponding toggle in the Settings app. Possible values are: userDefined, collapse, remove, disableSettingsApp.
+     * @param value Value to set for the startMenuAppListVisibility property.
+     */
+    public set startMenuAppListVisibility(value: WindowsStartMenuAppListVisibilityType | undefined) {
+        if(value) {
+            this._startMenuAppListVisibility = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideChangeAccountSettings property value. Enabling this policy hides the change account setting from appearing in the user tile in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideChangeAccountSettings() {
+        return this._startMenuHideChangeAccountSettings;
+    };
+    /**
+     * Sets the startMenuHideChangeAccountSettings property value. Enabling this policy hides the change account setting from appearing in the user tile in the start menu.
+     * @param value Value to set for the startMenuHideChangeAccountSettings property.
+     */
+    public set startMenuHideChangeAccountSettings(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideChangeAccountSettings = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideFrequentlyUsedApps property value. Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
+     * @returns a boolean
+     */
+    public get startMenuHideFrequentlyUsedApps() {
+        return this._startMenuHideFrequentlyUsedApps;
+    };
+    /**
+     * Sets the startMenuHideFrequentlyUsedApps property value. Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
+     * @param value Value to set for the startMenuHideFrequentlyUsedApps property.
+     */
+    public set startMenuHideFrequentlyUsedApps(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideFrequentlyUsedApps = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideHibernate property value. Enabling this policy hides hibernate from appearing in the power button in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideHibernate() {
+        return this._startMenuHideHibernate;
+    };
+    /**
+     * Sets the startMenuHideHibernate property value. Enabling this policy hides hibernate from appearing in the power button in the start menu.
+     * @param value Value to set for the startMenuHideHibernate property.
+     */
+    public set startMenuHideHibernate(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideHibernate = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideLock property value. Enabling this policy hides lock from appearing in the user tile in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideLock() {
+        return this._startMenuHideLock;
+    };
+    /**
+     * Sets the startMenuHideLock property value. Enabling this policy hides lock from appearing in the user tile in the start menu.
+     * @param value Value to set for the startMenuHideLock property.
+     */
+    public set startMenuHideLock(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideLock = value;
+        }
+    };
+    /**
+     * Gets the startMenuHidePowerButton property value. Enabling this policy hides the power button from appearing in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHidePowerButton() {
+        return this._startMenuHidePowerButton;
+    };
+    /**
+     * Sets the startMenuHidePowerButton property value. Enabling this policy hides the power button from appearing in the start menu.
+     * @param value Value to set for the startMenuHidePowerButton property.
+     */
+    public set startMenuHidePowerButton(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHidePowerButton = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideRecentJumpLists property value. Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app.
+     * @returns a boolean
+     */
+    public get startMenuHideRecentJumpLists() {
+        return this._startMenuHideRecentJumpLists;
+    };
+    /**
+     * Sets the startMenuHideRecentJumpLists property value. Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app.
+     * @param value Value to set for the startMenuHideRecentJumpLists property.
+     */
+    public set startMenuHideRecentJumpLists(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideRecentJumpLists = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideRecentlyAddedApps property value. Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
+     * @returns a boolean
+     */
+    public get startMenuHideRecentlyAddedApps() {
+        return this._startMenuHideRecentlyAddedApps;
+    };
+    /**
+     * Sets the startMenuHideRecentlyAddedApps property value. Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
+     * @param value Value to set for the startMenuHideRecentlyAddedApps property.
+     */
+    public set startMenuHideRecentlyAddedApps(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideRecentlyAddedApps = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideRestartOptions property value. Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideRestartOptions() {
+        return this._startMenuHideRestartOptions;
+    };
+    /**
+     * Sets the startMenuHideRestartOptions property value. Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu.
+     * @param value Value to set for the startMenuHideRestartOptions property.
+     */
+    public set startMenuHideRestartOptions(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideRestartOptions = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideShutDown property value. Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideShutDown() {
+        return this._startMenuHideShutDown;
+    };
+    /**
+     * Sets the startMenuHideShutDown property value. Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu.
+     * @param value Value to set for the startMenuHideShutDown property.
+     */
+    public set startMenuHideShutDown(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideShutDown = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideSignOut property value. Enabling this policy hides sign out from appearing in the user tile in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideSignOut() {
+        return this._startMenuHideSignOut;
+    };
+    /**
+     * Sets the startMenuHideSignOut property value. Enabling this policy hides sign out from appearing in the user tile in the start menu.
+     * @param value Value to set for the startMenuHideSignOut property.
+     */
+    public set startMenuHideSignOut(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideSignOut = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideSleep property value. Enabling this policy hides sleep from appearing in the power button in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideSleep() {
+        return this._startMenuHideSleep;
+    };
+    /**
+     * Sets the startMenuHideSleep property value. Enabling this policy hides sleep from appearing in the power button in the start menu.
+     * @param value Value to set for the startMenuHideSleep property.
+     */
+    public set startMenuHideSleep(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideSleep = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideSwitchAccount property value. Enabling this policy hides switch account from appearing in the user tile in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideSwitchAccount() {
+        return this._startMenuHideSwitchAccount;
+    };
+    /**
+     * Sets the startMenuHideSwitchAccount property value. Enabling this policy hides switch account from appearing in the user tile in the start menu.
+     * @param value Value to set for the startMenuHideSwitchAccount property.
+     */
+    public set startMenuHideSwitchAccount(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideSwitchAccount = value;
+        }
+    };
+    /**
+     * Gets the startMenuHideUserTile property value. Enabling this policy hides the user tile from appearing in the start menu.
+     * @returns a boolean
+     */
+    public get startMenuHideUserTile() {
+        return this._startMenuHideUserTile;
+    };
+    /**
+     * Sets the startMenuHideUserTile property value. Enabling this policy hides the user tile from appearing in the start menu.
+     * @param value Value to set for the startMenuHideUserTile property.
+     */
+    public set startMenuHideUserTile(value: boolean | undefined) {
+        if(value) {
+            this._startMenuHideUserTile = value;
+        }
+    };
+    /**
+     * Gets the startMenuLayoutEdgeAssetsXml property value. This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
+     * @returns a binary
+     */
+    public get startMenuLayoutEdgeAssetsXml() {
+        return this._startMenuLayoutEdgeAssetsXml;
+    };
+    /**
+     * Sets the startMenuLayoutEdgeAssetsXml property value. This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
+     * @param value Value to set for the startMenuLayoutEdgeAssetsXml property.
+     */
+    public set startMenuLayoutEdgeAssetsXml(value: string | undefined) {
+        if(value) {
+            this._startMenuLayoutEdgeAssetsXml = value;
+        }
+    };
+    /**
+     * Gets the startMenuLayoutXml property value. Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
+     * @returns a binary
+     */
+    public get startMenuLayoutXml() {
+        return this._startMenuLayoutXml;
+    };
+    /**
+     * Sets the startMenuLayoutXml property value. Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
+     * @param value Value to set for the startMenuLayoutXml property.
+     */
+    public set startMenuLayoutXml(value: string | undefined) {
+        if(value) {
+            this._startMenuLayoutXml = value;
+        }
+    };
+    /**
+     * Gets the startMenuMode property value. Allows admins to decide how the Start menu is displayed. Possible values are: userDefined, fullScreen, nonFullScreen.
+     * @returns a windowsStartMenuModeType
+     */
+    public get startMenuMode() {
+        return this._startMenuMode;
+    };
+    /**
+     * Sets the startMenuMode property value. Allows admins to decide how the Start menu is displayed. Possible values are: userDefined, fullScreen, nonFullScreen.
+     * @param value Value to set for the startMenuMode property.
+     */
+    public set startMenuMode(value: WindowsStartMenuModeType | undefined) {
+        if(value) {
+            this._startMenuMode = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderDocuments property value. Enforces the visibility (Show/Hide) of the Documents folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderDocuments() {
+        return this._startMenuPinnedFolderDocuments;
+    };
+    /**
+     * Sets the startMenuPinnedFolderDocuments property value. Enforces the visibility (Show/Hide) of the Documents folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderDocuments property.
+     */
+    public set startMenuPinnedFolderDocuments(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderDocuments = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderDownloads property value. Enforces the visibility (Show/Hide) of the Downloads folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderDownloads() {
+        return this._startMenuPinnedFolderDownloads;
+    };
+    /**
+     * Sets the startMenuPinnedFolderDownloads property value. Enforces the visibility (Show/Hide) of the Downloads folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderDownloads property.
+     */
+    public set startMenuPinnedFolderDownloads(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderDownloads = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderFileExplorer property value. Enforces the visibility (Show/Hide) of the FileExplorer shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderFileExplorer() {
+        return this._startMenuPinnedFolderFileExplorer;
+    };
+    /**
+     * Sets the startMenuPinnedFolderFileExplorer property value. Enforces the visibility (Show/Hide) of the FileExplorer shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderFileExplorer property.
+     */
+    public set startMenuPinnedFolderFileExplorer(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderFileExplorer = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderHomeGroup property value. Enforces the visibility (Show/Hide) of the HomeGroup folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderHomeGroup() {
+        return this._startMenuPinnedFolderHomeGroup;
+    };
+    /**
+     * Sets the startMenuPinnedFolderHomeGroup property value. Enforces the visibility (Show/Hide) of the HomeGroup folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderHomeGroup property.
+     */
+    public set startMenuPinnedFolderHomeGroup(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderHomeGroup = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderMusic property value. Enforces the visibility (Show/Hide) of the Music folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderMusic() {
+        return this._startMenuPinnedFolderMusic;
+    };
+    /**
+     * Sets the startMenuPinnedFolderMusic property value. Enforces the visibility (Show/Hide) of the Music folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderMusic property.
+     */
+    public set startMenuPinnedFolderMusic(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderMusic = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderNetwork property value. Enforces the visibility (Show/Hide) of the Network folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderNetwork() {
+        return this._startMenuPinnedFolderNetwork;
+    };
+    /**
+     * Sets the startMenuPinnedFolderNetwork property value. Enforces the visibility (Show/Hide) of the Network folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderNetwork property.
+     */
+    public set startMenuPinnedFolderNetwork(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderNetwork = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderPersonalFolder property value. Enforces the visibility (Show/Hide) of the PersonalFolder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderPersonalFolder() {
+        return this._startMenuPinnedFolderPersonalFolder;
+    };
+    /**
+     * Sets the startMenuPinnedFolderPersonalFolder property value. Enforces the visibility (Show/Hide) of the PersonalFolder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderPersonalFolder property.
+     */
+    public set startMenuPinnedFolderPersonalFolder(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderPersonalFolder = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderPictures property value. Enforces the visibility (Show/Hide) of the Pictures folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderPictures() {
+        return this._startMenuPinnedFolderPictures;
+    };
+    /**
+     * Sets the startMenuPinnedFolderPictures property value. Enforces the visibility (Show/Hide) of the Pictures folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderPictures property.
+     */
+    public set startMenuPinnedFolderPictures(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderPictures = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderSettings property value. Enforces the visibility (Show/Hide) of the Settings folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderSettings() {
+        return this._startMenuPinnedFolderSettings;
+    };
+    /**
+     * Sets the startMenuPinnedFolderSettings property value. Enforces the visibility (Show/Hide) of the Settings folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderSettings property.
+     */
+    public set startMenuPinnedFolderSettings(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderSettings = value;
+        }
+    };
+    /**
+     * Gets the startMenuPinnedFolderVideos property value. Enforces the visibility (Show/Hide) of the Videos folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @returns a visibilitySetting
+     */
+    public get startMenuPinnedFolderVideos() {
+        return this._startMenuPinnedFolderVideos;
+    };
+    /**
+     * Sets the startMenuPinnedFolderVideos property value. Enforces the visibility (Show/Hide) of the Videos folder shortcut on the Start menu. Possible values are: notConfigured, hide, show.
+     * @param value Value to set for the startMenuPinnedFolderVideos property.
+     */
+    public set startMenuPinnedFolderVideos(value: VisibilitySetting | undefined) {
+        if(value) {
+            this._startMenuPinnedFolderVideos = value;
+        }
+    };
+    /**
+     * Gets the storageBlockRemovableStorage property value. Indicates whether or not to Block the user from using removable storage.
+     * @returns a boolean
+     */
+    public get storageBlockRemovableStorage() {
+        return this._storageBlockRemovableStorage;
+    };
+    /**
+     * Sets the storageBlockRemovableStorage property value. Indicates whether or not to Block the user from using removable storage.
+     * @param value Value to set for the storageBlockRemovableStorage property.
+     */
+    public set storageBlockRemovableStorage(value: boolean | undefined) {
+        if(value) {
+            this._storageBlockRemovableStorage = value;
+        }
+    };
+    /**
+     * Gets the storageRequireMobileDeviceEncryption property value. Indicating whether or not to require encryption on a mobile device.
+     * @returns a boolean
+     */
+    public get storageRequireMobileDeviceEncryption() {
+        return this._storageRequireMobileDeviceEncryption;
+    };
+    /**
+     * Sets the storageRequireMobileDeviceEncryption property value. Indicating whether or not to require encryption on a mobile device.
+     * @param value Value to set for the storageRequireMobileDeviceEncryption property.
+     */
+    public set storageRequireMobileDeviceEncryption(value: boolean | undefined) {
+        if(value) {
+            this._storageRequireMobileDeviceEncryption = value;
+        }
+    };
+    /**
+     * Gets the storageRestrictAppDataToSystemVolume property value. Indicates whether application data is restricted to the system drive.
+     * @returns a boolean
+     */
+    public get storageRestrictAppDataToSystemVolume() {
+        return this._storageRestrictAppDataToSystemVolume;
+    };
+    /**
+     * Sets the storageRestrictAppDataToSystemVolume property value. Indicates whether application data is restricted to the system drive.
+     * @param value Value to set for the storageRestrictAppDataToSystemVolume property.
+     */
+    public set storageRestrictAppDataToSystemVolume(value: boolean | undefined) {
+        if(value) {
+            this._storageRestrictAppDataToSystemVolume = value;
+        }
+    };
+    /**
+     * Gets the storageRestrictAppInstallToSystemVolume property value. Indicates whether the installation of applications is restricted to the system drive.
+     * @returns a boolean
+     */
+    public get storageRestrictAppInstallToSystemVolume() {
+        return this._storageRestrictAppInstallToSystemVolume;
+    };
+    /**
+     * Sets the storageRestrictAppInstallToSystemVolume property value. Indicates whether the installation of applications is restricted to the system drive.
+     * @param value Value to set for the storageRestrictAppInstallToSystemVolume property.
+     */
+    public set storageRestrictAppInstallToSystemVolume(value: boolean | undefined) {
+        if(value) {
+            this._storageRestrictAppInstallToSystemVolume = value;
+        }
+    };
+    /**
+     * Gets the tenantLockdownRequireNetworkDuringOutOfBoxExperience property value. Whether the device is required to connect to the network.
+     * @returns a boolean
+     */
+    public get tenantLockdownRequireNetworkDuringOutOfBoxExperience() {
+        return this._tenantLockdownRequireNetworkDuringOutOfBoxExperience;
+    };
+    /**
+     * Sets the tenantLockdownRequireNetworkDuringOutOfBoxExperience property value. Whether the device is required to connect to the network.
+     * @param value Value to set for the tenantLockdownRequireNetworkDuringOutOfBoxExperience property.
+     */
+    public set tenantLockdownRequireNetworkDuringOutOfBoxExperience(value: boolean | undefined) {
+        if(value) {
+            this._tenantLockdownRequireNetworkDuringOutOfBoxExperience = value;
+        }
+    };
+    /**
+     * Gets the usbBlocked property value. Indicates whether or not to Block the user from USB connection.
+     * @returns a boolean
+     */
+    public get usbBlocked() {
+        return this._usbBlocked;
+    };
+    /**
+     * Sets the usbBlocked property value. Indicates whether or not to Block the user from USB connection.
+     * @param value Value to set for the usbBlocked property.
+     */
+    public set usbBlocked(value: boolean | undefined) {
+        if(value) {
+            this._usbBlocked = value;
+        }
+    };
+    /**
+     * Gets the voiceRecordingBlocked property value. Indicates whether or not to Block the user from voice recording.
+     * @returns a boolean
+     */
+    public get voiceRecordingBlocked() {
+        return this._voiceRecordingBlocked;
+    };
+    /**
+     * Sets the voiceRecordingBlocked property value. Indicates whether or not to Block the user from voice recording.
+     * @param value Value to set for the voiceRecordingBlocked property.
+     */
+    public set voiceRecordingBlocked(value: boolean | undefined) {
+        if(value) {
+            this._voiceRecordingBlocked = value;
+        }
+    };
+    /**
+     * Gets the webRtcBlockLocalhostIpAddress property value. Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
+     * @returns a boolean
+     */
+    public get webRtcBlockLocalhostIpAddress() {
+        return this._webRtcBlockLocalhostIpAddress;
+    };
+    /**
+     * Sets the webRtcBlockLocalhostIpAddress property value. Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
+     * @param value Value to set for the webRtcBlockLocalhostIpAddress property.
+     */
+    public set webRtcBlockLocalhostIpAddress(value: boolean | undefined) {
+        if(value) {
+            this._webRtcBlockLocalhostIpAddress = value;
+        }
+    };
+    /**
+     * Gets the wiFiBlockAutomaticConnectHotspots property value. Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
+     * @returns a boolean
+     */
+    public get wiFiBlockAutomaticConnectHotspots() {
+        return this._wiFiBlockAutomaticConnectHotspots;
+    };
+    /**
+     * Sets the wiFiBlockAutomaticConnectHotspots property value. Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
+     * @param value Value to set for the wiFiBlockAutomaticConnectHotspots property.
+     */
+    public set wiFiBlockAutomaticConnectHotspots(value: boolean | undefined) {
+        if(value) {
+            this._wiFiBlockAutomaticConnectHotspots = value;
+        }
+    };
+    /**
+     * Gets the wiFiBlocked property value. Indicates whether or not to Block the user from using Wi-Fi.
+     * @returns a boolean
+     */
+    public get wiFiBlocked() {
+        return this._wiFiBlocked;
+    };
+    /**
+     * Sets the wiFiBlocked property value. Indicates whether or not to Block the user from using Wi-Fi.
+     * @param value Value to set for the wiFiBlocked property.
+     */
+    public set wiFiBlocked(value: boolean | undefined) {
+        if(value) {
+            this._wiFiBlocked = value;
+        }
+    };
+    /**
+     * Gets the wiFiBlockManualConfiguration property value. Indicates whether or not to Block the user from using Wi-Fi manual configuration.
+     * @returns a boolean
+     */
+    public get wiFiBlockManualConfiguration() {
+        return this._wiFiBlockManualConfiguration;
+    };
+    /**
+     * Sets the wiFiBlockManualConfiguration property value. Indicates whether or not to Block the user from using Wi-Fi manual configuration.
+     * @param value Value to set for the wiFiBlockManualConfiguration property.
+     */
+    public set wiFiBlockManualConfiguration(value: boolean | undefined) {
+        if(value) {
+            this._wiFiBlockManualConfiguration = value;
+        }
+    };
+    /**
+     * Gets the wiFiScanInterval property value. Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500
+     * @returns a integer
+     */
+    public get wiFiScanInterval() {
+        return this._wiFiScanInterval;
+    };
+    /**
+     * Sets the wiFiScanInterval property value. Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500
+     * @param value Value to set for the wiFiScanInterval property.
+     */
+    public set wiFiScanInterval(value: number | undefined) {
+        if(value) {
+            this._wiFiScanInterval = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlockConsumerSpecificFeatures property value. Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlockConsumerSpecificFeatures() {
+        return this._windowsSpotlightBlockConsumerSpecificFeatures;
+    };
+    /**
+     * Sets the windowsSpotlightBlockConsumerSpecificFeatures property value. Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.
+     * @param value Value to set for the windowsSpotlightBlockConsumerSpecificFeatures property.
+     */
+    public set windowsSpotlightBlockConsumerSpecificFeatures(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlockConsumerSpecificFeatures = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlocked property value. Allows IT admins to turn off all Windows Spotlight features
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlocked() {
+        return this._windowsSpotlightBlocked;
+    };
+    /**
+     * Sets the windowsSpotlightBlocked property value. Allows IT admins to turn off all Windows Spotlight features
+     * @param value Value to set for the windowsSpotlightBlocked property.
+     */
+    public set windowsSpotlightBlocked(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlocked = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlockOnActionCenter property value. Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlockOnActionCenter() {
+        return this._windowsSpotlightBlockOnActionCenter;
+    };
+    /**
+     * Sets the windowsSpotlightBlockOnActionCenter property value. Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed
+     * @param value Value to set for the windowsSpotlightBlockOnActionCenter property.
+     */
+    public set windowsSpotlightBlockOnActionCenter(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlockOnActionCenter = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlockTailoredExperiences property value. Block personalized content in Windows spotlight based on user’s device usage.
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlockTailoredExperiences() {
+        return this._windowsSpotlightBlockTailoredExperiences;
+    };
+    /**
+     * Sets the windowsSpotlightBlockTailoredExperiences property value. Block personalized content in Windows spotlight based on user’s device usage.
+     * @param value Value to set for the windowsSpotlightBlockTailoredExperiences property.
+     */
+    public set windowsSpotlightBlockTailoredExperiences(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlockTailoredExperiences = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlockThirdPartyNotifications property value. Block third party content delivered via Windows Spotlight
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlockThirdPartyNotifications() {
+        return this._windowsSpotlightBlockThirdPartyNotifications;
+    };
+    /**
+     * Sets the windowsSpotlightBlockThirdPartyNotifications property value. Block third party content delivered via Windows Spotlight
+     * @param value Value to set for the windowsSpotlightBlockThirdPartyNotifications property.
+     */
+    public set windowsSpotlightBlockThirdPartyNotifications(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlockThirdPartyNotifications = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlockWelcomeExperience property value. Block Windows Spotlight Windows welcome experience
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlockWelcomeExperience() {
+        return this._windowsSpotlightBlockWelcomeExperience;
+    };
+    /**
+     * Sets the windowsSpotlightBlockWelcomeExperience property value. Block Windows Spotlight Windows welcome experience
+     * @param value Value to set for the windowsSpotlightBlockWelcomeExperience property.
+     */
+    public set windowsSpotlightBlockWelcomeExperience(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlockWelcomeExperience = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightBlockWindowsTips property value. Allows IT admins to turn off the popup of Windows Tips.
+     * @returns a boolean
+     */
+    public get windowsSpotlightBlockWindowsTips() {
+        return this._windowsSpotlightBlockWindowsTips;
+    };
+    /**
+     * Sets the windowsSpotlightBlockWindowsTips property value. Allows IT admins to turn off the popup of Windows Tips.
+     * @param value Value to set for the windowsSpotlightBlockWindowsTips property.
+     */
+    public set windowsSpotlightBlockWindowsTips(value: boolean | undefined) {
+        if(value) {
+            this._windowsSpotlightBlockWindowsTips = value;
+        }
+    };
+    /**
+     * Gets the windowsSpotlightConfigureOnLockScreen property value. Specifies the type of Spotlight. Possible values are: notConfigured, disabled, enabled.
+     * @returns a windowsSpotlightEnablementSettings
+     */
+    public get windowsSpotlightConfigureOnLockScreen() {
+        return this._windowsSpotlightConfigureOnLockScreen;
+    };
+    /**
+     * Sets the windowsSpotlightConfigureOnLockScreen property value. Specifies the type of Spotlight. Possible values are: notConfigured, disabled, enabled.
+     * @param value Value to set for the windowsSpotlightConfigureOnLockScreen property.
+     */
+    public set windowsSpotlightConfigureOnLockScreen(value: WindowsSpotlightEnablementSettings | undefined) {
+        if(value) {
+            this._windowsSpotlightConfigureOnLockScreen = value;
+        }
+    };
+    /**
+     * Gets the windowsStoreBlockAutoUpdate property value. Indicates whether or not to block automatic update of apps from Windows Store.
+     * @returns a boolean
+     */
+    public get windowsStoreBlockAutoUpdate() {
+        return this._windowsStoreBlockAutoUpdate;
+    };
+    /**
+     * Sets the windowsStoreBlockAutoUpdate property value. Indicates whether or not to block automatic update of apps from Windows Store.
+     * @param value Value to set for the windowsStoreBlockAutoUpdate property.
+     */
+    public set windowsStoreBlockAutoUpdate(value: boolean | undefined) {
+        if(value) {
+            this._windowsStoreBlockAutoUpdate = value;
+        }
+    };
+    /**
+     * Gets the windowsStoreBlocked property value. Indicates whether or not to Block the user from using the Windows store.
+     * @returns a boolean
+     */
+    public get windowsStoreBlocked() {
+        return this._windowsStoreBlocked;
+    };
+    /**
+     * Sets the windowsStoreBlocked property value. Indicates whether or not to Block the user from using the Windows store.
+     * @param value Value to set for the windowsStoreBlocked property.
+     */
+    public set windowsStoreBlocked(value: boolean | undefined) {
+        if(value) {
+            this._windowsStoreBlocked = value;
+        }
+    };
+    /**
+     * Gets the windowsStoreEnablePrivateStoreOnly property value. Indicates whether or not to enable Private Store Only.
+     * @returns a boolean
+     */
+    public get windowsStoreEnablePrivateStoreOnly() {
+        return this._windowsStoreEnablePrivateStoreOnly;
+    };
+    /**
+     * Sets the windowsStoreEnablePrivateStoreOnly property value. Indicates whether or not to enable Private Store Only.
+     * @param value Value to set for the windowsStoreEnablePrivateStoreOnly property.
+     */
+    public set windowsStoreEnablePrivateStoreOnly(value: boolean | undefined) {
+        if(value) {
+            this._windowsStoreEnablePrivateStoreOnly = value;
+        }
+    };
+    /**
+     * Gets the wirelessDisplayBlockProjectionToThisDevice property value. Indicates whether or not to allow other devices from discovering this PC for projection.
+     * @returns a boolean
+     */
+    public get wirelessDisplayBlockProjectionToThisDevice() {
+        return this._wirelessDisplayBlockProjectionToThisDevice;
+    };
+    /**
+     * Sets the wirelessDisplayBlockProjectionToThisDevice property value. Indicates whether or not to allow other devices from discovering this PC for projection.
+     * @param value Value to set for the wirelessDisplayBlockProjectionToThisDevice property.
+     */
+    public set wirelessDisplayBlockProjectionToThisDevice(value: boolean | undefined) {
+        if(value) {
+            this._wirelessDisplayBlockProjectionToThisDevice = value;
+        }
+    };
+    /**
+     * Gets the wirelessDisplayBlockUserInputFromReceiver property value. Indicates whether or not to allow user input from wireless display receiver.
+     * @returns a boolean
+     */
+    public get wirelessDisplayBlockUserInputFromReceiver() {
+        return this._wirelessDisplayBlockUserInputFromReceiver;
+    };
+    /**
+     * Sets the wirelessDisplayBlockUserInputFromReceiver property value. Indicates whether or not to allow user input from wireless display receiver.
+     * @param value Value to set for the wirelessDisplayBlockUserInputFromReceiver property.
+     */
+    public set wirelessDisplayBlockUserInputFromReceiver(value: boolean | undefined) {
+        if(value) {
+            this._wirelessDisplayBlockUserInputFromReceiver = value;
+        }
+    };
+    /**
+     * Gets the wirelessDisplayRequirePinForPairing property value. Indicates whether or not to require a PIN for new devices to initiate pairing.
+     * @returns a boolean
+     */
+    public get wirelessDisplayRequirePinForPairing() {
+        return this._wirelessDisplayRequirePinForPairing;
+    };
+    /**
+     * Sets the wirelessDisplayRequirePinForPairing property value. Indicates whether or not to require a PIN for new devices to initiate pairing.
+     * @param value Value to set for the wirelessDisplayRequirePinForPairing property.
+     */
+    public set wirelessDisplayRequirePinForPairing(value: boolean | undefined) {
+        if(value) {
+            this._wirelessDisplayRequirePinForPairing = value;
         }
     };
 }

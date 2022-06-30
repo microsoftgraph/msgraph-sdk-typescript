@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getByIds method. */
 export class GetByIdsPostRequestBodyImpl implements GetByIdsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The ids property */
-    public ids?: string[] | undefined;
+    private _ids?: string[] | undefined;
     /** The types property */
-    public types?: string[] | undefined;
+    private _types?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getByIdsPostRequestBody and sets the default values.
      * @param getByIdsPostRequestBodyParameterValue 
      */
     public constructor(getByIdsPostRequestBodyParameterValue?: GetByIdsPostRequestBody | undefined) {
-        this.additionalData = getByIdsPostRequestBodyParameterValue?.additionalData ? getByIdsPostRequestBodyParameterValue?.additionalData! : {};
-        this.ids = getByIdsPostRequestBodyParameterValue?.ids;
-        this.types = getByIdsPostRequestBodyParameterValue?.types;
+        this._additionalData = getByIdsPostRequestBodyParameterValue?.additionalData ? getByIdsPostRequestBodyParameterValue?.additionalData! : {};
+        this._ids = getByIdsPostRequestBodyParameterValue?.ids;
+        this._types = getByIdsPostRequestBodyParameterValue?.types;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,22 @@ export class GetByIdsPostRequestBodyImpl implements GetByIdsPostRequestBody {
             "ids": n => { this.ids = n.getCollectionOfPrimitiveValues<string>(); },
             "types": n => { this.types = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the ids property value. The ids property
+     * @returns a string
+     */
+    public get ids() {
+        return this._ids;
+    };
+    /**
+     * Sets the ids property value. The ids property
+     * @param value Value to set for the ids property.
+     */
+    public set ids(value: string[] | undefined) {
+        if(value) {
+            this._ids = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -41,5 +73,21 @@ export class GetByIdsPostRequestBodyImpl implements GetByIdsPostRequestBody {
             writer.writeCollectionOfPrimitiveValues<string>("types", this.types);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the types property value. The types property
+     * @returns a string
+     */
+    public get types() {
+        return this._types;
+    };
+    /**
+     * Sets the types property value. The types property
+     * @param value Value to set for the types property.
+     */
+    public set types(value: string[] | undefined) {
+        if(value) {
+            this._types = value;
+        }
     };
 }

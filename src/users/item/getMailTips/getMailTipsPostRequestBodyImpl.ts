@@ -5,19 +5,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getMailTips method. */
 export class GetMailTipsPostRequestBodyImpl implements GetMailTipsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The EmailAddresses property */
-    public emailAddresses?: string[] | undefined;
+    private _emailAddresses?: string[] | undefined;
     /** The MailTipsOptions property */
-    public mailTipsOptions?: MailTipsType | undefined;
+    private _mailTipsOptions?: MailTipsType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getMailTipsPostRequestBody and sets the default values.
      * @param getMailTipsPostRequestBodyParameterValue 
      */
     public constructor(getMailTipsPostRequestBodyParameterValue?: GetMailTipsPostRequestBody | undefined) {
-        this.additionalData = getMailTipsPostRequestBodyParameterValue?.additionalData ? getMailTipsPostRequestBodyParameterValue?.additionalData! : {};
-        this.emailAddresses = getMailTipsPostRequestBodyParameterValue?.emailAddresses;
-        this.mailTipsOptions = getMailTipsPostRequestBodyParameterValue?.mailTipsOptions;
+        this._additionalData = getMailTipsPostRequestBodyParameterValue?.additionalData ? getMailTipsPostRequestBodyParameterValue?.additionalData! : {};
+        this._emailAddresses = getMailTipsPostRequestBodyParameterValue?.emailAddresses;
+        this._mailTipsOptions = getMailTipsPostRequestBodyParameterValue?.mailTipsOptions;
+    };
+    /**
+     * Gets the emailAddresses property value. The EmailAddresses property
+     * @returns a string
+     */
+    public get emailAddresses() {
+        return this._emailAddresses;
+    };
+    /**
+     * Sets the emailAddresses property value. The EmailAddresses property
+     * @param value Value to set for the EmailAddresses property.
+     */
+    public set emailAddresses(value: string[] | undefined) {
+        if(value) {
+            this._emailAddresses = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +60,22 @@ export class GetMailTipsPostRequestBodyImpl implements GetMailTipsPostRequestBod
             "emailAddresses": n => { this.emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
             "mailTipsOptions": n => { this.mailTipsOptions = n.getEnumValue<MailTipsType>(MailTipsType); },
         };
+    };
+    /**
+     * Gets the mailTipsOptions property value. The MailTipsOptions property
+     * @returns a mailTipsType
+     */
+    public get mailTipsOptions() {
+        return this._mailTipsOptions;
+    };
+    /**
+     * Sets the mailTipsOptions property value. The MailTipsOptions property
+     * @param value Value to set for the MailTipsOptions property.
+     */
+    public set mailTipsOptions(value: MailTipsType | undefined) {
+        if(value) {
+            this._mailTipsOptions = value;
+        }
     };
     /**
      * Serializes information the current object

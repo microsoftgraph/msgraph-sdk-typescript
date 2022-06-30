@@ -3,22 +3,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AttendanceIntervalImpl implements AttendanceInterval {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime. */
-    public durationInSeconds?: number | undefined;
+    private _durationInSeconds?: number | undefined;
     /** The time the attendee joined in UTC. */
-    public joinDateTime?: Date | undefined;
+    private _joinDateTime?: Date | undefined;
     /** The time the attendee left in UTC. */
-    public leaveDateTime?: Date | undefined;
+    private _leaveDateTime?: Date | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new attendanceInterval and sets the default values.
      * @param attendanceIntervalParameterValue 
      */
     public constructor(attendanceIntervalParameterValue?: AttendanceInterval | undefined) {
-        this.additionalData = attendanceIntervalParameterValue?.additionalData ? attendanceIntervalParameterValue?.additionalData! : {};
-        this.durationInSeconds = attendanceIntervalParameterValue?.durationInSeconds;
-        this.joinDateTime = attendanceIntervalParameterValue?.joinDateTime;
-        this.leaveDateTime = attendanceIntervalParameterValue?.leaveDateTime;
+        this._additionalData = attendanceIntervalParameterValue?.additionalData ? attendanceIntervalParameterValue?.additionalData! : {};
+        this._durationInSeconds = attendanceIntervalParameterValue?.durationInSeconds;
+        this._joinDateTime = attendanceIntervalParameterValue?.joinDateTime;
+        this._leaveDateTime = attendanceIntervalParameterValue?.leaveDateTime;
+    };
+    /**
+     * Gets the durationInSeconds property value. Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime.
+     * @returns a integer
+     */
+    public get durationInSeconds() {
+        return this._durationInSeconds;
+    };
+    /**
+     * Sets the durationInSeconds property value. Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime.
+     * @param value Value to set for the durationInSeconds property.
+     */
+    public set durationInSeconds(value: number | undefined) {
+        if(value) {
+            this._durationInSeconds = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,38 @@ export class AttendanceIntervalImpl implements AttendanceInterval {
             "joinDateTime": n => { this.joinDateTime = n.getDateValue(); },
             "leaveDateTime": n => { this.leaveDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the joinDateTime property value. The time the attendee joined in UTC.
+     * @returns a Date
+     */
+    public get joinDateTime() {
+        return this._joinDateTime;
+    };
+    /**
+     * Sets the joinDateTime property value. The time the attendee joined in UTC.
+     * @param value Value to set for the joinDateTime property.
+     */
+    public set joinDateTime(value: Date | undefined) {
+        if(value) {
+            this._joinDateTime = value;
+        }
+    };
+    /**
+     * Gets the leaveDateTime property value. The time the attendee left in UTC.
+     * @returns a Date
+     */
+    public get leaveDateTime() {
+        return this._leaveDateTime;
+    };
+    /**
+     * Sets the leaveDateTime property value. The time the attendee left in UTC.
+     * @param value Value to set for the leaveDateTime property.
+     */
+    public set leaveDateTime(value: Date | undefined) {
+        if(value) {
+            this._leaveDateTime = value;
+        }
     };
     /**
      * Serializes information the current object

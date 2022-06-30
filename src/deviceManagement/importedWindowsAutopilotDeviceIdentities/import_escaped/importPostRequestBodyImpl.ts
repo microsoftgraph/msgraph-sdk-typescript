@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the import method. */
 export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The importedWindowsAutopilotDeviceIdentities property */
-    public importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
+    private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new importPostRequestBody and sets the default values.
      * @param importPostRequestBodyParameterValue 
      */
     public constructor(importPostRequestBodyParameterValue?: ImportPostRequestBody | undefined) {
-        this.additionalData = importPostRequestBodyParameterValue?.additionalData ? importPostRequestBodyParameterValue?.additionalData! : {};
-        this.importedWindowsAutopilotDeviceIdentities = importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities;
+        this._additionalData = importPostRequestBodyParameterValue?.additionalData ? importPostRequestBodyParameterValue?.additionalData! : {};
+        this._importedWindowsAutopilotDeviceIdentities = importPostRequestBodyParameterValue?.importedWindowsAutopilotDeviceIdentities;
     };
     /**
      * The deserialization information for the current model
@@ -28,12 +44,35 @@ export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
         };
     };
     /**
+     * Gets the importedWindowsAutopilotDeviceIdentities property value. The importedWindowsAutopilotDeviceIdentities property
+     * @returns a ImportedWindowsAutopilotDeviceIdentityInterface
+     */
+    public get importedWindowsAutopilotDeviceIdentities() {
+        return this._importedWindowsAutopilotDeviceIdentities;
+    };
+    /**
+     * Sets the importedWindowsAutopilotDeviceIdentities property value. The importedWindowsAutopilotDeviceIdentities property
+     * @param value Value to set for the importedWindowsAutopilotDeviceIdentities property.
+     */
+    public set importedWindowsAutopilotDeviceIdentities(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {
+        if(value) {
+            const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
+            this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
+                importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+            });
+            this._importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = []; this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {importedWindowsAutopilotDeviceIdentitiesArrValue.push(new ImportedWindowsAutopilotDeviceIdentityImpl(element));});
+        if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
+        this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
+            importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class TimeOffItemImpl extends ScheduleEntityImpl implements TimeOffItem {
     /** ID of the timeOffReason for this timeOffItem. Required. */
-    public timeOffReasonId?: string | undefined;
+    private _timeOffReasonId?: string | undefined;
     /**
      * Instantiates a new timeOffItem and sets the default values.
      * @param timeOffItemParameterValue 
      */
     public constructor(timeOffItemParameterValue?: TimeOffItem | undefined) {
         super(timeOffItemParameterValue);
-        this.timeOffReasonId = timeOffItemParameterValue?.timeOffReasonId;
+        this._timeOffReasonId = timeOffItemParameterValue?.timeOffReasonId;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +32,22 @@ export class TimeOffItemImpl extends ScheduleEntityImpl implements TimeOffItem {
         super.serialize(writer);
         if(this.timeOffReasonId){
             writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
+        }
+    };
+    /**
+     * Gets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.
+     * @returns a string
+     */
+    public get timeOffReasonId() {
+        return this._timeOffReasonId;
+    };
+    /**
+     * Sets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.
+     * @param value Value to set for the timeOffReasonId property.
+     */
+    public set timeOffReasonId(value: string | undefined) {
+        if(value) {
+            this._timeOffReasonId = value;
         }
     };
 }

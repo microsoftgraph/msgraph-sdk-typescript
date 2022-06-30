@@ -4,14 +4,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OpenTypeExtensionImpl extends ExtensionImpl implements OpenTypeExtension {
     /** A unique text identifier for an open type data extension. Required. */
-    public extensionName?: string | undefined;
+    private _extensionName?: string | undefined;
     /**
      * Instantiates a new OpenTypeExtension and sets the default values.
      * @param openTypeExtensionParameterValue 
      */
     public constructor(openTypeExtensionParameterValue?: OpenTypeExtension | undefined) {
         super(openTypeExtensionParameterValue);
-        this.extensionName = openTypeExtensionParameterValue?.extensionName;
+        this._extensionName = openTypeExtensionParameterValue?.extensionName;
+    };
+    /**
+     * Gets the extensionName property value. A unique text identifier for an open type data extension. Required.
+     * @returns a string
+     */
+    public get extensionName() {
+        return this._extensionName;
+    };
+    /**
+     * Sets the extensionName property value. A unique text identifier for an open type data extension. Required.
+     * @param value Value to set for the extensionName property.
+     */
+    public set extensionName(value: string | undefined) {
+        if(value) {
+            this._extensionName = value;
+        }
     };
     /**
      * The deserialization information for the current model

@@ -8,98 +8,246 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationImpl implements WindowsPhone81GeneralConfiguration {
     /** Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only. */
-    public applyOnlyToWindowsPhone81?: boolean | undefined;
+    private _applyOnlyToWindowsPhone81?: boolean | undefined;
     /** Indicates whether or not to block copy paste. */
-    public appsBlockCopyPaste?: boolean | undefined;
+    private _appsBlockCopyPaste?: boolean | undefined;
     /** Indicates whether or not to block bluetooth. */
-    public bluetoothBlocked?: boolean | undefined;
+    private _bluetoothBlocked?: boolean | undefined;
     /** Indicates whether or not to block camera. */
-    public cameraBlocked?: boolean | undefined;
+    private _cameraBlocked?: boolean | undefined;
     /** Indicates whether or not to block Wi-Fi tethering. Has no impact if Wi-Fi is blocked. */
-    public cellularBlockWifiTethering?: boolean | undefined;
+    private _cellularBlockWifiTethering?: boolean | undefined;
     /** List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant. */
-    public compliantAppListType?: AppListType | undefined;
+    private _compliantAppListType?: AppListType | undefined;
     /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
-    public compliantAppsList?: AppListItem[] | undefined;
+    private _compliantAppsList?: AppListItem[] | undefined;
     /** Indicates whether or not to block diagnostic data submission. */
-    public diagnosticDataBlockSubmission?: boolean | undefined;
+    private _diagnosticDataBlockSubmission?: boolean | undefined;
     /** Indicates whether or not to block custom email accounts. */
-    public emailBlockAddingAccounts?: boolean | undefined;
+    private _emailBlockAddingAccounts?: boolean | undefined;
     /** Indicates whether or not to block location services. */
-    public locationServicesBlocked?: boolean | undefined;
+    private _locationServicesBlocked?: boolean | undefined;
     /** Indicates whether or not to block using a Microsoft Account. */
-    public microsoftAccountBlocked?: boolean | undefined;
+    private _microsoftAccountBlocked?: boolean | undefined;
     /** Indicates whether or not to block Near-Field Communication. */
-    public nfcBlocked?: boolean | undefined;
+    private _nfcBlocked?: boolean | undefined;
     /** Indicates whether or not to block syncing the calendar. */
-    public passwordBlockSimple?: boolean | undefined;
+    private _passwordBlockSimple?: boolean | undefined;
     /** Number of days before the password expires. */
-    public passwordExpirationDays?: number | undefined;
+    private _passwordExpirationDays?: number | undefined;
     /** Number of character sets a password must contain. */
-    public passwordMinimumCharacterSetCount?: number | undefined;
+    private _passwordMinimumCharacterSetCount?: number | undefined;
     /** Minimum length of passwords. */
-    public passwordMinimumLength?: number | undefined;
+    private _passwordMinimumLength?: number | undefined;
     /** Minutes of inactivity before screen timeout. */
-    public passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    private _passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
     /** Number of previous passwords to block. Valid values 0 to 24 */
-    public passwordPreviousPasswordBlockCount?: number | undefined;
+    private _passwordPreviousPasswordBlockCount?: number | undefined;
     /** Indicates whether or not to require a password. */
-    public passwordRequired?: boolean | undefined;
+    private _passwordRequired?: boolean | undefined;
     /** Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric. */
-    public passwordRequiredType?: RequiredPasswordType | undefined;
+    private _passwordRequiredType?: RequiredPasswordType | undefined;
     /** Number of sign in failures allowed before factory reset. */
-    public passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    private _passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
     /** Indicates whether or not to block screenshots. */
-    public screenCaptureBlocked?: boolean | undefined;
+    private _screenCaptureBlocked?: boolean | undefined;
     /** Indicates whether or not to block removable storage. */
-    public storageBlockRemovableStorage?: boolean | undefined;
+    private _storageBlockRemovableStorage?: boolean | undefined;
     /** Indicates whether or not to require encryption. */
-    public storageRequireEncryption?: boolean | undefined;
+    private _storageRequireEncryption?: boolean | undefined;
     /** Indicates whether or not to block the web browser. */
-    public webBrowserBlocked?: boolean | undefined;
+    private _webBrowserBlocked?: boolean | undefined;
     /** Indicates whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked. */
-    public wifiBlockAutomaticConnectHotspots?: boolean | undefined;
+    private _wifiBlockAutomaticConnectHotspots?: boolean | undefined;
     /** Indicates whether or not to block Wi-Fi. */
-    public wifiBlocked?: boolean | undefined;
+    private _wifiBlocked?: boolean | undefined;
     /** Indicates whether or not to block Wi-Fi hotspot reporting. Has no impact if Wi-Fi is blocked. */
-    public wifiBlockHotspotReporting?: boolean | undefined;
+    private _wifiBlockHotspotReporting?: boolean | undefined;
     /** Indicates whether or not to block the Windows Store. */
-    public windowsStoreBlocked?: boolean | undefined;
+    private _windowsStoreBlocked?: boolean | undefined;
+    /**
+     * Gets the applyOnlyToWindowsPhone81 property value. Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only.
+     * @returns a boolean
+     */
+    public get applyOnlyToWindowsPhone81() {
+        return this._applyOnlyToWindowsPhone81;
+    };
+    /**
+     * Sets the applyOnlyToWindowsPhone81 property value. Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only.
+     * @param value Value to set for the applyOnlyToWindowsPhone81 property.
+     */
+    public set applyOnlyToWindowsPhone81(value: boolean | undefined) {
+        if(value) {
+            this._applyOnlyToWindowsPhone81 = value;
+        }
+    };
+    /**
+     * Gets the appsBlockCopyPaste property value. Indicates whether or not to block copy paste.
+     * @returns a boolean
+     */
+    public get appsBlockCopyPaste() {
+        return this._appsBlockCopyPaste;
+    };
+    /**
+     * Sets the appsBlockCopyPaste property value. Indicates whether or not to block copy paste.
+     * @param value Value to set for the appsBlockCopyPaste property.
+     */
+    public set appsBlockCopyPaste(value: boolean | undefined) {
+        if(value) {
+            this._appsBlockCopyPaste = value;
+        }
+    };
+    /**
+     * Gets the bluetoothBlocked property value. Indicates whether or not to block bluetooth.
+     * @returns a boolean
+     */
+    public get bluetoothBlocked() {
+        return this._bluetoothBlocked;
+    };
+    /**
+     * Sets the bluetoothBlocked property value. Indicates whether or not to block bluetooth.
+     * @param value Value to set for the bluetoothBlocked property.
+     */
+    public set bluetoothBlocked(value: boolean | undefined) {
+        if(value) {
+            this._bluetoothBlocked = value;
+        }
+    };
+    /**
+     * Gets the cameraBlocked property value. Indicates whether or not to block camera.
+     * @returns a boolean
+     */
+    public get cameraBlocked() {
+        return this._cameraBlocked;
+    };
+    /**
+     * Sets the cameraBlocked property value. Indicates whether or not to block camera.
+     * @param value Value to set for the cameraBlocked property.
+     */
+    public set cameraBlocked(value: boolean | undefined) {
+        if(value) {
+            this._cameraBlocked = value;
+        }
+    };
+    /**
+     * Gets the cellularBlockWifiTethering property value. Indicates whether or not to block Wi-Fi tethering. Has no impact if Wi-Fi is blocked.
+     * @returns a boolean
+     */
+    public get cellularBlockWifiTethering() {
+        return this._cellularBlockWifiTethering;
+    };
+    /**
+     * Sets the cellularBlockWifiTethering property value. Indicates whether or not to block Wi-Fi tethering. Has no impact if Wi-Fi is blocked.
+     * @param value Value to set for the cellularBlockWifiTethering property.
+     */
+    public set cellularBlockWifiTethering(value: boolean | undefined) {
+        if(value) {
+            this._cellularBlockWifiTethering = value;
+        }
+    };
+    /**
+     * Gets the compliantAppListType property value. List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * @returns a appListType
+     */
+    public get compliantAppListType() {
+        return this._compliantAppListType;
+    };
+    /**
+     * Sets the compliantAppListType property value. List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * @param value Value to set for the compliantAppListType property.
+     */
+    public set compliantAppListType(value: AppListType | undefined) {
+        if(value) {
+            this._compliantAppListType = value;
+        }
+    };
+    /**
+     * Gets the compliantAppsList property value. List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+     * @returns a AppListItemInterface
+     */
+    public get compliantAppsList() {
+        return this._compliantAppsList;
+    };
+    /**
+     * Sets the compliantAppsList property value. List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+     * @param value Value to set for the compliantAppsList property.
+     */
+    public set compliantAppsList(value: AppListItem[] | undefined) {
+        if(value) {
+            const compliantAppsListArrValue: AppListItemImpl[] = [];
+            this.compliantAppsList?.forEach(element => {
+                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            });
+            this._compliantAppsList = compliantAppsListArrValue;
+        }
+    };
     /**
      * Instantiates a new WindowsPhone81GeneralConfiguration and sets the default values.
      * @param windowsPhone81GeneralConfigurationParameterValue 
      */
     public constructor(windowsPhone81GeneralConfigurationParameterValue?: WindowsPhone81GeneralConfiguration | undefined) {
         super(windowsPhone81GeneralConfigurationParameterValue);
-        this.applyOnlyToWindowsPhone81 = windowsPhone81GeneralConfigurationParameterValue?.applyOnlyToWindowsPhone81;
-        this.appsBlockCopyPaste = windowsPhone81GeneralConfigurationParameterValue?.appsBlockCopyPaste;
-        this.bluetoothBlocked = windowsPhone81GeneralConfigurationParameterValue?.bluetoothBlocked;
-        this.cameraBlocked = windowsPhone81GeneralConfigurationParameterValue?.cameraBlocked;
-        this.cellularBlockWifiTethering = windowsPhone81GeneralConfigurationParameterValue?.cellularBlockWifiTethering;
-        this.compliantAppListType = windowsPhone81GeneralConfigurationParameterValue?.compliantAppListType;
-        this.compliantAppsList = windowsPhone81GeneralConfigurationParameterValue?.compliantAppsList;
-        this.diagnosticDataBlockSubmission = windowsPhone81GeneralConfigurationParameterValue?.diagnosticDataBlockSubmission;
-        this.emailBlockAddingAccounts = windowsPhone81GeneralConfigurationParameterValue?.emailBlockAddingAccounts;
-        this.locationServicesBlocked = windowsPhone81GeneralConfigurationParameterValue?.locationServicesBlocked;
-        this.microsoftAccountBlocked = windowsPhone81GeneralConfigurationParameterValue?.microsoftAccountBlocked;
-        this.nfcBlocked = windowsPhone81GeneralConfigurationParameterValue?.nfcBlocked;
-        this.passwordBlockSimple = windowsPhone81GeneralConfigurationParameterValue?.passwordBlockSimple;
-        this.passwordExpirationDays = windowsPhone81GeneralConfigurationParameterValue?.passwordExpirationDays;
-        this.passwordMinimumCharacterSetCount = windowsPhone81GeneralConfigurationParameterValue?.passwordMinimumCharacterSetCount;
-        this.passwordMinimumLength = windowsPhone81GeneralConfigurationParameterValue?.passwordMinimumLength;
-        this.passwordMinutesOfInactivityBeforeScreenTimeout = windowsPhone81GeneralConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
-        this.passwordPreviousPasswordBlockCount = windowsPhone81GeneralConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
-        this.passwordRequired = windowsPhone81GeneralConfigurationParameterValue?.passwordRequired;
-        this.passwordRequiredType = windowsPhone81GeneralConfigurationParameterValue?.passwordRequiredType;
-        this.passwordSignInFailureCountBeforeFactoryReset = windowsPhone81GeneralConfigurationParameterValue?.passwordSignInFailureCountBeforeFactoryReset;
-        this.screenCaptureBlocked = windowsPhone81GeneralConfigurationParameterValue?.screenCaptureBlocked;
-        this.storageBlockRemovableStorage = windowsPhone81GeneralConfigurationParameterValue?.storageBlockRemovableStorage;
-        this.storageRequireEncryption = windowsPhone81GeneralConfigurationParameterValue?.storageRequireEncryption;
-        this.webBrowserBlocked = windowsPhone81GeneralConfigurationParameterValue?.webBrowserBlocked;
-        this.wifiBlockAutomaticConnectHotspots = windowsPhone81GeneralConfigurationParameterValue?.wifiBlockAutomaticConnectHotspots;
-        this.wifiBlocked = windowsPhone81GeneralConfigurationParameterValue?.wifiBlocked;
-        this.wifiBlockHotspotReporting = windowsPhone81GeneralConfigurationParameterValue?.wifiBlockHotspotReporting;
-        this.windowsStoreBlocked = windowsPhone81GeneralConfigurationParameterValue?.windowsStoreBlocked;
+        this._applyOnlyToWindowsPhone81 = windowsPhone81GeneralConfigurationParameterValue?.applyOnlyToWindowsPhone81;
+        this._appsBlockCopyPaste = windowsPhone81GeneralConfigurationParameterValue?.appsBlockCopyPaste;
+        this._bluetoothBlocked = windowsPhone81GeneralConfigurationParameterValue?.bluetoothBlocked;
+        this._cameraBlocked = windowsPhone81GeneralConfigurationParameterValue?.cameraBlocked;
+        this._cellularBlockWifiTethering = windowsPhone81GeneralConfigurationParameterValue?.cellularBlockWifiTethering;
+        this._compliantAppListType = windowsPhone81GeneralConfigurationParameterValue?.compliantAppListType;
+        this._compliantAppsList = windowsPhone81GeneralConfigurationParameterValue?.compliantAppsList;
+        this._diagnosticDataBlockSubmission = windowsPhone81GeneralConfigurationParameterValue?.diagnosticDataBlockSubmission;
+        this._emailBlockAddingAccounts = windowsPhone81GeneralConfigurationParameterValue?.emailBlockAddingAccounts;
+        this._locationServicesBlocked = windowsPhone81GeneralConfigurationParameterValue?.locationServicesBlocked;
+        this._microsoftAccountBlocked = windowsPhone81GeneralConfigurationParameterValue?.microsoftAccountBlocked;
+        this._nfcBlocked = windowsPhone81GeneralConfigurationParameterValue?.nfcBlocked;
+        this._passwordBlockSimple = windowsPhone81GeneralConfigurationParameterValue?.passwordBlockSimple;
+        this._passwordExpirationDays = windowsPhone81GeneralConfigurationParameterValue?.passwordExpirationDays;
+        this._passwordMinimumCharacterSetCount = windowsPhone81GeneralConfigurationParameterValue?.passwordMinimumCharacterSetCount;
+        this._passwordMinimumLength = windowsPhone81GeneralConfigurationParameterValue?.passwordMinimumLength;
+        this._passwordMinutesOfInactivityBeforeScreenTimeout = windowsPhone81GeneralConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
+        this._passwordPreviousPasswordBlockCount = windowsPhone81GeneralConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
+        this._passwordRequired = windowsPhone81GeneralConfigurationParameterValue?.passwordRequired;
+        this._passwordRequiredType = windowsPhone81GeneralConfigurationParameterValue?.passwordRequiredType;
+        this._passwordSignInFailureCountBeforeFactoryReset = windowsPhone81GeneralConfigurationParameterValue?.passwordSignInFailureCountBeforeFactoryReset;
+        this._screenCaptureBlocked = windowsPhone81GeneralConfigurationParameterValue?.screenCaptureBlocked;
+        this._storageBlockRemovableStorage = windowsPhone81GeneralConfigurationParameterValue?.storageBlockRemovableStorage;
+        this._storageRequireEncryption = windowsPhone81GeneralConfigurationParameterValue?.storageRequireEncryption;
+        this._webBrowserBlocked = windowsPhone81GeneralConfigurationParameterValue?.webBrowserBlocked;
+        this._wifiBlockAutomaticConnectHotspots = windowsPhone81GeneralConfigurationParameterValue?.wifiBlockAutomaticConnectHotspots;
+        this._wifiBlocked = windowsPhone81GeneralConfigurationParameterValue?.wifiBlocked;
+        this._wifiBlockHotspotReporting = windowsPhone81GeneralConfigurationParameterValue?.wifiBlockHotspotReporting;
+        this._windowsStoreBlocked = windowsPhone81GeneralConfigurationParameterValue?.windowsStoreBlocked;
+    };
+    /**
+     * Gets the diagnosticDataBlockSubmission property value. Indicates whether or not to block diagnostic data submission.
+     * @returns a boolean
+     */
+    public get diagnosticDataBlockSubmission() {
+        return this._diagnosticDataBlockSubmission;
+    };
+    /**
+     * Sets the diagnosticDataBlockSubmission property value. Indicates whether or not to block diagnostic data submission.
+     * @param value Value to set for the diagnosticDataBlockSubmission property.
+     */
+    public set diagnosticDataBlockSubmission(value: boolean | undefined) {
+        if(value) {
+            this._diagnosticDataBlockSubmission = value;
+        }
+    };
+    /**
+     * Gets the emailBlockAddingAccounts property value. Indicates whether or not to block custom email accounts.
+     * @returns a boolean
+     */
+    public get emailBlockAddingAccounts() {
+        return this._emailBlockAddingAccounts;
+    };
+    /**
+     * Sets the emailBlockAddingAccounts property value. Indicates whether or not to block custom email accounts.
+     * @param value Value to set for the emailBlockAddingAccounts property.
+     */
+    public set emailBlockAddingAccounts(value: boolean | undefined) {
+        if(value) {
+            this._emailBlockAddingAccounts = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -139,6 +287,214 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         };
     };
     /**
+     * Gets the locationServicesBlocked property value. Indicates whether or not to block location services.
+     * @returns a boolean
+     */
+    public get locationServicesBlocked() {
+        return this._locationServicesBlocked;
+    };
+    /**
+     * Sets the locationServicesBlocked property value. Indicates whether or not to block location services.
+     * @param value Value to set for the locationServicesBlocked property.
+     */
+    public set locationServicesBlocked(value: boolean | undefined) {
+        if(value) {
+            this._locationServicesBlocked = value;
+        }
+    };
+    /**
+     * Gets the microsoftAccountBlocked property value. Indicates whether or not to block using a Microsoft Account.
+     * @returns a boolean
+     */
+    public get microsoftAccountBlocked() {
+        return this._microsoftAccountBlocked;
+    };
+    /**
+     * Sets the microsoftAccountBlocked property value. Indicates whether or not to block using a Microsoft Account.
+     * @param value Value to set for the microsoftAccountBlocked property.
+     */
+    public set microsoftAccountBlocked(value: boolean | undefined) {
+        if(value) {
+            this._microsoftAccountBlocked = value;
+        }
+    };
+    /**
+     * Gets the nfcBlocked property value. Indicates whether or not to block Near-Field Communication.
+     * @returns a boolean
+     */
+    public get nfcBlocked() {
+        return this._nfcBlocked;
+    };
+    /**
+     * Sets the nfcBlocked property value. Indicates whether or not to block Near-Field Communication.
+     * @param value Value to set for the nfcBlocked property.
+     */
+    public set nfcBlocked(value: boolean | undefined) {
+        if(value) {
+            this._nfcBlocked = value;
+        }
+    };
+    /**
+     * Gets the passwordBlockSimple property value. Indicates whether or not to block syncing the calendar.
+     * @returns a boolean
+     */
+    public get passwordBlockSimple() {
+        return this._passwordBlockSimple;
+    };
+    /**
+     * Sets the passwordBlockSimple property value. Indicates whether or not to block syncing the calendar.
+     * @param value Value to set for the passwordBlockSimple property.
+     */
+    public set passwordBlockSimple(value: boolean | undefined) {
+        if(value) {
+            this._passwordBlockSimple = value;
+        }
+    };
+    /**
+     * Gets the passwordExpirationDays property value. Number of days before the password expires.
+     * @returns a integer
+     */
+    public get passwordExpirationDays() {
+        return this._passwordExpirationDays;
+    };
+    /**
+     * Sets the passwordExpirationDays property value. Number of days before the password expires.
+     * @param value Value to set for the passwordExpirationDays property.
+     */
+    public set passwordExpirationDays(value: number | undefined) {
+        if(value) {
+            this._passwordExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumCharacterSetCount property value. Number of character sets a password must contain.
+     * @returns a integer
+     */
+    public get passwordMinimumCharacterSetCount() {
+        return this._passwordMinimumCharacterSetCount;
+    };
+    /**
+     * Sets the passwordMinimumCharacterSetCount property value. Number of character sets a password must contain.
+     * @param value Value to set for the passwordMinimumCharacterSetCount property.
+     */
+    public set passwordMinimumCharacterSetCount(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumCharacterSetCount = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumLength property value. Minimum length of passwords.
+     * @returns a integer
+     */
+    public get passwordMinimumLength() {
+        return this._passwordMinimumLength;
+    };
+    /**
+     * Sets the passwordMinimumLength property value. Minimum length of passwords.
+     * @param value Value to set for the passwordMinimumLength property.
+     */
+    public set passwordMinimumLength(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before screen timeout.
+     * @returns a integer
+     */
+    public get passwordMinutesOfInactivityBeforeScreenTimeout() {
+        return this._passwordMinutesOfInactivityBeforeScreenTimeout;
+    };
+    /**
+     * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before screen timeout.
+     * @param value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     */
+    public set passwordMinutesOfInactivityBeforeScreenTimeout(value: number | undefined) {
+        if(value) {
+            this._passwordMinutesOfInactivityBeforeScreenTimeout = value;
+        }
+    };
+    /**
+     * Gets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 0 to 24
+     * @returns a integer
+     */
+    public get passwordPreviousPasswordBlockCount() {
+        return this._passwordPreviousPasswordBlockCount;
+    };
+    /**
+     * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 0 to 24
+     * @param value Value to set for the passwordPreviousPasswordBlockCount property.
+     */
+    public set passwordPreviousPasswordBlockCount(value: number | undefined) {
+        if(value) {
+            this._passwordPreviousPasswordBlockCount = value;
+        }
+    };
+    /**
+     * Gets the passwordRequired property value. Indicates whether or not to require a password.
+     * @returns a boolean
+     */
+    public get passwordRequired() {
+        return this._passwordRequired;
+    };
+    /**
+     * Sets the passwordRequired property value. Indicates whether or not to require a password.
+     * @param value Value to set for the passwordRequired property.
+     */
+    public set passwordRequired(value: boolean | undefined) {
+        if(value) {
+            this._passwordRequired = value;
+        }
+    };
+    /**
+     * Gets the passwordRequiredType property value. Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @returns a requiredPasswordType
+     */
+    public get passwordRequiredType() {
+        return this._passwordRequiredType;
+    };
+    /**
+     * Sets the passwordRequiredType property value. Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @param value Value to set for the passwordRequiredType property.
+     */
+    public set passwordRequiredType(value: RequiredPasswordType | undefined) {
+        if(value) {
+            this._passwordRequiredType = value;
+        }
+    };
+    /**
+     * Gets the passwordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before factory reset.
+     * @returns a integer
+     */
+    public get passwordSignInFailureCountBeforeFactoryReset() {
+        return this._passwordSignInFailureCountBeforeFactoryReset;
+    };
+    /**
+     * Sets the passwordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before factory reset.
+     * @param value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     */
+    public set passwordSignInFailureCountBeforeFactoryReset(value: number | undefined) {
+        if(value) {
+            this._passwordSignInFailureCountBeforeFactoryReset = value;
+        }
+    };
+    /**
+     * Gets the screenCaptureBlocked property value. Indicates whether or not to block screenshots.
+     * @returns a boolean
+     */
+    public get screenCaptureBlocked() {
+        return this._screenCaptureBlocked;
+    };
+    /**
+     * Sets the screenCaptureBlocked property value. Indicates whether or not to block screenshots.
+     * @param value Value to set for the screenCaptureBlocked property.
+     */
+    public set screenCaptureBlocked(value: boolean | undefined) {
+        if(value) {
+            this._screenCaptureBlocked = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -163,7 +519,10 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         if(this.compliantAppListType){
             writer.writeEnumValue<AppListType>("compliantAppListType", this.compliantAppListType);
         }
-        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(new AppListItemImpl(element));});
+        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = [];
+        this.compliantAppsList?.forEach(element => {
+            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
         if(this.diagnosticDataBlockSubmission){
@@ -231,6 +590,118 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         }
         if(this.windowsStoreBlocked){
             writer.writeBooleanValue("windowsStoreBlocked", this.windowsStoreBlocked);
+        }
+    };
+    /**
+     * Gets the storageBlockRemovableStorage property value. Indicates whether or not to block removable storage.
+     * @returns a boolean
+     */
+    public get storageBlockRemovableStorage() {
+        return this._storageBlockRemovableStorage;
+    };
+    /**
+     * Sets the storageBlockRemovableStorage property value. Indicates whether or not to block removable storage.
+     * @param value Value to set for the storageBlockRemovableStorage property.
+     */
+    public set storageBlockRemovableStorage(value: boolean | undefined) {
+        if(value) {
+            this._storageBlockRemovableStorage = value;
+        }
+    };
+    /**
+     * Gets the storageRequireEncryption property value. Indicates whether or not to require encryption.
+     * @returns a boolean
+     */
+    public get storageRequireEncryption() {
+        return this._storageRequireEncryption;
+    };
+    /**
+     * Sets the storageRequireEncryption property value. Indicates whether or not to require encryption.
+     * @param value Value to set for the storageRequireEncryption property.
+     */
+    public set storageRequireEncryption(value: boolean | undefined) {
+        if(value) {
+            this._storageRequireEncryption = value;
+        }
+    };
+    /**
+     * Gets the webBrowserBlocked property value. Indicates whether or not to block the web browser.
+     * @returns a boolean
+     */
+    public get webBrowserBlocked() {
+        return this._webBrowserBlocked;
+    };
+    /**
+     * Sets the webBrowserBlocked property value. Indicates whether or not to block the web browser.
+     * @param value Value to set for the webBrowserBlocked property.
+     */
+    public set webBrowserBlocked(value: boolean | undefined) {
+        if(value) {
+            this._webBrowserBlocked = value;
+        }
+    };
+    /**
+     * Gets the wifiBlockAutomaticConnectHotspots property value. Indicates whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
+     * @returns a boolean
+     */
+    public get wifiBlockAutomaticConnectHotspots() {
+        return this._wifiBlockAutomaticConnectHotspots;
+    };
+    /**
+     * Sets the wifiBlockAutomaticConnectHotspots property value. Indicates whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
+     * @param value Value to set for the wifiBlockAutomaticConnectHotspots property.
+     */
+    public set wifiBlockAutomaticConnectHotspots(value: boolean | undefined) {
+        if(value) {
+            this._wifiBlockAutomaticConnectHotspots = value;
+        }
+    };
+    /**
+     * Gets the wifiBlocked property value. Indicates whether or not to block Wi-Fi.
+     * @returns a boolean
+     */
+    public get wifiBlocked() {
+        return this._wifiBlocked;
+    };
+    /**
+     * Sets the wifiBlocked property value. Indicates whether or not to block Wi-Fi.
+     * @param value Value to set for the wifiBlocked property.
+     */
+    public set wifiBlocked(value: boolean | undefined) {
+        if(value) {
+            this._wifiBlocked = value;
+        }
+    };
+    /**
+     * Gets the wifiBlockHotspotReporting property value. Indicates whether or not to block Wi-Fi hotspot reporting. Has no impact if Wi-Fi is blocked.
+     * @returns a boolean
+     */
+    public get wifiBlockHotspotReporting() {
+        return this._wifiBlockHotspotReporting;
+    };
+    /**
+     * Sets the wifiBlockHotspotReporting property value. Indicates whether or not to block Wi-Fi hotspot reporting. Has no impact if Wi-Fi is blocked.
+     * @param value Value to set for the wifiBlockHotspotReporting property.
+     */
+    public set wifiBlockHotspotReporting(value: boolean | undefined) {
+        if(value) {
+            this._wifiBlockHotspotReporting = value;
+        }
+    };
+    /**
+     * Gets the windowsStoreBlocked property value. Indicates whether or not to block the Windows Store.
+     * @returns a boolean
+     */
+    public get windowsStoreBlocked() {
+        return this._windowsStoreBlocked;
+    };
+    /**
+     * Sets the windowsStoreBlocked property value. Indicates whether or not to block the Windows Store.
+     * @param value Value to set for the windowsStoreBlocked property.
+     */
+    public set windowsStoreBlocked(value: boolean | undefined) {
+        if(value) {
+            this._windowsStoreBlocked = value;
         }
     };
 }

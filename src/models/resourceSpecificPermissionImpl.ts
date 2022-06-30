@@ -3,28 +3,76 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceSpecificPermissionImpl implements ResourceSpecificPermission {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Describes the level of access that the resource-specific permission represents. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The display name for the resource-specific permission. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The unique identifier for the resource-specific application permission. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** Indicates whether the permission is enabled. */
-    public isEnabled?: boolean | undefined;
+    private _isEnabled?: boolean | undefined;
     /** The value of the permission. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new resourceSpecificPermission and sets the default values.
      * @param resourceSpecificPermissionParameterValue 
      */
     public constructor(resourceSpecificPermissionParameterValue?: ResourceSpecificPermission | undefined) {
-        this.additionalData = resourceSpecificPermissionParameterValue?.additionalData ? resourceSpecificPermissionParameterValue?.additionalData! : {};
-        this.description = resourceSpecificPermissionParameterValue?.description;
-        this.displayName = resourceSpecificPermissionParameterValue?.displayName;
-        this.id = resourceSpecificPermissionParameterValue?.id;
-        this.isEnabled = resourceSpecificPermissionParameterValue?.isEnabled;
-        this.value = resourceSpecificPermissionParameterValue?.value;
+        this._additionalData = resourceSpecificPermissionParameterValue?.additionalData ? resourceSpecificPermissionParameterValue?.additionalData! : {};
+        this._description = resourceSpecificPermissionParameterValue?.description;
+        this._displayName = resourceSpecificPermissionParameterValue?.displayName;
+        this._id = resourceSpecificPermissionParameterValue?.id;
+        this._isEnabled = resourceSpecificPermissionParameterValue?.isEnabled;
+        this._value = resourceSpecificPermissionParameterValue?.value;
+    };
+    /**
+     * Gets the description property value. Describes the level of access that the resource-specific permission represents.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Describes the level of access that the resource-specific permission represents.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The display name for the resource-specific permission.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name for the resource-specific permission.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +86,38 @@ export class ResourceSpecificPermissionImpl implements ResourceSpecificPermissio
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. The unique identifier for the resource-specific application permission.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. The unique identifier for the resource-specific application permission.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the isEnabled property value. Indicates whether the permission is enabled.
+     * @returns a boolean
+     */
+    public get isEnabled() {
+        return this._isEnabled;
+    };
+    /**
+     * Sets the isEnabled property value. Indicates whether the permission is enabled.
+     * @param value Value to set for the isEnabled property.
+     */
+    public set isEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isEnabled = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -61,5 +141,21 @@ export class ResourceSpecificPermissionImpl implements ResourceSpecificPermissio
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value of the permission.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value of the permission.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

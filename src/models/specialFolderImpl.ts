@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SpecialFolderImpl implements SpecialFolder {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The unique identifier for this item in the /drive/special collection */
-    public name?: string | undefined;
+    private _name?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new specialFolder and sets the default values.
      * @param specialFolderParameterValue 
      */
     public constructor(specialFolderParameterValue?: SpecialFolder | undefined) {
-        this.additionalData = specialFolderParameterValue?.additionalData ? specialFolderParameterValue?.additionalData! : {};
-        this.name = specialFolderParameterValue?.name;
+        this._additionalData = specialFolderParameterValue?.additionalData ? specialFolderParameterValue?.additionalData! : {};
+        this._name = specialFolderParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class SpecialFolderImpl implements SpecialFolder {
         return {
             "name": n => { this.name = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the name property value. The unique identifier for this item in the /drive/special collection
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The unique identifier for this item in the /drive/special collection
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object

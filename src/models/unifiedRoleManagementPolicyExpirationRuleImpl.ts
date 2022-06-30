@@ -4,17 +4,17 @@ import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 
 export class UnifiedRoleManagementPolicyExpirationRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyExpirationRule {
     /** Indicates whether expiration is required or if it's a permanently active assignment or eligibility. */
-    public isExpirationRequired?: boolean | undefined;
+    private _isExpirationRequired?: boolean | undefined;
     /** The maximum duration allowed for eligibility or assignment which is not permanent. Required when isExpirationRequired is true. */
-    public maximumDuration?: Duration | undefined;
+    private _maximumDuration?: Duration | undefined;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyExpirationRule and sets the default values.
      * @param unifiedRoleManagementPolicyExpirationRuleParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyExpirationRuleParameterValue?: UnifiedRoleManagementPolicyExpirationRule | undefined) {
         super(unifiedRoleManagementPolicyExpirationRuleParameterValue);
-        this.isExpirationRequired = unifiedRoleManagementPolicyExpirationRuleParameterValue?.isExpirationRequired;
-        this.maximumDuration = unifiedRoleManagementPolicyExpirationRuleParameterValue?.maximumDuration;
+        this._isExpirationRequired = unifiedRoleManagementPolicyExpirationRuleParameterValue?.isExpirationRequired;
+        this._maximumDuration = unifiedRoleManagementPolicyExpirationRuleParameterValue?.maximumDuration;
     };
     /**
      * The deserialization information for the current model
@@ -25,6 +25,38 @@ export class UnifiedRoleManagementPolicyExpirationRuleImpl extends UnifiedRoleMa
             "isExpirationRequired": n => { this.isExpirationRequired = n.getBooleanValue(); },
             "maximumDuration": n => { this.maximumDuration = n.getDurationValue(); },
         };
+    };
+    /**
+     * Gets the isExpirationRequired property value. Indicates whether expiration is required or if it's a permanently active assignment or eligibility.
+     * @returns a boolean
+     */
+    public get isExpirationRequired() {
+        return this._isExpirationRequired;
+    };
+    /**
+     * Sets the isExpirationRequired property value. Indicates whether expiration is required or if it's a permanently active assignment or eligibility.
+     * @param value Value to set for the isExpirationRequired property.
+     */
+    public set isExpirationRequired(value: boolean | undefined) {
+        if(value) {
+            this._isExpirationRequired = value;
+        }
+    };
+    /**
+     * Gets the maximumDuration property value. The maximum duration allowed for eligibility or assignment which is not permanent. Required when isExpirationRequired is true.
+     * @returns a Duration
+     */
+    public get maximumDuration() {
+        return this._maximumDuration;
+    };
+    /**
+     * Sets the maximumDuration property value. The maximum duration allowed for eligibility or assignment which is not permanent. Required when isExpirationRequired is true.
+     * @param value Value to set for the maximumDuration property.
+     */
+    public set maximumDuration(value: Duration | undefined) {
+        if(value) {
+            this._maximumDuration = value;
+        }
     };
     /**
      * Serializes information the current object

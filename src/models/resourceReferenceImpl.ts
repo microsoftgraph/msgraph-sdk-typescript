@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResourceReferenceImpl implements ResourceReference {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The item's unique identifier. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
-    public type?: string | undefined;
+    private _type?: string | undefined;
     /** A URL leading to the referenced item. */
-    public webUrl?: string | undefined;
+    private _webUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new resourceReference and sets the default values.
      * @param resourceReferenceParameterValue 
      */
     public constructor(resourceReferenceParameterValue?: ResourceReference | undefined) {
-        this.additionalData = resourceReferenceParameterValue?.additionalData ? resourceReferenceParameterValue?.additionalData! : {};
-        this.id = resourceReferenceParameterValue?.id;
-        this.type = resourceReferenceParameterValue?.type;
-        this.webUrl = resourceReferenceParameterValue?.webUrl;
+        this._additionalData = resourceReferenceParameterValue?.additionalData ? resourceReferenceParameterValue?.additionalData! : {};
+        this._id = resourceReferenceParameterValue?.id;
+        this._type = resourceReferenceParameterValue?.type;
+        this._webUrl = resourceReferenceParameterValue?.webUrl;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,22 @@ export class ResourceReferenceImpl implements ResourceReference {
             "type": n => { this.type = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. The item's unique identifier.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. The item's unique identifier.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +79,37 @@ export class ResourceReferenceImpl implements ResourceReference {
             writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the webUrl property value. A URL leading to the referenced item.
+     * @returns a string
+     */
+    public get webUrl() {
+        return this._webUrl;
+    };
+    /**
+     * Sets the webUrl property value. A URL leading to the referenced item.
+     * @param value Value to set for the webUrl property.
+     */
+    public set webUrl(value: string | undefined) {
+        if(value) {
+            this._webUrl = value;
+        }
     };
 }

@@ -6,29 +6,61 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends AuthenticationMethodConfigurationImpl implements TemporaryAccessPassAuthenticationMethodConfiguration {
     /** Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters. */
-    public defaultLength?: number | undefined;
+    private _defaultLength?: number | undefined;
     /** Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */
-    public defaultLifetimeInMinutes?: number | undefined;
+    private _defaultLifetimeInMinutes?: number | undefined;
     /** A collection of users or groups who are enabled to use the authentication method. */
-    public includeTargets?: AuthenticationMethodTarget[] | undefined;
+    private _includeTargets?: AuthenticationMethodTarget[] | undefined;
     /** If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable. */
-    public isUsableOnce?: boolean | undefined;
+    private _isUsableOnce?: boolean | undefined;
     /** Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
-    public maximumLifetimeInMinutes?: number | undefined;
+    private _maximumLifetimeInMinutes?: number | undefined;
     /** Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days). */
-    public minimumLifetimeInMinutes?: number | undefined;
+    private _minimumLifetimeInMinutes?: number | undefined;
     /**
      * Instantiates a new TemporaryAccessPassAuthenticationMethodConfiguration and sets the default values.
      * @param temporaryAccessPassAuthenticationMethodConfigurationParameterValue 
      */
     public constructor(temporaryAccessPassAuthenticationMethodConfigurationParameterValue?: TemporaryAccessPassAuthenticationMethodConfiguration | undefined) {
         super(temporaryAccessPassAuthenticationMethodConfigurationParameterValue);
-        this.defaultLength = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLength;
-        this.defaultLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLifetimeInMinutes;
-        this.includeTargets = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.includeTargets;
-        this.isUsableOnce = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.isUsableOnce;
-        this.maximumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.maximumLifetimeInMinutes;
-        this.minimumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.minimumLifetimeInMinutes;
+        this._defaultLength = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLength;
+        this._defaultLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.defaultLifetimeInMinutes;
+        this._includeTargets = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.includeTargets;
+        this._isUsableOnce = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.isUsableOnce;
+        this._maximumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.maximumLifetimeInMinutes;
+        this._minimumLifetimeInMinutes = temporaryAccessPassAuthenticationMethodConfigurationParameterValue?.minimumLifetimeInMinutes;
+    };
+    /**
+     * Gets the defaultLength property value. Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters.
+     * @returns a integer
+     */
+    public get defaultLength() {
+        return this._defaultLength;
+    };
+    /**
+     * Sets the defaultLength property value. Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters.
+     * @param value Value to set for the defaultLength property.
+     */
+    public set defaultLength(value: number | undefined) {
+        if(value) {
+            this._defaultLength = value;
+        }
+    };
+    /**
+     * Gets the defaultLifetimeInMinutes property value. Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
+     * @returns a integer
+     */
+    public get defaultLifetimeInMinutes() {
+        return this._defaultLifetimeInMinutes;
+    };
+    /**
+     * Sets the defaultLifetimeInMinutes property value. Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
+     * @param value Value to set for the defaultLifetimeInMinutes property.
+     */
+    public set defaultLifetimeInMinutes(value: number | undefined) {
+        if(value) {
+            this._defaultLifetimeInMinutes = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -45,6 +77,74 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         };
     };
     /**
+     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * @returns a AuthenticationMethodTargetInterface
+     */
+    public get includeTargets() {
+        return this._includeTargets;
+    };
+    /**
+     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * @param value Value to set for the includeTargets property.
+     */
+    public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {
+        if(value) {
+            const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
+            this.includeTargets?.forEach(element => {
+                includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+            });
+            this._includeTargets = includeTargetsArrValue;
+        }
+    };
+    /**
+     * Gets the isUsableOnce property value. If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable.
+     * @returns a boolean
+     */
+    public get isUsableOnce() {
+        return this._isUsableOnce;
+    };
+    /**
+     * Sets the isUsableOnce property value. If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable.
+     * @param value Value to set for the isUsableOnce property.
+     */
+    public set isUsableOnce(value: boolean | undefined) {
+        if(value) {
+            this._isUsableOnce = value;
+        }
+    };
+    /**
+     * Gets the maximumLifetimeInMinutes property value. Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+     * @returns a integer
+     */
+    public get maximumLifetimeInMinutes() {
+        return this._maximumLifetimeInMinutes;
+    };
+    /**
+     * Sets the maximumLifetimeInMinutes property value. Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+     * @param value Value to set for the maximumLifetimeInMinutes property.
+     */
+    public set maximumLifetimeInMinutes(value: number | undefined) {
+        if(value) {
+            this._maximumLifetimeInMinutes = value;
+        }
+    };
+    /**
+     * Gets the minimumLifetimeInMinutes property value. Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+     * @returns a integer
+     */
+    public get minimumLifetimeInMinutes() {
+        return this._minimumLifetimeInMinutes;
+    };
+    /**
+     * Sets the minimumLifetimeInMinutes property value. Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+     * @param value Value to set for the minimumLifetimeInMinutes property.
+     */
+    public set minimumLifetimeInMinutes(value: number | undefined) {
+        if(value) {
+            this._minimumLifetimeInMinutes = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -57,7 +157,10 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationImpl extends Au
         if(this.defaultLifetimeInMinutes){
             writer.writeNumberValue("defaultLifetimeInMinutes", this.defaultLifetimeInMinutes);
         }
-        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = []; this.includeTargets?.forEach(element => {includeTargetsArrValue.push(new AuthenticationMethodTargetImpl(element));});
+        if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
+        this.includeTargets?.forEach(element => {
+            includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
         if(this.isUsableOnce){

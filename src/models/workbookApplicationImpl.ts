@@ -5,14 +5,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookApplicationImpl extends EntityImpl implements WorkbookApplication {
     /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
-    public calculationMode?: string | undefined;
+    private _calculationMode?: string | undefined;
+    /**
+     * Gets the calculationMode property value. Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
+     * @returns a string
+     */
+    public get calculationMode() {
+        return this._calculationMode;
+    };
+    /**
+     * Sets the calculationMode property value. Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
+     * @param value Value to set for the calculationMode property.
+     */
+    public set calculationMode(value: string | undefined) {
+        if(value) {
+            this._calculationMode = value;
+        }
+    };
     /**
      * Instantiates a new workbookApplication and sets the default values.
      * @param workbookApplicationParameterValue 
      */
     public constructor(workbookApplicationParameterValue?: WorkbookApplication | undefined) {
         super(workbookApplicationParameterValue);
-        this.calculationMode = workbookApplicationParameterValue?.calculationMode;
+        this._calculationMode = workbookApplicationParameterValue?.calculationMode;
     };
     /**
      * The deserialization information for the current model

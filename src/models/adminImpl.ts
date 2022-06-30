@@ -6,16 +6,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AdminImpl implements Admin {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A container for service communications resources. Read-only. */
-    public serviceAnnouncement?: ServiceAnnouncement | undefined;
+    private _serviceAnnouncement?: ServiceAnnouncement | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new Admin and sets the default values.
      * @param adminParameterValue 
      */
     public constructor(adminParameterValue?: Admin | undefined) {
-        this.additionalData = adminParameterValue?.additionalData ? adminParameterValue?.additionalData! : {};
-        this.serviceAnnouncement = adminParameterValue?.serviceAnnouncement;
+        this._additionalData = adminParameterValue?.additionalData ? adminParameterValue?.additionalData! : {};
+        this._serviceAnnouncement = adminParameterValue?.serviceAnnouncement;
     };
     /**
      * The deserialization information for the current model
@@ -33,8 +49,24 @@ export class AdminImpl implements Admin {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.serviceAnnouncement){
-            writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", new ServiceAnnouncementImpl(this.serviceAnnouncement));
+            writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", (!this.serviceAnnouncement || this.serviceAnnouncement instanceof ServiceAnnouncementImpl? this.serviceAnnouncement : new ServiceAnnouncementImpl(this.serviceAnnouncement)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the serviceAnnouncement property value. A container for service communications resources. Read-only.
+     * @returns a ServiceAnnouncementInterface
+     */
+    public get serviceAnnouncement() {
+        return this._serviceAnnouncement;
+    };
+    /**
+     * Sets the serviceAnnouncement property value. A container for service communications resources. Read-only.
+     * @param value Value to set for the serviceAnnouncement property.
+     */
+    public set serviceAnnouncement(value: ServiceAnnouncement | undefined) {
+        if(value) {
+            this._serviceAnnouncement = value instanceof ServiceAnnouncementImpl? value : new ServiceAnnouncementImpl(value);
+        }
     };
 }

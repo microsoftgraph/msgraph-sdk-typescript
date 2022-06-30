@@ -3,19 +3,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamGuestSettingsImpl implements TeamGuestSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If set to true, guests can add and update channels. */
-    public allowCreateUpdateChannels?: boolean | undefined;
+    private _allowCreateUpdateChannels?: boolean | undefined;
     /** If set to true, guests can delete channels. */
-    public allowDeleteChannels?: boolean | undefined;
+    private _allowDeleteChannels?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowCreateUpdateChannels property value. If set to true, guests can add and update channels.
+     * @returns a boolean
+     */
+    public get allowCreateUpdateChannels() {
+        return this._allowCreateUpdateChannels;
+    };
+    /**
+     * Sets the allowCreateUpdateChannels property value. If set to true, guests can add and update channels.
+     * @param value Value to set for the allowCreateUpdateChannels property.
+     */
+    public set allowCreateUpdateChannels(value: boolean | undefined) {
+        if(value) {
+            this._allowCreateUpdateChannels = value;
+        }
+    };
+    /**
+     * Gets the allowDeleteChannels property value. If set to true, guests can delete channels.
+     * @returns a boolean
+     */
+    public get allowDeleteChannels() {
+        return this._allowDeleteChannels;
+    };
+    /**
+     * Sets the allowDeleteChannels property value. If set to true, guests can delete channels.
+     * @param value Value to set for the allowDeleteChannels property.
+     */
+    public set allowDeleteChannels(value: boolean | undefined) {
+        if(value) {
+            this._allowDeleteChannels = value;
+        }
+    };
     /**
      * Instantiates a new teamGuestSettings and sets the default values.
      * @param teamGuestSettingsParameterValue 
      */
     public constructor(teamGuestSettingsParameterValue?: TeamGuestSettings | undefined) {
-        this.additionalData = teamGuestSettingsParameterValue?.additionalData ? teamGuestSettingsParameterValue?.additionalData! : {};
-        this.allowCreateUpdateChannels = teamGuestSettingsParameterValue?.allowCreateUpdateChannels;
-        this.allowDeleteChannels = teamGuestSettingsParameterValue?.allowDeleteChannels;
+        this._additionalData = teamGuestSettingsParameterValue?.additionalData ? teamGuestSettingsParameterValue?.additionalData! : {};
+        this._allowCreateUpdateChannels = teamGuestSettingsParameterValue?.allowCreateUpdateChannels;
+        this._allowDeleteChannels = teamGuestSettingsParameterValue?.allowDeleteChannels;
     };
     /**
      * The deserialization information for the current model

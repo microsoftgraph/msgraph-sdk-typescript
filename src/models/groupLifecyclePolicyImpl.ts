@@ -5,20 +5,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyclePolicy {
     /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon. */
-    public alternateNotificationEmails?: string | undefined;
+    private _alternateNotificationEmails?: string | undefined;
     /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined. */
-    public groupLifetimeInDays?: number | undefined;
+    private _groupLifetimeInDays?: number | undefined;
     /** The group type for which the expiration policy applies. Possible values are All, Selected or None. */
-    public managedGroupTypes?: string | undefined;
+    private _managedGroupTypes?: string | undefined;
+    /**
+     * Gets the alternateNotificationEmails property value. List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
+     * @returns a string
+     */
+    public get alternateNotificationEmails() {
+        return this._alternateNotificationEmails;
+    };
+    /**
+     * Sets the alternateNotificationEmails property value. List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
+     * @param value Value to set for the alternateNotificationEmails property.
+     */
+    public set alternateNotificationEmails(value: string | undefined) {
+        if(value) {
+            this._alternateNotificationEmails = value;
+        }
+    };
     /**
      * Instantiates a new groupLifecyclePolicy and sets the default values.
      * @param groupLifecyclePolicyParameterValue 
      */
     public constructor(groupLifecyclePolicyParameterValue?: GroupLifecyclePolicy | undefined) {
         super(groupLifecyclePolicyParameterValue);
-        this.alternateNotificationEmails = groupLifecyclePolicyParameterValue?.alternateNotificationEmails;
-        this.groupLifetimeInDays = groupLifecyclePolicyParameterValue?.groupLifetimeInDays;
-        this.managedGroupTypes = groupLifecyclePolicyParameterValue?.managedGroupTypes;
+        this._alternateNotificationEmails = groupLifecyclePolicyParameterValue?.alternateNotificationEmails;
+        this._groupLifetimeInDays = groupLifecyclePolicyParameterValue?.groupLifetimeInDays;
+        this._managedGroupTypes = groupLifecyclePolicyParameterValue?.managedGroupTypes;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,38 @@ export class GroupLifecyclePolicyImpl extends EntityImpl implements GroupLifecyc
             "groupLifetimeInDays": n => { this.groupLifetimeInDays = n.getNumberValue(); },
             "managedGroupTypes": n => { this.managedGroupTypes = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the groupLifetimeInDays property value. Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
+     * @returns a integer
+     */
+    public get groupLifetimeInDays() {
+        return this._groupLifetimeInDays;
+    };
+    /**
+     * Sets the groupLifetimeInDays property value. Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
+     * @param value Value to set for the groupLifetimeInDays property.
+     */
+    public set groupLifetimeInDays(value: number | undefined) {
+        if(value) {
+            this._groupLifetimeInDays = value;
+        }
+    };
+    /**
+     * Gets the managedGroupTypes property value. The group type for which the expiration policy applies. Possible values are All, Selected or None.
+     * @returns a string
+     */
+    public get managedGroupTypes() {
+        return this._managedGroupTypes;
+    };
+    /**
+     * Sets the managedGroupTypes property value. The group type for which the expiration policy applies. Possible values are All, Selected or None.
+     * @param value Value to set for the managedGroupTypes property.
+     */
+    public set managedGroupTypes(value: string | undefined) {
+        if(value) {
+            this._managedGroupTypes = value;
+        }
     };
     /**
      * Serializes information the current object

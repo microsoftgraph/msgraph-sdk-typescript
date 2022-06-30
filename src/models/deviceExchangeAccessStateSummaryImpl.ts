@@ -4,28 +4,76 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device Exchange Access State summary */
 export class DeviceExchangeAccessStateSummaryImpl implements DeviceExchangeAccessStateSummary {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Total count of devices with Exchange Access State: Allowed. */
-    public allowedDeviceCount?: number | undefined;
+    private _allowedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Blocked. */
-    public blockedDeviceCount?: number | undefined;
+    private _blockedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Quarantined. */
-    public quarantinedDeviceCount?: number | undefined;
+    private _quarantinedDeviceCount?: number | undefined;
     /** Total count of devices for which no Exchange Access State could be found. */
-    public unavailableDeviceCount?: number | undefined;
+    private _unavailableDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Unknown. */
-    public unknownDeviceCount?: number | undefined;
+    private _unknownDeviceCount?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowedDeviceCount property value. Total count of devices with Exchange Access State: Allowed.
+     * @returns a integer
+     */
+    public get allowedDeviceCount() {
+        return this._allowedDeviceCount;
+    };
+    /**
+     * Sets the allowedDeviceCount property value. Total count of devices with Exchange Access State: Allowed.
+     * @param value Value to set for the allowedDeviceCount property.
+     */
+    public set allowedDeviceCount(value: number | undefined) {
+        if(value) {
+            this._allowedDeviceCount = value;
+        }
+    };
+    /**
+     * Gets the blockedDeviceCount property value. Total count of devices with Exchange Access State: Blocked.
+     * @returns a integer
+     */
+    public get blockedDeviceCount() {
+        return this._blockedDeviceCount;
+    };
+    /**
+     * Sets the blockedDeviceCount property value. Total count of devices with Exchange Access State: Blocked.
+     * @param value Value to set for the blockedDeviceCount property.
+     */
+    public set blockedDeviceCount(value: number | undefined) {
+        if(value) {
+            this._blockedDeviceCount = value;
+        }
+    };
     /**
      * Instantiates a new deviceExchangeAccessStateSummary and sets the default values.
      * @param deviceExchangeAccessStateSummaryParameterValue 
      */
     public constructor(deviceExchangeAccessStateSummaryParameterValue?: DeviceExchangeAccessStateSummary | undefined) {
-        this.additionalData = deviceExchangeAccessStateSummaryParameterValue?.additionalData ? deviceExchangeAccessStateSummaryParameterValue?.additionalData! : {};
-        this.allowedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.allowedDeviceCount;
-        this.blockedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.blockedDeviceCount;
-        this.quarantinedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.quarantinedDeviceCount;
-        this.unavailableDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.unavailableDeviceCount;
-        this.unknownDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.unknownDeviceCount;
+        this._additionalData = deviceExchangeAccessStateSummaryParameterValue?.additionalData ? deviceExchangeAccessStateSummaryParameterValue?.additionalData! : {};
+        this._allowedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.allowedDeviceCount;
+        this._blockedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.blockedDeviceCount;
+        this._quarantinedDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.quarantinedDeviceCount;
+        this._unavailableDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.unavailableDeviceCount;
+        this._unknownDeviceCount = deviceExchangeAccessStateSummaryParameterValue?.unknownDeviceCount;
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +87,22 @@ export class DeviceExchangeAccessStateSummaryImpl implements DeviceExchangeAcces
             "unavailableDeviceCount": n => { this.unavailableDeviceCount = n.getNumberValue(); },
             "unknownDeviceCount": n => { this.unknownDeviceCount = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the quarantinedDeviceCount property value. Total count of devices with Exchange Access State: Quarantined.
+     * @returns a integer
+     */
+    public get quarantinedDeviceCount() {
+        return this._quarantinedDeviceCount;
+    };
+    /**
+     * Sets the quarantinedDeviceCount property value. Total count of devices with Exchange Access State: Quarantined.
+     * @param value Value to set for the quarantinedDeviceCount property.
+     */
+    public set quarantinedDeviceCount(value: number | undefined) {
+        if(value) {
+            this._quarantinedDeviceCount = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,5 +126,37 @@ export class DeviceExchangeAccessStateSummaryImpl implements DeviceExchangeAcces
             writer.writeNumberValue("unknownDeviceCount", this.unknownDeviceCount);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the unavailableDeviceCount property value. Total count of devices for which no Exchange Access State could be found.
+     * @returns a integer
+     */
+    public get unavailableDeviceCount() {
+        return this._unavailableDeviceCount;
+    };
+    /**
+     * Sets the unavailableDeviceCount property value. Total count of devices for which no Exchange Access State could be found.
+     * @param value Value to set for the unavailableDeviceCount property.
+     */
+    public set unavailableDeviceCount(value: number | undefined) {
+        if(value) {
+            this._unavailableDeviceCount = value;
+        }
+    };
+    /**
+     * Gets the unknownDeviceCount property value. Total count of devices with Exchange Access State: Unknown.
+     * @returns a integer
+     */
+    public get unknownDeviceCount() {
+        return this._unknownDeviceCount;
+    };
+    /**
+     * Sets the unknownDeviceCount property value. Total count of devices with Exchange Access State: Unknown.
+     * @param value Value to set for the unknownDeviceCount property.
+     */
+    public set unknownDeviceCount(value: number | undefined) {
+        if(value) {
+            this._unknownDeviceCount = value;
+        }
     };
 }

@@ -15,70 +15,214 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintJobConfigurationImpl implements PrintJobConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
-    public collate?: boolean | undefined;
+    private _collate?: boolean | undefined;
     /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only. */
-    public colorMode?: PrintColorMode | undefined;
+    private _colorMode?: PrintColorMode | undefined;
     /** The number of copies that should be printed. Read-only. */
-    public copies?: number | undefined;
+    private _copies?: number | undefined;
     /** The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only. */
-    public dpi?: number | undefined;
+    private _dpi?: number | undefined;
     /** The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only. */
-    public duplexMode?: PrintDuplexMode | undefined;
+    private _duplexMode?: PrintDuplexMode | undefined;
     /** The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only. */
-    public feedOrientation?: PrinterFeedOrientation | undefined;
+    private _feedOrientation?: PrinterFeedOrientation | undefined;
     /** Finishing processes to use when printing. */
-    public finishings?: string[] | undefined;
+    private _finishings?: string[] | undefined;
     /** The fitPdfToPage property */
-    public fitPdfToPage?: boolean | undefined;
+    private _fitPdfToPage?: boolean | undefined;
     /** The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins. */
-    public inputBin?: string | undefined;
+    private _inputBin?: string | undefined;
     /** The margin settings to use when printing. */
-    public margin?: PrintMargin | undefined;
+    private _margin?: PrintMargin | undefined;
     /** The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic. */
-    public mediaSize?: string | undefined;
+    private _mediaSize?: string | undefined;
     /** The default media (such as paper) type to print the document on. */
-    public mediaType?: string | undefined;
+    private _mediaType?: string | undefined;
     /** The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
-    public multipageLayout?: PrintMultipageLayout | undefined;
+    private _multipageLayout?: PrintMultipageLayout | undefined;
     /** The orientation setting the printer should use when printing the job. Valid values are described in the following table. */
-    public orientation?: PrintOrientation | undefined;
+    private _orientation?: PrintOrientation | undefined;
     /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
-    public outputBin?: string | undefined;
+    private _outputBin?: string | undefined;
     /** The page ranges to print. Read-only. */
-    public pageRanges?: IntegerRange[] | undefined;
+    private _pageRanges?: IntegerRange[] | undefined;
     /** The number of document pages to print on each sheet. */
-    public pagesPerSheet?: number | undefined;
+    private _pagesPerSheet?: number | undefined;
     /** The print quality to use when printing the job. Valid values are described in the table below. Read-only. */
-    public quality?: PrintQuality | undefined;
+    private _quality?: PrintQuality | undefined;
     /** Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table. */
-    public scaling?: PrintScaling | undefined;
+    private _scaling?: PrintScaling | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
+     * @returns a boolean
+     */
+    public get collate() {
+        return this._collate;
+    };
+    /**
+     * Sets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
+     * @param value Value to set for the collate property.
+     */
+    public set collate(value: boolean | undefined) {
+        if(value) {
+            this._collate = value;
+        }
+    };
+    /**
+     * Gets the colorMode property value. The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
+     * @returns a printColorMode
+     */
+    public get colorMode() {
+        return this._colorMode;
+    };
+    /**
+     * Sets the colorMode property value. The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
+     * @param value Value to set for the colorMode property.
+     */
+    public set colorMode(value: PrintColorMode | undefined) {
+        if(value) {
+            this._colorMode = value;
+        }
+    };
     /**
      * Instantiates a new printJobConfiguration and sets the default values.
      * @param printJobConfigurationParameterValue 
      */
     public constructor(printJobConfigurationParameterValue?: PrintJobConfiguration | undefined) {
-        this.additionalData = printJobConfigurationParameterValue?.additionalData ? printJobConfigurationParameterValue?.additionalData! : {};
-        this.collate = printJobConfigurationParameterValue?.collate;
-        this.colorMode = printJobConfigurationParameterValue?.colorMode;
-        this.copies = printJobConfigurationParameterValue?.copies;
-        this.dpi = printJobConfigurationParameterValue?.dpi;
-        this.duplexMode = printJobConfigurationParameterValue?.duplexMode;
-        this.feedOrientation = printJobConfigurationParameterValue?.feedOrientation;
-        this.finishings = printJobConfigurationParameterValue?.finishings;
-        this.fitPdfToPage = printJobConfigurationParameterValue?.fitPdfToPage;
-        this.inputBin = printJobConfigurationParameterValue?.inputBin;
-        this.margin = printJobConfigurationParameterValue?.margin;
-        this.mediaSize = printJobConfigurationParameterValue?.mediaSize;
-        this.mediaType = printJobConfigurationParameterValue?.mediaType;
-        this.multipageLayout = printJobConfigurationParameterValue?.multipageLayout;
-        this.orientation = printJobConfigurationParameterValue?.orientation;
-        this.outputBin = printJobConfigurationParameterValue?.outputBin;
-        this.pageRanges = printJobConfigurationParameterValue?.pageRanges;
-        this.pagesPerSheet = printJobConfigurationParameterValue?.pagesPerSheet;
-        this.quality = printJobConfigurationParameterValue?.quality;
-        this.scaling = printJobConfigurationParameterValue?.scaling;
+        this._additionalData = printJobConfigurationParameterValue?.additionalData ? printJobConfigurationParameterValue?.additionalData! : {};
+        this._collate = printJobConfigurationParameterValue?.collate;
+        this._colorMode = printJobConfigurationParameterValue?.colorMode;
+        this._copies = printJobConfigurationParameterValue?.copies;
+        this._dpi = printJobConfigurationParameterValue?.dpi;
+        this._duplexMode = printJobConfigurationParameterValue?.duplexMode;
+        this._feedOrientation = printJobConfigurationParameterValue?.feedOrientation;
+        this._finishings = printJobConfigurationParameterValue?.finishings;
+        this._fitPdfToPage = printJobConfigurationParameterValue?.fitPdfToPage;
+        this._inputBin = printJobConfigurationParameterValue?.inputBin;
+        this._margin = printJobConfigurationParameterValue?.margin;
+        this._mediaSize = printJobConfigurationParameterValue?.mediaSize;
+        this._mediaType = printJobConfigurationParameterValue?.mediaType;
+        this._multipageLayout = printJobConfigurationParameterValue?.multipageLayout;
+        this._orientation = printJobConfigurationParameterValue?.orientation;
+        this._outputBin = printJobConfigurationParameterValue?.outputBin;
+        this._pageRanges = printJobConfigurationParameterValue?.pageRanges;
+        this._pagesPerSheet = printJobConfigurationParameterValue?.pagesPerSheet;
+        this._quality = printJobConfigurationParameterValue?.quality;
+        this._scaling = printJobConfigurationParameterValue?.scaling;
+    };
+    /**
+     * Gets the copies property value. The number of copies that should be printed. Read-only.
+     * @returns a integer
+     */
+    public get copies() {
+        return this._copies;
+    };
+    /**
+     * Sets the copies property value. The number of copies that should be printed. Read-only.
+     * @param value Value to set for the copies property.
+     */
+    public set copies(value: number | undefined) {
+        if(value) {
+            this._copies = value;
+        }
+    };
+    /**
+     * Gets the dpi property value. The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.
+     * @returns a integer
+     */
+    public get dpi() {
+        return this._dpi;
+    };
+    /**
+     * Sets the dpi property value. The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.
+     * @param value Value to set for the dpi property.
+     */
+    public set dpi(value: number | undefined) {
+        if(value) {
+            this._dpi = value;
+        }
+    };
+    /**
+     * Gets the duplexMode property value. The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
+     * @returns a printDuplexMode
+     */
+    public get duplexMode() {
+        return this._duplexMode;
+    };
+    /**
+     * Sets the duplexMode property value. The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
+     * @param value Value to set for the duplexMode property.
+     */
+    public set duplexMode(value: PrintDuplexMode | undefined) {
+        if(value) {
+            this._duplexMode = value;
+        }
+    };
+    /**
+     * Gets the feedOrientation property value. The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
+     * @returns a printerFeedOrientation
+     */
+    public get feedOrientation() {
+        return this._feedOrientation;
+    };
+    /**
+     * Sets the feedOrientation property value. The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
+     * @param value Value to set for the feedOrientation property.
+     */
+    public set feedOrientation(value: PrinterFeedOrientation | undefined) {
+        if(value) {
+            this._feedOrientation = value;
+        }
+    };
+    /**
+     * Gets the finishings property value. Finishing processes to use when printing.
+     * @returns a string
+     */
+    public get finishings() {
+        return this._finishings;
+    };
+    /**
+     * Sets the finishings property value. Finishing processes to use when printing.
+     * @param value Value to set for the finishings property.
+     */
+    public set finishings(value: string[] | undefined) {
+        if(value) {
+            this._finishings = value;
+        }
+    };
+    /**
+     * Gets the fitPdfToPage property value. The fitPdfToPage property
+     * @returns a boolean
+     */
+    public get fitPdfToPage() {
+        return this._fitPdfToPage;
+    };
+    /**
+     * Sets the fitPdfToPage property value. The fitPdfToPage property
+     * @param value Value to set for the fitPdfToPage property.
+     */
+    public set fitPdfToPage(value: boolean | undefined) {
+        if(value) {
+            this._fitPdfToPage = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -106,6 +250,186 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
             "quality": n => { this.quality = n.getEnumValue<PrintQuality>(PrintQuality); },
             "scaling": n => { this.scaling = n.getEnumValue<PrintScaling>(PrintScaling); },
         };
+    };
+    /**
+     * Gets the inputBin property value. The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.
+     * @returns a string
+     */
+    public get inputBin() {
+        return this._inputBin;
+    };
+    /**
+     * Sets the inputBin property value. The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.
+     * @param value Value to set for the inputBin property.
+     */
+    public set inputBin(value: string | undefined) {
+        if(value) {
+            this._inputBin = value;
+        }
+    };
+    /**
+     * Gets the margin property value. The margin settings to use when printing.
+     * @returns a PrintMarginInterface
+     */
+    public get margin() {
+        return this._margin;
+    };
+    /**
+     * Sets the margin property value. The margin settings to use when printing.
+     * @param value Value to set for the margin property.
+     */
+    public set margin(value: PrintMargin | undefined) {
+        if(value) {
+            this._margin = value instanceof PrintMarginImpl? value : new PrintMarginImpl(value);
+        }
+    };
+    /**
+     * Gets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
+     * @returns a string
+     */
+    public get mediaSize() {
+        return this._mediaSize;
+    };
+    /**
+     * Sets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
+     * @param value Value to set for the mediaSize property.
+     */
+    public set mediaSize(value: string | undefined) {
+        if(value) {
+            this._mediaSize = value;
+        }
+    };
+    /**
+     * Gets the mediaType property value. The default media (such as paper) type to print the document on.
+     * @returns a string
+     */
+    public get mediaType() {
+        return this._mediaType;
+    };
+    /**
+     * Sets the mediaType property value. The default media (such as paper) type to print the document on.
+     * @param value Value to set for the mediaType property.
+     */
+    public set mediaType(value: string | undefined) {
+        if(value) {
+            this._mediaType = value;
+        }
+    };
+    /**
+     * Gets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
+     * @returns a printMultipageLayout
+     */
+    public get multipageLayout() {
+        return this._multipageLayout;
+    };
+    /**
+     * Sets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
+     * @param value Value to set for the multipageLayout property.
+     */
+    public set multipageLayout(value: PrintMultipageLayout | undefined) {
+        if(value) {
+            this._multipageLayout = value;
+        }
+    };
+    /**
+     * Gets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
+     * @returns a printOrientation
+     */
+    public get orientation() {
+        return this._orientation;
+    };
+    /**
+     * Sets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
+     * @param value Value to set for the orientation property.
+     */
+    public set orientation(value: PrintOrientation | undefined) {
+        if(value) {
+            this._orientation = value;
+        }
+    };
+    /**
+     * Gets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
+     * @returns a string
+     */
+    public get outputBin() {
+        return this._outputBin;
+    };
+    /**
+     * Sets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
+     * @param value Value to set for the outputBin property.
+     */
+    public set outputBin(value: string | undefined) {
+        if(value) {
+            this._outputBin = value;
+        }
+    };
+    /**
+     * Gets the pageRanges property value. The page ranges to print. Read-only.
+     * @returns a IntegerRangeInterface
+     */
+    public get pageRanges() {
+        return this._pageRanges;
+    };
+    /**
+     * Sets the pageRanges property value. The page ranges to print. Read-only.
+     * @param value Value to set for the pageRanges property.
+     */
+    public set pageRanges(value: IntegerRange[] | undefined) {
+        if(value) {
+            const pageRangesArrValue: IntegerRangeImpl[] = [];
+            this.pageRanges?.forEach(element => {
+                pageRangesArrValue.push((element instanceof IntegerRangeImpl? element:new IntegerRangeImpl(element)));
+            });
+            this._pageRanges = pageRangesArrValue;
+        }
+    };
+    /**
+     * Gets the pagesPerSheet property value. The number of document pages to print on each sheet.
+     * @returns a integer
+     */
+    public get pagesPerSheet() {
+        return this._pagesPerSheet;
+    };
+    /**
+     * Sets the pagesPerSheet property value. The number of document pages to print on each sheet.
+     * @param value Value to set for the pagesPerSheet property.
+     */
+    public set pagesPerSheet(value: number | undefined) {
+        if(value) {
+            this._pagesPerSheet = value;
+        }
+    };
+    /**
+     * Gets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
+     * @returns a printQuality
+     */
+    public get quality() {
+        return this._quality;
+    };
+    /**
+     * Sets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
+     * @param value Value to set for the quality property.
+     */
+    public set quality(value: PrintQuality | undefined) {
+        if(value) {
+            this._quality = value;
+        }
+    };
+    /**
+     * Gets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
+     * @returns a printScaling
+     */
+    public get scaling() {
+        return this._scaling;
+    };
+    /**
+     * Sets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
+     * @param value Value to set for the scaling property.
+     */
+    public set scaling(value: PrintScaling | undefined) {
+        if(value) {
+            this._scaling = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -141,7 +465,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
             writer.writeStringValue("inputBin", this.inputBin);
         }
         if(this.margin){
-            writer.writeObjectValue<PrintMarginImpl>("margin", new PrintMarginImpl(this.margin));
+            writer.writeObjectValue<PrintMarginImpl>("margin", (!this.margin || this.margin instanceof PrintMarginImpl? this.margin : new PrintMarginImpl(this.margin)));
         }
         if(this.mediaSize){
             writer.writeStringValue("mediaSize", this.mediaSize);
@@ -158,7 +482,10 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
         if(this.outputBin){
             writer.writeStringValue("outputBin", this.outputBin);
         }
-        if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = []; this.pageRanges?.forEach(element => {pageRangesArrValue.push(new IntegerRangeImpl(element));});
+        if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = [];
+        this.pageRanges?.forEach(element => {
+            pageRangesArrValue.push((element instanceof IntegerRangeImpl? element:new IntegerRangeImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IntegerRangeImpl>("pageRanges", pageRangesArrValue);
         }
         if(this.pagesPerSheet){

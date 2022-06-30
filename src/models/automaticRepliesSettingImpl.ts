@@ -8,31 +8,79 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all. */
-    public externalAudience?: ExternalAudienceScope | undefined;
+    private _externalAudience?: ExternalAudienceScope | undefined;
     /** The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled. */
-    public externalReplyMessage?: string | undefined;
+    private _externalReplyMessage?: string | undefined;
     /** The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled. */
-    public internalReplyMessage?: string | undefined;
+    private _internalReplyMessage?: string | undefined;
     /** The date and time that automatic replies are set to end, if Status is set to Scheduled. */
-    public scheduledEndDateTime?: DateTimeTimeZone | undefined;
+    private _scheduledEndDateTime?: DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin, if Status is set to Scheduled. */
-    public scheduledStartDateTime?: DateTimeTimeZone | undefined;
+    private _scheduledStartDateTime?: DateTimeTimeZone | undefined;
     /** Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled. */
-    public status?: AutomaticRepliesStatus | undefined;
+    private _status?: AutomaticRepliesStatus | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new automaticRepliesSetting and sets the default values.
      * @param automaticRepliesSettingParameterValue 
      */
     public constructor(automaticRepliesSettingParameterValue?: AutomaticRepliesSetting | undefined) {
-        this.additionalData = automaticRepliesSettingParameterValue?.additionalData ? automaticRepliesSettingParameterValue?.additionalData! : {};
-        this.externalAudience = automaticRepliesSettingParameterValue?.externalAudience;
-        this.externalReplyMessage = automaticRepliesSettingParameterValue?.externalReplyMessage;
-        this.internalReplyMessage = automaticRepliesSettingParameterValue?.internalReplyMessage;
-        this.scheduledEndDateTime = automaticRepliesSettingParameterValue?.scheduledEndDateTime;
-        this.scheduledStartDateTime = automaticRepliesSettingParameterValue?.scheduledStartDateTime;
-        this.status = automaticRepliesSettingParameterValue?.status;
+        this._additionalData = automaticRepliesSettingParameterValue?.additionalData ? automaticRepliesSettingParameterValue?.additionalData! : {};
+        this._externalAudience = automaticRepliesSettingParameterValue?.externalAudience;
+        this._externalReplyMessage = automaticRepliesSettingParameterValue?.externalReplyMessage;
+        this._internalReplyMessage = automaticRepliesSettingParameterValue?.internalReplyMessage;
+        this._scheduledEndDateTime = automaticRepliesSettingParameterValue?.scheduledEndDateTime;
+        this._scheduledStartDateTime = automaticRepliesSettingParameterValue?.scheduledStartDateTime;
+        this._status = automaticRepliesSettingParameterValue?.status;
+    };
+    /**
+     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * @returns a externalAudienceScope
+     */
+    public get externalAudience() {
+        return this._externalAudience;
+    };
+    /**
+     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * @param value Value to set for the externalAudience property.
+     */
+    public set externalAudience(value: ExternalAudienceScope | undefined) {
+        if(value) {
+            this._externalAudience = value;
+        }
+    };
+    /**
+     * Gets the externalReplyMessage property value. The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled.
+     * @returns a string
+     */
+    public get externalReplyMessage() {
+        return this._externalReplyMessage;
+    };
+    /**
+     * Sets the externalReplyMessage property value. The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled.
+     * @param value Value to set for the externalReplyMessage property.
+     */
+    public set externalReplyMessage(value: string | undefined) {
+        if(value) {
+            this._externalReplyMessage = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -47,6 +95,54 @@ export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
             "scheduledStartDateTime": n => { this.scheduledStartDateTime = n.getObjectValue<DateTimeTimeZoneImpl>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<AutomaticRepliesStatus>(AutomaticRepliesStatus); },
         };
+    };
+    /**
+     * Gets the internalReplyMessage property value. The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled.
+     * @returns a string
+     */
+    public get internalReplyMessage() {
+        return this._internalReplyMessage;
+    };
+    /**
+     * Sets the internalReplyMessage property value. The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled.
+     * @param value Value to set for the internalReplyMessage property.
+     */
+    public set internalReplyMessage(value: string | undefined) {
+        if(value) {
+            this._internalReplyMessage = value;
+        }
+    };
+    /**
+     * Gets the scheduledEndDateTime property value. The date and time that automatic replies are set to end, if Status is set to Scheduled.
+     * @returns a DateTimeTimeZoneInterface
+     */
+    public get scheduledEndDateTime() {
+        return this._scheduledEndDateTime;
+    };
+    /**
+     * Sets the scheduledEndDateTime property value. The date and time that automatic replies are set to end, if Status is set to Scheduled.
+     * @param value Value to set for the scheduledEndDateTime property.
+     */
+    public set scheduledEndDateTime(value: DateTimeTimeZone | undefined) {
+        if(value) {
+            this._scheduledEndDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+        }
+    };
+    /**
+     * Gets the scheduledStartDateTime property value. The date and time that automatic replies are set to begin, if Status is set to Scheduled.
+     * @returns a DateTimeTimeZoneInterface
+     */
+    public get scheduledStartDateTime() {
+        return this._scheduledStartDateTime;
+    };
+    /**
+     * Sets the scheduledStartDateTime property value. The date and time that automatic replies are set to begin, if Status is set to Scheduled.
+     * @param value Value to set for the scheduledStartDateTime property.
+     */
+    public set scheduledStartDateTime(value: DateTimeTimeZone | undefined) {
+        if(value) {
+            this._scheduledStartDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+        }
     };
     /**
      * Serializes information the current object
@@ -64,14 +160,30 @@ export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
             writer.writeStringValue("internalReplyMessage", this.internalReplyMessage);
         }
         if(this.scheduledEndDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndDateTime", new DateTimeTimeZoneImpl(this.scheduledEndDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndDateTime", (!this.scheduledEndDateTime || this.scheduledEndDateTime instanceof DateTimeTimeZoneImpl? this.scheduledEndDateTime : new DateTimeTimeZoneImpl(this.scheduledEndDateTime)));
         }
         if(this.scheduledStartDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartDateTime", new DateTimeTimeZoneImpl(this.scheduledStartDateTime));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartDateTime", (!this.scheduledStartDateTime || this.scheduledStartDateTime instanceof DateTimeTimeZoneImpl? this.scheduledStartDateTime : new DateTimeTimeZoneImpl(this.scheduledStartDateTime)));
         }
         if(this.status){
             writer.writeEnumValue<AutomaticRepliesStatus>("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * @returns a automaticRepliesStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: AutomaticRepliesStatus | undefined) {
+        if(value) {
+            this._status = value;
+        }
     };
 }

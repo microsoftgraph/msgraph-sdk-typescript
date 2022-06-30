@@ -5,32 +5,64 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRoleAssignment {
     /** The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. */
-    public appRoleId?: string | undefined;
+    private _appRoleId?: string | undefined;
     /** The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith). */
-    public principalDisplayName?: string | undefined;
+    private _principalDisplayName?: string | undefined;
     /** The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create. */
-    public principalId?: string | undefined;
+    private _principalId?: string | undefined;
     /** The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only. */
-    public principalType?: string | undefined;
+    private _principalType?: string | undefined;
     /** The display name of the resource app's service principal to which the assignment is made. */
-    public resourceDisplayName?: string | undefined;
+    private _resourceDisplayName?: string | undefined;
     /** The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only). */
-    public resourceId?: string | undefined;
+    private _resourceId?: string | undefined;
+    /**
+     * Gets the appRoleId property value. The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create.
+     * @returns a string
+     */
+    public get appRoleId() {
+        return this._appRoleId;
+    };
+    /**
+     * Sets the appRoleId property value. The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create.
+     * @param value Value to set for the appRoleId property.
+     */
+    public set appRoleId(value: string | undefined) {
+        if(value) {
+            this._appRoleId = value;
+        }
+    };
     /**
      * Instantiates a new appRoleAssignment and sets the default values.
      * @param appRoleAssignmentParameterValue 
      */
     public constructor(appRoleAssignmentParameterValue?: AppRoleAssignment | undefined) {
         super(appRoleAssignmentParameterValue);
-        this.appRoleId = appRoleAssignmentParameterValue?.appRoleId;
-        this.createdDateTime = appRoleAssignmentParameterValue?.createdDateTime;
-        this.principalDisplayName = appRoleAssignmentParameterValue?.principalDisplayName;
-        this.principalId = appRoleAssignmentParameterValue?.principalId;
-        this.principalType = appRoleAssignmentParameterValue?.principalType;
-        this.resourceDisplayName = appRoleAssignmentParameterValue?.resourceDisplayName;
-        this.resourceId = appRoleAssignmentParameterValue?.resourceId;
+        this._appRoleId = appRoleAssignmentParameterValue?.appRoleId;
+        this._createdDateTime = appRoleAssignmentParameterValue?.createdDateTime;
+        this._principalDisplayName = appRoleAssignmentParameterValue?.principalDisplayName;
+        this._principalId = appRoleAssignmentParameterValue?.principalId;
+        this._principalType = appRoleAssignmentParameterValue?.principalType;
+        this._resourceDisplayName = appRoleAssignmentParameterValue?.resourceDisplayName;
+        this._resourceId = appRoleAssignmentParameterValue?.resourceId;
+    };
+    /**
+     * Gets the createdDateTime property value. The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +78,86 @@ export class AppRoleAssignmentImpl extends DirectoryObjectImpl implements AppRol
             "resourceDisplayName": n => { this.resourceDisplayName = n.getStringValue(); },
             "resourceId": n => { this.resourceId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the principalDisplayName property value. The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).
+     * @returns a string
+     */
+    public get principalDisplayName() {
+        return this._principalDisplayName;
+    };
+    /**
+     * Sets the principalDisplayName property value. The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).
+     * @param value Value to set for the principalDisplayName property.
+     */
+    public set principalDisplayName(value: string | undefined) {
+        if(value) {
+            this._principalDisplayName = value;
+        }
+    };
+    /**
+     * Gets the principalId property value. The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
+     * @returns a string
+     */
+    public get principalId() {
+        return this._principalId;
+    };
+    /**
+     * Sets the principalId property value. The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
+     * @param value Value to set for the principalId property.
+     */
+    public set principalId(value: string | undefined) {
+        if(value) {
+            this._principalId = value;
+        }
+    };
+    /**
+     * Gets the principalType property value. The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only.
+     * @returns a string
+     */
+    public get principalType() {
+        return this._principalType;
+    };
+    /**
+     * Sets the principalType property value. The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only.
+     * @param value Value to set for the principalType property.
+     */
+    public set principalType(value: string | undefined) {
+        if(value) {
+            this._principalType = value;
+        }
+    };
+    /**
+     * Gets the resourceDisplayName property value. The display name of the resource app's service principal to which the assignment is made.
+     * @returns a string
+     */
+    public get resourceDisplayName() {
+        return this._resourceDisplayName;
+    };
+    /**
+     * Sets the resourceDisplayName property value. The display name of the resource app's service principal to which the assignment is made.
+     * @param value Value to set for the resourceDisplayName property.
+     */
+    public set resourceDisplayName(value: string | undefined) {
+        if(value) {
+            this._resourceDisplayName = value;
+        }
+    };
+    /**
+     * Gets the resourceId property value. The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).
+     * @returns a string
+     */
+    public get resourceId() {
+        return this._resourceId;
+    };
+    /**
+     * Sets the resourceId property value. The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).
+     * @param value Value to set for the resourceId property.
+     */
+    public set resourceId(value: string | undefined) {
+        if(value) {
+            this._resourceId = value;
+        }
     };
     /**
      * Serializes information the current object

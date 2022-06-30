@@ -4,28 +4,44 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the copyToSectionGroup method. */
 export class CopyToSectionGroupPostRequestBodyImpl implements CopyToSectionGroupPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The groupId property */
-    public groupId?: string | undefined;
+    private _groupId?: string | undefined;
     /** The id property */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** The renameAs property */
-    public renameAs?: string | undefined;
+    private _renameAs?: string | undefined;
     /** The siteCollectionId property */
-    public siteCollectionId?: string | undefined;
+    private _siteCollectionId?: string | undefined;
     /** The siteId property */
-    public siteId?: string | undefined;
+    private _siteId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new copyToSectionGroupPostRequestBody and sets the default values.
      * @param copyToSectionGroupPostRequestBodyParameterValue 
      */
     public constructor(copyToSectionGroupPostRequestBodyParameterValue?: CopyToSectionGroupPostRequestBody | undefined) {
-        this.additionalData = copyToSectionGroupPostRequestBodyParameterValue?.additionalData ? copyToSectionGroupPostRequestBodyParameterValue?.additionalData! : {};
-        this.groupId = copyToSectionGroupPostRequestBodyParameterValue?.groupId;
-        this.id = copyToSectionGroupPostRequestBodyParameterValue?.id;
-        this.renameAs = copyToSectionGroupPostRequestBodyParameterValue?.renameAs;
-        this.siteCollectionId = copyToSectionGroupPostRequestBodyParameterValue?.siteCollectionId;
-        this.siteId = copyToSectionGroupPostRequestBodyParameterValue?.siteId;
+        this._additionalData = copyToSectionGroupPostRequestBodyParameterValue?.additionalData ? copyToSectionGroupPostRequestBodyParameterValue?.additionalData! : {};
+        this._groupId = copyToSectionGroupPostRequestBodyParameterValue?.groupId;
+        this._id = copyToSectionGroupPostRequestBodyParameterValue?.id;
+        this._renameAs = copyToSectionGroupPostRequestBodyParameterValue?.renameAs;
+        this._siteCollectionId = copyToSectionGroupPostRequestBodyParameterValue?.siteCollectionId;
+        this._siteId = copyToSectionGroupPostRequestBodyParameterValue?.siteId;
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,54 @@ export class CopyToSectionGroupPostRequestBodyImpl implements CopyToSectionGroup
             "siteCollectionId": n => { this.siteCollectionId = n.getStringValue(); },
             "siteId": n => { this.siteId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the groupId property value. The groupId property
+     * @returns a string
+     */
+    public get groupId() {
+        return this._groupId;
+    };
+    /**
+     * Sets the groupId property value. The groupId property
+     * @param value Value to set for the groupId property.
+     */
+    public set groupId(value: string | undefined) {
+        if(value) {
+            this._groupId = value;
+        }
+    };
+    /**
+     * Gets the id property value. The id property
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. The id property
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the renameAs property value. The renameAs property
+     * @returns a string
+     */
+    public get renameAs() {
+        return this._renameAs;
+    };
+    /**
+     * Sets the renameAs property value. The renameAs property
+     * @param value Value to set for the renameAs property.
+     */
+    public set renameAs(value: string | undefined) {
+        if(value) {
+            this._renameAs = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,5 +126,37 @@ export class CopyToSectionGroupPostRequestBodyImpl implements CopyToSectionGroup
             writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the siteCollectionId property value. The siteCollectionId property
+     * @returns a string
+     */
+    public get siteCollectionId() {
+        return this._siteCollectionId;
+    };
+    /**
+     * Sets the siteCollectionId property value. The siteCollectionId property
+     * @param value Value to set for the siteCollectionId property.
+     */
+    public set siteCollectionId(value: string | undefined) {
+        if(value) {
+            this._siteCollectionId = value;
+        }
+    };
+    /**
+     * Gets the siteId property value. The siteId property
+     * @returns a string
+     */
+    public get siteId() {
+        return this._siteId;
+    };
+    /**
+     * Sets the siteId property value. The siteId property
+     * @param value Value to set for the siteId property.
+     */
+    public set siteId(value: string | undefined) {
+        if(value) {
+            this._siteId = value;
+        }
     };
 }

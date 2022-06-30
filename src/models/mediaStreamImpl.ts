@@ -5,28 +5,60 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaStreamImpl implements MediaStream {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive. */
-    public direction?: MediaDirection | undefined;
+    private _direction?: MediaDirection | undefined;
     /** The media stream label. */
-    public label?: string | undefined;
+    private _label?: string | undefined;
     /** The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data. */
-    public mediaType?: Modality | undefined;
+    private _mediaType?: Modality | undefined;
     /** Indicates whether the media is muted by the server. */
-    public serverMuted?: boolean | undefined;
+    private _serverMuted?: boolean | undefined;
     /** The source ID. */
-    public sourceId?: string | undefined;
+    private _sourceId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mediaStream and sets the default values.
      * @param mediaStreamParameterValue 
      */
     public constructor(mediaStreamParameterValue?: MediaStream | undefined) {
-        this.additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {};
-        this.direction = mediaStreamParameterValue?.direction;
-        this.label = mediaStreamParameterValue?.label;
-        this.mediaType = mediaStreamParameterValue?.mediaType;
-        this.serverMuted = mediaStreamParameterValue?.serverMuted;
-        this.sourceId = mediaStreamParameterValue?.sourceId;
+        this._additionalData = mediaStreamParameterValue?.additionalData ? mediaStreamParameterValue?.additionalData! : {};
+        this._direction = mediaStreamParameterValue?.direction;
+        this._label = mediaStreamParameterValue?.label;
+        this._mediaType = mediaStreamParameterValue?.mediaType;
+        this._serverMuted = mediaStreamParameterValue?.serverMuted;
+        this._sourceId = mediaStreamParameterValue?.sourceId;
+    };
+    /**
+     * Gets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
+     * @returns a mediaDirection
+     */
+    public get direction() {
+        return this._direction;
+    };
+    /**
+     * Sets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
+     * @param value Value to set for the direction property.
+     */
+    public set direction(value: MediaDirection | undefined) {
+        if(value) {
+            this._direction = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +72,38 @@ export class MediaStreamImpl implements MediaStream {
             "serverMuted": n => { this.serverMuted = n.getBooleanValue(); },
             "sourceId": n => { this.sourceId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the label property value. The media stream label.
+     * @returns a string
+     */
+    public get label() {
+        return this._label;
+    };
+    /**
+     * Sets the label property value. The media stream label.
+     * @param value Value to set for the label property.
+     */
+    public set label(value: string | undefined) {
+        if(value) {
+            this._label = value;
+        }
+    };
+    /**
+     * Gets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
+     * @returns a modality
+     */
+    public get mediaType() {
+        return this._mediaType;
+    };
+    /**
+     * Sets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
+     * @param value Value to set for the mediaType property.
+     */
+    public set mediaType(value: Modality | undefined) {
+        if(value) {
+            this._mediaType = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -63,5 +127,37 @@ export class MediaStreamImpl implements MediaStream {
             writer.writeStringValue("sourceId", this.sourceId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the serverMuted property value. Indicates whether the media is muted by the server.
+     * @returns a boolean
+     */
+    public get serverMuted() {
+        return this._serverMuted;
+    };
+    /**
+     * Sets the serverMuted property value. Indicates whether the media is muted by the server.
+     * @param value Value to set for the serverMuted property.
+     */
+    public set serverMuted(value: boolean | undefined) {
+        if(value) {
+            this._serverMuted = value;
+        }
+    };
+    /**
+     * Gets the sourceId property value. The source ID.
+     * @returns a string
+     */
+    public get sourceId() {
+        return this._sourceId;
+    };
+    /**
+     * Sets the sourceId property value. The source ID.
+     * @param value Value to set for the sourceId property.
+     */
+    public set sourceId(value: string | undefined) {
+        if(value) {
+            this._sourceId = value;
+        }
     };
 }

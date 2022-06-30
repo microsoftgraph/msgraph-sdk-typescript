@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to call the findMeetingTimes method. */
 export class LocationConstraintItemImpl extends LocationImpl implements LocationConstraintItem {
     /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true. */
-    public resolveAvailability?: boolean | undefined;
+    private _resolveAvailability?: boolean | undefined;
     /**
      * Instantiates a new locationConstraintItem and sets the default values.
      * @param locationConstraintItemParameterValue 
      */
     public constructor(locationConstraintItemParameterValue?: LocationConstraintItem | undefined) {
         super(locationConstraintItemParameterValue);
-        this.resolveAvailability = locationConstraintItemParameterValue?.resolveAvailability;
+        this._resolveAvailability = locationConstraintItemParameterValue?.resolveAvailability;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class LocationConstraintItemImpl extends LocationImpl implements Location
         return {...super.getFieldDeserializers(),
             "resolveAvailability": n => { this.resolveAvailability = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the resolveAvailability property value. If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
+     * @returns a boolean
+     */
+    public get resolveAvailability() {
+        return this._resolveAvailability;
+    };
+    /**
+     * Sets the resolveAvailability property value. If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
+     * @param value Value to set for the resolveAvailability property.
+     */
+    public set resolveAvailability(value: boolean | undefined) {
+        if(value) {
+            this._resolveAvailability = value;
+        }
     };
     /**
      * Serializes information the current object

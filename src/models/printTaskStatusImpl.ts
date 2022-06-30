@@ -4,19 +4,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintTaskStatusImpl implements PrintTaskStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A human-readable description of the current processing state of the printTask. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The current processing state of the printTask. Valid values are described in the following table. */
-    public state?: PrintTaskProcessingState | undefined;
+    private _state?: PrintTaskProcessingState | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new printTaskStatus and sets the default values.
      * @param printTaskStatusParameterValue 
      */
     public constructor(printTaskStatusParameterValue?: PrintTaskStatus | undefined) {
-        this.additionalData = printTaskStatusParameterValue?.additionalData ? printTaskStatusParameterValue?.additionalData! : {};
-        this.description = printTaskStatusParameterValue?.description;
-        this.state = printTaskStatusParameterValue?.state;
+        this._additionalData = printTaskStatusParameterValue?.additionalData ? printTaskStatusParameterValue?.additionalData! : {};
+        this._description = printTaskStatusParameterValue?.description;
+        this._state = printTaskStatusParameterValue?.state;
+    };
+    /**
+     * Gets the description property value. A human-readable description of the current processing state of the printTask.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. A human-readable description of the current processing state of the printTask.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -41,5 +73,21 @@ export class PrintTaskStatusImpl implements PrintTaskStatus {
             writer.writeEnumValue<PrintTaskProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. The current processing state of the printTask. Valid values are described in the following table.
+     * @returns a printTaskProcessingState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The current processing state of the printTask. Valid values are described in the following table.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: PrintTaskProcessingState | undefined) {
+        if(value) {
+            this._state = value;
+        }
     };
 }

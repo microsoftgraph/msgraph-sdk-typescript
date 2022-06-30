@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChannelIdentityImpl implements ChannelIdentity {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The identity of the channel in which the message was posted. */
-    public channelId?: string | undefined;
+    private _channelId?: string | undefined;
     /** The identity of the team in which the message was posted. */
-    public teamId?: string | undefined;
+    private _teamId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the channelId property value. The identity of the channel in which the message was posted.
+     * @returns a string
+     */
+    public get channelId() {
+        return this._channelId;
+    };
+    /**
+     * Sets the channelId property value. The identity of the channel in which the message was posted.
+     * @param value Value to set for the channelId property.
+     */
+    public set channelId(value: string | undefined) {
+        if(value) {
+            this._channelId = value;
+        }
+    };
     /**
      * Instantiates a new channelIdentity and sets the default values.
      * @param channelIdentityParameterValue 
      */
     public constructor(channelIdentityParameterValue?: ChannelIdentity | undefined) {
-        this.additionalData = channelIdentityParameterValue?.additionalData ? channelIdentityParameterValue?.additionalData! : {};
-        this.channelId = channelIdentityParameterValue?.channelId;
-        this.teamId = channelIdentityParameterValue?.teamId;
+        this._additionalData = channelIdentityParameterValue?.additionalData ? channelIdentityParameterValue?.additionalData! : {};
+        this._channelId = channelIdentityParameterValue?.channelId;
+        this._teamId = channelIdentityParameterValue?.teamId;
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +72,21 @@ export class ChannelIdentityImpl implements ChannelIdentity {
             writer.writeStringValue("teamId", this.teamId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the teamId property value. The identity of the team in which the message was posted.
+     * @returns a string
+     */
+    public get teamId() {
+        return this._teamId;
+    };
+    /**
+     * Sets the teamId property value. The identity of the team in which the message was posted.
+     * @param value Value to set for the teamId property.
+     */
+    public set teamId(value: string | undefined) {
+        if(value) {
+            this._teamId = value;
+        }
     };
 }

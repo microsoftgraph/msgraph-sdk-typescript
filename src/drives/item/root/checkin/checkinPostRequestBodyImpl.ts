@@ -4,19 +4,67 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the checkin method. */
 export class CheckinPostRequestBodyImpl implements CheckinPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The checkInAs property */
-    public checkInAs?: string | undefined;
+    private _checkInAs?: string | undefined;
     /** The comment property */
-    public comment?: string | undefined;
+    private _comment?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the checkInAs property value. The checkInAs property
+     * @returns a string
+     */
+    public get checkInAs() {
+        return this._checkInAs;
+    };
+    /**
+     * Sets the checkInAs property value. The checkInAs property
+     * @param value Value to set for the checkInAs property.
+     */
+    public set checkInAs(value: string | undefined) {
+        if(value) {
+            this._checkInAs = value;
+        }
+    };
+    /**
+     * Gets the comment property value. The comment property
+     * @returns a string
+     */
+    public get comment() {
+        return this._comment;
+    };
+    /**
+     * Sets the comment property value. The comment property
+     * @param value Value to set for the comment property.
+     */
+    public set comment(value: string | undefined) {
+        if(value) {
+            this._comment = value;
+        }
+    };
     /**
      * Instantiates a new checkinPostRequestBody and sets the default values.
      * @param checkinPostRequestBodyParameterValue 
      */
     public constructor(checkinPostRequestBodyParameterValue?: CheckinPostRequestBody | undefined) {
-        this.additionalData = checkinPostRequestBodyParameterValue?.additionalData ? checkinPostRequestBodyParameterValue?.additionalData! : {};
-        this.checkInAs = checkinPostRequestBodyParameterValue?.checkInAs;
-        this.comment = checkinPostRequestBodyParameterValue?.comment;
+        this._additionalData = checkinPostRequestBodyParameterValue?.additionalData ? checkinPostRequestBodyParameterValue?.additionalData! : {};
+        this._checkInAs = checkinPostRequestBodyParameterValue?.checkInAs;
+        this._comment = checkinPostRequestBodyParameterValue?.comment;
     };
     /**
      * The deserialization information for the current model

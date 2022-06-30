@@ -4,19 +4,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the assignUserToDevice method. */
 export class AssignUserToDevicePostRequestBodyImpl implements AssignUserToDevicePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The addressableUserName property */
-    public addressableUserName?: string | undefined;
+    private _addressableUserName?: string | undefined;
     /** The userPrincipalName property */
-    public userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the addressableUserName property value. The addressableUserName property
+     * @returns a string
+     */
+    public get addressableUserName() {
+        return this._addressableUserName;
+    };
+    /**
+     * Sets the addressableUserName property value. The addressableUserName property
+     * @param value Value to set for the addressableUserName property.
+     */
+    public set addressableUserName(value: string | undefined) {
+        if(value) {
+            this._addressableUserName = value;
+        }
+    };
     /**
      * Instantiates a new assignUserToDevicePostRequestBody and sets the default values.
      * @param assignUserToDevicePostRequestBodyParameterValue 
      */
     public constructor(assignUserToDevicePostRequestBodyParameterValue?: AssignUserToDevicePostRequestBody | undefined) {
-        this.additionalData = assignUserToDevicePostRequestBodyParameterValue?.additionalData ? assignUserToDevicePostRequestBodyParameterValue?.additionalData! : {};
-        this.addressableUserName = assignUserToDevicePostRequestBodyParameterValue?.addressableUserName;
-        this.userPrincipalName = assignUserToDevicePostRequestBodyParameterValue?.userPrincipalName;
+        this._additionalData = assignUserToDevicePostRequestBodyParameterValue?.additionalData ? assignUserToDevicePostRequestBodyParameterValue?.additionalData! : {};
+        this._addressableUserName = assignUserToDevicePostRequestBodyParameterValue?.addressableUserName;
+        this._userPrincipalName = assignUserToDevicePostRequestBodyParameterValue?.userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -41,5 +73,21 @@ export class AssignUserToDevicePostRequestBodyImpl implements AssignUserToDevice
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the userPrincipalName property value. The userPrincipalName property
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
+    };
+    /**
+     * Sets the userPrincipalName property value. The userPrincipalName property
+     * @param value Value to set for the userPrincipalName property.
+     */
+    public set userPrincipalName(value: string | undefined) {
+        if(value) {
+            this._userPrincipalName = value;
+        }
     };
 }

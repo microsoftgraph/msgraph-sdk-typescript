@@ -12,35 +12,99 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class ConditionalAccessPolicyImpl extends EntityImpl implements ConditionalAccessPolicy {
     /** The conditions property */
-    public conditions?: ConditionalAccessConditionSet | undefined;
+    private _conditions?: ConditionalAccessConditionSet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** Not used. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Specifies a display name for the conditionalAccessPolicy object. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Specifies the grant controls that must be fulfilled to pass the policy. */
-    public grantControls?: ConditionalAccessGrantControls | undefined;
+    private _grantControls?: ConditionalAccessGrantControls | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
-    public modifiedDateTime?: Date | undefined;
+    private _modifiedDateTime?: Date | undefined;
     /** Specifies the session controls that are enforced after sign-in. */
-    public sessionControls?: ConditionalAccessSessionControls | undefined;
+    private _sessionControls?: ConditionalAccessSessionControls | undefined;
     /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
-    public state?: ConditionalAccessPolicyState | undefined;
+    private _state?: ConditionalAccessPolicyState | undefined;
+    /**
+     * Gets the conditions property value. The conditions property
+     * @returns a ConditionalAccessConditionSetInterface
+     */
+    public get conditions() {
+        return this._conditions;
+    };
+    /**
+     * Sets the conditions property value. The conditions property
+     * @param value Value to set for the conditions property.
+     */
+    public set conditions(value: ConditionalAccessConditionSet | undefined) {
+        if(value) {
+            this._conditions = value instanceof ConditionalAccessConditionSetImpl? value : new ConditionalAccessConditionSetImpl(value);
+        }
+    };
     /**
      * Instantiates a new conditionalAccessPolicy and sets the default values.
      * @param conditionalAccessPolicyParameterValue 
      */
     public constructor(conditionalAccessPolicyParameterValue?: ConditionalAccessPolicy | undefined) {
         super(conditionalAccessPolicyParameterValue);
-        this.conditions = conditionalAccessPolicyParameterValue?.conditions;
-        this.createdDateTime = conditionalAccessPolicyParameterValue?.createdDateTime;
-        this.description = conditionalAccessPolicyParameterValue?.description;
-        this.displayName = conditionalAccessPolicyParameterValue?.displayName;
-        this.grantControls = conditionalAccessPolicyParameterValue?.grantControls;
-        this.modifiedDateTime = conditionalAccessPolicyParameterValue?.modifiedDateTime;
-        this.sessionControls = conditionalAccessPolicyParameterValue?.sessionControls;
-        this.state = conditionalAccessPolicyParameterValue?.state;
+        this._conditions = conditionalAccessPolicyParameterValue?.conditions;
+        this._createdDateTime = conditionalAccessPolicyParameterValue?.createdDateTime;
+        this._description = conditionalAccessPolicyParameterValue?.description;
+        this._displayName = conditionalAccessPolicyParameterValue?.displayName;
+        this._grantControls = conditionalAccessPolicyParameterValue?.grantControls;
+        this._modifiedDateTime = conditionalAccessPolicyParameterValue?.modifiedDateTime;
+        this._sessionControls = conditionalAccessPolicyParameterValue?.sessionControls;
+        this._state = conditionalAccessPolicyParameterValue?.state;
+    };
+    /**
+     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the description property value. Not used.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Not used.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Specifies a display name for the conditionalAccessPolicy object.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Specifies a display name for the conditionalAccessPolicy object.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -59,6 +123,38 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
         };
     };
     /**
+     * Gets the grantControls property value. Specifies the grant controls that must be fulfilled to pass the policy.
+     * @returns a ConditionalAccessGrantControlsInterface
+     */
+    public get grantControls() {
+        return this._grantControls;
+    };
+    /**
+     * Sets the grantControls property value. Specifies the grant controls that must be fulfilled to pass the policy.
+     * @param value Value to set for the grantControls property.
+     */
+    public set grantControls(value: ConditionalAccessGrantControls | undefined) {
+        if(value) {
+            this._grantControls = value instanceof ConditionalAccessGrantControlsImpl? value : new ConditionalAccessGrantControlsImpl(value);
+        }
+    };
+    /**
+     * Gets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.
+     * @returns a Date
+     */
+    public get modifiedDateTime() {
+        return this._modifiedDateTime;
+    };
+    /**
+     * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.
+     * @param value Value to set for the modifiedDateTime property.
+     */
+    public set modifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._modifiedDateTime = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -66,7 +162,7 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conditions){
-            writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", new ConditionalAccessConditionSetImpl(this.conditions));
+            writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", (!this.conditions || this.conditions instanceof ConditionalAccessConditionSetImpl? this.conditions : new ConditionalAccessConditionSetImpl(this.conditions)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -78,16 +174,48 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grantControls){
-            writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", new ConditionalAccessGrantControlsImpl(this.grantControls));
+            writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", (!this.grantControls || this.grantControls instanceof ConditionalAccessGrantControlsImpl? this.grantControls : new ConditionalAccessGrantControlsImpl(this.grantControls)));
         }
         if(this.modifiedDateTime){
             writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.sessionControls){
-            writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", new ConditionalAccessSessionControlsImpl(this.sessionControls));
+            writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", (!this.sessionControls || this.sessionControls instanceof ConditionalAccessSessionControlsImpl? this.sessionControls : new ConditionalAccessSessionControlsImpl(this.sessionControls)));
         }
         if(this.state){
             writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
+        }
+    };
+    /**
+     * Gets the sessionControls property value. Specifies the session controls that are enforced after sign-in.
+     * @returns a ConditionalAccessSessionControlsInterface
+     */
+    public get sessionControls() {
+        return this._sessionControls;
+    };
+    /**
+     * Sets the sessionControls property value. Specifies the session controls that are enforced after sign-in.
+     * @param value Value to set for the sessionControls property.
+     */
+    public set sessionControls(value: ConditionalAccessSessionControls | undefined) {
+        if(value) {
+            this._sessionControls = value instanceof ConditionalAccessSessionControlsImpl? value : new ConditionalAccessSessionControlsImpl(value);
+        }
+    };
+    /**
+     * Gets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * @returns a conditionalAccessPolicyState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: ConditionalAccessPolicyState | undefined) {
+        if(value) {
+            this._state = value;
         }
     };
 }

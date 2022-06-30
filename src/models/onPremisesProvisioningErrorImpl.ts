@@ -3,25 +3,57 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OnPremisesProvisioningErrorImpl implements OnPremisesProvisioningError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Category of the provisioning error. Note: Currently, there is only one possible value. Possible value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the property. */
-    public category?: string | undefined;
+    private _category?: string | undefined;
     /** The date and time at which the error occurred. */
-    public occurredDateTime?: Date | undefined;
+    private _occurredDateTime?: Date | undefined;
     /** Name of the directory property causing the error. Current possible values: UserPrincipalName or ProxyAddress */
-    public propertyCausingError?: string | undefined;
+    private _propertyCausingError?: string | undefined;
     /** Value of the property causing the error. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the category property value. Category of the provisioning error. Note: Currently, there is only one possible value. Possible value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the property.
+     * @returns a string
+     */
+    public get category() {
+        return this._category;
+    };
+    /**
+     * Sets the category property value. Category of the provisioning error. Note: Currently, there is only one possible value. Possible value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the property.
+     * @param value Value to set for the category property.
+     */
+    public set category(value: string | undefined) {
+        if(value) {
+            this._category = value;
+        }
+    };
     /**
      * Instantiates a new onPremisesProvisioningError and sets the default values.
      * @param onPremisesProvisioningErrorParameterValue 
      */
     public constructor(onPremisesProvisioningErrorParameterValue?: OnPremisesProvisioningError | undefined) {
-        this.additionalData = onPremisesProvisioningErrorParameterValue?.additionalData ? onPremisesProvisioningErrorParameterValue?.additionalData! : {};
-        this.category = onPremisesProvisioningErrorParameterValue?.category;
-        this.occurredDateTime = onPremisesProvisioningErrorParameterValue?.occurredDateTime;
-        this.propertyCausingError = onPremisesProvisioningErrorParameterValue?.propertyCausingError;
-        this.value = onPremisesProvisioningErrorParameterValue?.value;
+        this._additionalData = onPremisesProvisioningErrorParameterValue?.additionalData ? onPremisesProvisioningErrorParameterValue?.additionalData! : {};
+        this._category = onPremisesProvisioningErrorParameterValue?.category;
+        this._occurredDateTime = onPremisesProvisioningErrorParameterValue?.occurredDateTime;
+        this._propertyCausingError = onPremisesProvisioningErrorParameterValue?.propertyCausingError;
+        this._value = onPremisesProvisioningErrorParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +66,38 @@ export class OnPremisesProvisioningErrorImpl implements OnPremisesProvisioningEr
             "propertyCausingError": n => { this.propertyCausingError = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the occurredDateTime property value. The date and time at which the error occurred.
+     * @returns a Date
+     */
+    public get occurredDateTime() {
+        return this._occurredDateTime;
+    };
+    /**
+     * Sets the occurredDateTime property value. The date and time at which the error occurred.
+     * @param value Value to set for the occurredDateTime property.
+     */
+    public set occurredDateTime(value: Date | undefined) {
+        if(value) {
+            this._occurredDateTime = value;
+        }
+    };
+    /**
+     * Gets the propertyCausingError property value. Name of the directory property causing the error. Current possible values: UserPrincipalName or ProxyAddress
+     * @returns a string
+     */
+    public get propertyCausingError() {
+        return this._propertyCausingError;
+    };
+    /**
+     * Sets the propertyCausingError property value. Name of the directory property causing the error. Current possible values: UserPrincipalName or ProxyAddress
+     * @param value Value to set for the propertyCausingError property.
+     */
+    public set propertyCausingError(value: string | undefined) {
+        if(value) {
+            this._propertyCausingError = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -54,5 +118,21 @@ export class OnPremisesProvisioningErrorImpl implements OnPremisesProvisioningEr
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. Value of the property causing the error.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. Value of the property causing the error.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

@@ -35,56 +35,200 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the policyRoot singleton. */
 export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
     /** The policy that controls the idle time out for web sessions for applications. */
-    public activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
+    private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
     /** The policy by which consent requests are created and managed for the entire tenant. */
-    public adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
+    private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */
-    public authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
+    private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
     /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
-    public authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
+    private _authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
     /** The policy that controls Azure AD authorization settings. */
-    public authorizationPolicy?: AuthorizationPolicy | undefined;
+    private _authorizationPolicy?: AuthorizationPolicy | undefined;
     /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
-    public claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
+    private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** The custom rules that define an access scenario. */
-    public conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
+    private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
     /** The feature rollout policy associated with a directory object. */
-    public featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
+    private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
     /** The policy to control Azure AD authentication behavior for federated users. */
-    public homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
+    private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** The policy that represents the security defaults that protect against common attacks. */
-    public identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
+    private _identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
     /** The policy that specifies the conditions under which consent can be granted. */
-    public permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
+    private _permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
     /** Represents the role management policies. */
-    public roleManagementPolicies?: UnifiedRoleManagementPolicy[] | undefined;
+    private _roleManagementPolicies?: UnifiedRoleManagementPolicy[] | undefined;
     /** Represents the role management policy assignments. */
-    public roleManagementPolicyAssignments?: UnifiedRoleManagementPolicyAssignment[] | undefined;
+    private _roleManagementPolicyAssignments?: UnifiedRoleManagementPolicyAssignment[] | undefined;
     /** The policy that specifies the characteristics of SAML tokens issued by Azure AD. */
-    public tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
+    private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD. */
-    public tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
+    private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
+    /**
+     * Gets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
+     * @returns a ActivityBasedTimeoutPolicyInterface
+     */
+    public get activityBasedTimeoutPolicies() {
+        return this._activityBasedTimeoutPolicies;
+    };
+    /**
+     * Sets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
+     * @param value Value to set for the activityBasedTimeoutPolicies property.
+     */
+    public set activityBasedTimeoutPolicies(value: ActivityBasedTimeoutPolicy[] | undefined) {
+        if(value) {
+            const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = [];
+            this.activityBasedTimeoutPolicies?.forEach(element => {
+                activityBasedTimeoutPoliciesArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element:new ActivityBasedTimeoutPolicyImpl(element)));
+            });
+            this._activityBasedTimeoutPolicies = activityBasedTimeoutPoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
+     * @returns a AdminConsentRequestPolicyInterface
+     */
+    public get adminConsentRequestPolicy() {
+        return this._adminConsentRequestPolicy;
+    };
+    /**
+     * Sets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
+     * @param value Value to set for the adminConsentRequestPolicy property.
+     */
+    public set adminConsentRequestPolicy(value: AdminConsentRequestPolicy | undefined) {
+        if(value) {
+            this._adminConsentRequestPolicy = value instanceof AdminConsentRequestPolicyImpl? value : new AdminConsentRequestPolicyImpl(value);
+        }
+    };
+    /**
+     * Gets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
+     * @returns a AuthenticationFlowsPolicyInterface
+     */
+    public get authenticationFlowsPolicy() {
+        return this._authenticationFlowsPolicy;
+    };
+    /**
+     * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
+     * @param value Value to set for the authenticationFlowsPolicy property.
+     */
+    public set authenticationFlowsPolicy(value: AuthenticationFlowsPolicy | undefined) {
+        if(value) {
+            this._authenticationFlowsPolicy = value instanceof AuthenticationFlowsPolicyImpl? value : new AuthenticationFlowsPolicyImpl(value);
+        }
+    };
+    /**
+     * Gets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
+     * @returns a AuthenticationMethodsPolicyInterface
+     */
+    public get authenticationMethodsPolicy() {
+        return this._authenticationMethodsPolicy;
+    };
+    /**
+     * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
+     * @param value Value to set for the authenticationMethodsPolicy property.
+     */
+    public set authenticationMethodsPolicy(value: AuthenticationMethodsPolicy | undefined) {
+        if(value) {
+            this._authenticationMethodsPolicy = value instanceof AuthenticationMethodsPolicyImpl? value : new AuthenticationMethodsPolicyImpl(value);
+        }
+    };
+    /**
+     * Gets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
+     * @returns a AuthorizationPolicyInterface
+     */
+    public get authorizationPolicy() {
+        return this._authorizationPolicy;
+    };
+    /**
+     * Sets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
+     * @param value Value to set for the authorizationPolicy property.
+     */
+    public set authorizationPolicy(value: AuthorizationPolicy | undefined) {
+        if(value) {
+            this._authorizationPolicy = value instanceof AuthorizationPolicyImpl? value : new AuthorizationPolicyImpl(value);
+        }
+    };
+    /**
+     * Gets the claimsMappingPolicies property value. The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+     * @returns a ClaimsMappingPolicyInterface
+     */
+    public get claimsMappingPolicies() {
+        return this._claimsMappingPolicies;
+    };
+    /**
+     * Sets the claimsMappingPolicies property value. The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
+     * @param value Value to set for the claimsMappingPolicies property.
+     */
+    public set claimsMappingPolicies(value: ClaimsMappingPolicy[] | undefined) {
+        if(value) {
+            const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = [];
+            this.claimsMappingPolicies?.forEach(element => {
+                claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+            });
+            this._claimsMappingPolicies = claimsMappingPoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
+     * @returns a ConditionalAccessPolicyInterface
+     */
+    public get conditionalAccessPolicies() {
+        return this._conditionalAccessPolicies;
+    };
+    /**
+     * Sets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
+     * @param value Value to set for the conditionalAccessPolicies property.
+     */
+    public set conditionalAccessPolicies(value: ConditionalAccessPolicy[] | undefined) {
+        if(value) {
+            const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = [];
+            this.conditionalAccessPolicies?.forEach(element => {
+                conditionalAccessPoliciesArrValue.push((element instanceof ConditionalAccessPolicyImpl? element:new ConditionalAccessPolicyImpl(element)));
+            });
+            this._conditionalAccessPolicies = conditionalAccessPoliciesArrValue;
+        }
+    };
     /**
      * Instantiates a new policyRoot and sets the default values.
      * @param policyRootParameterValue 
      */
     public constructor(policyRootParameterValue?: PolicyRoot | undefined) {
         super(policyRootParameterValue);
-        this.activityBasedTimeoutPolicies = policyRootParameterValue?.activityBasedTimeoutPolicies;
-        this.adminConsentRequestPolicy = policyRootParameterValue?.adminConsentRequestPolicy;
-        this.authenticationFlowsPolicy = policyRootParameterValue?.authenticationFlowsPolicy;
-        this.authenticationMethodsPolicy = policyRootParameterValue?.authenticationMethodsPolicy;
-        this.authorizationPolicy = policyRootParameterValue?.authorizationPolicy;
-        this.claimsMappingPolicies = policyRootParameterValue?.claimsMappingPolicies;
-        this.conditionalAccessPolicies = policyRootParameterValue?.conditionalAccessPolicies;
-        this.featureRolloutPolicies = policyRootParameterValue?.featureRolloutPolicies;
-        this.homeRealmDiscoveryPolicies = policyRootParameterValue?.homeRealmDiscoveryPolicies;
-        this.identitySecurityDefaultsEnforcementPolicy = policyRootParameterValue?.identitySecurityDefaultsEnforcementPolicy;
-        this.permissionGrantPolicies = policyRootParameterValue?.permissionGrantPolicies;
-        this.roleManagementPolicies = policyRootParameterValue?.roleManagementPolicies;
-        this.roleManagementPolicyAssignments = policyRootParameterValue?.roleManagementPolicyAssignments;
-        this.tokenIssuancePolicies = policyRootParameterValue?.tokenIssuancePolicies;
-        this.tokenLifetimePolicies = policyRootParameterValue?.tokenLifetimePolicies;
+        this._activityBasedTimeoutPolicies = policyRootParameterValue?.activityBasedTimeoutPolicies;
+        this._adminConsentRequestPolicy = policyRootParameterValue?.adminConsentRequestPolicy;
+        this._authenticationFlowsPolicy = policyRootParameterValue?.authenticationFlowsPolicy;
+        this._authenticationMethodsPolicy = policyRootParameterValue?.authenticationMethodsPolicy;
+        this._authorizationPolicy = policyRootParameterValue?.authorizationPolicy;
+        this._claimsMappingPolicies = policyRootParameterValue?.claimsMappingPolicies;
+        this._conditionalAccessPolicies = policyRootParameterValue?.conditionalAccessPolicies;
+        this._featureRolloutPolicies = policyRootParameterValue?.featureRolloutPolicies;
+        this._homeRealmDiscoveryPolicies = policyRootParameterValue?.homeRealmDiscoveryPolicies;
+        this._identitySecurityDefaultsEnforcementPolicy = policyRootParameterValue?.identitySecurityDefaultsEnforcementPolicy;
+        this._permissionGrantPolicies = policyRootParameterValue?.permissionGrantPolicies;
+        this._roleManagementPolicies = policyRootParameterValue?.roleManagementPolicies;
+        this._roleManagementPolicyAssignments = policyRootParameterValue?.roleManagementPolicyAssignments;
+        this._tokenIssuancePolicies = policyRootParameterValue?.tokenIssuancePolicies;
+        this._tokenLifetimePolicies = policyRootParameterValue?.tokenLifetimePolicies;
+    };
+    /**
+     * Gets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
+     * @returns a FeatureRolloutPolicyInterface
+     */
+    public get featureRolloutPolicies() {
+        return this._featureRolloutPolicies;
+    };
+    /**
+     * Sets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
+     * @param value Value to set for the featureRolloutPolicies property.
+     */
+    public set featureRolloutPolicies(value: FeatureRolloutPolicy[] | undefined) {
+        if(value) {
+            const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = [];
+            this.featureRolloutPolicies?.forEach(element => {
+                featureRolloutPoliciesArrValue.push((element instanceof FeatureRolloutPolicyImpl? element:new FeatureRolloutPolicyImpl(element)));
+            });
+            this._featureRolloutPolicies = featureRolloutPoliciesArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -110,56 +254,222 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         };
     };
     /**
+     * Gets the homeRealmDiscoveryPolicies property value. The policy to control Azure AD authentication behavior for federated users.
+     * @returns a HomeRealmDiscoveryPolicyInterface
+     */
+    public get homeRealmDiscoveryPolicies() {
+        return this._homeRealmDiscoveryPolicies;
+    };
+    /**
+     * Sets the homeRealmDiscoveryPolicies property value. The policy to control Azure AD authentication behavior for federated users.
+     * @param value Value to set for the homeRealmDiscoveryPolicies property.
+     */
+    public set homeRealmDiscoveryPolicies(value: HomeRealmDiscoveryPolicy[] | undefined) {
+        if(value) {
+            const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
+            this.homeRealmDiscoveryPolicies?.forEach(element => {
+                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+            });
+            this._homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
+     * @returns a IdentitySecurityDefaultsEnforcementPolicyInterface
+     */
+    public get identitySecurityDefaultsEnforcementPolicy() {
+        return this._identitySecurityDefaultsEnforcementPolicy;
+    };
+    /**
+     * Sets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
+     * @param value Value to set for the identitySecurityDefaultsEnforcementPolicy property.
+     */
+    public set identitySecurityDefaultsEnforcementPolicy(value: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
+        if(value) {
+            this._identitySecurityDefaultsEnforcementPolicy = value instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? value : new IdentitySecurityDefaultsEnforcementPolicyImpl(value);
+        }
+    };
+    /**
+     * Gets the permissionGrantPolicies property value. The policy that specifies the conditions under which consent can be granted.
+     * @returns a PermissionGrantPolicyInterface
+     */
+    public get permissionGrantPolicies() {
+        return this._permissionGrantPolicies;
+    };
+    /**
+     * Sets the permissionGrantPolicies property value. The policy that specifies the conditions under which consent can be granted.
+     * @param value Value to set for the permissionGrantPolicies property.
+     */
+    public set permissionGrantPolicies(value: PermissionGrantPolicy[] | undefined) {
+        if(value) {
+            const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = [];
+            this.permissionGrantPolicies?.forEach(element => {
+                permissionGrantPoliciesArrValue.push((element instanceof PermissionGrantPolicyImpl? element:new PermissionGrantPolicyImpl(element)));
+            });
+            this._permissionGrantPolicies = permissionGrantPoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the roleManagementPolicies property value. Represents the role management policies.
+     * @returns a UnifiedRoleManagementPolicyInterface
+     */
+    public get roleManagementPolicies() {
+        return this._roleManagementPolicies;
+    };
+    /**
+     * Sets the roleManagementPolicies property value. Represents the role management policies.
+     * @param value Value to set for the roleManagementPolicies property.
+     */
+    public set roleManagementPolicies(value: UnifiedRoleManagementPolicy[] | undefined) {
+        if(value) {
+            const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = [];
+            this.roleManagementPolicies?.forEach(element => {
+                roleManagementPoliciesArrValue.push((element instanceof UnifiedRoleManagementPolicyImpl? element:new UnifiedRoleManagementPolicyImpl(element)));
+            });
+            this._roleManagementPolicies = roleManagementPoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the roleManagementPolicyAssignments property value. Represents the role management policy assignments.
+     * @returns a UnifiedRoleManagementPolicyAssignmentInterface
+     */
+    public get roleManagementPolicyAssignments() {
+        return this._roleManagementPolicyAssignments;
+    };
+    /**
+     * Sets the roleManagementPolicyAssignments property value. Represents the role management policy assignments.
+     * @param value Value to set for the roleManagementPolicyAssignments property.
+     */
+    public set roleManagementPolicyAssignments(value: UnifiedRoleManagementPolicyAssignment[] | undefined) {
+        if(value) {
+            const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = [];
+            this.roleManagementPolicyAssignments?.forEach(element => {
+                roleManagementPolicyAssignmentsArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
+            });
+            this._roleManagementPolicyAssignments = roleManagementPolicyAssignmentsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.activityBasedTimeoutPolicies && this.activityBasedTimeoutPolicies.length != 0){        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = []; this.activityBasedTimeoutPolicies?.forEach(element => {activityBasedTimeoutPoliciesArrValue.push(new ActivityBasedTimeoutPolicyImpl(element));});
+        if(this.activityBasedTimeoutPolicies && this.activityBasedTimeoutPolicies.length != 0){        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = [];
+        this.activityBasedTimeoutPolicies?.forEach(element => {
+            activityBasedTimeoutPoliciesArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element:new ActivityBasedTimeoutPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicyImpl>("activityBasedTimeoutPolicies", activityBasedTimeoutPoliciesArrValue);
         }
         if(this.adminConsentRequestPolicy){
-            writer.writeObjectValue<AdminConsentRequestPolicyImpl>("adminConsentRequestPolicy", new AdminConsentRequestPolicyImpl(this.adminConsentRequestPolicy));
+            writer.writeObjectValue<AdminConsentRequestPolicyImpl>("adminConsentRequestPolicy", (!this.adminConsentRequestPolicy || this.adminConsentRequestPolicy instanceof AdminConsentRequestPolicyImpl? this.adminConsentRequestPolicy : new AdminConsentRequestPolicyImpl(this.adminConsentRequestPolicy)));
         }
         if(this.authenticationFlowsPolicy){
-            writer.writeObjectValue<AuthenticationFlowsPolicyImpl>("authenticationFlowsPolicy", new AuthenticationFlowsPolicyImpl(this.authenticationFlowsPolicy));
+            writer.writeObjectValue<AuthenticationFlowsPolicyImpl>("authenticationFlowsPolicy", (!this.authenticationFlowsPolicy || this.authenticationFlowsPolicy instanceof AuthenticationFlowsPolicyImpl? this.authenticationFlowsPolicy : new AuthenticationFlowsPolicyImpl(this.authenticationFlowsPolicy)));
         }
         if(this.authenticationMethodsPolicy){
-            writer.writeObjectValue<AuthenticationMethodsPolicyImpl>("authenticationMethodsPolicy", new AuthenticationMethodsPolicyImpl(this.authenticationMethodsPolicy));
+            writer.writeObjectValue<AuthenticationMethodsPolicyImpl>("authenticationMethodsPolicy", (!this.authenticationMethodsPolicy || this.authenticationMethodsPolicy instanceof AuthenticationMethodsPolicyImpl? this.authenticationMethodsPolicy : new AuthenticationMethodsPolicyImpl(this.authenticationMethodsPolicy)));
         }
         if(this.authorizationPolicy){
-            writer.writeObjectValue<AuthorizationPolicyImpl>("authorizationPolicy", new AuthorizationPolicyImpl(this.authorizationPolicy));
+            writer.writeObjectValue<AuthorizationPolicyImpl>("authorizationPolicy", (!this.authorizationPolicy || this.authorizationPolicy instanceof AuthorizationPolicyImpl? this.authorizationPolicy : new AuthorizationPolicyImpl(this.authorizationPolicy)));
         }
-        if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = []; this.claimsMappingPolicies?.forEach(element => {claimsMappingPoliciesArrValue.push(new ClaimsMappingPolicyImpl(element));});
+        if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = [];
+        this.claimsMappingPolicies?.forEach(element => {
+            claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
         }
-        if(this.conditionalAccessPolicies && this.conditionalAccessPolicies.length != 0){        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = []; this.conditionalAccessPolicies?.forEach(element => {conditionalAccessPoliciesArrValue.push(new ConditionalAccessPolicyImpl(element));});
+        if(this.conditionalAccessPolicies && this.conditionalAccessPolicies.length != 0){        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = [];
+        this.conditionalAccessPolicies?.forEach(element => {
+            conditionalAccessPoliciesArrValue.push((element instanceof ConditionalAccessPolicyImpl? element:new ConditionalAccessPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("conditionalAccessPolicies", conditionalAccessPoliciesArrValue);
         }
-        if(this.featureRolloutPolicies && this.featureRolloutPolicies.length != 0){        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = []; this.featureRolloutPolicies?.forEach(element => {featureRolloutPoliciesArrValue.push(new FeatureRolloutPolicyImpl(element));});
+        if(this.featureRolloutPolicies && this.featureRolloutPolicies.length != 0){        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = [];
+        this.featureRolloutPolicies?.forEach(element => {
+            featureRolloutPoliciesArrValue.push((element instanceof FeatureRolloutPolicyImpl? element:new FeatureRolloutPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("featureRolloutPolicies", featureRolloutPoliciesArrValue);
         }
-        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = []; this.homeRealmDiscoveryPolicies?.forEach(element => {homeRealmDiscoveryPoliciesArrValue.push(new HomeRealmDiscoveryPolicyImpl(element));});
+        if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
+        this.homeRealmDiscoveryPolicies?.forEach(element => {
+            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.identitySecurityDefaultsEnforcementPolicy){
-            writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicyImpl>("identitySecurityDefaultsEnforcementPolicy", new IdentitySecurityDefaultsEnforcementPolicyImpl(this.identitySecurityDefaultsEnforcementPolicy));
+            writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicyImpl>("identitySecurityDefaultsEnforcementPolicy", (!this.identitySecurityDefaultsEnforcementPolicy || this.identitySecurityDefaultsEnforcementPolicy instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? this.identitySecurityDefaultsEnforcementPolicy : new IdentitySecurityDefaultsEnforcementPolicyImpl(this.identitySecurityDefaultsEnforcementPolicy)));
         }
-        if(this.permissionGrantPolicies && this.permissionGrantPolicies.length != 0){        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = []; this.permissionGrantPolicies?.forEach(element => {permissionGrantPoliciesArrValue.push(new PermissionGrantPolicyImpl(element));});
+        if(this.permissionGrantPolicies && this.permissionGrantPolicies.length != 0){        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = [];
+        this.permissionGrantPolicies?.forEach(element => {
+            permissionGrantPoliciesArrValue.push((element instanceof PermissionGrantPolicyImpl? element:new PermissionGrantPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PermissionGrantPolicyImpl>("permissionGrantPolicies", permissionGrantPoliciesArrValue);
         }
-        if(this.roleManagementPolicies && this.roleManagementPolicies.length != 0){        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = []; this.roleManagementPolicies?.forEach(element => {roleManagementPoliciesArrValue.push(new UnifiedRoleManagementPolicyImpl(element));});
+        if(this.roleManagementPolicies && this.roleManagementPolicies.length != 0){        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = [];
+        this.roleManagementPolicies?.forEach(element => {
+            roleManagementPoliciesArrValue.push((element instanceof UnifiedRoleManagementPolicyImpl? element:new UnifiedRoleManagementPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("roleManagementPolicies", roleManagementPoliciesArrValue);
         }
-        if(this.roleManagementPolicyAssignments && this.roleManagementPolicyAssignments.length != 0){        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = []; this.roleManagementPolicyAssignments?.forEach(element => {roleManagementPolicyAssignmentsArrValue.push(new UnifiedRoleManagementPolicyAssignmentImpl(element));});
+        if(this.roleManagementPolicyAssignments && this.roleManagementPolicyAssignments.length != 0){        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = [];
+        this.roleManagementPolicyAssignments?.forEach(element => {
+            roleManagementPolicyAssignmentsArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignmentImpl>("roleManagementPolicyAssignments", roleManagementPolicyAssignmentsArrValue);
         }
-        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = []; this.tokenIssuancePolicies?.forEach(element => {tokenIssuancePoliciesArrValue.push(new TokenIssuancePolicyImpl(element));});
+        if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
+        this.tokenIssuancePolicies?.forEach(element => {
+            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
-        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = []; this.tokenLifetimePolicies?.forEach(element => {tokenLifetimePoliciesArrValue.push(new TokenLifetimePolicyImpl(element));});
+        if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
+        this.tokenLifetimePolicies?.forEach(element => {
+            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
+        }
+    };
+    /**
+     * Gets the tokenIssuancePolicies property value. The policy that specifies the characteristics of SAML tokens issued by Azure AD.
+     * @returns a TokenIssuancePolicyInterface
+     */
+    public get tokenIssuancePolicies() {
+        return this._tokenIssuancePolicies;
+    };
+    /**
+     * Sets the tokenIssuancePolicies property value. The policy that specifies the characteristics of SAML tokens issued by Azure AD.
+     * @param value Value to set for the tokenIssuancePolicies property.
+     */
+    public set tokenIssuancePolicies(value: TokenIssuancePolicy[] | undefined) {
+        if(value) {
+            const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
+            this.tokenIssuancePolicies?.forEach(element => {
+                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+            });
+            this._tokenIssuancePolicies = tokenIssuancePoliciesArrValue;
+        }
+    };
+    /**
+     * Gets the tokenLifetimePolicies property value. The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
+     * @returns a TokenLifetimePolicyInterface
+     */
+    public get tokenLifetimePolicies() {
+        return this._tokenLifetimePolicies;
+    };
+    /**
+     * Sets the tokenLifetimePolicies property value. The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
+     * @param value Value to set for the tokenLifetimePolicies property.
+     */
+    public set tokenLifetimePolicies(value: TokenLifetimePolicy[] | undefined) {
+        if(value) {
+            const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
+            this.tokenLifetimePolicies?.forEach(element => {
+                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+            });
+            this._tokenLifetimePolicies = tokenLifetimePoliciesArrValue;
         }
     };
 }

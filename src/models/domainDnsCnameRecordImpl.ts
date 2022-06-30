@@ -4,14 +4,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DomainDnsCnameRecordImpl extends DomainDnsRecordImpl implements DomainDnsCnameRecord {
     /** The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host. */
-    public canonicalName?: string | undefined;
+    private _canonicalName?: string | undefined;
+    /**
+     * Gets the canonicalName property value. The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
+     * @returns a string
+     */
+    public get canonicalName() {
+        return this._canonicalName;
+    };
+    /**
+     * Sets the canonicalName property value. The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
+     * @param value Value to set for the canonicalName property.
+     */
+    public set canonicalName(value: string | undefined) {
+        if(value) {
+            this._canonicalName = value;
+        }
+    };
     /**
      * Instantiates a new DomainDnsCnameRecord and sets the default values.
      * @param domainDnsCnameRecordParameterValue 
      */
     public constructor(domainDnsCnameRecordParameterValue?: DomainDnsCnameRecord | undefined) {
         super(domainDnsCnameRecordParameterValue);
-        this.canonicalName = domainDnsCnameRecordParameterValue?.canonicalName;
+        this._canonicalName = domainDnsCnameRecordParameterValue?.canonicalName;
     };
     /**
      * The deserialization information for the current model

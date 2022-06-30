@@ -15,38 +15,106 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the print singleton. */
 export class PrintJobImpl extends EntityImpl implements PrintJob {
     /** The configuration property */
-    public configuration?: PrintJobConfiguration | undefined;
+    private _configuration?: PrintJobConfiguration | undefined;
     /** The createdBy property */
-    public createdBy?: UserIdentity | undefined;
+    private _createdBy?: UserIdentity | undefined;
     /** The DateTimeOffset when the job was created. Read-only. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The documents property */
-    public documents?: PrintDocument[] | undefined;
+    private _documents?: PrintDocument[] | undefined;
     /** If true, document can be fetched by printer. */
-    public isFetchable?: boolean | undefined;
+    private _isFetchable?: boolean | undefined;
     /** Contains the source job URL, if the job has been redirected from another printer. */
-    public redirectedFrom?: string | undefined;
+    private _redirectedFrom?: string | undefined;
     /** Contains the destination job URL, if the job has been redirected to another printer. */
-    public redirectedTo?: string | undefined;
+    private _redirectedTo?: string | undefined;
     /** The status property */
-    public status?: PrintJobStatus | undefined;
+    private _status?: PrintJobStatus | undefined;
     /** A list of printTasks that were triggered by this print job. */
-    public tasks?: PrintTask[] | undefined;
+    private _tasks?: PrintTask[] | undefined;
+    /**
+     * Gets the configuration property value. The configuration property
+     * @returns a PrintJobConfigurationInterface
+     */
+    public get configuration() {
+        return this._configuration;
+    };
+    /**
+     * Sets the configuration property value. The configuration property
+     * @param value Value to set for the configuration property.
+     */
+    public set configuration(value: PrintJobConfiguration | undefined) {
+        if(value) {
+            this._configuration = value instanceof PrintJobConfigurationImpl? value : new PrintJobConfigurationImpl(value);
+        }
+    };
     /**
      * Instantiates a new printJob and sets the default values.
      * @param printJobParameterValue 
      */
     public constructor(printJobParameterValue?: PrintJob | undefined) {
         super(printJobParameterValue);
-        this.configuration = printJobParameterValue?.configuration;
-        this.createdBy = printJobParameterValue?.createdBy;
-        this.createdDateTime = printJobParameterValue?.createdDateTime;
-        this.documents = printJobParameterValue?.documents;
-        this.isFetchable = printJobParameterValue?.isFetchable;
-        this.redirectedFrom = printJobParameterValue?.redirectedFrom;
-        this.redirectedTo = printJobParameterValue?.redirectedTo;
-        this.status = printJobParameterValue?.status;
-        this.tasks = printJobParameterValue?.tasks;
+        this._configuration = printJobParameterValue?.configuration;
+        this._createdBy = printJobParameterValue?.createdBy;
+        this._createdDateTime = printJobParameterValue?.createdDateTime;
+        this._documents = printJobParameterValue?.documents;
+        this._isFetchable = printJobParameterValue?.isFetchable;
+        this._redirectedFrom = printJobParameterValue?.redirectedFrom;
+        this._redirectedTo = printJobParameterValue?.redirectedTo;
+        this._status = printJobParameterValue?.status;
+        this._tasks = printJobParameterValue?.tasks;
+    };
+    /**
+     * Gets the createdBy property value. The createdBy property
+     * @returns a UserIdentityInterface
+     */
+    public get createdBy() {
+        return this._createdBy;
+    };
+    /**
+     * Sets the createdBy property value. The createdBy property
+     * @param value Value to set for the createdBy property.
+     */
+    public set createdBy(value: UserIdentity | undefined) {
+        if(value) {
+            this._createdBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+        }
+    };
+    /**
+     * Gets the createdDateTime property value. The DateTimeOffset when the job was created. Read-only.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The DateTimeOffset when the job was created. Read-only.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the documents property value. The documents property
+     * @returns a PrintDocumentInterface
+     */
+    public get documents() {
+        return this._documents;
+    };
+    /**
+     * Sets the documents property value. The documents property
+     * @param value Value to set for the documents property.
+     */
+    public set documents(value: PrintDocument[] | undefined) {
+        if(value) {
+            const documentsArrValue: PrintDocumentImpl[] = [];
+            this.documents?.forEach(element => {
+                documentsArrValue.push((element instanceof PrintDocumentImpl? element:new PrintDocumentImpl(element)));
+            });
+            this._documents = documentsArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -66,6 +134,54 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         };
     };
     /**
+     * Gets the isFetchable property value. If true, document can be fetched by printer.
+     * @returns a boolean
+     */
+    public get isFetchable() {
+        return this._isFetchable;
+    };
+    /**
+     * Sets the isFetchable property value. If true, document can be fetched by printer.
+     * @param value Value to set for the isFetchable property.
+     */
+    public set isFetchable(value: boolean | undefined) {
+        if(value) {
+            this._isFetchable = value;
+        }
+    };
+    /**
+     * Gets the redirectedFrom property value. Contains the source job URL, if the job has been redirected from another printer.
+     * @returns a string
+     */
+    public get redirectedFrom() {
+        return this._redirectedFrom;
+    };
+    /**
+     * Sets the redirectedFrom property value. Contains the source job URL, if the job has been redirected from another printer.
+     * @param value Value to set for the redirectedFrom property.
+     */
+    public set redirectedFrom(value: string | undefined) {
+        if(value) {
+            this._redirectedFrom = value;
+        }
+    };
+    /**
+     * Gets the redirectedTo property value. Contains the destination job URL, if the job has been redirected to another printer.
+     * @returns a string
+     */
+    public get redirectedTo() {
+        return this._redirectedTo;
+    };
+    /**
+     * Sets the redirectedTo property value. Contains the destination job URL, if the job has been redirected to another printer.
+     * @param value Value to set for the redirectedTo property.
+     */
+    public set redirectedTo(value: string | undefined) {
+        if(value) {
+            this._redirectedTo = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -73,15 +189,18 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-            writer.writeObjectValue<PrintJobConfigurationImpl>("configuration", new PrintJobConfigurationImpl(this.configuration));
+            writer.writeObjectValue<PrintJobConfigurationImpl>("configuration", (!this.configuration || this.configuration instanceof PrintJobConfigurationImpl? this.configuration : new PrintJobConfigurationImpl(this.configuration)));
         }
         if(this.createdBy){
-            writer.writeObjectValue<UserIdentityImpl>("createdBy", new UserIdentityImpl(this.createdBy));
+            writer.writeObjectValue<UserIdentityImpl>("createdBy", (!this.createdBy || this.createdBy instanceof UserIdentityImpl? this.createdBy : new UserIdentityImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
-        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = []; this.documents?.forEach(element => {documentsArrValue.push(new PrintDocumentImpl(element));});
+        if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = [];
+        this.documents?.forEach(element => {
+            documentsArrValue.push((element instanceof PrintDocumentImpl? element:new PrintDocumentImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PrintDocumentImpl>("documents", documentsArrValue);
         }
         if(this.isFetchable){
@@ -94,10 +213,49 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
             writer.writeStringValue("redirectedTo", this.redirectedTo);
         }
         if(this.status){
-            writer.writeObjectValue<PrintJobStatusImpl>("status", new PrintJobStatusImpl(this.status));
+            writer.writeObjectValue<PrintJobStatusImpl>("status", (!this.status || this.status instanceof PrintJobStatusImpl? this.status : new PrintJobStatusImpl(this.status)));
         }
-        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = []; this.tasks?.forEach(element => {tasksArrValue.push(new PrintTaskImpl(element));});
+        if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = [];
+        this.tasks?.forEach(element => {
+            tasksArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
+        }
+    };
+    /**
+     * Gets the status property value. The status property
+     * @returns a PrintJobStatusInterface
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status property
+     * @param value Value to set for the status property.
+     */
+    public set status(value: PrintJobStatus | undefined) {
+        if(value) {
+            this._status = value instanceof PrintJobStatusImpl? value : new PrintJobStatusImpl(value);
+        }
+    };
+    /**
+     * Gets the tasks property value. A list of printTasks that were triggered by this print job.
+     * @returns a PrintTaskInterface
+     */
+    public get tasks() {
+        return this._tasks;
+    };
+    /**
+     * Sets the tasks property value. A list of printTasks that were triggered by this print job.
+     * @param value Value to set for the tasks property.
+     */
+    public set tasks(value: PrintTask[] | undefined) {
+        if(value) {
+            const tasksArrValue: PrintTaskImpl[] = [];
+            this.tasks?.forEach(element => {
+                tasksArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+            });
+            this._tasks = tasksArrValue;
         }
     };
 }

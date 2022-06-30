@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of chat entities. */
 export class TeamworkUserIdentityImpl extends IdentityImpl implements TeamworkUserIdentity {
     /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
-    public userIdentityType?: TeamworkUserIdentityType | undefined;
+    private _userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
      * Instantiates a new teamworkUserIdentity and sets the default values.
      * @param teamworkUserIdentityParameterValue 
      */
     public constructor(teamworkUserIdentityParameterValue?: TeamworkUserIdentity | undefined) {
         super(teamworkUserIdentityParameterValue);
-        this.userIdentityType = teamworkUserIdentityParameterValue?.userIdentityType;
+        this._userIdentityType = teamworkUserIdentityParameterValue?.userIdentityType;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +33,22 @@ export class TeamworkUserIdentityImpl extends IdentityImpl implements TeamworkUs
         super.serialize(writer);
         if(this.userIdentityType){
             writer.writeEnumValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
+        }
+    };
+    /**
+     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * @returns a teamworkUserIdentityType
+     */
+    public get userIdentityType() {
+        return this._userIdentityType;
+    };
+    /**
+     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * @param value Value to set for the userIdentityType property.
+     */
+    public set userIdentityType(value: TeamworkUserIdentityType | undefined) {
+        if(value) {
+            this._userIdentityType = value;
         }
     };
 }

@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implements SwapShiftsChangeRequest {
     /** Shift ID for the recipient user with whom the request is to swap. */
-    public recipientShiftId?: string | undefined;
+    private _recipientShiftId?: string | undefined;
     /**
      * Instantiates a new SwapShiftsChangeRequest and sets the default values.
      * @param swapShiftsChangeRequestParameterValue 
      */
     public constructor(swapShiftsChangeRequestParameterValue?: SwapShiftsChangeRequest | undefined) {
         super(swapShiftsChangeRequestParameterValue);
-        this.recipientShiftId = swapShiftsChangeRequestParameterValue?.recipientShiftId;
+        this._recipientShiftId = swapShiftsChangeRequestParameterValue?.recipientShiftId;
     };
     /**
      * The deserialization information for the current model
@@ -21,6 +21,22 @@ export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implement
         return {...super.getFieldDeserializers(),
             "recipientShiftId": n => { this.recipientShiftId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
+     * @returns a string
+     */
+    public get recipientShiftId() {
+        return this._recipientShiftId;
+    };
+    /**
+     * Sets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
+     * @param value Value to set for the recipientShiftId property.
+     */
+    public set recipientShiftId(value: string | undefined) {
+        if(value) {
+            this._recipientShiftId = value;
+        }
     };
     /**
      * Serializes information the current object

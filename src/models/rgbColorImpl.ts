@@ -4,22 +4,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Color in RGB. */
 export class RgbColorImpl implements RgbColor {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Blue value */
-    public b?: number | undefined;
+    private _b?: number | undefined;
     /** Green value */
-    public g?: number | undefined;
+    private _g?: number | undefined;
     /** Red value */
-    public r?: number | undefined;
+    private _r?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the b property value. Blue value
+     * @returns a byte
+     */
+    public get b() {
+        return this._b;
+    };
+    /**
+     * Sets the b property value. Blue value
+     * @param value Value to set for the b property.
+     */
+    public set b(value: number | undefined) {
+        if(value) {
+            this._b = value;
+        }
+    };
     /**
      * Instantiates a new rgbColor and sets the default values.
      * @param rgbColorParameterValue 
      */
     public constructor(rgbColorParameterValue?: RgbColor | undefined) {
-        this.additionalData = rgbColorParameterValue?.additionalData ? rgbColorParameterValue?.additionalData! : {};
-        this.b = rgbColorParameterValue?.b;
-        this.g = rgbColorParameterValue?.g;
-        this.r = rgbColorParameterValue?.r;
+        this._additionalData = rgbColorParameterValue?.additionalData ? rgbColorParameterValue?.additionalData! : {};
+        this._b = rgbColorParameterValue?.b;
+        this._g = rgbColorParameterValue?.g;
+        this._r = rgbColorParameterValue?.r;
+    };
+    /**
+     * Gets the g property value. Green value
+     * @returns a byte
+     */
+    public get g() {
+        return this._g;
+    };
+    /**
+     * Sets the g property value. Green value
+     * @param value Value to set for the g property.
+     */
+    public set g(value: number | undefined) {
+        if(value) {
+            this._g = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +79,22 @@ export class RgbColorImpl implements RgbColor {
             "g": n => { this.g = n.getNumberValue(); },
             "r": n => { this.r = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the r property value. Red value
+     * @returns a byte
+     */
+    public get r() {
+        return this._r;
+    };
+    /**
+     * Sets the r property value. Red value
+     * @param value Value to set for the r property.
+     */
+    public set r(value: number | undefined) {
+        if(value) {
+            this._r = value;
+        }
     };
     /**
      * Serializes information the current object

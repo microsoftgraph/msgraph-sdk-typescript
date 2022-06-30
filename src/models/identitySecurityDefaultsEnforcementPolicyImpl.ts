@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImpl implements IdentitySecurityDefaultsEnforcementPolicy {
     /** If set to true, Azure Active Directory security defaults is enabled for the tenant. */
-    public isEnabled?: boolean | undefined;
+    private _isEnabled?: boolean | undefined;
     /**
      * Instantiates a new IdentitySecurityDefaultsEnforcementPolicy and sets the default values.
      * @param identitySecurityDefaultsEnforcementPolicyParameterValue 
      */
     public constructor(identitySecurityDefaultsEnforcementPolicyParameterValue?: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
         super(identitySecurityDefaultsEnforcementPolicyParameterValue);
-        this.isEnabled = identitySecurityDefaultsEnforcementPolicyParameterValue?.isEnabled;
+        this._isEnabled = identitySecurityDefaultsEnforcementPolicyParameterValue?.isEnabled;
     };
     /**
      * The deserialization information for the current model
@@ -21,6 +21,22 @@ export class IdentitySecurityDefaultsEnforcementPolicyImpl extends PolicyBaseImp
         return {...super.getFieldDeserializers(),
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isEnabled property value. If set to true, Azure Active Directory security defaults is enabled for the tenant.
+     * @returns a boolean
+     */
+    public get isEnabled() {
+        return this._isEnabled;
+    };
+    /**
+     * Sets the isEnabled property value. If set to true, Azure Active Directory security defaults is enabled for the tenant.
+     * @param value Value to set for the isEnabled property.
+     */
+    public set isEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isEnabled = value;
+        }
     };
     /**
      * Serializes information the current object

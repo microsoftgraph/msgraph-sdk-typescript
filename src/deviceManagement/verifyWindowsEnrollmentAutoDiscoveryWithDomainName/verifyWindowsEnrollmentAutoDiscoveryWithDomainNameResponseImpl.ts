@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method. */
 export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl implements VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: boolean | undefined;
+    private _value?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse and sets the default values.
      * @param verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue 
      */
     public constructor(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?: VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse | undefined) {
-        this.additionalData = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData ? verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData! : {};
-        this.value = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.value;
+        this._additionalData = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData ? verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.additionalData! : {};
+        this._value = verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl impl
             writer.writeBooleanValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a boolean
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: boolean | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

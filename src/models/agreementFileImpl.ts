@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile {
     /** The localized version of the terms of use agreement files attached to the agreement. */
-    public localizations?: AgreementFileLocalization[] | undefined;
+    private _localizations?: AgreementFileLocalization[] | undefined;
     /**
      * Instantiates a new AgreementFile and sets the default values.
      * @param agreementFileParameterValue 
      */
     public constructor(agreementFileParameterValue?: AgreementFile | undefined) {
         super(agreementFileParameterValue);
-        this.localizations = agreementFileParameterValue?.localizations;
+        this._localizations = agreementFileParameterValue?.localizations;
     };
     /**
      * The deserialization information for the current model
@@ -25,13 +25,36 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
         };
     };
     /**
+     * Gets the localizations property value. The localized version of the terms of use agreement files attached to the agreement.
+     * @returns a AgreementFileLocalizationInterface
+     */
+    public get localizations() {
+        return this._localizations;
+    };
+    /**
+     * Sets the localizations property value. The localized version of the terms of use agreement files attached to the agreement.
+     * @param value Value to set for the localizations property.
+     */
+    public set localizations(value: AgreementFileLocalization[] | undefined) {
+        if(value) {
+            const localizationsArrValue: AgreementFileLocalizationImpl[] = [];
+            this.localizations?.forEach(element => {
+                localizationsArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+            });
+            this._localizations = localizationsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new AgreementFileLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = [];
+        this.localizations?.forEach(element => {
+            localizationsArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

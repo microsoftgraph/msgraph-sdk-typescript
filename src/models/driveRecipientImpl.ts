@@ -3,22 +3,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DriveRecipientImpl implements DriveRecipient {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The alias of the domain object, for cases where an email address is unavailable (e.g. security groups). */
-    public alias?: string | undefined;
+    private _alias?: string | undefined;
     /** The email address for the recipient, if the recipient has an associated email address. */
-    public email?: string | undefined;
+    private _email?: string | undefined;
     /** The unique identifier for the recipient in the directory. */
-    public objectId?: string | undefined;
+    private _objectId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the alias property value. The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
+     * @returns a string
+     */
+    public get alias() {
+        return this._alias;
+    };
+    /**
+     * Sets the alias property value. The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
+     * @param value Value to set for the alias property.
+     */
+    public set alias(value: string | undefined) {
+        if(value) {
+            this._alias = value;
+        }
+    };
     /**
      * Instantiates a new driveRecipient and sets the default values.
      * @param driveRecipientParameterValue 
      */
     public constructor(driveRecipientParameterValue?: DriveRecipient | undefined) {
-        this.additionalData = driveRecipientParameterValue?.additionalData ? driveRecipientParameterValue?.additionalData! : {};
-        this.alias = driveRecipientParameterValue?.alias;
-        this.email = driveRecipientParameterValue?.email;
-        this.objectId = driveRecipientParameterValue?.objectId;
+        this._additionalData = driveRecipientParameterValue?.additionalData ? driveRecipientParameterValue?.additionalData! : {};
+        this._alias = driveRecipientParameterValue?.alias;
+        this._email = driveRecipientParameterValue?.email;
+        this._objectId = driveRecipientParameterValue?.objectId;
+    };
+    /**
+     * Gets the email property value. The email address for the recipient, if the recipient has an associated email address.
+     * @returns a string
+     */
+    public get email() {
+        return this._email;
+    };
+    /**
+     * Sets the email property value. The email address for the recipient, if the recipient has an associated email address.
+     * @param value Value to set for the email property.
+     */
+    public set email(value: string | undefined) {
+        if(value) {
+            this._email = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +78,22 @@ export class DriveRecipientImpl implements DriveRecipient {
             "email": n => { this.email = n.getStringValue(); },
             "objectId": n => { this.objectId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the objectId property value. The unique identifier for the recipient in the directory.
+     * @returns a string
+     */
+    public get objectId() {
+        return this._objectId;
+    };
+    /**
+     * Sets the objectId property value. The unique identifier for the recipient in the directory.
+     * @param value Value to set for the objectId property.
+     */
+    public set objectId(value: string | undefined) {
+        if(value) {
+            this._objectId = value;
+        }
     };
     /**
      * Serializes information the current object

@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class Windows10EnterpriseModernAppManagementConfigurationImpl extends DeviceConfigurationImpl implements Windows10EnterpriseModernAppManagementConfiguration {
     /** Indicates whether or not to uninstall a fixed list of built-in Windows apps. */
-    public uninstallBuiltInApps?: boolean | undefined;
+    private _uninstallBuiltInApps?: boolean | undefined;
     /**
      * Instantiates a new Windows10EnterpriseModernAppManagementConfiguration and sets the default values.
      * @param windows10EnterpriseModernAppManagementConfigurationParameterValue 
      */
     public constructor(windows10EnterpriseModernAppManagementConfigurationParameterValue?: Windows10EnterpriseModernAppManagementConfiguration | undefined) {
         super(windows10EnterpriseModernAppManagementConfigurationParameterValue);
-        this.uninstallBuiltInApps = windows10EnterpriseModernAppManagementConfigurationParameterValue?.uninstallBuiltInApps;
+        this._uninstallBuiltInApps = windows10EnterpriseModernAppManagementConfigurationParameterValue?.uninstallBuiltInApps;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +31,22 @@ export class Windows10EnterpriseModernAppManagementConfigurationImpl extends Dev
         super.serialize(writer);
         if(this.uninstallBuiltInApps){
             writer.writeBooleanValue("uninstallBuiltInApps", this.uninstallBuiltInApps);
+        }
+    };
+    /**
+     * Gets the uninstallBuiltInApps property value. Indicates whether or not to uninstall a fixed list of built-in Windows apps.
+     * @returns a boolean
+     */
+    public get uninstallBuiltInApps() {
+        return this._uninstallBuiltInApps;
+    };
+    /**
+     * Sets the uninstallBuiltInApps property value. Indicates whether or not to uninstall a fixed list of built-in Windows apps.
+     * @param value Value to set for the uninstallBuiltInApps property.
+     */
+    public set uninstallBuiltInApps(value: boolean | undefined) {
+        if(value) {
+            this._uninstallBuiltInApps = value;
         }
     };
 }

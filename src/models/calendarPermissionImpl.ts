@@ -8,26 +8,58 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class CalendarPermissionImpl extends EntityImpl implements CalendarPermission {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
-    public allowedRoles?: string[] | undefined;
+    private _allowedRoles?: string[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
-    public emailAddress?: EmailAddress | undefined;
+    private _emailAddress?: EmailAddress | undefined;
     /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
-    public isInsideOrganization?: boolean | undefined;
+    private _isInsideOrganization?: boolean | undefined;
     /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar. */
-    public isRemovable?: boolean | undefined;
+    private _isRemovable?: boolean | undefined;
     /** Current permission level of the calendar sharee or delegate. */
-    public role?: CalendarRoleType | undefined;
+    private _role?: CalendarRoleType | undefined;
+    /**
+     * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
+     * @returns a string
+     */
+    public get allowedRoles() {
+        return this._allowedRoles;
+    };
+    /**
+     * Sets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
+     * @param value Value to set for the allowedRoles property.
+     */
+    public set allowedRoles(value: string[] | undefined) {
+        if(value) {
+            this._allowedRoles = value;
+        }
+    };
     /**
      * Instantiates a new calendarPermission and sets the default values.
      * @param calendarPermissionParameterValue 
      */
     public constructor(calendarPermissionParameterValue?: CalendarPermission | undefined) {
         super(calendarPermissionParameterValue);
-        this.allowedRoles = calendarPermissionParameterValue?.allowedRoles;
-        this.emailAddress = calendarPermissionParameterValue?.emailAddress;
-        this.isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization;
-        this.isRemovable = calendarPermissionParameterValue?.isRemovable;
-        this.role = calendarPermissionParameterValue?.role;
+        this._allowedRoles = calendarPermissionParameterValue?.allowedRoles;
+        this._emailAddress = calendarPermissionParameterValue?.emailAddress;
+        this._isInsideOrganization = calendarPermissionParameterValue?.isInsideOrganization;
+        this._isRemovable = calendarPermissionParameterValue?.isRemovable;
+        this._role = calendarPermissionParameterValue?.role;
+    };
+    /**
+     * Gets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
+     * @returns a EmailAddressInterface
+     */
+    public get emailAddress() {
+        return this._emailAddress;
+    };
+    /**
+     * Sets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
+     * @param value Value to set for the emailAddress property.
+     */
+    public set emailAddress(value: EmailAddress | undefined) {
+        if(value) {
+            this._emailAddress = value instanceof EmailAddressImpl? value : new EmailAddressImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -43,6 +75,54 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
         };
     };
     /**
+     * Gets the isInsideOrganization property value. True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.
+     * @returns a boolean
+     */
+    public get isInsideOrganization() {
+        return this._isInsideOrganization;
+    };
+    /**
+     * Sets the isInsideOrganization property value. True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.
+     * @param value Value to set for the isInsideOrganization property.
+     */
+    public set isInsideOrganization(value: boolean | undefined) {
+        if(value) {
+            this._isInsideOrganization = value;
+        }
+    };
+    /**
+     * Gets the isRemovable property value. True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.
+     * @returns a boolean
+     */
+    public get isRemovable() {
+        return this._isRemovable;
+    };
+    /**
+     * Sets the isRemovable property value. True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.
+     * @param value Value to set for the isRemovable property.
+     */
+    public set isRemovable(value: boolean | undefined) {
+        if(value) {
+            this._isRemovable = value;
+        }
+    };
+    /**
+     * Gets the role property value. Current permission level of the calendar sharee or delegate.
+     * @returns a calendarRoleType
+     */
+    public get role() {
+        return this._role;
+    };
+    /**
+     * Sets the role property value. Current permission level of the calendar sharee or delegate.
+     * @param value Value to set for the role property.
+     */
+    public set role(value: CalendarRoleType | undefined) {
+        if(value) {
+            this._role = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -53,7 +133,7 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
             writer.writeCollectionOfPrimitiveValues<string>("allowedRoles", this.allowedRoles);
         }
         if(this.emailAddress){
-            writer.writeObjectValue<EmailAddressImpl>("emailAddress", new EmailAddressImpl(this.emailAddress));
+            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (!this.emailAddress || this.emailAddress instanceof EmailAddressImpl? this.emailAddress : new EmailAddressImpl(this.emailAddress)));
         }
         if(this.isInsideOrganization){
             writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);

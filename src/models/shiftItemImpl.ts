@@ -7,20 +7,56 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
-    public activities?: ShiftActivity[] | undefined;
+    private _activities?: ShiftActivity[] | undefined;
     /** The shift label of the shiftItem. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The shift notes for the shiftItem. */
-    public notes?: string | undefined;
+    private _notes?: string | undefined;
+    /**
+     * Gets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+     * @returns a ShiftActivityInterface
+     */
+    public get activities() {
+        return this._activities;
+    };
+    /**
+     * Sets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+     * @param value Value to set for the activities property.
+     */
+    public set activities(value: ShiftActivity[] | undefined) {
+        if(value) {
+            const activitiesArrValue: ShiftActivityImpl[] = [];
+            this.activities?.forEach(element => {
+                activitiesArrValue.push((element instanceof ShiftActivityImpl? element:new ShiftActivityImpl(element)));
+            });
+            this._activities = activitiesArrValue;
+        }
+    };
     /**
      * Instantiates a new shiftItem and sets the default values.
      * @param shiftItemParameterValue 
      */
     public constructor(shiftItemParameterValue?: ShiftItem | undefined) {
         super(shiftItemParameterValue);
-        this.activities = shiftItemParameterValue?.activities;
-        this.displayName = shiftItemParameterValue?.displayName;
-        this.notes = shiftItemParameterValue?.notes;
+        this._activities = shiftItemParameterValue?.activities;
+        this._displayName = shiftItemParameterValue?.displayName;
+        this._notes = shiftItemParameterValue?.notes;
+    };
+    /**
+     * Gets the displayName property value. The shift label of the shiftItem.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The shift label of the shiftItem.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,13 +70,32 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
         };
     };
     /**
+     * Gets the notes property value. The shift notes for the shiftItem.
+     * @returns a string
+     */
+    public get notes() {
+        return this._notes;
+    };
+    /**
+     * Sets the notes property value. The shift notes for the shiftItem.
+     * @param value Value to set for the notes property.
+     */
+    public set notes(value: string | undefined) {
+        if(value) {
+            this._notes = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = []; this.activities?.forEach(element => {activitiesArrValue.push(new ShiftActivityImpl(element));});
+        if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = [];
+        this.activities?.forEach(element => {
+            activitiesArrValue.push((element instanceof ShiftActivityImpl? element:new ShiftActivityImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ShiftActivityImpl>("activities", activitiesArrValue);
         }
         if(this.displayName){

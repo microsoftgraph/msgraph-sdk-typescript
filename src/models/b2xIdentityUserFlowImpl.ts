@@ -14,26 +14,42 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2xIdentityUserFlow {
     /** Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
-    public apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
+    private _apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
     /** The identity providers included in the user flow. */
-    public identityProviders?: IdentityProvider[] | undefined;
+    private _identityProviders?: IdentityProvider[] | undefined;
     /** The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows. */
-    public languages?: UserFlowLanguageConfiguration[] | undefined;
+    private _languages?: UserFlowLanguageConfiguration[] | undefined;
     /** The user attribute assignments included in the user flow. */
-    public userAttributeAssignments?: IdentityUserFlowAttributeAssignment[] | undefined;
+    private _userAttributeAssignments?: IdentityUserFlowAttributeAssignment[] | undefined;
     /** The userFlowIdentityProviders property */
-    public userFlowIdentityProviders?: IdentityProviderBase[] | undefined;
+    private _userFlowIdentityProviders?: IdentityProviderBase[] | undefined;
+    /**
+     * Gets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+     * @returns a UserFlowApiConnectorConfigurationInterface
+     */
+    public get apiConnectorConfiguration() {
+        return this._apiConnectorConfiguration;
+    };
+    /**
+     * Sets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+     * @param value Value to set for the apiConnectorConfiguration property.
+     */
+    public set apiConnectorConfiguration(value: UserFlowApiConnectorConfiguration | undefined) {
+        if(value) {
+            this._apiConnectorConfiguration = value instanceof UserFlowApiConnectorConfigurationImpl? value : new UserFlowApiConnectorConfigurationImpl(value);
+        }
+    };
     /**
      * Instantiates a new B2xIdentityUserFlow and sets the default values.
      * @param b2xIdentityUserFlowParameterValue 
      */
     public constructor(b2xIdentityUserFlowParameterValue?: B2xIdentityUserFlow | undefined) {
         super(b2xIdentityUserFlowParameterValue);
-        this.apiConnectorConfiguration = b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration;
-        this.identityProviders = b2xIdentityUserFlowParameterValue?.identityProviders;
-        this.languages = b2xIdentityUserFlowParameterValue?.languages;
-        this.userAttributeAssignments = b2xIdentityUserFlowParameterValue?.userAttributeAssignments;
-        this.userFlowIdentityProviders = b2xIdentityUserFlowParameterValue?.userFlowIdentityProviders;
+        this._apiConnectorConfiguration = b2xIdentityUserFlowParameterValue?.apiConnectorConfiguration;
+        this._identityProviders = b2xIdentityUserFlowParameterValue?.identityProviders;
+        this._languages = b2xIdentityUserFlowParameterValue?.languages;
+        this._userAttributeAssignments = b2xIdentityUserFlowParameterValue?.userAttributeAssignments;
+        this._userFlowIdentityProviders = b2xIdentityUserFlowParameterValue?.userFlowIdentityProviders;
     };
     /**
      * The deserialization information for the current model
@@ -49,6 +65,46 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         };
     };
     /**
+     * Gets the identityProviders property value. The identity providers included in the user flow.
+     * @returns a IdentityProviderInterface
+     */
+    public get identityProviders() {
+        return this._identityProviders;
+    };
+    /**
+     * Sets the identityProviders property value. The identity providers included in the user flow.
+     * @param value Value to set for the identityProviders property.
+     */
+    public set identityProviders(value: IdentityProvider[] | undefined) {
+        if(value) {
+            const identityProvidersArrValue: IdentityProviderImpl[] = [];
+            this.identityProviders?.forEach(element => {
+                identityProvidersArrValue.push((element instanceof IdentityProviderImpl? element:new IdentityProviderImpl(element)));
+            });
+            this._identityProviders = identityProvidersArrValue;
+        }
+    };
+    /**
+     * Gets the languages property value. The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @returns a UserFlowLanguageConfigurationInterface
+     */
+    public get languages() {
+        return this._languages;
+    };
+    /**
+     * Sets the languages property value. The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param value Value to set for the languages property.
+     */
+    public set languages(value: UserFlowLanguageConfiguration[] | undefined) {
+        if(value) {
+            const languagesArrValue: UserFlowLanguageConfigurationImpl[] = [];
+            this.languages?.forEach(element => {
+                languagesArrValue.push((element instanceof UserFlowLanguageConfigurationImpl? element:new UserFlowLanguageConfigurationImpl(element)));
+            });
+            this._languages = languagesArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -56,19 +112,71 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.apiConnectorConfiguration){
-            writer.writeObjectValue<UserFlowApiConnectorConfigurationImpl>("apiConnectorConfiguration", new UserFlowApiConnectorConfigurationImpl(this.apiConnectorConfiguration));
+            writer.writeObjectValue<UserFlowApiConnectorConfigurationImpl>("apiConnectorConfiguration", (!this.apiConnectorConfiguration || this.apiConnectorConfiguration instanceof UserFlowApiConnectorConfigurationImpl? this.apiConnectorConfiguration : new UserFlowApiConnectorConfigurationImpl(this.apiConnectorConfiguration)));
         }
-        if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderImpl[] = []; this.identityProviders?.forEach(element => {identityProvidersArrValue.push(new IdentityProviderImpl(element));});
+        if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderImpl[] = [];
+        this.identityProviders?.forEach(element => {
+            identityProvidersArrValue.push((element instanceof IdentityProviderImpl? element:new IdentityProviderImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IdentityProviderImpl>("identityProviders", identityProvidersArrValue);
         }
-        if(this.languages && this.languages.length != 0){        const languagesArrValue: UserFlowLanguageConfigurationImpl[] = []; this.languages?.forEach(element => {languagesArrValue.push(new UserFlowLanguageConfigurationImpl(element));});
+        if(this.languages && this.languages.length != 0){        const languagesArrValue: UserFlowLanguageConfigurationImpl[] = [];
+        this.languages?.forEach(element => {
+            languagesArrValue.push((element instanceof UserFlowLanguageConfigurationImpl? element:new UserFlowLanguageConfigurationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<UserFlowLanguageConfigurationImpl>("languages", languagesArrValue);
         }
-        if(this.userAttributeAssignments && this.userAttributeAssignments.length != 0){        const userAttributeAssignmentsArrValue: IdentityUserFlowAttributeAssignmentImpl[] = []; this.userAttributeAssignments?.forEach(element => {userAttributeAssignmentsArrValue.push(new IdentityUserFlowAttributeAssignmentImpl(element));});
+        if(this.userAttributeAssignments && this.userAttributeAssignments.length != 0){        const userAttributeAssignmentsArrValue: IdentityUserFlowAttributeAssignmentImpl[] = [];
+        this.userAttributeAssignments?.forEach(element => {
+            userAttributeAssignmentsArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element:new IdentityUserFlowAttributeAssignmentImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("userAttributeAssignments", userAttributeAssignmentsArrValue);
         }
-        if(this.userFlowIdentityProviders && this.userFlowIdentityProviders.length != 0){        const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = []; this.userFlowIdentityProviders?.forEach(element => {userFlowIdentityProvidersArrValue.push(new IdentityProviderBaseImpl(element));});
+        if(this.userFlowIdentityProviders && this.userFlowIdentityProviders.length != 0){        const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = [];
+        this.userFlowIdentityProviders?.forEach(element => {
+            userFlowIdentityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("userFlowIdentityProviders", userFlowIdentityProvidersArrValue);
+        }
+    };
+    /**
+     * Gets the userAttributeAssignments property value. The user attribute assignments included in the user flow.
+     * @returns a IdentityUserFlowAttributeAssignmentInterface
+     */
+    public get userAttributeAssignments() {
+        return this._userAttributeAssignments;
+    };
+    /**
+     * Sets the userAttributeAssignments property value. The user attribute assignments included in the user flow.
+     * @param value Value to set for the userAttributeAssignments property.
+     */
+    public set userAttributeAssignments(value: IdentityUserFlowAttributeAssignment[] | undefined) {
+        if(value) {
+            const userAttributeAssignmentsArrValue: IdentityUserFlowAttributeAssignmentImpl[] = [];
+            this.userAttributeAssignments?.forEach(element => {
+                userAttributeAssignmentsArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element:new IdentityUserFlowAttributeAssignmentImpl(element)));
+            });
+            this._userAttributeAssignments = userAttributeAssignmentsArrValue;
+        }
+    };
+    /**
+     * Gets the userFlowIdentityProviders property value. The userFlowIdentityProviders property
+     * @returns a IdentityProviderBaseInterface
+     */
+    public get userFlowIdentityProviders() {
+        return this._userFlowIdentityProviders;
+    };
+    /**
+     * Sets the userFlowIdentityProviders property value. The userFlowIdentityProviders property
+     * @param value Value to set for the userFlowIdentityProviders property.
+     */
+    public set userFlowIdentityProviders(value: IdentityProviderBase[] | undefined) {
+        if(value) {
+            const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = [];
+            this.userFlowIdentityProviders?.forEach(element => {
+                userFlowIdentityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+            });
+            this._userFlowIdentityProviders = userFlowIdentityProvidersArrValue;
         }
     };
 }

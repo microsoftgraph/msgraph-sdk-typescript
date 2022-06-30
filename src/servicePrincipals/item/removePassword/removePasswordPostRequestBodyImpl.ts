@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the removePassword method. */
 export class RemovePasswordPostRequestBodyImpl implements RemovePasswordPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The keyId property */
-    public keyId?: string | undefined;
+    private _keyId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new removePasswordPostRequestBody and sets the default values.
      * @param removePasswordPostRequestBodyParameterValue 
      */
     public constructor(removePasswordPostRequestBodyParameterValue?: RemovePasswordPostRequestBody | undefined) {
-        this.additionalData = removePasswordPostRequestBodyParameterValue?.additionalData ? removePasswordPostRequestBodyParameterValue?.additionalData! : {};
-        this.keyId = removePasswordPostRequestBodyParameterValue?.keyId;
+        this._additionalData = removePasswordPostRequestBodyParameterValue?.additionalData ? removePasswordPostRequestBodyParameterValue?.additionalData! : {};
+        this._keyId = removePasswordPostRequestBodyParameterValue?.keyId;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +39,22 @@ export class RemovePasswordPostRequestBodyImpl implements RemovePasswordPostRequ
         return {
             "keyId": n => { this.keyId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the keyId property value. The keyId property
+     * @returns a string
+     */
+    public get keyId() {
+        return this._keyId;
+    };
+    /**
+     * Sets the keyId property value. The keyId property
+     * @param value Value to set for the keyId property.
+     */
+    public set keyId(value: string | undefined) {
+        if(value) {
+            this._keyId = value;
+        }
     };
     /**
      * Serializes information the current object

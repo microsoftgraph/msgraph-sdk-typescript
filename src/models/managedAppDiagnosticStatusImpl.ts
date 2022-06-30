@@ -4,22 +4,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Represents diagnostics status. */
 export class ManagedAppDiagnosticStatusImpl implements ManagedAppDiagnosticStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Instruction on how to mitigate a failed validation */
-    public mitigationInstruction?: string | undefined;
+    private _mitigationInstruction?: string | undefined;
     /** The state of the operation */
-    public state?: string | undefined;
+    private _state?: string | undefined;
     /** The validation friendly name */
-    public validationName?: string | undefined;
+    private _validationName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new managedAppDiagnosticStatus and sets the default values.
      * @param managedAppDiagnosticStatusParameterValue 
      */
     public constructor(managedAppDiagnosticStatusParameterValue?: ManagedAppDiagnosticStatus | undefined) {
-        this.additionalData = managedAppDiagnosticStatusParameterValue?.additionalData ? managedAppDiagnosticStatusParameterValue?.additionalData! : {};
-        this.mitigationInstruction = managedAppDiagnosticStatusParameterValue?.mitigationInstruction;
-        this.state = managedAppDiagnosticStatusParameterValue?.state;
-        this.validationName = managedAppDiagnosticStatusParameterValue?.validationName;
+        this._additionalData = managedAppDiagnosticStatusParameterValue?.additionalData ? managedAppDiagnosticStatusParameterValue?.additionalData! : {};
+        this._mitigationInstruction = managedAppDiagnosticStatusParameterValue?.mitigationInstruction;
+        this._state = managedAppDiagnosticStatusParameterValue?.state;
+        this._validationName = managedAppDiagnosticStatusParameterValue?.validationName;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class ManagedAppDiagnosticStatusImpl implements ManagedAppDiagnosticStatu
             "state": n => { this.state = n.getStringValue(); },
             "validationName": n => { this.validationName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the mitigationInstruction property value. Instruction on how to mitigate a failed validation
+     * @returns a string
+     */
+    public get mitigationInstruction() {
+        return this._mitigationInstruction;
+    };
+    /**
+     * Sets the mitigationInstruction property value. Instruction on how to mitigate a failed validation
+     * @param value Value to set for the mitigationInstruction property.
+     */
+    public set mitigationInstruction(value: string | undefined) {
+        if(value) {
+            this._mitigationInstruction = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -48,5 +80,37 @@ export class ManagedAppDiagnosticStatusImpl implements ManagedAppDiagnosticStatu
             writer.writeStringValue("validationName", this.validationName);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. The state of the operation
+     * @returns a string
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The state of the operation
+     * @param value Value to set for the state property.
+     */
+    public set state(value: string | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the validationName property value. The validation friendly name
+     * @returns a string
+     */
+    public get validationName() {
+        return this._validationName;
+    };
+    /**
+     * Sets the validationName property value. The validation friendly name
+     * @param value Value to set for the validationName property.
+     */
+    public set validationName(value: string | undefined) {
+        if(value) {
+            this._validationName = value;
+        }
     };
 }

@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatInfoImpl implements ChatInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The unique identifier for a message in a Microsoft Teams channel. */
-    public messageId?: string | undefined;
+    private _messageId?: string | undefined;
     /** The ID of the reply message. */
-    public replyChainMessageId?: string | undefined;
+    private _replyChainMessageId?: string | undefined;
     /** The unique identifier for a thread in Microsoft Teams. */
-    public threadId?: string | undefined;
+    private _threadId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new chatInfo and sets the default values.
      * @param chatInfoParameterValue 
      */
     public constructor(chatInfoParameterValue?: ChatInfo | undefined) {
-        this.additionalData = chatInfoParameterValue?.additionalData ? chatInfoParameterValue?.additionalData! : {};
-        this.messageId = chatInfoParameterValue?.messageId;
-        this.replyChainMessageId = chatInfoParameterValue?.replyChainMessageId;
-        this.threadId = chatInfoParameterValue?.threadId;
+        this._additionalData = chatInfoParameterValue?.additionalData ? chatInfoParameterValue?.additionalData! : {};
+        this._messageId = chatInfoParameterValue?.messageId;
+        this._replyChainMessageId = chatInfoParameterValue?.replyChainMessageId;
+        this._threadId = chatInfoParameterValue?.threadId;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,38 @@ export class ChatInfoImpl implements ChatInfo {
             "replyChainMessageId": n => { this.replyChainMessageId = n.getStringValue(); },
             "threadId": n => { this.threadId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the messageId property value. The unique identifier for a message in a Microsoft Teams channel.
+     * @returns a string
+     */
+    public get messageId() {
+        return this._messageId;
+    };
+    /**
+     * Sets the messageId property value. The unique identifier for a message in a Microsoft Teams channel.
+     * @param value Value to set for the messageId property.
+     */
+    public set messageId(value: string | undefined) {
+        if(value) {
+            this._messageId = value;
+        }
+    };
+    /**
+     * Gets the replyChainMessageId property value. The ID of the reply message.
+     * @returns a string
+     */
+    public get replyChainMessageId() {
+        return this._replyChainMessageId;
+    };
+    /**
+     * Sets the replyChainMessageId property value. The ID of the reply message.
+     * @param value Value to set for the replyChainMessageId property.
+     */
+    public set replyChainMessageId(value: string | undefined) {
+        if(value) {
+            this._replyChainMessageId = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +95,21 @@ export class ChatInfoImpl implements ChatInfo {
             writer.writeStringValue("threadId", this.threadId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the threadId property value. The unique identifier for a thread in Microsoft Teams.
+     * @returns a string
+     */
+    public get threadId() {
+        return this._threadId;
+    };
+    /**
+     * Sets the threadId property value. The unique identifier for a thread in Microsoft Teams.
+     * @param value Value to set for the threadId property.
+     */
+    public set threadId(value: string | undefined) {
+        if(value) {
+            this._threadId = value;
+        }
     };
 }

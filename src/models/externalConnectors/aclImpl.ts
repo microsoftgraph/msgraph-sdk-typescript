@@ -5,22 +5,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AclImpl implements Acl {
     /** The access granted to the identity. Possible values are: grant, deny. */
-    public accessType?: AccessType | undefined;
+    private _accessType?: AccessType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The type of identity. Possible values are: user, group, everyone, everyoneExceptGuests if the identitySource is azureActiveDirectory and just group if the identitySource is external. */
-    public type?: AclType | undefined;
+    private _type?: AclType | undefined;
     /** The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the accessType property value. The access granted to the identity. Possible values are: grant, deny.
+     * @returns a accessType
+     */
+    public get accessType() {
+        return this._accessType;
+    };
+    /**
+     * Sets the accessType property value. The access granted to the identity. Possible values are: grant, deny.
+     * @param value Value to set for the accessType property.
+     */
+    public set accessType(value: AccessType | undefined) {
+        if(value) {
+            this._accessType = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new acl and sets the default values.
      * @param aclParameterValue 
      */
     public constructor(aclParameterValue?: Acl | undefined) {
-        this.accessType = aclParameterValue?.accessType;
-        this.additionalData = aclParameterValue?.additionalData ? aclParameterValue?.additionalData! : {};
-        this.type = aclParameterValue?.type;
-        this.value = aclParameterValue?.value;
+        this._accessType = aclParameterValue?.accessType;
+        this._additionalData = aclParameterValue?.additionalData ? aclParameterValue?.additionalData! : {};
+        this._type = aclParameterValue?.type;
+        this._value = aclParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -49,5 +81,37 @@ export class AclImpl implements Acl {
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. The type of identity. Possible values are: user, group, everyone, everyoneExceptGuests if the identitySource is azureActiveDirectory and just group if the identitySource is external.
+     * @returns a aclType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of identity. Possible values are: user, group, everyone, everyoneExceptGuests if the identitySource is azureActiveDirectory and just group if the identitySource is external.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: AclType | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the value property value. The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

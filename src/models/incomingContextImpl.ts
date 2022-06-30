@@ -6,25 +6,41 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IncomingContextImpl implements IncomingContext {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The id of the participant that is under observation. Read-only. */
-    public observedParticipantId?: string | undefined;
+    private _observedParticipantId?: string | undefined;
     /** The identity that the call is happening on behalf of. */
-    public onBehalfOf?: IdentitySet | undefined;
+    private _onBehalfOf?: IdentitySet | undefined;
     /** The id of the participant that triggered the incoming call. Read-only. */
-    public sourceParticipantId?: string | undefined;
+    private _sourceParticipantId?: string | undefined;
     /** The identity that transferred the call. */
-    public transferor?: IdentitySet | undefined;
+    private _transferor?: IdentitySet | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new incomingContext and sets the default values.
      * @param incomingContextParameterValue 
      */
     public constructor(incomingContextParameterValue?: IncomingContext | undefined) {
-        this.additionalData = incomingContextParameterValue?.additionalData ? incomingContextParameterValue?.additionalData! : {};
-        this.observedParticipantId = incomingContextParameterValue?.observedParticipantId;
-        this.onBehalfOf = incomingContextParameterValue?.onBehalfOf;
-        this.sourceParticipantId = incomingContextParameterValue?.sourceParticipantId;
-        this.transferor = incomingContextParameterValue?.transferor;
+        this._additionalData = incomingContextParameterValue?.additionalData ? incomingContextParameterValue?.additionalData! : {};
+        this._observedParticipantId = incomingContextParameterValue?.observedParticipantId;
+        this._onBehalfOf = incomingContextParameterValue?.onBehalfOf;
+        this._sourceParticipantId = incomingContextParameterValue?.sourceParticipantId;
+        this._transferor = incomingContextParameterValue?.transferor;
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,38 @@ export class IncomingContextImpl implements IncomingContext {
         };
     };
     /**
+     * Gets the observedParticipantId property value. The id of the participant that is under observation. Read-only.
+     * @returns a string
+     */
+    public get observedParticipantId() {
+        return this._observedParticipantId;
+    };
+    /**
+     * Sets the observedParticipantId property value. The id of the participant that is under observation. Read-only.
+     * @param value Value to set for the observedParticipantId property.
+     */
+    public set observedParticipantId(value: string | undefined) {
+        if(value) {
+            this._observedParticipantId = value;
+        }
+    };
+    /**
+     * Gets the onBehalfOf property value. The identity that the call is happening on behalf of.
+     * @returns a IdentitySetInterface
+     */
+    public get onBehalfOf() {
+        return this._onBehalfOf;
+    };
+    /**
+     * Sets the onBehalfOf property value. The identity that the call is happening on behalf of.
+     * @param value Value to set for the onBehalfOf property.
+     */
+    public set onBehalfOf(value: IdentitySet | undefined) {
+        if(value) {
+            this._onBehalfOf = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -48,14 +96,46 @@ export class IncomingContextImpl implements IncomingContext {
             writer.writeStringValue("observedParticipantId", this.observedParticipantId);
         }
         if(this.onBehalfOf){
-            writer.writeObjectValue<IdentitySetImpl>("onBehalfOf", new IdentitySetImpl(this.onBehalfOf));
+            writer.writeObjectValue<IdentitySetImpl>("onBehalfOf", (!this.onBehalfOf || this.onBehalfOf instanceof IdentitySetImpl? this.onBehalfOf : new IdentitySetImpl(this.onBehalfOf)));
         }
         if(this.sourceParticipantId){
             writer.writeStringValue("sourceParticipantId", this.sourceParticipantId);
         }
         if(this.transferor){
-            writer.writeObjectValue<IdentitySetImpl>("transferor", new IdentitySetImpl(this.transferor));
+            writer.writeObjectValue<IdentitySetImpl>("transferor", (!this.transferor || this.transferor instanceof IdentitySetImpl? this.transferor : new IdentitySetImpl(this.transferor)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sourceParticipantId property value. The id of the participant that triggered the incoming call. Read-only.
+     * @returns a string
+     */
+    public get sourceParticipantId() {
+        return this._sourceParticipantId;
+    };
+    /**
+     * Sets the sourceParticipantId property value. The id of the participant that triggered the incoming call. Read-only.
+     * @param value Value to set for the sourceParticipantId property.
+     */
+    public set sourceParticipantId(value: string | undefined) {
+        if(value) {
+            this._sourceParticipantId = value;
+        }
+    };
+    /**
+     * Gets the transferor property value. The identity that transferred the call.
+     * @returns a IdentitySetInterface
+     */
+    public get transferor() {
+        return this._transferor;
+    };
+    /**
+     * Sets the transferor property value. The identity that transferred the call.
+     * @param value Value to set for the transferor property.
+     */
+    public set transferor(value: IdentitySet | undefined) {
+        if(value) {
+            this._transferor = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
     };
 }

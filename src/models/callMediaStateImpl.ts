@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CallMediaStateImpl implements CallMediaState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The audio media state. Possible values are: active, inactive, unknownFutureValue. */
-    public audio?: MediaState | undefined;
+    private _audio?: MediaState | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the audio property value. The audio media state. Possible values are: active, inactive, unknownFutureValue.
+     * @returns a mediaState
+     */
+    public get audio() {
+        return this._audio;
+    };
+    /**
+     * Sets the audio property value. The audio media state. Possible values are: active, inactive, unknownFutureValue.
+     * @param value Value to set for the audio property.
+     */
+    public set audio(value: MediaState | undefined) {
+        if(value) {
+            this._audio = value;
+        }
+    };
     /**
      * Instantiates a new callMediaState and sets the default values.
      * @param callMediaStateParameterValue 
      */
     public constructor(callMediaStateParameterValue?: CallMediaState | undefined) {
-        this.additionalData = callMediaStateParameterValue?.additionalData ? callMediaStateParameterValue?.additionalData! : {};
-        this.audio = callMediaStateParameterValue?.audio;
+        this._additionalData = callMediaStateParameterValue?.additionalData ? callMediaStateParameterValue?.additionalData! : {};
+        this._audio = callMediaStateParameterValue?.audio;
     };
     /**
      * The deserialization information for the current model

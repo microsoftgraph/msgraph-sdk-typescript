@@ -3,28 +3,92 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class OutlookGeoCoordinatesImpl implements OutlookGeoCoordinates {
     /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
-    public accuracy?: number | undefined;
+    private _accuracy?: number | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The altitude of the location. */
-    public altitude?: number | undefined;
+    private _altitude?: number | undefined;
     /** The accuracy of the altitude. */
-    public altitudeAccuracy?: number | undefined;
+    private _altitudeAccuracy?: number | undefined;
     /** The latitude of the location. */
-    public latitude?: number | undefined;
+    private _latitude?: number | undefined;
     /** The longitude of the location. */
-    public longitude?: number | undefined;
+    private _longitude?: number | undefined;
+    /**
+     * Gets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
+     * @returns a double
+     */
+    public get accuracy() {
+        return this._accuracy;
+    };
+    /**
+     * Sets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
+     * @param value Value to set for the accuracy property.
+     */
+    public set accuracy(value: number | undefined) {
+        if(value) {
+            this._accuracy = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the altitude property value. The altitude of the location.
+     * @returns a double
+     */
+    public get altitude() {
+        return this._altitude;
+    };
+    /**
+     * Sets the altitude property value. The altitude of the location.
+     * @param value Value to set for the altitude property.
+     */
+    public set altitude(value: number | undefined) {
+        if(value) {
+            this._altitude = value;
+        }
+    };
+    /**
+     * Gets the altitudeAccuracy property value. The accuracy of the altitude.
+     * @returns a double
+     */
+    public get altitudeAccuracy() {
+        return this._altitudeAccuracy;
+    };
+    /**
+     * Sets the altitudeAccuracy property value. The accuracy of the altitude.
+     * @param value Value to set for the altitudeAccuracy property.
+     */
+    public set altitudeAccuracy(value: number | undefined) {
+        if(value) {
+            this._altitudeAccuracy = value;
+        }
+    };
     /**
      * Instantiates a new outlookGeoCoordinates and sets the default values.
      * @param outlookGeoCoordinatesParameterValue 
      */
     public constructor(outlookGeoCoordinatesParameterValue?: OutlookGeoCoordinates | undefined) {
-        this.accuracy = outlookGeoCoordinatesParameterValue?.accuracy;
-        this.additionalData = outlookGeoCoordinatesParameterValue?.additionalData ? outlookGeoCoordinatesParameterValue?.additionalData! : {};
-        this.altitude = outlookGeoCoordinatesParameterValue?.altitude;
-        this.altitudeAccuracy = outlookGeoCoordinatesParameterValue?.altitudeAccuracy;
-        this.latitude = outlookGeoCoordinatesParameterValue?.latitude;
-        this.longitude = outlookGeoCoordinatesParameterValue?.longitude;
+        this._accuracy = outlookGeoCoordinatesParameterValue?.accuracy;
+        this._additionalData = outlookGeoCoordinatesParameterValue?.additionalData ? outlookGeoCoordinatesParameterValue?.additionalData! : {};
+        this._altitude = outlookGeoCoordinatesParameterValue?.altitude;
+        this._altitudeAccuracy = outlookGeoCoordinatesParameterValue?.altitudeAccuracy;
+        this._latitude = outlookGeoCoordinatesParameterValue?.latitude;
+        this._longitude = outlookGeoCoordinatesParameterValue?.longitude;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +102,38 @@ export class OutlookGeoCoordinatesImpl implements OutlookGeoCoordinates {
             "latitude": n => { this.latitude = n.getNumberValue(); },
             "longitude": n => { this.longitude = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the latitude property value. The latitude of the location.
+     * @returns a double
+     */
+    public get latitude() {
+        return this._latitude;
+    };
+    /**
+     * Sets the latitude property value. The latitude of the location.
+     * @param value Value to set for the latitude property.
+     */
+    public set latitude(value: number | undefined) {
+        if(value) {
+            this._latitude = value;
+        }
+    };
+    /**
+     * Gets the longitude property value. The longitude of the location.
+     * @returns a double
+     */
+    public get longitude() {
+        return this._longitude;
+    };
+    /**
+     * Sets the longitude property value. The longitude of the location.
+     * @param value Value to set for the longitude property.
+     */
+    public set longitude(value: number | undefined) {
+        if(value) {
+            this._longitude = value;
+        }
     };
     /**
      * Serializes information the current object

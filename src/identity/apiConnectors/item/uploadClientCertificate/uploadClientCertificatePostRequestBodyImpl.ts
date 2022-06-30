@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the uploadClientCertificate method. */
 export class UploadClientCertificatePostRequestBodyImpl implements UploadClientCertificatePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The password property */
-    public password?: string | undefined;
+    private _password?: string | undefined;
     /** The pkcs12Value property */
-    public pkcs12Value?: string | undefined;
+    private _pkcs12Value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new uploadClientCertificatePostRequestBody and sets the default values.
      * @param uploadClientCertificatePostRequestBodyParameterValue 
      */
     public constructor(uploadClientCertificatePostRequestBodyParameterValue?: UploadClientCertificatePostRequestBody | undefined) {
-        this.additionalData = uploadClientCertificatePostRequestBodyParameterValue?.additionalData ? uploadClientCertificatePostRequestBodyParameterValue?.additionalData! : {};
-        this.password = uploadClientCertificatePostRequestBodyParameterValue?.password;
-        this.pkcs12Value = uploadClientCertificatePostRequestBodyParameterValue?.pkcs12Value;
+        this._additionalData = uploadClientCertificatePostRequestBodyParameterValue?.additionalData ? uploadClientCertificatePostRequestBodyParameterValue?.additionalData! : {};
+        this._password = uploadClientCertificatePostRequestBodyParameterValue?.password;
+        this._pkcs12Value = uploadClientCertificatePostRequestBodyParameterValue?.pkcs12Value;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,38 @@ export class UploadClientCertificatePostRequestBodyImpl implements UploadClientC
             "password": n => { this.password = n.getStringValue(); },
             "pkcs12Value": n => { this.pkcs12Value = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the password property value. The password property
+     * @returns a string
+     */
+    public get password() {
+        return this._password;
+    };
+    /**
+     * Sets the password property value. The password property
+     * @param value Value to set for the password property.
+     */
+    public set password(value: string | undefined) {
+        if(value) {
+            this._password = value;
+        }
+    };
+    /**
+     * Gets the pkcs12Value property value. The pkcs12Value property
+     * @returns a string
+     */
+    public get pkcs12Value() {
+        return this._pkcs12Value;
+    };
+    /**
+     * Sets the pkcs12Value property value. The pkcs12Value property
+     * @param value Value to set for the pkcs12Value property.
+     */
+    public set pkcs12Value(value: string | undefined) {
+        if(value) {
+            this._pkcs12Value = value;
+        }
     };
     /**
      * Serializes information the current object

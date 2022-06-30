@@ -6,17 +6,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements SignInFrequencySessionControl {
     /** Possible values are: days, hours, or null if frequencyInterval is everyTime . */
-    public type?: SigninFrequencyType | undefined;
+    private _type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
-    public value?: number | undefined;
+    private _value?: number | undefined;
     /**
      * Instantiates a new signInFrequencySessionControl and sets the default values.
      * @param signInFrequencySessionControlParameterValue 
      */
     public constructor(signInFrequencySessionControlParameterValue?: SignInFrequencySessionControl | undefined) {
         super(signInFrequencySessionControlParameterValue);
-        this.type = signInFrequencySessionControlParameterValue?.type;
-        this.value = signInFrequencySessionControlParameterValue?.value;
+        this._type = signInFrequencySessionControlParameterValue?.type;
+        this._value = signInFrequencySessionControlParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +40,38 @@ export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionC
         }
         if(this.value){
             writer.writeNumberValue("value", this.value);
+        }
+    };
+    /**
+     * Gets the type property value. Possible values are: days, hours, or null if frequencyInterval is everyTime .
+     * @returns a signinFrequencyType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. Possible values are: days, hours, or null if frequencyInterval is everyTime .
+     * @param value Value to set for the type property.
+     */
+    public set type(value: SigninFrequencyType | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the value property value. The number of days or hours.
+     * @returns a integer
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The number of days or hours.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: number | undefined) {
+        if(value) {
+            this._value = value;
         }
     };
 }

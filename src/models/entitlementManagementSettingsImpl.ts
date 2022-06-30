@@ -6,17 +6,49 @@ import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 /** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagementSettingsImpl extends EntityImpl implements EntitlementManagementSettings {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted. */
-    public durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
+    private _durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
     /** One of None, BlockSignIn, or BlockSignInAndDelete. */
-    public externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
+    private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
     /**
      * Instantiates a new entitlementManagementSettings and sets the default values.
      * @param entitlementManagementSettingsParameterValue 
      */
     public constructor(entitlementManagementSettingsParameterValue?: EntitlementManagementSettings | undefined) {
         super(entitlementManagementSettingsParameterValue);
-        this.durationUntilExternalUserDeletedAfterBlocked = entitlementManagementSettingsParameterValue?.durationUntilExternalUserDeletedAfterBlocked;
-        this.externalUserLifecycleAction = entitlementManagementSettingsParameterValue?.externalUserLifecycleAction;
+        this._durationUntilExternalUserDeletedAfterBlocked = entitlementManagementSettingsParameterValue?.durationUntilExternalUserDeletedAfterBlocked;
+        this._externalUserLifecycleAction = entitlementManagementSettingsParameterValue?.externalUserLifecycleAction;
+    };
+    /**
+     * Gets the durationUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.
+     * @returns a Duration
+     */
+    public get durationUntilExternalUserDeletedAfterBlocked() {
+        return this._durationUntilExternalUserDeletedAfterBlocked;
+    };
+    /**
+     * Sets the durationUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.
+     * @param value Value to set for the durationUntilExternalUserDeletedAfterBlocked property.
+     */
+    public set durationUntilExternalUserDeletedAfterBlocked(value: Duration | undefined) {
+        if(value) {
+            this._durationUntilExternalUserDeletedAfterBlocked = value;
+        }
+    };
+    /**
+     * Gets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
+     * @returns a accessPackageExternalUserLifecycleAction
+     */
+    public get externalUserLifecycleAction() {
+        return this._externalUserLifecycleAction;
+    };
+    /**
+     * Sets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
+     * @param value Value to set for the externalUserLifecycleAction property.
+     */
+    public set externalUserLifecycleAction(value: AccessPackageExternalUserLifecycleAction | undefined) {
+        if(value) {
+            this._externalUserLifecycleAction = value;
+        }
     };
     /**
      * The deserialization information for the current model

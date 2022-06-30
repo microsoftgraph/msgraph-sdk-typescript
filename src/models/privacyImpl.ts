@@ -6,16 +6,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrivacyImpl implements Privacy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The subjectRightsRequests property */
-    public subjectRightsRequests?: SubjectRightsRequest[] | undefined;
+    private _subjectRightsRequests?: SubjectRightsRequest[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new Privacy and sets the default values.
      * @param privacyParameterValue 
      */
     public constructor(privacyParameterValue?: Privacy | undefined) {
-        this.additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {};
-        this.subjectRightsRequests = privacyParameterValue?.subjectRightsRequests;
+        this._additionalData = privacyParameterValue?.additionalData ? privacyParameterValue?.additionalData! : {};
+        this._subjectRightsRequests = privacyParameterValue?.subjectRightsRequests;
     };
     /**
      * The deserialization information for the current model
@@ -32,9 +48,32 @@ export class PrivacyImpl implements Privacy {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = []; this.subjectRightsRequests?.forEach(element => {subjectRightsRequestsArrValue.push(new SubjectRightsRequestImpl(element));});
+        if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = [];
+        this.subjectRightsRequests?.forEach(element => {
+            subjectRightsRequestsArrValue.push((element instanceof SubjectRightsRequestImpl? element:new SubjectRightsRequestImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("subjectRightsRequests", subjectRightsRequestsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the subjectRightsRequests property value. The subjectRightsRequests property
+     * @returns a SubjectRightsRequestInterface
+     */
+    public get subjectRightsRequests() {
+        return this._subjectRightsRequests;
+    };
+    /**
+     * Sets the subjectRightsRequests property value. The subjectRightsRequests property
+     * @param value Value to set for the subjectRightsRequests property.
+     */
+    public set subjectRightsRequests(value: SubjectRightsRequest[] | undefined) {
+        if(value) {
+            const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = [];
+            this.subjectRightsRequests?.forEach(element => {
+                subjectRightsRequestsArrValue.push((element instanceof SubjectRightsRequestImpl? element:new SubjectRightsRequestImpl(element)));
+            });
+            this._subjectRightsRequests = subjectRightsRequestsArrValue;
+        }
     };
 }

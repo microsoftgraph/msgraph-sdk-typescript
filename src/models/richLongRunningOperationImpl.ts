@@ -6,23 +6,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class RichLongRunningOperationImpl extends LongRunningOperationImpl implements RichLongRunningOperation {
     /** Error due to which the operation failed. */
-    public error_escaped?: PublicError | undefined;
+    private _error_escaped?: PublicError | undefined;
     /** A value between 0 and 100 that indicates the progress of the operation. */
-    public percentageComplete?: number | undefined;
+    private _percentageComplete?: number | undefined;
     /** A unique identifier for the result. */
-    public resourceId?: string | undefined;
+    private _resourceId?: string | undefined;
     /** Type of the operation. */
-    public type?: string | undefined;
+    private _type?: string | undefined;
     /**
      * Instantiates a new RichLongRunningOperation and sets the default values.
      * @param richLongRunningOperationParameterValue 
      */
     public constructor(richLongRunningOperationParameterValue?: RichLongRunningOperation | undefined) {
         super(richLongRunningOperationParameterValue);
-        this.error_escaped = richLongRunningOperationParameterValue?.error_escaped;
-        this.percentageComplete = richLongRunningOperationParameterValue?.percentageComplete;
-        this.resourceId = richLongRunningOperationParameterValue?.resourceId;
-        this.type = richLongRunningOperationParameterValue?.type;
+        this._error_escaped = richLongRunningOperationParameterValue?.error_escaped;
+        this._percentageComplete = richLongRunningOperationParameterValue?.percentageComplete;
+        this._resourceId = richLongRunningOperationParameterValue?.resourceId;
+        this._type = richLongRunningOperationParameterValue?.type;
+    };
+    /**
+     * Gets the error property value. Error due to which the operation failed.
+     * @returns a PublicErrorInterface
+     */
+    public get error_escaped() {
+        return this._error_escaped;
+    };
+    /**
+     * Sets the error property value. Error due to which the operation failed.
+     * @param value Value to set for the error_escaped property.
+     */
+    public set error_escaped(value: PublicError | undefined) {
+        if(value) {
+            this._error_escaped = value instanceof PublicErrorImpl? value : new PublicErrorImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +53,38 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
         };
     };
     /**
+     * Gets the percentageComplete property value. A value between 0 and 100 that indicates the progress of the operation.
+     * @returns a integer
+     */
+    public get percentageComplete() {
+        return this._percentageComplete;
+    };
+    /**
+     * Sets the percentageComplete property value. A value between 0 and 100 that indicates the progress of the operation.
+     * @param value Value to set for the percentageComplete property.
+     */
+    public set percentageComplete(value: number | undefined) {
+        if(value) {
+            this._percentageComplete = value;
+        }
+    };
+    /**
+     * Gets the resourceId property value. A unique identifier for the result.
+     * @returns a string
+     */
+    public get resourceId() {
+        return this._resourceId;
+    };
+    /**
+     * Sets the resourceId property value. A unique identifier for the result.
+     * @param value Value to set for the resourceId property.
+     */
+    public set resourceId(value: string | undefined) {
+        if(value) {
+            this._resourceId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -44,7 +92,7 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-            writer.writeObjectValue<PublicErrorImpl>("error", new PublicErrorImpl(this.error_escaped));
+            writer.writeObjectValue<PublicErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof PublicErrorImpl? this.error_escaped : new PublicErrorImpl(this.error_escaped)));
         }
         if(this.percentageComplete){
             writer.writeNumberValue("percentageComplete", this.percentageComplete);
@@ -54,6 +102,22 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
         }
         if(this.type){
             writer.writeStringValue("type", this.type);
+        }
+    };
+    /**
+     * Gets the type property value. Type of the operation.
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. Type of the operation.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
         }
     };
 }

@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PublicationFacetImpl implements PublicationFacet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The state of publication for this document. Either published or checkout. Read-only. */
-    public level?: string | undefined;
+    private _level?: string | undefined;
     /** The unique identifier for the version that is visible to the current caller. Read-only. */
-    public versionId?: string | undefined;
+    private _versionId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new publicationFacet and sets the default values.
      * @param publicationFacetParameterValue 
      */
     public constructor(publicationFacetParameterValue?: PublicationFacet | undefined) {
-        this.additionalData = publicationFacetParameterValue?.additionalData ? publicationFacetParameterValue?.additionalData! : {};
-        this.level = publicationFacetParameterValue?.level;
-        this.versionId = publicationFacetParameterValue?.versionId;
+        this._additionalData = publicationFacetParameterValue?.additionalData ? publicationFacetParameterValue?.additionalData! : {};
+        this._level = publicationFacetParameterValue?.level;
+        this._versionId = publicationFacetParameterValue?.versionId;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,22 @@ export class PublicationFacetImpl implements PublicationFacet {
             "level": n => { this.level = n.getStringValue(); },
             "versionId": n => { this.versionId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the level property value. The state of publication for this document. Either published or checkout. Read-only.
+     * @returns a string
+     */
+    public get level() {
+        return this._level;
+    };
+    /**
+     * Sets the level property value. The state of publication for this document. Either published or checkout. Read-only.
+     * @param value Value to set for the level property.
+     */
+    public set level(value: string | undefined) {
+        if(value) {
+            this._level = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -40,5 +72,21 @@ export class PublicationFacetImpl implements PublicationFacet {
             writer.writeStringValue("versionId", this.versionId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the versionId property value. The unique identifier for the version that is visible to the current caller. Read-only.
+     * @returns a string
+     */
+    public get versionId() {
+        return this._versionId;
+    };
+    /**
+     * Sets the versionId property value. The unique identifier for the version that is visible to the current caller. Read-only.
+     * @param value Value to set for the versionId property.
+     */
+    public set versionId(value: string | undefined) {
+        if(value) {
+            this._versionId = value;
+        }
     };
 }

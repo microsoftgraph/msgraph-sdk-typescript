@@ -13,35 +13,51 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAxis {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
-    public format?: WorkbookChartAxisFormat | undefined;
+    private _format?: WorkbookChartAxisFormat | undefined;
     /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */
-    public majorGridlines?: WorkbookChartGridlines | undefined;
+    private _majorGridlines?: WorkbookChartGridlines | undefined;
     /** Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number. */
-    public majorUnit?: Json | undefined;
+    private _majorUnit?: Json | undefined;
     /** Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number. */
-    public maximum?: Json | undefined;
+    private _maximum?: Json | undefined;
     /** Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number. */
-    public minimum?: Json | undefined;
+    private _minimum?: Json | undefined;
     /** Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only. */
-    public minorGridlines?: WorkbookChartGridlines | undefined;
+    private _minorGridlines?: WorkbookChartGridlines | undefined;
     /** Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number. */
-    public minorUnit?: Json | undefined;
+    private _minorUnit?: Json | undefined;
     /** Represents the axis title. Read-only. */
-    public title?: WorkbookChartAxisTitle | undefined;
+    private _title?: WorkbookChartAxisTitle | undefined;
     /**
      * Instantiates a new workbookChartAxis and sets the default values.
      * @param workbookChartAxisParameterValue 
      */
     public constructor(workbookChartAxisParameterValue?: WorkbookChartAxis | undefined) {
         super(workbookChartAxisParameterValue);
-        this.format = workbookChartAxisParameterValue?.format;
-        this.majorGridlines = workbookChartAxisParameterValue?.majorGridlines;
-        this.majorUnit = workbookChartAxisParameterValue?.majorUnit;
-        this.maximum = workbookChartAxisParameterValue?.maximum;
-        this.minimum = workbookChartAxisParameterValue?.minimum;
-        this.minorGridlines = workbookChartAxisParameterValue?.minorGridlines;
-        this.minorUnit = workbookChartAxisParameterValue?.minorUnit;
-        this.title = workbookChartAxisParameterValue?.title;
+        this._format = workbookChartAxisParameterValue?.format;
+        this._majorGridlines = workbookChartAxisParameterValue?.majorGridlines;
+        this._majorUnit = workbookChartAxisParameterValue?.majorUnit;
+        this._maximum = workbookChartAxisParameterValue?.maximum;
+        this._minimum = workbookChartAxisParameterValue?.minimum;
+        this._minorGridlines = workbookChartAxisParameterValue?.minorGridlines;
+        this._minorUnit = workbookChartAxisParameterValue?.minorUnit;
+        this._title = workbookChartAxisParameterValue?.title;
+    };
+    /**
+     * Gets the format property value. Represents the formatting of a chart object, which includes line and font formatting. Read-only.
+     * @returns a WorkbookChartAxisFormatInterface
+     */
+    public get format() {
+        return this._format;
+    };
+    /**
+     * Sets the format property value. Represents the formatting of a chart object, which includes line and font formatting. Read-only.
+     * @param value Value to set for the format property.
+     */
+    public set format(value: WorkbookChartAxisFormat | undefined) {
+        if(value) {
+            this._format = value instanceof WorkbookChartAxisFormatImpl? value : new WorkbookChartAxisFormatImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -60,6 +76,102 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
         };
     };
     /**
+     * Gets the majorGridlines property value. Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
+     * @returns a WorkbookChartGridlinesInterface
+     */
+    public get majorGridlines() {
+        return this._majorGridlines;
+    };
+    /**
+     * Sets the majorGridlines property value. Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
+     * @param value Value to set for the majorGridlines property.
+     */
+    public set majorGridlines(value: WorkbookChartGridlines | undefined) {
+        if(value) {
+            this._majorGridlines = value instanceof WorkbookChartGridlinesImpl? value : new WorkbookChartGridlinesImpl(value);
+        }
+    };
+    /**
+     * Gets the majorUnit property value. Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.
+     * @returns a JsonInterface
+     */
+    public get majorUnit() {
+        return this._majorUnit;
+    };
+    /**
+     * Sets the majorUnit property value. Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.
+     * @param value Value to set for the majorUnit property.
+     */
+    public set majorUnit(value: Json | undefined) {
+        if(value) {
+            this._majorUnit = value instanceof JsonImpl? value : new JsonImpl(value);
+        }
+    };
+    /**
+     * Gets the maximum property value. Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
+     * @returns a JsonInterface
+     */
+    public get maximum() {
+        return this._maximum;
+    };
+    /**
+     * Sets the maximum property value. Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
+     * @param value Value to set for the maximum property.
+     */
+    public set maximum(value: Json | undefined) {
+        if(value) {
+            this._maximum = value instanceof JsonImpl? value : new JsonImpl(value);
+        }
+    };
+    /**
+     * Gets the minimum property value. Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
+     * @returns a JsonInterface
+     */
+    public get minimum() {
+        return this._minimum;
+    };
+    /**
+     * Sets the minimum property value. Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
+     * @param value Value to set for the minimum property.
+     */
+    public set minimum(value: Json | undefined) {
+        if(value) {
+            this._minimum = value instanceof JsonImpl? value : new JsonImpl(value);
+        }
+    };
+    /**
+     * Gets the minorGridlines property value. Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
+     * @returns a WorkbookChartGridlinesInterface
+     */
+    public get minorGridlines() {
+        return this._minorGridlines;
+    };
+    /**
+     * Sets the minorGridlines property value. Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
+     * @param value Value to set for the minorGridlines property.
+     */
+    public set minorGridlines(value: WorkbookChartGridlines | undefined) {
+        if(value) {
+            this._minorGridlines = value instanceof WorkbookChartGridlinesImpl? value : new WorkbookChartGridlinesImpl(value);
+        }
+    };
+    /**
+     * Gets the minorUnit property value. Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.
+     * @returns a JsonInterface
+     */
+    public get minorUnit() {
+        return this._minorUnit;
+    };
+    /**
+     * Sets the minorUnit property value. Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.
+     * @param value Value to set for the minorUnit property.
+     */
+    public set minorUnit(value: Json | undefined) {
+        if(value) {
+            this._minorUnit = value instanceof JsonImpl? value : new JsonImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -67,28 +179,44 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartAxisFormatImpl>("format", new WorkbookChartAxisFormatImpl(this.format));
+            writer.writeObjectValue<WorkbookChartAxisFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartAxisFormatImpl? this.format : new WorkbookChartAxisFormatImpl(this.format)));
         }
         if(this.majorGridlines){
-            writer.writeObjectValue<WorkbookChartGridlinesImpl>("majorGridlines", new WorkbookChartGridlinesImpl(this.majorGridlines));
+            writer.writeObjectValue<WorkbookChartGridlinesImpl>("majorGridlines", (!this.majorGridlines || this.majorGridlines instanceof WorkbookChartGridlinesImpl? this.majorGridlines : new WorkbookChartGridlinesImpl(this.majorGridlines)));
         }
         if(this.majorUnit){
-            writer.writeObjectValue<JsonImpl>("majorUnit", new JsonImpl(this.majorUnit));
+            writer.writeObjectValue<JsonImpl>("majorUnit", (!this.majorUnit || this.majorUnit instanceof JsonImpl? this.majorUnit : new JsonImpl(this.majorUnit)));
         }
         if(this.maximum){
-            writer.writeObjectValue<JsonImpl>("maximum", new JsonImpl(this.maximum));
+            writer.writeObjectValue<JsonImpl>("maximum", (!this.maximum || this.maximum instanceof JsonImpl? this.maximum : new JsonImpl(this.maximum)));
         }
         if(this.minimum){
-            writer.writeObjectValue<JsonImpl>("minimum", new JsonImpl(this.minimum));
+            writer.writeObjectValue<JsonImpl>("minimum", (!this.minimum || this.minimum instanceof JsonImpl? this.minimum : new JsonImpl(this.minimum)));
         }
         if(this.minorGridlines){
-            writer.writeObjectValue<WorkbookChartGridlinesImpl>("minorGridlines", new WorkbookChartGridlinesImpl(this.minorGridlines));
+            writer.writeObjectValue<WorkbookChartGridlinesImpl>("minorGridlines", (!this.minorGridlines || this.minorGridlines instanceof WorkbookChartGridlinesImpl? this.minorGridlines : new WorkbookChartGridlinesImpl(this.minorGridlines)));
         }
         if(this.minorUnit){
-            writer.writeObjectValue<JsonImpl>("minorUnit", new JsonImpl(this.minorUnit));
+            writer.writeObjectValue<JsonImpl>("minorUnit", (!this.minorUnit || this.minorUnit instanceof JsonImpl? this.minorUnit : new JsonImpl(this.minorUnit)));
         }
         if(this.title){
-            writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", new WorkbookChartAxisTitleImpl(this.title));
+            writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", (!this.title || this.title instanceof WorkbookChartAxisTitleImpl? this.title : new WorkbookChartAxisTitleImpl(this.title)));
+        }
+    };
+    /**
+     * Gets the title property value. Represents the axis title. Read-only.
+     * @returns a WorkbookChartAxisTitleInterface
+     */
+    public get title() {
+        return this._title;
+    };
+    /**
+     * Sets the title property value. Represents the axis title. Read-only.
+     * @param value Value to set for the title property.
+     */
+    public set title(value: WorkbookChartAxisTitle | undefined) {
+        if(value) {
+            this._title = value instanceof WorkbookChartAxisTitleImpl? value : new WorkbookChartAxisTitleImpl(value);
         }
     };
 }

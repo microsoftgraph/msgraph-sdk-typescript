@@ -7,34 +7,98 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the create method. */
 export class CreatePostRequestBodyImpl implements CreatePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The certificateSigningRequest property */
-    public certificateSigningRequest?: PrintCertificateSigningRequest | undefined;
+    private _certificateSigningRequest?: PrintCertificateSigningRequest | undefined;
     /** The connectorId property */
-    public connectorId?: string | undefined;
+    private _connectorId?: string | undefined;
     /** The displayName property */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The hasPhysicalDevice property */
-    public hasPhysicalDevice?: boolean | undefined;
+    private _hasPhysicalDevice?: boolean | undefined;
     /** The manufacturer property */
-    public manufacturer?: string | undefined;
+    private _manufacturer?: string | undefined;
     /** The model property */
-    public model?: string | undefined;
+    private _model?: string | undefined;
     /** The physicalDeviceId property */
-    public physicalDeviceId?: string | undefined;
+    private _physicalDeviceId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the certificateSigningRequest property value. The certificateSigningRequest property
+     * @returns a PrintCertificateSigningRequestInterface
+     */
+    public get certificateSigningRequest() {
+        return this._certificateSigningRequest;
+    };
+    /**
+     * Sets the certificateSigningRequest property value. The certificateSigningRequest property
+     * @param value Value to set for the certificateSigningRequest property.
+     */
+    public set certificateSigningRequest(value: PrintCertificateSigningRequest | undefined) {
+        if(value) {
+            this._certificateSigningRequest = value instanceof PrintCertificateSigningRequestImpl? value : new PrintCertificateSigningRequestImpl(value);
+        }
+    };
+    /**
+     * Gets the connectorId property value. The connectorId property
+     * @returns a string
+     */
+    public get connectorId() {
+        return this._connectorId;
+    };
+    /**
+     * Sets the connectorId property value. The connectorId property
+     * @param value Value to set for the connectorId property.
+     */
+    public set connectorId(value: string | undefined) {
+        if(value) {
+            this._connectorId = value;
+        }
+    };
     /**
      * Instantiates a new createPostRequestBody and sets the default values.
      * @param createPostRequestBodyParameterValue 
      */
     public constructor(createPostRequestBodyParameterValue?: CreatePostRequestBody | undefined) {
-        this.additionalData = createPostRequestBodyParameterValue?.additionalData ? createPostRequestBodyParameterValue?.additionalData! : {};
-        this.certificateSigningRequest = createPostRequestBodyParameterValue?.certificateSigningRequest;
-        this.connectorId = createPostRequestBodyParameterValue?.connectorId;
-        this.displayName = createPostRequestBodyParameterValue?.displayName;
-        this.hasPhysicalDevice = createPostRequestBodyParameterValue?.hasPhysicalDevice;
-        this.manufacturer = createPostRequestBodyParameterValue?.manufacturer;
-        this.model = createPostRequestBodyParameterValue?.model;
-        this.physicalDeviceId = createPostRequestBodyParameterValue?.physicalDeviceId;
+        this._additionalData = createPostRequestBodyParameterValue?.additionalData ? createPostRequestBodyParameterValue?.additionalData! : {};
+        this._certificateSigningRequest = createPostRequestBodyParameterValue?.certificateSigningRequest;
+        this._connectorId = createPostRequestBodyParameterValue?.connectorId;
+        this._displayName = createPostRequestBodyParameterValue?.displayName;
+        this._hasPhysicalDevice = createPostRequestBodyParameterValue?.hasPhysicalDevice;
+        this._manufacturer = createPostRequestBodyParameterValue?.manufacturer;
+        this._model = createPostRequestBodyParameterValue?.model;
+        this._physicalDeviceId = createPostRequestBodyParameterValue?.physicalDeviceId;
+    };
+    /**
+     * Gets the displayName property value. The displayName property
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -52,13 +116,77 @@ export class CreatePostRequestBodyImpl implements CreatePostRequestBody {
         };
     };
     /**
+     * Gets the hasPhysicalDevice property value. The hasPhysicalDevice property
+     * @returns a boolean
+     */
+    public get hasPhysicalDevice() {
+        return this._hasPhysicalDevice;
+    };
+    /**
+     * Sets the hasPhysicalDevice property value. The hasPhysicalDevice property
+     * @param value Value to set for the hasPhysicalDevice property.
+     */
+    public set hasPhysicalDevice(value: boolean | undefined) {
+        if(value) {
+            this._hasPhysicalDevice = value;
+        }
+    };
+    /**
+     * Gets the manufacturer property value. The manufacturer property
+     * @returns a string
+     */
+    public get manufacturer() {
+        return this._manufacturer;
+    };
+    /**
+     * Sets the manufacturer property value. The manufacturer property
+     * @param value Value to set for the manufacturer property.
+     */
+    public set manufacturer(value: string | undefined) {
+        if(value) {
+            this._manufacturer = value;
+        }
+    };
+    /**
+     * Gets the model property value. The model property
+     * @returns a string
+     */
+    public get model() {
+        return this._model;
+    };
+    /**
+     * Sets the model property value. The model property
+     * @param value Value to set for the model property.
+     */
+    public set model(value: string | undefined) {
+        if(value) {
+            this._model = value;
+        }
+    };
+    /**
+     * Gets the physicalDeviceId property value. The physicalDeviceId property
+     * @returns a string
+     */
+    public get physicalDeviceId() {
+        return this._physicalDeviceId;
+    };
+    /**
+     * Sets the physicalDeviceId property value. The physicalDeviceId property
+     * @param value Value to set for the physicalDeviceId property.
+     */
+    public set physicalDeviceId(value: string | undefined) {
+        if(value) {
+            this._physicalDeviceId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificateSigningRequest){
-            writer.writeObjectValue<PrintCertificateSigningRequestImpl>("certificateSigningRequest", new PrintCertificateSigningRequestImpl(this.certificateSigningRequest));
+            writer.writeObjectValue<PrintCertificateSigningRequestImpl>("certificateSigningRequest", (!this.certificateSigningRequest || this.certificateSigningRequest instanceof PrintCertificateSigningRequestImpl? this.certificateSigningRequest : new PrintCertificateSigningRequestImpl(this.certificateSigningRequest)));
         }
         if(this.connectorId){
             writer.writeStringValue("connectorId", this.connectorId);

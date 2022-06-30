@@ -60,107 +60,271 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class DriveItemImpl extends BaseItemImpl implements DriveItem {
     /** Analytics about the view activities that took place on this item. */
-    public analytics?: ItemAnalytics | undefined;
+    private _analytics?: ItemAnalytics | undefined;
     /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
-    public audio?: Audio | undefined;
+    private _audio?: Audio | undefined;
     /** Bundle metadata, if the item is a bundle. Read-only. */
-    public bundle?: Bundle | undefined;
+    private _bundle?: Bundle | undefined;
     /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable. */
-    public children?: DriveItem[] | undefined;
+    private _children?: DriveItem[] | undefined;
     /** The content stream, if the item represents a file. */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only. */
-    public cTag?: string | undefined;
+    private _cTag?: string | undefined;
     /** Information about the deleted state of the item. Read-only. */
-    public deleted?: Deleted | undefined;
+    private _deleted?: Deleted | undefined;
     /** File metadata, if the item is a file. Read-only. */
-    public file?: File | undefined;
+    private _file?: File | undefined;
     /** File system information on client. Read-write. */
-    public fileSystemInfo?: FileSystemInfo | undefined;
+    private _fileSystemInfo?: FileSystemInfo | undefined;
     /** Folder metadata, if the item is a folder. Read-only. */
-    public folder?: Folder | undefined;
+    private _folder?: Folder | undefined;
     /** Image metadata, if the item is an image. Read-only. */
-    public image?: Image | undefined;
+    private _image?: Image | undefined;
     /** For drives in SharePoint, the associated document library list item. Read-only. Nullable. */
-    public listItem?: ListItem | undefined;
+    private _listItem?: ListItem | undefined;
     /** Location metadata, if the item has location data. Read-only. */
-    public location?: GeoCoordinates | undefined;
+    private _location?: GeoCoordinates | undefined;
     /** Malware metadata, if the item was detected to contain malware. Read-only. */
-    public malware?: Malware | undefined;
+    private _malware?: Malware | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-    public package?: Package | undefined;
+    private _package?: Package | undefined;
     /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only. */
-    public pendingOperations?: PendingOperations | undefined;
+    private _pendingOperations?: PendingOperations | undefined;
     /** The set of permissions for the item. Read-only. Nullable. */
-    public permissions?: Permission[] | undefined;
+    private _permissions?: Permission[] | undefined;
     /** Photo metadata, if the item is a photo. Read-only. */
-    public photo?: Photo | undefined;
+    private _photo?: Photo | undefined;
     /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only. */
-    public publication?: PublicationFacet | undefined;
+    private _publication?: PublicationFacet | undefined;
     /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only. */
-    public remoteItem?: RemoteItem | undefined;
+    private _remoteItem?: RemoteItem | undefined;
     /** If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive. */
-    public root?: Root | undefined;
+    private _root?: Root | undefined;
     /** Search metadata, if the item is from a search result. Read-only. */
-    public searchResult?: SearchResult | undefined;
+    private _searchResult?: SearchResult | undefined;
     /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
-    public shared?: Shared | undefined;
+    private _shared?: Shared | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    public sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | undefined;
     /** Size of the item in bytes. Read-only. */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-    public specialFolder?: SpecialFolder | undefined;
+    private _specialFolder?: SpecialFolder | undefined;
     /** The set of subscriptions on the item. Only supported on the root of a drive. */
-    public subscriptions?: Subscription[] | undefined;
+    private _subscriptions?: Subscription[] | undefined;
     /** Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. */
-    public thumbnails?: ThumbnailSet[] | undefined;
+    private _thumbnails?: ThumbnailSet[] | undefined;
     /** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable. */
-    public versions?: DriveItemVersion[] | undefined;
+    private _versions?: DriveItemVersion[] | undefined;
     /** Video metadata, if the item is a video. Read-only. */
-    public video?: Video | undefined;
+    private _video?: Video | undefined;
     /** WebDAV compatible URL for the item. */
-    public webDavUrl?: string | undefined;
+    private _webDavUrl?: string | undefined;
     /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable. */
-    public workbook?: Workbook | undefined;
+    private _workbook?: Workbook | undefined;
+    /**
+     * Gets the analytics property value. Analytics about the view activities that took place on this item.
+     * @returns a ItemAnalyticsInterface
+     */
+    public get analytics() {
+        return this._analytics;
+    };
+    /**
+     * Sets the analytics property value. Analytics about the view activities that took place on this item.
+     * @param value Value to set for the analytics property.
+     */
+    public set analytics(value: ItemAnalytics | undefined) {
+        if(value) {
+            this._analytics = value instanceof ItemAnalyticsImpl? value : new ItemAnalyticsImpl(value);
+        }
+    };
+    /**
+     * Gets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
+     * @returns a AudioInterface
+     */
+    public get audio() {
+        return this._audio;
+    };
+    /**
+     * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
+     * @param value Value to set for the audio property.
+     */
+    public set audio(value: Audio | undefined) {
+        if(value) {
+            this._audio = value instanceof AudioImpl? value : new AudioImpl(value);
+        }
+    };
+    /**
+     * Gets the bundle property value. Bundle metadata, if the item is a bundle. Read-only.
+     * @returns a BundleInterface
+     */
+    public get bundle() {
+        return this._bundle;
+    };
+    /**
+     * Sets the bundle property value. Bundle metadata, if the item is a bundle. Read-only.
+     * @param value Value to set for the bundle property.
+     */
+    public set bundle(value: Bundle | undefined) {
+        if(value) {
+            this._bundle = value instanceof BundleImpl? value : new BundleImpl(value);
+        }
+    };
+    /**
+     * Gets the children property value. Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+     * @returns a DriveItemInterface
+     */
+    public get children() {
+        return this._children;
+    };
+    /**
+     * Sets the children property value. Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+     * @param value Value to set for the children property.
+     */
+    public set children(value: DriveItem[] | undefined) {
+        if(value) {
+            const childrenArrValue: DriveItemImpl[] = [];
+            this.children?.forEach(element => {
+                childrenArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            });
+            this._children = childrenArrValue;
+        }
+    };
     /**
      * Instantiates a new driveItem and sets the default values.
      * @param driveItemParameterValue 
      */
     public constructor(driveItemParameterValue?: DriveItem | undefined) {
         super(driveItemParameterValue);
-        this.analytics = driveItemParameterValue?.analytics;
-        this.audio = driveItemParameterValue?.audio;
-        this.bundle = driveItemParameterValue?.bundle;
-        this.children = driveItemParameterValue?.children;
-        this.content = driveItemParameterValue?.content;
-        this.cTag = driveItemParameterValue?.cTag;
-        this.deleted = driveItemParameterValue?.deleted;
-        this.file = driveItemParameterValue?.file;
-        this.fileSystemInfo = driveItemParameterValue?.fileSystemInfo;
-        this.folder = driveItemParameterValue?.folder;
-        this.image = driveItemParameterValue?.image;
-        this.listItem = driveItemParameterValue?.listItem;
-        this.location = driveItemParameterValue?.location;
-        this.malware = driveItemParameterValue?.malware;
-        this.package = driveItemParameterValue?.package;
-        this.pendingOperations = driveItemParameterValue?.pendingOperations;
-        this.permissions = driveItemParameterValue?.permissions;
-        this.photo = driveItemParameterValue?.photo;
-        this.publication = driveItemParameterValue?.publication;
-        this.remoteItem = driveItemParameterValue?.remoteItem;
-        this.root = driveItemParameterValue?.root;
-        this.searchResult = driveItemParameterValue?.searchResult;
-        this.shared = driveItemParameterValue?.shared;
-        this.sharepointIds = driveItemParameterValue?.sharepointIds;
-        this.size = driveItemParameterValue?.size;
-        this.specialFolder = driveItemParameterValue?.specialFolder;
-        this.subscriptions = driveItemParameterValue?.subscriptions;
-        this.thumbnails = driveItemParameterValue?.thumbnails;
-        this.versions = driveItemParameterValue?.versions;
-        this.video = driveItemParameterValue?.video;
-        this.webDavUrl = driveItemParameterValue?.webDavUrl;
-        this.workbook = driveItemParameterValue?.workbook;
+        this._analytics = driveItemParameterValue?.analytics;
+        this._audio = driveItemParameterValue?.audio;
+        this._bundle = driveItemParameterValue?.bundle;
+        this._children = driveItemParameterValue?.children;
+        this._content = driveItemParameterValue?.content;
+        this._cTag = driveItemParameterValue?.cTag;
+        this._deleted = driveItemParameterValue?.deleted;
+        this._file = driveItemParameterValue?.file;
+        this._fileSystemInfo = driveItemParameterValue?.fileSystemInfo;
+        this._folder = driveItemParameterValue?.folder;
+        this._image = driveItemParameterValue?.image;
+        this._listItem = driveItemParameterValue?.listItem;
+        this._location = driveItemParameterValue?.location;
+        this._malware = driveItemParameterValue?.malware;
+        this._package = driveItemParameterValue?.package;
+        this._pendingOperations = driveItemParameterValue?.pendingOperations;
+        this._permissions = driveItemParameterValue?.permissions;
+        this._photo = driveItemParameterValue?.photo;
+        this._publication = driveItemParameterValue?.publication;
+        this._remoteItem = driveItemParameterValue?.remoteItem;
+        this._root = driveItemParameterValue?.root;
+        this._searchResult = driveItemParameterValue?.searchResult;
+        this._shared = driveItemParameterValue?.shared;
+        this._sharepointIds = driveItemParameterValue?.sharepointIds;
+        this._size = driveItemParameterValue?.size;
+        this._specialFolder = driveItemParameterValue?.specialFolder;
+        this._subscriptions = driveItemParameterValue?.subscriptions;
+        this._thumbnails = driveItemParameterValue?.thumbnails;
+        this._versions = driveItemParameterValue?.versions;
+        this._video = driveItemParameterValue?.video;
+        this._webDavUrl = driveItemParameterValue?.webDavUrl;
+        this._workbook = driveItemParameterValue?.workbook;
+    };
+    /**
+     * Gets the content property value. The content stream, if the item represents a file.
+     * @returns a binary
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The content stream, if the item represents a file.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
+    };
+    /**
+     * Gets the cTag property value. An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.
+     * @returns a string
+     */
+    public get cTag() {
+        return this._cTag;
+    };
+    /**
+     * Sets the cTag property value. An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.
+     * @param value Value to set for the cTag property.
+     */
+    public set cTag(value: string | undefined) {
+        if(value) {
+            this._cTag = value;
+        }
+    };
+    /**
+     * Gets the deleted property value. Information about the deleted state of the item. Read-only.
+     * @returns a DeletedInterface
+     */
+    public get deleted() {
+        return this._deleted;
+    };
+    /**
+     * Sets the deleted property value. Information about the deleted state of the item. Read-only.
+     * @param value Value to set for the deleted property.
+     */
+    public set deleted(value: Deleted | undefined) {
+        if(value) {
+            this._deleted = value instanceof DeletedImpl? value : new DeletedImpl(value);
+        }
+    };
+    /**
+     * Gets the file property value. File metadata, if the item is a file. Read-only.
+     * @returns a FileInterface
+     */
+    public get file() {
+        return this._file;
+    };
+    /**
+     * Sets the file property value. File metadata, if the item is a file. Read-only.
+     * @param value Value to set for the file property.
+     */
+    public set file(value: File | undefined) {
+        if(value) {
+            this._file = value instanceof FileImpl? value : new FileImpl(value);
+        }
+    };
+    /**
+     * Gets the fileSystemInfo property value. File system information on client. Read-write.
+     * @returns a FileSystemInfoInterface
+     */
+    public get fileSystemInfo() {
+        return this._fileSystemInfo;
+    };
+    /**
+     * Sets the fileSystemInfo property value. File system information on client. Read-write.
+     * @param value Value to set for the fileSystemInfo property.
+     */
+    public set fileSystemInfo(value: FileSystemInfo | undefined) {
+        if(value) {
+            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value : new FileSystemInfoImpl(value);
+        }
+    };
+    /**
+     * Gets the folder property value. Folder metadata, if the item is a folder. Read-only.
+     * @returns a FolderInterface
+     */
+    public get folder() {
+        return this._folder;
+    };
+    /**
+     * Sets the folder property value. Folder metadata, if the item is a folder. Read-only.
+     * @param value Value to set for the folder property.
+     */
+    public set folder(value: Folder | undefined) {
+        if(value) {
+            this._folder = value instanceof FolderImpl? value : new FolderImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -203,6 +367,202 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         };
     };
     /**
+     * Gets the image property value. Image metadata, if the item is an image. Read-only.
+     * @returns a ImageInterface
+     */
+    public get image() {
+        return this._image;
+    };
+    /**
+     * Sets the image property value. Image metadata, if the item is an image. Read-only.
+     * @param value Value to set for the image property.
+     */
+    public set image(value: Image | undefined) {
+        if(value) {
+            this._image = value instanceof ImageImpl? value : new ImageImpl(value);
+        }
+    };
+    /**
+     * Gets the listItem property value. For drives in SharePoint, the associated document library list item. Read-only. Nullable.
+     * @returns a ListItemInterface
+     */
+    public get listItem() {
+        return this._listItem;
+    };
+    /**
+     * Sets the listItem property value. For drives in SharePoint, the associated document library list item. Read-only. Nullable.
+     * @param value Value to set for the listItem property.
+     */
+    public set listItem(value: ListItem | undefined) {
+        if(value) {
+            this._listItem = value instanceof ListItemImpl? value : new ListItemImpl(value);
+        }
+    };
+    /**
+     * Gets the location property value. Location metadata, if the item has location data. Read-only.
+     * @returns a GeoCoordinatesInterface
+     */
+    public get location() {
+        return this._location;
+    };
+    /**
+     * Sets the location property value. Location metadata, if the item has location data. Read-only.
+     * @param value Value to set for the location property.
+     */
+    public set location(value: GeoCoordinates | undefined) {
+        if(value) {
+            this._location = value instanceof GeoCoordinatesImpl? value : new GeoCoordinatesImpl(value);
+        }
+    };
+    /**
+     * Gets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
+     * @returns a MalwareInterface
+     */
+    public get malware() {
+        return this._malware;
+    };
+    /**
+     * Sets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
+     * @param value Value to set for the malware property.
+     */
+    public set malware(value: Malware | undefined) {
+        if(value) {
+            this._malware = value instanceof MalwareImpl? value : new MalwareImpl(value);
+        }
+    };
+    /**
+     * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
+     * @returns a PackageInterface
+     */
+    public get package() {
+        return this._package;
+    };
+    /**
+     * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
+     * @param value Value to set for the package property.
+     */
+    public set package(value: Package | undefined) {
+        if(value) {
+            this._package = value instanceof PackageImpl? value : new PackageImpl(value);
+        }
+    };
+    /**
+     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * @returns a PendingOperationsInterface
+     */
+    public get pendingOperations() {
+        return this._pendingOperations;
+    };
+    /**
+     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * @param value Value to set for the pendingOperations property.
+     */
+    public set pendingOperations(value: PendingOperations | undefined) {
+        if(value) {
+            this._pendingOperations = value instanceof PendingOperationsImpl? value : new PendingOperationsImpl(value);
+        }
+    };
+    /**
+     * Gets the permissions property value. The set of permissions for the item. Read-only. Nullable.
+     * @returns a PermissionInterface
+     */
+    public get permissions() {
+        return this._permissions;
+    };
+    /**
+     * Sets the permissions property value. The set of permissions for the item. Read-only. Nullable.
+     * @param value Value to set for the permissions property.
+     */
+    public set permissions(value: Permission[] | undefined) {
+        if(value) {
+            const permissionsArrValue: PermissionImpl[] = [];
+            this.permissions?.forEach(element => {
+                permissionsArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+            });
+            this._permissions = permissionsArrValue;
+        }
+    };
+    /**
+     * Gets the photo property value. Photo metadata, if the item is a photo. Read-only.
+     * @returns a PhotoInterface
+     */
+    public get photo() {
+        return this._photo;
+    };
+    /**
+     * Sets the photo property value. Photo metadata, if the item is a photo. Read-only.
+     * @param value Value to set for the photo property.
+     */
+    public set photo(value: Photo | undefined) {
+        if(value) {
+            this._photo = value instanceof PhotoImpl? value : new PhotoImpl(value);
+        }
+    };
+    /**
+     * Gets the publication property value. Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.
+     * @returns a PublicationFacetInterface
+     */
+    public get publication() {
+        return this._publication;
+    };
+    /**
+     * Sets the publication property value. Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.
+     * @param value Value to set for the publication property.
+     */
+    public set publication(value: PublicationFacet | undefined) {
+        if(value) {
+            this._publication = value instanceof PublicationFacetImpl? value : new PublicationFacetImpl(value);
+        }
+    };
+    /**
+     * Gets the remoteItem property value. Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.
+     * @returns a RemoteItemInterface
+     */
+    public get remoteItem() {
+        return this._remoteItem;
+    };
+    /**
+     * Sets the remoteItem property value. Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.
+     * @param value Value to set for the remoteItem property.
+     */
+    public set remoteItem(value: RemoteItem | undefined) {
+        if(value) {
+            this._remoteItem = value instanceof RemoteItemImpl? value : new RemoteItemImpl(value);
+        }
+    };
+    /**
+     * Gets the root property value. If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.
+     * @returns a RootInterface
+     */
+    public get root() {
+        return this._root;
+    };
+    /**
+     * Sets the root property value. If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.
+     * @param value Value to set for the root property.
+     */
+    public set root(value: Root | undefined) {
+        if(value) {
+            this._root = value instanceof RootImpl? value : new RootImpl(value);
+        }
+    };
+    /**
+     * Gets the searchResult property value. Search metadata, if the item is from a search result. Read-only.
+     * @returns a SearchResultInterface
+     */
+    public get searchResult() {
+        return this._searchResult;
+    };
+    /**
+     * Sets the searchResult property value. Search metadata, if the item is from a search result. Read-only.
+     * @param value Value to set for the searchResult property.
+     */
+    public set searchResult(value: SearchResult | undefined) {
+        if(value) {
+            this._searchResult = value instanceof SearchResultImpl? value : new SearchResultImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -210,15 +570,18 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", new ItemAnalyticsImpl(this.analytics));
+            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", (!this.analytics || this.analytics instanceof ItemAnalyticsImpl? this.analytics : new ItemAnalyticsImpl(this.analytics)));
         }
         if(this.audio){
-            writer.writeObjectValue<AudioImpl>("audio", new AudioImpl(this.audio));
+            writer.writeObjectValue<AudioImpl>("audio", (!this.audio || this.audio instanceof AudioImpl? this.audio : new AudioImpl(this.audio)));
         }
         if(this.bundle){
-            writer.writeObjectValue<BundleImpl>("bundle", new BundleImpl(this.bundle));
+            writer.writeObjectValue<BundleImpl>("bundle", (!this.bundle || this.bundle instanceof BundleImpl? this.bundle : new BundleImpl(this.bundle)));
         }
-        if(this.children && this.children.length != 0){        const childrenArrValue: DriveItemImpl[] = []; this.children?.forEach(element => {childrenArrValue.push(new DriveItemImpl(element));});
+        if(this.children && this.children.length != 0){        const childrenArrValue: DriveItemImpl[] = [];
+        this.children?.forEach(element => {
+            childrenArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("children", childrenArrValue);
         }
         if(this.content){
@@ -228,82 +591,266 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
             writer.writeStringValue("cTag", this.cTag);
         }
         if(this.deleted){
-            writer.writeObjectValue<DeletedImpl>("deleted", new DeletedImpl(this.deleted));
+            writer.writeObjectValue<DeletedImpl>("deleted", (!this.deleted || this.deleted instanceof DeletedImpl? this.deleted : new DeletedImpl(this.deleted)));
         }
         if(this.file){
-            writer.writeObjectValue<FileImpl>("file", new FileImpl(this.file));
+            writer.writeObjectValue<FileImpl>("file", (!this.file || this.file instanceof FileImpl? this.file : new FileImpl(this.file)));
         }
         if(this.fileSystemInfo){
-            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (!this.fileSystemInfo || this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo : new FileSystemInfoImpl(this.fileSystemInfo)));
         }
         if(this.folder){
-            writer.writeObjectValue<FolderImpl>("folder", new FolderImpl(this.folder));
+            writer.writeObjectValue<FolderImpl>("folder", (!this.folder || this.folder instanceof FolderImpl? this.folder : new FolderImpl(this.folder)));
         }
         if(this.image){
-            writer.writeObjectValue<ImageImpl>("image", new ImageImpl(this.image));
+            writer.writeObjectValue<ImageImpl>("image", (!this.image || this.image instanceof ImageImpl? this.image : new ImageImpl(this.image)));
         }
         if(this.listItem){
-            writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
+            writer.writeObjectValue<ListItemImpl>("listItem", (!this.listItem || this.listItem instanceof ListItemImpl? this.listItem : new ListItemImpl(this.listItem)));
         }
         if(this.location){
-            writer.writeObjectValue<GeoCoordinatesImpl>("location", new GeoCoordinatesImpl(this.location));
+            writer.writeObjectValue<GeoCoordinatesImpl>("location", (!this.location || this.location instanceof GeoCoordinatesImpl? this.location : new GeoCoordinatesImpl(this.location)));
         }
         if(this.malware){
-            writer.writeObjectValue<MalwareImpl>("malware", new MalwareImpl(this.malware));
+            writer.writeObjectValue<MalwareImpl>("malware", (!this.malware || this.malware instanceof MalwareImpl? this.malware : new MalwareImpl(this.malware)));
         }
         if(this.package){
-            writer.writeObjectValue<PackageImpl>("package", new PackageImpl(this.package));
+            writer.writeObjectValue<PackageImpl>("package", (!this.package || this.package instanceof PackageImpl? this.package : new PackageImpl(this.package)));
         }
         if(this.pendingOperations){
-            writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", new PendingOperationsImpl(this.pendingOperations));
+            writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", (!this.pendingOperations || this.pendingOperations instanceof PendingOperationsImpl? this.pendingOperations : new PendingOperationsImpl(this.pendingOperations)));
         }
-        if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = []; this.permissions?.forEach(element => {permissionsArrValue.push(new PermissionImpl(element));});
+        if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = [];
+        this.permissions?.forEach(element => {
+            permissionsArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
         }
         if(this.photo){
-            writer.writeObjectValue<PhotoImpl>("photo", new PhotoImpl(this.photo));
+            writer.writeObjectValue<PhotoImpl>("photo", (!this.photo || this.photo instanceof PhotoImpl? this.photo : new PhotoImpl(this.photo)));
         }
         if(this.publication){
-            writer.writeObjectValue<PublicationFacetImpl>("publication", new PublicationFacetImpl(this.publication));
+            writer.writeObjectValue<PublicationFacetImpl>("publication", (!this.publication || this.publication instanceof PublicationFacetImpl? this.publication : new PublicationFacetImpl(this.publication)));
         }
         if(this.remoteItem){
-            writer.writeObjectValue<RemoteItemImpl>("remoteItem", new RemoteItemImpl(this.remoteItem));
+            writer.writeObjectValue<RemoteItemImpl>("remoteItem", (!this.remoteItem || this.remoteItem instanceof RemoteItemImpl? this.remoteItem : new RemoteItemImpl(this.remoteItem)));
         }
         if(this.root){
-            writer.writeObjectValue<RootImpl>("root", new RootImpl(this.root));
+            writer.writeObjectValue<RootImpl>("root", (!this.root || this.root instanceof RootImpl? this.root : new RootImpl(this.root)));
         }
         if(this.searchResult){
-            writer.writeObjectValue<SearchResultImpl>("searchResult", new SearchResultImpl(this.searchResult));
+            writer.writeObjectValue<SearchResultImpl>("searchResult", (!this.searchResult || this.searchResult instanceof SearchResultImpl? this.searchResult : new SearchResultImpl(this.searchResult)));
         }
         if(this.shared){
-            writer.writeObjectValue<SharedImpl>("shared", new SharedImpl(this.shared));
+            writer.writeObjectValue<SharedImpl>("shared", (!this.shared || this.shared instanceof SharedImpl? this.shared : new SharedImpl(this.shared)));
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", new SpecialFolderImpl(this.specialFolder));
+            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", (!this.specialFolder || this.specialFolder instanceof SpecialFolderImpl? this.specialFolder : new SpecialFolderImpl(this.specialFolder)));
         }
-        if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = []; this.subscriptions?.forEach(element => {subscriptionsArrValue.push(new SubscriptionImpl(element));});
+        if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = [];
+        this.subscriptions?.forEach(element => {
+            subscriptionsArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
-        if(this.thumbnails && this.thumbnails.length != 0){        const thumbnailsArrValue: ThumbnailSetImpl[] = []; this.thumbnails?.forEach(element => {thumbnailsArrValue.push(new ThumbnailSetImpl(element));});
+        if(this.thumbnails && this.thumbnails.length != 0){        const thumbnailsArrValue: ThumbnailSetImpl[] = [];
+        this.thumbnails?.forEach(element => {
+            thumbnailsArrValue.push((element instanceof ThumbnailSetImpl? element:new ThumbnailSetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("thumbnails", thumbnailsArrValue);
         }
-        if(this.versions && this.versions.length != 0){        const versionsArrValue: DriveItemVersionImpl[] = []; this.versions?.forEach(element => {versionsArrValue.push(new DriveItemVersionImpl(element));});
+        if(this.versions && this.versions.length != 0){        const versionsArrValue: DriveItemVersionImpl[] = [];
+        this.versions?.forEach(element => {
+            versionsArrValue.push((element instanceof DriveItemVersionImpl? element:new DriveItemVersionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("versions", versionsArrValue);
         }
         if(this.video){
-            writer.writeObjectValue<VideoImpl>("video", new VideoImpl(this.video));
+            writer.writeObjectValue<VideoImpl>("video", (!this.video || this.video instanceof VideoImpl? this.video : new VideoImpl(this.video)));
         }
         if(this.webDavUrl){
             writer.writeStringValue("webDavUrl", this.webDavUrl);
         }
         if(this.workbook){
-            writer.writeObjectValue<WorkbookImpl>("workbook", new WorkbookImpl(this.workbook));
+            writer.writeObjectValue<WorkbookImpl>("workbook", (!this.workbook || this.workbook instanceof WorkbookImpl? this.workbook : new WorkbookImpl(this.workbook)));
+        }
+    };
+    /**
+     * Gets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * @returns a SharedInterface
+     */
+    public get shared() {
+        return this._shared;
+    };
+    /**
+     * Sets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * @param value Value to set for the shared property.
+     */
+    public set shared(value: Shared | undefined) {
+        if(value) {
+            this._shared = value instanceof SharedImpl? value : new SharedImpl(value);
+        }
+    };
+    /**
+     * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * @returns a SharepointIdsInterface
+     */
+    public get sharepointIds() {
+        return this._sharepointIds;
+    };
+    /**
+     * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * @param value Value to set for the sharepointIds property.
+     */
+    public set sharepointIds(value: SharepointIds | undefined) {
+        if(value) {
+            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+        }
+    };
+    /**
+     * Gets the size property value. Size of the item in bytes. Read-only.
+     * @returns a int64
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. Size of the item in bytes. Read-only.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
+        }
+    };
+    /**
+     * Gets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
+     * @returns a SpecialFolderInterface
+     */
+    public get specialFolder() {
+        return this._specialFolder;
+    };
+    /**
+     * Sets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
+     * @param value Value to set for the specialFolder property.
+     */
+    public set specialFolder(value: SpecialFolder | undefined) {
+        if(value) {
+            this._specialFolder = value instanceof SpecialFolderImpl? value : new SpecialFolderImpl(value);
+        }
+    };
+    /**
+     * Gets the subscriptions property value. The set of subscriptions on the item. Only supported on the root of a drive.
+     * @returns a SubscriptionInterface
+     */
+    public get subscriptions() {
+        return this._subscriptions;
+    };
+    /**
+     * Sets the subscriptions property value. The set of subscriptions on the item. Only supported on the root of a drive.
+     * @param value Value to set for the subscriptions property.
+     */
+    public set subscriptions(value: Subscription[] | undefined) {
+        if(value) {
+            const subscriptionsArrValue: SubscriptionImpl[] = [];
+            this.subscriptions?.forEach(element => {
+                subscriptionsArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+            });
+            this._subscriptions = subscriptionsArrValue;
+        }
+    };
+    /**
+     * Gets the thumbnails property value. Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+     * @returns a ThumbnailSetInterface
+     */
+    public get thumbnails() {
+        return this._thumbnails;
+    };
+    /**
+     * Sets the thumbnails property value. Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+     * @param value Value to set for the thumbnails property.
+     */
+    public set thumbnails(value: ThumbnailSet[] | undefined) {
+        if(value) {
+            const thumbnailsArrValue: ThumbnailSetImpl[] = [];
+            this.thumbnails?.forEach(element => {
+                thumbnailsArrValue.push((element instanceof ThumbnailSetImpl? element:new ThumbnailSetImpl(element)));
+            });
+            this._thumbnails = thumbnailsArrValue;
+        }
+    };
+    /**
+     * Gets the versions property value. The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
+     * @returns a DriveItemVersionInterface
+     */
+    public get versions() {
+        return this._versions;
+    };
+    /**
+     * Sets the versions property value. The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
+     * @param value Value to set for the versions property.
+     */
+    public set versions(value: DriveItemVersion[] | undefined) {
+        if(value) {
+            const versionsArrValue: DriveItemVersionImpl[] = [];
+            this.versions?.forEach(element => {
+                versionsArrValue.push((element instanceof DriveItemVersionImpl? element:new DriveItemVersionImpl(element)));
+            });
+            this._versions = versionsArrValue;
+        }
+    };
+    /**
+     * Gets the video property value. Video metadata, if the item is a video. Read-only.
+     * @returns a VideoInterface
+     */
+    public get video() {
+        return this._video;
+    };
+    /**
+     * Sets the video property value. Video metadata, if the item is a video. Read-only.
+     * @param value Value to set for the video property.
+     */
+    public set video(value: Video | undefined) {
+        if(value) {
+            this._video = value instanceof VideoImpl? value : new VideoImpl(value);
+        }
+    };
+    /**
+     * Gets the webDavUrl property value. WebDAV compatible URL for the item.
+     * @returns a string
+     */
+    public get webDavUrl() {
+        return this._webDavUrl;
+    };
+    /**
+     * Sets the webDavUrl property value. WebDAV compatible URL for the item.
+     * @param value Value to set for the webDavUrl property.
+     */
+    public set webDavUrl(value: string | undefined) {
+        if(value) {
+            this._webDavUrl = value;
+        }
+    };
+    /**
+     * Gets the workbook property value. For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
+     * @returns a WorkbookInterface
+     */
+    public get workbook() {
+        return this._workbook;
+    };
+    /**
+     * Sets the workbook property value. For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
+     * @param value Value to set for the workbook property.
+     */
+    public set workbook(value: Workbook | undefined) {
+        if(value) {
+            this._workbook = value instanceof WorkbookImpl? value : new WorkbookImpl(value);
         }
     };
 }

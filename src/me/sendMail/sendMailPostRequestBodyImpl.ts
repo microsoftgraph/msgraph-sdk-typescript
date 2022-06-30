@@ -7,19 +7,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the sendMail method. */
 export class SendMailPostRequestBodyImpl implements SendMailPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Message property */
-    public message?: Message | undefined;
+    private _message?: Message | undefined;
     /** The SaveToSentItems property */
-    public saveToSentItems?: boolean | undefined;
+    private _saveToSentItems?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new sendMailPostRequestBody and sets the default values.
      * @param sendMailPostRequestBodyParameterValue 
      */
     public constructor(sendMailPostRequestBodyParameterValue?: SendMailPostRequestBody | undefined) {
-        this.additionalData = sendMailPostRequestBodyParameterValue?.additionalData ? sendMailPostRequestBodyParameterValue?.additionalData! : {};
-        this.message = sendMailPostRequestBodyParameterValue?.message;
-        this.saveToSentItems = sendMailPostRequestBodyParameterValue?.saveToSentItems;
+        this._additionalData = sendMailPostRequestBodyParameterValue?.additionalData ? sendMailPostRequestBodyParameterValue?.additionalData! : {};
+        this._message = sendMailPostRequestBodyParameterValue?.message;
+        this._saveToSentItems = sendMailPostRequestBodyParameterValue?.saveToSentItems;
     };
     /**
      * The deserialization information for the current model
@@ -32,13 +48,45 @@ export class SendMailPostRequestBodyImpl implements SendMailPostRequestBody {
         };
     };
     /**
+     * Gets the message property value. The Message property
+     * @returns a MessageInterface
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The Message property
+     * @param value Value to set for the Message property.
+     */
+    public set message(value: Message | undefined) {
+        if(value) {
+            this._message = value instanceof MessageImpl? value : new MessageImpl(value);
+        }
+    };
+    /**
+     * Gets the saveToSentItems property value. The SaveToSentItems property
+     * @returns a boolean
+     */
+    public get saveToSentItems() {
+        return this._saveToSentItems;
+    };
+    /**
+     * Sets the saveToSentItems property value. The SaveToSentItems property
+     * @param value Value to set for the SaveToSentItems property.
+     */
+    public set saveToSentItems(value: boolean | undefined) {
+        if(value) {
+            this._saveToSentItems = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-            writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
+            writer.writeObjectValue<MessageImpl>("message", (!this.message || this.message instanceof MessageImpl? this.message : new MessageImpl(this.message)));
         }
         if(this.saveToSentItems){
             writer.writeBooleanValue("saveToSentItems", this.saveToSentItems);

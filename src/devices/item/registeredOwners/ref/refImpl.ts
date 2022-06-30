@@ -4,13 +4,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to manage the collection of device entities. */
 export class RefImpl implements Ref {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ref and sets the default values.
      * @param refParameterValue 
      */
     public constructor(refParameterValue?: Ref | undefined) {
-        this.additionalData = refParameterValue?.additionalData ? refParameterValue?.additionalData! : {};
+        this._additionalData = refParameterValue?.additionalData ? refParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

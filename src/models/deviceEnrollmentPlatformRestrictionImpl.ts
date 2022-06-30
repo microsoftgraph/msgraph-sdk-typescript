@@ -4,25 +4,41 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Platform specific enrollment restrictions */
 export class DeviceEnrollmentPlatformRestrictionImpl implements DeviceEnrollmentPlatformRestriction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Max OS version supported */
-    public osMaximumVersion?: string | undefined;
+    private _osMaximumVersion?: string | undefined;
     /** Min OS version supported */
-    public osMinimumVersion?: string | undefined;
+    private _osMinimumVersion?: string | undefined;
     /** Block personally owned devices from enrolling */
-    public personalDeviceEnrollmentBlocked?: boolean | undefined;
+    private _personalDeviceEnrollmentBlocked?: boolean | undefined;
     /** Block the platform from enrolling */
-    public platformBlocked?: boolean | undefined;
+    private _platformBlocked?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new deviceEnrollmentPlatformRestriction and sets the default values.
      * @param deviceEnrollmentPlatformRestrictionParameterValue 
      */
     public constructor(deviceEnrollmentPlatformRestrictionParameterValue?: DeviceEnrollmentPlatformRestriction | undefined) {
-        this.additionalData = deviceEnrollmentPlatformRestrictionParameterValue?.additionalData ? deviceEnrollmentPlatformRestrictionParameterValue?.additionalData! : {};
-        this.osMaximumVersion = deviceEnrollmentPlatformRestrictionParameterValue?.osMaximumVersion;
-        this.osMinimumVersion = deviceEnrollmentPlatformRestrictionParameterValue?.osMinimumVersion;
-        this.personalDeviceEnrollmentBlocked = deviceEnrollmentPlatformRestrictionParameterValue?.personalDeviceEnrollmentBlocked;
-        this.platformBlocked = deviceEnrollmentPlatformRestrictionParameterValue?.platformBlocked;
+        this._additionalData = deviceEnrollmentPlatformRestrictionParameterValue?.additionalData ? deviceEnrollmentPlatformRestrictionParameterValue?.additionalData! : {};
+        this._osMaximumVersion = deviceEnrollmentPlatformRestrictionParameterValue?.osMaximumVersion;
+        this._osMinimumVersion = deviceEnrollmentPlatformRestrictionParameterValue?.osMinimumVersion;
+        this._personalDeviceEnrollmentBlocked = deviceEnrollmentPlatformRestrictionParameterValue?.personalDeviceEnrollmentBlocked;
+        this._platformBlocked = deviceEnrollmentPlatformRestrictionParameterValue?.platformBlocked;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +51,70 @@ export class DeviceEnrollmentPlatformRestrictionImpl implements DeviceEnrollment
             "personalDeviceEnrollmentBlocked": n => { this.personalDeviceEnrollmentBlocked = n.getBooleanValue(); },
             "platformBlocked": n => { this.platformBlocked = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the osMaximumVersion property value. Max OS version supported
+     * @returns a string
+     */
+    public get osMaximumVersion() {
+        return this._osMaximumVersion;
+    };
+    /**
+     * Sets the osMaximumVersion property value. Max OS version supported
+     * @param value Value to set for the osMaximumVersion property.
+     */
+    public set osMaximumVersion(value: string | undefined) {
+        if(value) {
+            this._osMaximumVersion = value;
+        }
+    };
+    /**
+     * Gets the osMinimumVersion property value. Min OS version supported
+     * @returns a string
+     */
+    public get osMinimumVersion() {
+        return this._osMinimumVersion;
+    };
+    /**
+     * Sets the osMinimumVersion property value. Min OS version supported
+     * @param value Value to set for the osMinimumVersion property.
+     */
+    public set osMinimumVersion(value: string | undefined) {
+        if(value) {
+            this._osMinimumVersion = value;
+        }
+    };
+    /**
+     * Gets the personalDeviceEnrollmentBlocked property value. Block personally owned devices from enrolling
+     * @returns a boolean
+     */
+    public get personalDeviceEnrollmentBlocked() {
+        return this._personalDeviceEnrollmentBlocked;
+    };
+    /**
+     * Sets the personalDeviceEnrollmentBlocked property value. Block personally owned devices from enrolling
+     * @param value Value to set for the personalDeviceEnrollmentBlocked property.
+     */
+    public set personalDeviceEnrollmentBlocked(value: boolean | undefined) {
+        if(value) {
+            this._personalDeviceEnrollmentBlocked = value;
+        }
+    };
+    /**
+     * Gets the platformBlocked property value. Block the platform from enrolling
+     * @returns a boolean
+     */
+    public get platformBlocked() {
+        return this._platformBlocked;
+    };
+    /**
+     * Sets the platformBlocked property value. Block the platform from enrolling
+     * @param value Value to set for the platformBlocked property.
+     */
+    public set platformBlocked(value: boolean | undefined) {
+        if(value) {
+            this._platformBlocked = value;
+        }
     };
     /**
      * Serializes information the current object

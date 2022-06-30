@@ -2,20 +2,51 @@ import {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of directoryRoleTemplate entities. */
 export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements DirectoryRoleTemplate {
     /** The description to set for the directory role. Read-only. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The display name to set for the directory role. Read-only. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /**
-     * Instantiates a new directoryRoleTemplate and sets the default values.
+     * Instantiates a new DirectoryRoleTemplate and sets the default values.
      * @param directoryRoleTemplateParameterValue 
      */
     public constructor(directoryRoleTemplateParameterValue?: DirectoryRoleTemplate | undefined) {
         super(directoryRoleTemplateParameterValue);
-        this.description = directoryRoleTemplateParameterValue?.description;
-        this.displayName = directoryRoleTemplateParameterValue?.displayName;
+        this._description = directoryRoleTemplateParameterValue?.description;
+        this._displayName = directoryRoleTemplateParameterValue?.displayName;
+    };
+    /**
+     * Gets the description property value. The description to set for the directory role. Read-only.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description to set for the directory role. Read-only.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The display name to set for the directory role. Read-only.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name to set for the directory role. Read-only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

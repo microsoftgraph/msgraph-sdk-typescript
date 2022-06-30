@@ -6,23 +6,23 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EditionUpgradeConfigurationImpl extends DeviceConfigurationImpl implements EditionUpgradeConfiguration {
     /** Edition Upgrade License File Content. */
-    public license?: string | undefined;
+    private _license?: string | undefined;
     /** Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured. */
-    public licenseType?: EditionUpgradeLicenseType | undefined;
+    private _licenseType?: EditionUpgradeLicenseType | undefined;
     /** Edition Upgrade Product Key. */
-    public productKey?: string | undefined;
+    private _productKey?: string | undefined;
     /** Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial. */
-    public targetEdition?: Windows10EditionType | undefined;
+    private _targetEdition?: Windows10EditionType | undefined;
     /**
      * Instantiates a new EditionUpgradeConfiguration and sets the default values.
      * @param editionUpgradeConfigurationParameterValue 
      */
     public constructor(editionUpgradeConfigurationParameterValue?: EditionUpgradeConfiguration | undefined) {
         super(editionUpgradeConfigurationParameterValue);
-        this.license = editionUpgradeConfigurationParameterValue?.license;
-        this.licenseType = editionUpgradeConfigurationParameterValue?.licenseType;
-        this.productKey = editionUpgradeConfigurationParameterValue?.productKey;
-        this.targetEdition = editionUpgradeConfigurationParameterValue?.targetEdition;
+        this._license = editionUpgradeConfigurationParameterValue?.license;
+        this._licenseType = editionUpgradeConfigurationParameterValue?.licenseType;
+        this._productKey = editionUpgradeConfigurationParameterValue?.productKey;
+        this._targetEdition = editionUpgradeConfigurationParameterValue?.targetEdition;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +35,54 @@ export class EditionUpgradeConfigurationImpl extends DeviceConfigurationImpl imp
             "productKey": n => { this.productKey = n.getStringValue(); },
             "targetEdition": n => { this.targetEdition = n.getEnumValue<Windows10EditionType>(Windows10EditionType); },
         };
+    };
+    /**
+     * Gets the license property value. Edition Upgrade License File Content.
+     * @returns a string
+     */
+    public get license() {
+        return this._license;
+    };
+    /**
+     * Sets the license property value. Edition Upgrade License File Content.
+     * @param value Value to set for the license property.
+     */
+    public set license(value: string | undefined) {
+        if(value) {
+            this._license = value;
+        }
+    };
+    /**
+     * Gets the licenseType property value. Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+     * @returns a editionUpgradeLicenseType
+     */
+    public get licenseType() {
+        return this._licenseType;
+    };
+    /**
+     * Sets the licenseType property value. Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+     * @param value Value to set for the licenseType property.
+     */
+    public set licenseType(value: EditionUpgradeLicenseType | undefined) {
+        if(value) {
+            this._licenseType = value;
+        }
+    };
+    /**
+     * Gets the productKey property value. Edition Upgrade Product Key.
+     * @returns a string
+     */
+    public get productKey() {
+        return this._productKey;
+    };
+    /**
+     * Sets the productKey property value. Edition Upgrade Product Key.
+     * @param value Value to set for the productKey property.
+     */
+    public set productKey(value: string | undefined) {
+        if(value) {
+            this._productKey = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -54,6 +102,22 @@ export class EditionUpgradeConfigurationImpl extends DeviceConfigurationImpl imp
         }
         if(this.targetEdition){
             writer.writeEnumValue<Windows10EditionType>("targetEdition", this.targetEdition);
+        }
+    };
+    /**
+     * Gets the targetEdition property value. Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+     * @returns a windows10EditionType
+     */
+    public get targetEdition() {
+        return this._targetEdition;
+    };
+    /**
+     * Sets the targetEdition property value. Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+     * @param value Value to set for the targetEdition property.
+     */
+    public set targetEdition(value: Windows10EditionType | undefined) {
+        if(value) {
+            this._targetEdition = value;
         }
     };
 }

@@ -6,20 +6,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreApp {
     /** The Android app store URL. */
-    public appStoreUrl?: string | undefined;
+    private _appStoreUrl?: string | undefined;
     /** The value for the minimum applicable operating system. */
-    public minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
+    private _minimumSupportedOperatingSystem?: AndroidMinimumOperatingSystem | undefined;
     /** The package identifier. */
-    public packageId?: string | undefined;
+    private _packageId?: string | undefined;
+    /**
+     * Gets the appStoreUrl property value. The Android app store URL.
+     * @returns a string
+     */
+    public get appStoreUrl() {
+        return this._appStoreUrl;
+    };
+    /**
+     * Sets the appStoreUrl property value. The Android app store URL.
+     * @param value Value to set for the appStoreUrl property.
+     */
+    public set appStoreUrl(value: string | undefined) {
+        if(value) {
+            this._appStoreUrl = value;
+        }
+    };
     /**
      * Instantiates a new AndroidStoreApp and sets the default values.
      * @param androidStoreAppParameterValue 
      */
     public constructor(androidStoreAppParameterValue?: AndroidStoreApp | undefined) {
         super(androidStoreAppParameterValue);
-        this.appStoreUrl = androidStoreAppParameterValue?.appStoreUrl;
-        this.minimumSupportedOperatingSystem = androidStoreAppParameterValue?.minimumSupportedOperatingSystem;
-        this.packageId = androidStoreAppParameterValue?.packageId;
+        this._appStoreUrl = androidStoreAppParameterValue?.appStoreUrl;
+        this._minimumSupportedOperatingSystem = androidStoreAppParameterValue?.minimumSupportedOperatingSystem;
+        this._packageId = androidStoreAppParameterValue?.packageId;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +49,38 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
         };
     };
     /**
+     * Gets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * @returns a AndroidMinimumOperatingSystemInterface
+     */
+    public get minimumSupportedOperatingSystem() {
+        return this._minimumSupportedOperatingSystem;
+    };
+    /**
+     * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
+     * @param value Value to set for the minimumSupportedOperatingSystem property.
+     */
+    public set minimumSupportedOperatingSystem(value: AndroidMinimumOperatingSystem | undefined) {
+        if(value) {
+            this._minimumSupportedOperatingSystem = value instanceof AndroidMinimumOperatingSystemImpl? value : new AndroidMinimumOperatingSystemImpl(value);
+        }
+    };
+    /**
+     * Gets the packageId property value. The package identifier.
+     * @returns a string
+     */
+    public get packageId() {
+        return this._packageId;
+    };
+    /**
+     * Sets the packageId property value. The package identifier.
+     * @param value Value to set for the packageId property.
+     */
+    public set packageId(value: string | undefined) {
+        if(value) {
+            this._packageId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -43,7 +91,7 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
             writer.writeStringValue("appStoreUrl", this.appStoreUrl);
         }
         if(this.minimumSupportedOperatingSystem){
-            writer.writeObjectValue<AndroidMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", new AndroidMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem));
+            writer.writeObjectValue<AndroidMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (!this.minimumSupportedOperatingSystem || this.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem : new AndroidMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
         }
         if(this.packageId){
             writer.writeStringValue("packageId", this.packageId);

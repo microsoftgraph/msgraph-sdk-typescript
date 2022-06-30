@@ -3,22 +3,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CalculatedColumnImpl implements CalculatedColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** For dateTime output types, the format of the value. Must be one of dateOnly or dateTime. */
-    public format?: string | undefined;
+    private _format?: string | undefined;
     /** The formula used to compute the value for this column. */
-    public formula?: string | undefined;
+    private _formula?: string | undefined;
     /** The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text. */
-    public outputType?: string | undefined;
+    private _outputType?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new calculatedColumn and sets the default values.
      * @param calculatedColumnParameterValue 
      */
     public constructor(calculatedColumnParameterValue?: CalculatedColumn | undefined) {
-        this.additionalData = calculatedColumnParameterValue?.additionalData ? calculatedColumnParameterValue?.additionalData! : {};
-        this.format = calculatedColumnParameterValue?.format;
-        this.formula = calculatedColumnParameterValue?.formula;
-        this.outputType = calculatedColumnParameterValue?.outputType;
+        this._additionalData = calculatedColumnParameterValue?.additionalData ? calculatedColumnParameterValue?.additionalData! : {};
+        this._format = calculatedColumnParameterValue?.format;
+        this._formula = calculatedColumnParameterValue?.formula;
+        this._outputType = calculatedColumnParameterValue?.outputType;
+    };
+    /**
+     * Gets the format property value. For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
+     * @returns a string
+     */
+    public get format() {
+        return this._format;
+    };
+    /**
+     * Sets the format property value. For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
+     * @param value Value to set for the format property.
+     */
+    public set format(value: string | undefined) {
+        if(value) {
+            this._format = value;
+        }
+    };
+    /**
+     * Gets the formula property value. The formula used to compute the value for this column.
+     * @returns a string
+     */
+    public get formula() {
+        return this._formula;
+    };
+    /**
+     * Sets the formula property value. The formula used to compute the value for this column.
+     * @param value Value to set for the formula property.
+     */
+    public set formula(value: string | undefined) {
+        if(value) {
+            this._formula = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +78,22 @@ export class CalculatedColumnImpl implements CalculatedColumn {
             "formula": n => { this.formula = n.getStringValue(); },
             "outputType": n => { this.outputType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the outputType property value. The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
+     * @returns a string
+     */
+    public get outputType() {
+        return this._outputType;
+    };
+    /**
+     * Sets the outputType property value. The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
+     * @param value Value to set for the outputType property.
+     */
+    public set outputType(value: string | undefined) {
+        if(value) {
+            this._outputType = value;
+        }
     };
     /**
      * Serializes information the current object

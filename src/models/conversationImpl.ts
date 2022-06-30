@@ -7,29 +7,29 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class ConversationImpl extends EntityImpl implements Conversation {
     /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */
-    public hasAttachments?: boolean | undefined;
+    private _hasAttachments?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge). */
-    public lastDeliveredDateTime?: Date | undefined;
+    private _lastDeliveredDateTime?: Date | undefined;
     /** A short summary from the body of the latest post in this conversation. */
-    public preview?: string | undefined;
+    private _preview?: string | undefined;
     /** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
-    public threads?: ConversationThread[] | undefined;
+    private _threads?: ConversationThread[] | undefined;
     /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. */
-    public topic?: string | undefined;
+    private _topic?: string | undefined;
     /** All the users that sent a message to this Conversation. */
-    public uniqueSenders?: string[] | undefined;
+    private _uniqueSenders?: string[] | undefined;
     /**
      * Instantiates a new conversation and sets the default values.
      * @param conversationParameterValue 
      */
     public constructor(conversationParameterValue?: Conversation | undefined) {
         super(conversationParameterValue);
-        this.hasAttachments = conversationParameterValue?.hasAttachments;
-        this.lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime;
-        this.preview = conversationParameterValue?.preview;
-        this.threads = conversationParameterValue?.threads;
-        this.topic = conversationParameterValue?.topic;
-        this.uniqueSenders = conversationParameterValue?.uniqueSenders;
+        this._hasAttachments = conversationParameterValue?.hasAttachments;
+        this._lastDeliveredDateTime = conversationParameterValue?.lastDeliveredDateTime;
+        this._preview = conversationParameterValue?.preview;
+        this._threads = conversationParameterValue?.threads;
+        this._topic = conversationParameterValue?.topic;
+        this._uniqueSenders = conversationParameterValue?.uniqueSenders;
     };
     /**
      * The deserialization information for the current model
@@ -44,6 +44,54 @@ export class ConversationImpl extends EntityImpl implements Conversation {
             "topic": n => { this.topic = n.getStringValue(); },
             "uniqueSenders": n => { this.uniqueSenders = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the hasAttachments property value. Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
+     * @returns a boolean
+     */
+    public get hasAttachments() {
+        return this._hasAttachments;
+    };
+    /**
+     * Sets the hasAttachments property value. Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
+     * @param value Value to set for the hasAttachments property.
+     */
+    public set hasAttachments(value: boolean | undefined) {
+        if(value) {
+            this._hasAttachments = value;
+        }
+    };
+    /**
+     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).
+     * @returns a Date
+     */
+    public get lastDeliveredDateTime() {
+        return this._lastDeliveredDateTime;
+    };
+    /**
+     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).
+     * @param value Value to set for the lastDeliveredDateTime property.
+     */
+    public set lastDeliveredDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastDeliveredDateTime = value;
+        }
+    };
+    /**
+     * Gets the preview property value. A short summary from the body of the latest post in this conversation.
+     * @returns a string
+     */
+    public get preview() {
+        return this._preview;
+    };
+    /**
+     * Sets the preview property value. A short summary from the body of the latest post in this conversation.
+     * @param value Value to set for the preview property.
+     */
+    public set preview(value: string | undefined) {
+        if(value) {
+            this._preview = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -61,7 +109,10 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         if(this.preview){
             writer.writeStringValue("preview", this.preview);
         }
-        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = []; this.threads?.forEach(element => {threadsArrValue.push(new ConversationThreadImpl(element));});
+        if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = [];
+        this.threads?.forEach(element => {
+            threadsArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
         if(this.topic){
@@ -69,6 +120,58 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         }
         if(this.uniqueSenders){
             writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
+        }
+    };
+    /**
+     * Gets the threads property value. A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * @returns a ConversationThreadInterface
+     */
+    public get threads() {
+        return this._threads;
+    };
+    /**
+     * Sets the threads property value. A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * @param value Value to set for the threads property.
+     */
+    public set threads(value: ConversationThread[] | undefined) {
+        if(value) {
+            const threadsArrValue: ConversationThreadImpl[] = [];
+            this.threads?.forEach(element => {
+                threadsArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+            });
+            this._threads = threadsArrValue;
+        }
+    };
+    /**
+     * Gets the topic property value. The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+     * @returns a string
+     */
+    public get topic() {
+        return this._topic;
+    };
+    /**
+     * Sets the topic property value. The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+     * @param value Value to set for the topic property.
+     */
+    public set topic(value: string | undefined) {
+        if(value) {
+            this._topic = value;
+        }
+    };
+    /**
+     * Gets the uniqueSenders property value. All the users that sent a message to this Conversation.
+     * @returns a string
+     */
+    public get uniqueSenders() {
+        return this._uniqueSenders;
+    };
+    /**
+     * Sets the uniqueSenders property value. All the users that sent a message to this Conversation.
+     * @param value Value to set for the uniqueSenders property.
+     */
+    public set uniqueSenders(value: string[] | undefined) {
+        if(value) {
+            this._uniqueSenders = value;
         }
     };
 }

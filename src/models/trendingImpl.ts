@@ -11,26 +11,26 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class TrendingImpl extends EntityImpl implements Trending {
     /** The lastModifiedDateTime property */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */
-    public resource?: Entity | undefined;
+    private _resource?: Entity | undefined;
     /** Reference properties of the trending document, such as the url and type of the document. */
-    public resourceReference?: ResourceReference | undefined;
+    private _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. */
-    public resourceVisualization?: ResourceVisualization | undefined;
+    private _resourceVisualization?: ResourceVisualization | undefined;
     /** Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value. */
-    public weight?: number | undefined;
+    private _weight?: number | undefined;
     /**
      * Instantiates a new trending and sets the default values.
      * @param trendingParameterValue 
      */
     public constructor(trendingParameterValue?: Trending | undefined) {
         super(trendingParameterValue);
-        this.lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime;
-        this.resource = trendingParameterValue?.resource;
-        this.resourceReference = trendingParameterValue?.resourceReference;
-        this.resourceVisualization = trendingParameterValue?.resourceVisualization;
-        this.weight = trendingParameterValue?.weight;
+        this._lastModifiedDateTime = trendingParameterValue?.lastModifiedDateTime;
+        this._resource = trendingParameterValue?.resource;
+        this._resourceReference = trendingParameterValue?.resourceReference;
+        this._resourceVisualization = trendingParameterValue?.resourceVisualization;
+        this._weight = trendingParameterValue?.weight;
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +46,70 @@ export class TrendingImpl extends EntityImpl implements Trending {
         };
     };
     /**
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
+     * Gets the resource property value. Used for navigating to the trending document.
+     * @returns a EntityInterface
+     */
+    public get resource() {
+        return this._resource;
+    };
+    /**
+     * Sets the resource property value. Used for navigating to the trending document.
+     * @param value Value to set for the resource property.
+     */
+    public set resource(value: Entity | undefined) {
+        if(value) {
+            this._resource = value instanceof EntityImpl? value : new EntityImpl(value);
+        }
+    };
+    /**
+     * Gets the resourceReference property value. Reference properties of the trending document, such as the url and type of the document.
+     * @returns a ResourceReferenceInterface
+     */
+    public get resourceReference() {
+        return this._resourceReference;
+    };
+    /**
+     * Sets the resourceReference property value. Reference properties of the trending document, such as the url and type of the document.
+     * @param value Value to set for the resourceReference property.
+     */
+    public set resourceReference(value: ResourceReference | undefined) {
+        if(value) {
+            this._resourceReference = value instanceof ResourceReferenceImpl? value : new ResourceReferenceImpl(value);
+        }
+    };
+    /**
+     * Gets the resourceVisualization property value. Properties that you can use to visualize the document in your experience.
+     * @returns a ResourceVisualizationInterface
+     */
+    public get resourceVisualization() {
+        return this._resourceVisualization;
+    };
+    /**
+     * Sets the resourceVisualization property value. Properties that you can use to visualize the document in your experience.
+     * @param value Value to set for the resourceVisualization property.
+     */
+    public set resourceVisualization(value: ResourceVisualization | undefined) {
+        if(value) {
+            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value : new ResourceVisualizationImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -56,16 +120,32 @@ export class TrendingImpl extends EntityImpl implements Trending {
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.resource){
-            writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
+            writer.writeObjectValue<EntityImpl>("resource", (!this.resource || this.resource instanceof EntityImpl? this.resource : new EntityImpl(this.resource)));
         }
         if(this.resourceReference){
-            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", new ResourceReferenceImpl(this.resourceReference));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (!this.resourceReference || this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference : new ResourceReferenceImpl(this.resourceReference)));
         }
         if(this.resourceVisualization){
-            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", new ResourceVisualizationImpl(this.resourceVisualization));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (!this.resourceVisualization || this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization : new ResourceVisualizationImpl(this.resourceVisualization)));
         }
         if(this.weight){
             writer.writeNumberValue("weight", this.weight);
+        }
+    };
+    /**
+     * Gets the weight property value. Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
+     * @returns a double
+     */
+    public get weight() {
+        return this._weight;
+    };
+    /**
+     * Sets the weight property value. Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
+     * @param value Value to set for the weight property.
+     */
+    public set weight(value: number | undefined) {
+        if(value) {
+            this._weight = value;
         }
     };
 }

@@ -6,50 +6,162 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcceptance {
     /** ID of the agreement file accepted by the user. */
-    public agreementFileId?: string | undefined;
+    private _agreementFileId?: string | undefined;
     /** ID of the agreement. */
-    public agreementId?: string | undefined;
+    private _agreementId?: string | undefined;
     /** The display name of the device used for accepting the agreement. */
-    public deviceDisplayName?: string | undefined;
+    private _deviceDisplayName?: string | undefined;
     /** The unique identifier of the device used for accepting the agreement. */
-    public deviceId?: string | undefined;
+    private _deviceId?: string | undefined;
     /** The operating system used for accepting the agreement. */
-    public deviceOSType?: string | undefined;
+    private _deviceOSType?: string | undefined;
     /** The operating system version of the device used for accepting the agreement. */
-    public deviceOSVersion?: string | undefined;
+    private _deviceOSVersion?: string | undefined;
     /** The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public expirationDateTime?: Date | undefined;
+    private _expirationDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public recordedDateTime?: Date | undefined;
+    private _recordedDateTime?: Date | undefined;
     /** Possible values are: accepted, declined. Supports $filter (eq). */
-    public state?: AgreementAcceptanceState | undefined;
+    private _state?: AgreementAcceptanceState | undefined;
     /** Display name of the user when the acceptance was recorded. */
-    public userDisplayName?: string | undefined;
+    private _userDisplayName?: string | undefined;
     /** Email of the user when the acceptance was recorded. */
-    public userEmail?: string | undefined;
+    private _userEmail?: string | undefined;
     /** ID of the user who accepted the agreement. */
-    public userId?: string | undefined;
+    private _userId?: string | undefined;
     /** UPN of the user when the acceptance was recorded. */
-    public userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
+    /**
+     * Gets the agreementFileId property value. ID of the agreement file accepted by the user.
+     * @returns a string
+     */
+    public get agreementFileId() {
+        return this._agreementFileId;
+    };
+    /**
+     * Sets the agreementFileId property value. ID of the agreement file accepted by the user.
+     * @param value Value to set for the agreementFileId property.
+     */
+    public set agreementFileId(value: string | undefined) {
+        if(value) {
+            this._agreementFileId = value;
+        }
+    };
+    /**
+     * Gets the agreementId property value. ID of the agreement.
+     * @returns a string
+     */
+    public get agreementId() {
+        return this._agreementId;
+    };
+    /**
+     * Sets the agreementId property value. ID of the agreement.
+     * @param value Value to set for the agreementId property.
+     */
+    public set agreementId(value: string | undefined) {
+        if(value) {
+            this._agreementId = value;
+        }
+    };
     /**
      * Instantiates a new agreementAcceptance and sets the default values.
      * @param agreementAcceptanceParameterValue 
      */
     public constructor(agreementAcceptanceParameterValue?: AgreementAcceptance | undefined) {
         super(agreementAcceptanceParameterValue);
-        this.agreementFileId = agreementAcceptanceParameterValue?.agreementFileId;
-        this.agreementId = agreementAcceptanceParameterValue?.agreementId;
-        this.deviceDisplayName = agreementAcceptanceParameterValue?.deviceDisplayName;
-        this.deviceId = agreementAcceptanceParameterValue?.deviceId;
-        this.deviceOSType = agreementAcceptanceParameterValue?.deviceOSType;
-        this.deviceOSVersion = agreementAcceptanceParameterValue?.deviceOSVersion;
-        this.expirationDateTime = agreementAcceptanceParameterValue?.expirationDateTime;
-        this.recordedDateTime = agreementAcceptanceParameterValue?.recordedDateTime;
-        this.state = agreementAcceptanceParameterValue?.state;
-        this.userDisplayName = agreementAcceptanceParameterValue?.userDisplayName;
-        this.userEmail = agreementAcceptanceParameterValue?.userEmail;
-        this.userId = agreementAcceptanceParameterValue?.userId;
-        this.userPrincipalName = agreementAcceptanceParameterValue?.userPrincipalName;
+        this._agreementFileId = agreementAcceptanceParameterValue?.agreementFileId;
+        this._agreementId = agreementAcceptanceParameterValue?.agreementId;
+        this._deviceDisplayName = agreementAcceptanceParameterValue?.deviceDisplayName;
+        this._deviceId = agreementAcceptanceParameterValue?.deviceId;
+        this._deviceOSType = agreementAcceptanceParameterValue?.deviceOSType;
+        this._deviceOSVersion = agreementAcceptanceParameterValue?.deviceOSVersion;
+        this._expirationDateTime = agreementAcceptanceParameterValue?.expirationDateTime;
+        this._recordedDateTime = agreementAcceptanceParameterValue?.recordedDateTime;
+        this._state = agreementAcceptanceParameterValue?.state;
+        this._userDisplayName = agreementAcceptanceParameterValue?.userDisplayName;
+        this._userEmail = agreementAcceptanceParameterValue?.userEmail;
+        this._userId = agreementAcceptanceParameterValue?.userId;
+        this._userPrincipalName = agreementAcceptanceParameterValue?.userPrincipalName;
+    };
+    /**
+     * Gets the deviceDisplayName property value. The display name of the device used for accepting the agreement.
+     * @returns a string
+     */
+    public get deviceDisplayName() {
+        return this._deviceDisplayName;
+    };
+    /**
+     * Sets the deviceDisplayName property value. The display name of the device used for accepting the agreement.
+     * @param value Value to set for the deviceDisplayName property.
+     */
+    public set deviceDisplayName(value: string | undefined) {
+        if(value) {
+            this._deviceDisplayName = value;
+        }
+    };
+    /**
+     * Gets the deviceId property value. The unique identifier of the device used for accepting the agreement.
+     * @returns a string
+     */
+    public get deviceId() {
+        return this._deviceId;
+    };
+    /**
+     * Sets the deviceId property value. The unique identifier of the device used for accepting the agreement.
+     * @param value Value to set for the deviceId property.
+     */
+    public set deviceId(value: string | undefined) {
+        if(value) {
+            this._deviceId = value;
+        }
+    };
+    /**
+     * Gets the deviceOSType property value. The operating system used for accepting the agreement.
+     * @returns a string
+     */
+    public get deviceOSType() {
+        return this._deviceOSType;
+    };
+    /**
+     * Sets the deviceOSType property value. The operating system used for accepting the agreement.
+     * @param value Value to set for the deviceOSType property.
+     */
+    public set deviceOSType(value: string | undefined) {
+        if(value) {
+            this._deviceOSType = value;
+        }
+    };
+    /**
+     * Gets the deviceOSVersion property value. The operating system version of the device used for accepting the agreement.
+     * @returns a string
+     */
+    public get deviceOSVersion() {
+        return this._deviceOSVersion;
+    };
+    /**
+     * Sets the deviceOSVersion property value. The operating system version of the device used for accepting the agreement.
+     * @param value Value to set for the deviceOSVersion property.
+     */
+    public set deviceOSVersion(value: string | undefined) {
+        if(value) {
+            this._deviceOSVersion = value;
+        }
+    };
+    /**
+     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get expirationDateTime() {
+        return this._expirationDateTime;
+    };
+    /**
+     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the expirationDateTime property.
+     */
+    public set expirationDateTime(value: Date | undefined) {
+        if(value) {
+            this._expirationDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -71,6 +183,22 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
             "userId": n => { this.userId = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get recordedDateTime() {
+        return this._recordedDateTime;
+    };
+    /**
+     * Sets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the recordedDateTime property.
+     */
+    public set recordedDateTime(value: Date | undefined) {
+        if(value) {
+            this._recordedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -117,6 +245,86 @@ export class AgreementAcceptanceImpl extends EntityImpl implements AgreementAcce
         }
         if(this.userPrincipalName){
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+        }
+    };
+    /**
+     * Gets the state property value. Possible values are: accepted, declined. Supports $filter (eq).
+     * @returns a agreementAcceptanceState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. Possible values are: accepted, declined. Supports $filter (eq).
+     * @param value Value to set for the state property.
+     */
+    public set state(value: AgreementAcceptanceState | undefined) {
+        if(value) {
+            this._state = value;
+        }
+    };
+    /**
+     * Gets the userDisplayName property value. Display name of the user when the acceptance was recorded.
+     * @returns a string
+     */
+    public get userDisplayName() {
+        return this._userDisplayName;
+    };
+    /**
+     * Sets the userDisplayName property value. Display name of the user when the acceptance was recorded.
+     * @param value Value to set for the userDisplayName property.
+     */
+    public set userDisplayName(value: string | undefined) {
+        if(value) {
+            this._userDisplayName = value;
+        }
+    };
+    /**
+     * Gets the userEmail property value. Email of the user when the acceptance was recorded.
+     * @returns a string
+     */
+    public get userEmail() {
+        return this._userEmail;
+    };
+    /**
+     * Sets the userEmail property value. Email of the user when the acceptance was recorded.
+     * @param value Value to set for the userEmail property.
+     */
+    public set userEmail(value: string | undefined) {
+        if(value) {
+            this._userEmail = value;
+        }
+    };
+    /**
+     * Gets the userId property value. ID of the user who accepted the agreement.
+     * @returns a string
+     */
+    public get userId() {
+        return this._userId;
+    };
+    /**
+     * Sets the userId property value. ID of the user who accepted the agreement.
+     * @param value Value to set for the userId property.
+     */
+    public set userId(value: string | undefined) {
+        if(value) {
+            this._userId = value;
+        }
+    };
+    /**
+     * Gets the userPrincipalName property value. UPN of the user when the acceptance was recorded.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
+    };
+    /**
+     * Sets the userPrincipalName property value. UPN of the user when the acceptance was recorded.
+     * @param value Value to set for the userPrincipalName property.
+     */
+    public set userPrincipalName(value: string | undefined) {
+        if(value) {
+            this._userPrincipalName = value;
         }
     };
 }

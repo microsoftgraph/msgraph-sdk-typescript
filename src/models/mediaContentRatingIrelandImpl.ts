@@ -5,19 +5,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaContentRatingIrelandImpl implements MediaContentRatingIreland {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Movies rating selected for Ireland. Possible values are: allAllowed, allBlocked, general, parentalGuidance, agesAbove12, agesAbove15, agesAbove16, adults. */
-    public movieRating?: RatingIrelandMoviesType | undefined;
+    private _movieRating?: RatingIrelandMoviesType | undefined;
     /** TV rating selected for Ireland. Possible values are: allAllowed, allBlocked, general, children, youngAdults, parentalSupervision, mature. */
-    public tvRating?: RatingIrelandTelevisionType | undefined;
+    private _tvRating?: RatingIrelandTelevisionType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mediaContentRatingIreland and sets the default values.
      * @param mediaContentRatingIrelandParameterValue 
      */
     public constructor(mediaContentRatingIrelandParameterValue?: MediaContentRatingIreland | undefined) {
-        this.additionalData = mediaContentRatingIrelandParameterValue?.additionalData ? mediaContentRatingIrelandParameterValue?.additionalData! : {};
-        this.movieRating = mediaContentRatingIrelandParameterValue?.movieRating;
-        this.tvRating = mediaContentRatingIrelandParameterValue?.tvRating;
+        this._additionalData = mediaContentRatingIrelandParameterValue?.additionalData ? mediaContentRatingIrelandParameterValue?.additionalData! : {};
+        this._movieRating = mediaContentRatingIrelandParameterValue?.movieRating;
+        this._tvRating = mediaContentRatingIrelandParameterValue?.tvRating;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +44,22 @@ export class MediaContentRatingIrelandImpl implements MediaContentRatingIreland 
             "movieRating": n => { this.movieRating = n.getEnumValue<RatingIrelandMoviesType>(RatingIrelandMoviesType); },
             "tvRating": n => { this.tvRating = n.getEnumValue<RatingIrelandTelevisionType>(RatingIrelandTelevisionType); },
         };
+    };
+    /**
+     * Gets the movieRating property value. Movies rating selected for Ireland. Possible values are: allAllowed, allBlocked, general, parentalGuidance, agesAbove12, agesAbove15, agesAbove16, adults.
+     * @returns a ratingIrelandMoviesType
+     */
+    public get movieRating() {
+        return this._movieRating;
+    };
+    /**
+     * Sets the movieRating property value. Movies rating selected for Ireland. Possible values are: allAllowed, allBlocked, general, parentalGuidance, agesAbove12, agesAbove15, agesAbove16, adults.
+     * @param value Value to set for the movieRating property.
+     */
+    public set movieRating(value: RatingIrelandMoviesType | undefined) {
+        if(value) {
+            this._movieRating = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -42,5 +74,21 @@ export class MediaContentRatingIrelandImpl implements MediaContentRatingIreland 
             writer.writeEnumValue<RatingIrelandTelevisionType>("tvRating", this.tvRating);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the tvRating property value. TV rating selected for Ireland. Possible values are: allAllowed, allBlocked, general, children, youngAdults, parentalSupervision, mature.
+     * @returns a ratingIrelandTelevisionType
+     */
+    public get tvRating() {
+        return this._tvRating;
+    };
+    /**
+     * Sets the tvRating property value. TV rating selected for Ireland. Possible values are: allAllowed, allBlocked, general, children, youngAdults, parentalSupervision, mature.
+     * @param value Value to set for the tvRating property.
+     */
+    public set tvRating(value: RatingIrelandTelevisionType | undefined) {
+        if(value) {
+            this._tvRating = value;
+        }
     };
 }

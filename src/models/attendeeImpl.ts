@@ -9,17 +9,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event. */
-    public proposedNewTime?: TimeSlot | undefined;
+    private _proposedNewTime?: TimeSlot | undefined;
     /** The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent. */
-    public status?: ResponseStatus | undefined;
+    private _status?: ResponseStatus | undefined;
     /**
      * Instantiates a new attendee and sets the default values.
      * @param attendeeParameterValue 
      */
     public constructor(attendeeParameterValue?: Attendee | undefined) {
         super(attendeeParameterValue);
-        this.proposedNewTime = attendeeParameterValue?.proposedNewTime;
-        this.status = attendeeParameterValue?.status;
+        this._proposedNewTime = attendeeParameterValue?.proposedNewTime;
+        this._status = attendeeParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +32,22 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
         };
     };
     /**
+     * Gets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
+     * @returns a TimeSlotInterface
+     */
+    public get proposedNewTime() {
+        return this._proposedNewTime;
+    };
+    /**
+     * Sets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
+     * @param value Value to set for the proposedNewTime property.
+     */
+    public set proposedNewTime(value: TimeSlot | undefined) {
+        if(value) {
+            this._proposedNewTime = value instanceof TimeSlotImpl? value : new TimeSlotImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,10 +55,26 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.proposedNewTime){
-            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", new TimeSlotImpl(this.proposedNewTime));
+            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (!this.proposedNewTime || this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime : new TimeSlotImpl(this.proposedNewTime)));
         }
         if(this.status){
-            writer.writeObjectValue<ResponseStatusImpl>("status", new ResponseStatusImpl(this.status));
+            writer.writeObjectValue<ResponseStatusImpl>("status", (!this.status || this.status instanceof ResponseStatusImpl? this.status : new ResponseStatusImpl(this.status)));
+        }
+    };
+    /**
+     * Gets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
+     * @returns a ResponseStatusInterface
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: ResponseStatus | undefined) {
+        if(value) {
+            this._status = value instanceof ResponseStatusImpl? value : new ResponseStatusImpl(value);
         }
     };
 }

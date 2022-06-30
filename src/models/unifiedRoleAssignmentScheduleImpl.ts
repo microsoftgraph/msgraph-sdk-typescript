@@ -8,23 +8,55 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseImpl implements UnifiedRoleAssignmentSchedule {
     /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
-    public activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
+    private _activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
     /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
-    public assignmentType?: string | undefined;
+    private _assignmentType?: string | undefined;
     /** How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne). */
-    public memberType?: string | undefined;
+    private _memberType?: string | undefined;
     /** The period of the role assignment. It can represent a single occurrence or multiple recurrences. */
-    public scheduleInfo?: RequestSchedule | undefined;
+    private _scheduleInfo?: RequestSchedule | undefined;
+    /**
+     * Gets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+     * @returns a UnifiedRoleEligibilityScheduleInterface
+     */
+    public get activatedUsing() {
+        return this._activatedUsing;
+    };
+    /**
+     * Sets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+     * @param value Value to set for the activatedUsing property.
+     */
+    public set activatedUsing(value: UnifiedRoleEligibilitySchedule | undefined) {
+        if(value) {
+            this._activatedUsing = value instanceof UnifiedRoleEligibilityScheduleImpl? value : new UnifiedRoleEligibilityScheduleImpl(value);
+        }
+    };
+    /**
+     * Gets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
+     * @returns a string
+     */
+    public get assignmentType() {
+        return this._assignmentType;
+    };
+    /**
+     * Sets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
+     * @param value Value to set for the assignmentType property.
+     */
+    public set assignmentType(value: string | undefined) {
+        if(value) {
+            this._assignmentType = value;
+        }
+    };
     /**
      * Instantiates a new UnifiedRoleAssignmentSchedule and sets the default values.
      * @param unifiedRoleAssignmentScheduleParameterValue 
      */
     public constructor(unifiedRoleAssignmentScheduleParameterValue?: UnifiedRoleAssignmentSchedule | undefined) {
         super(unifiedRoleAssignmentScheduleParameterValue);
-        this.activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing;
-        this.assignmentType = unifiedRoleAssignmentScheduleParameterValue?.assignmentType;
-        this.memberType = unifiedRoleAssignmentScheduleParameterValue?.memberType;
-        this.scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo;
+        this._activatedUsing = unifiedRoleAssignmentScheduleParameterValue?.activatedUsing;
+        this._assignmentType = unifiedRoleAssignmentScheduleParameterValue?.assignmentType;
+        this._memberType = unifiedRoleAssignmentScheduleParameterValue?.memberType;
+        this._scheduleInfo = unifiedRoleAssignmentScheduleParameterValue?.scheduleInfo;
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +71,38 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
         };
     };
     /**
+     * Gets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
+     * @returns a string
+     */
+    public get memberType() {
+        return this._memberType;
+    };
+    /**
+     * Sets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
+     * @param value Value to set for the memberType property.
+     */
+    public set memberType(value: string | undefined) {
+        if(value) {
+            this._memberType = value;
+        }
+    };
+    /**
+     * Gets the scheduleInfo property value. The period of the role assignment. It can represent a single occurrence or multiple recurrences.
+     * @returns a RequestScheduleInterface
+     */
+    public get scheduleInfo() {
+        return this._scheduleInfo;
+    };
+    /**
+     * Sets the scheduleInfo property value. The period of the role assignment. It can represent a single occurrence or multiple recurrences.
+     * @param value Value to set for the scheduleInfo property.
+     */
+    public set scheduleInfo(value: RequestSchedule | undefined) {
+        if(value) {
+            this._scheduleInfo = value instanceof RequestScheduleImpl? value : new RequestScheduleImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -46,7 +110,7 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activatedUsing){
-            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", (!this.activatedUsing || this.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? this.activatedUsing : new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing)));
         }
         if(this.assignmentType){
             writer.writeStringValue("assignmentType", this.assignmentType);
@@ -55,7 +119,7 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
             writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", new RequestScheduleImpl(this.scheduleInfo));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (!this.scheduleInfo || this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo : new RequestScheduleImpl(this.scheduleInfo)));
         }
     };
 }

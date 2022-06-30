@@ -26,70 +26,166 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RemoteItemImpl implements RemoteItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Identity of the user, device, and application which created the item. Read-only. */
-    public createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | undefined;
     /** Date and time of item creation. Read-only. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** Indicates that the remote item is a file. Read-only. */
-    public file?: File | undefined;
+    private _file?: File | undefined;
     /** Information about the remote item from the local file system. Read-only. */
-    public fileSystemInfo?: FileSystemInfo | undefined;
+    private _fileSystemInfo?: FileSystemInfo | undefined;
     /** Indicates that the remote item is a folder. Read-only. */
-    public folder?: Folder | undefined;
+    private _folder?: Folder | undefined;
     /** Unique identifier for the remote item in its drive. Read-only. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** Image metadata, if the item is an image. Read-only. */
-    public image?: Image | undefined;
+    private _image?: Image | undefined;
     /** Identity of the user, device, and application which last modified the item. Read-only. */
-    public lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | undefined;
     /** Date and time the item was last modified. Read-only. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** Optional. Filename of the remote item. Read-only. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-    public package?: Package | undefined;
+    private _package?: Package | undefined;
     /** Properties of the parent of the remote item. Read-only. */
-    public parentReference?: ItemReference | undefined;
+    private _parentReference?: ItemReference | undefined;
     /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
-    public shared?: Shared | undefined;
+    private _shared?: Shared | undefined;
     /** Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only. */
-    public sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | undefined;
     /** Size of the remote item. Read-only. */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-    public specialFolder?: SpecialFolder | undefined;
+    private _specialFolder?: SpecialFolder | undefined;
     /** Video metadata, if the item is a video. Read-only. */
-    public video?: Video | undefined;
+    private _video?: Video | undefined;
     /** DAV compatible URL for the item. */
-    public webDavUrl?: string | undefined;
+    private _webDavUrl?: string | undefined;
     /** URL that displays the resource in the browser. Read-only. */
-    public webUrl?: string | undefined;
+    private _webUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new remoteItem and sets the default values.
      * @param remoteItemParameterValue 
      */
     public constructor(remoteItemParameterValue?: RemoteItem | undefined) {
-        this.additionalData = remoteItemParameterValue?.additionalData ? remoteItemParameterValue?.additionalData! : {};
-        this.createdBy = remoteItemParameterValue?.createdBy;
-        this.createdDateTime = remoteItemParameterValue?.createdDateTime;
-        this.file = remoteItemParameterValue?.file;
-        this.fileSystemInfo = remoteItemParameterValue?.fileSystemInfo;
-        this.folder = remoteItemParameterValue?.folder;
-        this.id = remoteItemParameterValue?.id;
-        this.image = remoteItemParameterValue?.image;
-        this.lastModifiedBy = remoteItemParameterValue?.lastModifiedBy;
-        this.lastModifiedDateTime = remoteItemParameterValue?.lastModifiedDateTime;
-        this.name = remoteItemParameterValue?.name;
-        this.package = remoteItemParameterValue?.package;
-        this.parentReference = remoteItemParameterValue?.parentReference;
-        this.shared = remoteItemParameterValue?.shared;
-        this.sharepointIds = remoteItemParameterValue?.sharepointIds;
-        this.size = remoteItemParameterValue?.size;
-        this.specialFolder = remoteItemParameterValue?.specialFolder;
-        this.video = remoteItemParameterValue?.video;
-        this.webDavUrl = remoteItemParameterValue?.webDavUrl;
-        this.webUrl = remoteItemParameterValue?.webUrl;
+        this._additionalData = remoteItemParameterValue?.additionalData ? remoteItemParameterValue?.additionalData! : {};
+        this._createdBy = remoteItemParameterValue?.createdBy;
+        this._createdDateTime = remoteItemParameterValue?.createdDateTime;
+        this._file = remoteItemParameterValue?.file;
+        this._fileSystemInfo = remoteItemParameterValue?.fileSystemInfo;
+        this._folder = remoteItemParameterValue?.folder;
+        this._id = remoteItemParameterValue?.id;
+        this._image = remoteItemParameterValue?.image;
+        this._lastModifiedBy = remoteItemParameterValue?.lastModifiedBy;
+        this._lastModifiedDateTime = remoteItemParameterValue?.lastModifiedDateTime;
+        this._name = remoteItemParameterValue?.name;
+        this._package = remoteItemParameterValue?.package;
+        this._parentReference = remoteItemParameterValue?.parentReference;
+        this._shared = remoteItemParameterValue?.shared;
+        this._sharepointIds = remoteItemParameterValue?.sharepointIds;
+        this._size = remoteItemParameterValue?.size;
+        this._specialFolder = remoteItemParameterValue?.specialFolder;
+        this._video = remoteItemParameterValue?.video;
+        this._webDavUrl = remoteItemParameterValue?.webDavUrl;
+        this._webUrl = remoteItemParameterValue?.webUrl;
+    };
+    /**
+     * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * @returns a IdentitySetInterface
+     */
+    public get createdBy() {
+        return this._createdBy;
+    };
+    /**
+     * Sets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * @param value Value to set for the createdBy property.
+     */
+    public set createdBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the createdDateTime property value. Date and time of item creation. Read-only.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. Date and time of item creation. Read-only.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the file property value. Indicates that the remote item is a file. Read-only.
+     * @returns a FileInterface
+     */
+    public get file() {
+        return this._file;
+    };
+    /**
+     * Sets the file property value. Indicates that the remote item is a file. Read-only.
+     * @param value Value to set for the file property.
+     */
+    public set file(value: File | undefined) {
+        if(value) {
+            this._file = value instanceof FileImpl? value : new FileImpl(value);
+        }
+    };
+    /**
+     * Gets the fileSystemInfo property value. Information about the remote item from the local file system. Read-only.
+     * @returns a FileSystemInfoInterface
+     */
+    public get fileSystemInfo() {
+        return this._fileSystemInfo;
+    };
+    /**
+     * Sets the fileSystemInfo property value. Information about the remote item from the local file system. Read-only.
+     * @param value Value to set for the fileSystemInfo property.
+     */
+    public set fileSystemInfo(value: FileSystemInfo | undefined) {
+        if(value) {
+            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value : new FileSystemInfoImpl(value);
+        }
+    };
+    /**
+     * Gets the folder property value. Indicates that the remote item is a folder. Read-only.
+     * @returns a FolderInterface
+     */
+    public get folder() {
+        return this._folder;
+    };
+    /**
+     * Sets the folder property value. Indicates that the remote item is a folder. Read-only.
+     * @param value Value to set for the folder property.
+     */
+    public set folder(value: Folder | undefined) {
+        if(value) {
+            this._folder = value instanceof FolderImpl? value : new FolderImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -119,34 +215,146 @@ export class RemoteItemImpl implements RemoteItem {
         };
     };
     /**
+     * Gets the id property value. Unique identifier for the remote item in its drive. Read-only.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Unique identifier for the remote item in its drive. Read-only.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the image property value. Image metadata, if the item is an image. Read-only.
+     * @returns a ImageInterface
+     */
+    public get image() {
+        return this._image;
+    };
+    /**
+     * Sets the image property value. Image metadata, if the item is an image. Read-only.
+     * @param value Value to set for the image property.
+     */
+    public set image(value: Image | undefined) {
+        if(value) {
+            this._image = value instanceof ImageImpl? value : new ImageImpl(value);
+        }
+    };
+    /**
+     * Gets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
+     * @returns a IdentitySetInterface
+     */
+    public get lastModifiedBy() {
+        return this._lastModifiedBy;
+    };
+    /**
+     * Sets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. Date and time the item was last modified. Read-only.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. Date and time the item was last modified. Read-only.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
+    };
+    /**
+     * Gets the name property value. Optional. Filename of the remote item. Read-only.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Optional. Filename of the remote item. Read-only.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
+     * @returns a PackageInterface
+     */
+    public get package() {
+        return this._package;
+    };
+    /**
+     * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
+     * @param value Value to set for the package property.
+     */
+    public set package(value: Package | undefined) {
+        if(value) {
+            this._package = value instanceof PackageImpl? value : new PackageImpl(value);
+        }
+    };
+    /**
+     * Gets the parentReference property value. Properties of the parent of the remote item. Read-only.
+     * @returns a ItemReferenceInterface
+     */
+    public get parentReference() {
+        return this._parentReference;
+    };
+    /**
+     * Sets the parentReference property value. Properties of the parent of the remote item. Read-only.
+     * @param value Value to set for the parentReference property.
+     */
+    public set parentReference(value: ItemReference | undefined) {
+        if(value) {
+            this._parentReference = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.file){
-            writer.writeObjectValue<FileImpl>("file", new FileImpl(this.file));
+            writer.writeObjectValue<FileImpl>("file", (!this.file || this.file instanceof FileImpl? this.file : new FileImpl(this.file)));
         }
         if(this.fileSystemInfo){
-            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", new FileSystemInfoImpl(this.fileSystemInfo));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (!this.fileSystemInfo || this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo : new FileSystemInfoImpl(this.fileSystemInfo)));
         }
         if(this.folder){
-            writer.writeObjectValue<FolderImpl>("folder", new FolderImpl(this.folder));
+            writer.writeObjectValue<FolderImpl>("folder", (!this.folder || this.folder instanceof FolderImpl? this.folder : new FolderImpl(this.folder)));
         }
         if(this.id){
             writer.writeStringValue("id", this.id);
         }
         if(this.image){
-            writer.writeObjectValue<ImageImpl>("image", new ImageImpl(this.image));
+            writer.writeObjectValue<ImageImpl>("image", (!this.image || this.image instanceof ImageImpl? this.image : new ImageImpl(this.image)));
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", new IdentitySetImpl(this.lastModifiedBy));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
@@ -155,25 +363,25 @@ export class RemoteItemImpl implements RemoteItem {
             writer.writeStringValue("name", this.name);
         }
         if(this.package){
-            writer.writeObjectValue<PackageImpl>("package", new PackageImpl(this.package));
+            writer.writeObjectValue<PackageImpl>("package", (!this.package || this.package instanceof PackageImpl? this.package : new PackageImpl(this.package)));
         }
         if(this.parentReference){
-            writer.writeObjectValue<ItemReferenceImpl>("parentReference", new ItemReferenceImpl(this.parentReference));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (!this.parentReference || this.parentReference instanceof ItemReferenceImpl? this.parentReference : new ItemReferenceImpl(this.parentReference)));
         }
         if(this.shared){
-            writer.writeObjectValue<SharedImpl>("shared", new SharedImpl(this.shared));
+            writer.writeObjectValue<SharedImpl>("shared", (!this.shared || this.shared instanceof SharedImpl? this.shared : new SharedImpl(this.shared)));
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", new SharepointIdsImpl(this.sharepointIds));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", new SpecialFolderImpl(this.specialFolder));
+            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", (!this.specialFolder || this.specialFolder instanceof SpecialFolderImpl? this.specialFolder : new SpecialFolderImpl(this.specialFolder)));
         }
         if(this.video){
-            writer.writeObjectValue<VideoImpl>("video", new VideoImpl(this.video));
+            writer.writeObjectValue<VideoImpl>("video", (!this.video || this.video instanceof VideoImpl? this.video : new VideoImpl(this.video)));
         }
         if(this.webDavUrl){
             writer.writeStringValue("webDavUrl", this.webDavUrl);
@@ -182,5 +390,117 @@ export class RemoteItemImpl implements RemoteItem {
             writer.writeStringValue("webUrl", this.webUrl);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * @returns a SharedInterface
+     */
+    public get shared() {
+        return this._shared;
+    };
+    /**
+     * Sets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * @param value Value to set for the shared property.
+     */
+    public set shared(value: Shared | undefined) {
+        if(value) {
+            this._shared = value instanceof SharedImpl? value : new SharedImpl(value);
+        }
+    };
+    /**
+     * Gets the sharepointIds property value. Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.
+     * @returns a SharepointIdsInterface
+     */
+    public get sharepointIds() {
+        return this._sharepointIds;
+    };
+    /**
+     * Sets the sharepointIds property value. Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.
+     * @param value Value to set for the sharepointIds property.
+     */
+    public set sharepointIds(value: SharepointIds | undefined) {
+        if(value) {
+            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+        }
+    };
+    /**
+     * Gets the size property value. Size of the remote item. Read-only.
+     * @returns a int64
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. Size of the remote item. Read-only.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
+        }
+    };
+    /**
+     * Gets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
+     * @returns a SpecialFolderInterface
+     */
+    public get specialFolder() {
+        return this._specialFolder;
+    };
+    /**
+     * Sets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
+     * @param value Value to set for the specialFolder property.
+     */
+    public set specialFolder(value: SpecialFolder | undefined) {
+        if(value) {
+            this._specialFolder = value instanceof SpecialFolderImpl? value : new SpecialFolderImpl(value);
+        }
+    };
+    /**
+     * Gets the video property value. Video metadata, if the item is a video. Read-only.
+     * @returns a VideoInterface
+     */
+    public get video() {
+        return this._video;
+    };
+    /**
+     * Sets the video property value. Video metadata, if the item is a video. Read-only.
+     * @param value Value to set for the video property.
+     */
+    public set video(value: Video | undefined) {
+        if(value) {
+            this._video = value instanceof VideoImpl? value : new VideoImpl(value);
+        }
+    };
+    /**
+     * Gets the webDavUrl property value. DAV compatible URL for the item.
+     * @returns a string
+     */
+    public get webDavUrl() {
+        return this._webDavUrl;
+    };
+    /**
+     * Sets the webDavUrl property value. DAV compatible URL for the item.
+     * @param value Value to set for the webDavUrl property.
+     */
+    public set webDavUrl(value: string | undefined) {
+        if(value) {
+            this._webDavUrl = value;
+        }
+    };
+    /**
+     * Gets the webUrl property value. URL that displays the resource in the browser. Read-only.
+     * @returns a string
+     */
+    public get webUrl() {
+        return this._webUrl;
+    };
+    /**
+     * Sets the webUrl property value. URL that displays the resource in the browser. Read-only.
+     * @param value Value to set for the webUrl property.
+     */
+    public set webUrl(value: string | undefined) {
+        if(value) {
+            this._webUrl = value;
+        }
     };
 }

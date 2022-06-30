@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class StoragePlanInformationImpl implements StoragePlanInformation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates if there are higher storage quota plans available. Read-only. */
-    public upgradeAvailable?: boolean | undefined;
+    private _upgradeAvailable?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new storagePlanInformation and sets the default values.
      * @param storagePlanInformationParameterValue 
      */
     public constructor(storagePlanInformationParameterValue?: StoragePlanInformation | undefined) {
-        this.additionalData = storagePlanInformationParameterValue?.additionalData ? storagePlanInformationParameterValue?.additionalData! : {};
-        this.upgradeAvailable = storagePlanInformationParameterValue?.upgradeAvailable;
+        this._additionalData = storagePlanInformationParameterValue?.additionalData ? storagePlanInformationParameterValue?.additionalData! : {};
+        this._upgradeAvailable = storagePlanInformationParameterValue?.upgradeAvailable;
     };
     /**
      * The deserialization information for the current model
@@ -33,5 +49,21 @@ export class StoragePlanInformationImpl implements StoragePlanInformation {
             writer.writeBooleanValue("upgradeAvailable", this.upgradeAvailable);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the upgradeAvailable property value. Indicates if there are higher storage quota plans available. Read-only.
+     * @returns a boolean
+     */
+    public get upgradeAvailable() {
+        return this._upgradeAvailable;
+    };
+    /**
+     * Sets the upgradeAvailable property value. Indicates if there are higher storage quota plans available. Read-only.
+     * @param value Value to set for the upgradeAvailable property.
+     */
+    public set upgradeAvailable(value: boolean | undefined) {
+        if(value) {
+            this._upgradeAvailable = value;
+        }
     };
 }

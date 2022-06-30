@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PersonTypeImpl implements PersonType {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The type of data source, such as Person. */
-    public class_escaped?: string | undefined;
+    private _class_escaped?: string | undefined;
     /** The secondary type of data source, such as OrganizationUser. */
-    public subclass?: string | undefined;
+    private _subclass?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the class property value. The type of data source, such as Person.
+     * @returns a string
+     */
+    public get class_escaped() {
+        return this._class_escaped;
+    };
+    /**
+     * Sets the class property value. The type of data source, such as Person.
+     * @param value Value to set for the class_escaped property.
+     */
+    public set class_escaped(value: string | undefined) {
+        if(value) {
+            this._class_escaped = value;
+        }
+    };
     /**
      * Instantiates a new personType and sets the default values.
      * @param personTypeParameterValue 
      */
     public constructor(personTypeParameterValue?: PersonType | undefined) {
-        this.additionalData = personTypeParameterValue?.additionalData ? personTypeParameterValue?.additionalData! : {};
-        this.class_escaped = personTypeParameterValue?.class_escaped;
-        this.subclass = personTypeParameterValue?.subclass;
+        this._additionalData = personTypeParameterValue?.additionalData ? personTypeParameterValue?.additionalData! : {};
+        this._class_escaped = personTypeParameterValue?.class_escaped;
+        this._subclass = personTypeParameterValue?.subclass;
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +72,21 @@ export class PersonTypeImpl implements PersonType {
             writer.writeStringValue("subclass", this.subclass);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the subclass property value. The secondary type of data source, such as OrganizationUser.
+     * @returns a string
+     */
+    public get subclass() {
+        return this._subclass;
+    };
+    /**
+     * Sets the subclass property value. The secondary type of data source, such as OrganizationUser.
+     * @param value Value to set for the subclass property.
+     */
+    public set subclass(value: string | undefined) {
+        if(value) {
+            this._subclass = value;
+        }
     };
 }

@@ -8,19 +8,75 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SolutionsRootImpl implements SolutionsRoot {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The bookingBusinesses property */
-    public bookingBusinesses?: BookingBusiness[] | undefined;
+    private _bookingBusinesses?: BookingBusiness[] | undefined;
     /** The bookingCurrencies property */
-    public bookingCurrencies?: BookingCurrency[] | undefined;
+    private _bookingCurrencies?: BookingCurrency[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the bookingBusinesses property value. The bookingBusinesses property
+     * @returns a BookingBusinessInterface
+     */
+    public get bookingBusinesses() {
+        return this._bookingBusinesses;
+    };
+    /**
+     * Sets the bookingBusinesses property value. The bookingBusinesses property
+     * @param value Value to set for the bookingBusinesses property.
+     */
+    public set bookingBusinesses(value: BookingBusiness[] | undefined) {
+        if(value) {
+            const bookingBusinessesArrValue: BookingBusinessImpl[] = [];
+            this.bookingBusinesses?.forEach(element => {
+                bookingBusinessesArrValue.push((element instanceof BookingBusinessImpl? element:new BookingBusinessImpl(element)));
+            });
+            this._bookingBusinesses = bookingBusinessesArrValue;
+        }
+    };
+    /**
+     * Gets the bookingCurrencies property value. The bookingCurrencies property
+     * @returns a BookingCurrencyInterface
+     */
+    public get bookingCurrencies() {
+        return this._bookingCurrencies;
+    };
+    /**
+     * Sets the bookingCurrencies property value. The bookingCurrencies property
+     * @param value Value to set for the bookingCurrencies property.
+     */
+    public set bookingCurrencies(value: BookingCurrency[] | undefined) {
+        if(value) {
+            const bookingCurrenciesArrValue: BookingCurrencyImpl[] = [];
+            this.bookingCurrencies?.forEach(element => {
+                bookingCurrenciesArrValue.push((element instanceof BookingCurrencyImpl? element:new BookingCurrencyImpl(element)));
+            });
+            this._bookingCurrencies = bookingCurrenciesArrValue;
+        }
+    };
     /**
      * Instantiates a new SolutionsRoot and sets the default values.
      * @param solutionsRootParameterValue 
      */
     public constructor(solutionsRootParameterValue?: SolutionsRoot | undefined) {
-        this.additionalData = solutionsRootParameterValue?.additionalData ? solutionsRootParameterValue?.additionalData! : {};
-        this.bookingBusinesses = solutionsRootParameterValue?.bookingBusinesses;
-        this.bookingCurrencies = solutionsRootParameterValue?.bookingCurrencies;
+        this._additionalData = solutionsRootParameterValue?.additionalData ? solutionsRootParameterValue?.additionalData! : {};
+        this._bookingBusinesses = solutionsRootParameterValue?.bookingBusinesses;
+        this._bookingCurrencies = solutionsRootParameterValue?.bookingCurrencies;
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +94,16 @@ export class SolutionsRootImpl implements SolutionsRoot {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.bookingBusinesses && this.bookingBusinesses.length != 0){        const bookingBusinessesArrValue: BookingBusinessImpl[] = []; this.bookingBusinesses?.forEach(element => {bookingBusinessesArrValue.push(new BookingBusinessImpl(element));});
+        if(this.bookingBusinesses && this.bookingBusinesses.length != 0){        const bookingBusinessesArrValue: BookingBusinessImpl[] = [];
+        this.bookingBusinesses?.forEach(element => {
+            bookingBusinessesArrValue.push((element instanceof BookingBusinessImpl? element:new BookingBusinessImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<BookingBusinessImpl>("bookingBusinesses", bookingBusinessesArrValue);
         }
-        if(this.bookingCurrencies && this.bookingCurrencies.length != 0){        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = []; this.bookingCurrencies?.forEach(element => {bookingCurrenciesArrValue.push(new BookingCurrencyImpl(element));});
+        if(this.bookingCurrencies && this.bookingCurrencies.length != 0){        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = [];
+        this.bookingCurrencies?.forEach(element => {
+            bookingCurrenciesArrValue.push((element instanceof BookingCurrencyImpl? element:new BookingCurrencyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<BookingCurrencyImpl>("bookingCurrencies", bookingCurrenciesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

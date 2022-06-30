@@ -4,31 +4,79 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** configuration Manager client enabled features */
 export class ConfigurationManagerClientEnabledFeaturesImpl implements ConfigurationManagerClientEnabledFeatures {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Whether compliance policy is managed by Intune */
-    public compliancePolicy?: boolean | undefined;
+    private _compliancePolicy?: boolean | undefined;
     /** Whether device configuration is managed by Intune */
-    public deviceConfiguration?: boolean | undefined;
+    private _deviceConfiguration?: boolean | undefined;
     /** Whether inventory is managed by Intune */
-    public inventory?: boolean | undefined;
+    private _inventory?: boolean | undefined;
     /** Whether modern application is managed by Intune */
-    public modernApps?: boolean | undefined;
+    private _modernApps?: boolean | undefined;
     /** Whether resource access is managed by Intune */
-    public resourceAccess?: boolean | undefined;
+    private _resourceAccess?: boolean | undefined;
     /** Whether Windows Update for Business is managed by Intune */
-    public windowsUpdateForBusiness?: boolean | undefined;
+    private _windowsUpdateForBusiness?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the compliancePolicy property value. Whether compliance policy is managed by Intune
+     * @returns a boolean
+     */
+    public get compliancePolicy() {
+        return this._compliancePolicy;
+    };
+    /**
+     * Sets the compliancePolicy property value. Whether compliance policy is managed by Intune
+     * @param value Value to set for the compliancePolicy property.
+     */
+    public set compliancePolicy(value: boolean | undefined) {
+        if(value) {
+            this._compliancePolicy = value;
+        }
+    };
     /**
      * Instantiates a new configurationManagerClientEnabledFeatures and sets the default values.
      * @param configurationManagerClientEnabledFeaturesParameterValue 
      */
     public constructor(configurationManagerClientEnabledFeaturesParameterValue?: ConfigurationManagerClientEnabledFeatures | undefined) {
-        this.additionalData = configurationManagerClientEnabledFeaturesParameterValue?.additionalData ? configurationManagerClientEnabledFeaturesParameterValue?.additionalData! : {};
-        this.compliancePolicy = configurationManagerClientEnabledFeaturesParameterValue?.compliancePolicy;
-        this.deviceConfiguration = configurationManagerClientEnabledFeaturesParameterValue?.deviceConfiguration;
-        this.inventory = configurationManagerClientEnabledFeaturesParameterValue?.inventory;
-        this.modernApps = configurationManagerClientEnabledFeaturesParameterValue?.modernApps;
-        this.resourceAccess = configurationManagerClientEnabledFeaturesParameterValue?.resourceAccess;
-        this.windowsUpdateForBusiness = configurationManagerClientEnabledFeaturesParameterValue?.windowsUpdateForBusiness;
+        this._additionalData = configurationManagerClientEnabledFeaturesParameterValue?.additionalData ? configurationManagerClientEnabledFeaturesParameterValue?.additionalData! : {};
+        this._compliancePolicy = configurationManagerClientEnabledFeaturesParameterValue?.compliancePolicy;
+        this._deviceConfiguration = configurationManagerClientEnabledFeaturesParameterValue?.deviceConfiguration;
+        this._inventory = configurationManagerClientEnabledFeaturesParameterValue?.inventory;
+        this._modernApps = configurationManagerClientEnabledFeaturesParameterValue?.modernApps;
+        this._resourceAccess = configurationManagerClientEnabledFeaturesParameterValue?.resourceAccess;
+        this._windowsUpdateForBusiness = configurationManagerClientEnabledFeaturesParameterValue?.windowsUpdateForBusiness;
+    };
+    /**
+     * Gets the deviceConfiguration property value. Whether device configuration is managed by Intune
+     * @returns a boolean
+     */
+    public get deviceConfiguration() {
+        return this._deviceConfiguration;
+    };
+    /**
+     * Sets the deviceConfiguration property value. Whether device configuration is managed by Intune
+     * @param value Value to set for the deviceConfiguration property.
+     */
+    public set deviceConfiguration(value: boolean | undefined) {
+        if(value) {
+            this._deviceConfiguration = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -43,6 +91,54 @@ export class ConfigurationManagerClientEnabledFeaturesImpl implements Configurat
             "resourceAccess": n => { this.resourceAccess = n.getBooleanValue(); },
             "windowsUpdateForBusiness": n => { this.windowsUpdateForBusiness = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the inventory property value. Whether inventory is managed by Intune
+     * @returns a boolean
+     */
+    public get inventory() {
+        return this._inventory;
+    };
+    /**
+     * Sets the inventory property value. Whether inventory is managed by Intune
+     * @param value Value to set for the inventory property.
+     */
+    public set inventory(value: boolean | undefined) {
+        if(value) {
+            this._inventory = value;
+        }
+    };
+    /**
+     * Gets the modernApps property value. Whether modern application is managed by Intune
+     * @returns a boolean
+     */
+    public get modernApps() {
+        return this._modernApps;
+    };
+    /**
+     * Sets the modernApps property value. Whether modern application is managed by Intune
+     * @param value Value to set for the modernApps property.
+     */
+    public set modernApps(value: boolean | undefined) {
+        if(value) {
+            this._modernApps = value;
+        }
+    };
+    /**
+     * Gets the resourceAccess property value. Whether resource access is managed by Intune
+     * @returns a boolean
+     */
+    public get resourceAccess() {
+        return this._resourceAccess;
+    };
+    /**
+     * Sets the resourceAccess property value. Whether resource access is managed by Intune
+     * @param value Value to set for the resourceAccess property.
+     */
+    public set resourceAccess(value: boolean | undefined) {
+        if(value) {
+            this._resourceAccess = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -69,5 +165,21 @@ export class ConfigurationManagerClientEnabledFeaturesImpl implements Configurat
             writer.writeBooleanValue("windowsUpdateForBusiness", this.windowsUpdateForBusiness);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the windowsUpdateForBusiness property value. Whether Windows Update for Business is managed by Intune
+     * @returns a boolean
+     */
+    public get windowsUpdateForBusiness() {
+        return this._windowsUpdateForBusiness;
+    };
+    /**
+     * Sets the windowsUpdateForBusiness property value. Whether Windows Update for Business is managed by Intune
+     * @param value Value to set for the windowsUpdateForBusiness property.
+     */
+    public set windowsUpdateForBusiness(value: boolean | undefined) {
+        if(value) {
+            this._windowsUpdateForBusiness = value;
+        }
     };
 }

@@ -5,14 +5,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationCategoryImpl extends EntityImpl implements EducationCategory {
     /** Unique identifier for the category. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /**
      * Instantiates a new educationCategory and sets the default values.
      * @param educationCategoryParameterValue 
      */
     public constructor(educationCategoryParameterValue?: EducationCategory | undefined) {
         super(educationCategoryParameterValue);
-        this.displayName = educationCategoryParameterValue?.displayName;
+        this._displayName = educationCategoryParameterValue?.displayName;
+    };
+    /**
+     * Gets the displayName property value. Unique identifier for the category.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Unique identifier for the category.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

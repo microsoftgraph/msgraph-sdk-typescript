@@ -4,43 +4,59 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for the minimum operating system required for an Android mobile app. */
 export class AndroidMinimumOperatingSystemImpl implements AndroidMinimumOperatingSystem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Version 10.0 or later. */
-    public v10_0?: boolean | undefined;
+    private _v10_0?: boolean | undefined;
     /** Version 11.0 or later. */
-    public v11_0?: boolean | undefined;
+    private _v11_0?: boolean | undefined;
     /** Version 4.0 or later. */
-    public v4_0?: boolean | undefined;
+    private _v4_0?: boolean | undefined;
     /** Version 4.0.3 or later. */
-    public v4_0_3?: boolean | undefined;
+    private _v4_0_3?: boolean | undefined;
     /** Version 4.1 or later. */
-    public v4_1?: boolean | undefined;
+    private _v4_1?: boolean | undefined;
     /** Version 4.2 or later. */
-    public v4_2?: boolean | undefined;
+    private _v4_2?: boolean | undefined;
     /** Version 4.3 or later. */
-    public v4_3?: boolean | undefined;
+    private _v4_3?: boolean | undefined;
     /** Version 4.4 or later. */
-    public v4_4?: boolean | undefined;
+    private _v4_4?: boolean | undefined;
     /** Version 5.0 or later. */
-    public v5_0?: boolean | undefined;
+    private _v5_0?: boolean | undefined;
     /** Version 5.1 or later. */
-    public v5_1?: boolean | undefined;
+    private _v5_1?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new androidMinimumOperatingSystem and sets the default values.
      * @param androidMinimumOperatingSystemParameterValue 
      */
     public constructor(androidMinimumOperatingSystemParameterValue?: AndroidMinimumOperatingSystem | undefined) {
-        this.additionalData = androidMinimumOperatingSystemParameterValue?.additionalData ? androidMinimumOperatingSystemParameterValue?.additionalData! : {};
-        this.v10_0 = androidMinimumOperatingSystemParameterValue?.v10_0;
-        this.v11_0 = androidMinimumOperatingSystemParameterValue?.v11_0;
-        this.v4_0 = androidMinimumOperatingSystemParameterValue?.v4_0;
-        this.v4_0_3 = androidMinimumOperatingSystemParameterValue?.v4_0_3;
-        this.v4_1 = androidMinimumOperatingSystemParameterValue?.v4_1;
-        this.v4_2 = androidMinimumOperatingSystemParameterValue?.v4_2;
-        this.v4_3 = androidMinimumOperatingSystemParameterValue?.v4_3;
-        this.v4_4 = androidMinimumOperatingSystemParameterValue?.v4_4;
-        this.v5_0 = androidMinimumOperatingSystemParameterValue?.v5_0;
-        this.v5_1 = androidMinimumOperatingSystemParameterValue?.v5_1;
+        this._additionalData = androidMinimumOperatingSystemParameterValue?.additionalData ? androidMinimumOperatingSystemParameterValue?.additionalData! : {};
+        this._v10_0 = androidMinimumOperatingSystemParameterValue?.v10_0;
+        this._v11_0 = androidMinimumOperatingSystemParameterValue?.v11_0;
+        this._v4_0 = androidMinimumOperatingSystemParameterValue?.v4_0;
+        this._v4_0_3 = androidMinimumOperatingSystemParameterValue?.v4_0_3;
+        this._v4_1 = androidMinimumOperatingSystemParameterValue?.v4_1;
+        this._v4_2 = androidMinimumOperatingSystemParameterValue?.v4_2;
+        this._v4_3 = androidMinimumOperatingSystemParameterValue?.v4_3;
+        this._v4_4 = androidMinimumOperatingSystemParameterValue?.v4_4;
+        this._v5_0 = androidMinimumOperatingSystemParameterValue?.v5_0;
+        this._v5_1 = androidMinimumOperatingSystemParameterValue?.v5_1;
     };
     /**
      * The deserialization information for the current model
@@ -97,5 +113,165 @@ export class AndroidMinimumOperatingSystemImpl implements AndroidMinimumOperatin
             writer.writeBooleanValue("v5_1", this.v5_1);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the v10_0 property value. Version 10.0 or later.
+     * @returns a boolean
+     */
+    public get v10_0() {
+        return this._v10_0;
+    };
+    /**
+     * Sets the v10_0 property value. Version 10.0 or later.
+     * @param value Value to set for the v10_0 property.
+     */
+    public set v10_0(value: boolean | undefined) {
+        if(value) {
+            this._v10_0 = value;
+        }
+    };
+    /**
+     * Gets the v11_0 property value. Version 11.0 or later.
+     * @returns a boolean
+     */
+    public get v11_0() {
+        return this._v11_0;
+    };
+    /**
+     * Sets the v11_0 property value. Version 11.0 or later.
+     * @param value Value to set for the v11_0 property.
+     */
+    public set v11_0(value: boolean | undefined) {
+        if(value) {
+            this._v11_0 = value;
+        }
+    };
+    /**
+     * Gets the v4_0 property value. Version 4.0 or later.
+     * @returns a boolean
+     */
+    public get v4_0() {
+        return this._v4_0;
+    };
+    /**
+     * Sets the v4_0 property value. Version 4.0 or later.
+     * @param value Value to set for the v4_0 property.
+     */
+    public set v4_0(value: boolean | undefined) {
+        if(value) {
+            this._v4_0 = value;
+        }
+    };
+    /**
+     * Gets the v4_0_3 property value. Version 4.0.3 or later.
+     * @returns a boolean
+     */
+    public get v4_0_3() {
+        return this._v4_0_3;
+    };
+    /**
+     * Sets the v4_0_3 property value. Version 4.0.3 or later.
+     * @param value Value to set for the v4_0_3 property.
+     */
+    public set v4_0_3(value: boolean | undefined) {
+        if(value) {
+            this._v4_0_3 = value;
+        }
+    };
+    /**
+     * Gets the v4_1 property value. Version 4.1 or later.
+     * @returns a boolean
+     */
+    public get v4_1() {
+        return this._v4_1;
+    };
+    /**
+     * Sets the v4_1 property value. Version 4.1 or later.
+     * @param value Value to set for the v4_1 property.
+     */
+    public set v4_1(value: boolean | undefined) {
+        if(value) {
+            this._v4_1 = value;
+        }
+    };
+    /**
+     * Gets the v4_2 property value. Version 4.2 or later.
+     * @returns a boolean
+     */
+    public get v4_2() {
+        return this._v4_2;
+    };
+    /**
+     * Sets the v4_2 property value. Version 4.2 or later.
+     * @param value Value to set for the v4_2 property.
+     */
+    public set v4_2(value: boolean | undefined) {
+        if(value) {
+            this._v4_2 = value;
+        }
+    };
+    /**
+     * Gets the v4_3 property value. Version 4.3 or later.
+     * @returns a boolean
+     */
+    public get v4_3() {
+        return this._v4_3;
+    };
+    /**
+     * Sets the v4_3 property value. Version 4.3 or later.
+     * @param value Value to set for the v4_3 property.
+     */
+    public set v4_3(value: boolean | undefined) {
+        if(value) {
+            this._v4_3 = value;
+        }
+    };
+    /**
+     * Gets the v4_4 property value. Version 4.4 or later.
+     * @returns a boolean
+     */
+    public get v4_4() {
+        return this._v4_4;
+    };
+    /**
+     * Sets the v4_4 property value. Version 4.4 or later.
+     * @param value Value to set for the v4_4 property.
+     */
+    public set v4_4(value: boolean | undefined) {
+        if(value) {
+            this._v4_4 = value;
+        }
+    };
+    /**
+     * Gets the v5_0 property value. Version 5.0 or later.
+     * @returns a boolean
+     */
+    public get v5_0() {
+        return this._v5_0;
+    };
+    /**
+     * Sets the v5_0 property value. Version 5.0 or later.
+     * @param value Value to set for the v5_0 property.
+     */
+    public set v5_0(value: boolean | undefined) {
+        if(value) {
+            this._v5_0 = value;
+        }
+    };
+    /**
+     * Gets the v5_1 property value. Version 5.1 or later.
+     * @returns a boolean
+     */
+    public get v5_1() {
+        return this._v5_1;
+    };
+    /**
+     * Sets the v5_1 property value. Version 5.1 or later.
+     * @param value Value to set for the v5_1 property.
+     */
+    public set v5_1(value: boolean | undefined) {
+        if(value) {
+            this._v5_1 = value;
+        }
     };
 }

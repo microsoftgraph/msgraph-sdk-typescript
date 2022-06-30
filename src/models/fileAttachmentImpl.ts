@@ -4,20 +4,68 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class FileAttachmentImpl extends AttachmentImpl implements FileAttachment {
     /** The base64-encoded contents of the file. */
-    public contentBytes?: string | undefined;
+    private _contentBytes?: string | undefined;
     /** The ID of the attachment in the Exchange store. */
-    public contentId?: string | undefined;
+    private _contentId?: string | undefined;
     /** Do not use this property as it is not supported. */
-    public contentLocation?: string | undefined;
+    private _contentLocation?: string | undefined;
     /**
      * Instantiates a new FileAttachment and sets the default values.
      * @param fileAttachmentParameterValue 
      */
     public constructor(fileAttachmentParameterValue?: FileAttachment | undefined) {
         super(fileAttachmentParameterValue);
-        this.contentBytes = fileAttachmentParameterValue?.contentBytes;
-        this.contentId = fileAttachmentParameterValue?.contentId;
-        this.contentLocation = fileAttachmentParameterValue?.contentLocation;
+        this._contentBytes = fileAttachmentParameterValue?.contentBytes;
+        this._contentId = fileAttachmentParameterValue?.contentId;
+        this._contentLocation = fileAttachmentParameterValue?.contentLocation;
+    };
+    /**
+     * Gets the contentBytes property value. The base64-encoded contents of the file.
+     * @returns a binary
+     */
+    public get contentBytes() {
+        return this._contentBytes;
+    };
+    /**
+     * Sets the contentBytes property value. The base64-encoded contents of the file.
+     * @param value Value to set for the contentBytes property.
+     */
+    public set contentBytes(value: string | undefined) {
+        if(value) {
+            this._contentBytes = value;
+        }
+    };
+    /**
+     * Gets the contentId property value. The ID of the attachment in the Exchange store.
+     * @returns a string
+     */
+    public get contentId() {
+        return this._contentId;
+    };
+    /**
+     * Sets the contentId property value. The ID of the attachment in the Exchange store.
+     * @param value Value to set for the contentId property.
+     */
+    public set contentId(value: string | undefined) {
+        if(value) {
+            this._contentId = value;
+        }
+    };
+    /**
+     * Gets the contentLocation property value. Do not use this property as it is not supported.
+     * @returns a string
+     */
+    public get contentLocation() {
+        return this._contentLocation;
+    };
+    /**
+     * Sets the contentLocation property value. Do not use this property as it is not supported.
+     * @param value Value to set for the contentLocation property.
+     */
+    public set contentLocation(value: string | undefined) {
+        if(value) {
+            this._contentLocation = value;
+        }
     };
     /**
      * The deserialization information for the current model

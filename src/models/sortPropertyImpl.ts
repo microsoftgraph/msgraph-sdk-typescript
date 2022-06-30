@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SortPropertyImpl implements SortProperty {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** True if the sort order is descending. Default is false, with the sort order as ascending. Optional. */
-    public isDescending?: boolean | undefined;
+    private _isDescending?: boolean | undefined;
     /** The name of the property to sort on. Required. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new sortProperty and sets the default values.
      * @param sortPropertyParameterValue 
      */
     public constructor(sortPropertyParameterValue?: SortProperty | undefined) {
-        this.additionalData = sortPropertyParameterValue?.additionalData ? sortPropertyParameterValue?.additionalData! : {};
-        this.isDescending = sortPropertyParameterValue?.isDescending;
-        this.name = sortPropertyParameterValue?.name;
+        this._additionalData = sortPropertyParameterValue?.additionalData ? sortPropertyParameterValue?.additionalData! : {};
+        this._isDescending = sortPropertyParameterValue?.isDescending;
+        this._name = sortPropertyParameterValue?.name;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,38 @@ export class SortPropertyImpl implements SortProperty {
             "isDescending": n => { this.isDescending = n.getBooleanValue(); },
             "name": n => { this.name = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the isDescending property value. True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
+     * @returns a boolean
+     */
+    public get isDescending() {
+        return this._isDescending;
+    };
+    /**
+     * Sets the isDescending property value. True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
+     * @param value Value to set for the isDescending property.
+     */
+    public set isDescending(value: boolean | undefined) {
+        if(value) {
+            this._isDescending = value;
+        }
+    };
+    /**
+     * Gets the name property value. The name of the property to sort on. Required.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name of the property to sort on. Required.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object

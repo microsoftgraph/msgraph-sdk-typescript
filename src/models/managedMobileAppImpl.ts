@@ -7,17 +7,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** The identifier for the deployment an app. */
 export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp {
     /** The identifier for an app with it's operating system type. */
-    public mobileAppIdentifier?: MobileAppIdentifier | undefined;
+    private _mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /** Version of the entity. */
-    public version?: string | undefined;
+    private _version?: string | undefined;
     /**
      * Instantiates a new managedMobileApp and sets the default values.
      * @param managedMobileAppParameterValue 
      */
     public constructor(managedMobileAppParameterValue?: ManagedMobileApp | undefined) {
         super(managedMobileAppParameterValue);
-        this.mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier;
-        this.version = managedMobileAppParameterValue?.version;
+        this._mobileAppIdentifier = managedMobileAppParameterValue?.mobileAppIdentifier;
+        this._version = managedMobileAppParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +30,22 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
         };
     };
     /**
+     * Gets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
+     * @returns a MobileAppIdentifierInterface
+     */
+    public get mobileAppIdentifier() {
+        return this._mobileAppIdentifier;
+    };
+    /**
+     * Sets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
+     * @param value Value to set for the mobileAppIdentifier property.
+     */
+    public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
+        if(value) {
+            this._mobileAppIdentifier = value instanceof MobileAppIdentifierImpl? value : new MobileAppIdentifierImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -37,10 +53,26 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.mobileAppIdentifier){
-            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", new MobileAppIdentifierImpl(this.mobileAppIdentifier));
+            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", (!this.mobileAppIdentifier || this.mobileAppIdentifier instanceof MobileAppIdentifierImpl? this.mobileAppIdentifier : new MobileAppIdentifierImpl(this.mobileAppIdentifier)));
         }
         if(this.version){
             writer.writeStringValue("version", this.version);
+        }
+    };
+    /**
+     * Gets the version property value. Version of the entity.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. Version of the entity.
+     * @param value Value to set for the version property.
+     */
+    public set version(value: string | undefined) {
+        if(value) {
+            this._version = value;
         }
     };
 }

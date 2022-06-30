@@ -5,20 +5,52 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class CountryNamedLocationImpl extends NamedLocationImpl implements CountryNamedLocation {
     /** List of countries and/or regions in two-letter format specified by ISO 3166-2. */
-    public countriesAndRegions?: string[] | undefined;
+    private _countriesAndRegions?: string[] | undefined;
     /** Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps. */
-    public countryLookupMethod?: CountryLookupMethodType | undefined;
+    private _countryLookupMethod?: CountryLookupMethodType | undefined;
     /** true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false. */
-    public includeUnknownCountriesAndRegions?: boolean | undefined;
+    private _includeUnknownCountriesAndRegions?: boolean | undefined;
     /**
      * Instantiates a new CountryNamedLocation and sets the default values.
      * @param countryNamedLocationParameterValue 
      */
     public constructor(countryNamedLocationParameterValue?: CountryNamedLocation | undefined) {
         super(countryNamedLocationParameterValue);
-        this.countriesAndRegions = countryNamedLocationParameterValue?.countriesAndRegions;
-        this.countryLookupMethod = countryNamedLocationParameterValue?.countryLookupMethod;
-        this.includeUnknownCountriesAndRegions = countryNamedLocationParameterValue?.includeUnknownCountriesAndRegions;
+        this._countriesAndRegions = countryNamedLocationParameterValue?.countriesAndRegions;
+        this._countryLookupMethod = countryNamedLocationParameterValue?.countryLookupMethod;
+        this._includeUnknownCountriesAndRegions = countryNamedLocationParameterValue?.includeUnknownCountriesAndRegions;
+    };
+    /**
+     * Gets the countriesAndRegions property value. List of countries and/or regions in two-letter format specified by ISO 3166-2.
+     * @returns a string
+     */
+    public get countriesAndRegions() {
+        return this._countriesAndRegions;
+    };
+    /**
+     * Sets the countriesAndRegions property value. List of countries and/or regions in two-letter format specified by ISO 3166-2.
+     * @param value Value to set for the countriesAndRegions property.
+     */
+    public set countriesAndRegions(value: string[] | undefined) {
+        if(value) {
+            this._countriesAndRegions = value;
+        }
+    };
+    /**
+     * Gets the countryLookupMethod property value. Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.
+     * @returns a countryLookupMethodType
+     */
+    public get countryLookupMethod() {
+        return this._countryLookupMethod;
+    };
+    /**
+     * Sets the countryLookupMethod property value. Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.
+     * @param value Value to set for the countryLookupMethod property.
+     */
+    public set countryLookupMethod(value: CountryLookupMethodType | undefined) {
+        if(value) {
+            this._countryLookupMethod = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,22 @@ export class CountryNamedLocationImpl extends NamedLocationImpl implements Count
             "countryLookupMethod": n => { this.countryLookupMethod = n.getEnumValue<CountryLookupMethodType>(CountryLookupMethodType); },
             "includeUnknownCountriesAndRegions": n => { this.includeUnknownCountriesAndRegions = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the includeUnknownCountriesAndRegions property value. true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
+     * @returns a boolean
+     */
+    public get includeUnknownCountriesAndRegions() {
+        return this._includeUnknownCountriesAndRegions;
+    };
+    /**
+     * Sets the includeUnknownCountriesAndRegions property value. true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
+     * @param value Value to set for the includeUnknownCountriesAndRegions property.
+     */
+    public set includeUnknownCountriesAndRegions(value: boolean | undefined) {
+        if(value) {
+            this._includeUnknownCountriesAndRegions = value;
+        }
     };
     /**
      * Serializes information the current object

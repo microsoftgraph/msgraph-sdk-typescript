@@ -4,25 +4,89 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Windows Information Protection DataRecoveryCertificate */
 export class WindowsInformationProtectionDataRecoveryCertificateImpl implements WindowsInformationProtectionDataRecoveryCertificate {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Data recovery Certificate */
-    public certificate?: string | undefined;
+    private _certificate?: string | undefined;
     /** Data recovery Certificate description */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Data recovery Certificate expiration datetime */
-    public expirationDateTime?: Date | undefined;
+    private _expirationDateTime?: Date | undefined;
     /** Data recovery Certificate subject name */
-    public subjectName?: string | undefined;
+    private _subjectName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the certificate property value. Data recovery Certificate
+     * @returns a binary
+     */
+    public get certificate() {
+        return this._certificate;
+    };
+    /**
+     * Sets the certificate property value. Data recovery Certificate
+     * @param value Value to set for the certificate property.
+     */
+    public set certificate(value: string | undefined) {
+        if(value) {
+            this._certificate = value;
+        }
+    };
     /**
      * Instantiates a new windowsInformationProtectionDataRecoveryCertificate and sets the default values.
      * @param windowsInformationProtectionDataRecoveryCertificateParameterValue 
      */
     public constructor(windowsInformationProtectionDataRecoveryCertificateParameterValue?: WindowsInformationProtectionDataRecoveryCertificate | undefined) {
-        this.additionalData = windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData ? windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData! : {};
-        this.certificate = windowsInformationProtectionDataRecoveryCertificateParameterValue?.certificate;
-        this.description = windowsInformationProtectionDataRecoveryCertificateParameterValue?.description;
-        this.expirationDateTime = windowsInformationProtectionDataRecoveryCertificateParameterValue?.expirationDateTime;
-        this.subjectName = windowsInformationProtectionDataRecoveryCertificateParameterValue?.subjectName;
+        this._additionalData = windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData ? windowsInformationProtectionDataRecoveryCertificateParameterValue?.additionalData! : {};
+        this._certificate = windowsInformationProtectionDataRecoveryCertificateParameterValue?.certificate;
+        this._description = windowsInformationProtectionDataRecoveryCertificateParameterValue?.description;
+        this._expirationDateTime = windowsInformationProtectionDataRecoveryCertificateParameterValue?.expirationDateTime;
+        this._subjectName = windowsInformationProtectionDataRecoveryCertificateParameterValue?.subjectName;
+    };
+    /**
+     * Gets the description property value. Data recovery Certificate description
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Data recovery Certificate description
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the expirationDateTime property value. Data recovery Certificate expiration datetime
+     * @returns a Date
+     */
+    public get expirationDateTime() {
+        return this._expirationDateTime;
+    };
+    /**
+     * Sets the expirationDateTime property value. Data recovery Certificate expiration datetime
+     * @param value Value to set for the expirationDateTime property.
+     */
+    public set expirationDateTime(value: Date | undefined) {
+        if(value) {
+            this._expirationDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -55,5 +119,21 @@ export class WindowsInformationProtectionDataRecoveryCertificateImpl implements 
             writer.writeStringValue("subjectName", this.subjectName);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the subjectName property value. Data recovery Certificate subject name
+     * @returns a string
+     */
+    public get subjectName() {
+        return this._subjectName;
+    };
+    /**
+     * Sets the subjectName property value. Data recovery Certificate subject name
+     * @param value Value to set for the subjectName property.
+     */
+    public set subjectName(value: string | undefined) {
+        if(value) {
+            this._subjectName = value;
+        }
     };
 }

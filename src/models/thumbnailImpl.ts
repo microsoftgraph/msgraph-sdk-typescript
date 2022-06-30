@@ -3,28 +3,60 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ThumbnailImpl implements Thumbnail {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The content stream for the thumbnail. */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** The height of the thumbnail, in pixels. */
-    public height?: number | undefined;
+    private _height?: number | undefined;
     /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested. */
-    public sourceItemId?: string | undefined;
+    private _sourceItemId?: string | undefined;
     /** The URL used to fetch the thumbnail content. */
-    public url?: string | undefined;
+    private _url?: string | undefined;
     /** The width of the thumbnail, in pixels. */
-    public width?: number | undefined;
+    private _width?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new thumbnail and sets the default values.
      * @param thumbnailParameterValue 
      */
     public constructor(thumbnailParameterValue?: Thumbnail | undefined) {
-        this.additionalData = thumbnailParameterValue?.additionalData ? thumbnailParameterValue?.additionalData! : {};
-        this.content = thumbnailParameterValue?.content;
-        this.height = thumbnailParameterValue?.height;
-        this.sourceItemId = thumbnailParameterValue?.sourceItemId;
-        this.url = thumbnailParameterValue?.url;
-        this.width = thumbnailParameterValue?.width;
+        this._additionalData = thumbnailParameterValue?.additionalData ? thumbnailParameterValue?.additionalData! : {};
+        this._content = thumbnailParameterValue?.content;
+        this._height = thumbnailParameterValue?.height;
+        this._sourceItemId = thumbnailParameterValue?.sourceItemId;
+        this._url = thumbnailParameterValue?.url;
+        this._width = thumbnailParameterValue?.width;
+    };
+    /**
+     * Gets the content property value. The content stream for the thumbnail.
+     * @returns a binary
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The content stream for the thumbnail.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +70,22 @@ export class ThumbnailImpl implements Thumbnail {
             "url": n => { this.url = n.getStringValue(); },
             "width": n => { this.width = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the height property value. The height of the thumbnail, in pixels.
+     * @returns a integer
+     */
+    public get height() {
+        return this._height;
+    };
+    /**
+     * Sets the height property value. The height of the thumbnail, in pixels.
+     * @param value Value to set for the height property.
+     */
+    public set height(value: number | undefined) {
+        if(value) {
+            this._height = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -61,5 +109,53 @@ export class ThumbnailImpl implements Thumbnail {
             writer.writeNumberValue("width", this.width);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sourceItemId property value. The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
+     * @returns a string
+     */
+    public get sourceItemId() {
+        return this._sourceItemId;
+    };
+    /**
+     * Sets the sourceItemId property value. The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
+     * @param value Value to set for the sourceItemId property.
+     */
+    public set sourceItemId(value: string | undefined) {
+        if(value) {
+            this._sourceItemId = value;
+        }
+    };
+    /**
+     * Gets the url property value. The URL used to fetch the thumbnail content.
+     * @returns a string
+     */
+    public get url() {
+        return this._url;
+    };
+    /**
+     * Sets the url property value. The URL used to fetch the thumbnail content.
+     * @param value Value to set for the url property.
+     */
+    public set url(value: string | undefined) {
+        if(value) {
+            this._url = value;
+        }
+    };
+    /**
+     * Gets the width property value. The width of the thumbnail, in pixels.
+     * @returns a integer
+     */
+    public get width() {
+        return this._width;
+    };
+    /**
+     * Sets the width property value. The width of the thumbnail, in pixels.
+     * @param value Value to set for the width property.
+     */
+    public set width(value: number | undefined) {
+        if(value) {
+            this._width = value;
+        }
     };
 }

@@ -4,17 +4,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class RecordOperationImpl extends CommsOperationImpl implements RecordOperation {
     /** The access token required to retrieve the recording. */
-    public recordingAccessToken?: string | undefined;
+    private _recordingAccessToken?: string | undefined;
     /** The location where the recording is located. */
-    public recordingLocation?: string | undefined;
+    private _recordingLocation?: string | undefined;
     /**
      * Instantiates a new RecordOperation and sets the default values.
      * @param recordOperationParameterValue 
      */
     public constructor(recordOperationParameterValue?: RecordOperation | undefined) {
         super(recordOperationParameterValue);
-        this.recordingAccessToken = recordOperationParameterValue?.recordingAccessToken;
-        this.recordingLocation = recordOperationParameterValue?.recordingLocation;
+        this._recordingAccessToken = recordOperationParameterValue?.recordingAccessToken;
+        this._recordingLocation = recordOperationParameterValue?.recordingLocation;
     };
     /**
      * The deserialization information for the current model
@@ -25,6 +25,38 @@ export class RecordOperationImpl extends CommsOperationImpl implements RecordOpe
             "recordingAccessToken": n => { this.recordingAccessToken = n.getStringValue(); },
             "recordingLocation": n => { this.recordingLocation = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the recordingAccessToken property value. The access token required to retrieve the recording.
+     * @returns a string
+     */
+    public get recordingAccessToken() {
+        return this._recordingAccessToken;
+    };
+    /**
+     * Sets the recordingAccessToken property value. The access token required to retrieve the recording.
+     * @param value Value to set for the recordingAccessToken property.
+     */
+    public set recordingAccessToken(value: string | undefined) {
+        if(value) {
+            this._recordingAccessToken = value;
+        }
+    };
+    /**
+     * Gets the recordingLocation property value. The location where the recording is located.
+     * @returns a string
+     */
+    public get recordingLocation() {
+        return this._recordingLocation;
+    };
+    /**
+     * Sets the recordingLocation property value. The location where the recording is located.
+     * @param value Value to set for the recordingLocation property.
+     */
+    public set recordingLocation(value: string | undefined) {
+        if(value) {
+            this._recordingLocation = value;
+        }
     };
     /**
      * Serializes information the current object

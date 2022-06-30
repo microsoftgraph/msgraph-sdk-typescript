@@ -5,23 +5,55 @@ import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 /** Provides operations to manage the reportRoot singleton. */
 export class PrintUsageImpl extends EntityImpl implements PrintUsage {
     /** The completedBlackAndWhiteJobCount property */
-    public completedBlackAndWhiteJobCount?: number | undefined;
+    private _completedBlackAndWhiteJobCount?: number | undefined;
     /** The completedColorJobCount property */
-    public completedColorJobCount?: number | undefined;
+    private _completedColorJobCount?: number | undefined;
     /** The incompleteJobCount property */
-    public incompleteJobCount?: number | undefined;
+    private _incompleteJobCount?: number | undefined;
     /** The usageDate property */
-    public usageDate?: DateOnly | undefined;
+    private _usageDate?: DateOnly | undefined;
+    /**
+     * Gets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property
+     * @returns a int64
+     */
+    public get completedBlackAndWhiteJobCount() {
+        return this._completedBlackAndWhiteJobCount;
+    };
+    /**
+     * Sets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property
+     * @param value Value to set for the completedBlackAndWhiteJobCount property.
+     */
+    public set completedBlackAndWhiteJobCount(value: number | undefined) {
+        if(value) {
+            this._completedBlackAndWhiteJobCount = value;
+        }
+    };
+    /**
+     * Gets the completedColorJobCount property value. The completedColorJobCount property
+     * @returns a int64
+     */
+    public get completedColorJobCount() {
+        return this._completedColorJobCount;
+    };
+    /**
+     * Sets the completedColorJobCount property value. The completedColorJobCount property
+     * @param value Value to set for the completedColorJobCount property.
+     */
+    public set completedColorJobCount(value: number | undefined) {
+        if(value) {
+            this._completedColorJobCount = value;
+        }
+    };
     /**
      * Instantiates a new printUsage and sets the default values.
      * @param printUsageParameterValue 
      */
     public constructor(printUsageParameterValue?: PrintUsage | undefined) {
         super(printUsageParameterValue);
-        this.completedBlackAndWhiteJobCount = printUsageParameterValue?.completedBlackAndWhiteJobCount;
-        this.completedColorJobCount = printUsageParameterValue?.completedColorJobCount;
-        this.incompleteJobCount = printUsageParameterValue?.incompleteJobCount;
-        this.usageDate = printUsageParameterValue?.usageDate;
+        this._completedBlackAndWhiteJobCount = printUsageParameterValue?.completedBlackAndWhiteJobCount;
+        this._completedColorJobCount = printUsageParameterValue?.completedColorJobCount;
+        this._incompleteJobCount = printUsageParameterValue?.incompleteJobCount;
+        this._usageDate = printUsageParameterValue?.usageDate;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +66,22 @@ export class PrintUsageImpl extends EntityImpl implements PrintUsage {
             "incompleteJobCount": n => { this.incompleteJobCount = n.getNumberValue(); },
             "usageDate": n => { this.usageDate = n.getDateOnlyValue(); },
         };
+    };
+    /**
+     * Gets the incompleteJobCount property value. The incompleteJobCount property
+     * @returns a int64
+     */
+    public get incompleteJobCount() {
+        return this._incompleteJobCount;
+    };
+    /**
+     * Sets the incompleteJobCount property value. The incompleteJobCount property
+     * @param value Value to set for the incompleteJobCount property.
+     */
+    public set incompleteJobCount(value: number | undefined) {
+        if(value) {
+            this._incompleteJobCount = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -53,6 +101,22 @@ export class PrintUsageImpl extends EntityImpl implements PrintUsage {
         }
         if(this.usageDate){
             writer.writeDateOnlyValue("usageDate", this.usageDate);
+        }
+    };
+    /**
+     * Gets the usageDate property value. The usageDate property
+     * @returns a DateOnly
+     */
+    public get usageDate() {
+        return this._usageDate;
+    };
+    /**
+     * Sets the usageDate property value. The usageDate property
+     * @param value Value to set for the usageDate property.
+     */
+    public set usageDate(value: DateOnly | undefined) {
+        if(value) {
+            this._usageDate = value;
         }
     };
 }

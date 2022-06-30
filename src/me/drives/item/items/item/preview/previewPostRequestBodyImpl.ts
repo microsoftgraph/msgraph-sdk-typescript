@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the preview method. */
 export class PreviewPostRequestBodyImpl implements PreviewPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The page property */
-    public page?: string | undefined;
+    private _page?: string | undefined;
     /** The zoom property */
-    public zoom?: number | undefined;
+    private _zoom?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new previewPostRequestBody and sets the default values.
      * @param previewPostRequestBodyParameterValue 
      */
     public constructor(previewPostRequestBodyParameterValue?: PreviewPostRequestBody | undefined) {
-        this.additionalData = previewPostRequestBodyParameterValue?.additionalData ? previewPostRequestBodyParameterValue?.additionalData! : {};
-        this.page = previewPostRequestBodyParameterValue?.page;
-        this.zoom = previewPostRequestBodyParameterValue?.zoom;
+        this._additionalData = previewPostRequestBodyParameterValue?.additionalData ? previewPostRequestBodyParameterValue?.additionalData! : {};
+        this._page = previewPostRequestBodyParameterValue?.page;
+        this._zoom = previewPostRequestBodyParameterValue?.zoom;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,22 @@ export class PreviewPostRequestBodyImpl implements PreviewPostRequestBody {
             "page": n => { this.page = n.getStringValue(); },
             "zoom": n => { this.zoom = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the page property value. The page property
+     * @returns a string
+     */
+    public get page() {
+        return this._page;
+    };
+    /**
+     * Sets the page property value. The page property
+     * @param value Value to set for the page property.
+     */
+    public set page(value: string | undefined) {
+        if(value) {
+            this._page = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -41,5 +73,21 @@ export class PreviewPostRequestBodyImpl implements PreviewPostRequestBody {
             writer.writeNumberValue("zoom", this.zoom);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the zoom property value. The zoom property
+     * @returns a double
+     */
+    public get zoom() {
+        return this._zoom;
+    };
+    /**
+     * Sets the zoom property value. The zoom property
+     * @param value Value to set for the zoom property.
+     */
+    public set zoom(value: number | undefined) {
+        if(value) {
+            this._zoom = value;
+        }
     };
 }

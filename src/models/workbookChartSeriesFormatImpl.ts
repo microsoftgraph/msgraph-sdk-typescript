@@ -9,17 +9,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartSeriesFormatImpl extends EntityImpl implements WorkbookChartSeriesFormat {
     /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
-    public fill?: WorkbookChartFill | undefined;
+    private _fill?: WorkbookChartFill | undefined;
     /** Represents line formatting. Read-only. */
-    public line?: WorkbookChartLineFormat | undefined;
+    private _line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartSeriesFormat and sets the default values.
      * @param workbookChartSeriesFormatParameterValue 
      */
     public constructor(workbookChartSeriesFormatParameterValue?: WorkbookChartSeriesFormat | undefined) {
         super(workbookChartSeriesFormatParameterValue);
-        this.fill = workbookChartSeriesFormatParameterValue?.fill;
-        this.line = workbookChartSeriesFormatParameterValue?.line;
+        this._fill = workbookChartSeriesFormatParameterValue?.fill;
+        this._line = workbookChartSeriesFormatParameterValue?.line;
+    };
+    /**
+     * Gets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.
+     * @returns a WorkbookChartFillInterface
+     */
+    public get fill() {
+        return this._fill;
+    };
+    /**
+     * Sets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.
+     * @param value Value to set for the fill property.
+     */
+    public set fill(value: WorkbookChartFill | undefined) {
+        if(value) {
+            this._fill = value instanceof WorkbookChartFillImpl? value : new WorkbookChartFillImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +48,22 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
         };
     };
     /**
+     * Gets the line property value. Represents line formatting. Read-only.
+     * @returns a WorkbookChartLineFormatInterface
+     */
+    public get line() {
+        return this._line;
+    };
+    /**
+     * Sets the line property value. Represents line formatting. Read-only.
+     * @param value Value to set for the line property.
+     */
+    public set line(value: WorkbookChartLineFormat | undefined) {
+        if(value) {
+            this._line = value instanceof WorkbookChartLineFormatImpl? value : new WorkbookChartLineFormatImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,10 +71,10 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-            writer.writeObjectValue<WorkbookChartFillImpl>("fill", new WorkbookChartFillImpl(this.fill));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", (!this.fill || this.fill instanceof WorkbookChartFillImpl? this.fill : new WorkbookChartFillImpl(this.fill)));
         }
         if(this.line){
-            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (!this.line || this.line instanceof WorkbookChartLineFormatImpl? this.line : new WorkbookChartLineFormatImpl(this.line)));
         }
     };
 }

@@ -4,14 +4,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DomainDnsUnavailableRecordImpl extends DomainDnsRecordImpl implements DomainDnsUnavailableRecord {
     /** Provides the reason why the DomainDnsUnavailableRecord entity is returned. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /**
      * Instantiates a new DomainDnsUnavailableRecord and sets the default values.
      * @param domainDnsUnavailableRecordParameterValue 
      */
     public constructor(domainDnsUnavailableRecordParameterValue?: DomainDnsUnavailableRecord | undefined) {
         super(domainDnsUnavailableRecordParameterValue);
-        this.description = domainDnsUnavailableRecordParameterValue?.description;
+        this._description = domainDnsUnavailableRecordParameterValue?.description;
+    };
+    /**
+     * Gets the description property value. Provides the reason why the DomainDnsUnavailableRecord entity is returned.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Provides the reason why the DomainDnsUnavailableRecord entity is returned.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
     };
     /**
      * The deserialization information for the current model

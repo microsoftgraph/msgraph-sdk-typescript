@@ -7,22 +7,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Network Usage Rules allow enterprises to specify how managed apps use networks, such as cellular data networks. */
 export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If set to true, corresponding managed apps will not be allowed to use cellular data at any time. */
-    public cellularDataBlocked?: boolean | undefined;
+    private _cellularDataBlocked?: boolean | undefined;
     /** If set to true, corresponding managed apps will not be allowed to use cellular data when roaming. */
-    public cellularDataBlockWhenRoaming?: boolean | undefined;
+    private _cellularDataBlockWhenRoaming?: boolean | undefined;
     /** Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements. */
-    public managedApps?: AppListItem[] | undefined;
+    private _managedApps?: AppListItem[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the cellularDataBlocked property value. If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
+     * @returns a boolean
+     */
+    public get cellularDataBlocked() {
+        return this._cellularDataBlocked;
+    };
+    /**
+     * Sets the cellularDataBlocked property value. If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
+     * @param value Value to set for the cellularDataBlocked property.
+     */
+    public set cellularDataBlocked(value: boolean | undefined) {
+        if(value) {
+            this._cellularDataBlocked = value;
+        }
+    };
+    /**
+     * Gets the cellularDataBlockWhenRoaming property value. If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.
+     * @returns a boolean
+     */
+    public get cellularDataBlockWhenRoaming() {
+        return this._cellularDataBlockWhenRoaming;
+    };
+    /**
+     * Sets the cellularDataBlockWhenRoaming property value. If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.
+     * @param value Value to set for the cellularDataBlockWhenRoaming property.
+     */
+    public set cellularDataBlockWhenRoaming(value: boolean | undefined) {
+        if(value) {
+            this._cellularDataBlockWhenRoaming = value;
+        }
+    };
     /**
      * Instantiates a new iosNetworkUsageRule and sets the default values.
      * @param iosNetworkUsageRuleParameterValue 
      */
     public constructor(iosNetworkUsageRuleParameterValue?: IosNetworkUsageRule | undefined) {
-        this.additionalData = iosNetworkUsageRuleParameterValue?.additionalData ? iosNetworkUsageRuleParameterValue?.additionalData! : {};
-        this.cellularDataBlocked = iosNetworkUsageRuleParameterValue?.cellularDataBlocked;
-        this.cellularDataBlockWhenRoaming = iosNetworkUsageRuleParameterValue?.cellularDataBlockWhenRoaming;
-        this.managedApps = iosNetworkUsageRuleParameterValue?.managedApps;
+        this._additionalData = iosNetworkUsageRuleParameterValue?.additionalData ? iosNetworkUsageRuleParameterValue?.additionalData! : {};
+        this._cellularDataBlocked = iosNetworkUsageRuleParameterValue?.cellularDataBlocked;
+        this._cellularDataBlockWhenRoaming = iosNetworkUsageRuleParameterValue?.cellularDataBlockWhenRoaming;
+        this._managedApps = iosNetworkUsageRuleParameterValue?.managedApps;
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +84,26 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         };
     };
     /**
+     * Gets the managedApps property value. Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+     * @returns a AppListItemInterface
+     */
+    public get managedApps() {
+        return this._managedApps;
+    };
+    /**
+     * Sets the managedApps property value. Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+     * @param value Value to set for the managedApps property.
+     */
+    public set managedApps(value: AppListItem[] | undefined) {
+        if(value) {
+            const managedAppsArrValue: AppListItemImpl[] = [];
+            this.managedApps?.forEach(element => {
+                managedAppsArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            });
+            this._managedApps = managedAppsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -47,7 +115,10 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         if(this.cellularDataBlockWhenRoaming){
             writer.writeBooleanValue("cellularDataBlockWhenRoaming", this.cellularDataBlockWhenRoaming);
         }
-        if(this.managedApps && this.managedApps.length != 0){        const managedAppsArrValue: AppListItemImpl[] = []; this.managedApps?.forEach(element => {managedAppsArrValue.push(new AppListItemImpl(element));});
+        if(this.managedApps && this.managedApps.length != 0){        const managedAppsArrValue: AppListItemImpl[] = [];
+        this.managedApps?.forEach(element => {
+            managedAppsArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("managedApps", managedAppsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

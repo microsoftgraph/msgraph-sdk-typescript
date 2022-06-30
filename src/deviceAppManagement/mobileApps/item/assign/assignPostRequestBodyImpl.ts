@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the assign method. */
 export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The mobileAppAssignments property */
-    public mobileAppAssignments?: MobileAppAssignment[] | undefined;
+    private _mobileAppAssignments?: MobileAppAssignment[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new assignPostRequestBody and sets the default values.
      * @param assignPostRequestBodyParameterValue 
      */
     public constructor(assignPostRequestBodyParameterValue?: AssignPostRequestBody | undefined) {
-        this.additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
-        this.mobileAppAssignments = assignPostRequestBodyParameterValue?.mobileAppAssignments;
+        this._additionalData = assignPostRequestBodyParameterValue?.additionalData ? assignPostRequestBodyParameterValue?.additionalData! : {};
+        this._mobileAppAssignments = assignPostRequestBodyParameterValue?.mobileAppAssignments;
     };
     /**
      * The deserialization information for the current model
@@ -28,12 +44,35 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         };
     };
     /**
+     * Gets the mobileAppAssignments property value. The mobileAppAssignments property
+     * @returns a MobileAppAssignmentInterface
+     */
+    public get mobileAppAssignments() {
+        return this._mobileAppAssignments;
+    };
+    /**
+     * Sets the mobileAppAssignments property value. The mobileAppAssignments property
+     * @param value Value to set for the mobileAppAssignments property.
+     */
+    public set mobileAppAssignments(value: MobileAppAssignment[] | undefined) {
+        if(value) {
+            const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = [];
+            this.mobileAppAssignments?.forEach(element => {
+                mobileAppAssignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+            });
+            this._mobileAppAssignments = mobileAppAssignmentsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.mobileAppAssignments && this.mobileAppAssignments.length != 0){        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = []; this.mobileAppAssignments?.forEach(element => {mobileAppAssignmentsArrValue.push(new MobileAppAssignmentImpl(element));});
+        if(this.mobileAppAssignments && this.mobileAppAssignments.length != 0){        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = [];
+        this.mobileAppAssignments?.forEach(element => {
+            mobileAppAssignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("mobileAppAssignments", mobileAppAssignmentsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

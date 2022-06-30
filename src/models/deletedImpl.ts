@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeletedImpl implements Deleted {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Represents the state of the deleted item. */
-    public state?: string | undefined;
+    private _state?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new deleted and sets the default values.
      * @param deletedParameterValue 
      */
     public constructor(deletedParameterValue?: Deleted | undefined) {
-        this.additionalData = deletedParameterValue?.additionalData ? deletedParameterValue?.additionalData! : {};
-        this.state = deletedParameterValue?.state;
+        this._additionalData = deletedParameterValue?.additionalData ? deletedParameterValue?.additionalData! : {};
+        this._state = deletedParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -33,5 +49,21 @@ export class DeletedImpl implements Deleted {
             writer.writeStringValue("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. Represents the state of the deleted item.
+     * @returns a string
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. Represents the state of the deleted item.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: string | undefined) {
+        if(value) {
+            this._state = value;
+        }
     };
 }

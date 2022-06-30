@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase {
     /** The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
-    public type?: AttendeeType | undefined;
+    private _type?: AttendeeType | undefined;
     /**
      * Instantiates a new attendeeBase and sets the default values.
      * @param attendeeBaseParameterValue 
      */
     public constructor(attendeeBaseParameterValue?: AttendeeBase | undefined) {
         super(attendeeBaseParameterValue);
-        this.type = attendeeBaseParameterValue?.type;
+        this._type = attendeeBaseParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +33,22 @@ export class AttendeeBaseImpl extends RecipientImpl implements AttendeeBase {
         super.serialize(writer);
         if(this.type){
             writer.writeEnumValue<AttendeeType>("type", this.type);
+        }
+    };
+    /**
+     * Gets the type property value. The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * @returns a attendeeType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: AttendeeType | undefined) {
+        if(value) {
+            this._type = value;
         }
     };
 }

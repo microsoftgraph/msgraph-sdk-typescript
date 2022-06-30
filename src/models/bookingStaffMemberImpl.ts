@@ -7,32 +7,80 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implements BookingStaffMember {
     /** True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking. */
-    public availabilityIsAffectedByPersonalCalendar?: boolean | undefined;
+    private _availabilityIsAffectedByPersonalCalendar?: boolean | undefined;
     /** The name of the staff member, as displayed to customers. Required. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required. */
-    public emailAddress?: string | undefined;
+    private _emailAddress?: string | undefined;
     /** The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required. */
-    public role?: BookingStaffRole | undefined;
+    private _role?: BookingStaffRole | undefined;
     /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
-    public timeZone?: string | undefined;
+    private _timeZone?: string | undefined;
     /** True means the staff member's availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member's workingHours property setting. */
-    public useBusinessHours?: boolean | undefined;
+    private _useBusinessHours?: boolean | undefined;
     /** The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business. */
-    public workingHours?: BookingWorkHours[] | undefined;
+    private _workingHours?: BookingWorkHours[] | undefined;
+    /**
+     * Gets the availabilityIsAffectedByPersonalCalendar property value. True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking.
+     * @returns a boolean
+     */
+    public get availabilityIsAffectedByPersonalCalendar() {
+        return this._availabilityIsAffectedByPersonalCalendar;
+    };
+    /**
+     * Sets the availabilityIsAffectedByPersonalCalendar property value. True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member's availability in their personal calendar in Microsoft 365, before making a booking.
+     * @param value Value to set for the availabilityIsAffectedByPersonalCalendar property.
+     */
+    public set availabilityIsAffectedByPersonalCalendar(value: boolean | undefined) {
+        if(value) {
+            this._availabilityIsAffectedByPersonalCalendar = value;
+        }
+    };
     /**
      * Instantiates a new BookingStaffMember and sets the default values.
      * @param bookingStaffMemberParameterValue 
      */
     public constructor(bookingStaffMemberParameterValue?: BookingStaffMember | undefined) {
         super(bookingStaffMemberParameterValue);
-        this.availabilityIsAffectedByPersonalCalendar = bookingStaffMemberParameterValue?.availabilityIsAffectedByPersonalCalendar;
-        this.displayName = bookingStaffMemberParameterValue?.displayName;
-        this.emailAddress = bookingStaffMemberParameterValue?.emailAddress;
-        this.role = bookingStaffMemberParameterValue?.role;
-        this.timeZone = bookingStaffMemberParameterValue?.timeZone;
-        this.useBusinessHours = bookingStaffMemberParameterValue?.useBusinessHours;
-        this.workingHours = bookingStaffMemberParameterValue?.workingHours;
+        this._availabilityIsAffectedByPersonalCalendar = bookingStaffMemberParameterValue?.availabilityIsAffectedByPersonalCalendar;
+        this._displayName = bookingStaffMemberParameterValue?.displayName;
+        this._emailAddress = bookingStaffMemberParameterValue?.emailAddress;
+        this._role = bookingStaffMemberParameterValue?.role;
+        this._timeZone = bookingStaffMemberParameterValue?.timeZone;
+        this._useBusinessHours = bookingStaffMemberParameterValue?.useBusinessHours;
+        this._workingHours = bookingStaffMemberParameterValue?.workingHours;
+    };
+    /**
+     * Gets the displayName property value. The name of the staff member, as displayed to customers. Required.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the staff member, as displayed to customers. Required.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the emailAddress property value. The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.
+     * @returns a string
+     */
+    public get emailAddress() {
+        return this._emailAddress;
+    };
+    /**
+     * Sets the emailAddress property value. The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.
+     * @param value Value to set for the emailAddress property.
+     */
+    public set emailAddress(value: string | undefined) {
+        if(value) {
+            this._emailAddress = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -48,6 +96,22 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
             "useBusinessHours": n => { this.useBusinessHours = n.getBooleanValue(); },
             "workingHours": n => { this.workingHours = n.getCollectionOfObjectValues<BookingWorkHoursImpl>(createBookingWorkHoursFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the role property value. The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required.
+     * @returns a bookingStaffRole
+     */
+    public get role() {
+        return this._role;
+    };
+    /**
+     * Sets the role property value. The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest, unknownFutureValue, scheduler and member. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: scheduler, member. Required.
+     * @param value Value to set for the role property.
+     */
+    public set role(value: BookingStaffRole | undefined) {
+        if(value) {
+            this._role = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -74,8 +138,63 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         if(this.useBusinessHours){
             writer.writeBooleanValue("useBusinessHours", this.useBusinessHours);
         }
-        if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = []; this.workingHours?.forEach(element => {workingHoursArrValue.push(new BookingWorkHoursImpl(element));});
+        if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = [];
+        this.workingHours?.forEach(element => {
+            workingHoursArrValue.push((element instanceof BookingWorkHoursImpl? element:new BookingWorkHoursImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("workingHours", workingHoursArrValue);
+        }
+    };
+    /**
+     * Gets the timeZone property value. The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.
+     * @returns a string
+     */
+    public get timeZone() {
+        return this._timeZone;
+    };
+    /**
+     * Sets the timeZone property value. The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.
+     * @param value Value to set for the timeZone property.
+     */
+    public set timeZone(value: string | undefined) {
+        if(value) {
+            this._timeZone = value;
+        }
+    };
+    /**
+     * Gets the useBusinessHours property value. True means the staff member's availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member's workingHours property setting.
+     * @returns a boolean
+     */
+    public get useBusinessHours() {
+        return this._useBusinessHours;
+    };
+    /**
+     * Sets the useBusinessHours property value. True means the staff member's availability is as specified in the businessHours property of the business. False means the availability is determined by the staff member's workingHours property setting.
+     * @param value Value to set for the useBusinessHours property.
+     */
+    public set useBusinessHours(value: boolean | undefined) {
+        if(value) {
+            this._useBusinessHours = value;
+        }
+    };
+    /**
+     * Gets the workingHours property value. The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
+     * @returns a BookingWorkHoursInterface
+     */
+    public get workingHours() {
+        return this._workingHours;
+    };
+    /**
+     * Sets the workingHours property value. The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.
+     * @param value Value to set for the workingHours property.
+     */
+    public set workingHours(value: BookingWorkHours[] | undefined) {
+        if(value) {
+            const workingHoursArrValue: BookingWorkHoursImpl[] = [];
+            this.workingHours?.forEach(element => {
+                workingHoursArrValue.push((element instanceof BookingWorkHoursImpl? element:new BookingWorkHoursImpl(element)));
+            });
+            this._workingHours = workingHoursArrValue;
         }
     };
 }

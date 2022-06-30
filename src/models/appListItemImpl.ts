@@ -4,25 +4,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Represents an app in the list of managed applications */
 export class AppListItemImpl implements AppListItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The application or bundle identifier of the application */
-    public appId?: string | undefined;
+    private _appId?: string | undefined;
     /** The Store URL of the application */
-    public appStoreUrl?: string | undefined;
+    private _appStoreUrl?: string | undefined;
     /** The application name */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The publisher of the application */
-    public publisher?: string | undefined;
+    private _publisher?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the appId property value. The application or bundle identifier of the application
+     * @returns a string
+     */
+    public get appId() {
+        return this._appId;
+    };
+    /**
+     * Sets the appId property value. The application or bundle identifier of the application
+     * @param value Value to set for the appId property.
+     */
+    public set appId(value: string | undefined) {
+        if(value) {
+            this._appId = value;
+        }
+    };
+    /**
+     * Gets the appStoreUrl property value. The Store URL of the application
+     * @returns a string
+     */
+    public get appStoreUrl() {
+        return this._appStoreUrl;
+    };
+    /**
+     * Sets the appStoreUrl property value. The Store URL of the application
+     * @param value Value to set for the appStoreUrl property.
+     */
+    public set appStoreUrl(value: string | undefined) {
+        if(value) {
+            this._appStoreUrl = value;
+        }
+    };
     /**
      * Instantiates a new appListItem and sets the default values.
      * @param appListItemParameterValue 
      */
     public constructor(appListItemParameterValue?: AppListItem | undefined) {
-        this.additionalData = appListItemParameterValue?.additionalData ? appListItemParameterValue?.additionalData! : {};
-        this.appId = appListItemParameterValue?.appId;
-        this.appStoreUrl = appListItemParameterValue?.appStoreUrl;
-        this.name = appListItemParameterValue?.name;
-        this.publisher = appListItemParameterValue?.publisher;
+        this._additionalData = appListItemParameterValue?.additionalData ? appListItemParameterValue?.additionalData! : {};
+        this._appId = appListItemParameterValue?.appId;
+        this._appStoreUrl = appListItemParameterValue?.appStoreUrl;
+        this._name = appListItemParameterValue?.name;
+        this._publisher = appListItemParameterValue?.publisher;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +83,38 @@ export class AppListItemImpl implements AppListItem {
             "name": n => { this.name = n.getStringValue(); },
             "publisher": n => { this.publisher = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the name property value. The application name
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The application name
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
+     * Gets the publisher property value. The publisher of the application
+     * @returns a string
+     */
+    public get publisher() {
+        return this._publisher;
+    };
+    /**
+     * Sets the publisher property value. The publisher of the application
+     * @param value Value to set for the publisher property.
+     */
+    public set publisher(value: string | undefined) {
+        if(value) {
+            this._publisher = value;
+        }
     };
     /**
      * Serializes information the current object

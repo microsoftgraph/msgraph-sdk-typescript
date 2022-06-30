@@ -6,17 +6,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class PrinterCreateOperationImpl extends PrintOperationImpl implements PrinterCreateOperation {
     /** The signed certificate created during the registration process. Read-only. */
-    public certificate?: string | undefined;
+    private _certificate?: string | undefined;
     /** The created printer entity. Read-only. */
-    public printer?: Printer | undefined;
+    private _printer?: Printer | undefined;
+    /**
+     * Gets the certificate property value. The signed certificate created during the registration process. Read-only.
+     * @returns a string
+     */
+    public get certificate() {
+        return this._certificate;
+    };
+    /**
+     * Sets the certificate property value. The signed certificate created during the registration process. Read-only.
+     * @param value Value to set for the certificate property.
+     */
+    public set certificate(value: string | undefined) {
+        if(value) {
+            this._certificate = value;
+        }
+    };
     /**
      * Instantiates a new PrinterCreateOperation and sets the default values.
      * @param printerCreateOperationParameterValue 
      */
     public constructor(printerCreateOperationParameterValue?: PrinterCreateOperation | undefined) {
         super(printerCreateOperationParameterValue);
-        this.certificate = printerCreateOperationParameterValue?.certificate;
-        this.printer = printerCreateOperationParameterValue?.printer;
+        this._certificate = printerCreateOperationParameterValue?.certificate;
+        this._printer = printerCreateOperationParameterValue?.printer;
     };
     /**
      * The deserialization information for the current model
@@ -29,6 +45,22 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
         };
     };
     /**
+     * Gets the printer property value. The created printer entity. Read-only.
+     * @returns a PrinterInterface
+     */
+    public get printer() {
+        return this._printer;
+    };
+    /**
+     * Sets the printer property value. The created printer entity. Read-only.
+     * @param value Value to set for the printer property.
+     */
+    public set printer(value: Printer | undefined) {
+        if(value) {
+            this._printer = value instanceof PrinterImpl? value : new PrinterImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,7 +71,7 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
             writer.writeStringValue("certificate", this.certificate);
         }
         if(this.printer){
-            writer.writeObjectValue<PrinterImpl>("printer", new PrinterImpl(this.printer));
+            writer.writeObjectValue<PrinterImpl>("printer", (!this.printer || this.printer instanceof PrinterImpl? this.printer : new PrinterImpl(this.printer)));
         }
     };
 }

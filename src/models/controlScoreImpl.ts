@@ -3,25 +3,89 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ControlScoreImpl implements ControlScore {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Control action category (Identity, Data, Device, Apps, Infrastructure). */
-    public controlCategory?: string | undefined;
+    private _controlCategory?: string | undefined;
     /** Control unique name. */
-    public controlName?: string | undefined;
+    private _controlName?: string | undefined;
     /** Description of the control. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Tenant achieved score for the control (it varies day by day depending on tenant operations on the control). */
-    public score?: number | undefined;
+    private _score?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new controlScore and sets the default values.
      * @param controlScoreParameterValue 
      */
     public constructor(controlScoreParameterValue?: ControlScore | undefined) {
-        this.additionalData = controlScoreParameterValue?.additionalData ? controlScoreParameterValue?.additionalData! : {};
-        this.controlCategory = controlScoreParameterValue?.controlCategory;
-        this.controlName = controlScoreParameterValue?.controlName;
-        this.description = controlScoreParameterValue?.description;
-        this.score = controlScoreParameterValue?.score;
+        this._additionalData = controlScoreParameterValue?.additionalData ? controlScoreParameterValue?.additionalData! : {};
+        this._controlCategory = controlScoreParameterValue?.controlCategory;
+        this._controlName = controlScoreParameterValue?.controlName;
+        this._description = controlScoreParameterValue?.description;
+        this._score = controlScoreParameterValue?.score;
+    };
+    /**
+     * Gets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * @returns a string
+     */
+    public get controlCategory() {
+        return this._controlCategory;
+    };
+    /**
+     * Sets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * @param value Value to set for the controlCategory property.
+     */
+    public set controlCategory(value: string | undefined) {
+        if(value) {
+            this._controlCategory = value;
+        }
+    };
+    /**
+     * Gets the controlName property value. Control unique name.
+     * @returns a string
+     */
+    public get controlName() {
+        return this._controlName;
+    };
+    /**
+     * Sets the controlName property value. Control unique name.
+     * @param value Value to set for the controlName property.
+     */
+    public set controlName(value: string | undefined) {
+        if(value) {
+            this._controlName = value;
+        }
+    };
+    /**
+     * Gets the description property value. Description of the control.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Description of the control.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +98,22 @@ export class ControlScoreImpl implements ControlScore {
             "description": n => { this.description = n.getStringValue(); },
             "score": n => { this.score = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
+     * @returns a double
+     */
+    public get score() {
+        return this._score;
+    };
+    /**
+     * Sets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
+     * @param value Value to set for the score property.
+     */
+    public set score(value: number | undefined) {
+        if(value) {
+            this._score = value;
+        }
     };
     /**
      * Serializes information the current object

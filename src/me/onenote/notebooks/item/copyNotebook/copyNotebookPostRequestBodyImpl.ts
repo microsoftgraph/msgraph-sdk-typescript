@@ -4,28 +4,44 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the copyNotebook method. */
 export class CopyNotebookPostRequestBodyImpl implements CopyNotebookPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The groupId property */
-    public groupId?: string | undefined;
+    private _groupId?: string | undefined;
     /** The notebookFolder property */
-    public notebookFolder?: string | undefined;
+    private _notebookFolder?: string | undefined;
     /** The renameAs property */
-    public renameAs?: string | undefined;
+    private _renameAs?: string | undefined;
     /** The siteCollectionId property */
-    public siteCollectionId?: string | undefined;
+    private _siteCollectionId?: string | undefined;
     /** The siteId property */
-    public siteId?: string | undefined;
+    private _siteId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new copyNotebookPostRequestBody and sets the default values.
      * @param copyNotebookPostRequestBodyParameterValue 
      */
     public constructor(copyNotebookPostRequestBodyParameterValue?: CopyNotebookPostRequestBody | undefined) {
-        this.additionalData = copyNotebookPostRequestBodyParameterValue?.additionalData ? copyNotebookPostRequestBodyParameterValue?.additionalData! : {};
-        this.groupId = copyNotebookPostRequestBodyParameterValue?.groupId;
-        this.notebookFolder = copyNotebookPostRequestBodyParameterValue?.notebookFolder;
-        this.renameAs = copyNotebookPostRequestBodyParameterValue?.renameAs;
-        this.siteCollectionId = copyNotebookPostRequestBodyParameterValue?.siteCollectionId;
-        this.siteId = copyNotebookPostRequestBodyParameterValue?.siteId;
+        this._additionalData = copyNotebookPostRequestBodyParameterValue?.additionalData ? copyNotebookPostRequestBodyParameterValue?.additionalData! : {};
+        this._groupId = copyNotebookPostRequestBodyParameterValue?.groupId;
+        this._notebookFolder = copyNotebookPostRequestBodyParameterValue?.notebookFolder;
+        this._renameAs = copyNotebookPostRequestBodyParameterValue?.renameAs;
+        this._siteCollectionId = copyNotebookPostRequestBodyParameterValue?.siteCollectionId;
+        this._siteId = copyNotebookPostRequestBodyParameterValue?.siteId;
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,54 @@ export class CopyNotebookPostRequestBodyImpl implements CopyNotebookPostRequestB
             "siteCollectionId": n => { this.siteCollectionId = n.getStringValue(); },
             "siteId": n => { this.siteId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the groupId property value. The groupId property
+     * @returns a string
+     */
+    public get groupId() {
+        return this._groupId;
+    };
+    /**
+     * Sets the groupId property value. The groupId property
+     * @param value Value to set for the groupId property.
+     */
+    public set groupId(value: string | undefined) {
+        if(value) {
+            this._groupId = value;
+        }
+    };
+    /**
+     * Gets the notebookFolder property value. The notebookFolder property
+     * @returns a string
+     */
+    public get notebookFolder() {
+        return this._notebookFolder;
+    };
+    /**
+     * Sets the notebookFolder property value. The notebookFolder property
+     * @param value Value to set for the notebookFolder property.
+     */
+    public set notebookFolder(value: string | undefined) {
+        if(value) {
+            this._notebookFolder = value;
+        }
+    };
+    /**
+     * Gets the renameAs property value. The renameAs property
+     * @returns a string
+     */
+    public get renameAs() {
+        return this._renameAs;
+    };
+    /**
+     * Sets the renameAs property value. The renameAs property
+     * @param value Value to set for the renameAs property.
+     */
+    public set renameAs(value: string | undefined) {
+        if(value) {
+            this._renameAs = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,5 +126,37 @@ export class CopyNotebookPostRequestBodyImpl implements CopyNotebookPostRequestB
             writer.writeStringValue("siteId", this.siteId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the siteCollectionId property value. The siteCollectionId property
+     * @returns a string
+     */
+    public get siteCollectionId() {
+        return this._siteCollectionId;
+    };
+    /**
+     * Sets the siteCollectionId property value. The siteCollectionId property
+     * @param value Value to set for the siteCollectionId property.
+     */
+    public set siteCollectionId(value: string | undefined) {
+        if(value) {
+            this._siteCollectionId = value;
+        }
+    };
+    /**
+     * Gets the siteId property value. The siteId property
+     * @returns a string
+     */
+    public get siteId() {
+        return this._siteId;
+    };
+    /**
+     * Sets the siteId property value. The siteId property
+     * @param value Value to set for the siteId property.
+     */
+    public set siteId(value: string | undefined) {
+        if(value) {
+            this._siteId = value;
+        }
     };
 }

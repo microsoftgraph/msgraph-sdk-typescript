@@ -3,34 +3,98 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AppRoleImpl implements AppRole {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities. */
-    public allowedMemberTypes?: string[] | undefined;
+    private _allowedMemberTypes?: string[] | undefined;
     /** The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Display name for the permission that appears in the app role assignment and consent experiences. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed. */
-    public isEnabled?: boolean | undefined;
+    private _isEnabled?: boolean | undefined;
     /** Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only. */
-    public origin?: string | undefined;
+    private _origin?: string | undefined;
     /** Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with .. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowedMemberTypes property value. Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities.
+     * @returns a string
+     */
+    public get allowedMemberTypes() {
+        return this._allowedMemberTypes;
+    };
+    /**
+     * Sets the allowedMemberTypes property value. Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities.
+     * @param value Value to set for the allowedMemberTypes property.
+     */
+    public set allowedMemberTypes(value: string[] | undefined) {
+        if(value) {
+            this._allowedMemberTypes = value;
+        }
+    };
     /**
      * Instantiates a new appRole and sets the default values.
      * @param appRoleParameterValue 
      */
     public constructor(appRoleParameterValue?: AppRole | undefined) {
-        this.additionalData = appRoleParameterValue?.additionalData ? appRoleParameterValue?.additionalData! : {};
-        this.allowedMemberTypes = appRoleParameterValue?.allowedMemberTypes;
-        this.description = appRoleParameterValue?.description;
-        this.displayName = appRoleParameterValue?.displayName;
-        this.id = appRoleParameterValue?.id;
-        this.isEnabled = appRoleParameterValue?.isEnabled;
-        this.origin = appRoleParameterValue?.origin;
-        this.value = appRoleParameterValue?.value;
+        this._additionalData = appRoleParameterValue?.additionalData ? appRoleParameterValue?.additionalData! : {};
+        this._allowedMemberTypes = appRoleParameterValue?.allowedMemberTypes;
+        this._description = appRoleParameterValue?.description;
+        this._displayName = appRoleParameterValue?.displayName;
+        this._id = appRoleParameterValue?.id;
+        this._isEnabled = appRoleParameterValue?.isEnabled;
+        this._origin = appRoleParameterValue?.origin;
+        this._value = appRoleParameterValue?.value;
+    };
+    /**
+     * Gets the description property value. The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Display name for the permission that appears in the app role assignment and consent experiences.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name for the permission that appears in the app role assignment and consent experiences.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +110,54 @@ export class AppRoleImpl implements AppRole {
             "origin": n => { this.origin = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the isEnabled property value. When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed.
+     * @returns a boolean
+     */
+    public get isEnabled() {
+        return this._isEnabled;
+    };
+    /**
+     * Sets the isEnabled property value. When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed.
+     * @param value Value to set for the isEnabled property.
+     */
+    public set isEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isEnabled = value;
+        }
+    };
+    /**
+     * Gets the origin property value. Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only.
+     * @returns a string
+     */
+    public get origin() {
+        return this._origin;
+    };
+    /**
+     * Sets the origin property value. Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only.
+     * @param value Value to set for the origin property.
+     */
+    public set origin(value: string | undefined) {
+        if(value) {
+            this._origin = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -75,5 +187,21 @@ export class AppRoleImpl implements AppRole {
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with ..
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with ..
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

@@ -14,49 +14,181 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchRequestImpl implements SearchRequest {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses. */
-    public aggregationFilters?: string[] | undefined;
+    private _aggregationFilters?: string[] | undefined;
     /** Specifies aggregations (also known as refiners) to be returned alongside search results. Optional. */
-    public aggregations?: AggregationOption[] | undefined;
+    private _aggregations?: AggregationOption[] | undefined;
     /** Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional. */
-    public contentSources?: string[] | undefined;
+    private _contentSources?: string[] | undefined;
     /** This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional. */
-    public enableTopResults?: boolean | undefined;
+    private _enableTopResults?: boolean | undefined;
     /** One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required. */
-    public entityTypes?: string[] | undefined;
+    private _entityTypes?: string[] | undefined;
     /** Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional. */
-    public fields?: string[] | undefined;
+    private _fields?: string[] | undefined;
     /** Specifies the offset for the search results. Offset 0 returns the very first result. Optional. */
-    public from?: number | undefined;
+    private _from?: number | undefined;
     /** The query property */
-    public query?: SearchQuery | undefined;
+    private _query?: SearchQuery | undefined;
     /** Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional. */
-    public queryAlterationOptions?: SearchAlterationOptions | undefined;
+    private _queryAlterationOptions?: SearchAlterationOptions | undefined;
     /** Provides the search result templates options for rendering connectors search results. */
-    public resultTemplateOptions?: ResultTemplateOption | undefined;
+    private _resultTemplateOptions?: ResultTemplateOption | undefined;
     /** The size of the page to be retrieved. Optional. */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional. */
-    public sortProperties?: SortProperty[] | undefined;
+    private _sortProperties?: SortProperty[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the aggregationFilters property value. Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.
+     * @returns a string
+     */
+    public get aggregationFilters() {
+        return this._aggregationFilters;
+    };
+    /**
+     * Sets the aggregationFilters property value. Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.
+     * @param value Value to set for the aggregationFilters property.
+     */
+    public set aggregationFilters(value: string[] | undefined) {
+        if(value) {
+            this._aggregationFilters = value;
+        }
+    };
+    /**
+     * Gets the aggregations property value. Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
+     * @returns a AggregationOptionInterface
+     */
+    public get aggregations() {
+        return this._aggregations;
+    };
+    /**
+     * Sets the aggregations property value. Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
+     * @param value Value to set for the aggregations property.
+     */
+    public set aggregations(value: AggregationOption[] | undefined) {
+        if(value) {
+            const aggregationsArrValue: AggregationOptionImpl[] = [];
+            this.aggregations?.forEach(element => {
+                aggregationsArrValue.push((element instanceof AggregationOptionImpl? element:new AggregationOptionImpl(element)));
+            });
+            this._aggregations = aggregationsArrValue;
+        }
+    };
     /**
      * Instantiates a new searchRequest and sets the default values.
      * @param searchRequestParameterValue 
      */
     public constructor(searchRequestParameterValue?: SearchRequest | undefined) {
-        this.additionalData = searchRequestParameterValue?.additionalData ? searchRequestParameterValue?.additionalData! : {};
-        this.aggregationFilters = searchRequestParameterValue?.aggregationFilters;
-        this.aggregations = searchRequestParameterValue?.aggregations;
-        this.contentSources = searchRequestParameterValue?.contentSources;
-        this.enableTopResults = searchRequestParameterValue?.enableTopResults;
-        this.entityTypes = searchRequestParameterValue?.entityTypes;
-        this.fields = searchRequestParameterValue?.fields;
-        this.from = searchRequestParameterValue?.from;
-        this.query = searchRequestParameterValue?.query;
-        this.queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions;
-        this.resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions;
-        this.size = searchRequestParameterValue?.size;
-        this.sortProperties = searchRequestParameterValue?.sortProperties;
+        this._additionalData = searchRequestParameterValue?.additionalData ? searchRequestParameterValue?.additionalData! : {};
+        this._aggregationFilters = searchRequestParameterValue?.aggregationFilters;
+        this._aggregations = searchRequestParameterValue?.aggregations;
+        this._contentSources = searchRequestParameterValue?.contentSources;
+        this._enableTopResults = searchRequestParameterValue?.enableTopResults;
+        this._entityTypes = searchRequestParameterValue?.entityTypes;
+        this._fields = searchRequestParameterValue?.fields;
+        this._from = searchRequestParameterValue?.from;
+        this._query = searchRequestParameterValue?.query;
+        this._queryAlterationOptions = searchRequestParameterValue?.queryAlterationOptions;
+        this._resultTemplateOptions = searchRequestParameterValue?.resultTemplateOptions;
+        this._size = searchRequestParameterValue?.size;
+        this._sortProperties = searchRequestParameterValue?.sortProperties;
+    };
+    /**
+     * Gets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
+     * @returns a string
+     */
+    public get contentSources() {
+        return this._contentSources;
+    };
+    /**
+     * Sets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
+     * @param value Value to set for the contentSources property.
+     */
+    public set contentSources(value: string[] | undefined) {
+        if(value) {
+            this._contentSources = value;
+        }
+    };
+    /**
+     * Gets the enableTopResults property value. This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional.
+     * @returns a boolean
+     */
+    public get enableTopResults() {
+        return this._enableTopResults;
+    };
+    /**
+     * Sets the enableTopResults property value. This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional.
+     * @param value Value to set for the enableTopResults property.
+     */
+    public set enableTopResults(value: boolean | undefined) {
+        if(value) {
+            this._enableTopResults = value;
+        }
+    };
+    /**
+     * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * @returns a string
+     */
+    public get entityTypes() {
+        return this._entityTypes;
+    };
+    /**
+     * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * @param value Value to set for the entityTypes property.
+     */
+    public set entityTypes(value: string[] | undefined) {
+        if(value) {
+            this._entityTypes = value;
+        }
+    };
+    /**
+     * Gets the fields property value. Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.
+     * @returns a string
+     */
+    public get fields() {
+        return this._fields;
+    };
+    /**
+     * Sets the fields property value. Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.
+     * @param value Value to set for the fields property.
+     */
+    public set fields(value: string[] | undefined) {
+        if(value) {
+            this._fields = value;
+        }
+    };
+    /**
+     * Gets the from property value. Specifies the offset for the search results. Offset 0 returns the very first result. Optional.
+     * @returns a integer
+     */
+    public get from() {
+        return this._from;
+    };
+    /**
+     * Sets the from property value. Specifies the offset for the search results. Offset 0 returns the very first result. Optional.
+     * @param value Value to set for the from property.
+     */
+    public set from(value: number | undefined) {
+        if(value) {
+            this._from = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -79,6 +211,54 @@ export class SearchRequestImpl implements SearchRequest {
         };
     };
     /**
+     * Gets the query property value. The query property
+     * @returns a SearchQueryInterface
+     */
+    public get query() {
+        return this._query;
+    };
+    /**
+     * Sets the query property value. The query property
+     * @param value Value to set for the query property.
+     */
+    public set query(value: SearchQuery | undefined) {
+        if(value) {
+            this._query = value instanceof SearchQueryImpl? value : new SearchQueryImpl(value);
+        }
+    };
+    /**
+     * Gets the queryAlterationOptions property value. Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.
+     * @returns a SearchAlterationOptionsInterface
+     */
+    public get queryAlterationOptions() {
+        return this._queryAlterationOptions;
+    };
+    /**
+     * Sets the queryAlterationOptions property value. Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.
+     * @param value Value to set for the queryAlterationOptions property.
+     */
+    public set queryAlterationOptions(value: SearchAlterationOptions | undefined) {
+        if(value) {
+            this._queryAlterationOptions = value instanceof SearchAlterationOptionsImpl? value : new SearchAlterationOptionsImpl(value);
+        }
+    };
+    /**
+     * Gets the resultTemplateOptions property value. Provides the search result templates options for rendering connectors search results.
+     * @returns a ResultTemplateOptionInterface
+     */
+    public get resultTemplateOptions() {
+        return this._resultTemplateOptions;
+    };
+    /**
+     * Sets the resultTemplateOptions property value. Provides the search result templates options for rendering connectors search results.
+     * @param value Value to set for the resultTemplateOptions property.
+     */
+    public set resultTemplateOptions(value: ResultTemplateOption | undefined) {
+        if(value) {
+            this._resultTemplateOptions = value instanceof ResultTemplateOptionImpl? value : new ResultTemplateOptionImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -87,7 +267,10 @@ export class SearchRequestImpl implements SearchRequest {
         if(this.aggregationFilters){
             writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", this.aggregationFilters);
         }
-        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: AggregationOptionImpl[] = []; this.aggregations?.forEach(element => {aggregationsArrValue.push(new AggregationOptionImpl(element));});
+        if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: AggregationOptionImpl[] = [];
+        this.aggregations?.forEach(element => {
+            aggregationsArrValue.push((element instanceof AggregationOptionImpl? element:new AggregationOptionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AggregationOptionImpl>("aggregations", aggregationsArrValue);
         }
         if(this.contentSources){
@@ -106,20 +289,59 @@ export class SearchRequestImpl implements SearchRequest {
             writer.writeNumberValue("from", this.from);
         }
         if(this.query){
-            writer.writeObjectValue<SearchQueryImpl>("query", new SearchQueryImpl(this.query));
+            writer.writeObjectValue<SearchQueryImpl>("query", (!this.query || this.query instanceof SearchQueryImpl? this.query : new SearchQueryImpl(this.query)));
         }
         if(this.queryAlterationOptions){
-            writer.writeObjectValue<SearchAlterationOptionsImpl>("queryAlterationOptions", new SearchAlterationOptionsImpl(this.queryAlterationOptions));
+            writer.writeObjectValue<SearchAlterationOptionsImpl>("queryAlterationOptions", (!this.queryAlterationOptions || this.queryAlterationOptions instanceof SearchAlterationOptionsImpl? this.queryAlterationOptions : new SearchAlterationOptionsImpl(this.queryAlterationOptions)));
         }
         if(this.resultTemplateOptions){
-            writer.writeObjectValue<ResultTemplateOptionImpl>("resultTemplateOptions", new ResultTemplateOptionImpl(this.resultTemplateOptions));
+            writer.writeObjectValue<ResultTemplateOptionImpl>("resultTemplateOptions", (!this.resultTemplateOptions || this.resultTemplateOptions instanceof ResultTemplateOptionImpl? this.resultTemplateOptions : new ResultTemplateOptionImpl(this.resultTemplateOptions)));
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
-        if(this.sortProperties && this.sortProperties.length != 0){        const sortPropertiesArrValue: SortPropertyImpl[] = []; this.sortProperties?.forEach(element => {sortPropertiesArrValue.push(new SortPropertyImpl(element));});
+        if(this.sortProperties && this.sortProperties.length != 0){        const sortPropertiesArrValue: SortPropertyImpl[] = [];
+        this.sortProperties?.forEach(element => {
+            sortPropertiesArrValue.push((element instanceof SortPropertyImpl? element:new SortPropertyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SortPropertyImpl>("sortProperties", sortPropertiesArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the size property value. The size of the page to be retrieved. Optional.
+     * @returns a integer
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. The size of the page to be retrieved. Optional.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
+        }
+    };
+    /**
+     * Gets the sortProperties property value. Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
+     * @returns a SortPropertyInterface
+     */
+    public get sortProperties() {
+        return this._sortProperties;
+    };
+    /**
+     * Sets the sortProperties property value. Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
+     * @param value Value to set for the sortProperties property.
+     */
+    public set sortProperties(value: SortProperty[] | undefined) {
+        if(value) {
+            const sortPropertiesArrValue: SortPropertyImpl[] = [];
+            this.sortProperties?.forEach(element => {
+                sortPropertiesArrValue.push((element instanceof SortPropertyImpl? element:new SortPropertyImpl(element)));
+            });
+            this._sortProperties = sortPropertiesArrValue;
+        }
     };
 }

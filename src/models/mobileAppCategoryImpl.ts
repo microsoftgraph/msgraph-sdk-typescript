@@ -5,17 +5,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Contains properties for a single Intune app category. */
 export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCategory {
     /** The name of the app category. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The date and time the mobileAppCategory was last modified. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new mobileAppCategory and sets the default values.
      * @param mobileAppCategoryParameterValue 
      */
     public constructor(mobileAppCategoryParameterValue?: MobileAppCategory | undefined) {
         super(mobileAppCategoryParameterValue);
-        this.displayName = mobileAppCategoryParameterValue?.displayName;
-        this.lastModifiedDateTime = mobileAppCategoryParameterValue?.lastModifiedDateTime;
+        this._displayName = mobileAppCategoryParameterValue?.displayName;
+        this._lastModifiedDateTime = mobileAppCategoryParameterValue?.lastModifiedDateTime;
+    };
+    /**
+     * Gets the displayName property value. The name of the app category.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the app category.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,22 @@ export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCatego
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. The date and time the mobileAppCategory was last modified.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. The date and time the mobileAppCategory was last modified.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object

@@ -7,20 +7,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class TeamInfoImpl extends EntityImpl implements TeamInfo {
     /** The name of the team. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The team property */
-    public team?: Team | undefined;
+    private _team?: Team | undefined;
     /** The ID of the Azure Active Directory tenant. */
-    public tenantId?: string | undefined;
+    private _tenantId?: string | undefined;
     /**
      * Instantiates a new teamInfo and sets the default values.
      * @param teamInfoParameterValue 
      */
     public constructor(teamInfoParameterValue?: TeamInfo | undefined) {
         super(teamInfoParameterValue);
-        this.displayName = teamInfoParameterValue?.displayName;
-        this.team = teamInfoParameterValue?.team;
-        this.tenantId = teamInfoParameterValue?.tenantId;
+        this._displayName = teamInfoParameterValue?.displayName;
+        this._team = teamInfoParameterValue?.team;
+        this._tenantId = teamInfoParameterValue?.tenantId;
+    };
+    /**
+     * Gets the displayName property value. The name of the team.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the team.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -44,10 +60,42 @@ export class TeamInfoImpl extends EntityImpl implements TeamInfo {
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.team){
-            writer.writeObjectValue<TeamImpl>("team", new TeamImpl(this.team));
+            writer.writeObjectValue<TeamImpl>("team", (!this.team || this.team instanceof TeamImpl? this.team : new TeamImpl(this.team)));
         }
         if(this.tenantId){
             writer.writeStringValue("tenantId", this.tenantId);
+        }
+    };
+    /**
+     * Gets the team property value. The team property
+     * @returns a TeamInterface
+     */
+    public get team() {
+        return this._team;
+    };
+    /**
+     * Sets the team property value. The team property
+     * @param value Value to set for the team property.
+     */
+    public set team(value: Team | undefined) {
+        if(value) {
+            this._team = value instanceof TeamImpl? value : new TeamImpl(value);
+        }
+    };
+    /**
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @returns a string
+     */
+    public get tenantId() {
+        return this._tenantId;
+    };
+    /**
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @param value Value to set for the tenantId property.
+     */
+    public set tenantId(value: string | undefined) {
+        if(value) {
+            this._tenantId = value;
         }
     };
 }

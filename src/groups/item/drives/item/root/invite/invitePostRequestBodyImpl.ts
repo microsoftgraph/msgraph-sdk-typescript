@@ -7,37 +7,69 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the invite method. */
 export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The expirationDateTime property */
-    public expirationDateTime?: string | undefined;
+    private _expirationDateTime?: string | undefined;
     /** The message property */
-    public message?: string | undefined;
+    private _message?: string | undefined;
     /** The password property */
-    public password?: string | undefined;
+    private _password?: string | undefined;
     /** The recipients property */
-    public recipients?: DriveRecipient[] | undefined;
+    private _recipients?: DriveRecipient[] | undefined;
     /** The requireSignIn property */
-    public requireSignIn?: boolean | undefined;
+    private _requireSignIn?: boolean | undefined;
     /** The retainInheritedPermissions property */
-    public retainInheritedPermissions?: boolean | undefined;
+    private _retainInheritedPermissions?: boolean | undefined;
     /** The roles property */
-    public roles?: string[] | undefined;
+    private _roles?: string[] | undefined;
     /** The sendInvitation property */
-    public sendInvitation?: boolean | undefined;
+    private _sendInvitation?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new invitePostRequestBody and sets the default values.
      * @param invitePostRequestBodyParameterValue 
      */
     public constructor(invitePostRequestBodyParameterValue?: InvitePostRequestBody | undefined) {
-        this.additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {};
-        this.expirationDateTime = invitePostRequestBodyParameterValue?.expirationDateTime;
-        this.message = invitePostRequestBodyParameterValue?.message;
-        this.password = invitePostRequestBodyParameterValue?.password;
-        this.recipients = invitePostRequestBodyParameterValue?.recipients;
-        this.requireSignIn = invitePostRequestBodyParameterValue?.requireSignIn;
-        this.retainInheritedPermissions = invitePostRequestBodyParameterValue?.retainInheritedPermissions;
-        this.roles = invitePostRequestBodyParameterValue?.roles;
-        this.sendInvitation = invitePostRequestBodyParameterValue?.sendInvitation;
+        this._additionalData = invitePostRequestBodyParameterValue?.additionalData ? invitePostRequestBodyParameterValue?.additionalData! : {};
+        this._expirationDateTime = invitePostRequestBodyParameterValue?.expirationDateTime;
+        this._message = invitePostRequestBodyParameterValue?.message;
+        this._password = invitePostRequestBodyParameterValue?.password;
+        this._recipients = invitePostRequestBodyParameterValue?.recipients;
+        this._requireSignIn = invitePostRequestBodyParameterValue?.requireSignIn;
+        this._retainInheritedPermissions = invitePostRequestBodyParameterValue?.retainInheritedPermissions;
+        this._roles = invitePostRequestBodyParameterValue?.roles;
+        this._sendInvitation = invitePostRequestBodyParameterValue?.sendInvitation;
+    };
+    /**
+     * Gets the expirationDateTime property value. The expirationDateTime property
+     * @returns a string
+     */
+    public get expirationDateTime() {
+        return this._expirationDateTime;
+    };
+    /**
+     * Sets the expirationDateTime property value. The expirationDateTime property
+     * @param value Value to set for the expirationDateTime property.
+     */
+    public set expirationDateTime(value: string | undefined) {
+        if(value) {
+            this._expirationDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -56,6 +88,122 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         };
     };
     /**
+     * Gets the message property value. The message property
+     * @returns a string
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The message property
+     * @param value Value to set for the message property.
+     */
+    public set message(value: string | undefined) {
+        if(value) {
+            this._message = value;
+        }
+    };
+    /**
+     * Gets the password property value. The password property
+     * @returns a string
+     */
+    public get password() {
+        return this._password;
+    };
+    /**
+     * Sets the password property value. The password property
+     * @param value Value to set for the password property.
+     */
+    public set password(value: string | undefined) {
+        if(value) {
+            this._password = value;
+        }
+    };
+    /**
+     * Gets the recipients property value. The recipients property
+     * @returns a DriveRecipientInterface
+     */
+    public get recipients() {
+        return this._recipients;
+    };
+    /**
+     * Sets the recipients property value. The recipients property
+     * @param value Value to set for the recipients property.
+     */
+    public set recipients(value: DriveRecipient[] | undefined) {
+        if(value) {
+            const recipientsArrValue: DriveRecipientImpl[] = [];
+            this.recipients?.forEach(element => {
+                recipientsArrValue.push((element instanceof DriveRecipientImpl? element:new DriveRecipientImpl(element)));
+            });
+            this._recipients = recipientsArrValue;
+        }
+    };
+    /**
+     * Gets the requireSignIn property value. The requireSignIn property
+     * @returns a boolean
+     */
+    public get requireSignIn() {
+        return this._requireSignIn;
+    };
+    /**
+     * Sets the requireSignIn property value. The requireSignIn property
+     * @param value Value to set for the requireSignIn property.
+     */
+    public set requireSignIn(value: boolean | undefined) {
+        if(value) {
+            this._requireSignIn = value;
+        }
+    };
+    /**
+     * Gets the retainInheritedPermissions property value. The retainInheritedPermissions property
+     * @returns a boolean
+     */
+    public get retainInheritedPermissions() {
+        return this._retainInheritedPermissions;
+    };
+    /**
+     * Sets the retainInheritedPermissions property value. The retainInheritedPermissions property
+     * @param value Value to set for the retainInheritedPermissions property.
+     */
+    public set retainInheritedPermissions(value: boolean | undefined) {
+        if(value) {
+            this._retainInheritedPermissions = value;
+        }
+    };
+    /**
+     * Gets the roles property value. The roles property
+     * @returns a string
+     */
+    public get roles() {
+        return this._roles;
+    };
+    /**
+     * Sets the roles property value. The roles property
+     * @param value Value to set for the roles property.
+     */
+    public set roles(value: string[] | undefined) {
+        if(value) {
+            this._roles = value;
+        }
+    };
+    /**
+     * Gets the sendInvitation property value. The sendInvitation property
+     * @returns a boolean
+     */
+    public get sendInvitation() {
+        return this._sendInvitation;
+    };
+    /**
+     * Sets the sendInvitation property value. The sendInvitation property
+     * @param value Value to set for the sendInvitation property.
+     */
+    public set sendInvitation(value: boolean | undefined) {
+        if(value) {
+            this._sendInvitation = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -70,7 +218,10 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         if(this.password){
             writer.writeStringValue("password", this.password);
         }
-        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = []; this.recipients?.forEach(element => {recipientsArrValue.push(new DriveRecipientImpl(element));});
+        if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = [];
+        this.recipients?.forEach(element => {
+            recipientsArrValue.push((element instanceof DriveRecipientImpl? element:new DriveRecipientImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }
         if(this.requireSignIn){

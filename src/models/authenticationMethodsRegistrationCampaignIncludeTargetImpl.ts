@@ -4,22 +4,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implements AuthenticationMethodsRegistrationCampaignIncludeTarget {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The object identifier of an Azure AD user or group. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
-    public targetedAuthenticationMethod?: string | undefined;
+    private _targetedAuthenticationMethod?: string | undefined;
     /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue. */
-    public targetType?: AuthenticationMethodTargetType | undefined;
+    private _targetType?: AuthenticationMethodTargetType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new authenticationMethodsRegistrationCampaignIncludeTarget and sets the default values.
      * @param authenticationMethodsRegistrationCampaignIncludeTargetParameterValue 
      */
     public constructor(authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?: AuthenticationMethodsRegistrationCampaignIncludeTarget | undefined) {
-        this.additionalData = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData! : {};
-        this.id = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.id;
-        this.targetedAuthenticationMethod = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.targetedAuthenticationMethod;
-        this.targetType = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.targetType;
+        this._additionalData = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData ? authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.additionalData! : {};
+        this._id = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.id;
+        this._targetedAuthenticationMethod = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.targetedAuthenticationMethod;
+        this._targetType = authenticationMethodsRegistrationCampaignIncludeTargetParameterValue?.targetType;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implemen
             "targetedAuthenticationMethod": n => { this.targetedAuthenticationMethod = n.getStringValue(); },
             "targetType": n => { this.targetType = n.getEnumValue<AuthenticationMethodTargetType>(AuthenticationMethodTargetType); },
         };
+    };
+    /**
+     * Gets the id property value. The object identifier of an Azure AD user or group.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. The object identifier of an Azure AD user or group.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -48,5 +80,37 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implemen
             writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the targetedAuthenticationMethod property value. The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.
+     * @returns a string
+     */
+    public get targetedAuthenticationMethod() {
+        return this._targetedAuthenticationMethod;
+    };
+    /**
+     * Sets the targetedAuthenticationMethod property value. The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.
+     * @param value Value to set for the targetedAuthenticationMethod property.
+     */
+    public set targetedAuthenticationMethod(value: string | undefined) {
+        if(value) {
+            this._targetedAuthenticationMethod = value;
+        }
+    };
+    /**
+     * Gets the targetType property value. The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     * @returns a authenticationMethodTargetType
+     */
+    public get targetType() {
+        return this._targetType;
+    };
+    /**
+     * Sets the targetType property value. The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     * @param value Value to set for the targetType property.
+     */
+    public set targetType(value: AuthenticationMethodTargetType | undefined) {
+        if(value) {
+            this._targetType = value;
+        }
     };
 }

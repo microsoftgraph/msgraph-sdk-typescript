@@ -7,19 +7,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the createReply method. */
 export class CreateReplyPostRequestBodyImpl implements CreateReplyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Comment property */
-    public comment?: string | undefined;
+    private _comment?: string | undefined;
     /** The Message property */
-    public message?: Message | undefined;
+    private _message?: Message | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the comment property value. The Comment property
+     * @returns a string
+     */
+    public get comment() {
+        return this._comment;
+    };
+    /**
+     * Sets the comment property value. The Comment property
+     * @param value Value to set for the Comment property.
+     */
+    public set comment(value: string | undefined) {
+        if(value) {
+            this._comment = value;
+        }
+    };
     /**
      * Instantiates a new createReplyPostRequestBody and sets the default values.
      * @param createReplyPostRequestBodyParameterValue 
      */
     public constructor(createReplyPostRequestBodyParameterValue?: CreateReplyPostRequestBody | undefined) {
-        this.additionalData = createReplyPostRequestBodyParameterValue?.additionalData ? createReplyPostRequestBodyParameterValue?.additionalData! : {};
-        this.comment = createReplyPostRequestBodyParameterValue?.comment;
-        this.message = createReplyPostRequestBodyParameterValue?.message;
+        this._additionalData = createReplyPostRequestBodyParameterValue?.additionalData ? createReplyPostRequestBodyParameterValue?.additionalData! : {};
+        this._comment = createReplyPostRequestBodyParameterValue?.comment;
+        this._message = createReplyPostRequestBodyParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +64,22 @@ export class CreateReplyPostRequestBodyImpl implements CreateReplyPostRequestBod
         };
     };
     /**
+     * Gets the message property value. The Message property
+     * @returns a MessageInterface
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The Message property
+     * @param value Value to set for the Message property.
+     */
+    public set message(value: Message | undefined) {
+        if(value) {
+            this._message = value instanceof MessageImpl? value : new MessageImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -41,7 +89,7 @@ export class CreateReplyPostRequestBodyImpl implements CreateReplyPostRequestBod
             writer.writeStringValue("comment", this.comment);
         }
         if(this.message){
-            writer.writeObjectValue<MessageImpl>("message", new MessageImpl(this.message));
+            writer.writeObjectValue<MessageImpl>("message", (!this.message || this.message instanceof MessageImpl? this.message : new MessageImpl(this.message)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

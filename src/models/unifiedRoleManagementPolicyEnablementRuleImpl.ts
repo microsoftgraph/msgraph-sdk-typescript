@@ -4,14 +4,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class UnifiedRoleManagementPolicyEnablementRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyEnablementRule {
     /** The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification. */
-    public enabledRules?: string[] | undefined;
+    private _enabledRules?: string[] | undefined;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyEnablementRule and sets the default values.
      * @param unifiedRoleManagementPolicyEnablementRuleParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyEnablementRuleParameterValue?: UnifiedRoleManagementPolicyEnablementRule | undefined) {
         super(unifiedRoleManagementPolicyEnablementRuleParameterValue);
-        this.enabledRules = unifiedRoleManagementPolicyEnablementRuleParameterValue?.enabledRules;
+        this._enabledRules = unifiedRoleManagementPolicyEnablementRuleParameterValue?.enabledRules;
+    };
+    /**
+     * Gets the enabledRules property value. The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification.
+     * @returns a string
+     */
+    public get enabledRules() {
+        return this._enabledRules;
+    };
+    /**
+     * Sets the enabledRules property value. The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification.
+     * @param value Value to set for the enabledRules property.
+     */
+    public set enabledRules(value: string[] | undefined) {
+        if(value) {
+            this._enabledRules = value;
+        }
     };
     /**
      * The deserialization information for the current model

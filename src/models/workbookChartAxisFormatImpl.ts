@@ -9,17 +9,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookChartAxisFormat {
     /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
-    public font?: WorkbookChartFont | undefined;
+    private _font?: WorkbookChartFont | undefined;
     /** Represents chart line formatting. Read-only. */
-    public line?: WorkbookChartLineFormat | undefined;
+    private _line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartAxisFormat and sets the default values.
      * @param workbookChartAxisFormatParameterValue 
      */
     public constructor(workbookChartAxisFormatParameterValue?: WorkbookChartAxisFormat | undefined) {
         super(workbookChartAxisFormatParameterValue);
-        this.font = workbookChartAxisFormatParameterValue?.font;
-        this.line = workbookChartAxisFormatParameterValue?.line;
+        this._font = workbookChartAxisFormatParameterValue?.font;
+        this._line = workbookChartAxisFormatParameterValue?.line;
+    };
+    /**
+     * Gets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
+     * @returns a WorkbookChartFontInterface
+     */
+    public get font() {
+        return this._font;
+    };
+    /**
+     * Sets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
+     * @param value Value to set for the font property.
+     */
+    public set font(value: WorkbookChartFont | undefined) {
+        if(value) {
+            this._font = value instanceof WorkbookChartFontImpl? value : new WorkbookChartFontImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -32,6 +48,22 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
         };
     };
     /**
+     * Gets the line property value. Represents chart line formatting. Read-only.
+     * @returns a WorkbookChartLineFormatInterface
+     */
+    public get line() {
+        return this._line;
+    };
+    /**
+     * Sets the line property value. Represents chart line formatting. Read-only.
+     * @param value Value to set for the line property.
+     */
+    public set line(value: WorkbookChartLineFormat | undefined) {
+        if(value) {
+            this._line = value instanceof WorkbookChartLineFormatImpl? value : new WorkbookChartLineFormatImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,10 +71,10 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.font){
-            writer.writeObjectValue<WorkbookChartFontImpl>("font", new WorkbookChartFontImpl(this.font));
+            writer.writeObjectValue<WorkbookChartFontImpl>("font", (!this.font || this.font instanceof WorkbookChartFontImpl? this.font : new WorkbookChartFontImpl(this.font)));
         }
         if(this.line){
-            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", new WorkbookChartLineFormatImpl(this.line));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (!this.line || this.line instanceof WorkbookChartLineFormatImpl? this.line : new WorkbookChartLineFormatImpl(this.line)));
         }
     };
 }

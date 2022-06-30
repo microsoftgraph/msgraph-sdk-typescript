@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getUserArchivedPrintJobs method. */
 export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseImpl implements GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: ArchivedPrintJob[] | undefined;
+    private _value?: ArchivedPrintJob[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse and sets the default values.
      * @param getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue 
      */
     public constructor(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse | undefined) {
-        this.additionalData = getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
-        this.value = getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.value;
+        this._additionalData = getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData ? getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.additionalData! : {};
+        this._value = getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ArchivedPrintJobImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ArchivedPrintJobImpl? element:new ArchivedPrintJobImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ArchivedPrintJobImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ArchivedPrintJobInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ArchivedPrintJob[] | undefined) {
+        if(value) {
+            const valueArrValue: ArchivedPrintJobImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ArchivedPrintJobImpl? element:new ArchivedPrintJobImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

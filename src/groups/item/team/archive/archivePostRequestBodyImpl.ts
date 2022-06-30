@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the archive method. */
 export class ArchivePostRequestBodyImpl implements ArchivePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The shouldSetSpoSiteReadOnlyForMembers property */
-    public shouldSetSpoSiteReadOnlyForMembers?: boolean | undefined;
+    private _shouldSetSpoSiteReadOnlyForMembers?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new archivePostRequestBody and sets the default values.
      * @param archivePostRequestBodyParameterValue 
      */
     public constructor(archivePostRequestBodyParameterValue?: ArchivePostRequestBody | undefined) {
-        this.additionalData = archivePostRequestBodyParameterValue?.additionalData ? archivePostRequestBodyParameterValue?.additionalData! : {};
-        this.shouldSetSpoSiteReadOnlyForMembers = archivePostRequestBodyParameterValue?.shouldSetSpoSiteReadOnlyForMembers;
+        this._additionalData = archivePostRequestBodyParameterValue?.additionalData ? archivePostRequestBodyParameterValue?.additionalData! : {};
+        this._shouldSetSpoSiteReadOnlyForMembers = archivePostRequestBodyParameterValue?.shouldSetSpoSiteReadOnlyForMembers;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class ArchivePostRequestBodyImpl implements ArchivePostRequestBody {
             writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", this.shouldSetSpoSiteReadOnlyForMembers);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the shouldSetSpoSiteReadOnlyForMembers property value. The shouldSetSpoSiteReadOnlyForMembers property
+     * @returns a boolean
+     */
+    public get shouldSetSpoSiteReadOnlyForMembers() {
+        return this._shouldSetSpoSiteReadOnlyForMembers;
+    };
+    /**
+     * Sets the shouldSetSpoSiteReadOnlyForMembers property value. The shouldSetSpoSiteReadOnlyForMembers property
+     * @param value Value to set for the shouldSetSpoSiteReadOnlyForMembers property.
+     */
+    public set shouldSetSpoSiteReadOnlyForMembers(value: boolean | undefined) {
+        if(value) {
+            this._shouldSetSpoSiteReadOnlyForMembers = value;
+        }
     };
 }

@@ -6,23 +6,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Scheduled Action Configuration */
 export class DeviceComplianceActionItemImpl extends EntityImpl implements DeviceComplianceActionItem {
     /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
-    public actionType?: DeviceComplianceActionType | undefined;
+    private _actionType?: DeviceComplianceActionType | undefined;
     /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
-    public gracePeriodHours?: number | undefined;
+    private _gracePeriodHours?: number | undefined;
     /** A list of group IDs to speicify who to CC this notification message to. */
-    public notificationMessageCCList?: string[] | undefined;
+    private _notificationMessageCCList?: string[] | undefined;
     /** What notification Message template to use */
-    public notificationTemplateId?: string | undefined;
+    private _notificationTemplateId?: string | undefined;
+    /**
+     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * @returns a deviceComplianceActionType
+     */
+    public get actionType() {
+        return this._actionType;
+    };
+    /**
+     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * @param value Value to set for the actionType property.
+     */
+    public set actionType(value: DeviceComplianceActionType | undefined) {
+        if(value) {
+            this._actionType = value;
+        }
+    };
     /**
      * Instantiates a new deviceComplianceActionItem and sets the default values.
      * @param deviceComplianceActionItemParameterValue 
      */
     public constructor(deviceComplianceActionItemParameterValue?: DeviceComplianceActionItem | undefined) {
         super(deviceComplianceActionItemParameterValue);
-        this.actionType = deviceComplianceActionItemParameterValue?.actionType;
-        this.gracePeriodHours = deviceComplianceActionItemParameterValue?.gracePeriodHours;
-        this.notificationMessageCCList = deviceComplianceActionItemParameterValue?.notificationMessageCCList;
-        this.notificationTemplateId = deviceComplianceActionItemParameterValue?.notificationTemplateId;
+        this._actionType = deviceComplianceActionItemParameterValue?.actionType;
+        this._gracePeriodHours = deviceComplianceActionItemParameterValue?.gracePeriodHours;
+        this._notificationMessageCCList = deviceComplianceActionItemParameterValue?.notificationMessageCCList;
+        this._notificationTemplateId = deviceComplianceActionItemParameterValue?.notificationTemplateId;
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +51,54 @@ export class DeviceComplianceActionItemImpl extends EntityImpl implements Device
             "notificationMessageCCList": n => { this.notificationMessageCCList = n.getCollectionOfPrimitiveValues<string>(); },
             "notificationTemplateId": n => { this.notificationTemplateId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the gracePeriodHours property value. Number of hours to wait till the action will be enforced. Valid values 0 to 8760
+     * @returns a integer
+     */
+    public get gracePeriodHours() {
+        return this._gracePeriodHours;
+    };
+    /**
+     * Sets the gracePeriodHours property value. Number of hours to wait till the action will be enforced. Valid values 0 to 8760
+     * @param value Value to set for the gracePeriodHours property.
+     */
+    public set gracePeriodHours(value: number | undefined) {
+        if(value) {
+            this._gracePeriodHours = value;
+        }
+    };
+    /**
+     * Gets the notificationMessageCCList property value. A list of group IDs to speicify who to CC this notification message to.
+     * @returns a string
+     */
+    public get notificationMessageCCList() {
+        return this._notificationMessageCCList;
+    };
+    /**
+     * Sets the notificationMessageCCList property value. A list of group IDs to speicify who to CC this notification message to.
+     * @param value Value to set for the notificationMessageCCList property.
+     */
+    public set notificationMessageCCList(value: string[] | undefined) {
+        if(value) {
+            this._notificationMessageCCList = value;
+        }
+    };
+    /**
+     * Gets the notificationTemplateId property value. What notification Message template to use
+     * @returns a string
+     */
+    public get notificationTemplateId() {
+        return this._notificationTemplateId;
+    };
+    /**
+     * Sets the notificationTemplateId property value. What notification Message template to use
+     * @param value Value to set for the notificationTemplateId property.
+     */
+    public set notificationTemplateId(value: string | undefined) {
+        if(value) {
+            this._notificationTemplateId = value;
+        }
     };
     /**
      * Serializes information the current object

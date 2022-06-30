@@ -5,17 +5,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityGovernance singleton. */
 export class AppScopeImpl extends EntityImpl implements AppScope {
     /** Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only. */
-    public type?: string | undefined;
+    private _type?: string | undefined;
     /**
      * Instantiates a new appScope and sets the default values.
      * @param appScopeParameterValue 
      */
     public constructor(appScopeParameterValue?: AppScope | undefined) {
         super(appScopeParameterValue);
-        this.displayName = appScopeParameterValue?.displayName;
-        this.type = appScopeParameterValue?.type;
+        this._displayName = appScopeParameterValue?.displayName;
+        this._type = appScopeParameterValue?.type;
+    };
+    /**
+     * Gets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,22 @@ export class AppScopeImpl extends EntityImpl implements AppScope {
         }
         if(this.type){
             writer.writeStringValue("type", this.type);
+        }
+    };
+    /**
+     * Gets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
         }
     };
 }

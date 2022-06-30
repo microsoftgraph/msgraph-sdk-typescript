@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the checkMemberGroups method. */
 export class CheckMemberGroupsPostRequestBodyImpl implements CheckMemberGroupsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The groupIds property */
-    public groupIds?: string[] | undefined;
+    private _groupIds?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new checkMemberGroupsPostRequestBody and sets the default values.
      * @param checkMemberGroupsPostRequestBodyParameterValue 
      */
     public constructor(checkMemberGroupsPostRequestBodyParameterValue?: CheckMemberGroupsPostRequestBody | undefined) {
-        this.additionalData = checkMemberGroupsPostRequestBodyParameterValue?.additionalData ? checkMemberGroupsPostRequestBodyParameterValue?.additionalData! : {};
-        this.groupIds = checkMemberGroupsPostRequestBodyParameterValue?.groupIds;
+        this._additionalData = checkMemberGroupsPostRequestBodyParameterValue?.additionalData ? checkMemberGroupsPostRequestBodyParameterValue?.additionalData! : {};
+        this._groupIds = checkMemberGroupsPostRequestBodyParameterValue?.groupIds;
     };
     /**
      * The deserialization information for the current model
@@ -23,6 +39,22 @@ export class CheckMemberGroupsPostRequestBodyImpl implements CheckMemberGroupsPo
         return {
             "groupIds": n => { this.groupIds = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the groupIds property value. The groupIds property
+     * @returns a string
+     */
+    public get groupIds() {
+        return this._groupIds;
+    };
+    /**
+     * Sets the groupIds property value. The groupIds property
+     * @param value Value to set for the groupIds property.
+     */
+    public set groupIds(value: string[] | undefined) {
+        if(value) {
+            this._groupIds = value;
+        }
     };
     /**
      * Serializes information the current object

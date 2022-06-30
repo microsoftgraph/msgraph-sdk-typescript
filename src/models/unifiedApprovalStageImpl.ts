@@ -6,31 +6,99 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The number of days that a request can be pending a response before it is automatically denied. */
-    public approvalStageTimeOutInDays?: number | undefined;
+    private _approvalStageTimeOutInDays?: number | undefined;
     /** The escalation approvers for this stage when the primary approvers don't respond. */
-    public escalationApprovers?: SubjectSet[] | undefined;
+    private _escalationApprovers?: SubjectSet[] | undefined;
     /** The time a request can be pending a response from a primary approver before it can be escalated to the escalation approvers. */
-    public escalationTimeInMinutes?: number | undefined;
+    private _escalationTimeInMinutes?: number | undefined;
     /** Indicates whether the approver must provide justification for their reponse. */
-    public isApproverJustificationRequired?: boolean | undefined;
+    private _isApproverJustificationRequired?: boolean | undefined;
     /** Indicates whether escalation if enabled. */
-    public isEscalationEnabled?: boolean | undefined;
+    private _isEscalationEnabled?: boolean | undefined;
     /** The primary approvers of this stage. */
-    public primaryApprovers?: SubjectSet[] | undefined;
+    private _primaryApprovers?: SubjectSet[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it is automatically denied.
+     * @returns a integer
+     */
+    public get approvalStageTimeOutInDays() {
+        return this._approvalStageTimeOutInDays;
+    };
+    /**
+     * Sets the approvalStageTimeOutInDays property value. The number of days that a request can be pending a response before it is automatically denied.
+     * @param value Value to set for the approvalStageTimeOutInDays property.
+     */
+    public set approvalStageTimeOutInDays(value: number | undefined) {
+        if(value) {
+            this._approvalStageTimeOutInDays = value;
+        }
+    };
     /**
      * Instantiates a new unifiedApprovalStage and sets the default values.
      * @param unifiedApprovalStageParameterValue 
      */
     public constructor(unifiedApprovalStageParameterValue?: UnifiedApprovalStage | undefined) {
-        this.additionalData = unifiedApprovalStageParameterValue?.additionalData ? unifiedApprovalStageParameterValue?.additionalData! : {};
-        this.approvalStageTimeOutInDays = unifiedApprovalStageParameterValue?.approvalStageTimeOutInDays;
-        this.escalationApprovers = unifiedApprovalStageParameterValue?.escalationApprovers;
-        this.escalationTimeInMinutes = unifiedApprovalStageParameterValue?.escalationTimeInMinutes;
-        this.isApproverJustificationRequired = unifiedApprovalStageParameterValue?.isApproverJustificationRequired;
-        this.isEscalationEnabled = unifiedApprovalStageParameterValue?.isEscalationEnabled;
-        this.primaryApprovers = unifiedApprovalStageParameterValue?.primaryApprovers;
+        this._additionalData = unifiedApprovalStageParameterValue?.additionalData ? unifiedApprovalStageParameterValue?.additionalData! : {};
+        this._approvalStageTimeOutInDays = unifiedApprovalStageParameterValue?.approvalStageTimeOutInDays;
+        this._escalationApprovers = unifiedApprovalStageParameterValue?.escalationApprovers;
+        this._escalationTimeInMinutes = unifiedApprovalStageParameterValue?.escalationTimeInMinutes;
+        this._isApproverJustificationRequired = unifiedApprovalStageParameterValue?.isApproverJustificationRequired;
+        this._isEscalationEnabled = unifiedApprovalStageParameterValue?.isEscalationEnabled;
+        this._primaryApprovers = unifiedApprovalStageParameterValue?.primaryApprovers;
+    };
+    /**
+     * Gets the escalationApprovers property value. The escalation approvers for this stage when the primary approvers don't respond.
+     * @returns a SubjectSetInterface
+     */
+    public get escalationApprovers() {
+        return this._escalationApprovers;
+    };
+    /**
+     * Sets the escalationApprovers property value. The escalation approvers for this stage when the primary approvers don't respond.
+     * @param value Value to set for the escalationApprovers property.
+     */
+    public set escalationApprovers(value: SubjectSet[] | undefined) {
+        if(value) {
+            const escalationApproversArrValue: SubjectSetImpl[] = [];
+            this.escalationApprovers?.forEach(element => {
+                escalationApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            });
+            this._escalationApprovers = escalationApproversArrValue;
+        }
+    };
+    /**
+     * Gets the escalationTimeInMinutes property value. The time a request can be pending a response from a primary approver before it can be escalated to the escalation approvers.
+     * @returns a integer
+     */
+    public get escalationTimeInMinutes() {
+        return this._escalationTimeInMinutes;
+    };
+    /**
+     * Sets the escalationTimeInMinutes property value. The time a request can be pending a response from a primary approver before it can be escalated to the escalation approvers.
+     * @param value Value to set for the escalationTimeInMinutes property.
+     */
+    public set escalationTimeInMinutes(value: number | undefined) {
+        if(value) {
+            this._escalationTimeInMinutes = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -47,6 +115,58 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         };
     };
     /**
+     * Gets the isApproverJustificationRequired property value. Indicates whether the approver must provide justification for their reponse.
+     * @returns a boolean
+     */
+    public get isApproverJustificationRequired() {
+        return this._isApproverJustificationRequired;
+    };
+    /**
+     * Sets the isApproverJustificationRequired property value. Indicates whether the approver must provide justification for their reponse.
+     * @param value Value to set for the isApproverJustificationRequired property.
+     */
+    public set isApproverJustificationRequired(value: boolean | undefined) {
+        if(value) {
+            this._isApproverJustificationRequired = value;
+        }
+    };
+    /**
+     * Gets the isEscalationEnabled property value. Indicates whether escalation if enabled.
+     * @returns a boolean
+     */
+    public get isEscalationEnabled() {
+        return this._isEscalationEnabled;
+    };
+    /**
+     * Sets the isEscalationEnabled property value. Indicates whether escalation if enabled.
+     * @param value Value to set for the isEscalationEnabled property.
+     */
+    public set isEscalationEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isEscalationEnabled = value;
+        }
+    };
+    /**
+     * Gets the primaryApprovers property value. The primary approvers of this stage.
+     * @returns a SubjectSetInterface
+     */
+    public get primaryApprovers() {
+        return this._primaryApprovers;
+    };
+    /**
+     * Sets the primaryApprovers property value. The primary approvers of this stage.
+     * @param value Value to set for the primaryApprovers property.
+     */
+    public set primaryApprovers(value: SubjectSet[] | undefined) {
+        if(value) {
+            const primaryApproversArrValue: SubjectSetImpl[] = [];
+            this.primaryApprovers?.forEach(element => {
+                primaryApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            });
+            this._primaryApprovers = primaryApproversArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -55,7 +175,10 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         if(this.approvalStageTimeOutInDays){
             writer.writeNumberValue("approvalStageTimeOutInDays", this.approvalStageTimeOutInDays);
         }
-        if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = []; this.escalationApprovers?.forEach(element => {escalationApproversArrValue.push(new SubjectSetImpl(element));});
+        if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = [];
+        this.escalationApprovers?.forEach(element => {
+            escalationApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("escalationApprovers", escalationApproversArrValue);
         }
         if(this.escalationTimeInMinutes){
@@ -67,7 +190,10 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         if(this.isEscalationEnabled){
             writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
         }
-        if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = []; this.primaryApprovers?.forEach(element => {primaryApproversArrValue.push(new SubjectSetImpl(element));});
+        if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = [];
+        this.primaryApprovers?.forEach(element => {
+            primaryApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryApprovers", primaryApproversArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

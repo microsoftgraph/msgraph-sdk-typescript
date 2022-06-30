@@ -4,22 +4,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookOperationErrorImpl implements WorkbookOperationError {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The error code. */
-    public code?: string | undefined;
+    private _code?: string | undefined;
     /** The innerError property */
-    public innerError?: WorkbookOperationError | undefined;
+    private _innerError?: WorkbookOperationError | undefined;
     /** The error message. */
-    public message?: string | undefined;
+    private _message?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the code property value. The error code.
+     * @returns a string
+     */
+    public get code() {
+        return this._code;
+    };
+    /**
+     * Sets the code property value. The error code.
+     * @param value Value to set for the code property.
+     */
+    public set code(value: string | undefined) {
+        if(value) {
+            this._code = value;
+        }
+    };
     /**
      * Instantiates a new workbookOperationError and sets the default values.
      * @param workbookOperationErrorParameterValue 
      */
     public constructor(workbookOperationErrorParameterValue?: WorkbookOperationError | undefined) {
-        this.additionalData = workbookOperationErrorParameterValue?.additionalData ? workbookOperationErrorParameterValue?.additionalData! : {};
-        this.code = workbookOperationErrorParameterValue?.code;
-        this.innerError = workbookOperationErrorParameterValue?.innerError;
-        this.message = workbookOperationErrorParameterValue?.message;
+        this._additionalData = workbookOperationErrorParameterValue?.additionalData ? workbookOperationErrorParameterValue?.additionalData! : {};
+        this._code = workbookOperationErrorParameterValue?.code;
+        this._innerError = workbookOperationErrorParameterValue?.innerError;
+        this._message = workbookOperationErrorParameterValue?.message;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +65,38 @@ export class WorkbookOperationErrorImpl implements WorkbookOperationError {
         };
     };
     /**
+     * Gets the innerError property value. The innerError property
+     * @returns a WorkbookOperationErrorInterface
+     */
+    public get innerError() {
+        return this._innerError;
+    };
+    /**
+     * Sets the innerError property value. The innerError property
+     * @param value Value to set for the innerError property.
+     */
+    public set innerError(value: WorkbookOperationError | undefined) {
+        if(value) {
+            this._innerError = value instanceof WorkbookOperationErrorImpl? value : new WorkbookOperationErrorImpl(value);
+        }
+    };
+    /**
+     * Gets the message property value. The error message.
+     * @returns a string
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The error message.
+     * @param value Value to set for the message property.
+     */
+    public set message(value: string | undefined) {
+        if(value) {
+            this._message = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -42,7 +106,7 @@ export class WorkbookOperationErrorImpl implements WorkbookOperationError {
             writer.writeStringValue("code", this.code);
         }
         if(this.innerError){
-            writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", new WorkbookOperationErrorImpl(this.innerError));
+            writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", (!this.innerError || this.innerError instanceof WorkbookOperationErrorImpl? this.innerError : new WorkbookOperationErrorImpl(this.innerError)));
         }
         if(this.message){
             writer.writeStringValue("message", this.message);

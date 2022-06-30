@@ -3,16 +3,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResultTemplateOptionImpl implements ResultTemplateOption {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. This property is optional. */
-    public enableResultTemplate?: boolean | undefined;
+    private _enableResultTemplate?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new resultTemplateOption and sets the default values.
      * @param resultTemplateOptionParameterValue 
      */
     public constructor(resultTemplateOptionParameterValue?: ResultTemplateOption | undefined) {
-        this.additionalData = resultTemplateOptionParameterValue?.additionalData ? resultTemplateOptionParameterValue?.additionalData! : {};
-        this.enableResultTemplate = resultTemplateOptionParameterValue?.enableResultTemplate;
+        this._additionalData = resultTemplateOptionParameterValue?.additionalData ? resultTemplateOptionParameterValue?.additionalData! : {};
+        this._enableResultTemplate = resultTemplateOptionParameterValue?.enableResultTemplate;
+    };
+    /**
+     * Gets the enableResultTemplate property value. Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. This property is optional.
+     * @returns a boolean
+     */
+    public get enableResultTemplate() {
+        return this._enableResultTemplate;
+    };
+    /**
+     * Sets the enableResultTemplate property value. Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. This property is optional.
+     * @param value Value to set for the enableResultTemplate property.
+     */
+    public set enableResultTemplate(value: boolean | undefined) {
+        if(value) {
+            this._enableResultTemplate = value;
+        }
     };
     /**
      * The deserialization information for the current model

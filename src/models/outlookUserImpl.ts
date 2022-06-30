@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class OutlookUserImpl extends EntityImpl implements OutlookUser {
     /** A list of categories defined for the user. */
-    public masterCategories?: OutlookCategory[] | undefined;
+    private _masterCategories?: OutlookCategory[] | undefined;
     /**
      * Instantiates a new outlookUser and sets the default values.
      * @param outlookUserParameterValue 
      */
     public constructor(outlookUserParameterValue?: OutlookUser | undefined) {
         super(outlookUserParameterValue);
-        this.masterCategories = outlookUserParameterValue?.masterCategories;
+        this._masterCategories = outlookUserParameterValue?.masterCategories;
     };
     /**
      * The deserialization information for the current model
@@ -26,13 +26,36 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
         };
     };
     /**
+     * Gets the masterCategories property value. A list of categories defined for the user.
+     * @returns a OutlookCategoryInterface
+     */
+    public get masterCategories() {
+        return this._masterCategories;
+    };
+    /**
+     * Sets the masterCategories property value. A list of categories defined for the user.
+     * @param value Value to set for the masterCategories property.
+     */
+    public set masterCategories(value: OutlookCategory[] | undefined) {
+        if(value) {
+            const masterCategoriesArrValue: OutlookCategoryImpl[] = [];
+            this.masterCategories?.forEach(element => {
+                masterCategoriesArrValue.push((element instanceof OutlookCategoryImpl? element:new OutlookCategoryImpl(element)));
+            });
+            this._masterCategories = masterCategoriesArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = []; this.masterCategories?.forEach(element => {masterCategoriesArrValue.push(new OutlookCategoryImpl(element));});
+        if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = [];
+        this.masterCategories?.forEach(element => {
+            masterCategoriesArrValue.push((element instanceof OutlookCategoryImpl? element:new OutlookCategoryImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("masterCategories", masterCategoriesArrValue);
         }
     };

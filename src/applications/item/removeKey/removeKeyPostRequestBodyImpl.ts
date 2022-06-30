@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the removeKey method. */
 export class RemoveKeyPostRequestBodyImpl implements RemoveKeyPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The keyId property */
-    public keyId?: string | undefined;
+    private _keyId?: string | undefined;
     /** The proof property */
-    public proof?: string | undefined;
+    private _proof?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new removeKeyPostRequestBody and sets the default values.
      * @param removeKeyPostRequestBodyParameterValue 
      */
     public constructor(removeKeyPostRequestBodyParameterValue?: RemoveKeyPostRequestBody | undefined) {
-        this.additionalData = removeKeyPostRequestBodyParameterValue?.additionalData ? removeKeyPostRequestBodyParameterValue?.additionalData! : {};
-        this.keyId = removeKeyPostRequestBodyParameterValue?.keyId;
-        this.proof = removeKeyPostRequestBodyParameterValue?.proof;
+        this._additionalData = removeKeyPostRequestBodyParameterValue?.additionalData ? removeKeyPostRequestBodyParameterValue?.additionalData! : {};
+        this._keyId = removeKeyPostRequestBodyParameterValue?.keyId;
+        this._proof = removeKeyPostRequestBodyParameterValue?.proof;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +43,38 @@ export class RemoveKeyPostRequestBodyImpl implements RemoveKeyPostRequestBody {
             "keyId": n => { this.keyId = n.getStringValue(); },
             "proof": n => { this.proof = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the keyId property value. The keyId property
+     * @returns a string
+     */
+    public get keyId() {
+        return this._keyId;
+    };
+    /**
+     * Sets the keyId property value. The keyId property
+     * @param value Value to set for the keyId property.
+     */
+    public set keyId(value: string | undefined) {
+        if(value) {
+            this._keyId = value;
+        }
+    };
+    /**
+     * Gets the proof property value. The proof property
+     * @returns a string
+     */
+    public get proof() {
+        return this._proof;
+    };
+    /**
+     * Sets the proof property value. The proof property
+     * @param value Value to set for the proof property.
+     */
+    public set proof(value: string | undefined) {
+        if(value) {
+            this._proof = value;
+        }
     };
     /**
      * Serializes information the current object

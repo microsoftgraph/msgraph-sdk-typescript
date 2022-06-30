@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class BookingQuestionAssignmentImpl implements BookingQuestionAssignment {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether it is mandatory to answer the custom question. */
-    public isRequired?: boolean | undefined;
+    private _isRequired?: boolean | undefined;
     /** If it is mandatory to answer the custom question. */
-    public questionId?: string | undefined;
+    private _questionId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new bookingQuestionAssignment and sets the default values.
      * @param bookingQuestionAssignmentParameterValue 
      */
     public constructor(bookingQuestionAssignmentParameterValue?: BookingQuestionAssignment | undefined) {
-        this.additionalData = bookingQuestionAssignmentParameterValue?.additionalData ? bookingQuestionAssignmentParameterValue?.additionalData! : {};
-        this.isRequired = bookingQuestionAssignmentParameterValue?.isRequired;
-        this.questionId = bookingQuestionAssignmentParameterValue?.questionId;
+        this._additionalData = bookingQuestionAssignmentParameterValue?.additionalData ? bookingQuestionAssignmentParameterValue?.additionalData! : {};
+        this._isRequired = bookingQuestionAssignmentParameterValue?.isRequired;
+        this._questionId = bookingQuestionAssignmentParameterValue?.questionId;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,38 @@ export class BookingQuestionAssignmentImpl implements BookingQuestionAssignment 
             "isRequired": n => { this.isRequired = n.getBooleanValue(); },
             "questionId": n => { this.questionId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the isRequired property value. Indicates whether it is mandatory to answer the custom question.
+     * @returns a boolean
+     */
+    public get isRequired() {
+        return this._isRequired;
+    };
+    /**
+     * Sets the isRequired property value. Indicates whether it is mandatory to answer the custom question.
+     * @param value Value to set for the isRequired property.
+     */
+    public set isRequired(value: boolean | undefined) {
+        if(value) {
+            this._isRequired = value;
+        }
+    };
+    /**
+     * Gets the questionId property value. If it is mandatory to answer the custom question.
+     * @returns a string
+     */
+    public get questionId() {
+        return this._questionId;
+    };
+    /**
+     * Sets the questionId property value. If it is mandatory to answer the custom question.
+     * @param value Value to set for the questionId property.
+     */
+    public set questionId(value: string | undefined) {
+        if(value) {
+            this._questionId = value;
+        }
     };
     /**
      * Serializes information the current object

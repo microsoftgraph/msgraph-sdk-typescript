@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method. */
 export class WipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl implements WipeManagedAppRegistrationsByDeviceTagPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The deviceTag property */
-    public deviceTag?: string | undefined;
+    private _deviceTag?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new wipeManagedAppRegistrationsByDeviceTagPostRequestBody and sets the default values.
      * @param wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue 
      */
     public constructor(wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined) {
-        this.additionalData = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData ? wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData! : {};
-        this.deviceTag = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.deviceTag;
+        this._additionalData = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData ? wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.additionalData! : {};
+        this._deviceTag = wipeManagedAppRegistrationsByDeviceTagPostRequestBodyParameterValue?.deviceTag;
+    };
+    /**
+     * Gets the deviceTag property value. The deviceTag property
+     * @returns a string
+     */
+    public get deviceTag() {
+        return this._deviceTag;
+    };
+    /**
+     * Sets the deviceTag property value. The deviceTag property
+     * @param value Value to set for the deviceTag property.
+     */
+    public set deviceTag(value: string | undefined) {
+        if(value) {
+            this._deviceTag = value;
+        }
     };
     /**
      * The deserialization information for the current model

@@ -6,14 +6,34 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProviderImpl implements SamlOrWsFedExternalDomainFederation {
     /** Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq). */
-    public domains?: ExternalDomainName[] | undefined;
+    private _domains?: ExternalDomainName[] | undefined;
     /**
      * Instantiates a new SamlOrWsFedExternalDomainFederation and sets the default values.
      * @param samlOrWsFedExternalDomainFederationParameterValue 
      */
     public constructor(samlOrWsFedExternalDomainFederationParameterValue?: SamlOrWsFedExternalDomainFederation | undefined) {
         super(samlOrWsFedExternalDomainFederationParameterValue);
-        this.domains = samlOrWsFedExternalDomainFederationParameterValue?.domains;
+        this._domains = samlOrWsFedExternalDomainFederationParameterValue?.domains;
+    };
+    /**
+     * Gets the domains property value. Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).
+     * @returns a ExternalDomainNameInterface
+     */
+    public get domains() {
+        return this._domains;
+    };
+    /**
+     * Sets the domains property value. Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).
+     * @param value Value to set for the domains property.
+     */
+    public set domains(value: ExternalDomainName[] | undefined) {
+        if(value) {
+            const domainsArrValue: ExternalDomainNameImpl[] = [];
+            this.domains?.forEach(element => {
+                domainsArrValue.push((element instanceof ExternalDomainNameImpl? element:new ExternalDomainNameImpl(element)));
+            });
+            this._domains = domainsArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +51,10 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.domains && this.domains.length != 0){        const domainsArrValue: ExternalDomainNameImpl[] = []; this.domains?.forEach(element => {domainsArrValue.push(new ExternalDomainNameImpl(element));});
+        if(this.domains && this.domains.length != 0){        const domainsArrValue: ExternalDomainNameImpl[] = [];
+        this.domains?.forEach(element => {
+            domainsArrValue.push((element instanceof ExternalDomainNameImpl? element:new ExternalDomainNameImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ExternalDomainNameImpl>("domains", domainsArrValue);
         }
     };

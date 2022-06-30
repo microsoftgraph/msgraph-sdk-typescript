@@ -6,20 +6,68 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Windows Information Protection AppLearning Summary entity. */
 export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityImpl implements WindowsInformationProtectionAppLearningSummary {
     /** Application Name */
-    public applicationName?: string | undefined;
+    private _applicationName?: string | undefined;
     /** Application Type. Possible values are: universal, desktop. */
-    public applicationType?: ApplicationType | undefined;
+    private _applicationType?: ApplicationType | undefined;
     /** Device Count */
-    public deviceCount?: number | undefined;
+    private _deviceCount?: number | undefined;
+    /**
+     * Gets the applicationName property value. Application Name
+     * @returns a string
+     */
+    public get applicationName() {
+        return this._applicationName;
+    };
+    /**
+     * Sets the applicationName property value. Application Name
+     * @param value Value to set for the applicationName property.
+     */
+    public set applicationName(value: string | undefined) {
+        if(value) {
+            this._applicationName = value;
+        }
+    };
+    /**
+     * Gets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * @returns a applicationType
+     */
+    public get applicationType() {
+        return this._applicationType;
+    };
+    /**
+     * Sets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * @param value Value to set for the applicationType property.
+     */
+    public set applicationType(value: ApplicationType | undefined) {
+        if(value) {
+            this._applicationType = value;
+        }
+    };
     /**
      * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
      * @param windowsInformationProtectionAppLearningSummaryParameterValue 
      */
     public constructor(windowsInformationProtectionAppLearningSummaryParameterValue?: WindowsInformationProtectionAppLearningSummary | undefined) {
         super(windowsInformationProtectionAppLearningSummaryParameterValue);
-        this.applicationName = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationName;
-        this.applicationType = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationType;
-        this.deviceCount = windowsInformationProtectionAppLearningSummaryParameterValue?.deviceCount;
+        this._applicationName = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationName;
+        this._applicationType = windowsInformationProtectionAppLearningSummaryParameterValue?.applicationType;
+        this._deviceCount = windowsInformationProtectionAppLearningSummaryParameterValue?.deviceCount;
+    };
+    /**
+     * Gets the deviceCount property value. Device Count
+     * @returns a integer
+     */
+    public get deviceCount() {
+        return this._deviceCount;
+    };
+    /**
+     * Sets the deviceCount property value. Device Count
+     * @param value Value to set for the deviceCount property.
+     */
+    public set deviceCount(value: number | undefined) {
+        if(value) {
+            this._deviceCount = value;
+        }
     };
     /**
      * The deserialization information for the current model

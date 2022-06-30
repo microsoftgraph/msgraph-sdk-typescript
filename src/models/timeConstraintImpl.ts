@@ -7,19 +7,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TimeConstraintImpl implements TimeConstraint {
     /** The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown. */
-    public activityDomain?: ActivityDomain | undefined;
+    private _activityDomain?: ActivityDomain | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The timeSlots property */
-    public timeSlots?: TimeSlot[] | undefined;
+    private _timeSlots?: TimeSlot[] | undefined;
+    /**
+     * Gets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * @returns a activityDomain
+     */
+    public get activityDomain() {
+        return this._activityDomain;
+    };
+    /**
+     * Sets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * @param value Value to set for the activityDomain property.
+     */
+    public set activityDomain(value: ActivityDomain | undefined) {
+        if(value) {
+            this._activityDomain = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new timeConstraint and sets the default values.
      * @param timeConstraintParameterValue 
      */
     public constructor(timeConstraintParameterValue?: TimeConstraint | undefined) {
-        this.activityDomain = timeConstraintParameterValue?.activityDomain;
-        this.additionalData = timeConstraintParameterValue?.additionalData ? timeConstraintParameterValue?.additionalData! : {};
-        this.timeSlots = timeConstraintParameterValue?.timeSlots;
+        this._activityDomain = timeConstraintParameterValue?.activityDomain;
+        this._additionalData = timeConstraintParameterValue?.additionalData ? timeConstraintParameterValue?.additionalData! : {};
+        this._timeSlots = timeConstraintParameterValue?.timeSlots;
     };
     /**
      * The deserialization information for the current model
@@ -40,9 +72,32 @@ export class TimeConstraintImpl implements TimeConstraint {
         if(this.activityDomain){
             writer.writeEnumValue<ActivityDomain>("activityDomain", this.activityDomain);
         }
-        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeSlotImpl[] = []; this.timeSlots?.forEach(element => {timeSlotsArrValue.push(new TimeSlotImpl(element));});
+        if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeSlotImpl[] = [];
+        this.timeSlots?.forEach(element => {
+            timeSlotsArrValue.push((element instanceof TimeSlotImpl? element:new TimeSlotImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<TimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the timeSlots property value. The timeSlots property
+     * @returns a TimeSlotInterface
+     */
+    public get timeSlots() {
+        return this._timeSlots;
+    };
+    /**
+     * Sets the timeSlots property value. The timeSlots property
+     * @param value Value to set for the timeSlots property.
+     */
+    public set timeSlots(value: TimeSlot[] | undefined) {
+        if(value) {
+            const timeSlotsArrValue: TimeSlotImpl[] = [];
+            this.timeSlots?.forEach(element => {
+                timeSlotsArrValue.push((element instanceof TimeSlotImpl? element:new TimeSlotImpl(element)));
+            });
+            this._timeSlots = timeSlotsArrValue;
+        }
     };
 }

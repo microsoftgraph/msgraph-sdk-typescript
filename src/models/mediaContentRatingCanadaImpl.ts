@@ -5,19 +5,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaContentRatingCanadaImpl implements MediaContentRatingCanada {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Movies rating selected for Canada. Possible values are: allAllowed, allBlocked, general, parentalGuidance, agesAbove14, agesAbove18, restricted. */
-    public movieRating?: RatingCanadaMoviesType | undefined;
+    private _movieRating?: RatingCanadaMoviesType | undefined;
     /** TV rating selected for Canada. Possible values are: allAllowed, allBlocked, children, childrenAbove8, general, parentalGuidance, agesAbove14, agesAbove18. */
-    public tvRating?: RatingCanadaTelevisionType | undefined;
+    private _tvRating?: RatingCanadaTelevisionType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mediaContentRatingCanada and sets the default values.
      * @param mediaContentRatingCanadaParameterValue 
      */
     public constructor(mediaContentRatingCanadaParameterValue?: MediaContentRatingCanada | undefined) {
-        this.additionalData = mediaContentRatingCanadaParameterValue?.additionalData ? mediaContentRatingCanadaParameterValue?.additionalData! : {};
-        this.movieRating = mediaContentRatingCanadaParameterValue?.movieRating;
-        this.tvRating = mediaContentRatingCanadaParameterValue?.tvRating;
+        this._additionalData = mediaContentRatingCanadaParameterValue?.additionalData ? mediaContentRatingCanadaParameterValue?.additionalData! : {};
+        this._movieRating = mediaContentRatingCanadaParameterValue?.movieRating;
+        this._tvRating = mediaContentRatingCanadaParameterValue?.tvRating;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +44,22 @@ export class MediaContentRatingCanadaImpl implements MediaContentRatingCanada {
             "movieRating": n => { this.movieRating = n.getEnumValue<RatingCanadaMoviesType>(RatingCanadaMoviesType); },
             "tvRating": n => { this.tvRating = n.getEnumValue<RatingCanadaTelevisionType>(RatingCanadaTelevisionType); },
         };
+    };
+    /**
+     * Gets the movieRating property value. Movies rating selected for Canada. Possible values are: allAllowed, allBlocked, general, parentalGuidance, agesAbove14, agesAbove18, restricted.
+     * @returns a ratingCanadaMoviesType
+     */
+    public get movieRating() {
+        return this._movieRating;
+    };
+    /**
+     * Sets the movieRating property value. Movies rating selected for Canada. Possible values are: allAllowed, allBlocked, general, parentalGuidance, agesAbove14, agesAbove18, restricted.
+     * @param value Value to set for the movieRating property.
+     */
+    public set movieRating(value: RatingCanadaMoviesType | undefined) {
+        if(value) {
+            this._movieRating = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -42,5 +74,21 @@ export class MediaContentRatingCanadaImpl implements MediaContentRatingCanada {
             writer.writeEnumValue<RatingCanadaTelevisionType>("tvRating", this.tvRating);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the tvRating property value. TV rating selected for Canada. Possible values are: allAllowed, allBlocked, children, childrenAbove8, general, parentalGuidance, agesAbove14, agesAbove18.
+     * @returns a ratingCanadaTelevisionType
+     */
+    public get tvRating() {
+        return this._tvRating;
+    };
+    /**
+     * Sets the tvRating property value. TV rating selected for Canada. Possible values are: allAllowed, allBlocked, children, childrenAbove8, general, parentalGuidance, agesAbove14, agesAbove18.
+     * @param value Value to set for the tvRating property.
+     */
+    public set tvRating(value: RatingCanadaTelevisionType | undefined) {
+        if(value) {
+            this._tvRating = value;
+        }
     };
 }

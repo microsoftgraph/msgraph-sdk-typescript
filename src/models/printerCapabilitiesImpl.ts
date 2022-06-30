@@ -6,88 +6,248 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrinterCapabilitiesImpl implements PrinterCapabilities {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A list of supported bottom margins(in microns) for the printer. */
-    public bottomMargins?: number[] | undefined;
+    private _bottomMargins?: number[] | undefined;
     /** True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise. */
-    public collation?: boolean | undefined;
+    private _collation?: boolean | undefined;
     /** The color modes supported by the printer. Valid values are described in the following table. */
-    public colorModes?: string[] | undefined;
+    private _colorModes?: string[] | undefined;
     /** A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types. */
-    public contentTypes?: string[] | undefined;
+    private _contentTypes?: string[] | undefined;
     /** The range of copies per job supported by the printer. */
-    public copiesPerJob?: IntegerRange | undefined;
+    private _copiesPerJob?: IntegerRange | undefined;
     /** The list of print resolutions in DPI that are supported by the printer. */
-    public dpis?: number[] | undefined;
+    private _dpis?: number[] | undefined;
     /** The list of duplex modes that are supported by the printer. Valid values are described in the following table. */
-    public duplexModes?: string[] | undefined;
+    private _duplexModes?: string[] | undefined;
     /** The list of feed orientations that are supported by the printer. */
-    public feedOrientations?: string[] | undefined;
+    private _feedOrientations?: string[] | undefined;
     /** Finishing processes the printer supports for a printed document. */
-    public finishings?: string[] | undefined;
+    private _finishings?: string[] | undefined;
     /** Supported input bins for the printer. */
-    public inputBins?: string[] | undefined;
+    private _inputBins?: string[] | undefined;
     /** True if color printing is supported by the printer; false otherwise. Read-only. */
-    public isColorPrintingSupported?: boolean | undefined;
+    private _isColorPrintingSupported?: boolean | undefined;
     /** True if the printer supports printing by page ranges; false otherwise. */
-    public isPageRangeSupported?: boolean | undefined;
+    private _isPageRangeSupported?: boolean | undefined;
     /** A list of supported left margins(in microns) for the printer. */
-    public leftMargins?: number[] | undefined;
+    private _leftMargins?: number[] | undefined;
     /** The media (i.e., paper) colors supported by the printer. */
-    public mediaColors?: string[] | undefined;
+    private _mediaColors?: string[] | undefined;
     /** The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table. */
-    public mediaSizes?: string[] | undefined;
+    private _mediaSizes?: string[] | undefined;
     /** The media types supported by the printer. */
-    public mediaTypes?: string[] | undefined;
+    private _mediaTypes?: string[] | undefined;
     /** The presentation directions supported by the printer. Supported values are described in the following table. */
-    public multipageLayouts?: string[] | undefined;
+    private _multipageLayouts?: string[] | undefined;
     /** The print orientations supported by the printer. Valid values are described in the following table. */
-    public orientations?: string[] | undefined;
+    private _orientations?: string[] | undefined;
     /** The printer's supported output bins (trays). */
-    public outputBins?: string[] | undefined;
+    private _outputBins?: string[] | undefined;
     /** Supported number of Input Pages to impose upon a single Impression. */
-    public pagesPerSheet?: number[] | undefined;
+    private _pagesPerSheet?: number[] | undefined;
     /** The print qualities supported by the printer. */
-    public qualities?: string[] | undefined;
+    private _qualities?: string[] | undefined;
     /** A list of supported right margins(in microns) for the printer. */
-    public rightMargins?: number[] | undefined;
+    private _rightMargins?: number[] | undefined;
     /** Supported print scalings. */
-    public scalings?: string[] | undefined;
+    private _scalings?: string[] | undefined;
     /** True if the printer supports scaling PDF pages to match the print media size; false otherwise. */
-    public supportsFitPdfToPage?: boolean | undefined;
+    private _supportsFitPdfToPage?: boolean | undefined;
     /** A list of supported top margins(in microns) for the printer. */
-    public topMargins?: number[] | undefined;
+    private _topMargins?: number[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the bottomMargins property value. A list of supported bottom margins(in microns) for the printer.
+     * @returns a integer
+     */
+    public get bottomMargins() {
+        return this._bottomMargins;
+    };
+    /**
+     * Sets the bottomMargins property value. A list of supported bottom margins(in microns) for the printer.
+     * @param value Value to set for the bottomMargins property.
+     */
+    public set bottomMargins(value: number[] | undefined) {
+        if(value) {
+            this._bottomMargins = value;
+        }
+    };
+    /**
+     * Gets the collation property value. True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise.
+     * @returns a boolean
+     */
+    public get collation() {
+        return this._collation;
+    };
+    /**
+     * Sets the collation property value. True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise.
+     * @param value Value to set for the collation property.
+     */
+    public set collation(value: boolean | undefined) {
+        if(value) {
+            this._collation = value;
+        }
+    };
+    /**
+     * Gets the colorModes property value. The color modes supported by the printer. Valid values are described in the following table.
+     * @returns a string
+     */
+    public get colorModes() {
+        return this._colorModes;
+    };
+    /**
+     * Sets the colorModes property value. The color modes supported by the printer. Valid values are described in the following table.
+     * @param value Value to set for the colorModes property.
+     */
+    public set colorModes(value: string[] | undefined) {
+        if(value) {
+            this._colorModes = value;
+        }
+    };
     /**
      * Instantiates a new printerCapabilities and sets the default values.
      * @param printerCapabilitiesParameterValue 
      */
     public constructor(printerCapabilitiesParameterValue?: PrinterCapabilities | undefined) {
-        this.additionalData = printerCapabilitiesParameterValue?.additionalData ? printerCapabilitiesParameterValue?.additionalData! : {};
-        this.bottomMargins = printerCapabilitiesParameterValue?.bottomMargins;
-        this.collation = printerCapabilitiesParameterValue?.collation;
-        this.colorModes = printerCapabilitiesParameterValue?.colorModes;
-        this.contentTypes = printerCapabilitiesParameterValue?.contentTypes;
-        this.copiesPerJob = printerCapabilitiesParameterValue?.copiesPerJob;
-        this.dpis = printerCapabilitiesParameterValue?.dpis;
-        this.duplexModes = printerCapabilitiesParameterValue?.duplexModes;
-        this.feedOrientations = printerCapabilitiesParameterValue?.feedOrientations;
-        this.finishings = printerCapabilitiesParameterValue?.finishings;
-        this.inputBins = printerCapabilitiesParameterValue?.inputBins;
-        this.isColorPrintingSupported = printerCapabilitiesParameterValue?.isColorPrintingSupported;
-        this.isPageRangeSupported = printerCapabilitiesParameterValue?.isPageRangeSupported;
-        this.leftMargins = printerCapabilitiesParameterValue?.leftMargins;
-        this.mediaColors = printerCapabilitiesParameterValue?.mediaColors;
-        this.mediaSizes = printerCapabilitiesParameterValue?.mediaSizes;
-        this.mediaTypes = printerCapabilitiesParameterValue?.mediaTypes;
-        this.multipageLayouts = printerCapabilitiesParameterValue?.multipageLayouts;
-        this.orientations = printerCapabilitiesParameterValue?.orientations;
-        this.outputBins = printerCapabilitiesParameterValue?.outputBins;
-        this.pagesPerSheet = printerCapabilitiesParameterValue?.pagesPerSheet;
-        this.qualities = printerCapabilitiesParameterValue?.qualities;
-        this.rightMargins = printerCapabilitiesParameterValue?.rightMargins;
-        this.scalings = printerCapabilitiesParameterValue?.scalings;
-        this.supportsFitPdfToPage = printerCapabilitiesParameterValue?.supportsFitPdfToPage;
-        this.topMargins = printerCapabilitiesParameterValue?.topMargins;
+        this._additionalData = printerCapabilitiesParameterValue?.additionalData ? printerCapabilitiesParameterValue?.additionalData! : {};
+        this._bottomMargins = printerCapabilitiesParameterValue?.bottomMargins;
+        this._collation = printerCapabilitiesParameterValue?.collation;
+        this._colorModes = printerCapabilitiesParameterValue?.colorModes;
+        this._contentTypes = printerCapabilitiesParameterValue?.contentTypes;
+        this._copiesPerJob = printerCapabilitiesParameterValue?.copiesPerJob;
+        this._dpis = printerCapabilitiesParameterValue?.dpis;
+        this._duplexModes = printerCapabilitiesParameterValue?.duplexModes;
+        this._feedOrientations = printerCapabilitiesParameterValue?.feedOrientations;
+        this._finishings = printerCapabilitiesParameterValue?.finishings;
+        this._inputBins = printerCapabilitiesParameterValue?.inputBins;
+        this._isColorPrintingSupported = printerCapabilitiesParameterValue?.isColorPrintingSupported;
+        this._isPageRangeSupported = printerCapabilitiesParameterValue?.isPageRangeSupported;
+        this._leftMargins = printerCapabilitiesParameterValue?.leftMargins;
+        this._mediaColors = printerCapabilitiesParameterValue?.mediaColors;
+        this._mediaSizes = printerCapabilitiesParameterValue?.mediaSizes;
+        this._mediaTypes = printerCapabilitiesParameterValue?.mediaTypes;
+        this._multipageLayouts = printerCapabilitiesParameterValue?.multipageLayouts;
+        this._orientations = printerCapabilitiesParameterValue?.orientations;
+        this._outputBins = printerCapabilitiesParameterValue?.outputBins;
+        this._pagesPerSheet = printerCapabilitiesParameterValue?.pagesPerSheet;
+        this._qualities = printerCapabilitiesParameterValue?.qualities;
+        this._rightMargins = printerCapabilitiesParameterValue?.rightMargins;
+        this._scalings = printerCapabilitiesParameterValue?.scalings;
+        this._supportsFitPdfToPage = printerCapabilitiesParameterValue?.supportsFitPdfToPage;
+        this._topMargins = printerCapabilitiesParameterValue?.topMargins;
+    };
+    /**
+     * Gets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
+     * @returns a string
+     */
+    public get contentTypes() {
+        return this._contentTypes;
+    };
+    /**
+     * Sets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
+     * @param value Value to set for the contentTypes property.
+     */
+    public set contentTypes(value: string[] | undefined) {
+        if(value) {
+            this._contentTypes = value;
+        }
+    };
+    /**
+     * Gets the copiesPerJob property value. The range of copies per job supported by the printer.
+     * @returns a IntegerRangeInterface
+     */
+    public get copiesPerJob() {
+        return this._copiesPerJob;
+    };
+    /**
+     * Sets the copiesPerJob property value. The range of copies per job supported by the printer.
+     * @param value Value to set for the copiesPerJob property.
+     */
+    public set copiesPerJob(value: IntegerRange | undefined) {
+        if(value) {
+            this._copiesPerJob = value instanceof IntegerRangeImpl? value : new IntegerRangeImpl(value);
+        }
+    };
+    /**
+     * Gets the dpis property value. The list of print resolutions in DPI that are supported by the printer.
+     * @returns a integer
+     */
+    public get dpis() {
+        return this._dpis;
+    };
+    /**
+     * Sets the dpis property value. The list of print resolutions in DPI that are supported by the printer.
+     * @param value Value to set for the dpis property.
+     */
+    public set dpis(value: number[] | undefined) {
+        if(value) {
+            this._dpis = value;
+        }
+    };
+    /**
+     * Gets the duplexModes property value. The list of duplex modes that are supported by the printer. Valid values are described in the following table.
+     * @returns a string
+     */
+    public get duplexModes() {
+        return this._duplexModes;
+    };
+    /**
+     * Sets the duplexModes property value. The list of duplex modes that are supported by the printer. Valid values are described in the following table.
+     * @param value Value to set for the duplexModes property.
+     */
+    public set duplexModes(value: string[] | undefined) {
+        if(value) {
+            this._duplexModes = value;
+        }
+    };
+    /**
+     * Gets the feedOrientations property value. The list of feed orientations that are supported by the printer.
+     * @returns a string
+     */
+    public get feedOrientations() {
+        return this._feedOrientations;
+    };
+    /**
+     * Sets the feedOrientations property value. The list of feed orientations that are supported by the printer.
+     * @param value Value to set for the feedOrientations property.
+     */
+    public set feedOrientations(value: string[] | undefined) {
+        if(value) {
+            this._feedOrientations = value;
+        }
+    };
+    /**
+     * Gets the finishings property value. Finishing processes the printer supports for a printed document.
+     * @returns a string
+     */
+    public get finishings() {
+        return this._finishings;
+    };
+    /**
+     * Sets the finishings property value. Finishing processes the printer supports for a printed document.
+     * @param value Value to set for the finishings property.
+     */
+    public set finishings(value: string[] | undefined) {
+        if(value) {
+            this._finishings = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -123,6 +283,230 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
         };
     };
     /**
+     * Gets the inputBins property value. Supported input bins for the printer.
+     * @returns a string
+     */
+    public get inputBins() {
+        return this._inputBins;
+    };
+    /**
+     * Sets the inputBins property value. Supported input bins for the printer.
+     * @param value Value to set for the inputBins property.
+     */
+    public set inputBins(value: string[] | undefined) {
+        if(value) {
+            this._inputBins = value;
+        }
+    };
+    /**
+     * Gets the isColorPrintingSupported property value. True if color printing is supported by the printer; false otherwise. Read-only.
+     * @returns a boolean
+     */
+    public get isColorPrintingSupported() {
+        return this._isColorPrintingSupported;
+    };
+    /**
+     * Sets the isColorPrintingSupported property value. True if color printing is supported by the printer; false otherwise. Read-only.
+     * @param value Value to set for the isColorPrintingSupported property.
+     */
+    public set isColorPrintingSupported(value: boolean | undefined) {
+        if(value) {
+            this._isColorPrintingSupported = value;
+        }
+    };
+    /**
+     * Gets the isPageRangeSupported property value. True if the printer supports printing by page ranges; false otherwise.
+     * @returns a boolean
+     */
+    public get isPageRangeSupported() {
+        return this._isPageRangeSupported;
+    };
+    /**
+     * Sets the isPageRangeSupported property value. True if the printer supports printing by page ranges; false otherwise.
+     * @param value Value to set for the isPageRangeSupported property.
+     */
+    public set isPageRangeSupported(value: boolean | undefined) {
+        if(value) {
+            this._isPageRangeSupported = value;
+        }
+    };
+    /**
+     * Gets the leftMargins property value. A list of supported left margins(in microns) for the printer.
+     * @returns a integer
+     */
+    public get leftMargins() {
+        return this._leftMargins;
+    };
+    /**
+     * Sets the leftMargins property value. A list of supported left margins(in microns) for the printer.
+     * @param value Value to set for the leftMargins property.
+     */
+    public set leftMargins(value: number[] | undefined) {
+        if(value) {
+            this._leftMargins = value;
+        }
+    };
+    /**
+     * Gets the mediaColors property value. The media (i.e., paper) colors supported by the printer.
+     * @returns a string
+     */
+    public get mediaColors() {
+        return this._mediaColors;
+    };
+    /**
+     * Sets the mediaColors property value. The media (i.e., paper) colors supported by the printer.
+     * @param value Value to set for the mediaColors property.
+     */
+    public set mediaColors(value: string[] | undefined) {
+        if(value) {
+            this._mediaColors = value;
+        }
+    };
+    /**
+     * Gets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
+     * @returns a string
+     */
+    public get mediaSizes() {
+        return this._mediaSizes;
+    };
+    /**
+     * Sets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
+     * @param value Value to set for the mediaSizes property.
+     */
+    public set mediaSizes(value: string[] | undefined) {
+        if(value) {
+            this._mediaSizes = value;
+        }
+    };
+    /**
+     * Gets the mediaTypes property value. The media types supported by the printer.
+     * @returns a string
+     */
+    public get mediaTypes() {
+        return this._mediaTypes;
+    };
+    /**
+     * Sets the mediaTypes property value. The media types supported by the printer.
+     * @param value Value to set for the mediaTypes property.
+     */
+    public set mediaTypes(value: string[] | undefined) {
+        if(value) {
+            this._mediaTypes = value;
+        }
+    };
+    /**
+     * Gets the multipageLayouts property value. The presentation directions supported by the printer. Supported values are described in the following table.
+     * @returns a string
+     */
+    public get multipageLayouts() {
+        return this._multipageLayouts;
+    };
+    /**
+     * Sets the multipageLayouts property value. The presentation directions supported by the printer. Supported values are described in the following table.
+     * @param value Value to set for the multipageLayouts property.
+     */
+    public set multipageLayouts(value: string[] | undefined) {
+        if(value) {
+            this._multipageLayouts = value;
+        }
+    };
+    /**
+     * Gets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
+     * @returns a string
+     */
+    public get orientations() {
+        return this._orientations;
+    };
+    /**
+     * Sets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
+     * @param value Value to set for the orientations property.
+     */
+    public set orientations(value: string[] | undefined) {
+        if(value) {
+            this._orientations = value;
+        }
+    };
+    /**
+     * Gets the outputBins property value. The printer's supported output bins (trays).
+     * @returns a string
+     */
+    public get outputBins() {
+        return this._outputBins;
+    };
+    /**
+     * Sets the outputBins property value. The printer's supported output bins (trays).
+     * @param value Value to set for the outputBins property.
+     */
+    public set outputBins(value: string[] | undefined) {
+        if(value) {
+            this._outputBins = value;
+        }
+    };
+    /**
+     * Gets the pagesPerSheet property value. Supported number of Input Pages to impose upon a single Impression.
+     * @returns a integer
+     */
+    public get pagesPerSheet() {
+        return this._pagesPerSheet;
+    };
+    /**
+     * Sets the pagesPerSheet property value. Supported number of Input Pages to impose upon a single Impression.
+     * @param value Value to set for the pagesPerSheet property.
+     */
+    public set pagesPerSheet(value: number[] | undefined) {
+        if(value) {
+            this._pagesPerSheet = value;
+        }
+    };
+    /**
+     * Gets the qualities property value. The print qualities supported by the printer.
+     * @returns a string
+     */
+    public get qualities() {
+        return this._qualities;
+    };
+    /**
+     * Sets the qualities property value. The print qualities supported by the printer.
+     * @param value Value to set for the qualities property.
+     */
+    public set qualities(value: string[] | undefined) {
+        if(value) {
+            this._qualities = value;
+        }
+    };
+    /**
+     * Gets the rightMargins property value. A list of supported right margins(in microns) for the printer.
+     * @returns a integer
+     */
+    public get rightMargins() {
+        return this._rightMargins;
+    };
+    /**
+     * Sets the rightMargins property value. A list of supported right margins(in microns) for the printer.
+     * @param value Value to set for the rightMargins property.
+     */
+    public set rightMargins(value: number[] | undefined) {
+        if(value) {
+            this._rightMargins = value;
+        }
+    };
+    /**
+     * Gets the scalings property value. Supported print scalings.
+     * @returns a string
+     */
+    public get scalings() {
+        return this._scalings;
+    };
+    /**
+     * Sets the scalings property value. Supported print scalings.
+     * @param value Value to set for the scalings property.
+     */
+    public set scalings(value: string[] | undefined) {
+        if(value) {
+            this._scalings = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -141,7 +525,7 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
             writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
         }
         if(this.copiesPerJob){
-            writer.writeObjectValue<IntegerRangeImpl>("copiesPerJob", new IntegerRangeImpl(this.copiesPerJob));
+            writer.writeObjectValue<IntegerRangeImpl>("copiesPerJob", (!this.copiesPerJob || this.copiesPerJob instanceof IntegerRangeImpl? this.copiesPerJob : new IntegerRangeImpl(this.copiesPerJob)));
         }
         if(this.dpis){
             writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);
@@ -204,5 +588,37 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
             writer.writeCollectionOfPrimitiveValues<number>("topMargins", this.topMargins);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the supportsFitPdfToPage property value. True if the printer supports scaling PDF pages to match the print media size; false otherwise.
+     * @returns a boolean
+     */
+    public get supportsFitPdfToPage() {
+        return this._supportsFitPdfToPage;
+    };
+    /**
+     * Sets the supportsFitPdfToPage property value. True if the printer supports scaling PDF pages to match the print media size; false otherwise.
+     * @param value Value to set for the supportsFitPdfToPage property.
+     */
+    public set supportsFitPdfToPage(value: boolean | undefined) {
+        if(value) {
+            this._supportsFitPdfToPage = value;
+        }
+    };
+    /**
+     * Gets the topMargins property value. A list of supported top margins(in microns) for the printer.
+     * @returns a integer
+     */
+    public get topMargins() {
+        return this._topMargins;
+    };
+    /**
+     * Sets the topMargins property value. A list of supported top margins(in microns) for the printer.
+     * @param value Value to set for the topMargins property.
+     */
+    public set topMargins(value: number[] | undefined) {
+        if(value) {
+            this._topMargins = value;
+        }
     };
 }

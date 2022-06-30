@@ -14,35 +14,115 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the informationProtection singleton. */
 export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAssessmentRequest {
     /** The threat category. Possible values are: spam, phishing, malware. */
-    public category?: ThreatCategory | undefined;
+    private _category?: ThreatCategory | undefined;
     /** The content type of threat assessment. Possible values are: mail, url, file. */
-    public contentType?: ThreatAssessmentContentType | undefined;
+    private _contentType?: ThreatAssessmentContentType | undefined;
     /** The threat assessment request creator. */
-    public createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The expected assessment from submitter. Possible values are: block, unblock. */
-    public expectedAssessment?: ThreatExpectedAssessment | undefined;
+    private _expectedAssessment?: ThreatExpectedAssessment | undefined;
     /** The source of the threat assessment request. Possible values are: user, administrator. */
-    public requestSource?: ThreatAssessmentRequestSource | undefined;
+    private _requestSource?: ThreatAssessmentRequestSource | undefined;
     /** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
-    public results?: ThreatAssessmentResult[] | undefined;
+    private _results?: ThreatAssessmentResult[] | undefined;
     /** The assessment process status. Possible values are: pending, completed. */
-    public status?: ThreatAssessmentStatus | undefined;
+    private _status?: ThreatAssessmentStatus | undefined;
+    /**
+     * Gets the category property value. The threat category. Possible values are: spam, phishing, malware.
+     * @returns a threatCategory
+     */
+    public get category() {
+        return this._category;
+    };
+    /**
+     * Sets the category property value. The threat category. Possible values are: spam, phishing, malware.
+     * @param value Value to set for the category property.
+     */
+    public set category(value: ThreatCategory | undefined) {
+        if(value) {
+            this._category = value;
+        }
+    };
     /**
      * Instantiates a new threatAssessmentRequest and sets the default values.
      * @param threatAssessmentRequestParameterValue 
      */
     public constructor(threatAssessmentRequestParameterValue?: ThreatAssessmentRequest | undefined) {
         super(threatAssessmentRequestParameterValue);
-        this.category = threatAssessmentRequestParameterValue?.category;
-        this.contentType = threatAssessmentRequestParameterValue?.contentType;
-        this.createdBy = threatAssessmentRequestParameterValue?.createdBy;
-        this.createdDateTime = threatAssessmentRequestParameterValue?.createdDateTime;
-        this.expectedAssessment = threatAssessmentRequestParameterValue?.expectedAssessment;
-        this.requestSource = threatAssessmentRequestParameterValue?.requestSource;
-        this.results = threatAssessmentRequestParameterValue?.results;
-        this.status = threatAssessmentRequestParameterValue?.status;
+        this._category = threatAssessmentRequestParameterValue?.category;
+        this._contentType = threatAssessmentRequestParameterValue?.contentType;
+        this._createdBy = threatAssessmentRequestParameterValue?.createdBy;
+        this._createdDateTime = threatAssessmentRequestParameterValue?.createdDateTime;
+        this._expectedAssessment = threatAssessmentRequestParameterValue?.expectedAssessment;
+        this._requestSource = threatAssessmentRequestParameterValue?.requestSource;
+        this._results = threatAssessmentRequestParameterValue?.results;
+        this._status = threatAssessmentRequestParameterValue?.status;
+    };
+    /**
+     * Gets the contentType property value. The content type of threat assessment. Possible values are: mail, url, file.
+     * @returns a threatAssessmentContentType
+     */
+    public get contentType() {
+        return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. The content type of threat assessment. Possible values are: mail, url, file.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: ThreatAssessmentContentType | undefined) {
+        if(value) {
+            this._contentType = value;
+        }
+    };
+    /**
+     * Gets the createdBy property value. The threat assessment request creator.
+     * @returns a IdentitySetInterface
+     */
+    public get createdBy() {
+        return this._createdBy;
+    };
+    /**
+     * Sets the createdBy property value. The threat assessment request creator.
+     * @param value Value to set for the createdBy property.
+     */
+    public set createdBy(value: IdentitySet | undefined) {
+        if(value) {
+            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the expectedAssessment property value. The expected assessment from submitter. Possible values are: block, unblock.
+     * @returns a threatExpectedAssessment
+     */
+    public get expectedAssessment() {
+        return this._expectedAssessment;
+    };
+    /**
+     * Sets the expectedAssessment property value. The expected assessment from submitter. Possible values are: block, unblock.
+     * @param value Value to set for the expectedAssessment property.
+     */
+    public set expectedAssessment(value: ThreatExpectedAssessment | undefined) {
+        if(value) {
+            this._expectedAssessment = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -61,6 +141,42 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         };
     };
     /**
+     * Gets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
+     * @returns a threatAssessmentRequestSource
+     */
+    public get requestSource() {
+        return this._requestSource;
+    };
+    /**
+     * Sets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
+     * @param value Value to set for the requestSource property.
+     */
+    public set requestSource(value: ThreatAssessmentRequestSource | undefined) {
+        if(value) {
+            this._requestSource = value;
+        }
+    };
+    /**
+     * Gets the results property value. A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
+     * @returns a ThreatAssessmentResultInterface
+     */
+    public get results() {
+        return this._results;
+    };
+    /**
+     * Sets the results property value. A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
+     * @param value Value to set for the results property.
+     */
+    public set results(value: ThreatAssessmentResult[] | undefined) {
+        if(value) {
+            const resultsArrValue: ThreatAssessmentResultImpl[] = [];
+            this.results?.forEach(element => {
+                resultsArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+            });
+            this._results = resultsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -74,7 +190,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
             writer.writeEnumValue<ThreatAssessmentContentType>("contentType", this.contentType);
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", new IdentitySetImpl(this.createdBy));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -85,11 +201,30 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         if(this.requestSource){
             writer.writeEnumValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
         }
-        if(this.results && this.results.length != 0){        const resultsArrValue: ThreatAssessmentResultImpl[] = []; this.results?.forEach(element => {resultsArrValue.push(new ThreatAssessmentResultImpl(element));});
+        if(this.results && this.results.length != 0){        const resultsArrValue: ThreatAssessmentResultImpl[] = [];
+        this.results?.forEach(element => {
+            resultsArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("results", resultsArrValue);
         }
         if(this.status){
             writer.writeEnumValue<ThreatAssessmentStatus>("status", this.status);
+        }
+    };
+    /**
+     * Gets the status property value. The assessment process status. Possible values are: pending, completed.
+     * @returns a threatAssessmentStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The assessment process status. Possible values are: pending, completed.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: ThreatAssessmentStatus | undefined) {
+        if(value) {
+            this._status = value;
         }
     };
 }

@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** User group targeting for Compliance Management Partner */
 export class ComplianceManagementPartnerAssignmentImpl implements ComplianceManagementPartnerAssignment {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Group assignment target. */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new complianceManagementPartnerAssignment and sets the default values.
      * @param complianceManagementPartnerAssignmentParameterValue 
      */
     public constructor(complianceManagementPartnerAssignmentParameterValue?: ComplianceManagementPartnerAssignment | undefined) {
-        this.additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? complianceManagementPartnerAssignmentParameterValue?.additionalData! : {};
-        this.target = complianceManagementPartnerAssignmentParameterValue?.target;
+        this._additionalData = complianceManagementPartnerAssignmentParameterValue?.additionalData ? complianceManagementPartnerAssignmentParameterValue?.additionalData! : {};
+        this._target = complianceManagementPartnerAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -34,8 +50,24 @@ export class ComplianceManagementPartnerAssignmentImpl implements ComplianceMana
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the target property value. Group assignment target.
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. Group assignment target.
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
+        }
     };
 }

@@ -3,22 +3,38 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DomainStateImpl implements DomainState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes. */
-    public lastActionDateTime?: Date | undefined;
+    private _lastActionDateTime?: Date | undefined;
     /** Type of asynchronous operation. The values can be ForceDelete or Verification */
-    public operation?: string | undefined;
+    private _operation?: string | undefined;
     /** Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed. */
-    public status?: string | undefined;
+    private _status?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new domainState and sets the default values.
      * @param domainStateParameterValue 
      */
     public constructor(domainStateParameterValue?: DomainState | undefined) {
-        this.additionalData = domainStateParameterValue?.additionalData ? domainStateParameterValue?.additionalData! : {};
-        this.lastActionDateTime = domainStateParameterValue?.lastActionDateTime;
-        this.operation = domainStateParameterValue?.operation;
-        this.status = domainStateParameterValue?.status;
+        this._additionalData = domainStateParameterValue?.additionalData ? domainStateParameterValue?.additionalData! : {};
+        this._lastActionDateTime = domainStateParameterValue?.lastActionDateTime;
+        this._operation = domainStateParameterValue?.operation;
+        this._status = domainStateParameterValue?.status;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,38 @@ export class DomainStateImpl implements DomainState {
             "operation": n => { this.operation = n.getStringValue(); },
             "status": n => { this.status = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the lastActionDateTime property value. Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
+     * @returns a Date
+     */
+    public get lastActionDateTime() {
+        return this._lastActionDateTime;
+    };
+    /**
+     * Sets the lastActionDateTime property value. Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
+     * @param value Value to set for the lastActionDateTime property.
+     */
+    public set lastActionDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastActionDateTime = value;
+        }
+    };
+    /**
+     * Gets the operation property value. Type of asynchronous operation. The values can be ForceDelete or Verification
+     * @returns a string
+     */
+    public get operation() {
+        return this._operation;
+    };
+    /**
+     * Sets the operation property value. Type of asynchronous operation. The values can be ForceDelete or Verification
+     * @param value Value to set for the operation property.
+     */
+    public set operation(value: string | undefined) {
+        if(value) {
+            this._operation = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +95,21 @@ export class DomainStateImpl implements DomainState {
             writer.writeStringValue("status", this.status);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the status property value. Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
+     * @returns a string
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: string | undefined) {
+        if(value) {
+            this._status = value;
+        }
     };
 }

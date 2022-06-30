@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CallOptionsImpl implements CallOptions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The hideBotAfterEscalation property */
-    public hideBotAfterEscalation?: boolean | undefined;
+    private _hideBotAfterEscalation?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new callOptions and sets the default values.
      * @param callOptionsParameterValue 
      */
     public constructor(callOptionsParameterValue?: CallOptions | undefined) {
-        this.additionalData = callOptionsParameterValue?.additionalData ? callOptionsParameterValue?.additionalData! : {};
-        this.hideBotAfterEscalation = callOptionsParameterValue?.hideBotAfterEscalation;
+        this._additionalData = callOptionsParameterValue?.additionalData ? callOptionsParameterValue?.additionalData! : {};
+        this._hideBotAfterEscalation = callOptionsParameterValue?.hideBotAfterEscalation;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class CallOptionsImpl implements CallOptions {
         return {
             "hideBotAfterEscalation": n => { this.hideBotAfterEscalation = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the hideBotAfterEscalation property value. The hideBotAfterEscalation property
+     * @returns a boolean
+     */
+    public get hideBotAfterEscalation() {
+        return this._hideBotAfterEscalation;
+    };
+    /**
+     * Sets the hideBotAfterEscalation property value. The hideBotAfterEscalation property
+     * @param value Value to set for the hideBotAfterEscalation property.
+     */
+    public set hideBotAfterEscalation(value: boolean | undefined) {
+        if(value) {
+            this._hideBotAfterEscalation = value;
+        }
     };
     /**
      * Serializes information the current object

@@ -6,20 +6,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to call the instantiate method. */
 export class DelegatedPermissionClassificationImpl extends EntityImpl implements DelegatedPermissionClassification {
     /** The classification value being given. Possible value: low. Does not support $filter. */
-    public classification?: PermissionClassificationType | undefined;
+    private _classification?: PermissionClassificationType | undefined;
     /** The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter. */
-    public permissionId?: string | undefined;
+    private _permissionId?: string | undefined;
     /** The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter. */
-    public permissionName?: string | undefined;
+    private _permissionName?: string | undefined;
+    /**
+     * Gets the classification property value. The classification value being given. Possible value: low. Does not support $filter.
+     * @returns a permissionClassificationType
+     */
+    public get classification() {
+        return this._classification;
+    };
+    /**
+     * Sets the classification property value. The classification value being given. Possible value: low. Does not support $filter.
+     * @param value Value to set for the classification property.
+     */
+    public set classification(value: PermissionClassificationType | undefined) {
+        if(value) {
+            this._classification = value;
+        }
+    };
     /**
      * Instantiates a new delegatedPermissionClassification and sets the default values.
      * @param delegatedPermissionClassificationParameterValue 
      */
     public constructor(delegatedPermissionClassificationParameterValue?: DelegatedPermissionClassification | undefined) {
         super(delegatedPermissionClassificationParameterValue);
-        this.classification = delegatedPermissionClassificationParameterValue?.classification;
-        this.permissionId = delegatedPermissionClassificationParameterValue?.permissionId;
-        this.permissionName = delegatedPermissionClassificationParameterValue?.permissionName;
+        this._classification = delegatedPermissionClassificationParameterValue?.classification;
+        this._permissionId = delegatedPermissionClassificationParameterValue?.permissionId;
+        this._permissionName = delegatedPermissionClassificationParameterValue?.permissionName;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,38 @@ export class DelegatedPermissionClassificationImpl extends EntityImpl implements
             "permissionId": n => { this.permissionId = n.getStringValue(); },
             "permissionName": n => { this.permissionName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the permissionId property value. The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.
+     * @returns a string
+     */
+    public get permissionId() {
+        return this._permissionId;
+    };
+    /**
+     * Sets the permissionId property value. The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.
+     * @param value Value to set for the permissionId property.
+     */
+    public set permissionId(value: string | undefined) {
+        if(value) {
+            this._permissionId = value;
+        }
+    };
+    /**
+     * Gets the permissionName property value. The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter.
+     * @returns a string
+     */
+    public get permissionName() {
+        return this._permissionName;
+    };
+    /**
+     * Sets the permissionName property value. The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter.
+     * @param value Value to set for the permissionName property.
+     */
+    public set permissionName(value: string | undefined) {
+        if(value) {
+            this._permissionName = value;
+        }
     };
     /**
      * Serializes information the current object

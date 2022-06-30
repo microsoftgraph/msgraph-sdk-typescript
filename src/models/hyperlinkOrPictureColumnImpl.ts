@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class HyperlinkOrPictureColumnImpl implements HyperlinkOrPictureColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies whether the display format used for URL columns is an image or a hyperlink. */
-    public isPicture?: boolean | undefined;
+    private _isPicture?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new hyperlinkOrPictureColumn and sets the default values.
      * @param hyperlinkOrPictureColumnParameterValue 
      */
     public constructor(hyperlinkOrPictureColumnParameterValue?: HyperlinkOrPictureColumn | undefined) {
-        this.additionalData = hyperlinkOrPictureColumnParameterValue?.additionalData ? hyperlinkOrPictureColumnParameterValue?.additionalData! : {};
-        this.isPicture = hyperlinkOrPictureColumnParameterValue?.isPicture;
+        this._additionalData = hyperlinkOrPictureColumnParameterValue?.additionalData ? hyperlinkOrPictureColumnParameterValue?.additionalData! : {};
+        this._isPicture = hyperlinkOrPictureColumnParameterValue?.isPicture;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class HyperlinkOrPictureColumnImpl implements HyperlinkOrPictureColumn {
         return {
             "isPicture": n => { this.isPicture = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isPicture property value. Specifies whether the display format used for URL columns is an image or a hyperlink.
+     * @returns a boolean
+     */
+    public get isPicture() {
+        return this._isPicture;
+    };
+    /**
+     * Sets the isPicture property value. Specifies whether the display format used for URL columns is an image or a hyperlink.
+     * @param value Value to set for the isPicture property.
+     */
+    public set isPicture(value: boolean | undefined) {
+        if(value) {
+            this._isPicture = value;
+        }
     };
     /**
      * Serializes information the current object

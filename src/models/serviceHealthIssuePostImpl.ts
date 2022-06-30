@@ -7,22 +7,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The published time of the post. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The content of the service issue post. */
-    public description?: ItemBody | undefined;
+    private _description?: ItemBody | undefined;
     /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue. */
-    public postType?: PostType | undefined;
+    private _postType?: PostType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new serviceHealthIssuePost and sets the default values.
      * @param serviceHealthIssuePostParameterValue 
      */
     public constructor(serviceHealthIssuePostParameterValue?: ServiceHealthIssuePost | undefined) {
-        this.additionalData = serviceHealthIssuePostParameterValue?.additionalData ? serviceHealthIssuePostParameterValue?.additionalData! : {};
-        this.createdDateTime = serviceHealthIssuePostParameterValue?.createdDateTime;
-        this.description = serviceHealthIssuePostParameterValue?.description;
-        this.postType = serviceHealthIssuePostParameterValue?.postType;
+        this._additionalData = serviceHealthIssuePostParameterValue?.additionalData ? serviceHealthIssuePostParameterValue?.additionalData! : {};
+        this._createdDateTime = serviceHealthIssuePostParameterValue?.createdDateTime;
+        this._description = serviceHealthIssuePostParameterValue?.description;
+        this._postType = serviceHealthIssuePostParameterValue?.postType;
+    };
+    /**
+     * Gets the createdDateTime property value. The published time of the post.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The published time of the post.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the description property value. The content of the service issue post.
+     * @returns a ItemBodyInterface
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The content of the service issue post.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: ItemBody | undefined) {
+        if(value) {
+            this._description = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +84,22 @@ export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
         };
     };
     /**
+     * Gets the postType property value. The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
+     * @returns a postType
+     */
+    public get postType() {
+        return this._postType;
+    };
+    /**
+     * Sets the postType property value. The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
+     * @param value Value to set for the postType property.
+     */
+    public set postType(value: PostType | undefined) {
+        if(value) {
+            this._postType = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -45,7 +109,7 @@ export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-            writer.writeObjectValue<ItemBodyImpl>("description", new ItemBodyImpl(this.description));
+            writer.writeObjectValue<ItemBodyImpl>("description", (!this.description || this.description instanceof ItemBodyImpl? this.description : new ItemBodyImpl(this.description)));
         }
         if(this.postType){
             writer.writeEnumValue<PostType>("postType", this.postType);

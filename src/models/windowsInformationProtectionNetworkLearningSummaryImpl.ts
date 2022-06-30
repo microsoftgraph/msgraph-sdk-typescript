@@ -5,17 +5,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Windows Information Protection Network learning Summary entity. */
 export class WindowsInformationProtectionNetworkLearningSummaryImpl extends EntityImpl implements WindowsInformationProtectionNetworkLearningSummary {
     /** Device Count */
-    public deviceCount?: number | undefined;
+    private _deviceCount?: number | undefined;
     /** Website url */
-    public url?: string | undefined;
+    private _url?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionNetworkLearningSummary and sets the default values.
      * @param windowsInformationProtectionNetworkLearningSummaryParameterValue 
      */
     public constructor(windowsInformationProtectionNetworkLearningSummaryParameterValue?: WindowsInformationProtectionNetworkLearningSummary | undefined) {
         super(windowsInformationProtectionNetworkLearningSummaryParameterValue);
-        this.deviceCount = windowsInformationProtectionNetworkLearningSummaryParameterValue?.deviceCount;
-        this.url = windowsInformationProtectionNetworkLearningSummaryParameterValue?.url;
+        this._deviceCount = windowsInformationProtectionNetworkLearningSummaryParameterValue?.deviceCount;
+        this._url = windowsInformationProtectionNetworkLearningSummaryParameterValue?.url;
+    };
+    /**
+     * Gets the deviceCount property value. Device Count
+     * @returns a integer
+     */
+    public get deviceCount() {
+        return this._deviceCount;
+    };
+    /**
+     * Sets the deviceCount property value. Device Count
+     * @param value Value to set for the deviceCount property.
+     */
+    public set deviceCount(value: number | undefined) {
+        if(value) {
+            this._deviceCount = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,22 @@ export class WindowsInformationProtectionNetworkLearningSummaryImpl extends Enti
         }
         if(this.url){
             writer.writeStringValue("url", this.url);
+        }
+    };
+    /**
+     * Gets the url property value. Website url
+     * @returns a string
+     */
+    public get url() {
+        return this._url;
+    };
+    /**
+     * Sets the url property value. Website url
+     * @param value Value to set for the url property.
+     */
+    public set url(value: string | undefined) {
+        if(value) {
+            this._url = value;
         }
     };
 }

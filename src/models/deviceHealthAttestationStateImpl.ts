@@ -3,109 +3,365 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceHealthAttestationStateImpl implements DeviceHealthAttestationState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate. */
-    public attestationIdentityKey?: string | undefined;
+    private _attestationIdentityKey?: string | undefined;
     /** On or Off of BitLocker Drive Encryption */
-    public bitLockerStatus?: string | undefined;
+    private _bitLockerStatus?: string | undefined;
     /** The security version number of the Boot Application */
-    public bootAppSecurityVersion?: string | undefined;
+    private _bootAppSecurityVersion?: string | undefined;
     /** When bootDebugging is enabled, the device is used in development and testing */
-    public bootDebugging?: string | undefined;
+    private _bootDebugging?: string | undefined;
     /** The security version number of the Boot Application */
-    public bootManagerSecurityVersion?: string | undefined;
+    private _bootManagerSecurityVersion?: string | undefined;
     /** The version of the Boot Manager */
-    public bootManagerVersion?: string | undefined;
+    private _bootManagerVersion?: string | undefined;
     /** The Boot Revision List that was loaded during initial boot on the attested device */
-    public bootRevisionListInfo?: string | undefined;
+    private _bootRevisionListInfo?: string | undefined;
     /** When code integrity is enabled, code execution is restricted to integrity verified code */
-    public codeIntegrity?: string | undefined;
+    private _codeIntegrity?: string | undefined;
     /** The version of the Boot Manager */
-    public codeIntegrityCheckVersion?: string | undefined;
+    private _codeIntegrityCheckVersion?: string | undefined;
     /** The Code Integrity policy that is controlling the security of the boot environment */
-    public codeIntegrityPolicy?: string | undefined;
+    private _codeIntegrityPolicy?: string | undefined;
     /** The DHA report version. (Namespace version) */
-    public contentNamespaceUrl?: string | undefined;
+    private _contentNamespaceUrl?: string | undefined;
     /** The HealthAttestation state schema version */
-    public contentVersion?: string | undefined;
+    private _contentVersion?: string | undefined;
     /** DEP Policy defines a set of hardware and software technologies that perform additional checks on memory */
-    public dataExcutionPolicy?: string | undefined;
+    private _dataExcutionPolicy?: string | undefined;
     /** The DHA report version. (Namespace version) */
-    public deviceHealthAttestationStatus?: string | undefined;
+    private _deviceHealthAttestationStatus?: string | undefined;
     /** ELAM provides protection for the computers in your network when they start up */
-    public earlyLaunchAntiMalwareDriverProtection?: string | undefined;
+    private _earlyLaunchAntiMalwareDriverProtection?: string | undefined;
     /** This attribute indicates if DHA is supported for the device */
-    public healthAttestationSupportedStatus?: string | undefined;
+    private _healthAttestationSupportedStatus?: string | undefined;
     /** This attribute appears if DHA-Service detects an integrity issue */
-    public healthStatusMismatchInfo?: string | undefined;
+    private _healthStatusMismatchInfo?: string | undefined;
     /** The DateTime when device was evaluated or issued to MDM */
-    public issuedDateTime?: Date | undefined;
+    private _issuedDateTime?: Date | undefined;
     /** The Timestamp of the last update. */
-    public lastUpdateDateTime?: string | undefined;
+    private _lastUpdateDateTime?: string | undefined;
     /** When operatingSystemKernelDebugging is enabled, the device is used in development and testing */
-    public operatingSystemKernelDebugging?: string | undefined;
+    private _operatingSystemKernelDebugging?: string | undefined;
     /** The Operating System Revision List that was loaded during initial boot on the attested device */
-    public operatingSystemRevListInfo?: string | undefined;
+    private _operatingSystemRevListInfo?: string | undefined;
     /** The measurement that is captured in PCR[0] */
-    public pcr0?: string | undefined;
+    private _pcr0?: string | undefined;
     /** Informational attribute that identifies the HASH algorithm that was used by TPM */
-    public pcrHashAlgorithm?: string | undefined;
+    private _pcrHashAlgorithm?: string | undefined;
     /** The number of times a PC device has hibernated or resumed */
-    public resetCount?: number | undefined;
+    private _resetCount?: number | undefined;
     /** The number of times a PC device has rebooted */
-    public restartCount?: number | undefined;
+    private _restartCount?: number | undefined;
     /** Safe mode is a troubleshooting option for Windows that starts your computer in a limited state */
-    public safeMode?: string | undefined;
+    private _safeMode?: string | undefined;
     /** When Secure Boot is enabled, the core components must have the correct cryptographic signatures */
-    public secureBoot?: string | undefined;
+    private _secureBoot?: string | undefined;
     /** Fingerprint of the Custom Secure Boot Configuration Policy */
-    public secureBootConfigurationPolicyFingerPrint?: string | undefined;
+    private _secureBootConfigurationPolicyFingerPrint?: string | undefined;
     /** When test signing is allowed, the device does not enforce signature validation during boot */
-    public testSigning?: string | undefined;
+    private _testSigning?: string | undefined;
     /** The security version number of the Boot Application */
-    public tpmVersion?: string | undefined;
+    private _tpmVersion?: string | undefined;
     /** VSM is a container that protects high value assets from a compromised kernel */
-    public virtualSecureMode?: string | undefined;
+    private _virtualSecureMode?: string | undefined;
     /** Operating system running with limited services that is used to prepare a computer for Windows */
-    public windowsPE?: string | undefined;
+    private _windowsPE?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the attestationIdentityKey property value. TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
+     * @returns a string
+     */
+    public get attestationIdentityKey() {
+        return this._attestationIdentityKey;
+    };
+    /**
+     * Sets the attestationIdentityKey property value. TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
+     * @param value Value to set for the attestationIdentityKey property.
+     */
+    public set attestationIdentityKey(value: string | undefined) {
+        if(value) {
+            this._attestationIdentityKey = value;
+        }
+    };
+    /**
+     * Gets the bitLockerStatus property value. On or Off of BitLocker Drive Encryption
+     * @returns a string
+     */
+    public get bitLockerStatus() {
+        return this._bitLockerStatus;
+    };
+    /**
+     * Sets the bitLockerStatus property value. On or Off of BitLocker Drive Encryption
+     * @param value Value to set for the bitLockerStatus property.
+     */
+    public set bitLockerStatus(value: string | undefined) {
+        if(value) {
+            this._bitLockerStatus = value;
+        }
+    };
+    /**
+     * Gets the bootAppSecurityVersion property value. The security version number of the Boot Application
+     * @returns a string
+     */
+    public get bootAppSecurityVersion() {
+        return this._bootAppSecurityVersion;
+    };
+    /**
+     * Sets the bootAppSecurityVersion property value. The security version number of the Boot Application
+     * @param value Value to set for the bootAppSecurityVersion property.
+     */
+    public set bootAppSecurityVersion(value: string | undefined) {
+        if(value) {
+            this._bootAppSecurityVersion = value;
+        }
+    };
+    /**
+     * Gets the bootDebugging property value. When bootDebugging is enabled, the device is used in development and testing
+     * @returns a string
+     */
+    public get bootDebugging() {
+        return this._bootDebugging;
+    };
+    /**
+     * Sets the bootDebugging property value. When bootDebugging is enabled, the device is used in development and testing
+     * @param value Value to set for the bootDebugging property.
+     */
+    public set bootDebugging(value: string | undefined) {
+        if(value) {
+            this._bootDebugging = value;
+        }
+    };
+    /**
+     * Gets the bootManagerSecurityVersion property value. The security version number of the Boot Application
+     * @returns a string
+     */
+    public get bootManagerSecurityVersion() {
+        return this._bootManagerSecurityVersion;
+    };
+    /**
+     * Sets the bootManagerSecurityVersion property value. The security version number of the Boot Application
+     * @param value Value to set for the bootManagerSecurityVersion property.
+     */
+    public set bootManagerSecurityVersion(value: string | undefined) {
+        if(value) {
+            this._bootManagerSecurityVersion = value;
+        }
+    };
+    /**
+     * Gets the bootManagerVersion property value. The version of the Boot Manager
+     * @returns a string
+     */
+    public get bootManagerVersion() {
+        return this._bootManagerVersion;
+    };
+    /**
+     * Sets the bootManagerVersion property value. The version of the Boot Manager
+     * @param value Value to set for the bootManagerVersion property.
+     */
+    public set bootManagerVersion(value: string | undefined) {
+        if(value) {
+            this._bootManagerVersion = value;
+        }
+    };
+    /**
+     * Gets the bootRevisionListInfo property value. The Boot Revision List that was loaded during initial boot on the attested device
+     * @returns a string
+     */
+    public get bootRevisionListInfo() {
+        return this._bootRevisionListInfo;
+    };
+    /**
+     * Sets the bootRevisionListInfo property value. The Boot Revision List that was loaded during initial boot on the attested device
+     * @param value Value to set for the bootRevisionListInfo property.
+     */
+    public set bootRevisionListInfo(value: string | undefined) {
+        if(value) {
+            this._bootRevisionListInfo = value;
+        }
+    };
+    /**
+     * Gets the codeIntegrity property value. When code integrity is enabled, code execution is restricted to integrity verified code
+     * @returns a string
+     */
+    public get codeIntegrity() {
+        return this._codeIntegrity;
+    };
+    /**
+     * Sets the codeIntegrity property value. When code integrity is enabled, code execution is restricted to integrity verified code
+     * @param value Value to set for the codeIntegrity property.
+     */
+    public set codeIntegrity(value: string | undefined) {
+        if(value) {
+            this._codeIntegrity = value;
+        }
+    };
+    /**
+     * Gets the codeIntegrityCheckVersion property value. The version of the Boot Manager
+     * @returns a string
+     */
+    public get codeIntegrityCheckVersion() {
+        return this._codeIntegrityCheckVersion;
+    };
+    /**
+     * Sets the codeIntegrityCheckVersion property value. The version of the Boot Manager
+     * @param value Value to set for the codeIntegrityCheckVersion property.
+     */
+    public set codeIntegrityCheckVersion(value: string | undefined) {
+        if(value) {
+            this._codeIntegrityCheckVersion = value;
+        }
+    };
+    /**
+     * Gets the codeIntegrityPolicy property value. The Code Integrity policy that is controlling the security of the boot environment
+     * @returns a string
+     */
+    public get codeIntegrityPolicy() {
+        return this._codeIntegrityPolicy;
+    };
+    /**
+     * Sets the codeIntegrityPolicy property value. The Code Integrity policy that is controlling the security of the boot environment
+     * @param value Value to set for the codeIntegrityPolicy property.
+     */
+    public set codeIntegrityPolicy(value: string | undefined) {
+        if(value) {
+            this._codeIntegrityPolicy = value;
+        }
+    };
     /**
      * Instantiates a new deviceHealthAttestationState and sets the default values.
      * @param deviceHealthAttestationStateParameterValue 
      */
     public constructor(deviceHealthAttestationStateParameterValue?: DeviceHealthAttestationState | undefined) {
-        this.additionalData = deviceHealthAttestationStateParameterValue?.additionalData ? deviceHealthAttestationStateParameterValue?.additionalData! : {};
-        this.attestationIdentityKey = deviceHealthAttestationStateParameterValue?.attestationIdentityKey;
-        this.bitLockerStatus = deviceHealthAttestationStateParameterValue?.bitLockerStatus;
-        this.bootAppSecurityVersion = deviceHealthAttestationStateParameterValue?.bootAppSecurityVersion;
-        this.bootDebugging = deviceHealthAttestationStateParameterValue?.bootDebugging;
-        this.bootManagerSecurityVersion = deviceHealthAttestationStateParameterValue?.bootManagerSecurityVersion;
-        this.bootManagerVersion = deviceHealthAttestationStateParameterValue?.bootManagerVersion;
-        this.bootRevisionListInfo = deviceHealthAttestationStateParameterValue?.bootRevisionListInfo;
-        this.codeIntegrity = deviceHealthAttestationStateParameterValue?.codeIntegrity;
-        this.codeIntegrityCheckVersion = deviceHealthAttestationStateParameterValue?.codeIntegrityCheckVersion;
-        this.codeIntegrityPolicy = deviceHealthAttestationStateParameterValue?.codeIntegrityPolicy;
-        this.contentNamespaceUrl = deviceHealthAttestationStateParameterValue?.contentNamespaceUrl;
-        this.contentVersion = deviceHealthAttestationStateParameterValue?.contentVersion;
-        this.dataExcutionPolicy = deviceHealthAttestationStateParameterValue?.dataExcutionPolicy;
-        this.deviceHealthAttestationStatus = deviceHealthAttestationStateParameterValue?.deviceHealthAttestationStatus;
-        this.earlyLaunchAntiMalwareDriverProtection = deviceHealthAttestationStateParameterValue?.earlyLaunchAntiMalwareDriverProtection;
-        this.healthAttestationSupportedStatus = deviceHealthAttestationStateParameterValue?.healthAttestationSupportedStatus;
-        this.healthStatusMismatchInfo = deviceHealthAttestationStateParameterValue?.healthStatusMismatchInfo;
-        this.issuedDateTime = deviceHealthAttestationStateParameterValue?.issuedDateTime;
-        this.lastUpdateDateTime = deviceHealthAttestationStateParameterValue?.lastUpdateDateTime;
-        this.operatingSystemKernelDebugging = deviceHealthAttestationStateParameterValue?.operatingSystemKernelDebugging;
-        this.operatingSystemRevListInfo = deviceHealthAttestationStateParameterValue?.operatingSystemRevListInfo;
-        this.pcr0 = deviceHealthAttestationStateParameterValue?.pcr0;
-        this.pcrHashAlgorithm = deviceHealthAttestationStateParameterValue?.pcrHashAlgorithm;
-        this.resetCount = deviceHealthAttestationStateParameterValue?.resetCount;
-        this.restartCount = deviceHealthAttestationStateParameterValue?.restartCount;
-        this.safeMode = deviceHealthAttestationStateParameterValue?.safeMode;
-        this.secureBoot = deviceHealthAttestationStateParameterValue?.secureBoot;
-        this.secureBootConfigurationPolicyFingerPrint = deviceHealthAttestationStateParameterValue?.secureBootConfigurationPolicyFingerPrint;
-        this.testSigning = deviceHealthAttestationStateParameterValue?.testSigning;
-        this.tpmVersion = deviceHealthAttestationStateParameterValue?.tpmVersion;
-        this.virtualSecureMode = deviceHealthAttestationStateParameterValue?.virtualSecureMode;
-        this.windowsPE = deviceHealthAttestationStateParameterValue?.windowsPE;
+        this._additionalData = deviceHealthAttestationStateParameterValue?.additionalData ? deviceHealthAttestationStateParameterValue?.additionalData! : {};
+        this._attestationIdentityKey = deviceHealthAttestationStateParameterValue?.attestationIdentityKey;
+        this._bitLockerStatus = deviceHealthAttestationStateParameterValue?.bitLockerStatus;
+        this._bootAppSecurityVersion = deviceHealthAttestationStateParameterValue?.bootAppSecurityVersion;
+        this._bootDebugging = deviceHealthAttestationStateParameterValue?.bootDebugging;
+        this._bootManagerSecurityVersion = deviceHealthAttestationStateParameterValue?.bootManagerSecurityVersion;
+        this._bootManagerVersion = deviceHealthAttestationStateParameterValue?.bootManagerVersion;
+        this._bootRevisionListInfo = deviceHealthAttestationStateParameterValue?.bootRevisionListInfo;
+        this._codeIntegrity = deviceHealthAttestationStateParameterValue?.codeIntegrity;
+        this._codeIntegrityCheckVersion = deviceHealthAttestationStateParameterValue?.codeIntegrityCheckVersion;
+        this._codeIntegrityPolicy = deviceHealthAttestationStateParameterValue?.codeIntegrityPolicy;
+        this._contentNamespaceUrl = deviceHealthAttestationStateParameterValue?.contentNamespaceUrl;
+        this._contentVersion = deviceHealthAttestationStateParameterValue?.contentVersion;
+        this._dataExcutionPolicy = deviceHealthAttestationStateParameterValue?.dataExcutionPolicy;
+        this._deviceHealthAttestationStatus = deviceHealthAttestationStateParameterValue?.deviceHealthAttestationStatus;
+        this._earlyLaunchAntiMalwareDriverProtection = deviceHealthAttestationStateParameterValue?.earlyLaunchAntiMalwareDriverProtection;
+        this._healthAttestationSupportedStatus = deviceHealthAttestationStateParameterValue?.healthAttestationSupportedStatus;
+        this._healthStatusMismatchInfo = deviceHealthAttestationStateParameterValue?.healthStatusMismatchInfo;
+        this._issuedDateTime = deviceHealthAttestationStateParameterValue?.issuedDateTime;
+        this._lastUpdateDateTime = deviceHealthAttestationStateParameterValue?.lastUpdateDateTime;
+        this._operatingSystemKernelDebugging = deviceHealthAttestationStateParameterValue?.operatingSystemKernelDebugging;
+        this._operatingSystemRevListInfo = deviceHealthAttestationStateParameterValue?.operatingSystemRevListInfo;
+        this._pcr0 = deviceHealthAttestationStateParameterValue?.pcr0;
+        this._pcrHashAlgorithm = deviceHealthAttestationStateParameterValue?.pcrHashAlgorithm;
+        this._resetCount = deviceHealthAttestationStateParameterValue?.resetCount;
+        this._restartCount = deviceHealthAttestationStateParameterValue?.restartCount;
+        this._safeMode = deviceHealthAttestationStateParameterValue?.safeMode;
+        this._secureBoot = deviceHealthAttestationStateParameterValue?.secureBoot;
+        this._secureBootConfigurationPolicyFingerPrint = deviceHealthAttestationStateParameterValue?.secureBootConfigurationPolicyFingerPrint;
+        this._testSigning = deviceHealthAttestationStateParameterValue?.testSigning;
+        this._tpmVersion = deviceHealthAttestationStateParameterValue?.tpmVersion;
+        this._virtualSecureMode = deviceHealthAttestationStateParameterValue?.virtualSecureMode;
+        this._windowsPE = deviceHealthAttestationStateParameterValue?.windowsPE;
+    };
+    /**
+     * Gets the contentNamespaceUrl property value. The DHA report version. (Namespace version)
+     * @returns a string
+     */
+    public get contentNamespaceUrl() {
+        return this._contentNamespaceUrl;
+    };
+    /**
+     * Sets the contentNamespaceUrl property value. The DHA report version. (Namespace version)
+     * @param value Value to set for the contentNamespaceUrl property.
+     */
+    public set contentNamespaceUrl(value: string | undefined) {
+        if(value) {
+            this._contentNamespaceUrl = value;
+        }
+    };
+    /**
+     * Gets the contentVersion property value. The HealthAttestation state schema version
+     * @returns a string
+     */
+    public get contentVersion() {
+        return this._contentVersion;
+    };
+    /**
+     * Sets the contentVersion property value. The HealthAttestation state schema version
+     * @param value Value to set for the contentVersion property.
+     */
+    public set contentVersion(value: string | undefined) {
+        if(value) {
+            this._contentVersion = value;
+        }
+    };
+    /**
+     * Gets the dataExcutionPolicy property value. DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
+     * @returns a string
+     */
+    public get dataExcutionPolicy() {
+        return this._dataExcutionPolicy;
+    };
+    /**
+     * Sets the dataExcutionPolicy property value. DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
+     * @param value Value to set for the dataExcutionPolicy property.
+     */
+    public set dataExcutionPolicy(value: string | undefined) {
+        if(value) {
+            this._dataExcutionPolicy = value;
+        }
+    };
+    /**
+     * Gets the deviceHealthAttestationStatus property value. The DHA report version. (Namespace version)
+     * @returns a string
+     */
+    public get deviceHealthAttestationStatus() {
+        return this._deviceHealthAttestationStatus;
+    };
+    /**
+     * Sets the deviceHealthAttestationStatus property value. The DHA report version. (Namespace version)
+     * @param value Value to set for the deviceHealthAttestationStatus property.
+     */
+    public set deviceHealthAttestationStatus(value: string | undefined) {
+        if(value) {
+            this._deviceHealthAttestationStatus = value;
+        }
+    };
+    /**
+     * Gets the earlyLaunchAntiMalwareDriverProtection property value. ELAM provides protection for the computers in your network when they start up
+     * @returns a string
+     */
+    public get earlyLaunchAntiMalwareDriverProtection() {
+        return this._earlyLaunchAntiMalwareDriverProtection;
+    };
+    /**
+     * Sets the earlyLaunchAntiMalwareDriverProtection property value. ELAM provides protection for the computers in your network when they start up
+     * @param value Value to set for the earlyLaunchAntiMalwareDriverProtection property.
+     */
+    public set earlyLaunchAntiMalwareDriverProtection(value: string | undefined) {
+        if(value) {
+            this._earlyLaunchAntiMalwareDriverProtection = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -146,6 +402,214 @@ export class DeviceHealthAttestationStateImpl implements DeviceHealthAttestation
             "virtualSecureMode": n => { this.virtualSecureMode = n.getStringValue(); },
             "windowsPE": n => { this.windowsPE = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the healthAttestationSupportedStatus property value. This attribute indicates if DHA is supported for the device
+     * @returns a string
+     */
+    public get healthAttestationSupportedStatus() {
+        return this._healthAttestationSupportedStatus;
+    };
+    /**
+     * Sets the healthAttestationSupportedStatus property value. This attribute indicates if DHA is supported for the device
+     * @param value Value to set for the healthAttestationSupportedStatus property.
+     */
+    public set healthAttestationSupportedStatus(value: string | undefined) {
+        if(value) {
+            this._healthAttestationSupportedStatus = value;
+        }
+    };
+    /**
+     * Gets the healthStatusMismatchInfo property value. This attribute appears if DHA-Service detects an integrity issue
+     * @returns a string
+     */
+    public get healthStatusMismatchInfo() {
+        return this._healthStatusMismatchInfo;
+    };
+    /**
+     * Sets the healthStatusMismatchInfo property value. This attribute appears if DHA-Service detects an integrity issue
+     * @param value Value to set for the healthStatusMismatchInfo property.
+     */
+    public set healthStatusMismatchInfo(value: string | undefined) {
+        if(value) {
+            this._healthStatusMismatchInfo = value;
+        }
+    };
+    /**
+     * Gets the issuedDateTime property value. The DateTime when device was evaluated or issued to MDM
+     * @returns a Date
+     */
+    public get issuedDateTime() {
+        return this._issuedDateTime;
+    };
+    /**
+     * Sets the issuedDateTime property value. The DateTime when device was evaluated or issued to MDM
+     * @param value Value to set for the issuedDateTime property.
+     */
+    public set issuedDateTime(value: Date | undefined) {
+        if(value) {
+            this._issuedDateTime = value;
+        }
+    };
+    /**
+     * Gets the lastUpdateDateTime property value. The Timestamp of the last update.
+     * @returns a string
+     */
+    public get lastUpdateDateTime() {
+        return this._lastUpdateDateTime;
+    };
+    /**
+     * Sets the lastUpdateDateTime property value. The Timestamp of the last update.
+     * @param value Value to set for the lastUpdateDateTime property.
+     */
+    public set lastUpdateDateTime(value: string | undefined) {
+        if(value) {
+            this._lastUpdateDateTime = value;
+        }
+    };
+    /**
+     * Gets the operatingSystemKernelDebugging property value. When operatingSystemKernelDebugging is enabled, the device is used in development and testing
+     * @returns a string
+     */
+    public get operatingSystemKernelDebugging() {
+        return this._operatingSystemKernelDebugging;
+    };
+    /**
+     * Sets the operatingSystemKernelDebugging property value. When operatingSystemKernelDebugging is enabled, the device is used in development and testing
+     * @param value Value to set for the operatingSystemKernelDebugging property.
+     */
+    public set operatingSystemKernelDebugging(value: string | undefined) {
+        if(value) {
+            this._operatingSystemKernelDebugging = value;
+        }
+    };
+    /**
+     * Gets the operatingSystemRevListInfo property value. The Operating System Revision List that was loaded during initial boot on the attested device
+     * @returns a string
+     */
+    public get operatingSystemRevListInfo() {
+        return this._operatingSystemRevListInfo;
+    };
+    /**
+     * Sets the operatingSystemRevListInfo property value. The Operating System Revision List that was loaded during initial boot on the attested device
+     * @param value Value to set for the operatingSystemRevListInfo property.
+     */
+    public set operatingSystemRevListInfo(value: string | undefined) {
+        if(value) {
+            this._operatingSystemRevListInfo = value;
+        }
+    };
+    /**
+     * Gets the pcr0 property value. The measurement that is captured in PCR[0]
+     * @returns a string
+     */
+    public get pcr0() {
+        return this._pcr0;
+    };
+    /**
+     * Sets the pcr0 property value. The measurement that is captured in PCR[0]
+     * @param value Value to set for the pcr0 property.
+     */
+    public set pcr0(value: string | undefined) {
+        if(value) {
+            this._pcr0 = value;
+        }
+    };
+    /**
+     * Gets the pcrHashAlgorithm property value. Informational attribute that identifies the HASH algorithm that was used by TPM
+     * @returns a string
+     */
+    public get pcrHashAlgorithm() {
+        return this._pcrHashAlgorithm;
+    };
+    /**
+     * Sets the pcrHashAlgorithm property value. Informational attribute that identifies the HASH algorithm that was used by TPM
+     * @param value Value to set for the pcrHashAlgorithm property.
+     */
+    public set pcrHashAlgorithm(value: string | undefined) {
+        if(value) {
+            this._pcrHashAlgorithm = value;
+        }
+    };
+    /**
+     * Gets the resetCount property value. The number of times a PC device has hibernated or resumed
+     * @returns a int64
+     */
+    public get resetCount() {
+        return this._resetCount;
+    };
+    /**
+     * Sets the resetCount property value. The number of times a PC device has hibernated or resumed
+     * @param value Value to set for the resetCount property.
+     */
+    public set resetCount(value: number | undefined) {
+        if(value) {
+            this._resetCount = value;
+        }
+    };
+    /**
+     * Gets the restartCount property value. The number of times a PC device has rebooted
+     * @returns a int64
+     */
+    public get restartCount() {
+        return this._restartCount;
+    };
+    /**
+     * Sets the restartCount property value. The number of times a PC device has rebooted
+     * @param value Value to set for the restartCount property.
+     */
+    public set restartCount(value: number | undefined) {
+        if(value) {
+            this._restartCount = value;
+        }
+    };
+    /**
+     * Gets the safeMode property value. Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
+     * @returns a string
+     */
+    public get safeMode() {
+        return this._safeMode;
+    };
+    /**
+     * Sets the safeMode property value. Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
+     * @param value Value to set for the safeMode property.
+     */
+    public set safeMode(value: string | undefined) {
+        if(value) {
+            this._safeMode = value;
+        }
+    };
+    /**
+     * Gets the secureBoot property value. When Secure Boot is enabled, the core components must have the correct cryptographic signatures
+     * @returns a string
+     */
+    public get secureBoot() {
+        return this._secureBoot;
+    };
+    /**
+     * Sets the secureBoot property value. When Secure Boot is enabled, the core components must have the correct cryptographic signatures
+     * @param value Value to set for the secureBoot property.
+     */
+    public set secureBoot(value: string | undefined) {
+        if(value) {
+            this._secureBoot = value;
+        }
+    };
+    /**
+     * Gets the secureBootConfigurationPolicyFingerPrint property value. Fingerprint of the Custom Secure Boot Configuration Policy
+     * @returns a string
+     */
+    public get secureBootConfigurationPolicyFingerPrint() {
+        return this._secureBootConfigurationPolicyFingerPrint;
+    };
+    /**
+     * Sets the secureBootConfigurationPolicyFingerPrint property value. Fingerprint of the Custom Secure Boot Configuration Policy
+     * @param value Value to set for the secureBootConfigurationPolicyFingerPrint property.
+     */
+    public set secureBootConfigurationPolicyFingerPrint(value: string | undefined) {
+        if(value) {
+            this._secureBootConfigurationPolicyFingerPrint = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -250,5 +714,69 @@ export class DeviceHealthAttestationStateImpl implements DeviceHealthAttestation
             writer.writeStringValue("windowsPE", this.windowsPE);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the testSigning property value. When test signing is allowed, the device does not enforce signature validation during boot
+     * @returns a string
+     */
+    public get testSigning() {
+        return this._testSigning;
+    };
+    /**
+     * Sets the testSigning property value. When test signing is allowed, the device does not enforce signature validation during boot
+     * @param value Value to set for the testSigning property.
+     */
+    public set testSigning(value: string | undefined) {
+        if(value) {
+            this._testSigning = value;
+        }
+    };
+    /**
+     * Gets the tpmVersion property value. The security version number of the Boot Application
+     * @returns a string
+     */
+    public get tpmVersion() {
+        return this._tpmVersion;
+    };
+    /**
+     * Sets the tpmVersion property value. The security version number of the Boot Application
+     * @param value Value to set for the tpmVersion property.
+     */
+    public set tpmVersion(value: string | undefined) {
+        if(value) {
+            this._tpmVersion = value;
+        }
+    };
+    /**
+     * Gets the virtualSecureMode property value. VSM is a container that protects high value assets from a compromised kernel
+     * @returns a string
+     */
+    public get virtualSecureMode() {
+        return this._virtualSecureMode;
+    };
+    /**
+     * Sets the virtualSecureMode property value. VSM is a container that protects high value assets from a compromised kernel
+     * @param value Value to set for the virtualSecureMode property.
+     */
+    public set virtualSecureMode(value: string | undefined) {
+        if(value) {
+            this._virtualSecureMode = value;
+        }
+    };
+    /**
+     * Gets the windowsPE property value. Operating system running with limited services that is used to prepare a computer for Windows
+     * @returns a string
+     */
+    public get windowsPE() {
+        return this._windowsPE;
+    };
+    /**
+     * Sets the windowsPE property value. Operating system running with limited services that is used to prepare a computer for Windows
+     * @param value Value to set for the windowsPE property.
+     */
+    public set windowsPE(value: string | undefined) {
+        if(value) {
+            this._windowsPE = value;
+        }
     };
 }

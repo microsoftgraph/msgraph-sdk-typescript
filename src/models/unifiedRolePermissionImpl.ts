@@ -3,22 +3,86 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedRolePermissionImpl implements UnifiedRolePermission {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Set of tasks that can be performed on a resource. */
-    public allowedResourceActions?: string[] | undefined;
+    private _allowedResourceActions?: string[] | undefined;
     /** Optional constraints that must be met for the permission to be effective. */
-    public condition?: string | undefined;
+    private _condition?: string | undefined;
     /** Set of tasks that may not be performed on a resource. Not yet supported. */
-    public excludedResourceActions?: string[] | undefined;
+    private _excludedResourceActions?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
+     * @returns a string
+     */
+    public get allowedResourceActions() {
+        return this._allowedResourceActions;
+    };
+    /**
+     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
+     * @param value Value to set for the allowedResourceActions property.
+     */
+    public set allowedResourceActions(value: string[] | undefined) {
+        if(value) {
+            this._allowedResourceActions = value;
+        }
+    };
+    /**
+     * Gets the condition property value. Optional constraints that must be met for the permission to be effective.
+     * @returns a string
+     */
+    public get condition() {
+        return this._condition;
+    };
+    /**
+     * Sets the condition property value. Optional constraints that must be met for the permission to be effective.
+     * @param value Value to set for the condition property.
+     */
+    public set condition(value: string | undefined) {
+        if(value) {
+            this._condition = value;
+        }
+    };
     /**
      * Instantiates a new unifiedRolePermission and sets the default values.
      * @param unifiedRolePermissionParameterValue 
      */
     public constructor(unifiedRolePermissionParameterValue?: UnifiedRolePermission | undefined) {
-        this.additionalData = unifiedRolePermissionParameterValue?.additionalData ? unifiedRolePermissionParameterValue?.additionalData! : {};
-        this.allowedResourceActions = unifiedRolePermissionParameterValue?.allowedResourceActions;
-        this.condition = unifiedRolePermissionParameterValue?.condition;
-        this.excludedResourceActions = unifiedRolePermissionParameterValue?.excludedResourceActions;
+        this._additionalData = unifiedRolePermissionParameterValue?.additionalData ? unifiedRolePermissionParameterValue?.additionalData! : {};
+        this._allowedResourceActions = unifiedRolePermissionParameterValue?.allowedResourceActions;
+        this._condition = unifiedRolePermissionParameterValue?.condition;
+        this._excludedResourceActions = unifiedRolePermissionParameterValue?.excludedResourceActions;
+    };
+    /**
+     * Gets the excludedResourceActions property value. Set of tasks that may not be performed on a resource. Not yet supported.
+     * @returns a string
+     */
+    public get excludedResourceActions() {
+        return this._excludedResourceActions;
+    };
+    /**
+     * Sets the excludedResourceActions property value. Set of tasks that may not be performed on a resource. Not yet supported.
+     * @param value Value to set for the excludedResourceActions property.
+     */
+    public set excludedResourceActions(value: string[] | undefined) {
+        if(value) {
+            this._excludedResourceActions = value;
+        }
     };
     /**
      * The deserialization information for the current model

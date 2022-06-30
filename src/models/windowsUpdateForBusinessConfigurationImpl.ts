@@ -10,50 +10,162 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurationImpl implements WindowsUpdateForBusinessConfiguration {
     /** Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault. */
-    public automaticUpdateMode?: AutomaticUpdateMode | undefined;
+    private _automaticUpdateMode?: AutomaticUpdateMode | undefined;
     /** Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease. */
-    public businessReadyUpdatesOnly?: WindowsUpdateType | undefined;
+    private _businessReadyUpdatesOnly?: WindowsUpdateType | undefined;
     /** Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode. */
-    public deliveryOptimizationMode?: WindowsDeliveryOptimizationMode | undefined;
+    private _deliveryOptimizationMode?: WindowsDeliveryOptimizationMode | undefined;
     /** Exclude Windows update Drivers */
-    public driversExcluded?: boolean | undefined;
+    private _driversExcluded?: boolean | undefined;
     /** Defer Feature Updates by these many days */
-    public featureUpdatesDeferralPeriodInDays?: number | undefined;
+    private _featureUpdatesDeferralPeriodInDays?: number | undefined;
     /** Pause Feature Updates */
-    public featureUpdatesPaused?: boolean | undefined;
+    private _featureUpdatesPaused?: boolean | undefined;
     /** Feature Updates Pause Expiry datetime */
-    public featureUpdatesPauseExpiryDateTime?: Date | undefined;
+    private _featureUpdatesPauseExpiryDateTime?: Date | undefined;
     /** Installation schedule */
-    public installationSchedule?: WindowsUpdateInstallScheduleType | undefined;
+    private _installationSchedule?: WindowsUpdateInstallScheduleType | undefined;
     /** Allow Microsoft Update Service */
-    public microsoftUpdateServiceAllowed?: boolean | undefined;
+    private _microsoftUpdateServiceAllowed?: boolean | undefined;
     /** The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed. */
-    public prereleaseFeatures?: PrereleaseFeatures | undefined;
+    private _prereleaseFeatures?: PrereleaseFeatures | undefined;
     /** Defer Quality Updates by these many days */
-    public qualityUpdatesDeferralPeriodInDays?: number | undefined;
+    private _qualityUpdatesDeferralPeriodInDays?: number | undefined;
     /** Pause Quality Updates */
-    public qualityUpdatesPaused?: boolean | undefined;
+    private _qualityUpdatesPaused?: boolean | undefined;
     /** Quality Updates Pause Expiry datetime */
-    public qualityUpdatesPauseExpiryDateTime?: Date | undefined;
+    private _qualityUpdatesPauseExpiryDateTime?: Date | undefined;
+    /**
+     * Gets the automaticUpdateMode property value. Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * @returns a automaticUpdateMode
+     */
+    public get automaticUpdateMode() {
+        return this._automaticUpdateMode;
+    };
+    /**
+     * Sets the automaticUpdateMode property value. Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * @param value Value to set for the automaticUpdateMode property.
+     */
+    public set automaticUpdateMode(value: AutomaticUpdateMode | undefined) {
+        if(value) {
+            this._automaticUpdateMode = value;
+        }
+    };
+    /**
+     * Gets the businessReadyUpdatesOnly property value. Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * @returns a windowsUpdateType
+     */
+    public get businessReadyUpdatesOnly() {
+        return this._businessReadyUpdatesOnly;
+    };
+    /**
+     * Sets the businessReadyUpdatesOnly property value. Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * @param value Value to set for the businessReadyUpdatesOnly property.
+     */
+    public set businessReadyUpdatesOnly(value: WindowsUpdateType | undefined) {
+        if(value) {
+            this._businessReadyUpdatesOnly = value;
+        }
+    };
     /**
      * Instantiates a new WindowsUpdateForBusinessConfiguration and sets the default values.
      * @param windowsUpdateForBusinessConfigurationParameterValue 
      */
     public constructor(windowsUpdateForBusinessConfigurationParameterValue?: WindowsUpdateForBusinessConfiguration | undefined) {
         super(windowsUpdateForBusinessConfigurationParameterValue);
-        this.automaticUpdateMode = windowsUpdateForBusinessConfigurationParameterValue?.automaticUpdateMode;
-        this.businessReadyUpdatesOnly = windowsUpdateForBusinessConfigurationParameterValue?.businessReadyUpdatesOnly;
-        this.deliveryOptimizationMode = windowsUpdateForBusinessConfigurationParameterValue?.deliveryOptimizationMode;
-        this.driversExcluded = windowsUpdateForBusinessConfigurationParameterValue?.driversExcluded;
-        this.featureUpdatesDeferralPeriodInDays = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesDeferralPeriodInDays;
-        this.featureUpdatesPaused = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesPaused;
-        this.featureUpdatesPauseExpiryDateTime = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesPauseExpiryDateTime;
-        this.installationSchedule = windowsUpdateForBusinessConfigurationParameterValue?.installationSchedule;
-        this.microsoftUpdateServiceAllowed = windowsUpdateForBusinessConfigurationParameterValue?.microsoftUpdateServiceAllowed;
-        this.prereleaseFeatures = windowsUpdateForBusinessConfigurationParameterValue?.prereleaseFeatures;
-        this.qualityUpdatesDeferralPeriodInDays = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesDeferralPeriodInDays;
-        this.qualityUpdatesPaused = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesPaused;
-        this.qualityUpdatesPauseExpiryDateTime = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesPauseExpiryDateTime;
+        this._automaticUpdateMode = windowsUpdateForBusinessConfigurationParameterValue?.automaticUpdateMode;
+        this._businessReadyUpdatesOnly = windowsUpdateForBusinessConfigurationParameterValue?.businessReadyUpdatesOnly;
+        this._deliveryOptimizationMode = windowsUpdateForBusinessConfigurationParameterValue?.deliveryOptimizationMode;
+        this._driversExcluded = windowsUpdateForBusinessConfigurationParameterValue?.driversExcluded;
+        this._featureUpdatesDeferralPeriodInDays = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesDeferralPeriodInDays;
+        this._featureUpdatesPaused = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesPaused;
+        this._featureUpdatesPauseExpiryDateTime = windowsUpdateForBusinessConfigurationParameterValue?.featureUpdatesPauseExpiryDateTime;
+        this._installationSchedule = windowsUpdateForBusinessConfigurationParameterValue?.installationSchedule;
+        this._microsoftUpdateServiceAllowed = windowsUpdateForBusinessConfigurationParameterValue?.microsoftUpdateServiceAllowed;
+        this._prereleaseFeatures = windowsUpdateForBusinessConfigurationParameterValue?.prereleaseFeatures;
+        this._qualityUpdatesDeferralPeriodInDays = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesDeferralPeriodInDays;
+        this._qualityUpdatesPaused = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesPaused;
+        this._qualityUpdatesPauseExpiryDateTime = windowsUpdateForBusinessConfigurationParameterValue?.qualityUpdatesPauseExpiryDateTime;
+    };
+    /**
+     * Gets the deliveryOptimizationMode property value. Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * @returns a windowsDeliveryOptimizationMode
+     */
+    public get deliveryOptimizationMode() {
+        return this._deliveryOptimizationMode;
+    };
+    /**
+     * Sets the deliveryOptimizationMode property value. Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * @param value Value to set for the deliveryOptimizationMode property.
+     */
+    public set deliveryOptimizationMode(value: WindowsDeliveryOptimizationMode | undefined) {
+        if(value) {
+            this._deliveryOptimizationMode = value;
+        }
+    };
+    /**
+     * Gets the driversExcluded property value. Exclude Windows update Drivers
+     * @returns a boolean
+     */
+    public get driversExcluded() {
+        return this._driversExcluded;
+    };
+    /**
+     * Sets the driversExcluded property value. Exclude Windows update Drivers
+     * @param value Value to set for the driversExcluded property.
+     */
+    public set driversExcluded(value: boolean | undefined) {
+        if(value) {
+            this._driversExcluded = value;
+        }
+    };
+    /**
+     * Gets the featureUpdatesDeferralPeriodInDays property value. Defer Feature Updates by these many days
+     * @returns a integer
+     */
+    public get featureUpdatesDeferralPeriodInDays() {
+        return this._featureUpdatesDeferralPeriodInDays;
+    };
+    /**
+     * Sets the featureUpdatesDeferralPeriodInDays property value. Defer Feature Updates by these many days
+     * @param value Value to set for the featureUpdatesDeferralPeriodInDays property.
+     */
+    public set featureUpdatesDeferralPeriodInDays(value: number | undefined) {
+        if(value) {
+            this._featureUpdatesDeferralPeriodInDays = value;
+        }
+    };
+    /**
+     * Gets the featureUpdatesPaused property value. Pause Feature Updates
+     * @returns a boolean
+     */
+    public get featureUpdatesPaused() {
+        return this._featureUpdatesPaused;
+    };
+    /**
+     * Sets the featureUpdatesPaused property value. Pause Feature Updates
+     * @param value Value to set for the featureUpdatesPaused property.
+     */
+    public set featureUpdatesPaused(value: boolean | undefined) {
+        if(value) {
+            this._featureUpdatesPaused = value;
+        }
+    };
+    /**
+     * Gets the featureUpdatesPauseExpiryDateTime property value. Feature Updates Pause Expiry datetime
+     * @returns a Date
+     */
+    public get featureUpdatesPauseExpiryDateTime() {
+        return this._featureUpdatesPauseExpiryDateTime;
+    };
+    /**
+     * Sets the featureUpdatesPauseExpiryDateTime property value. Feature Updates Pause Expiry datetime
+     * @param value Value to set for the featureUpdatesPauseExpiryDateTime property.
+     */
+    public set featureUpdatesPauseExpiryDateTime(value: Date | undefined) {
+        if(value) {
+            this._featureUpdatesPauseExpiryDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -75,6 +187,102 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
             "qualityUpdatesPaused": n => { this.qualityUpdatesPaused = n.getBooleanValue(); },
             "qualityUpdatesPauseExpiryDateTime": n => { this.qualityUpdatesPauseExpiryDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the installationSchedule property value. Installation schedule
+     * @returns a WindowsUpdateInstallScheduleTypeInterface
+     */
+    public get installationSchedule() {
+        return this._installationSchedule;
+    };
+    /**
+     * Sets the installationSchedule property value. Installation schedule
+     * @param value Value to set for the installationSchedule property.
+     */
+    public set installationSchedule(value: WindowsUpdateInstallScheduleType | undefined) {
+        if(value) {
+            this._installationSchedule = value instanceof WindowsUpdateInstallScheduleTypeImpl? value : new WindowsUpdateInstallScheduleTypeImpl(value);
+        }
+    };
+    /**
+     * Gets the microsoftUpdateServiceAllowed property value. Allow Microsoft Update Service
+     * @returns a boolean
+     */
+    public get microsoftUpdateServiceAllowed() {
+        return this._microsoftUpdateServiceAllowed;
+    };
+    /**
+     * Sets the microsoftUpdateServiceAllowed property value. Allow Microsoft Update Service
+     * @param value Value to set for the microsoftUpdateServiceAllowed property.
+     */
+    public set microsoftUpdateServiceAllowed(value: boolean | undefined) {
+        if(value) {
+            this._microsoftUpdateServiceAllowed = value;
+        }
+    };
+    /**
+     * Gets the prereleaseFeatures property value. The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * @returns a prereleaseFeatures
+     */
+    public get prereleaseFeatures() {
+        return this._prereleaseFeatures;
+    };
+    /**
+     * Sets the prereleaseFeatures property value. The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * @param value Value to set for the prereleaseFeatures property.
+     */
+    public set prereleaseFeatures(value: PrereleaseFeatures | undefined) {
+        if(value) {
+            this._prereleaseFeatures = value;
+        }
+    };
+    /**
+     * Gets the qualityUpdatesDeferralPeriodInDays property value. Defer Quality Updates by these many days
+     * @returns a integer
+     */
+    public get qualityUpdatesDeferralPeriodInDays() {
+        return this._qualityUpdatesDeferralPeriodInDays;
+    };
+    /**
+     * Sets the qualityUpdatesDeferralPeriodInDays property value. Defer Quality Updates by these many days
+     * @param value Value to set for the qualityUpdatesDeferralPeriodInDays property.
+     */
+    public set qualityUpdatesDeferralPeriodInDays(value: number | undefined) {
+        if(value) {
+            this._qualityUpdatesDeferralPeriodInDays = value;
+        }
+    };
+    /**
+     * Gets the qualityUpdatesPaused property value. Pause Quality Updates
+     * @returns a boolean
+     */
+    public get qualityUpdatesPaused() {
+        return this._qualityUpdatesPaused;
+    };
+    /**
+     * Sets the qualityUpdatesPaused property value. Pause Quality Updates
+     * @param value Value to set for the qualityUpdatesPaused property.
+     */
+    public set qualityUpdatesPaused(value: boolean | undefined) {
+        if(value) {
+            this._qualityUpdatesPaused = value;
+        }
+    };
+    /**
+     * Gets the qualityUpdatesPauseExpiryDateTime property value. Quality Updates Pause Expiry datetime
+     * @returns a Date
+     */
+    public get qualityUpdatesPauseExpiryDateTime() {
+        return this._qualityUpdatesPauseExpiryDateTime;
+    };
+    /**
+     * Sets the qualityUpdatesPauseExpiryDateTime property value. Quality Updates Pause Expiry datetime
+     * @param value Value to set for the qualityUpdatesPauseExpiryDateTime property.
+     */
+    public set qualityUpdatesPauseExpiryDateTime(value: Date | undefined) {
+        if(value) {
+            this._qualityUpdatesPauseExpiryDateTime = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -105,7 +313,7 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
             writer.writeDateValue("featureUpdatesPauseExpiryDateTime", this.featureUpdatesPauseExpiryDateTime);
         }
         if(this.installationSchedule){
-            writer.writeObjectValue<WindowsUpdateInstallScheduleTypeImpl>("installationSchedule", new WindowsUpdateInstallScheduleTypeImpl(this.installationSchedule));
+            writer.writeObjectValue<WindowsUpdateInstallScheduleTypeImpl>("installationSchedule", (!this.installationSchedule || this.installationSchedule instanceof WindowsUpdateInstallScheduleTypeImpl? this.installationSchedule : new WindowsUpdateInstallScheduleTypeImpl(this.installationSchedule)));
         }
         if(this.microsoftUpdateServiceAllowed){
             writer.writeBooleanValue("microsoftUpdateServiceAllowed", this.microsoftUpdateServiceAllowed);

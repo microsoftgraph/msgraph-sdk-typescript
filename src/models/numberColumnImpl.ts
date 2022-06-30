@@ -3,25 +3,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class NumberColumnImpl implements NumberColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** How many decimal places to display. See below for information about the possible values. */
-    public decimalPlaces?: string | undefined;
+    private _decimalPlaces?: string | undefined;
     /** How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number. */
-    public displayAs?: string | undefined;
+    private _displayAs?: string | undefined;
     /** The maximum permitted value. */
-    public maximum?: number | undefined;
+    private _maximum?: number | undefined;
     /** The minimum permitted value. */
-    public minimum?: number | undefined;
+    private _minimum?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new numberColumn and sets the default values.
      * @param numberColumnParameterValue 
      */
     public constructor(numberColumnParameterValue?: NumberColumn | undefined) {
-        this.additionalData = numberColumnParameterValue?.additionalData ? numberColumnParameterValue?.additionalData! : {};
-        this.decimalPlaces = numberColumnParameterValue?.decimalPlaces;
-        this.displayAs = numberColumnParameterValue?.displayAs;
-        this.maximum = numberColumnParameterValue?.maximum;
-        this.minimum = numberColumnParameterValue?.minimum;
+        this._additionalData = numberColumnParameterValue?.additionalData ? numberColumnParameterValue?.additionalData! : {};
+        this._decimalPlaces = numberColumnParameterValue?.decimalPlaces;
+        this._displayAs = numberColumnParameterValue?.displayAs;
+        this._maximum = numberColumnParameterValue?.maximum;
+        this._minimum = numberColumnParameterValue?.minimum;
+    };
+    /**
+     * Gets the decimalPlaces property value. How many decimal places to display. See below for information about the possible values.
+     * @returns a string
+     */
+    public get decimalPlaces() {
+        return this._decimalPlaces;
+    };
+    /**
+     * Sets the decimalPlaces property value. How many decimal places to display. See below for information about the possible values.
+     * @param value Value to set for the decimalPlaces property.
+     */
+    public set decimalPlaces(value: string | undefined) {
+        if(value) {
+            this._decimalPlaces = value;
+        }
+    };
+    /**
+     * Gets the displayAs property value. How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.
+     * @returns a string
+     */
+    public get displayAs() {
+        return this._displayAs;
+    };
+    /**
+     * Sets the displayAs property value. How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.
+     * @param value Value to set for the displayAs property.
+     */
+    public set displayAs(value: string | undefined) {
+        if(value) {
+            this._displayAs = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +82,38 @@ export class NumberColumnImpl implements NumberColumn {
             "maximum": n => { this.maximum = n.getNumberValue(); },
             "minimum": n => { this.minimum = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the maximum property value. The maximum permitted value.
+     * @returns a double
+     */
+    public get maximum() {
+        return this._maximum;
+    };
+    /**
+     * Sets the maximum property value. The maximum permitted value.
+     * @param value Value to set for the maximum property.
+     */
+    public set maximum(value: number | undefined) {
+        if(value) {
+            this._maximum = value;
+        }
+    };
+    /**
+     * Gets the minimum property value. The minimum permitted value.
+     * @returns a double
+     */
+    public get minimum() {
+        return this._minimum;
+    };
+    /**
+     * Sets the minimum property value. The minimum permitted value.
+     * @param value Value to set for the minimum property.
+     */
+    public set minimum(value: number | undefined) {
+        if(value) {
+            this._minimum = value;
+        }
     };
     /**
      * Serializes information the current object

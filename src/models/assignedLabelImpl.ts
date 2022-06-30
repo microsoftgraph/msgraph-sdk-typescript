@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AssignedLabelImpl implements AssignedLabel {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The display name of the label. Read-only. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The unique identifier of the label. */
-    public labelId?: string | undefined;
+    private _labelId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new assignedLabel and sets the default values.
      * @param assignedLabelParameterValue 
      */
     public constructor(assignedLabelParameterValue?: AssignedLabel | undefined) {
-        this.additionalData = assignedLabelParameterValue?.additionalData ? assignedLabelParameterValue?.additionalData! : {};
-        this.displayName = assignedLabelParameterValue?.displayName;
-        this.labelId = assignedLabelParameterValue?.labelId;
+        this._additionalData = assignedLabelParameterValue?.additionalData ? assignedLabelParameterValue?.additionalData! : {};
+        this._displayName = assignedLabelParameterValue?.displayName;
+        this._labelId = assignedLabelParameterValue?.labelId;
+    };
+    /**
+     * Gets the displayName property value. The display name of the label. Read-only.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name of the label. Read-only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +58,22 @@ export class AssignedLabelImpl implements AssignedLabel {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "labelId": n => { this.labelId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the labelId property value. The unique identifier of the label.
+     * @returns a string
+     */
+    public get labelId() {
+        return this._labelId;
+    };
+    /**
+     * Sets the labelId property value. The unique identifier of the label.
+     * @param value Value to set for the labelId property.
+     */
+    public set labelId(value: string | undefined) {
+        if(value) {
+            this._labelId = value;
+        }
     };
     /**
      * Serializes information the current object

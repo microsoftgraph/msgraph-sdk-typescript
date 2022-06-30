@@ -19,32 +19,84 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookImpl extends EntityImpl implements Workbook {
     /** The application property */
-    public application?: WorkbookApplication | undefined;
+    private _application?: WorkbookApplication | undefined;
     /** The comments property */
-    public comments?: WorkbookComment[] | undefined;
+    private _comments?: WorkbookComment[] | undefined;
     /** The functions property */
-    public functions?: WorkbookFunctions | undefined;
+    private _functions?: WorkbookFunctions | undefined;
     /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
-    public names?: WorkbookNamedItem[] | undefined;
+    private _names?: WorkbookNamedItem[] | undefined;
     /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable. */
-    public operations?: WorkbookOperation[] | undefined;
+    private _operations?: WorkbookOperation[] | undefined;
     /** Represents a collection of tables associated with the workbook. Read-only. */
-    public tables?: WorkbookTable[] | undefined;
+    private _tables?: WorkbookTable[] | undefined;
     /** Represents a collection of worksheets associated with the workbook. Read-only. */
-    public worksheets?: WorkbookWorksheet[] | undefined;
+    private _worksheets?: WorkbookWorksheet[] | undefined;
+    /**
+     * Gets the application property value. The application property
+     * @returns a WorkbookApplicationInterface
+     */
+    public get application() {
+        return this._application;
+    };
+    /**
+     * Sets the application property value. The application property
+     * @param value Value to set for the application property.
+     */
+    public set application(value: WorkbookApplication | undefined) {
+        if(value) {
+            this._application = value instanceof WorkbookApplicationImpl? value : new WorkbookApplicationImpl(value);
+        }
+    };
+    /**
+     * Gets the comments property value. The comments property
+     * @returns a WorkbookCommentInterface
+     */
+    public get comments() {
+        return this._comments;
+    };
+    /**
+     * Sets the comments property value. The comments property
+     * @param value Value to set for the comments property.
+     */
+    public set comments(value: WorkbookComment[] | undefined) {
+        if(value) {
+            const commentsArrValue: WorkbookCommentImpl[] = [];
+            this.comments?.forEach(element => {
+                commentsArrValue.push((element instanceof WorkbookCommentImpl? element:new WorkbookCommentImpl(element)));
+            });
+            this._comments = commentsArrValue;
+        }
+    };
     /**
      * Instantiates a new workbook and sets the default values.
      * @param workbookParameterValue 
      */
     public constructor(workbookParameterValue?: Workbook | undefined) {
         super(workbookParameterValue);
-        this.application = workbookParameterValue?.application;
-        this.comments = workbookParameterValue?.comments;
-        this.functions = workbookParameterValue?.functions;
-        this.names = workbookParameterValue?.names;
-        this.operations = workbookParameterValue?.operations;
-        this.tables = workbookParameterValue?.tables;
-        this.worksheets = workbookParameterValue?.worksheets;
+        this._application = workbookParameterValue?.application;
+        this._comments = workbookParameterValue?.comments;
+        this._functions = workbookParameterValue?.functions;
+        this._names = workbookParameterValue?.names;
+        this._operations = workbookParameterValue?.operations;
+        this._tables = workbookParameterValue?.tables;
+        this._worksheets = workbookParameterValue?.worksheets;
+    };
+    /**
+     * Gets the functions property value. The functions property
+     * @returns a WorkbookFunctionsInterface
+     */
+    public get functions() {
+        return this._functions;
+    };
+    /**
+     * Sets the functions property value. The functions property
+     * @param value Value to set for the functions property.
+     */
+    public set functions(value: WorkbookFunctions | undefined) {
+        if(value) {
+            this._functions = value instanceof WorkbookFunctionsImpl? value : new WorkbookFunctionsImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -62,6 +114,46 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         };
     };
     /**
+     * Gets the names property value. Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
+     * @returns a WorkbookNamedItemInterface
+     */
+    public get names() {
+        return this._names;
+    };
+    /**
+     * Sets the names property value. Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
+     * @param value Value to set for the names property.
+     */
+    public set names(value: WorkbookNamedItem[] | undefined) {
+        if(value) {
+            const namesArrValue: WorkbookNamedItemImpl[] = [];
+            this.names?.forEach(element => {
+                namesArrValue.push((element instanceof WorkbookNamedItemImpl? element:new WorkbookNamedItemImpl(element)));
+            });
+            this._names = namesArrValue;
+        }
+    };
+    /**
+     * Gets the operations property value. The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+     * @returns a WorkbookOperationInterface
+     */
+    public get operations() {
+        return this._operations;
+    };
+    /**
+     * Sets the operations property value. The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+     * @param value Value to set for the operations property.
+     */
+    public set operations(value: WorkbookOperation[] | undefined) {
+        if(value) {
+            const operationsArrValue: WorkbookOperationImpl[] = [];
+            this.operations?.forEach(element => {
+                operationsArrValue.push((element instanceof WorkbookOperationImpl? element:new WorkbookOperationImpl(element)));
+            });
+            this._operations = operationsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -69,25 +161,80 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.application){
-            writer.writeObjectValue<WorkbookApplicationImpl>("application", new WorkbookApplicationImpl(this.application));
+            writer.writeObjectValue<WorkbookApplicationImpl>("application", (!this.application || this.application instanceof WorkbookApplicationImpl? this.application : new WorkbookApplicationImpl(this.application)));
         }
-        if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = []; this.comments?.forEach(element => {commentsArrValue.push(new WorkbookCommentImpl(element));});
+        if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = [];
+        this.comments?.forEach(element => {
+            commentsArrValue.push((element instanceof WorkbookCommentImpl? element:new WorkbookCommentImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WorkbookCommentImpl>("comments", commentsArrValue);
         }
         if(this.functions){
-            writer.writeObjectValue<WorkbookFunctionsImpl>("functions", new WorkbookFunctionsImpl(this.functions));
+            writer.writeObjectValue<WorkbookFunctionsImpl>("functions", (!this.functions || this.functions instanceof WorkbookFunctionsImpl? this.functions : new WorkbookFunctionsImpl(this.functions)));
         }
-        if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = []; this.names?.forEach(element => {namesArrValue.push(new WorkbookNamedItemImpl(element));});
+        if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = [];
+        this.names?.forEach(element => {
+            namesArrValue.push((element instanceof WorkbookNamedItemImpl? element:new WorkbookNamedItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
-        if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = []; this.operations?.forEach(element => {operationsArrValue.push(new WorkbookOperationImpl(element));});
+        if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = [];
+        this.operations?.forEach(element => {
+            operationsArrValue.push((element instanceof WorkbookOperationImpl? element:new WorkbookOperationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WorkbookOperationImpl>("operations", operationsArrValue);
         }
-        if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = []; this.tables?.forEach(element => {tablesArrValue.push(new WorkbookTableImpl(element));});
+        if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = [];
+        this.tables?.forEach(element => {
+            tablesArrValue.push((element instanceof WorkbookTableImpl? element:new WorkbookTableImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
-        if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = []; this.worksheets?.forEach(element => {worksheetsArrValue.push(new WorkbookWorksheetImpl(element));});
+        if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = [];
+        this.worksheets?.forEach(element => {
+            worksheetsArrValue.push((element instanceof WorkbookWorksheetImpl? element:new WorkbookWorksheetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<WorkbookWorksheetImpl>("worksheets", worksheetsArrValue);
+        }
+    };
+    /**
+     * Gets the tables property value. Represents a collection of tables associated with the workbook. Read-only.
+     * @returns a WorkbookTableInterface
+     */
+    public get tables() {
+        return this._tables;
+    };
+    /**
+     * Sets the tables property value. Represents a collection of tables associated with the workbook. Read-only.
+     * @param value Value to set for the tables property.
+     */
+    public set tables(value: WorkbookTable[] | undefined) {
+        if(value) {
+            const tablesArrValue: WorkbookTableImpl[] = [];
+            this.tables?.forEach(element => {
+                tablesArrValue.push((element instanceof WorkbookTableImpl? element:new WorkbookTableImpl(element)));
+            });
+            this._tables = tablesArrValue;
+        }
+    };
+    /**
+     * Gets the worksheets property value. Represents a collection of worksheets associated with the workbook. Read-only.
+     * @returns a WorkbookWorksheetInterface
+     */
+    public get worksheets() {
+        return this._worksheets;
+    };
+    /**
+     * Sets the worksheets property value. Represents a collection of worksheets associated with the workbook. Read-only.
+     * @param value Value to set for the worksheets property.
+     */
+    public set worksheets(value: WorkbookWorksheet[] | undefined) {
+        if(value) {
+            const worksheetsArrValue: WorkbookWorksheetImpl[] = [];
+            this.worksheets?.forEach(element => {
+                worksheetsArrValue.push((element instanceof WorkbookWorksheetImpl? element:new WorkbookWorksheetImpl(element)));
+            });
+            this._worksheets = worksheetsArrValue;
         }
     };
 }

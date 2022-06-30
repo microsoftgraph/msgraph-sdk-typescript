@@ -5,17 +5,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of chat entities. */
 export class TeamworkHostedContentImpl extends EntityImpl implements TeamworkHostedContent {
     /** Write only. Bytes for the hosted content (such as images). */
-    public contentBytes?: string | undefined;
+    private _contentBytes?: string | undefined;
     /** Write only. Content type, such as image/png, image/jpg. */
-    public contentType?: string | undefined;
+    private _contentType?: string | undefined;
     /**
      * Instantiates a new teamworkHostedContent and sets the default values.
      * @param teamworkHostedContentParameterValue 
      */
     public constructor(teamworkHostedContentParameterValue?: TeamworkHostedContent | undefined) {
         super(teamworkHostedContentParameterValue);
-        this.contentBytes = teamworkHostedContentParameterValue?.contentBytes;
-        this.contentType = teamworkHostedContentParameterValue?.contentType;
+        this._contentBytes = teamworkHostedContentParameterValue?.contentBytes;
+        this._contentType = teamworkHostedContentParameterValue?.contentType;
+    };
+    /**
+     * Gets the contentBytes property value. Write only. Bytes for the hosted content (such as images).
+     * @returns a binary
+     */
+    public get contentBytes() {
+        return this._contentBytes;
+    };
+    /**
+     * Sets the contentBytes property value. Write only. Bytes for the hosted content (such as images).
+     * @param value Value to set for the contentBytes property.
+     */
+    public set contentBytes(value: string | undefined) {
+        if(value) {
+            this._contentBytes = value;
+        }
+    };
+    /**
+     * Gets the contentType property value. Write only. Content type, such as image/png, image/jpg.
+     * @returns a string
+     */
+    public get contentType() {
+        return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. Write only. Content type, such as image/png, image/jpg.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        if(value) {
+            this._contentType = value;
+        }
     };
     /**
      * The deserialization information for the current model

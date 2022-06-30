@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceManagementPartnerCollectionResponseImpl implements DeviceManagementPartnerCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: DeviceManagementPartner[] | undefined;
+    private _value?: DeviceManagementPartner[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new DeviceManagementPartnerCollectionResponse and sets the default values.
      * @param deviceManagementPartnerCollectionResponseParameterValue 
      */
     public constructor(deviceManagementPartnerCollectionResponseParameterValue?: DeviceManagementPartnerCollectionResponse | undefined) {
-        this.additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink;
-        this.value = deviceManagementPartnerCollectionResponseParameterValue?.value;
+        this._additionalData = deviceManagementPartnerCollectionResponseParameterValue?.additionalData ? deviceManagementPartnerCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = deviceManagementPartnerCollectionResponseParameterValue?.nextLink;
+        this._value = deviceManagementPartnerCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new DeviceManagementPartnerImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a DeviceManagementPartnerInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: DeviceManagementPartner[] | undefined) {
+        if(value) {
+            const valueArrValue: DeviceManagementPartnerImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

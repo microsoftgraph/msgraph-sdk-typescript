@@ -3,88 +3,504 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerCategoryDescriptionsImpl implements PlannerCategoryDescriptions {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The label associated with Category 1 */
-    public category1?: string | undefined;
+    private _category1?: string | undefined;
     /** The label associated with Category 10 */
-    public category10?: string | undefined;
+    private _category10?: string | undefined;
     /** The label associated with Category 11 */
-    public category11?: string | undefined;
+    private _category11?: string | undefined;
     /** The label associated with Category 12 */
-    public category12?: string | undefined;
+    private _category12?: string | undefined;
     /** The label associated with Category 13 */
-    public category13?: string | undefined;
+    private _category13?: string | undefined;
     /** The label associated with Category 14 */
-    public category14?: string | undefined;
+    private _category14?: string | undefined;
     /** The label associated with Category 15 */
-    public category15?: string | undefined;
+    private _category15?: string | undefined;
     /** The label associated with Category 16 */
-    public category16?: string | undefined;
+    private _category16?: string | undefined;
     /** The label associated with Category 17 */
-    public category17?: string | undefined;
+    private _category17?: string | undefined;
     /** The label associated with Category 18 */
-    public category18?: string | undefined;
+    private _category18?: string | undefined;
     /** The label associated with Category 19 */
-    public category19?: string | undefined;
+    private _category19?: string | undefined;
     /** The label associated with Category 2 */
-    public category2?: string | undefined;
+    private _category2?: string | undefined;
     /** The label associated with Category 20 */
-    public category20?: string | undefined;
+    private _category20?: string | undefined;
     /** The label associated with Category 21 */
-    public category21?: string | undefined;
+    private _category21?: string | undefined;
     /** The label associated with Category 22 */
-    public category22?: string | undefined;
+    private _category22?: string | undefined;
     /** The label associated with Category 23 */
-    public category23?: string | undefined;
+    private _category23?: string | undefined;
     /** The label associated with Category 24 */
-    public category24?: string | undefined;
+    private _category24?: string | undefined;
     /** The label associated with Category 25 */
-    public category25?: string | undefined;
+    private _category25?: string | undefined;
     /** The label associated with Category 3 */
-    public category3?: string | undefined;
+    private _category3?: string | undefined;
     /** The label associated with Category 4 */
-    public category4?: string | undefined;
+    private _category4?: string | undefined;
     /** The label associated with Category 5 */
-    public category5?: string | undefined;
+    private _category5?: string | undefined;
     /** The label associated with Category 6 */
-    public category6?: string | undefined;
+    private _category6?: string | undefined;
     /** The label associated with Category 7 */
-    public category7?: string | undefined;
+    private _category7?: string | undefined;
     /** The label associated with Category 8 */
-    public category8?: string | undefined;
+    private _category8?: string | undefined;
     /** The label associated with Category 9 */
-    public category9?: string | undefined;
+    private _category9?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the category1 property value. The label associated with Category 1
+     * @returns a string
+     */
+    public get category1() {
+        return this._category1;
+    };
+    /**
+     * Sets the category1 property value. The label associated with Category 1
+     * @param value Value to set for the category1 property.
+     */
+    public set category1(value: string | undefined) {
+        if(value) {
+            this._category1 = value;
+        }
+    };
+    /**
+     * Gets the category10 property value. The label associated with Category 10
+     * @returns a string
+     */
+    public get category10() {
+        return this._category10;
+    };
+    /**
+     * Sets the category10 property value. The label associated with Category 10
+     * @param value Value to set for the category10 property.
+     */
+    public set category10(value: string | undefined) {
+        if(value) {
+            this._category10 = value;
+        }
+    };
+    /**
+     * Gets the category11 property value. The label associated with Category 11
+     * @returns a string
+     */
+    public get category11() {
+        return this._category11;
+    };
+    /**
+     * Sets the category11 property value. The label associated with Category 11
+     * @param value Value to set for the category11 property.
+     */
+    public set category11(value: string | undefined) {
+        if(value) {
+            this._category11 = value;
+        }
+    };
+    /**
+     * Gets the category12 property value. The label associated with Category 12
+     * @returns a string
+     */
+    public get category12() {
+        return this._category12;
+    };
+    /**
+     * Sets the category12 property value. The label associated with Category 12
+     * @param value Value to set for the category12 property.
+     */
+    public set category12(value: string | undefined) {
+        if(value) {
+            this._category12 = value;
+        }
+    };
+    /**
+     * Gets the category13 property value. The label associated with Category 13
+     * @returns a string
+     */
+    public get category13() {
+        return this._category13;
+    };
+    /**
+     * Sets the category13 property value. The label associated with Category 13
+     * @param value Value to set for the category13 property.
+     */
+    public set category13(value: string | undefined) {
+        if(value) {
+            this._category13 = value;
+        }
+    };
+    /**
+     * Gets the category14 property value. The label associated with Category 14
+     * @returns a string
+     */
+    public get category14() {
+        return this._category14;
+    };
+    /**
+     * Sets the category14 property value. The label associated with Category 14
+     * @param value Value to set for the category14 property.
+     */
+    public set category14(value: string | undefined) {
+        if(value) {
+            this._category14 = value;
+        }
+    };
+    /**
+     * Gets the category15 property value. The label associated with Category 15
+     * @returns a string
+     */
+    public get category15() {
+        return this._category15;
+    };
+    /**
+     * Sets the category15 property value. The label associated with Category 15
+     * @param value Value to set for the category15 property.
+     */
+    public set category15(value: string | undefined) {
+        if(value) {
+            this._category15 = value;
+        }
+    };
+    /**
+     * Gets the category16 property value. The label associated with Category 16
+     * @returns a string
+     */
+    public get category16() {
+        return this._category16;
+    };
+    /**
+     * Sets the category16 property value. The label associated with Category 16
+     * @param value Value to set for the category16 property.
+     */
+    public set category16(value: string | undefined) {
+        if(value) {
+            this._category16 = value;
+        }
+    };
+    /**
+     * Gets the category17 property value. The label associated with Category 17
+     * @returns a string
+     */
+    public get category17() {
+        return this._category17;
+    };
+    /**
+     * Sets the category17 property value. The label associated with Category 17
+     * @param value Value to set for the category17 property.
+     */
+    public set category17(value: string | undefined) {
+        if(value) {
+            this._category17 = value;
+        }
+    };
+    /**
+     * Gets the category18 property value. The label associated with Category 18
+     * @returns a string
+     */
+    public get category18() {
+        return this._category18;
+    };
+    /**
+     * Sets the category18 property value. The label associated with Category 18
+     * @param value Value to set for the category18 property.
+     */
+    public set category18(value: string | undefined) {
+        if(value) {
+            this._category18 = value;
+        }
+    };
+    /**
+     * Gets the category19 property value. The label associated with Category 19
+     * @returns a string
+     */
+    public get category19() {
+        return this._category19;
+    };
+    /**
+     * Sets the category19 property value. The label associated with Category 19
+     * @param value Value to set for the category19 property.
+     */
+    public set category19(value: string | undefined) {
+        if(value) {
+            this._category19 = value;
+        }
+    };
+    /**
+     * Gets the category2 property value. The label associated with Category 2
+     * @returns a string
+     */
+    public get category2() {
+        return this._category2;
+    };
+    /**
+     * Sets the category2 property value. The label associated with Category 2
+     * @param value Value to set for the category2 property.
+     */
+    public set category2(value: string | undefined) {
+        if(value) {
+            this._category2 = value;
+        }
+    };
+    /**
+     * Gets the category20 property value. The label associated with Category 20
+     * @returns a string
+     */
+    public get category20() {
+        return this._category20;
+    };
+    /**
+     * Sets the category20 property value. The label associated with Category 20
+     * @param value Value to set for the category20 property.
+     */
+    public set category20(value: string | undefined) {
+        if(value) {
+            this._category20 = value;
+        }
+    };
+    /**
+     * Gets the category21 property value. The label associated with Category 21
+     * @returns a string
+     */
+    public get category21() {
+        return this._category21;
+    };
+    /**
+     * Sets the category21 property value. The label associated with Category 21
+     * @param value Value to set for the category21 property.
+     */
+    public set category21(value: string | undefined) {
+        if(value) {
+            this._category21 = value;
+        }
+    };
+    /**
+     * Gets the category22 property value. The label associated with Category 22
+     * @returns a string
+     */
+    public get category22() {
+        return this._category22;
+    };
+    /**
+     * Sets the category22 property value. The label associated with Category 22
+     * @param value Value to set for the category22 property.
+     */
+    public set category22(value: string | undefined) {
+        if(value) {
+            this._category22 = value;
+        }
+    };
+    /**
+     * Gets the category23 property value. The label associated with Category 23
+     * @returns a string
+     */
+    public get category23() {
+        return this._category23;
+    };
+    /**
+     * Sets the category23 property value. The label associated with Category 23
+     * @param value Value to set for the category23 property.
+     */
+    public set category23(value: string | undefined) {
+        if(value) {
+            this._category23 = value;
+        }
+    };
+    /**
+     * Gets the category24 property value. The label associated with Category 24
+     * @returns a string
+     */
+    public get category24() {
+        return this._category24;
+    };
+    /**
+     * Sets the category24 property value. The label associated with Category 24
+     * @param value Value to set for the category24 property.
+     */
+    public set category24(value: string | undefined) {
+        if(value) {
+            this._category24 = value;
+        }
+    };
+    /**
+     * Gets the category25 property value. The label associated with Category 25
+     * @returns a string
+     */
+    public get category25() {
+        return this._category25;
+    };
+    /**
+     * Sets the category25 property value. The label associated with Category 25
+     * @param value Value to set for the category25 property.
+     */
+    public set category25(value: string | undefined) {
+        if(value) {
+            this._category25 = value;
+        }
+    };
+    /**
+     * Gets the category3 property value. The label associated with Category 3
+     * @returns a string
+     */
+    public get category3() {
+        return this._category3;
+    };
+    /**
+     * Sets the category3 property value. The label associated with Category 3
+     * @param value Value to set for the category3 property.
+     */
+    public set category3(value: string | undefined) {
+        if(value) {
+            this._category3 = value;
+        }
+    };
+    /**
+     * Gets the category4 property value. The label associated with Category 4
+     * @returns a string
+     */
+    public get category4() {
+        return this._category4;
+    };
+    /**
+     * Sets the category4 property value. The label associated with Category 4
+     * @param value Value to set for the category4 property.
+     */
+    public set category4(value: string | undefined) {
+        if(value) {
+            this._category4 = value;
+        }
+    };
+    /**
+     * Gets the category5 property value. The label associated with Category 5
+     * @returns a string
+     */
+    public get category5() {
+        return this._category5;
+    };
+    /**
+     * Sets the category5 property value. The label associated with Category 5
+     * @param value Value to set for the category5 property.
+     */
+    public set category5(value: string | undefined) {
+        if(value) {
+            this._category5 = value;
+        }
+    };
+    /**
+     * Gets the category6 property value. The label associated with Category 6
+     * @returns a string
+     */
+    public get category6() {
+        return this._category6;
+    };
+    /**
+     * Sets the category6 property value. The label associated with Category 6
+     * @param value Value to set for the category6 property.
+     */
+    public set category6(value: string | undefined) {
+        if(value) {
+            this._category6 = value;
+        }
+    };
+    /**
+     * Gets the category7 property value. The label associated with Category 7
+     * @returns a string
+     */
+    public get category7() {
+        return this._category7;
+    };
+    /**
+     * Sets the category7 property value. The label associated with Category 7
+     * @param value Value to set for the category7 property.
+     */
+    public set category7(value: string | undefined) {
+        if(value) {
+            this._category7 = value;
+        }
+    };
+    /**
+     * Gets the category8 property value. The label associated with Category 8
+     * @returns a string
+     */
+    public get category8() {
+        return this._category8;
+    };
+    /**
+     * Sets the category8 property value. The label associated with Category 8
+     * @param value Value to set for the category8 property.
+     */
+    public set category8(value: string | undefined) {
+        if(value) {
+            this._category8 = value;
+        }
+    };
+    /**
+     * Gets the category9 property value. The label associated with Category 9
+     * @returns a string
+     */
+    public get category9() {
+        return this._category9;
+    };
+    /**
+     * Sets the category9 property value. The label associated with Category 9
+     * @param value Value to set for the category9 property.
+     */
+    public set category9(value: string | undefined) {
+        if(value) {
+            this._category9 = value;
+        }
+    };
     /**
      * Instantiates a new plannerCategoryDescriptions and sets the default values.
      * @param plannerCategoryDescriptionsParameterValue 
      */
     public constructor(plannerCategoryDescriptionsParameterValue?: PlannerCategoryDescriptions | undefined) {
-        this.additionalData = plannerCategoryDescriptionsParameterValue?.additionalData ? plannerCategoryDescriptionsParameterValue?.additionalData! : {};
-        this.category1 = plannerCategoryDescriptionsParameterValue?.category1;
-        this.category10 = plannerCategoryDescriptionsParameterValue?.category10;
-        this.category11 = plannerCategoryDescriptionsParameterValue?.category11;
-        this.category12 = plannerCategoryDescriptionsParameterValue?.category12;
-        this.category13 = plannerCategoryDescriptionsParameterValue?.category13;
-        this.category14 = plannerCategoryDescriptionsParameterValue?.category14;
-        this.category15 = plannerCategoryDescriptionsParameterValue?.category15;
-        this.category16 = plannerCategoryDescriptionsParameterValue?.category16;
-        this.category17 = plannerCategoryDescriptionsParameterValue?.category17;
-        this.category18 = plannerCategoryDescriptionsParameterValue?.category18;
-        this.category19 = plannerCategoryDescriptionsParameterValue?.category19;
-        this.category2 = plannerCategoryDescriptionsParameterValue?.category2;
-        this.category20 = plannerCategoryDescriptionsParameterValue?.category20;
-        this.category21 = plannerCategoryDescriptionsParameterValue?.category21;
-        this.category22 = plannerCategoryDescriptionsParameterValue?.category22;
-        this.category23 = plannerCategoryDescriptionsParameterValue?.category23;
-        this.category24 = plannerCategoryDescriptionsParameterValue?.category24;
-        this.category25 = plannerCategoryDescriptionsParameterValue?.category25;
-        this.category3 = plannerCategoryDescriptionsParameterValue?.category3;
-        this.category4 = plannerCategoryDescriptionsParameterValue?.category4;
-        this.category5 = plannerCategoryDescriptionsParameterValue?.category5;
-        this.category6 = plannerCategoryDescriptionsParameterValue?.category6;
-        this.category7 = plannerCategoryDescriptionsParameterValue?.category7;
-        this.category8 = plannerCategoryDescriptionsParameterValue?.category8;
-        this.category9 = plannerCategoryDescriptionsParameterValue?.category9;
+        this._additionalData = plannerCategoryDescriptionsParameterValue?.additionalData ? plannerCategoryDescriptionsParameterValue?.additionalData! : {};
+        this._category1 = plannerCategoryDescriptionsParameterValue?.category1;
+        this._category10 = plannerCategoryDescriptionsParameterValue?.category10;
+        this._category11 = plannerCategoryDescriptionsParameterValue?.category11;
+        this._category12 = plannerCategoryDescriptionsParameterValue?.category12;
+        this._category13 = plannerCategoryDescriptionsParameterValue?.category13;
+        this._category14 = plannerCategoryDescriptionsParameterValue?.category14;
+        this._category15 = plannerCategoryDescriptionsParameterValue?.category15;
+        this._category16 = plannerCategoryDescriptionsParameterValue?.category16;
+        this._category17 = plannerCategoryDescriptionsParameterValue?.category17;
+        this._category18 = plannerCategoryDescriptionsParameterValue?.category18;
+        this._category19 = plannerCategoryDescriptionsParameterValue?.category19;
+        this._category2 = plannerCategoryDescriptionsParameterValue?.category2;
+        this._category20 = plannerCategoryDescriptionsParameterValue?.category20;
+        this._category21 = plannerCategoryDescriptionsParameterValue?.category21;
+        this._category22 = plannerCategoryDescriptionsParameterValue?.category22;
+        this._category23 = plannerCategoryDescriptionsParameterValue?.category23;
+        this._category24 = plannerCategoryDescriptionsParameterValue?.category24;
+        this._category25 = plannerCategoryDescriptionsParameterValue?.category25;
+        this._category3 = plannerCategoryDescriptionsParameterValue?.category3;
+        this._category4 = plannerCategoryDescriptionsParameterValue?.category4;
+        this._category5 = plannerCategoryDescriptionsParameterValue?.category5;
+        this._category6 = plannerCategoryDescriptionsParameterValue?.category6;
+        this._category7 = plannerCategoryDescriptionsParameterValue?.category7;
+        this._category8 = plannerCategoryDescriptionsParameterValue?.category8;
+        this._category9 = plannerCategoryDescriptionsParameterValue?.category9;
     };
     /**
      * The deserialization information for the current model

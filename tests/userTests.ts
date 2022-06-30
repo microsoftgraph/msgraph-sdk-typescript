@@ -7,19 +7,21 @@ import { UsersRequestBuilderGetQueryParameters } from "../src/users/usersRequest
 describe("TestGet", () => {
 
 
-    // it("should return list of users", async () => {
+    it("should return list of users", async () => {
 
-    //     const users = await graphServiceClient.users.count.get({headers:{"ConsistencyLevel":"eventual"}});
+        const users = await graphServiceClient.users.count.get({headers:{"ConsistencyLevel":"eventual"}});
   
-    //     console.log(users);
+        console.log(users);
 
-    //     const s= await graphServiceClient.users.get()
-    //     console.log(s.value);
-    // });
+        const s= await graphServiceClient.users.get()
+        assert.isDefined(s);
+        console.log(s.value[0]);
+    });
 
-    it("should return messages for given user", async () => {
+    it("should  post for given user", async () => {
         const messages = await graphServiceClient.usersById("a4bf4e43-981f-430c-8024-cdb645f8c098").messages.post({subject: "test", additionalData: {}});
-        assert.isDefined(messages);
         console.log(messages);
+        assert.isDefined(messages);
+        
     });
 });

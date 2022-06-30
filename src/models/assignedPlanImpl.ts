@@ -3,25 +3,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AssignedPlanImpl implements AssignedPlan {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    public assignedDateTime?: Date | undefined;
+    private _assignedDateTime?: Date | undefined;
     /** Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. */
-    public capabilityStatus?: string | undefined;
+    private _capabilityStatus?: string | undefined;
     /** The name of the service; for example, exchange. */
-    public service?: string | undefined;
+    private _service?: string | undefined;
     /** A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing. */
-    public servicePlanId?: string | undefined;
+    private _servicePlanId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the assignedDateTime property value. The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get assignedDateTime() {
+        return this._assignedDateTime;
+    };
+    /**
+     * Sets the assignedDateTime property value. The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the assignedDateTime property.
+     */
+    public set assignedDateTime(value: Date | undefined) {
+        if(value) {
+            this._assignedDateTime = value;
+        }
+    };
+    /**
+     * Gets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut.
+     * @returns a string
+     */
+    public get capabilityStatus() {
+        return this._capabilityStatus;
+    };
+    /**
+     * Sets the capabilityStatus property value. Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut.
+     * @param value Value to set for the capabilityStatus property.
+     */
+    public set capabilityStatus(value: string | undefined) {
+        if(value) {
+            this._capabilityStatus = value;
+        }
+    };
     /**
      * Instantiates a new assignedPlan and sets the default values.
      * @param assignedPlanParameterValue 
      */
     public constructor(assignedPlanParameterValue?: AssignedPlan | undefined) {
-        this.additionalData = assignedPlanParameterValue?.additionalData ? assignedPlanParameterValue?.additionalData! : {};
-        this.assignedDateTime = assignedPlanParameterValue?.assignedDateTime;
-        this.capabilityStatus = assignedPlanParameterValue?.capabilityStatus;
-        this.service = assignedPlanParameterValue?.service;
-        this.servicePlanId = assignedPlanParameterValue?.servicePlanId;
+        this._additionalData = assignedPlanParameterValue?.additionalData ? assignedPlanParameterValue?.additionalData! : {};
+        this._assignedDateTime = assignedPlanParameterValue?.assignedDateTime;
+        this._capabilityStatus = assignedPlanParameterValue?.capabilityStatus;
+        this._service = assignedPlanParameterValue?.service;
+        this._servicePlanId = assignedPlanParameterValue?.servicePlanId;
     };
     /**
      * The deserialization information for the current model
@@ -54,5 +102,37 @@ export class AssignedPlanImpl implements AssignedPlan {
             writer.writeStringValue("servicePlanId", this.servicePlanId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the service property value. The name of the service; for example, exchange.
+     * @returns a string
+     */
+    public get service() {
+        return this._service;
+    };
+    /**
+     * Sets the service property value. The name of the service; for example, exchange.
+     * @param value Value to set for the service property.
+     */
+    public set service(value: string | undefined) {
+        if(value) {
+            this._service = value;
+        }
+    };
+    /**
+     * Gets the servicePlanId property value. A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing.
+     * @returns a string
+     */
+    public get servicePlanId() {
+        return this._servicePlanId;
+    };
+    /**
+     * Sets the servicePlanId property value. A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing.
+     * @param value Value to set for the servicePlanId property.
+     */
+    public set servicePlanId(value: string | undefined) {
+        if(value) {
+            this._servicePlanId = value;
+        }
     };
 }

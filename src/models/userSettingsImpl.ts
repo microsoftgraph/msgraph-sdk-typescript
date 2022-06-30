@@ -7,20 +7,52 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class UserSettingsImpl extends EntityImpl implements UserSettings {
     /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center. */
-    public contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
+    private _contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
     /** When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve. */
-    public contributionToContentDiscoveryDisabled?: boolean | undefined;
+    private _contributionToContentDiscoveryDisabled?: boolean | undefined;
     /** The shift preferences for the user. */
-    public shiftPreferences?: ShiftPreferences | undefined;
+    private _shiftPreferences?: ShiftPreferences | undefined;
     /**
      * Instantiates a new userSettings and sets the default values.
      * @param userSettingsParameterValue 
      */
     public constructor(userSettingsParameterValue?: UserSettings | undefined) {
         super(userSettingsParameterValue);
-        this.contributionToContentDiscoveryAsOrganizationDisabled = userSettingsParameterValue?.contributionToContentDiscoveryAsOrganizationDisabled;
-        this.contributionToContentDiscoveryDisabled = userSettingsParameterValue?.contributionToContentDiscoveryDisabled;
-        this.shiftPreferences = userSettingsParameterValue?.shiftPreferences;
+        this._contributionToContentDiscoveryAsOrganizationDisabled = userSettingsParameterValue?.contributionToContentDiscoveryAsOrganizationDisabled;
+        this._contributionToContentDiscoveryDisabled = userSettingsParameterValue?.contributionToContentDiscoveryDisabled;
+        this._shiftPreferences = userSettingsParameterValue?.shiftPreferences;
+    };
+    /**
+     * Gets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
+     * @returns a boolean
+     */
+    public get contributionToContentDiscoveryAsOrganizationDisabled() {
+        return this._contributionToContentDiscoveryAsOrganizationDisabled;
+    };
+    /**
+     * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
+     * @param value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
+     */
+    public set contributionToContentDiscoveryAsOrganizationDisabled(value: boolean | undefined) {
+        if(value) {
+            this._contributionToContentDiscoveryAsOrganizationDisabled = value;
+        }
+    };
+    /**
+     * Gets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
+     * @returns a boolean
+     */
+    public get contributionToContentDiscoveryDisabled() {
+        return this._contributionToContentDiscoveryDisabled;
+    };
+    /**
+     * Sets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
+     * @param value Value to set for the contributionToContentDiscoveryDisabled property.
+     */
+    public set contributionToContentDiscoveryDisabled(value: boolean | undefined) {
+        if(value) {
+            this._contributionToContentDiscoveryDisabled = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -47,7 +79,23 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
             writer.writeBooleanValue("contributionToContentDiscoveryDisabled", this.contributionToContentDiscoveryDisabled);
         }
         if(this.shiftPreferences){
-            writer.writeObjectValue<ShiftPreferencesImpl>("shiftPreferences", new ShiftPreferencesImpl(this.shiftPreferences));
+            writer.writeObjectValue<ShiftPreferencesImpl>("shiftPreferences", (!this.shiftPreferences || this.shiftPreferences instanceof ShiftPreferencesImpl? this.shiftPreferences : new ShiftPreferencesImpl(this.shiftPreferences)));
+        }
+    };
+    /**
+     * Gets the shiftPreferences property value. The shift preferences for the user.
+     * @returns a ShiftPreferencesInterface
+     */
+    public get shiftPreferences() {
+        return this._shiftPreferences;
+    };
+    /**
+     * Sets the shiftPreferences property value. The shift preferences for the user.
+     * @param value Value to set for the shiftPreferences property.
+     */
+    public set shiftPreferences(value: ShiftPreferences | undefined) {
+        if(value) {
+            this._shiftPreferences = value instanceof ShiftPreferencesImpl? value : new ShiftPreferencesImpl(value);
         }
     };
 }

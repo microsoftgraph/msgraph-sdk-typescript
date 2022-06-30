@@ -8,28 +8,96 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RubricQualityImpl implements RubricQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The collection of criteria for this rubric quality. */
-    public criteria?: RubricCriterion[] | undefined;
+    private _criteria?: RubricCriterion[] | undefined;
     /** The description of this rubric quality. */
-    public description?: EducationItemBody | undefined;
+    private _description?: EducationItemBody | undefined;
     /** The name of this rubric quality. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The ID of this resource. */
-    public qualityId?: string | undefined;
+    private _qualityId?: string | undefined;
     /** If present, a numerical weight for this quality.  Weights must add up to 100. */
-    public weight?: number | undefined;
+    private _weight?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new rubricQuality and sets the default values.
      * @param rubricQualityParameterValue 
      */
     public constructor(rubricQualityParameterValue?: RubricQuality | undefined) {
-        this.additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {};
-        this.criteria = rubricQualityParameterValue?.criteria;
-        this.description = rubricQualityParameterValue?.description;
-        this.displayName = rubricQualityParameterValue?.displayName;
-        this.qualityId = rubricQualityParameterValue?.qualityId;
-        this.weight = rubricQualityParameterValue?.weight;
+        this._additionalData = rubricQualityParameterValue?.additionalData ? rubricQualityParameterValue?.additionalData! : {};
+        this._criteria = rubricQualityParameterValue?.criteria;
+        this._description = rubricQualityParameterValue?.description;
+        this._displayName = rubricQualityParameterValue?.displayName;
+        this._qualityId = rubricQualityParameterValue?.qualityId;
+        this._weight = rubricQualityParameterValue?.weight;
+    };
+    /**
+     * Gets the criteria property value. The collection of criteria for this rubric quality.
+     * @returns a RubricCriterionInterface
+     */
+    public get criteria() {
+        return this._criteria;
+    };
+    /**
+     * Sets the criteria property value. The collection of criteria for this rubric quality.
+     * @param value Value to set for the criteria property.
+     */
+    public set criteria(value: RubricCriterion[] | undefined) {
+        if(value) {
+            const criteriaArrValue: RubricCriterionImpl[] = [];
+            this.criteria?.forEach(element => {
+                criteriaArrValue.push((element instanceof RubricCriterionImpl? element:new RubricCriterionImpl(element)));
+            });
+            this._criteria = criteriaArrValue;
+        }
+    };
+    /**
+     * Gets the description property value. The description of this rubric quality.
+     * @returns a EducationItemBodyInterface
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description of this rubric quality.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: EducationItemBody | undefined) {
+        if(value) {
+            this._description = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+        }
+    };
+    /**
+     * Gets the displayName property value. The name of this rubric quality.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of this rubric quality.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -45,16 +113,35 @@ export class RubricQualityImpl implements RubricQuality {
         };
     };
     /**
+     * Gets the qualityId property value. The ID of this resource.
+     * @returns a string
+     */
+    public get qualityId() {
+        return this._qualityId;
+    };
+    /**
+     * Sets the qualityId property value. The ID of this resource.
+     * @param value Value to set for the qualityId property.
+     */
+    public set qualityId(value: string | undefined) {
+        if(value) {
+            this._qualityId = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = []; this.criteria?.forEach(element => {criteriaArrValue.push(new RubricCriterionImpl(element));});
+        if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = [];
+        this.criteria?.forEach(element => {
+            criteriaArrValue.push((element instanceof RubricCriterionImpl? element:new RubricCriterionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<RubricCriterionImpl>("criteria", criteriaArrValue);
         }
         if(this.description){
-            writer.writeObjectValue<EducationItemBodyImpl>("description", new EducationItemBodyImpl(this.description));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", (!this.description || this.description instanceof EducationItemBodyImpl? this.description : new EducationItemBodyImpl(this.description)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
@@ -66,5 +153,21 @@ export class RubricQualityImpl implements RubricQuality {
             writer.writeNumberValue("weight", this.weight);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the weight property value. If present, a numerical weight for this quality.  Weights must add up to 100.
+     * @returns a float
+     */
+    public get weight() {
+        return this._weight;
+    };
+    /**
+     * Sets the weight property value. If present, a numerical weight for this quality.  Weights must add up to 100.
+     * @param value Value to set for the weight property.
+     */
+    public set weight(value: number | undefined) {
+        if(value) {
+            this._weight = value;
+        }
     };
 }

@@ -3,25 +3,73 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamsTabConfigurationImpl implements TeamsTabConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Url used for rendering tab contents in Teams. Required. */
-    public contentUrl?: string | undefined;
+    private _contentUrl?: string | undefined;
     /** Identifier for the entity hosted by the tab provider. */
-    public entityId?: string | undefined;
+    private _entityId?: string | undefined;
     /** Url called by Teams client when a Tab is removed using the Teams Client. */
-    public removeUrl?: string | undefined;
+    private _removeUrl?: string | undefined;
     /** Url for showing tab contents outside of Teams. */
-    public websiteUrl?: string | undefined;
+    private _websiteUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new teamsTabConfiguration and sets the default values.
      * @param teamsTabConfigurationParameterValue 
      */
     public constructor(teamsTabConfigurationParameterValue?: TeamsTabConfiguration | undefined) {
-        this.additionalData = teamsTabConfigurationParameterValue?.additionalData ? teamsTabConfigurationParameterValue?.additionalData! : {};
-        this.contentUrl = teamsTabConfigurationParameterValue?.contentUrl;
-        this.entityId = teamsTabConfigurationParameterValue?.entityId;
-        this.removeUrl = teamsTabConfigurationParameterValue?.removeUrl;
-        this.websiteUrl = teamsTabConfigurationParameterValue?.websiteUrl;
+        this._additionalData = teamsTabConfigurationParameterValue?.additionalData ? teamsTabConfigurationParameterValue?.additionalData! : {};
+        this._contentUrl = teamsTabConfigurationParameterValue?.contentUrl;
+        this._entityId = teamsTabConfigurationParameterValue?.entityId;
+        this._removeUrl = teamsTabConfigurationParameterValue?.removeUrl;
+        this._websiteUrl = teamsTabConfigurationParameterValue?.websiteUrl;
+    };
+    /**
+     * Gets the contentUrl property value. Url used for rendering tab contents in Teams. Required.
+     * @returns a string
+     */
+    public get contentUrl() {
+        return this._contentUrl;
+    };
+    /**
+     * Sets the contentUrl property value. Url used for rendering tab contents in Teams. Required.
+     * @param value Value to set for the contentUrl property.
+     */
+    public set contentUrl(value: string | undefined) {
+        if(value) {
+            this._contentUrl = value;
+        }
+    };
+    /**
+     * Gets the entityId property value. Identifier for the entity hosted by the tab provider.
+     * @returns a string
+     */
+    public get entityId() {
+        return this._entityId;
+    };
+    /**
+     * Sets the entityId property value. Identifier for the entity hosted by the tab provider.
+     * @param value Value to set for the entityId property.
+     */
+    public set entityId(value: string | undefined) {
+        if(value) {
+            this._entityId = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +82,22 @@ export class TeamsTabConfigurationImpl implements TeamsTabConfiguration {
             "removeUrl": n => { this.removeUrl = n.getStringValue(); },
             "websiteUrl": n => { this.websiteUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the removeUrl property value. Url called by Teams client when a Tab is removed using the Teams Client.
+     * @returns a string
+     */
+    public get removeUrl() {
+        return this._removeUrl;
+    };
+    /**
+     * Sets the removeUrl property value. Url called by Teams client when a Tab is removed using the Teams Client.
+     * @param value Value to set for the removeUrl property.
+     */
+    public set removeUrl(value: string | undefined) {
+        if(value) {
+            this._removeUrl = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -54,5 +118,21 @@ export class TeamsTabConfigurationImpl implements TeamsTabConfiguration {
             writer.writeStringValue("websiteUrl", this.websiteUrl);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the websiteUrl property value. Url for showing tab contents outside of Teams.
+     * @returns a string
+     */
+    public get websiteUrl() {
+        return this._websiteUrl;
+    };
+    /**
+     * Sets the websiteUrl property value. Url for showing tab contents outside of Teams.
+     * @param value Value to set for the websiteUrl property.
+     */
+    public set websiteUrl(value: string | undefined) {
+        if(value) {
+            this._websiteUrl = value;
+        }
     };
 }

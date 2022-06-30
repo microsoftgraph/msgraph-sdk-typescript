@@ -4,23 +4,55 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class AppleManagedIdentityProviderImpl extends IdentityProviderBaseImpl implements AppleManagedIdentityProvider {
     /** The certificate data which is a long string of text from the certificate, can be null. */
-    public certificateData?: string | undefined;
+    private _certificateData?: string | undefined;
     /** The Apple developer identifier. Required. */
-    public developerId?: string | undefined;
+    private _developerId?: string | undefined;
     /** The Apple key identifier. Required. */
-    public keyId?: string | undefined;
+    private _keyId?: string | undefined;
     /** The Apple service identifier. Required. */
-    public serviceId?: string | undefined;
+    private _serviceId?: string | undefined;
+    /**
+     * Gets the certificateData property value. The certificate data which is a long string of text from the certificate, can be null.
+     * @returns a string
+     */
+    public get certificateData() {
+        return this._certificateData;
+    };
+    /**
+     * Sets the certificateData property value. The certificate data which is a long string of text from the certificate, can be null.
+     * @param value Value to set for the certificateData property.
+     */
+    public set certificateData(value: string | undefined) {
+        if(value) {
+            this._certificateData = value;
+        }
+    };
     /**
      * Instantiates a new AppleManagedIdentityProvider and sets the default values.
      * @param appleManagedIdentityProviderParameterValue 
      */
     public constructor(appleManagedIdentityProviderParameterValue?: AppleManagedIdentityProvider | undefined) {
         super(appleManagedIdentityProviderParameterValue);
-        this.certificateData = appleManagedIdentityProviderParameterValue?.certificateData;
-        this.developerId = appleManagedIdentityProviderParameterValue?.developerId;
-        this.keyId = appleManagedIdentityProviderParameterValue?.keyId;
-        this.serviceId = appleManagedIdentityProviderParameterValue?.serviceId;
+        this._certificateData = appleManagedIdentityProviderParameterValue?.certificateData;
+        this._developerId = appleManagedIdentityProviderParameterValue?.developerId;
+        this._keyId = appleManagedIdentityProviderParameterValue?.keyId;
+        this._serviceId = appleManagedIdentityProviderParameterValue?.serviceId;
+    };
+    /**
+     * Gets the developerId property value. The Apple developer identifier. Required.
+     * @returns a string
+     */
+    public get developerId() {
+        return this._developerId;
+    };
+    /**
+     * Sets the developerId property value. The Apple developer identifier. Required.
+     * @param value Value to set for the developerId property.
+     */
+    public set developerId(value: string | undefined) {
+        if(value) {
+            this._developerId = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +65,22 @@ export class AppleManagedIdentityProviderImpl extends IdentityProviderBaseImpl i
             "keyId": n => { this.keyId = n.getStringValue(); },
             "serviceId": n => { this.serviceId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the keyId property value. The Apple key identifier. Required.
+     * @returns a string
+     */
+    public get keyId() {
+        return this._keyId;
+    };
+    /**
+     * Sets the keyId property value. The Apple key identifier. Required.
+     * @param value Value to set for the keyId property.
+     */
+    public set keyId(value: string | undefined) {
+        if(value) {
+            this._keyId = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -52,6 +100,22 @@ export class AppleManagedIdentityProviderImpl extends IdentityProviderBaseImpl i
         }
         if(this.serviceId){
             writer.writeStringValue("serviceId", this.serviceId);
+        }
+    };
+    /**
+     * Gets the serviceId property value. The Apple service identifier. Required.
+     * @returns a string
+     */
+    public get serviceId() {
+        return this._serviceId;
+    };
+    /**
+     * Sets the serviceId property value. The Apple service identifier. Required.
+     * @param value Value to set for the serviceId property.
+     */
+    public set serviceId(value: string | undefined) {
+        if(value) {
+            this._serviceId = value;
         }
     };
 }

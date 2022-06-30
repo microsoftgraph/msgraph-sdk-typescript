@@ -14,119 +14,663 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigurationImpl implements Windows10EndpointProtectionConfiguration {
     /** Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.) */
-    public applicationGuardAllowPersistence?: boolean | undefined;
+    private _applicationGuardAllowPersistence?: boolean | undefined;
     /** Allow printing to Local Printers from Container */
-    public applicationGuardAllowPrintToLocalPrinters?: boolean | undefined;
+    private _applicationGuardAllowPrintToLocalPrinters?: boolean | undefined;
     /** Allow printing to Network Printers from Container */
-    public applicationGuardAllowPrintToNetworkPrinters?: boolean | undefined;
+    private _applicationGuardAllowPrintToNetworkPrinters?: boolean | undefined;
     /** Allow printing to PDF from Container */
-    public applicationGuardAllowPrintToPDF?: boolean | undefined;
+    private _applicationGuardAllowPrintToPDF?: boolean | undefined;
     /** Allow printing to XPS from Container */
-    public applicationGuardAllowPrintToXPS?: boolean | undefined;
+    private _applicationGuardAllowPrintToXPS?: boolean | undefined;
     /** Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone. */
-    public applicationGuardBlockClipboardSharing?: ApplicationGuardBlockClipboardSharingType | undefined;
+    private _applicationGuardBlockClipboardSharing?: ApplicationGuardBlockClipboardSharingType | undefined;
     /** Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile. */
-    public applicationGuardBlockFileTransfer?: ApplicationGuardBlockFileTransferType | undefined;
+    private _applicationGuardBlockFileTransfer?: ApplicationGuardBlockFileTransferType | undefined;
     /** Block enterprise sites to load non-enterprise content, such as third party plug-ins */
-    public applicationGuardBlockNonEnterpriseContent?: boolean | undefined;
+    private _applicationGuardBlockNonEnterpriseContent?: boolean | undefined;
     /** Enable Windows Defender Application Guard */
-    public applicationGuardEnabled?: boolean | undefined;
+    private _applicationGuardEnabled?: boolean | undefined;
     /** Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.) */
-    public applicationGuardForceAuditing?: boolean | undefined;
+    private _applicationGuardForceAuditing?: boolean | undefined;
     /** Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker. */
-    public appLockerApplicationControl?: AppLockerApplicationControlType | undefined;
+    private _appLockerApplicationControl?: AppLockerApplicationControlType | undefined;
     /** Allows the Admin to disable the warning prompt for other disk encryption on the user machines. */
-    public bitLockerDisableWarningForOtherDiskEncryption?: boolean | undefined;
+    private _bitLockerDisableWarningForOtherDiskEncryption?: boolean | undefined;
     /** Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU. */
-    public bitLockerEnableStorageCardEncryptionOnMobile?: boolean | undefined;
+    private _bitLockerEnableStorageCardEncryptionOnMobile?: boolean | undefined;
     /** Allows the admin to require encryption to be turned on using BitLocker. */
-    public bitLockerEncryptDevice?: boolean | undefined;
+    private _bitLockerEncryptDevice?: boolean | undefined;
     /** BitLocker Removable Drive Policy. */
-    public bitLockerRemovableDrivePolicy?: BitLockerRemovableDrivePolicy | undefined;
+    private _bitLockerRemovableDrivePolicy?: BitLockerRemovableDrivePolicy | undefined;
     /** List of folder paths to be added to the list of protected folders */
-    public defenderAdditionalGuardedFolders?: string[] | undefined;
+    private _defenderAdditionalGuardedFolders?: string[] | undefined;
     /** List of exe files and folders to be excluded from attack surface reduction rules */
-    public defenderAttackSurfaceReductionExcludedPaths?: string[] | undefined;
+    private _defenderAttackSurfaceReductionExcludedPaths?: string[] | undefined;
     /** Xml content containing information regarding exploit protection details. */
-    public defenderExploitProtectionXml?: string | undefined;
+    private _defenderExploitProtectionXml?: string | undefined;
     /** Name of the file from which DefenderExploitProtectionXml was obtained. */
-    public defenderExploitProtectionXmlFileName?: string | undefined;
+    private _defenderExploitProtectionXmlFileName?: string | undefined;
     /** List of paths to exe that are allowed to access protected folders */
-    public defenderGuardedFoldersAllowedAppPaths?: string[] | undefined;
+    private _defenderGuardedFoldersAllowedAppPaths?: string[] | undefined;
     /** Indicates whether or not to block user from overriding Exploit Protection settings. */
-    public defenderSecurityCenterBlockExploitProtectionOverride?: boolean | undefined;
+    private _defenderSecurityCenterBlockExploitProtectionOverride?: boolean | undefined;
     /** Blocks stateful FTP connections to the device */
-    public firewallBlockStatefulFTP?: boolean | undefined;
+    private _firewallBlockStatefulFTP?: boolean | undefined;
     /** Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require. */
-    public firewallCertificateRevocationListCheckMethod?: FirewallCertificateRevocationListCheckMethodType | undefined;
+    private _firewallCertificateRevocationListCheckMethod?: FirewallCertificateRevocationListCheckMethodType | undefined;
     /** Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600 */
-    public firewallIdleTimeoutForSecurityAssociationInSeconds?: number | undefined;
+    private _firewallIdleTimeoutForSecurityAssociationInSeconds?: number | undefined;
     /** Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic */
-    public firewallIPSecExemptionsAllowDHCP?: boolean | undefined;
+    private _firewallIPSecExemptionsAllowDHCP?: boolean | undefined;
     /** Configures IPSec exemptions to allow ICMP */
-    public firewallIPSecExemptionsAllowICMP?: boolean | undefined;
+    private _firewallIPSecExemptionsAllowICMP?: boolean | undefined;
     /** Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes */
-    public firewallIPSecExemptionsAllowNeighborDiscovery?: boolean | undefined;
+    private _firewallIPSecExemptionsAllowNeighborDiscovery?: boolean | undefined;
     /** Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes */
-    public firewallIPSecExemptionsAllowRouterDiscovery?: boolean | undefined;
+    private _firewallIPSecExemptionsAllowRouterDiscovery?: boolean | undefined;
     /** If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set */
-    public firewallMergeKeyingModuleSettings?: boolean | undefined;
+    private _firewallMergeKeyingModuleSettings?: boolean | undefined;
     /** Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth. */
-    public firewallPacketQueueingMethod?: FirewallPacketQueueingMethodType | undefined;
+    private _firewallPacketQueueingMethod?: FirewallPacketQueueingMethodType | undefined;
     /** Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8. */
-    public firewallPreSharedKeyEncodingMethod?: FirewallPreSharedKeyEncodingMethodType | undefined;
+    private _firewallPreSharedKeyEncodingMethod?: FirewallPreSharedKeyEncodingMethodType | undefined;
     /** Configures the firewall profile settings for domain networks */
-    public firewallProfileDomain?: WindowsFirewallNetworkProfile | undefined;
+    private _firewallProfileDomain?: WindowsFirewallNetworkProfile | undefined;
     /** Configures the firewall profile settings for private networks */
-    public firewallProfilePrivate?: WindowsFirewallNetworkProfile | undefined;
+    private _firewallProfilePrivate?: WindowsFirewallNetworkProfile | undefined;
     /** Configures the firewall profile settings for public networks */
-    public firewallProfilePublic?: WindowsFirewallNetworkProfile | undefined;
+    private _firewallProfilePublic?: WindowsFirewallNetworkProfile | undefined;
     /** Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files. */
-    public smartScreenBlockOverrideForFiles?: boolean | undefined;
+    private _smartScreenBlockOverrideForFiles?: boolean | undefined;
     /** Allows IT Admins to configure SmartScreen for Windows. */
-    public smartScreenEnableInShell?: boolean | undefined;
+    private _smartScreenEnableInShell?: boolean | undefined;
+    /**
+     * Gets the applicationGuardAllowPersistence property value. Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
+     * @returns a boolean
+     */
+    public get applicationGuardAllowPersistence() {
+        return this._applicationGuardAllowPersistence;
+    };
+    /**
+     * Sets the applicationGuardAllowPersistence property value. Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
+     * @param value Value to set for the applicationGuardAllowPersistence property.
+     */
+    public set applicationGuardAllowPersistence(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardAllowPersistence = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardAllowPrintToLocalPrinters property value. Allow printing to Local Printers from Container
+     * @returns a boolean
+     */
+    public get applicationGuardAllowPrintToLocalPrinters() {
+        return this._applicationGuardAllowPrintToLocalPrinters;
+    };
+    /**
+     * Sets the applicationGuardAllowPrintToLocalPrinters property value. Allow printing to Local Printers from Container
+     * @param value Value to set for the applicationGuardAllowPrintToLocalPrinters property.
+     */
+    public set applicationGuardAllowPrintToLocalPrinters(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardAllowPrintToLocalPrinters = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardAllowPrintToNetworkPrinters property value. Allow printing to Network Printers from Container
+     * @returns a boolean
+     */
+    public get applicationGuardAllowPrintToNetworkPrinters() {
+        return this._applicationGuardAllowPrintToNetworkPrinters;
+    };
+    /**
+     * Sets the applicationGuardAllowPrintToNetworkPrinters property value. Allow printing to Network Printers from Container
+     * @param value Value to set for the applicationGuardAllowPrintToNetworkPrinters property.
+     */
+    public set applicationGuardAllowPrintToNetworkPrinters(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardAllowPrintToNetworkPrinters = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardAllowPrintToPDF property value. Allow printing to PDF from Container
+     * @returns a boolean
+     */
+    public get applicationGuardAllowPrintToPDF() {
+        return this._applicationGuardAllowPrintToPDF;
+    };
+    /**
+     * Sets the applicationGuardAllowPrintToPDF property value. Allow printing to PDF from Container
+     * @param value Value to set for the applicationGuardAllowPrintToPDF property.
+     */
+    public set applicationGuardAllowPrintToPDF(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardAllowPrintToPDF = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardAllowPrintToXPS property value. Allow printing to XPS from Container
+     * @returns a boolean
+     */
+    public get applicationGuardAllowPrintToXPS() {
+        return this._applicationGuardAllowPrintToXPS;
+    };
+    /**
+     * Sets the applicationGuardAllowPrintToXPS property value. Allow printing to XPS from Container
+     * @param value Value to set for the applicationGuardAllowPrintToXPS property.
+     */
+    public set applicationGuardAllowPrintToXPS(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardAllowPrintToXPS = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardBlockClipboardSharing property value. Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
+     * @returns a applicationGuardBlockClipboardSharingType
+     */
+    public get applicationGuardBlockClipboardSharing() {
+        return this._applicationGuardBlockClipboardSharing;
+    };
+    /**
+     * Sets the applicationGuardBlockClipboardSharing property value. Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
+     * @param value Value to set for the applicationGuardBlockClipboardSharing property.
+     */
+    public set applicationGuardBlockClipboardSharing(value: ApplicationGuardBlockClipboardSharingType | undefined) {
+        if(value) {
+            this._applicationGuardBlockClipboardSharing = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardBlockFileTransfer property value. Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
+     * @returns a applicationGuardBlockFileTransferType
+     */
+    public get applicationGuardBlockFileTransfer() {
+        return this._applicationGuardBlockFileTransfer;
+    };
+    /**
+     * Sets the applicationGuardBlockFileTransfer property value. Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
+     * @param value Value to set for the applicationGuardBlockFileTransfer property.
+     */
+    public set applicationGuardBlockFileTransfer(value: ApplicationGuardBlockFileTransferType | undefined) {
+        if(value) {
+            this._applicationGuardBlockFileTransfer = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardBlockNonEnterpriseContent property value. Block enterprise sites to load non-enterprise content, such as third party plug-ins
+     * @returns a boolean
+     */
+    public get applicationGuardBlockNonEnterpriseContent() {
+        return this._applicationGuardBlockNonEnterpriseContent;
+    };
+    /**
+     * Sets the applicationGuardBlockNonEnterpriseContent property value. Block enterprise sites to load non-enterprise content, such as third party plug-ins
+     * @param value Value to set for the applicationGuardBlockNonEnterpriseContent property.
+     */
+    public set applicationGuardBlockNonEnterpriseContent(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardBlockNonEnterpriseContent = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardEnabled property value. Enable Windows Defender Application Guard
+     * @returns a boolean
+     */
+    public get applicationGuardEnabled() {
+        return this._applicationGuardEnabled;
+    };
+    /**
+     * Sets the applicationGuardEnabled property value. Enable Windows Defender Application Guard
+     * @param value Value to set for the applicationGuardEnabled property.
+     */
+    public set applicationGuardEnabled(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardEnabled = value;
+        }
+    };
+    /**
+     * Gets the applicationGuardForceAuditing property value. Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
+     * @returns a boolean
+     */
+    public get applicationGuardForceAuditing() {
+        return this._applicationGuardForceAuditing;
+    };
+    /**
+     * Sets the applicationGuardForceAuditing property value. Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
+     * @param value Value to set for the applicationGuardForceAuditing property.
+     */
+    public set applicationGuardForceAuditing(value: boolean | undefined) {
+        if(value) {
+            this._applicationGuardForceAuditing = value;
+        }
+    };
+    /**
+     * Gets the appLockerApplicationControl property value. Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
+     * @returns a appLockerApplicationControlType
+     */
+    public get appLockerApplicationControl() {
+        return this._appLockerApplicationControl;
+    };
+    /**
+     * Sets the appLockerApplicationControl property value. Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
+     * @param value Value to set for the appLockerApplicationControl property.
+     */
+    public set appLockerApplicationControl(value: AppLockerApplicationControlType | undefined) {
+        if(value) {
+            this._appLockerApplicationControl = value;
+        }
+    };
+    /**
+     * Gets the bitLockerDisableWarningForOtherDiskEncryption property value. Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
+     * @returns a boolean
+     */
+    public get bitLockerDisableWarningForOtherDiskEncryption() {
+        return this._bitLockerDisableWarningForOtherDiskEncryption;
+    };
+    /**
+     * Sets the bitLockerDisableWarningForOtherDiskEncryption property value. Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
+     * @param value Value to set for the bitLockerDisableWarningForOtherDiskEncryption property.
+     */
+    public set bitLockerDisableWarningForOtherDiskEncryption(value: boolean | undefined) {
+        if(value) {
+            this._bitLockerDisableWarningForOtherDiskEncryption = value;
+        }
+    };
+    /**
+     * Gets the bitLockerEnableStorageCardEncryptionOnMobile property value. Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
+     * @returns a boolean
+     */
+    public get bitLockerEnableStorageCardEncryptionOnMobile() {
+        return this._bitLockerEnableStorageCardEncryptionOnMobile;
+    };
+    /**
+     * Sets the bitLockerEnableStorageCardEncryptionOnMobile property value. Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
+     * @param value Value to set for the bitLockerEnableStorageCardEncryptionOnMobile property.
+     */
+    public set bitLockerEnableStorageCardEncryptionOnMobile(value: boolean | undefined) {
+        if(value) {
+            this._bitLockerEnableStorageCardEncryptionOnMobile = value;
+        }
+    };
+    /**
+     * Gets the bitLockerEncryptDevice property value. Allows the admin to require encryption to be turned on using BitLocker.
+     * @returns a boolean
+     */
+    public get bitLockerEncryptDevice() {
+        return this._bitLockerEncryptDevice;
+    };
+    /**
+     * Sets the bitLockerEncryptDevice property value. Allows the admin to require encryption to be turned on using BitLocker.
+     * @param value Value to set for the bitLockerEncryptDevice property.
+     */
+    public set bitLockerEncryptDevice(value: boolean | undefined) {
+        if(value) {
+            this._bitLockerEncryptDevice = value;
+        }
+    };
+    /**
+     * Gets the bitLockerRemovableDrivePolicy property value. BitLocker Removable Drive Policy.
+     * @returns a BitLockerRemovableDrivePolicyInterface
+     */
+    public get bitLockerRemovableDrivePolicy() {
+        return this._bitLockerRemovableDrivePolicy;
+    };
+    /**
+     * Sets the bitLockerRemovableDrivePolicy property value. BitLocker Removable Drive Policy.
+     * @param value Value to set for the bitLockerRemovableDrivePolicy property.
+     */
+    public set bitLockerRemovableDrivePolicy(value: BitLockerRemovableDrivePolicy | undefined) {
+        if(value) {
+            this._bitLockerRemovableDrivePolicy = value instanceof BitLockerRemovableDrivePolicyImpl? value : new BitLockerRemovableDrivePolicyImpl(value);
+        }
+    };
     /**
      * Instantiates a new Windows10EndpointProtectionConfiguration and sets the default values.
      * @param windows10EndpointProtectionConfigurationParameterValue 
      */
     public constructor(windows10EndpointProtectionConfigurationParameterValue?: Windows10EndpointProtectionConfiguration | undefined) {
         super(windows10EndpointProtectionConfigurationParameterValue);
-        this.applicationGuardAllowPersistence = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPersistence;
-        this.applicationGuardAllowPrintToLocalPrinters = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToLocalPrinters;
-        this.applicationGuardAllowPrintToNetworkPrinters = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToNetworkPrinters;
-        this.applicationGuardAllowPrintToPDF = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToPDF;
-        this.applicationGuardAllowPrintToXPS = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToXPS;
-        this.applicationGuardBlockClipboardSharing = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardBlockClipboardSharing;
-        this.applicationGuardBlockFileTransfer = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardBlockFileTransfer;
-        this.applicationGuardBlockNonEnterpriseContent = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardBlockNonEnterpriseContent;
-        this.applicationGuardEnabled = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardEnabled;
-        this.applicationGuardForceAuditing = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardForceAuditing;
-        this.appLockerApplicationControl = windows10EndpointProtectionConfigurationParameterValue?.appLockerApplicationControl;
-        this.bitLockerDisableWarningForOtherDiskEncryption = windows10EndpointProtectionConfigurationParameterValue?.bitLockerDisableWarningForOtherDiskEncryption;
-        this.bitLockerEnableStorageCardEncryptionOnMobile = windows10EndpointProtectionConfigurationParameterValue?.bitLockerEnableStorageCardEncryptionOnMobile;
-        this.bitLockerEncryptDevice = windows10EndpointProtectionConfigurationParameterValue?.bitLockerEncryptDevice;
-        this.bitLockerRemovableDrivePolicy = windows10EndpointProtectionConfigurationParameterValue?.bitLockerRemovableDrivePolicy;
-        this.defenderAdditionalGuardedFolders = windows10EndpointProtectionConfigurationParameterValue?.defenderAdditionalGuardedFolders;
-        this.defenderAttackSurfaceReductionExcludedPaths = windows10EndpointProtectionConfigurationParameterValue?.defenderAttackSurfaceReductionExcludedPaths;
-        this.defenderExploitProtectionXml = windows10EndpointProtectionConfigurationParameterValue?.defenderExploitProtectionXml;
-        this.defenderExploitProtectionXmlFileName = windows10EndpointProtectionConfigurationParameterValue?.defenderExploitProtectionXmlFileName;
-        this.defenderGuardedFoldersAllowedAppPaths = windows10EndpointProtectionConfigurationParameterValue?.defenderGuardedFoldersAllowedAppPaths;
-        this.defenderSecurityCenterBlockExploitProtectionOverride = windows10EndpointProtectionConfigurationParameterValue?.defenderSecurityCenterBlockExploitProtectionOverride;
-        this.firewallBlockStatefulFTP = windows10EndpointProtectionConfigurationParameterValue?.firewallBlockStatefulFTP;
-        this.firewallCertificateRevocationListCheckMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallCertificateRevocationListCheckMethod;
-        this.firewallIdleTimeoutForSecurityAssociationInSeconds = windows10EndpointProtectionConfigurationParameterValue?.firewallIdleTimeoutForSecurityAssociationInSeconds;
-        this.firewallIPSecExemptionsAllowDHCP = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowDHCP;
-        this.firewallIPSecExemptionsAllowICMP = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowICMP;
-        this.firewallIPSecExemptionsAllowNeighborDiscovery = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowNeighborDiscovery;
-        this.firewallIPSecExemptionsAllowRouterDiscovery = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowRouterDiscovery;
-        this.firewallMergeKeyingModuleSettings = windows10EndpointProtectionConfigurationParameterValue?.firewallMergeKeyingModuleSettings;
-        this.firewallPacketQueueingMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallPacketQueueingMethod;
-        this.firewallPreSharedKeyEncodingMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallPreSharedKeyEncodingMethod;
-        this.firewallProfileDomain = windows10EndpointProtectionConfigurationParameterValue?.firewallProfileDomain;
-        this.firewallProfilePrivate = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePrivate;
-        this.firewallProfilePublic = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePublic;
-        this.smartScreenBlockOverrideForFiles = windows10EndpointProtectionConfigurationParameterValue?.smartScreenBlockOverrideForFiles;
-        this.smartScreenEnableInShell = windows10EndpointProtectionConfigurationParameterValue?.smartScreenEnableInShell;
+        this._applicationGuardAllowPersistence = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPersistence;
+        this._applicationGuardAllowPrintToLocalPrinters = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToLocalPrinters;
+        this._applicationGuardAllowPrintToNetworkPrinters = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToNetworkPrinters;
+        this._applicationGuardAllowPrintToPDF = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToPDF;
+        this._applicationGuardAllowPrintToXPS = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardAllowPrintToXPS;
+        this._applicationGuardBlockClipboardSharing = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardBlockClipboardSharing;
+        this._applicationGuardBlockFileTransfer = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardBlockFileTransfer;
+        this._applicationGuardBlockNonEnterpriseContent = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardBlockNonEnterpriseContent;
+        this._applicationGuardEnabled = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardEnabled;
+        this._applicationGuardForceAuditing = windows10EndpointProtectionConfigurationParameterValue?.applicationGuardForceAuditing;
+        this._appLockerApplicationControl = windows10EndpointProtectionConfigurationParameterValue?.appLockerApplicationControl;
+        this._bitLockerDisableWarningForOtherDiskEncryption = windows10EndpointProtectionConfigurationParameterValue?.bitLockerDisableWarningForOtherDiskEncryption;
+        this._bitLockerEnableStorageCardEncryptionOnMobile = windows10EndpointProtectionConfigurationParameterValue?.bitLockerEnableStorageCardEncryptionOnMobile;
+        this._bitLockerEncryptDevice = windows10EndpointProtectionConfigurationParameterValue?.bitLockerEncryptDevice;
+        this._bitLockerRemovableDrivePolicy = windows10EndpointProtectionConfigurationParameterValue?.bitLockerRemovableDrivePolicy;
+        this._defenderAdditionalGuardedFolders = windows10EndpointProtectionConfigurationParameterValue?.defenderAdditionalGuardedFolders;
+        this._defenderAttackSurfaceReductionExcludedPaths = windows10EndpointProtectionConfigurationParameterValue?.defenderAttackSurfaceReductionExcludedPaths;
+        this._defenderExploitProtectionXml = windows10EndpointProtectionConfigurationParameterValue?.defenderExploitProtectionXml;
+        this._defenderExploitProtectionXmlFileName = windows10EndpointProtectionConfigurationParameterValue?.defenderExploitProtectionXmlFileName;
+        this._defenderGuardedFoldersAllowedAppPaths = windows10EndpointProtectionConfigurationParameterValue?.defenderGuardedFoldersAllowedAppPaths;
+        this._defenderSecurityCenterBlockExploitProtectionOverride = windows10EndpointProtectionConfigurationParameterValue?.defenderSecurityCenterBlockExploitProtectionOverride;
+        this._firewallBlockStatefulFTP = windows10EndpointProtectionConfigurationParameterValue?.firewallBlockStatefulFTP;
+        this._firewallCertificateRevocationListCheckMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallCertificateRevocationListCheckMethod;
+        this._firewallIdleTimeoutForSecurityAssociationInSeconds = windows10EndpointProtectionConfigurationParameterValue?.firewallIdleTimeoutForSecurityAssociationInSeconds;
+        this._firewallIPSecExemptionsAllowDHCP = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowDHCP;
+        this._firewallIPSecExemptionsAllowICMP = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowICMP;
+        this._firewallIPSecExemptionsAllowNeighborDiscovery = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowNeighborDiscovery;
+        this._firewallIPSecExemptionsAllowRouterDiscovery = windows10EndpointProtectionConfigurationParameterValue?.firewallIPSecExemptionsAllowRouterDiscovery;
+        this._firewallMergeKeyingModuleSettings = windows10EndpointProtectionConfigurationParameterValue?.firewallMergeKeyingModuleSettings;
+        this._firewallPacketQueueingMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallPacketQueueingMethod;
+        this._firewallPreSharedKeyEncodingMethod = windows10EndpointProtectionConfigurationParameterValue?.firewallPreSharedKeyEncodingMethod;
+        this._firewallProfileDomain = windows10EndpointProtectionConfigurationParameterValue?.firewallProfileDomain;
+        this._firewallProfilePrivate = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePrivate;
+        this._firewallProfilePublic = windows10EndpointProtectionConfigurationParameterValue?.firewallProfilePublic;
+        this._smartScreenBlockOverrideForFiles = windows10EndpointProtectionConfigurationParameterValue?.smartScreenBlockOverrideForFiles;
+        this._smartScreenEnableInShell = windows10EndpointProtectionConfigurationParameterValue?.smartScreenEnableInShell;
+    };
+    /**
+     * Gets the defenderAdditionalGuardedFolders property value. List of folder paths to be added to the list of protected folders
+     * @returns a string
+     */
+    public get defenderAdditionalGuardedFolders() {
+        return this._defenderAdditionalGuardedFolders;
+    };
+    /**
+     * Sets the defenderAdditionalGuardedFolders property value. List of folder paths to be added to the list of protected folders
+     * @param value Value to set for the defenderAdditionalGuardedFolders property.
+     */
+    public set defenderAdditionalGuardedFolders(value: string[] | undefined) {
+        if(value) {
+            this._defenderAdditionalGuardedFolders = value;
+        }
+    };
+    /**
+     * Gets the defenderAttackSurfaceReductionExcludedPaths property value. List of exe files and folders to be excluded from attack surface reduction rules
+     * @returns a string
+     */
+    public get defenderAttackSurfaceReductionExcludedPaths() {
+        return this._defenderAttackSurfaceReductionExcludedPaths;
+    };
+    /**
+     * Sets the defenderAttackSurfaceReductionExcludedPaths property value. List of exe files and folders to be excluded from attack surface reduction rules
+     * @param value Value to set for the defenderAttackSurfaceReductionExcludedPaths property.
+     */
+    public set defenderAttackSurfaceReductionExcludedPaths(value: string[] | undefined) {
+        if(value) {
+            this._defenderAttackSurfaceReductionExcludedPaths = value;
+        }
+    };
+    /**
+     * Gets the defenderExploitProtectionXml property value. Xml content containing information regarding exploit protection details.
+     * @returns a binary
+     */
+    public get defenderExploitProtectionXml() {
+        return this._defenderExploitProtectionXml;
+    };
+    /**
+     * Sets the defenderExploitProtectionXml property value. Xml content containing information regarding exploit protection details.
+     * @param value Value to set for the defenderExploitProtectionXml property.
+     */
+    public set defenderExploitProtectionXml(value: string | undefined) {
+        if(value) {
+            this._defenderExploitProtectionXml = value;
+        }
+    };
+    /**
+     * Gets the defenderExploitProtectionXmlFileName property value. Name of the file from which DefenderExploitProtectionXml was obtained.
+     * @returns a string
+     */
+    public get defenderExploitProtectionXmlFileName() {
+        return this._defenderExploitProtectionXmlFileName;
+    };
+    /**
+     * Sets the defenderExploitProtectionXmlFileName property value. Name of the file from which DefenderExploitProtectionXml was obtained.
+     * @param value Value to set for the defenderExploitProtectionXmlFileName property.
+     */
+    public set defenderExploitProtectionXmlFileName(value: string | undefined) {
+        if(value) {
+            this._defenderExploitProtectionXmlFileName = value;
+        }
+    };
+    /**
+     * Gets the defenderGuardedFoldersAllowedAppPaths property value. List of paths to exe that are allowed to access protected folders
+     * @returns a string
+     */
+    public get defenderGuardedFoldersAllowedAppPaths() {
+        return this._defenderGuardedFoldersAllowedAppPaths;
+    };
+    /**
+     * Sets the defenderGuardedFoldersAllowedAppPaths property value. List of paths to exe that are allowed to access protected folders
+     * @param value Value to set for the defenderGuardedFoldersAllowedAppPaths property.
+     */
+    public set defenderGuardedFoldersAllowedAppPaths(value: string[] | undefined) {
+        if(value) {
+            this._defenderGuardedFoldersAllowedAppPaths = value;
+        }
+    };
+    /**
+     * Gets the defenderSecurityCenterBlockExploitProtectionOverride property value. Indicates whether or not to block user from overriding Exploit Protection settings.
+     * @returns a boolean
+     */
+    public get defenderSecurityCenterBlockExploitProtectionOverride() {
+        return this._defenderSecurityCenterBlockExploitProtectionOverride;
+    };
+    /**
+     * Sets the defenderSecurityCenterBlockExploitProtectionOverride property value. Indicates whether or not to block user from overriding Exploit Protection settings.
+     * @param value Value to set for the defenderSecurityCenterBlockExploitProtectionOverride property.
+     */
+    public set defenderSecurityCenterBlockExploitProtectionOverride(value: boolean | undefined) {
+        if(value) {
+            this._defenderSecurityCenterBlockExploitProtectionOverride = value;
+        }
+    };
+    /**
+     * Gets the firewallBlockStatefulFTP property value. Blocks stateful FTP connections to the device
+     * @returns a boolean
+     */
+    public get firewallBlockStatefulFTP() {
+        return this._firewallBlockStatefulFTP;
+    };
+    /**
+     * Sets the firewallBlockStatefulFTP property value. Blocks stateful FTP connections to the device
+     * @param value Value to set for the firewallBlockStatefulFTP property.
+     */
+    public set firewallBlockStatefulFTP(value: boolean | undefined) {
+        if(value) {
+            this._firewallBlockStatefulFTP = value;
+        }
+    };
+    /**
+     * Gets the firewallCertificateRevocationListCheckMethod property value. Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
+     * @returns a firewallCertificateRevocationListCheckMethodType
+     */
+    public get firewallCertificateRevocationListCheckMethod() {
+        return this._firewallCertificateRevocationListCheckMethod;
+    };
+    /**
+     * Sets the firewallCertificateRevocationListCheckMethod property value. Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
+     * @param value Value to set for the firewallCertificateRevocationListCheckMethod property.
+     */
+    public set firewallCertificateRevocationListCheckMethod(value: FirewallCertificateRevocationListCheckMethodType | undefined) {
+        if(value) {
+            this._firewallCertificateRevocationListCheckMethod = value;
+        }
+    };
+    /**
+     * Gets the firewallIdleTimeoutForSecurityAssociationInSeconds property value. Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
+     * @returns a integer
+     */
+    public get firewallIdleTimeoutForSecurityAssociationInSeconds() {
+        return this._firewallIdleTimeoutForSecurityAssociationInSeconds;
+    };
+    /**
+     * Sets the firewallIdleTimeoutForSecurityAssociationInSeconds property value. Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
+     * @param value Value to set for the firewallIdleTimeoutForSecurityAssociationInSeconds property.
+     */
+    public set firewallIdleTimeoutForSecurityAssociationInSeconds(value: number | undefined) {
+        if(value) {
+            this._firewallIdleTimeoutForSecurityAssociationInSeconds = value;
+        }
+    };
+    /**
+     * Gets the firewallIPSecExemptionsAllowDHCP property value. Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
+     * @returns a boolean
+     */
+    public get firewallIPSecExemptionsAllowDHCP() {
+        return this._firewallIPSecExemptionsAllowDHCP;
+    };
+    /**
+     * Sets the firewallIPSecExemptionsAllowDHCP property value. Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
+     * @param value Value to set for the firewallIPSecExemptionsAllowDHCP property.
+     */
+    public set firewallIPSecExemptionsAllowDHCP(value: boolean | undefined) {
+        if(value) {
+            this._firewallIPSecExemptionsAllowDHCP = value;
+        }
+    };
+    /**
+     * Gets the firewallIPSecExemptionsAllowICMP property value. Configures IPSec exemptions to allow ICMP
+     * @returns a boolean
+     */
+    public get firewallIPSecExemptionsAllowICMP() {
+        return this._firewallIPSecExemptionsAllowICMP;
+    };
+    /**
+     * Sets the firewallIPSecExemptionsAllowICMP property value. Configures IPSec exemptions to allow ICMP
+     * @param value Value to set for the firewallIPSecExemptionsAllowICMP property.
+     */
+    public set firewallIPSecExemptionsAllowICMP(value: boolean | undefined) {
+        if(value) {
+            this._firewallIPSecExemptionsAllowICMP = value;
+        }
+    };
+    /**
+     * Gets the firewallIPSecExemptionsAllowNeighborDiscovery property value. Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
+     * @returns a boolean
+     */
+    public get firewallIPSecExemptionsAllowNeighborDiscovery() {
+        return this._firewallIPSecExemptionsAllowNeighborDiscovery;
+    };
+    /**
+     * Sets the firewallIPSecExemptionsAllowNeighborDiscovery property value. Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
+     * @param value Value to set for the firewallIPSecExemptionsAllowNeighborDiscovery property.
+     */
+    public set firewallIPSecExemptionsAllowNeighborDiscovery(value: boolean | undefined) {
+        if(value) {
+            this._firewallIPSecExemptionsAllowNeighborDiscovery = value;
+        }
+    };
+    /**
+     * Gets the firewallIPSecExemptionsAllowRouterDiscovery property value. Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
+     * @returns a boolean
+     */
+    public get firewallIPSecExemptionsAllowRouterDiscovery() {
+        return this._firewallIPSecExemptionsAllowRouterDiscovery;
+    };
+    /**
+     * Sets the firewallIPSecExemptionsAllowRouterDiscovery property value. Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
+     * @param value Value to set for the firewallIPSecExemptionsAllowRouterDiscovery property.
+     */
+    public set firewallIPSecExemptionsAllowRouterDiscovery(value: boolean | undefined) {
+        if(value) {
+            this._firewallIPSecExemptionsAllowRouterDiscovery = value;
+        }
+    };
+    /**
+     * Gets the firewallMergeKeyingModuleSettings property value. If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
+     * @returns a boolean
+     */
+    public get firewallMergeKeyingModuleSettings() {
+        return this._firewallMergeKeyingModuleSettings;
+    };
+    /**
+     * Sets the firewallMergeKeyingModuleSettings property value. If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
+     * @param value Value to set for the firewallMergeKeyingModuleSettings property.
+     */
+    public set firewallMergeKeyingModuleSettings(value: boolean | undefined) {
+        if(value) {
+            this._firewallMergeKeyingModuleSettings = value;
+        }
+    };
+    /**
+     * Gets the firewallPacketQueueingMethod property value. Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
+     * @returns a firewallPacketQueueingMethodType
+     */
+    public get firewallPacketQueueingMethod() {
+        return this._firewallPacketQueueingMethod;
+    };
+    /**
+     * Sets the firewallPacketQueueingMethod property value. Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
+     * @param value Value to set for the firewallPacketQueueingMethod property.
+     */
+    public set firewallPacketQueueingMethod(value: FirewallPacketQueueingMethodType | undefined) {
+        if(value) {
+            this._firewallPacketQueueingMethod = value;
+        }
+    };
+    /**
+     * Gets the firewallPreSharedKeyEncodingMethod property value. Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
+     * @returns a firewallPreSharedKeyEncodingMethodType
+     */
+    public get firewallPreSharedKeyEncodingMethod() {
+        return this._firewallPreSharedKeyEncodingMethod;
+    };
+    /**
+     * Sets the firewallPreSharedKeyEncodingMethod property value. Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
+     * @param value Value to set for the firewallPreSharedKeyEncodingMethod property.
+     */
+    public set firewallPreSharedKeyEncodingMethod(value: FirewallPreSharedKeyEncodingMethodType | undefined) {
+        if(value) {
+            this._firewallPreSharedKeyEncodingMethod = value;
+        }
+    };
+    /**
+     * Gets the firewallProfileDomain property value. Configures the firewall profile settings for domain networks
+     * @returns a WindowsFirewallNetworkProfileInterface
+     */
+    public get firewallProfileDomain() {
+        return this._firewallProfileDomain;
+    };
+    /**
+     * Sets the firewallProfileDomain property value. Configures the firewall profile settings for domain networks
+     * @param value Value to set for the firewallProfileDomain property.
+     */
+    public set firewallProfileDomain(value: WindowsFirewallNetworkProfile | undefined) {
+        if(value) {
+            this._firewallProfileDomain = value instanceof WindowsFirewallNetworkProfileImpl? value : new WindowsFirewallNetworkProfileImpl(value);
+        }
+    };
+    /**
+     * Gets the firewallProfilePrivate property value. Configures the firewall profile settings for private networks
+     * @returns a WindowsFirewallNetworkProfileInterface
+     */
+    public get firewallProfilePrivate() {
+        return this._firewallProfilePrivate;
+    };
+    /**
+     * Sets the firewallProfilePrivate property value. Configures the firewall profile settings for private networks
+     * @param value Value to set for the firewallProfilePrivate property.
+     */
+    public set firewallProfilePrivate(value: WindowsFirewallNetworkProfile | undefined) {
+        if(value) {
+            this._firewallProfilePrivate = value instanceof WindowsFirewallNetworkProfileImpl? value : new WindowsFirewallNetworkProfileImpl(value);
+        }
+    };
+    /**
+     * Gets the firewallProfilePublic property value. Configures the firewall profile settings for public networks
+     * @returns a WindowsFirewallNetworkProfileInterface
+     */
+    public get firewallProfilePublic() {
+        return this._firewallProfilePublic;
+    };
+    /**
+     * Sets the firewallProfilePublic property value. Configures the firewall profile settings for public networks
+     * @param value Value to set for the firewallProfilePublic property.
+     */
+    public set firewallProfilePublic(value: WindowsFirewallNetworkProfile | undefined) {
+        if(value) {
+            this._firewallProfilePublic = value instanceof WindowsFirewallNetworkProfileImpl? value : new WindowsFirewallNetworkProfileImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -222,7 +766,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
             writer.writeBooleanValue("bitLockerEncryptDevice", this.bitLockerEncryptDevice);
         }
         if(this.bitLockerRemovableDrivePolicy){
-            writer.writeObjectValue<BitLockerRemovableDrivePolicyImpl>("bitLockerRemovableDrivePolicy", new BitLockerRemovableDrivePolicyImpl(this.bitLockerRemovableDrivePolicy));
+            writer.writeObjectValue<BitLockerRemovableDrivePolicyImpl>("bitLockerRemovableDrivePolicy", (!this.bitLockerRemovableDrivePolicy || this.bitLockerRemovableDrivePolicy instanceof BitLockerRemovableDrivePolicyImpl? this.bitLockerRemovableDrivePolicy : new BitLockerRemovableDrivePolicyImpl(this.bitLockerRemovableDrivePolicy)));
         }
         if(this.defenderAdditionalGuardedFolders){
             writer.writeCollectionOfPrimitiveValues<string>("defenderAdditionalGuardedFolders", this.defenderAdditionalGuardedFolders);
@@ -273,19 +817,51 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
             writer.writeEnumValue<FirewallPreSharedKeyEncodingMethodType>("firewallPreSharedKeyEncodingMethod", this.firewallPreSharedKeyEncodingMethod);
         }
         if(this.firewallProfileDomain){
-            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfileDomain", new WindowsFirewallNetworkProfileImpl(this.firewallProfileDomain));
+            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfileDomain", (!this.firewallProfileDomain || this.firewallProfileDomain instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfileDomain : new WindowsFirewallNetworkProfileImpl(this.firewallProfileDomain)));
         }
         if(this.firewallProfilePrivate){
-            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePrivate", new WindowsFirewallNetworkProfileImpl(this.firewallProfilePrivate));
+            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePrivate", (!this.firewallProfilePrivate || this.firewallProfilePrivate instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfilePrivate : new WindowsFirewallNetworkProfileImpl(this.firewallProfilePrivate)));
         }
         if(this.firewallProfilePublic){
-            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePublic", new WindowsFirewallNetworkProfileImpl(this.firewallProfilePublic));
+            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePublic", (!this.firewallProfilePublic || this.firewallProfilePublic instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfilePublic : new WindowsFirewallNetworkProfileImpl(this.firewallProfilePublic)));
         }
         if(this.smartScreenBlockOverrideForFiles){
             writer.writeBooleanValue("smartScreenBlockOverrideForFiles", this.smartScreenBlockOverrideForFiles);
         }
         if(this.smartScreenEnableInShell){
             writer.writeBooleanValue("smartScreenEnableInShell", this.smartScreenEnableInShell);
+        }
+    };
+    /**
+     * Gets the smartScreenBlockOverrideForFiles property value. Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
+     * @returns a boolean
+     */
+    public get smartScreenBlockOverrideForFiles() {
+        return this._smartScreenBlockOverrideForFiles;
+    };
+    /**
+     * Sets the smartScreenBlockOverrideForFiles property value. Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
+     * @param value Value to set for the smartScreenBlockOverrideForFiles property.
+     */
+    public set smartScreenBlockOverrideForFiles(value: boolean | undefined) {
+        if(value) {
+            this._smartScreenBlockOverrideForFiles = value;
+        }
+    };
+    /**
+     * Gets the smartScreenEnableInShell property value. Allows IT Admins to configure SmartScreen for Windows.
+     * @returns a boolean
+     */
+    public get smartScreenEnableInShell() {
+        return this._smartScreenEnableInShell;
+    };
+    /**
+     * Sets the smartScreenEnableInShell property value. Allows IT Admins to configure SmartScreen for Windows.
+     * @param value Value to set for the smartScreenEnableInShell property.
+     */
+    public set smartScreenEnableInShell(value: boolean | undefined) {
+        if(value) {
+            this._smartScreenEnableInShell = value;
         }
     };
 }

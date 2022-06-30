@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OrganizationalBrandingImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBranding {
     /** Add different branding based on a locale. */
-    public localizations?: OrganizationalBrandingLocalization[] | undefined;
+    private _localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
      * Instantiates a new OrganizationalBranding and sets the default values.
      * @param organizationalBrandingParameterValue 
      */
     public constructor(organizationalBrandingParameterValue?: OrganizationalBranding | undefined) {
         super(organizationalBrandingParameterValue);
-        this.localizations = organizationalBrandingParameterValue?.localizations;
+        this._localizations = organizationalBrandingParameterValue?.localizations;
     };
     /**
      * The deserialization information for the current model
@@ -25,13 +25,36 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
         };
     };
     /**
+     * Gets the localizations property value. Add different branding based on a locale.
+     * @returns a OrganizationalBrandingLocalizationInterface
+     */
+    public get localizations() {
+        return this._localizations;
+    };
+    /**
+     * Sets the localizations property value. Add different branding based on a locale.
+     * @param value Value to set for the localizations property.
+     */
+    public set localizations(value: OrganizationalBrandingLocalization[] | undefined) {
+        if(value) {
+            const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = [];
+            this.localizations?.forEach(element => {
+                localizationsArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element:new OrganizationalBrandingLocalizationImpl(element)));
+            });
+            this._localizations = localizationsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = []; this.localizations?.forEach(element => {localizationsArrValue.push(new OrganizationalBrandingLocalizationImpl(element));});
+        if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = [];
+        this.localizations?.forEach(element => {
+            localizationsArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element:new OrganizationalBrandingLocalizationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
         }
     };

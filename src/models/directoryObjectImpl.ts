@@ -5,14 +5,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject {
     /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
-    public deletedDateTime?: Date | undefined;
+    private _deletedDateTime?: Date | undefined;
     /**
      * Instantiates a new directoryObject and sets the default values.
      * @param directoryObjectParameterValue 
      */
     public constructor(directoryObjectParameterValue?: DirectoryObject | undefined) {
         super(directoryObjectParameterValue);
-        this.deletedDateTime = directoryObjectParameterValue?.deletedDateTime;
+        this._deletedDateTime = directoryObjectParameterValue?.deletedDateTime;
+    };
+    /**
+     * Gets the deletedDateTime property value. Date and time when this object was deleted. Always null when the object hasn't been deleted.
+     * @returns a Date
+     */
+    public get deletedDateTime() {
+        return this._deletedDateTime;
+    };
+    /**
+     * Sets the deletedDateTime property value. Date and time when this object was deleted. Always null when the object hasn't been deleted.
+     * @param value Value to set for the deletedDateTime property.
+     */
+    public set deletedDateTime(value: Date | undefined) {
+        if(value) {
+            this._deletedDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model

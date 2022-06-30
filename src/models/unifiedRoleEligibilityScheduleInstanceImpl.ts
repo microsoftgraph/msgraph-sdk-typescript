@@ -5,23 +5,39 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleScheduleInstanceBaseImpl implements UnifiedRoleEligibilityScheduleInstance {
     /** Time that the roleEligibilityScheduleInstance will expire. */
-    public endDateTime?: Date | undefined;
+    private _endDateTime?: Date | undefined;
     /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
-    public memberType?: string | undefined;
+    private _memberType?: string | undefined;
     /** Identifier of the parent roleEligibilitySchedule for this instance. */
-    public roleEligibilityScheduleId?: string | undefined;
+    private _roleEligibilityScheduleId?: string | undefined;
     /** Time that the roleEligibilityScheduleInstance will start. */
-    public startDateTime?: Date | undefined;
+    private _startDateTime?: Date | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilityScheduleInstance and sets the default values.
      * @param unifiedRoleEligibilityScheduleInstanceParameterValue 
      */
     public constructor(unifiedRoleEligibilityScheduleInstanceParameterValue?: UnifiedRoleEligibilityScheduleInstance | undefined) {
         super(unifiedRoleEligibilityScheduleInstanceParameterValue);
-        this.endDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.endDateTime;
-        this.memberType = unifiedRoleEligibilityScheduleInstanceParameterValue?.memberType;
-        this.roleEligibilityScheduleId = unifiedRoleEligibilityScheduleInstanceParameterValue?.roleEligibilityScheduleId;
-        this.startDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.startDateTime;
+        this._endDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.endDateTime;
+        this._memberType = unifiedRoleEligibilityScheduleInstanceParameterValue?.memberType;
+        this._roleEligibilityScheduleId = unifiedRoleEligibilityScheduleInstanceParameterValue?.roleEligibilityScheduleId;
+        this._startDateTime = unifiedRoleEligibilityScheduleInstanceParameterValue?.startDateTime;
+    };
+    /**
+     * Gets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.
+     * @returns a Date
+     */
+    public get endDateTime() {
+        return this._endDateTime;
+    };
+    /**
+     * Sets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: Date | undefined) {
+        if(value) {
+            this._endDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +50,38 @@ export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleSched
             "roleEligibilityScheduleId": n => { this.roleEligibilityScheduleId = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * @returns a string
+     */
+    public get memberType() {
+        return this._memberType;
+    };
+    /**
+     * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * @param value Value to set for the memberType property.
+     */
+    public set memberType(value: string | undefined) {
+        if(value) {
+            this._memberType = value;
+        }
+    };
+    /**
+     * Gets the roleEligibilityScheduleId property value. Identifier of the parent roleEligibilitySchedule for this instance.
+     * @returns a string
+     */
+    public get roleEligibilityScheduleId() {
+        return this._roleEligibilityScheduleId;
+    };
+    /**
+     * Sets the roleEligibilityScheduleId property value. Identifier of the parent roleEligibilitySchedule for this instance.
+     * @param value Value to set for the roleEligibilityScheduleId property.
+     */
+    public set roleEligibilityScheduleId(value: string | undefined) {
+        if(value) {
+            this._roleEligibilityScheduleId = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -53,6 +101,22 @@ export class UnifiedRoleEligibilityScheduleInstanceImpl extends UnifiedRoleSched
         }
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
+        }
+    };
+    /**
+     * Gets the startDateTime property value. Time that the roleEligibilityScheduleInstance will start.
+     * @returns a Date
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. Time that the roleEligibilityScheduleInstance will start.
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: Date | undefined) {
+        if(value) {
+            this._startDateTime = value;
         }
     };
 }

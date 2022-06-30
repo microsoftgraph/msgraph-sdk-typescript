@@ -6,31 +6,63 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchHitImpl implements SearchHit {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The name of the content source which the externalItem is part of . */
-    public contentSource?: string | undefined;
+    private _contentSource?: string | undefined;
     /** The internal identifier for the item. */
-    public hitId?: string | undefined;
+    private _hitId?: string | undefined;
     /** The rank or the order of the result. */
-    public rank?: number | undefined;
+    private _rank?: number | undefined;
     /** The resource property */
-    public resource?: Entity | undefined;
+    private _resource?: Entity | undefined;
     /** ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well. */
-    public resultTemplateId?: string | undefined;
+    private _resultTemplateId?: string | undefined;
     /** A summary of the result, if a summary is available. */
-    public summary?: string | undefined;
+    private _summary?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new searchHit and sets the default values.
      * @param searchHitParameterValue 
      */
     public constructor(searchHitParameterValue?: SearchHit | undefined) {
-        this.additionalData = searchHitParameterValue?.additionalData ? searchHitParameterValue?.additionalData! : {};
-        this.contentSource = searchHitParameterValue?.contentSource;
-        this.hitId = searchHitParameterValue?.hitId;
-        this.rank = searchHitParameterValue?.rank;
-        this.resource = searchHitParameterValue?.resource;
-        this.resultTemplateId = searchHitParameterValue?.resultTemplateId;
-        this.summary = searchHitParameterValue?.summary;
+        this._additionalData = searchHitParameterValue?.additionalData ? searchHitParameterValue?.additionalData! : {};
+        this._contentSource = searchHitParameterValue?.contentSource;
+        this._hitId = searchHitParameterValue?.hitId;
+        this._rank = searchHitParameterValue?.rank;
+        this._resource = searchHitParameterValue?.resource;
+        this._resultTemplateId = searchHitParameterValue?.resultTemplateId;
+        this._summary = searchHitParameterValue?.summary;
+    };
+    /**
+     * Gets the contentSource property value. The name of the content source which the externalItem is part of .
+     * @returns a string
+     */
+    public get contentSource() {
+        return this._contentSource;
+    };
+    /**
+     * Sets the contentSource property value. The name of the content source which the externalItem is part of .
+     * @param value Value to set for the contentSource property.
+     */
+    public set contentSource(value: string | undefined) {
+        if(value) {
+            this._contentSource = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -45,6 +77,70 @@ export class SearchHitImpl implements SearchHit {
             "resultTemplateId": n => { this.resultTemplateId = n.getStringValue(); },
             "summary": n => { this.summary = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the hitId property value. The internal identifier for the item.
+     * @returns a string
+     */
+    public get hitId() {
+        return this._hitId;
+    };
+    /**
+     * Sets the hitId property value. The internal identifier for the item.
+     * @param value Value to set for the hitId property.
+     */
+    public set hitId(value: string | undefined) {
+        if(value) {
+            this._hitId = value;
+        }
+    };
+    /**
+     * Gets the rank property value. The rank or the order of the result.
+     * @returns a integer
+     */
+    public get rank() {
+        return this._rank;
+    };
+    /**
+     * Sets the rank property value. The rank or the order of the result.
+     * @param value Value to set for the rank property.
+     */
+    public set rank(value: number | undefined) {
+        if(value) {
+            this._rank = value;
+        }
+    };
+    /**
+     * Gets the resource property value. The resource property
+     * @returns a EntityInterface
+     */
+    public get resource() {
+        return this._resource;
+    };
+    /**
+     * Sets the resource property value. The resource property
+     * @param value Value to set for the resource property.
+     */
+    public set resource(value: Entity | undefined) {
+        if(value) {
+            this._resource = value instanceof EntityImpl? value : new EntityImpl(value);
+        }
+    };
+    /**
+     * Gets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+     * @returns a string
+     */
+    public get resultTemplateId() {
+        return this._resultTemplateId;
+    };
+    /**
+     * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+     * @param value Value to set for the resultTemplateId property.
+     */
+    public set resultTemplateId(value: string | undefined) {
+        if(value) {
+            this._resultTemplateId = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -62,7 +158,7 @@ export class SearchHitImpl implements SearchHit {
             writer.writeNumberValue("rank", this.rank);
         }
         if(this.resource){
-            writer.writeObjectValue<EntityImpl>("resource", new EntityImpl(this.resource));
+            writer.writeObjectValue<EntityImpl>("resource", (!this.resource || this.resource instanceof EntityImpl? this.resource : new EntityImpl(this.resource)));
         }
         if(this.resultTemplateId){
             writer.writeStringValue("resultTemplateId", this.resultTemplateId);
@@ -71,5 +167,21 @@ export class SearchHitImpl implements SearchHit {
             writer.writeStringValue("summary", this.summary);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the summary property value. A summary of the result, if a summary is available.
+     * @returns a string
+     */
+    public get summary() {
+        return this._summary;
+    };
+    /**
+     * Sets the summary property value. A summary of the result, if a summary is available.
+     * @param value Value to set for the summary property.
+     */
+    public set summary(value: string | undefined) {
+        if(value) {
+            this._summary = value;
+        }
     };
 }

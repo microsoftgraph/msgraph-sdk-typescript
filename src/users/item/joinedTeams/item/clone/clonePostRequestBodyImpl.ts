@@ -6,31 +6,95 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the clone method. */
 export class ClonePostRequestBodyImpl implements ClonePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The classification property */
-    public classification?: string | undefined;
+    private _classification?: string | undefined;
     /** The description property */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The displayName property */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The mailNickname property */
-    public mailNickname?: string | undefined;
+    private _mailNickname?: string | undefined;
     /** The partsToClone property */
-    public partsToClone?: ClonableTeamParts | undefined;
+    private _partsToClone?: ClonableTeamParts | undefined;
     /** The visibility property */
-    public visibility?: TeamVisibilityType | undefined;
+    private _visibility?: TeamVisibilityType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the classification property value. The classification property
+     * @returns a string
+     */
+    public get classification() {
+        return this._classification;
+    };
+    /**
+     * Sets the classification property value. The classification property
+     * @param value Value to set for the classification property.
+     */
+    public set classification(value: string | undefined) {
+        if(value) {
+            this._classification = value;
+        }
+    };
     /**
      * Instantiates a new clonePostRequestBody and sets the default values.
      * @param clonePostRequestBodyParameterValue 
      */
     public constructor(clonePostRequestBodyParameterValue?: ClonePostRequestBody | undefined) {
-        this.additionalData = clonePostRequestBodyParameterValue?.additionalData ? clonePostRequestBodyParameterValue?.additionalData! : {};
-        this.classification = clonePostRequestBodyParameterValue?.classification;
-        this.description = clonePostRequestBodyParameterValue?.description;
-        this.displayName = clonePostRequestBodyParameterValue?.displayName;
-        this.mailNickname = clonePostRequestBodyParameterValue?.mailNickname;
-        this.partsToClone = clonePostRequestBodyParameterValue?.partsToClone;
-        this.visibility = clonePostRequestBodyParameterValue?.visibility;
+        this._additionalData = clonePostRequestBodyParameterValue?.additionalData ? clonePostRequestBodyParameterValue?.additionalData! : {};
+        this._classification = clonePostRequestBodyParameterValue?.classification;
+        this._description = clonePostRequestBodyParameterValue?.description;
+        this._displayName = clonePostRequestBodyParameterValue?.displayName;
+        this._mailNickname = clonePostRequestBodyParameterValue?.mailNickname;
+        this._partsToClone = clonePostRequestBodyParameterValue?.partsToClone;
+        this._visibility = clonePostRequestBodyParameterValue?.visibility;
+    };
+    /**
+     * Gets the description property value. The description property
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The description property
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The displayName property
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -45,6 +109,38 @@ export class ClonePostRequestBodyImpl implements ClonePostRequestBody {
             "partsToClone": n => { this.partsToClone = n.getEnumValue<ClonableTeamParts>(ClonableTeamParts); },
             "visibility": n => { this.visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); },
         };
+    };
+    /**
+     * Gets the mailNickname property value. The mailNickname property
+     * @returns a string
+     */
+    public get mailNickname() {
+        return this._mailNickname;
+    };
+    /**
+     * Sets the mailNickname property value. The mailNickname property
+     * @param value Value to set for the mailNickname property.
+     */
+    public set mailNickname(value: string | undefined) {
+        if(value) {
+            this._mailNickname = value;
+        }
+    };
+    /**
+     * Gets the partsToClone property value. The partsToClone property
+     * @returns a clonableTeamParts
+     */
+    public get partsToClone() {
+        return this._partsToClone;
+    };
+    /**
+     * Sets the partsToClone property value. The partsToClone property
+     * @param value Value to set for the partsToClone property.
+     */
+    public set partsToClone(value: ClonableTeamParts | undefined) {
+        if(value) {
+            this._partsToClone = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -71,5 +167,21 @@ export class ClonePostRequestBodyImpl implements ClonePostRequestBody {
             writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the visibility property value. The visibility property
+     * @returns a teamVisibilityType
+     */
+    public get visibility() {
+        return this._visibility;
+    };
+    /**
+     * Sets the visibility property value. The visibility property
+     * @param value Value to set for the visibility property.
+     */
+    public set visibility(value: TeamVisibilityType | undefined) {
+        if(value) {
+            this._visibility = value;
+        }
     };
 }

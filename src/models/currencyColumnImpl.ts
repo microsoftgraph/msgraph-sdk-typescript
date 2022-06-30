@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class CurrencyColumnImpl implements CurrencyColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies the locale from which to infer the currency symbol. */
-    public locale?: string | undefined;
+    private _locale?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new currencyColumn and sets the default values.
      * @param currencyColumnParameterValue 
      */
     public constructor(currencyColumnParameterValue?: CurrencyColumn | undefined) {
-        this.additionalData = currencyColumnParameterValue?.additionalData ? currencyColumnParameterValue?.additionalData! : {};
-        this.locale = currencyColumnParameterValue?.locale;
+        this._additionalData = currencyColumnParameterValue?.additionalData ? currencyColumnParameterValue?.additionalData! : {};
+        this._locale = currencyColumnParameterValue?.locale;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class CurrencyColumnImpl implements CurrencyColumn {
         return {
             "locale": n => { this.locale = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the locale property value. Specifies the locale from which to infer the currency symbol.
+     * @returns a string
+     */
+    public get locale() {
+        return this._locale;
+    };
+    /**
+     * Sets the locale property value. Specifies the locale from which to infer the currency symbol.
+     * @param value Value to set for the locale property.
+     */
+    public set locale(value: string | undefined) {
+        if(value) {
+            this._locale = value;
+        }
     };
     /**
      * Serializes information the current object

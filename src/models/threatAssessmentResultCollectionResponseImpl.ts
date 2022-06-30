@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ThreatAssessmentResultCollectionResponseImpl implements ThreatAssessmentResultCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: ThreatAssessmentResult[] | undefined;
+    private _value?: ThreatAssessmentResult[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ThreatAssessmentResultCollectionResponse and sets the default values.
      * @param threatAssessmentResultCollectionResponseParameterValue 
      */
     public constructor(threatAssessmentResultCollectionResponseParameterValue?: ThreatAssessmentResultCollectionResponse | undefined) {
-        this.additionalData = threatAssessmentResultCollectionResponseParameterValue?.additionalData ? threatAssessmentResultCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = threatAssessmentResultCollectionResponseParameterValue?.nextLink;
-        this.value = threatAssessmentResultCollectionResponseParameterValue?.value;
+        this._additionalData = threatAssessmentResultCollectionResponseParameterValue?.additionalData ? threatAssessmentResultCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = threatAssessmentResultCollectionResponseParameterValue?.nextLink;
+        this._value = threatAssessmentResultCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class ThreatAssessmentResultCollectionResponseImpl implements ThreatAsses
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class ThreatAssessmentResultCollectionResponseImpl implements ThreatAsses
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentResultImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ThreatAssessmentResultImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentResultImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ThreatAssessmentResultInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ThreatAssessmentResult[] | undefined) {
+        if(value) {
+            const valueArrValue: ThreatAssessmentResultImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

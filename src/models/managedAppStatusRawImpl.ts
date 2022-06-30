@@ -6,14 +6,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements ManagedAppStatusRaw {
     /** Status report content. */
-    public content?: Json | undefined;
+    private _content?: Json | undefined;
     /**
      * Instantiates a new ManagedAppStatusRaw and sets the default values.
      * @param managedAppStatusRawParameterValue 
      */
     public constructor(managedAppStatusRawParameterValue?: ManagedAppStatusRaw | undefined) {
         super(managedAppStatusRawParameterValue);
-        this.content = managedAppStatusRawParameterValue?.content;
+        this._content = managedAppStatusRawParameterValue?.content;
+    };
+    /**
+     * Gets the content property value. Status report content.
+     * @returns a JsonInterface
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. Status report content.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: Json | undefined) {
+        if(value) {
+            this._content = value instanceof JsonImpl? value : new JsonImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +48,7 @@ export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements Man
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-            writer.writeObjectValue<JsonImpl>("content", new JsonImpl(this.content));
+            writer.writeObjectValue<JsonImpl>("content", (!this.content || this.content instanceof JsonImpl? this.content : new JsonImpl(this.content)));
         }
     };
 }

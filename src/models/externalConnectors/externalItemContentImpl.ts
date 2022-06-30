@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExternalItemContentImpl implements ExternalItemContent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required. */
-    public type?: ExternalItemContentType | undefined;
+    private _type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new externalItemContent and sets the default values.
      * @param externalItemContentParameterValue 
      */
     public constructor(externalItemContentParameterValue?: ExternalItemContent | undefined) {
-        this.additionalData = externalItemContentParameterValue?.additionalData ? externalItemContentParameterValue?.additionalData! : {};
-        this.type = externalItemContentParameterValue?.type;
-        this.value = externalItemContentParameterValue?.value;
+        this._additionalData = externalItemContentParameterValue?.additionalData ? externalItemContentParameterValue?.additionalData! : {};
+        this._type = externalItemContentParameterValue?.type;
+        this._value = externalItemContentParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -41,5 +57,37 @@ export class ExternalItemContentImpl implements ExternalItemContent {
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+     * @returns a externalItemContentType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: ExternalItemContentType | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the value property value. The content for the externalItem. Required.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The content for the externalItem. Required.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

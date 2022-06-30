@@ -4,17 +4,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion {
     /** The content property */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item. */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new DriveItemVersion and sets the default values.
      * @param driveItemVersionParameterValue 
      */
     public constructor(driveItemVersionParameterValue?: DriveItemVersion | undefined) {
         super(driveItemVersionParameterValue);
-        this.content = driveItemVersionParameterValue?.content;
-        this.size = driveItemVersionParameterValue?.size;
+        this._content = driveItemVersionParameterValue?.content;
+        this._size = driveItemVersionParameterValue?.size;
+    };
+    /**
+     * Gets the content property value. The content property
+     * @returns a binary
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The content property
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +54,22 @@ export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveIt
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
+        }
+    };
+    /**
+     * Gets the size property value. Indicates the size of the content stream for this version of the item.
+     * @returns a int64
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. Indicates the size of the content stream for this version of the item.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
         }
     };
 }

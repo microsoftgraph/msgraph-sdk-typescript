@@ -8,25 +8,57 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TermColumnImpl implements TermColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies whether the column will allow more than one value */
-    public allowMultipleValues?: boolean | undefined;
+    private _allowMultipleValues?: boolean | undefined;
     /** The parentTerm property */
-    public parentTerm?: Term | undefined;
+    private _parentTerm?: Term | undefined;
     /** Specifies whether to display the entire term path or only the term label. */
-    public showFullyQualifiedName?: boolean | undefined;
+    private _showFullyQualifiedName?: boolean | undefined;
     /** The termSet property */
-    public termSet?: Set | undefined;
+    private _termSet?: Set | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value
+     * @returns a boolean
+     */
+    public get allowMultipleValues() {
+        return this._allowMultipleValues;
+    };
+    /**
+     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value
+     * @param value Value to set for the allowMultipleValues property.
+     */
+    public set allowMultipleValues(value: boolean | undefined) {
+        if(value) {
+            this._allowMultipleValues = value;
+        }
+    };
     /**
      * Instantiates a new termColumn and sets the default values.
      * @param termColumnParameterValue 
      */
     public constructor(termColumnParameterValue?: TermColumn | undefined) {
-        this.additionalData = termColumnParameterValue?.additionalData ? termColumnParameterValue?.additionalData! : {};
-        this.allowMultipleValues = termColumnParameterValue?.allowMultipleValues;
-        this.parentTerm = termColumnParameterValue?.parentTerm;
-        this.showFullyQualifiedName = termColumnParameterValue?.showFullyQualifiedName;
-        this.termSet = termColumnParameterValue?.termSet;
+        this._additionalData = termColumnParameterValue?.additionalData ? termColumnParameterValue?.additionalData! : {};
+        this._allowMultipleValues = termColumnParameterValue?.allowMultipleValues;
+        this._parentTerm = termColumnParameterValue?.parentTerm;
+        this._showFullyQualifiedName = termColumnParameterValue?.showFullyQualifiedName;
+        this._termSet = termColumnParameterValue?.termSet;
     };
     /**
      * The deserialization information for the current model
@@ -41,6 +73,22 @@ export class TermColumnImpl implements TermColumn {
         };
     };
     /**
+     * Gets the parentTerm property value. The parentTerm property
+     * @returns a TermInterface
+     */
+    public get parentTerm() {
+        return this._parentTerm;
+    };
+    /**
+     * Sets the parentTerm property value. The parentTerm property
+     * @param value Value to set for the parentTerm property.
+     */
+    public set parentTerm(value: Term | undefined) {
+        if(value) {
+            this._parentTerm = value instanceof TermImpl? value : new TermImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -50,14 +98,46 @@ export class TermColumnImpl implements TermColumn {
             writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
         }
         if(this.parentTerm){
-            writer.writeObjectValue<TermImpl>("parentTerm", new TermImpl(this.parentTerm));
+            writer.writeObjectValue<TermImpl>("parentTerm", (!this.parentTerm || this.parentTerm instanceof TermImpl? this.parentTerm : new TermImpl(this.parentTerm)));
         }
         if(this.showFullyQualifiedName){
             writer.writeBooleanValue("showFullyQualifiedName", this.showFullyQualifiedName);
         }
         if(this.termSet){
-            writer.writeObjectValue<SetImpl>("termSet", new SetImpl(this.termSet));
+            writer.writeObjectValue<SetImpl>("termSet", (!this.termSet || this.termSet instanceof SetImpl? this.termSet : new SetImpl(this.termSet)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the showFullyQualifiedName property value. Specifies whether to display the entire term path or only the term label.
+     * @returns a boolean
+     */
+    public get showFullyQualifiedName() {
+        return this._showFullyQualifiedName;
+    };
+    /**
+     * Sets the showFullyQualifiedName property value. Specifies whether to display the entire term path or only the term label.
+     * @param value Value to set for the showFullyQualifiedName property.
+     */
+    public set showFullyQualifiedName(value: boolean | undefined) {
+        if(value) {
+            this._showFullyQualifiedName = value;
+        }
+    };
+    /**
+     * Gets the termSet property value. The termSet property
+     * @returns a SetInterface
+     */
+    public get termSet() {
+        return this._termSet;
+    };
+    /**
+     * Sets the termSet property value. The termSet property
+     * @param value Value to set for the termSet property.
+     */
+    public set termSet(value: Set | undefined) {
+        if(value) {
+            this._termSet = value instanceof SetImpl? value : new SetImpl(value);
+        }
     };
 }

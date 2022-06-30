@@ -6,14 +6,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSessionControlImpl implements CloudAppSecuritySessionControl {
     /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
-    public cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
+    private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
+    /**
+     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
+     * @returns a cloudAppSecuritySessionControlType
+     */
+    public get cloudAppSecurityType() {
+        return this._cloudAppSecurityType;
+    };
+    /**
+     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
+     * @param value Value to set for the cloudAppSecurityType property.
+     */
+    public set cloudAppSecurityType(value: CloudAppSecuritySessionControlType | undefined) {
+        if(value) {
+            this._cloudAppSecurityType = value;
+        }
+    };
     /**
      * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
      * @param cloudAppSecuritySessionControlParameterValue 
      */
     public constructor(cloudAppSecuritySessionControlParameterValue?: CloudAppSecuritySessionControl | undefined) {
         super(cloudAppSecuritySessionControlParameterValue);
-        this.cloudAppSecurityType = cloudAppSecuritySessionControlParameterValue?.cloudAppSecurityType;
+        this._cloudAppSecurityType = cloudAppSecuritySessionControlParameterValue?.cloudAppSecurityType;
     };
     /**
      * The deserialization information for the current model

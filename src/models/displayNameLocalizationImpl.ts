@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DisplayNameLocalizationImpl implements DisplayNameLocalization {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Provides the language culture-code and friendly name of the language that the displayName field has been provided in. */
-    public languageTag?: string | undefined;
+    private _languageTag?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new displayNameLocalization and sets the default values.
      * @param displayNameLocalizationParameterValue 
      */
     public constructor(displayNameLocalizationParameterValue?: DisplayNameLocalization | undefined) {
-        this.additionalData = displayNameLocalizationParameterValue?.additionalData ? displayNameLocalizationParameterValue?.additionalData! : {};
-        this.displayName = displayNameLocalizationParameterValue?.displayName;
-        this.languageTag = displayNameLocalizationParameterValue?.languageTag;
+        this._additionalData = displayNameLocalizationParameterValue?.additionalData ? displayNameLocalizationParameterValue?.additionalData! : {};
+        this._displayName = displayNameLocalizationParameterValue?.displayName;
+        this._languageTag = displayNameLocalizationParameterValue?.languageTag;
+    };
+    /**
+     * Gets the displayName property value. If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +58,22 @@ export class DisplayNameLocalizationImpl implements DisplayNameLocalization {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "languageTag": n => { this.languageTag = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the languageTag property value. Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
+     * @returns a string
+     */
+    public get languageTag() {
+        return this._languageTag;
+    };
+    /**
+     * Sets the languageTag property value. Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
+     * @param value Value to set for the languageTag property.
+     */
+    public set languageTag(value: string | undefined) {
+        if(value) {
+            this._languageTag = value;
+        }
     };
     /**
      * Serializes information the current object

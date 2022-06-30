@@ -4,25 +4,105 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ImportedWindowsAutopilotDeviceIdentityStateImpl implements ImportedWindowsAutopilotDeviceIdentityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Device error code reported by Device Directory Service(DDS). */
-    public deviceErrorCode?: number | undefined;
+    private _deviceErrorCode?: number | undefined;
     /** Device error name reported by Device Directory Service(DDS). */
-    public deviceErrorName?: string | undefined;
+    private _deviceErrorName?: string | undefined;
     /** Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error. */
-    public deviceImportStatus?: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined;
+    private _deviceImportStatus?: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined;
     /** Device Registration ID for successfully added device reported by Device Directory Service(DDS). */
-    public deviceRegistrationId?: string | undefined;
+    private _deviceRegistrationId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new importedWindowsAutopilotDeviceIdentityState and sets the default values.
      * @param importedWindowsAutopilotDeviceIdentityStateParameterValue 
      */
     public constructor(importedWindowsAutopilotDeviceIdentityStateParameterValue?: ImportedWindowsAutopilotDeviceIdentityState | undefined) {
-        this.additionalData = importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData! : {};
-        this.deviceErrorCode = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorCode;
-        this.deviceErrorName = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorName;
-        this.deviceImportStatus = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceImportStatus;
-        this.deviceRegistrationId = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceRegistrationId;
+        this._additionalData = importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData ? importedWindowsAutopilotDeviceIdentityStateParameterValue?.additionalData! : {};
+        this._deviceErrorCode = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorCode;
+        this._deviceErrorName = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceErrorName;
+        this._deviceImportStatus = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceImportStatus;
+        this._deviceRegistrationId = importedWindowsAutopilotDeviceIdentityStateParameterValue?.deviceRegistrationId;
+    };
+    /**
+     * Gets the deviceErrorCode property value. Device error code reported by Device Directory Service(DDS).
+     * @returns a integer
+     */
+    public get deviceErrorCode() {
+        return this._deviceErrorCode;
+    };
+    /**
+     * Sets the deviceErrorCode property value. Device error code reported by Device Directory Service(DDS).
+     * @param value Value to set for the deviceErrorCode property.
+     */
+    public set deviceErrorCode(value: number | undefined) {
+        if(value) {
+            this._deviceErrorCode = value;
+        }
+    };
+    /**
+     * Gets the deviceErrorName property value. Device error name reported by Device Directory Service(DDS).
+     * @returns a string
+     */
+    public get deviceErrorName() {
+        return this._deviceErrorName;
+    };
+    /**
+     * Sets the deviceErrorName property value. Device error name reported by Device Directory Service(DDS).
+     * @param value Value to set for the deviceErrorName property.
+     */
+    public set deviceErrorName(value: string | undefined) {
+        if(value) {
+            this._deviceErrorName = value;
+        }
+    };
+    /**
+     * Gets the deviceImportStatus property value. Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     * @returns a importedWindowsAutopilotDeviceIdentityImportStatus
+     */
+    public get deviceImportStatus() {
+        return this._deviceImportStatus;
+    };
+    /**
+     * Sets the deviceImportStatus property value. Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     * @param value Value to set for the deviceImportStatus property.
+     */
+    public set deviceImportStatus(value: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined) {
+        if(value) {
+            this._deviceImportStatus = value;
+        }
+    };
+    /**
+     * Gets the deviceRegistrationId property value. Device Registration ID for successfully added device reported by Device Directory Service(DDS).
+     * @returns a string
+     */
+    public get deviceRegistrationId() {
+        return this._deviceRegistrationId;
+    };
+    /**
+     * Sets the deviceRegistrationId property value. Device Registration ID for successfully added device reported by Device Directory Service(DDS).
+     * @param value Value to set for the deviceRegistrationId property.
+     */
+    public set deviceRegistrationId(value: string | undefined) {
+        if(value) {
+            this._deviceRegistrationId = value;
+        }
     };
     /**
      * The deserialization information for the current model

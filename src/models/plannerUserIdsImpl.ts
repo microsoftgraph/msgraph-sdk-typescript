@@ -3,13 +3,29 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PlannerUserIdsImpl implements PlannerUserIds {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new plannerUserIds and sets the default values.
      * @param plannerUserIdsParameterValue 
      */
     public constructor(plannerUserIdsParameterValue?: PlannerUserIds | undefined) {
-        this.additionalData = plannerUserIdsParameterValue?.additionalData ? plannerUserIdsParameterValue?.additionalData! : {};
+        this._additionalData = plannerUserIdsParameterValue?.additionalData ? plannerUserIdsParameterValue?.additionalData! : {};
     };
     /**
      * The deserialization information for the current model

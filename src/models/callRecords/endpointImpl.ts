@@ -6,16 +6,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EndpointImpl implements Endpoint {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** User-agent reported by this endpoint. */
-    public userAgent?: UserAgent | undefined;
+    private _userAgent?: UserAgent | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new endpoint and sets the default values.
      * @param endpointParameterValue 
      */
     public constructor(endpointParameterValue?: Endpoint | undefined) {
-        this.additionalData = endpointParameterValue?.additionalData ? endpointParameterValue?.additionalData! : {};
-        this.userAgent = endpointParameterValue?.userAgent;
+        this._additionalData = endpointParameterValue?.additionalData ? endpointParameterValue?.additionalData! : {};
+        this._userAgent = endpointParameterValue?.userAgent;
     };
     /**
      * The deserialization information for the current model
@@ -33,8 +49,24 @@ export class EndpointImpl implements Endpoint {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.userAgent){
-            writer.writeObjectValue<UserAgentImpl>("userAgent", new UserAgentImpl(this.userAgent));
+            writer.writeObjectValue<UserAgentImpl>("userAgent", (!this.userAgent || this.userAgent instanceof UserAgentImpl? this.userAgent : new UserAgentImpl(this.userAgent)));
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the userAgent property value. User-agent reported by this endpoint.
+     * @returns a UserAgentInterface
+     */
+    public get userAgent() {
+        return this._userAgent;
+    };
+    /**
+     * Sets the userAgent property value. User-agent reported by this endpoint.
+     * @param value Value to set for the userAgent property.
+     */
+    public set userAgent(value: UserAgent | undefined) {
+        if(value) {
+            this._userAgent = value instanceof UserAgentImpl? value : new UserAgentImpl(value);
+        }
     };
 }

@@ -4,22 +4,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrinterStatusImpl implements PrinterStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A human-readable description of the printer's current processing state. Read-only. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only. */
-    public details?: string[] | undefined;
+    private _details?: string[] | undefined;
     /** The current processing state. Valid values are described in the following table. Read-only. */
-    public state?: PrinterProcessingState | undefined;
+    private _state?: PrinterProcessingState | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new printerStatus and sets the default values.
      * @param printerStatusParameterValue 
      */
     public constructor(printerStatusParameterValue?: PrinterStatus | undefined) {
-        this.additionalData = printerStatusParameterValue?.additionalData ? printerStatusParameterValue?.additionalData! : {};
-        this.description = printerStatusParameterValue?.description;
-        this.details = printerStatusParameterValue?.details;
-        this.state = printerStatusParameterValue?.state;
+        this._additionalData = printerStatusParameterValue?.additionalData ? printerStatusParameterValue?.additionalData! : {};
+        this._description = printerStatusParameterValue?.description;
+        this._details = printerStatusParameterValue?.details;
+        this._state = printerStatusParameterValue?.state;
+    };
+    /**
+     * Gets the description property value. A human-readable description of the printer's current processing state. Read-only.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. A human-readable description of the printer's current processing state. Read-only.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
+     * @returns a string
+     */
+    public get details() {
+        return this._details;
+    };
+    /**
+     * Sets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
+     * @param value Value to set for the details property.
+     */
+    public set details(value: string[] | undefined) {
+        if(value) {
+            this._details = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -48,5 +96,21 @@ export class PrinterStatusImpl implements PrinterStatus {
             writer.writeEnumValue<PrinterProcessingState>("state", this.state);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the state property value. The current processing state. Valid values are described in the following table. Read-only.
+     * @returns a printerProcessingState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The current processing state. Valid values are described in the following table. Read-only.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: PrinterProcessingState | undefined) {
+        if(value) {
+            this._state = value;
+        }
     };
 }

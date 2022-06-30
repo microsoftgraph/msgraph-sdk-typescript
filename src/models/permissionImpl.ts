@@ -15,44 +15,60 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class PermissionImpl extends EntityImpl implements Permission {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
-    public expirationDateTime?: Date | undefined;
+    private _expirationDateTime?: Date | undefined;
     /** The grantedTo property */
-    public grantedTo?: IdentitySet | undefined;
+    private _grantedTo?: IdentitySet | undefined;
     /** The grantedToIdentities property */
-    public grantedToIdentities?: IdentitySet[] | undefined;
+    private _grantedToIdentities?: IdentitySet[] | undefined;
     /** For link type permissions, the details of the users to whom permission was granted. Read-only. */
-    public grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
+    private _grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
     /** For user type permissions, the details of the users and applications for this permission. Read-only. */
-    public grantedToV2?: SharePointIdentitySet | undefined;
+    private _grantedToV2?: SharePointIdentitySet | undefined;
     /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only. */
-    public hasPassword?: boolean | undefined;
+    private _hasPassword?: boolean | undefined;
     /** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only. */
-    public inheritedFrom?: ItemReference | undefined;
+    private _inheritedFrom?: ItemReference | undefined;
     /** Details of any associated sharing invitation for this permission. Read-only. */
-    public invitation?: SharingInvitation | undefined;
+    private _invitation?: SharingInvitation | undefined;
     /** Provides the link details of the current permission, if it is a link type permissions. Read-only. */
-    public link?: SharingLink | undefined;
+    private _link?: SharingLink | undefined;
     /** The type of permission, for example, read. See below for the full list of roles. Read-only. */
-    public roles?: string[] | undefined;
+    private _roles?: string[] | undefined;
     /** A unique token that can be used to access this shared item via the [shares API][]. Read-only. */
-    public shareId?: string | undefined;
+    private _shareId?: string | undefined;
     /**
      * Instantiates a new permission and sets the default values.
      * @param permissionParameterValue 
      */
     public constructor(permissionParameterValue?: Permission | undefined) {
         super(permissionParameterValue);
-        this.expirationDateTime = permissionParameterValue?.expirationDateTime;
-        this.grantedTo = permissionParameterValue?.grantedTo;
-        this.grantedToIdentities = permissionParameterValue?.grantedToIdentities;
-        this.grantedToIdentitiesV2 = permissionParameterValue?.grantedToIdentitiesV2;
-        this.grantedToV2 = permissionParameterValue?.grantedToV2;
-        this.hasPassword = permissionParameterValue?.hasPassword;
-        this.inheritedFrom = permissionParameterValue?.inheritedFrom;
-        this.invitation = permissionParameterValue?.invitation;
-        this.link = permissionParameterValue?.link;
-        this.roles = permissionParameterValue?.roles;
-        this.shareId = permissionParameterValue?.shareId;
+        this._expirationDateTime = permissionParameterValue?.expirationDateTime;
+        this._grantedTo = permissionParameterValue?.grantedTo;
+        this._grantedToIdentities = permissionParameterValue?.grantedToIdentities;
+        this._grantedToIdentitiesV2 = permissionParameterValue?.grantedToIdentitiesV2;
+        this._grantedToV2 = permissionParameterValue?.grantedToV2;
+        this._hasPassword = permissionParameterValue?.hasPassword;
+        this._inheritedFrom = permissionParameterValue?.inheritedFrom;
+        this._invitation = permissionParameterValue?.invitation;
+        this._link = permissionParameterValue?.link;
+        this._roles = permissionParameterValue?.roles;
+        this._shareId = permissionParameterValue?.shareId;
+    };
+    /**
+     * Gets the expirationDateTime property value. A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.
+     * @returns a Date
+     */
+    public get expirationDateTime() {
+        return this._expirationDateTime;
+    };
+    /**
+     * Sets the expirationDateTime property value. A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.
+     * @param value Value to set for the expirationDateTime property.
+     */
+    public set expirationDateTime(value: Date | undefined) {
+        if(value) {
+            this._expirationDateTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -74,6 +90,158 @@ export class PermissionImpl extends EntityImpl implements Permission {
         };
     };
     /**
+     * Gets the grantedTo property value. The grantedTo property
+     * @returns a IdentitySetInterface
+     */
+    public get grantedTo() {
+        return this._grantedTo;
+    };
+    /**
+     * Sets the grantedTo property value. The grantedTo property
+     * @param value Value to set for the grantedTo property.
+     */
+    public set grantedTo(value: IdentitySet | undefined) {
+        if(value) {
+            this._grantedTo = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the grantedToIdentities property value. The grantedToIdentities property
+     * @returns a IdentitySetInterface
+     */
+    public get grantedToIdentities() {
+        return this._grantedToIdentities;
+    };
+    /**
+     * Sets the grantedToIdentities property value. The grantedToIdentities property
+     * @param value Value to set for the grantedToIdentities property.
+     */
+    public set grantedToIdentities(value: IdentitySet[] | undefined) {
+        if(value) {
+            const grantedToIdentitiesArrValue: IdentitySetImpl[] = [];
+            this.grantedToIdentities?.forEach(element => {
+                grantedToIdentitiesArrValue.push((element instanceof IdentitySetImpl? element:new IdentitySetImpl(element)));
+            });
+            this._grantedToIdentities = grantedToIdentitiesArrValue;
+        }
+    };
+    /**
+     * Gets the grantedToIdentitiesV2 property value. For link type permissions, the details of the users to whom permission was granted. Read-only.
+     * @returns a SharePointIdentitySetInterface
+     */
+    public get grantedToIdentitiesV2() {
+        return this._grantedToIdentitiesV2;
+    };
+    /**
+     * Sets the grantedToIdentitiesV2 property value. For link type permissions, the details of the users to whom permission was granted. Read-only.
+     * @param value Value to set for the grantedToIdentitiesV2 property.
+     */
+    public set grantedToIdentitiesV2(value: SharePointIdentitySet[] | undefined) {
+        if(value) {
+            const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = [];
+            this.grantedToIdentitiesV2?.forEach(element => {
+                grantedToIdentitiesV2ArrValue.push((element instanceof SharePointIdentitySetImpl? element:new SharePointIdentitySetImpl(element)));
+            });
+            this._grantedToIdentitiesV2 = grantedToIdentitiesV2ArrValue;
+        }
+    };
+    /**
+     * Gets the grantedToV2 property value. For user type permissions, the details of the users and applications for this permission. Read-only.
+     * @returns a SharePointIdentitySetInterface
+     */
+    public get grantedToV2() {
+        return this._grantedToV2;
+    };
+    /**
+     * Sets the grantedToV2 property value. For user type permissions, the details of the users and applications for this permission. Read-only.
+     * @param value Value to set for the grantedToV2 property.
+     */
+    public set grantedToV2(value: SharePointIdentitySet | undefined) {
+        if(value) {
+            this._grantedToV2 = value instanceof SharePointIdentitySetImpl? value : new SharePointIdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+     * @returns a boolean
+     */
+    public get hasPassword() {
+        return this._hasPassword;
+    };
+    /**
+     * Sets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+     * @param value Value to set for the hasPassword property.
+     */
+    public set hasPassword(value: boolean | undefined) {
+        if(value) {
+            this._hasPassword = value;
+        }
+    };
+    /**
+     * Gets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
+     * @returns a ItemReferenceInterface
+     */
+    public get inheritedFrom() {
+        return this._inheritedFrom;
+    };
+    /**
+     * Sets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
+     * @param value Value to set for the inheritedFrom property.
+     */
+    public set inheritedFrom(value: ItemReference | undefined) {
+        if(value) {
+            this._inheritedFrom = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+        }
+    };
+    /**
+     * Gets the invitation property value. Details of any associated sharing invitation for this permission. Read-only.
+     * @returns a SharingInvitationInterface
+     */
+    public get invitation() {
+        return this._invitation;
+    };
+    /**
+     * Sets the invitation property value. Details of any associated sharing invitation for this permission. Read-only.
+     * @param value Value to set for the invitation property.
+     */
+    public set invitation(value: SharingInvitation | undefined) {
+        if(value) {
+            this._invitation = value instanceof SharingInvitationImpl? value : new SharingInvitationImpl(value);
+        }
+    };
+    /**
+     * Gets the link property value. Provides the link details of the current permission, if it is a link type permissions. Read-only.
+     * @returns a SharingLinkInterface
+     */
+    public get link() {
+        return this._link;
+    };
+    /**
+     * Sets the link property value. Provides the link details of the current permission, if it is a link type permissions. Read-only.
+     * @param value Value to set for the link property.
+     */
+    public set link(value: SharingLink | undefined) {
+        if(value) {
+            this._link = value instanceof SharingLinkImpl? value : new SharingLinkImpl(value);
+        }
+    };
+    /**
+     * Gets the roles property value. The type of permission, for example, read. See below for the full list of roles. Read-only.
+     * @returns a string
+     */
+    public get roles() {
+        return this._roles;
+    };
+    /**
+     * Sets the roles property value. The type of permission, for example, read. See below for the full list of roles. Read-only.
+     * @param value Value to set for the roles property.
+     */
+    public set roles(value: string[] | undefined) {
+        if(value) {
+            this._roles = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -84,34 +252,56 @@ export class PermissionImpl extends EntityImpl implements Permission {
             writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.grantedTo){
-            writer.writeObjectValue<IdentitySetImpl>("grantedTo", new IdentitySetImpl(this.grantedTo));
+            writer.writeObjectValue<IdentitySetImpl>("grantedTo", (!this.grantedTo || this.grantedTo instanceof IdentitySetImpl? this.grantedTo : new IdentitySetImpl(this.grantedTo)));
         }
-        if(this.grantedToIdentities && this.grantedToIdentities.length != 0){        const grantedToIdentitiesArrValue: IdentitySetImpl[] = []; this.grantedToIdentities?.forEach(element => {grantedToIdentitiesArrValue.push(new IdentitySetImpl(element));});
+        if(this.grantedToIdentities && this.grantedToIdentities.length != 0){        const grantedToIdentitiesArrValue: IdentitySetImpl[] = [];
+        this.grantedToIdentities?.forEach(element => {
+            grantedToIdentitiesArrValue.push((element instanceof IdentitySetImpl? element:new IdentitySetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<IdentitySetImpl>("grantedToIdentities", grantedToIdentitiesArrValue);
         }
-        if(this.grantedToIdentitiesV2 && this.grantedToIdentitiesV2.length != 0){        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = []; this.grantedToIdentitiesV2?.forEach(element => {grantedToIdentitiesV2ArrValue.push(new SharePointIdentitySetImpl(element));});
+        if(this.grantedToIdentitiesV2 && this.grantedToIdentitiesV2.length != 0){        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = [];
+        this.grantedToIdentitiesV2?.forEach(element => {
+            grantedToIdentitiesV2ArrValue.push((element instanceof SharePointIdentitySetImpl? element:new SharePointIdentitySetImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<SharePointIdentitySetImpl>("grantedToIdentitiesV2", grantedToIdentitiesV2ArrValue);
         }
         if(this.grantedToV2){
-            writer.writeObjectValue<SharePointIdentitySetImpl>("grantedToV2", new SharePointIdentitySetImpl(this.grantedToV2));
+            writer.writeObjectValue<SharePointIdentitySetImpl>("grantedToV2", (!this.grantedToV2 || this.grantedToV2 instanceof SharePointIdentitySetImpl? this.grantedToV2 : new SharePointIdentitySetImpl(this.grantedToV2)));
         }
         if(this.hasPassword){
             writer.writeBooleanValue("hasPassword", this.hasPassword);
         }
         if(this.inheritedFrom){
-            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", new ItemReferenceImpl(this.inheritedFrom));
+            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", (!this.inheritedFrom || this.inheritedFrom instanceof ItemReferenceImpl? this.inheritedFrom : new ItemReferenceImpl(this.inheritedFrom)));
         }
         if(this.invitation){
-            writer.writeObjectValue<SharingInvitationImpl>("invitation", new SharingInvitationImpl(this.invitation));
+            writer.writeObjectValue<SharingInvitationImpl>("invitation", (!this.invitation || this.invitation instanceof SharingInvitationImpl? this.invitation : new SharingInvitationImpl(this.invitation)));
         }
         if(this.link){
-            writer.writeObjectValue<SharingLinkImpl>("link", new SharingLinkImpl(this.link));
+            writer.writeObjectValue<SharingLinkImpl>("link", (!this.link || this.link instanceof SharingLinkImpl? this.link : new SharingLinkImpl(this.link)));
         }
         if(this.roles){
             writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         }
         if(this.shareId){
             writer.writeStringValue("shareId", this.shareId);
+        }
+    };
+    /**
+     * Gets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * @returns a string
+     */
+    public get shareId() {
+        return this._shareId;
+    };
+    /**
+     * Sets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * @param value Value to set for the shareId property.
+     */
+    public set shareId(value: string | undefined) {
+        if(value) {
+            this._shareId = value;
         }
     };
 }

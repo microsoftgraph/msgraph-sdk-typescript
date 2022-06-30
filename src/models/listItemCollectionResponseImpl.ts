@@ -6,19 +6,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ListItemCollectionResponseImpl implements ListItemCollectionResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The nextLink property */
-    public nextLink?: string | undefined;
+    private _nextLink?: string | undefined;
     /** The value property */
-    public value?: ListItem[] | undefined;
+    private _value?: ListItem[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new ListItemCollectionResponse and sets the default values.
      * @param listItemCollectionResponseParameterValue 
      */
     public constructor(listItemCollectionResponseParameterValue?: ListItemCollectionResponse | undefined) {
-        this.additionalData = listItemCollectionResponseParameterValue?.additionalData ? listItemCollectionResponseParameterValue?.additionalData! : {};
-        this.nextLink = listItemCollectionResponseParameterValue?.nextLink;
-        this.value = listItemCollectionResponseParameterValue?.value;
+        this._additionalData = listItemCollectionResponseParameterValue?.additionalData ? listItemCollectionResponseParameterValue?.additionalData! : {};
+        this._nextLink = listItemCollectionResponseParameterValue?.nextLink;
+        this._value = listItemCollectionResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +47,22 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
         };
     };
     /**
+     * Gets the @odata.nextLink property value. The nextLink property
+     * @returns a string
+     */
+    public get nextLink() {
+        return this._nextLink;
+    };
+    /**
+     * Sets the @odata.nextLink property value. The nextLink property
+     * @param value Value to set for the nextLink property.
+     */
+    public set nextLink(value: string | undefined) {
+        if(value) {
+            this._nextLink = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,9 +71,32 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
         if(this.nextLink){
             writer.writeStringValue("@odata.nextLink", this.nextLink);
         }
-        if(this.value && this.value.length != 0){        const valueArrValue: ListItemImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ListItemImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ListItemImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ListItemImpl? element:new ListItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ListItemImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ListItemInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ListItem[] | undefined) {
+        if(value) {
+            const valueArrValue: ListItemImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ListItemImpl? element:new ListItemImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

@@ -3,31 +3,95 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ChatMessageAttachmentImpl implements ChatMessageAttachment {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive. */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** The media type of the content attachment. It can have the following values: reference: Attachment is a link to another file. Populate the contentURL with the link to the object.Any contentTypes supported by the Bot Framework's Attachment objectapplication/vnd.microsoft.card.codesnippet: A code snippet. application/vnd.microsoft.card.announcement: An announcement header. */
-    public contentType?: string | undefined;
+    private _contentType?: string | undefined;
     /** URL for the content of the attachment. Supported protocols: http, https, file and data. */
-    public contentUrl?: string | undefined;
+    private _contentUrl?: string | undefined;
     /** Read-only. Unique id of the attachment. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** Name of the attachment. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document. */
-    public thumbnailUrl?: string | undefined;
+    private _thumbnailUrl?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new chatMessageAttachment and sets the default values.
      * @param chatMessageAttachmentParameterValue 
      */
     public constructor(chatMessageAttachmentParameterValue?: ChatMessageAttachment | undefined) {
-        this.additionalData = chatMessageAttachmentParameterValue?.additionalData ? chatMessageAttachmentParameterValue?.additionalData! : {};
-        this.content = chatMessageAttachmentParameterValue?.content;
-        this.contentType = chatMessageAttachmentParameterValue?.contentType;
-        this.contentUrl = chatMessageAttachmentParameterValue?.contentUrl;
-        this.id = chatMessageAttachmentParameterValue?.id;
-        this.name = chatMessageAttachmentParameterValue?.name;
-        this.thumbnailUrl = chatMessageAttachmentParameterValue?.thumbnailUrl;
+        this._additionalData = chatMessageAttachmentParameterValue?.additionalData ? chatMessageAttachmentParameterValue?.additionalData! : {};
+        this._content = chatMessageAttachmentParameterValue?.content;
+        this._contentType = chatMessageAttachmentParameterValue?.contentType;
+        this._contentUrl = chatMessageAttachmentParameterValue?.contentUrl;
+        this._id = chatMessageAttachmentParameterValue?.id;
+        this._name = chatMessageAttachmentParameterValue?.name;
+        this._thumbnailUrl = chatMessageAttachmentParameterValue?.thumbnailUrl;
+    };
+    /**
+     * Gets the content property value. The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive.
+     * @returns a string
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
+    };
+    /**
+     * Gets the contentType property value. The media type of the content attachment. It can have the following values: reference: Attachment is a link to another file. Populate the contentURL with the link to the object.Any contentTypes supported by the Bot Framework's Attachment objectapplication/vnd.microsoft.card.codesnippet: A code snippet. application/vnd.microsoft.card.announcement: An announcement header.
+     * @returns a string
+     */
+    public get contentType() {
+        return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. The media type of the content attachment. It can have the following values: reference: Attachment is a link to another file. Populate the contentURL with the link to the object.Any contentTypes supported by the Bot Framework's Attachment objectapplication/vnd.microsoft.card.codesnippet: A code snippet. application/vnd.microsoft.card.announcement: An announcement header.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        if(value) {
+            this._contentType = value;
+        }
+    };
+    /**
+     * Gets the contentUrl property value. URL for the content of the attachment. Supported protocols: http, https, file and data.
+     * @returns a string
+     */
+    public get contentUrl() {
+        return this._contentUrl;
+    };
+    /**
+     * Sets the contentUrl property value. URL for the content of the attachment. Supported protocols: http, https, file and data.
+     * @param value Value to set for the contentUrl property.
+     */
+    public set contentUrl(value: string | undefined) {
+        if(value) {
+            this._contentUrl = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +106,38 @@ export class ChatMessageAttachmentImpl implements ChatMessageAttachment {
             "name": n => { this.name = n.getStringValue(); },
             "thumbnailUrl": n => { this.thumbnailUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. Read-only. Unique id of the attachment.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Read-only. Unique id of the attachment.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the name property value. Name of the attachment.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Name of the attachment.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -68,5 +164,21 @@ export class ChatMessageAttachmentImpl implements ChatMessageAttachment {
             writer.writeStringValue("thumbnailUrl", this.thumbnailUrl);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the thumbnailUrl property value. URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document.
+     * @returns a string
+     */
+    public get thumbnailUrl() {
+        return this._thumbnailUrl;
+    };
+    /**
+     * Sets the thumbnailUrl property value. URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document.
+     * @param value Value to set for the thumbnailUrl property.
+     */
+    public set thumbnailUrl(value: string | undefined) {
+        if(value) {
+            this._thumbnailUrl = value;
+        }
     };
 }

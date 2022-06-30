@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentPointsGradeImpl extends EducationAssignmentGradeImpl implements EducationAssignmentPointsGrade {
     /** Number of points a teacher is giving this submission object. */
-    public points?: number | undefined;
+    private _points?: number | undefined;
     /**
      * Instantiates a new educationAssignmentPointsGrade and sets the default values.
      * @param educationAssignmentPointsGradeParameterValue 
      */
     public constructor(educationAssignmentPointsGradeParameterValue?: EducationAssignmentPointsGrade | undefined) {
         super(educationAssignmentPointsGradeParameterValue);
-        this.points = educationAssignmentPointsGradeParameterValue?.points;
+        this._points = educationAssignmentPointsGradeParameterValue?.points;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class EducationAssignmentPointsGradeImpl extends EducationAssignmentGrade
         return {...super.getFieldDeserializers(),
             "points": n => { this.points = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the points property value. Number of points a teacher is giving this submission object.
+     * @returns a float
+     */
+    public get points() {
+        return this._points;
+    };
+    /**
+     * Sets the points property value. Number of points a teacher is giving this submission object.
+     * @param value Value to set for the points property.
+     */
+    public set points(value: number | undefined) {
+        if(value) {
+            this._points = value;
+        }
     };
     /**
      * Serializes information the current object

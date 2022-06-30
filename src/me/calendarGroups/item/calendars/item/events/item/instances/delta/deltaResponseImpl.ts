@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the delta method. */
 export class DeltaResponseImpl implements DeltaResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: Event[] | undefined;
+    private _value?: Event[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new deltaResponse and sets the default values.
      * @param deltaResponseParameterValue 
      */
     public constructor(deltaResponseParameterValue?: DeltaResponse | undefined) {
-        this.additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
-        this.value = deltaResponseParameterValue?.value;
+        this._additionalData = deltaResponseParameterValue?.additionalData ? deltaResponseParameterValue?.additionalData! : {};
+        this._value = deltaResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class DeltaResponseImpl implements DeltaResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new EventImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<EventImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a EventInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: Event[] | undefined) {
+        if(value) {
+            const valueArrValue: EventImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

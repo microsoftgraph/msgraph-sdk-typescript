@@ -13,62 +13,134 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of domain entities. */
 export class DomainImpl extends EntityImpl implements Domain {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
-    public authenticationType?: string | undefined;
+    private _authenticationType?: string | undefined;
     /** This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled. */
-    public availabilityStatus?: string | undefined;
+    private _availabilityStatus?: string | undefined;
     /** The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group. */
-    public domainNameReferences?: DirectoryObject[] | undefined;
+    private _domainNameReferences?: DirectoryObject[] | undefined;
     /** Domain settings configured by customer when federated with Azure AD. Supports $expand. */
-    public federationConfiguration?: InternalDomainFederation[] | undefined;
+    private _federationConfiguration?: InternalDomainFederation[] | undefined;
     /** The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable */
-    public isAdminManaged?: boolean | undefined;
+    private _isAdminManaged?: boolean | undefined;
     /** true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable */
-    public isDefault?: boolean | undefined;
+    private _isDefault?: boolean | undefined;
     /** true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable */
-    public isInitial?: boolean | undefined;
+    private _isInitial?: boolean | undefined;
     /** true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable */
-    public isRoot?: boolean | undefined;
+    private _isRoot?: boolean | undefined;
     /** true if the domain has completed domain ownership verification. Not nullable */
-    public isVerified?: boolean | undefined;
+    private _isVerified?: boolean | undefined;
     /** The manufacturer property */
-    public manufacturer?: string | undefined;
+    private _manufacturer?: string | undefined;
     /** The model property */
-    public model?: string | undefined;
+    private _model?: string | undefined;
     /** Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used. */
-    public passwordNotificationWindowInDays?: number | undefined;
+    private _passwordNotificationWindowInDays?: number | undefined;
     /** Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used. */
-    public passwordValidityPeriodInDays?: number | undefined;
+    private _passwordValidityPeriodInDays?: number | undefined;
     /** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand. */
-    public serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
+    private _serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
     /** Status of asynchronous operations scheduled for the domain. */
-    public state?: DomainState | undefined;
+    private _state?: DomainState | undefined;
     /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
-    public supportedServices?: string[] | undefined;
+    private _supportedServices?: string[] | undefined;
     /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand. */
-    public verificationDnsRecords?: DomainDnsRecord[] | undefined;
+    private _verificationDnsRecords?: DomainDnsRecord[] | undefined;
+    /**
+     * Gets the authenticationType property value. Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.
+     * @returns a string
+     */
+    public get authenticationType() {
+        return this._authenticationType;
+    };
+    /**
+     * Sets the authenticationType property value. Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.
+     * @param value Value to set for the authenticationType property.
+     */
+    public set authenticationType(value: string | undefined) {
+        if(value) {
+            this._authenticationType = value;
+        }
+    };
+    /**
+     * Gets the availabilityStatus property value. This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.
+     * @returns a string
+     */
+    public get availabilityStatus() {
+        return this._availabilityStatus;
+    };
+    /**
+     * Sets the availabilityStatus property value. This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.
+     * @param value Value to set for the availabilityStatus property.
+     */
+    public set availabilityStatus(value: string | undefined) {
+        if(value) {
+            this._availabilityStatus = value;
+        }
+    };
     /**
      * Instantiates a new domain and sets the default values.
      * @param domainParameterValue 
      */
     public constructor(domainParameterValue?: Domain | undefined) {
         super(domainParameterValue);
-        this.authenticationType = domainParameterValue?.authenticationType;
-        this.availabilityStatus = domainParameterValue?.availabilityStatus;
-        this.domainNameReferences = domainParameterValue?.domainNameReferences;
-        this.federationConfiguration = domainParameterValue?.federationConfiguration;
-        this.isAdminManaged = domainParameterValue?.isAdminManaged;
-        this.isDefault = domainParameterValue?.isDefault;
-        this.isInitial = domainParameterValue?.isInitial;
-        this.isRoot = domainParameterValue?.isRoot;
-        this.isVerified = domainParameterValue?.isVerified;
-        this.manufacturer = domainParameterValue?.manufacturer;
-        this.model = domainParameterValue?.model;
-        this.passwordNotificationWindowInDays = domainParameterValue?.passwordNotificationWindowInDays;
-        this.passwordValidityPeriodInDays = domainParameterValue?.passwordValidityPeriodInDays;
-        this.serviceConfigurationRecords = domainParameterValue?.serviceConfigurationRecords;
-        this.state = domainParameterValue?.state;
-        this.supportedServices = domainParameterValue?.supportedServices;
-        this.verificationDnsRecords = domainParameterValue?.verificationDnsRecords;
+        this._authenticationType = domainParameterValue?.authenticationType;
+        this._availabilityStatus = domainParameterValue?.availabilityStatus;
+        this._domainNameReferences = domainParameterValue?.domainNameReferences;
+        this._federationConfiguration = domainParameterValue?.federationConfiguration;
+        this._isAdminManaged = domainParameterValue?.isAdminManaged;
+        this._isDefault = domainParameterValue?.isDefault;
+        this._isInitial = domainParameterValue?.isInitial;
+        this._isRoot = domainParameterValue?.isRoot;
+        this._isVerified = domainParameterValue?.isVerified;
+        this._manufacturer = domainParameterValue?.manufacturer;
+        this._model = domainParameterValue?.model;
+        this._passwordNotificationWindowInDays = domainParameterValue?.passwordNotificationWindowInDays;
+        this._passwordValidityPeriodInDays = domainParameterValue?.passwordValidityPeriodInDays;
+        this._serviceConfigurationRecords = domainParameterValue?.serviceConfigurationRecords;
+        this._state = domainParameterValue?.state;
+        this._supportedServices = domainParameterValue?.supportedServices;
+        this._verificationDnsRecords = domainParameterValue?.verificationDnsRecords;
+    };
+    /**
+     * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
+     * @returns a DirectoryObjectInterface
+     */
+    public get domainNameReferences() {
+        return this._domainNameReferences;
+    };
+    /**
+     * Sets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
+     * @param value Value to set for the domainNameReferences property.
+     */
+    public set domainNameReferences(value: DirectoryObject[] | undefined) {
+        if(value) {
+            const domainNameReferencesArrValue: DirectoryObjectImpl[] = [];
+            this.domainNameReferences?.forEach(element => {
+                domainNameReferencesArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            });
+            this._domainNameReferences = domainNameReferencesArrValue;
+        }
+    };
+    /**
+     * Gets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * @returns a InternalDomainFederationInterface
+     */
+    public get federationConfiguration() {
+        return this._federationConfiguration;
+    };
+    /**
+     * Sets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * @param value Value to set for the federationConfiguration property.
+     */
+    public set federationConfiguration(value: InternalDomainFederation[] | undefined) {
+        if(value) {
+            const federationConfigurationArrValue: InternalDomainFederationImpl[] = [];
+            this.federationConfiguration?.forEach(element => {
+                federationConfigurationArrValue.push((element instanceof InternalDomainFederationImpl? element:new InternalDomainFederationImpl(element)));
+            });
+            this._federationConfiguration = federationConfigurationArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -96,6 +168,150 @@ export class DomainImpl extends EntityImpl implements Domain {
         };
     };
     /**
+     * Gets the isAdminManaged property value. The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable
+     * @returns a boolean
+     */
+    public get isAdminManaged() {
+        return this._isAdminManaged;
+    };
+    /**
+     * Sets the isAdminManaged property value. The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable
+     * @param value Value to set for the isAdminManaged property.
+     */
+    public set isAdminManaged(value: boolean | undefined) {
+        if(value) {
+            this._isAdminManaged = value;
+        }
+    };
+    /**
+     * Gets the isDefault property value. true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable
+     * @returns a boolean
+     */
+    public get isDefault() {
+        return this._isDefault;
+    };
+    /**
+     * Sets the isDefault property value. true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable
+     * @param value Value to set for the isDefault property.
+     */
+    public set isDefault(value: boolean | undefined) {
+        if(value) {
+            this._isDefault = value;
+        }
+    };
+    /**
+     * Gets the isInitial property value. true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable
+     * @returns a boolean
+     */
+    public get isInitial() {
+        return this._isInitial;
+    };
+    /**
+     * Sets the isInitial property value. true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable
+     * @param value Value to set for the isInitial property.
+     */
+    public set isInitial(value: boolean | undefined) {
+        if(value) {
+            this._isInitial = value;
+        }
+    };
+    /**
+     * Gets the isRoot property value. true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable
+     * @returns a boolean
+     */
+    public get isRoot() {
+        return this._isRoot;
+    };
+    /**
+     * Sets the isRoot property value. true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable
+     * @param value Value to set for the isRoot property.
+     */
+    public set isRoot(value: boolean | undefined) {
+        if(value) {
+            this._isRoot = value;
+        }
+    };
+    /**
+     * Gets the isVerified property value. true if the domain has completed domain ownership verification. Not nullable
+     * @returns a boolean
+     */
+    public get isVerified() {
+        return this._isVerified;
+    };
+    /**
+     * Sets the isVerified property value. true if the domain has completed domain ownership verification. Not nullable
+     * @param value Value to set for the isVerified property.
+     */
+    public set isVerified(value: boolean | undefined) {
+        if(value) {
+            this._isVerified = value;
+        }
+    };
+    /**
+     * Gets the manufacturer property value. The manufacturer property
+     * @returns a string
+     */
+    public get manufacturer() {
+        return this._manufacturer;
+    };
+    /**
+     * Sets the manufacturer property value. The manufacturer property
+     * @param value Value to set for the manufacturer property.
+     */
+    public set manufacturer(value: string | undefined) {
+        if(value) {
+            this._manufacturer = value;
+        }
+    };
+    /**
+     * Gets the model property value. The model property
+     * @returns a string
+     */
+    public get model() {
+        return this._model;
+    };
+    /**
+     * Sets the model property value. The model property
+     * @param value Value to set for the model property.
+     */
+    public set model(value: string | undefined) {
+        if(value) {
+            this._model = value;
+        }
+    };
+    /**
+     * Gets the passwordNotificationWindowInDays property value. Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.
+     * @returns a integer
+     */
+    public get passwordNotificationWindowInDays() {
+        return this._passwordNotificationWindowInDays;
+    };
+    /**
+     * Sets the passwordNotificationWindowInDays property value. Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.
+     * @param value Value to set for the passwordNotificationWindowInDays property.
+     */
+    public set passwordNotificationWindowInDays(value: number | undefined) {
+        if(value) {
+            this._passwordNotificationWindowInDays = value;
+        }
+    };
+    /**
+     * Gets the passwordValidityPeriodInDays property value. Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.
+     * @returns a integer
+     */
+    public get passwordValidityPeriodInDays() {
+        return this._passwordValidityPeriodInDays;
+    };
+    /**
+     * Sets the passwordValidityPeriodInDays property value. Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.
+     * @param value Value to set for the passwordValidityPeriodInDays property.
+     */
+    public set passwordValidityPeriodInDays(value: number | undefined) {
+        if(value) {
+            this._passwordValidityPeriodInDays = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -108,10 +324,16 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(this.availabilityStatus){
             writer.writeStringValue("availabilityStatus", this.availabilityStatus);
         }
-        if(this.domainNameReferences && this.domainNameReferences.length != 0){        const domainNameReferencesArrValue: DirectoryObjectImpl[] = []; this.domainNameReferences?.forEach(element => {domainNameReferencesArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.domainNameReferences && this.domainNameReferences.length != 0){        const domainNameReferencesArrValue: DirectoryObjectImpl[] = [];
+        this.domainNameReferences?.forEach(element => {
+            domainNameReferencesArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("domainNameReferences", domainNameReferencesArrValue);
         }
-        if(this.federationConfiguration && this.federationConfiguration.length != 0){        const federationConfigurationArrValue: InternalDomainFederationImpl[] = []; this.federationConfiguration?.forEach(element => {federationConfigurationArrValue.push(new InternalDomainFederationImpl(element));});
+        if(this.federationConfiguration && this.federationConfiguration.length != 0){        const federationConfigurationArrValue: InternalDomainFederationImpl[] = [];
+        this.federationConfiguration?.forEach(element => {
+            federationConfigurationArrValue.push((element instanceof InternalDomainFederationImpl? element:new InternalDomainFederationImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("federationConfiguration", federationConfigurationArrValue);
         }
         if(this.isAdminManaged){
@@ -141,17 +363,95 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(this.passwordValidityPeriodInDays){
             writer.writeNumberValue("passwordValidityPeriodInDays", this.passwordValidityPeriodInDays);
         }
-        if(this.serviceConfigurationRecords && this.serviceConfigurationRecords.length != 0){        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = []; this.serviceConfigurationRecords?.forEach(element => {serviceConfigurationRecordsArrValue.push(new DomainDnsRecordImpl(element));});
+        if(this.serviceConfigurationRecords && this.serviceConfigurationRecords.length != 0){        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = [];
+        this.serviceConfigurationRecords?.forEach(element => {
+            serviceConfigurationRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("serviceConfigurationRecords", serviceConfigurationRecordsArrValue);
         }
         if(this.state){
-            writer.writeObjectValue<DomainStateImpl>("state", new DomainStateImpl(this.state));
+            writer.writeObjectValue<DomainStateImpl>("state", (!this.state || this.state instanceof DomainStateImpl? this.state : new DomainStateImpl(this.state)));
         }
         if(this.supportedServices){
             writer.writeCollectionOfPrimitiveValues<string>("supportedServices", this.supportedServices);
         }
-        if(this.verificationDnsRecords && this.verificationDnsRecords.length != 0){        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = []; this.verificationDnsRecords?.forEach(element => {verificationDnsRecordsArrValue.push(new DomainDnsRecordImpl(element));});
+        if(this.verificationDnsRecords && this.verificationDnsRecords.length != 0){        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = [];
+        this.verificationDnsRecords?.forEach(element => {
+            verificationDnsRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("verificationDnsRecords", verificationDnsRecordsArrValue);
+        }
+    };
+    /**
+     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * @returns a DomainDnsRecordInterface
+     */
+    public get serviceConfigurationRecords() {
+        return this._serviceConfigurationRecords;
+    };
+    /**
+     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * @param value Value to set for the serviceConfigurationRecords property.
+     */
+    public set serviceConfigurationRecords(value: DomainDnsRecord[] | undefined) {
+        if(value) {
+            const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = [];
+            this.serviceConfigurationRecords?.forEach(element => {
+                serviceConfigurationRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+            });
+            this._serviceConfigurationRecords = serviceConfigurationRecordsArrValue;
+        }
+    };
+    /**
+     * Gets the state property value. Status of asynchronous operations scheduled for the domain.
+     * @returns a DomainStateInterface
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. Status of asynchronous operations scheduled for the domain.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: DomainState | undefined) {
+        if(value) {
+            this._state = value instanceof DomainStateImpl? value : new DomainStateImpl(value);
+        }
+    };
+    /**
+     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * @returns a string
+     */
+    public get supportedServices() {
+        return this._supportedServices;
+    };
+    /**
+     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * @param value Value to set for the supportedServices property.
+     */
+    public set supportedServices(value: string[] | undefined) {
+        if(value) {
+            this._supportedServices = value;
+        }
+    };
+    /**
+     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
+     * @returns a DomainDnsRecordInterface
+     */
+    public get verificationDnsRecords() {
+        return this._verificationDnsRecords;
+    };
+    /**
+     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
+     * @param value Value to set for the verificationDnsRecords property.
+     */
+    public set verificationDnsRecords(value: DomainDnsRecord[] | undefined) {
+        if(value) {
+            const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = [];
+            this.verificationDnsRecords?.forEach(element => {
+                verificationDnsRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+            });
+            this._verificationDnsRecords = verificationDnsRecordsArrValue;
         }
     };
 }

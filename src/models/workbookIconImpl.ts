@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookIconImpl implements WorkbookIcon {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Represents the index of the icon in the given set. */
-    public index?: number | undefined;
+    private _index?: number | undefined;
     /** Represents the set that the icon is part of. Possible values are: Invalid, ThreeArrows, ThreeArrowsGray, ThreeFlags, ThreeTrafficLights1, ThreeTrafficLights2, ThreeSigns, ThreeSymbols, ThreeSymbols2, FourArrows, FourArrowsGray, FourRedToBlack, FourRating, FourTrafficLights, FiveArrows, FiveArrowsGray, FiveRating, FiveQuarters, ThreeStars, ThreeTriangles, FiveBoxes. */
-    public set?: string | undefined;
+    private _set?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new workbookIcon and sets the default values.
      * @param workbookIconParameterValue 
      */
     public constructor(workbookIconParameterValue?: WorkbookIcon | undefined) {
-        this.additionalData = workbookIconParameterValue?.additionalData ? workbookIconParameterValue?.additionalData! : {};
-        this.index = workbookIconParameterValue?.index;
-        this.set = workbookIconParameterValue?.set;
+        this._additionalData = workbookIconParameterValue?.additionalData ? workbookIconParameterValue?.additionalData! : {};
+        this._index = workbookIconParameterValue?.index;
+        this._set = workbookIconParameterValue?.set;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,22 @@ export class WorkbookIconImpl implements WorkbookIcon {
             "index": n => { this.index = n.getNumberValue(); },
             "set": n => { this.set = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the index property value. Represents the index of the icon in the given set.
+     * @returns a integer
+     */
+    public get index() {
+        return this._index;
+    };
+    /**
+     * Sets the index property value. Represents the index of the icon in the given set.
+     * @param value Value to set for the index property.
+     */
+    public set index(value: number | undefined) {
+        if(value) {
+            this._index = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -40,5 +72,21 @@ export class WorkbookIconImpl implements WorkbookIcon {
             writer.writeStringValue("set", this.set);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the set property value. Represents the set that the icon is part of. Possible values are: Invalid, ThreeArrows, ThreeArrowsGray, ThreeFlags, ThreeTrafficLights1, ThreeTrafficLights2, ThreeSigns, ThreeSymbols, ThreeSymbols2, FourArrows, FourArrowsGray, FourRedToBlack, FourRating, FourTrafficLights, FiveArrows, FiveArrowsGray, FiveRating, FiveQuarters, ThreeStars, ThreeTriangles, FiveBoxes.
+     * @returns a string
+     */
+    public get set() {
+        return this._set;
+    };
+    /**
+     * Sets the set property value. Represents the set that the icon is part of. Possible values are: Invalid, ThreeArrows, ThreeArrowsGray, ThreeFlags, ThreeTrafficLights1, ThreeTrafficLights2, ThreeSigns, ThreeSymbols, ThreeSymbols2, FourArrows, FourArrowsGray, FourRedToBlack, FourRating, FourTrafficLights, FiveArrows, FiveArrowsGray, FiveRating, FiveQuarters, ThreeStars, ThreeTriangles, FiveBoxes.
+     * @param value Value to set for the set property.
+     */
+    public set set(value: string | undefined) {
+        if(value) {
+            this._set = value;
+        }
     };
 }

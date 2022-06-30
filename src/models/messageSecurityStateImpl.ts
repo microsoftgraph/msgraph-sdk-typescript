@@ -3,40 +3,120 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MessageSecurityStateImpl implements MessageSecurityState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The connectingIP property */
-    public connectingIP?: string | undefined;
+    private _connectingIP?: string | undefined;
     /** The deliveryAction property */
-    public deliveryAction?: string | undefined;
+    private _deliveryAction?: string | undefined;
     /** The deliveryLocation property */
-    public deliveryLocation?: string | undefined;
+    private _deliveryLocation?: string | undefined;
     /** The directionality property */
-    public directionality?: string | undefined;
+    private _directionality?: string | undefined;
     /** The internetMessageId property */
-    public internetMessageId?: string | undefined;
+    private _internetMessageId?: string | undefined;
     /** The messageFingerprint property */
-    public messageFingerprint?: string | undefined;
+    private _messageFingerprint?: string | undefined;
     /** The messageReceivedDateTime property */
-    public messageReceivedDateTime?: Date | undefined;
+    private _messageReceivedDateTime?: Date | undefined;
     /** The messageSubject property */
-    public messageSubject?: string | undefined;
+    private _messageSubject?: string | undefined;
     /** The networkMessageId property */
-    public networkMessageId?: string | undefined;
+    private _networkMessageId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the connectingIP property value. The connectingIP property
+     * @returns a string
+     */
+    public get connectingIP() {
+        return this._connectingIP;
+    };
+    /**
+     * Sets the connectingIP property value. The connectingIP property
+     * @param value Value to set for the connectingIP property.
+     */
+    public set connectingIP(value: string | undefined) {
+        if(value) {
+            this._connectingIP = value;
+        }
+    };
     /**
      * Instantiates a new messageSecurityState and sets the default values.
      * @param messageSecurityStateParameterValue 
      */
     public constructor(messageSecurityStateParameterValue?: MessageSecurityState | undefined) {
-        this.additionalData = messageSecurityStateParameterValue?.additionalData ? messageSecurityStateParameterValue?.additionalData! : {};
-        this.connectingIP = messageSecurityStateParameterValue?.connectingIP;
-        this.deliveryAction = messageSecurityStateParameterValue?.deliveryAction;
-        this.deliveryLocation = messageSecurityStateParameterValue?.deliveryLocation;
-        this.directionality = messageSecurityStateParameterValue?.directionality;
-        this.internetMessageId = messageSecurityStateParameterValue?.internetMessageId;
-        this.messageFingerprint = messageSecurityStateParameterValue?.messageFingerprint;
-        this.messageReceivedDateTime = messageSecurityStateParameterValue?.messageReceivedDateTime;
-        this.messageSubject = messageSecurityStateParameterValue?.messageSubject;
-        this.networkMessageId = messageSecurityStateParameterValue?.networkMessageId;
+        this._additionalData = messageSecurityStateParameterValue?.additionalData ? messageSecurityStateParameterValue?.additionalData! : {};
+        this._connectingIP = messageSecurityStateParameterValue?.connectingIP;
+        this._deliveryAction = messageSecurityStateParameterValue?.deliveryAction;
+        this._deliveryLocation = messageSecurityStateParameterValue?.deliveryLocation;
+        this._directionality = messageSecurityStateParameterValue?.directionality;
+        this._internetMessageId = messageSecurityStateParameterValue?.internetMessageId;
+        this._messageFingerprint = messageSecurityStateParameterValue?.messageFingerprint;
+        this._messageReceivedDateTime = messageSecurityStateParameterValue?.messageReceivedDateTime;
+        this._messageSubject = messageSecurityStateParameterValue?.messageSubject;
+        this._networkMessageId = messageSecurityStateParameterValue?.networkMessageId;
+    };
+    /**
+     * Gets the deliveryAction property value. The deliveryAction property
+     * @returns a string
+     */
+    public get deliveryAction() {
+        return this._deliveryAction;
+    };
+    /**
+     * Sets the deliveryAction property value. The deliveryAction property
+     * @param value Value to set for the deliveryAction property.
+     */
+    public set deliveryAction(value: string | undefined) {
+        if(value) {
+            this._deliveryAction = value;
+        }
+    };
+    /**
+     * Gets the deliveryLocation property value. The deliveryLocation property
+     * @returns a string
+     */
+    public get deliveryLocation() {
+        return this._deliveryLocation;
+    };
+    /**
+     * Sets the deliveryLocation property value. The deliveryLocation property
+     * @param value Value to set for the deliveryLocation property.
+     */
+    public set deliveryLocation(value: string | undefined) {
+        if(value) {
+            this._deliveryLocation = value;
+        }
+    };
+    /**
+     * Gets the directionality property value. The directionality property
+     * @returns a string
+     */
+    public get directionality() {
+        return this._directionality;
+    };
+    /**
+     * Sets the directionality property value. The directionality property
+     * @param value Value to set for the directionality property.
+     */
+    public set directionality(value: string | undefined) {
+        if(value) {
+            this._directionality = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -54,6 +134,86 @@ export class MessageSecurityStateImpl implements MessageSecurityState {
             "messageSubject": n => { this.messageSubject = n.getStringValue(); },
             "networkMessageId": n => { this.networkMessageId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the internetMessageId property value. The internetMessageId property
+     * @returns a string
+     */
+    public get internetMessageId() {
+        return this._internetMessageId;
+    };
+    /**
+     * Sets the internetMessageId property value. The internetMessageId property
+     * @param value Value to set for the internetMessageId property.
+     */
+    public set internetMessageId(value: string | undefined) {
+        if(value) {
+            this._internetMessageId = value;
+        }
+    };
+    /**
+     * Gets the messageFingerprint property value. The messageFingerprint property
+     * @returns a string
+     */
+    public get messageFingerprint() {
+        return this._messageFingerprint;
+    };
+    /**
+     * Sets the messageFingerprint property value. The messageFingerprint property
+     * @param value Value to set for the messageFingerprint property.
+     */
+    public set messageFingerprint(value: string | undefined) {
+        if(value) {
+            this._messageFingerprint = value;
+        }
+    };
+    /**
+     * Gets the messageReceivedDateTime property value. The messageReceivedDateTime property
+     * @returns a Date
+     */
+    public get messageReceivedDateTime() {
+        return this._messageReceivedDateTime;
+    };
+    /**
+     * Sets the messageReceivedDateTime property value. The messageReceivedDateTime property
+     * @param value Value to set for the messageReceivedDateTime property.
+     */
+    public set messageReceivedDateTime(value: Date | undefined) {
+        if(value) {
+            this._messageReceivedDateTime = value;
+        }
+    };
+    /**
+     * Gets the messageSubject property value. The messageSubject property
+     * @returns a string
+     */
+    public get messageSubject() {
+        return this._messageSubject;
+    };
+    /**
+     * Sets the messageSubject property value. The messageSubject property
+     * @param value Value to set for the messageSubject property.
+     */
+    public set messageSubject(value: string | undefined) {
+        if(value) {
+            this._messageSubject = value;
+        }
+    };
+    /**
+     * Gets the networkMessageId property value. The networkMessageId property
+     * @returns a string
+     */
+    public get networkMessageId() {
+        return this._networkMessageId;
+    };
+    /**
+     * Sets the networkMessageId property value. The networkMessageId property
+     * @param value Value to set for the networkMessageId property.
+     */
+    public set networkMessageId(value: string | undefined) {
+        if(value) {
+            this._networkMessageId = value;
+        }
     };
     /**
      * Serializes information the current object

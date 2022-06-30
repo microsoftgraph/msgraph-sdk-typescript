@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExternalLinkImpl implements ExternalLink {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The url of the link. */
-    public href?: string | undefined;
+    private _href?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new externalLink and sets the default values.
      * @param externalLinkParameterValue 
      */
     public constructor(externalLinkParameterValue?: ExternalLink | undefined) {
-        this.additionalData = externalLinkParameterValue?.additionalData ? externalLinkParameterValue?.additionalData! : {};
-        this.href = externalLinkParameterValue?.href;
+        this._additionalData = externalLinkParameterValue?.additionalData ? externalLinkParameterValue?.additionalData! : {};
+        this._href = externalLinkParameterValue?.href;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class ExternalLinkImpl implements ExternalLink {
         return {
             "href": n => { this.href = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the href property value. The url of the link.
+     * @returns a string
+     */
+    public get href() {
+        return this._href;
+    };
+    /**
+     * Sets the href property value. The url of the link.
+     * @param value Value to set for the href property.
+     */
+    public set href(value: string | undefined) {
+        if(value) {
+            this._href = value;
+        }
     };
     /**
      * Serializes information the current object

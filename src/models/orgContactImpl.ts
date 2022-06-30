@@ -10,68 +10,156 @@ import {Phone} from './phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to orgContact. */
+/** Provides operations to manage the collection of orgContact entities. */
 export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
-    public addresses?: PhysicalOfficeAddress[] | undefined;
+    private _addresses?: PhysicalOfficeAddress[] | undefined;
     /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    public companyName?: string | undefined;
+    private _companyName?: string | undefined;
     /** The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    public department?: string | undefined;
+    private _department?: string | undefined;
     /** The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand. */
-    public directReports?: DirectoryObject[] | undefined;
+    private _directReports?: DirectoryObject[] | undefined;
     /** Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    public givenName?: string | undefined;
+    private _givenName?: string | undefined;
     /** Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    public jobTitle?: string | undefined;
+    private _jobTitle?: string | undefined;
     /** The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    public mail?: string | undefined;
+    private _mail?: string | undefined;
     /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
-    public mailNickname?: string | undefined;
+    private _mailNickname?: string | undefined;
     /** The user or contact that is this contact's manager. Read-only. Supports $expand. */
-    public manager?: DirectoryObject | undefined;
+    private _manager?: DirectoryObject | undefined;
     /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
-    public memberOf?: DirectoryObject[] | undefined;
+    private _memberOf?: DirectoryObject[] | undefined;
     /** Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in). */
-    public onPremisesLastSyncDateTime?: Date | undefined;
+    private _onPremisesLastSyncDateTime?: Date | undefined;
     /** List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not). */
-    public onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
+    private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values). */
-    public onPremisesSyncEnabled?: boolean | undefined;
+    private _onPremisesSyncEnabled?: boolean | undefined;
     /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in). */
-    public phones?: Phone[] | undefined;
+    private _phones?: Phone[] | undefined;
     /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections). */
-    public proxyAddresses?: string[] | undefined;
+    private _proxyAddresses?: string[] | undefined;
     /** Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) */
-    public surname?: string | undefined;
+    private _surname?: string | undefined;
     /** The transitiveMemberOf property */
-    public transitiveMemberOf?: DirectoryObject[] | undefined;
+    private _transitiveMemberOf?: DirectoryObject[] | undefined;
+    /**
+     * Gets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.
+     * @returns a PhysicalOfficeAddressInterface
+     */
+    public get addresses() {
+        return this._addresses;
+    };
+    /**
+     * Sets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.
+     * @param value Value to set for the addresses property.
+     */
+    public set addresses(value: PhysicalOfficeAddress[] | undefined) {
+        if(value) {
+            const addressesArrValue: PhysicalOfficeAddressImpl[] = [];
+            this.addresses?.forEach(element => {
+                addressesArrValue.push((element instanceof PhysicalOfficeAddressImpl? element:new PhysicalOfficeAddressImpl(element)));
+            });
+            this._addresses = addressesArrValue;
+        }
+    };
+    /**
+     * Gets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @returns a string
+     */
+    public get companyName() {
+        return this._companyName;
+    };
+    /**
+     * Sets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @param value Value to set for the companyName property.
+     */
+    public set companyName(value: string | undefined) {
+        if(value) {
+            this._companyName = value;
+        }
+    };
     /**
      * Instantiates a new orgContact and sets the default values.
      * @param orgContactParameterValue 
      */
     public constructor(orgContactParameterValue?: OrgContact | undefined) {
         super(orgContactParameterValue);
-        this.addresses = orgContactParameterValue?.addresses;
-        this.companyName = orgContactParameterValue?.companyName;
-        this.department = orgContactParameterValue?.department;
-        this.directReports = orgContactParameterValue?.directReports;
-        this.displayName = orgContactParameterValue?.displayName;
-        this.givenName = orgContactParameterValue?.givenName;
-        this.jobTitle = orgContactParameterValue?.jobTitle;
-        this.mail = orgContactParameterValue?.mail;
-        this.mailNickname = orgContactParameterValue?.mailNickname;
-        this.manager = orgContactParameterValue?.manager;
-        this.memberOf = orgContactParameterValue?.memberOf;
-        this.onPremisesLastSyncDateTime = orgContactParameterValue?.onPremisesLastSyncDateTime;
-        this.onPremisesProvisioningErrors = orgContactParameterValue?.onPremisesProvisioningErrors;
-        this.onPremisesSyncEnabled = orgContactParameterValue?.onPremisesSyncEnabled;
-        this.phones = orgContactParameterValue?.phones;
-        this.proxyAddresses = orgContactParameterValue?.proxyAddresses;
-        this.surname = orgContactParameterValue?.surname;
-        this.transitiveMemberOf = orgContactParameterValue?.transitiveMemberOf;
+        this._addresses = orgContactParameterValue?.addresses;
+        this._companyName = orgContactParameterValue?.companyName;
+        this._department = orgContactParameterValue?.department;
+        this._directReports = orgContactParameterValue?.directReports;
+        this._displayName = orgContactParameterValue?.displayName;
+        this._givenName = orgContactParameterValue?.givenName;
+        this._jobTitle = orgContactParameterValue?.jobTitle;
+        this._mail = orgContactParameterValue?.mail;
+        this._mailNickname = orgContactParameterValue?.mailNickname;
+        this._manager = orgContactParameterValue?.manager;
+        this._memberOf = orgContactParameterValue?.memberOf;
+        this._onPremisesLastSyncDateTime = orgContactParameterValue?.onPremisesLastSyncDateTime;
+        this._onPremisesProvisioningErrors = orgContactParameterValue?.onPremisesProvisioningErrors;
+        this._onPremisesSyncEnabled = orgContactParameterValue?.onPremisesSyncEnabled;
+        this._phones = orgContactParameterValue?.phones;
+        this._proxyAddresses = orgContactParameterValue?.proxyAddresses;
+        this._surname = orgContactParameterValue?.surname;
+        this._transitiveMemberOf = orgContactParameterValue?.transitiveMemberOf;
+    };
+    /**
+     * Gets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @returns a string
+     */
+    public get department() {
+        return this._department;
+    };
+    /**
+     * Sets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @param value Value to set for the department property.
+     */
+    public set department(value: string | undefined) {
+        if(value) {
+            this._department = value;
+        }
+    };
+    /**
+     * Gets the directReports property value. The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
+     * @returns a DirectoryObjectInterface
+     */
+    public get directReports() {
+        return this._directReports;
+    };
+    /**
+     * Sets the directReports property value. The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.
+     * @param value Value to set for the directReports property.
+     */
+    public set directReports(value: DirectoryObject[] | undefined) {
+        if(value) {
+            const directReportsArrValue: DirectoryObjectImpl[] = [];
+            this.directReports?.forEach(element => {
+                directReportsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            });
+            this._directReports = directReportsArrValue;
+        }
+    };
+    /**
+     * Gets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -100,13 +188,204 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
         };
     };
     /**
+     * Gets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @returns a string
+     */
+    public get givenName() {
+        return this._givenName;
+    };
+    /**
+     * Sets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @param value Value to set for the givenName property.
+     */
+    public set givenName(value: string | undefined) {
+        if(value) {
+            this._givenName = value;
+        }
+    };
+    /**
+     * Gets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @returns a string
+     */
+    public get jobTitle() {
+        return this._jobTitle;
+    };
+    /**
+     * Sets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @param value Value to set for the jobTitle property.
+     */
+    public set jobTitle(value: string | undefined) {
+        if(value) {
+            this._jobTitle = value;
+        }
+    };
+    /**
+     * Gets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @returns a string
+     */
+    public get mail() {
+        return this._mail;
+    };
+    /**
+     * Sets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @param value Value to set for the mail property.
+     */
+    public set mail(value: string | undefined) {
+        if(value) {
+            this._mail = value;
+        }
+    };
+    /**
+     * Gets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @returns a string
+     */
+    public get mailNickname() {
+        return this._mailNickname;
+    };
+    /**
+     * Sets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * @param value Value to set for the mailNickname property.
+     */
+    public set mailNickname(value: string | undefined) {
+        if(value) {
+            this._mailNickname = value;
+        }
+    };
+    /**
+     * Gets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand.
+     * @returns a DirectoryObjectInterface
+     */
+    public get manager() {
+        return this._manager;
+    };
+    /**
+     * Sets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand.
+     * @param value Value to set for the manager property.
+     */
+    public set manager(value: DirectoryObject | undefined) {
+        if(value) {
+            this._manager = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+        }
+    };
+    /**
+     * Gets the memberOf property value. Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
+     * @returns a DirectoryObjectInterface
+     */
+    public get memberOf() {
+        return this._memberOf;
+    };
+    /**
+     * Sets the memberOf property value. Groups that this contact is a member of. Read-only. Nullable. Supports $expand.
+     * @param value Value to set for the memberOf property.
+     */
+    public set memberOf(value: DirectoryObject[] | undefined) {
+        if(value) {
+            const memberOfArrValue: DirectoryObjectImpl[] = [];
+            this.memberOf?.forEach(element => {
+                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            });
+            this._memberOf = memberOfArrValue;
+        }
+    };
+    /**
+     * Gets the onPremisesLastSyncDateTime property value. Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).
+     * @returns a Date
+     */
+    public get onPremisesLastSyncDateTime() {
+        return this._onPremisesLastSyncDateTime;
+    };
+    /**
+     * Sets the onPremisesLastSyncDateTime property value. Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).
+     * @param value Value to set for the onPremisesLastSyncDateTime property.
+     */
+    public set onPremisesLastSyncDateTime(value: Date | undefined) {
+        if(value) {
+            this._onPremisesLastSyncDateTime = value;
+        }
+    };
+    /**
+     * Gets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
+     * @returns a OnPremisesProvisioningErrorInterface
+     */
+    public get onPremisesProvisioningErrors() {
+        return this._onPremisesProvisioningErrors;
+    };
+    /**
+     * Sets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
+     * @param value Value to set for the onPremisesProvisioningErrors property.
+     */
+    public set onPremisesProvisioningErrors(value: OnPremisesProvisioningError[] | undefined) {
+        if(value) {
+            const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = [];
+            this.onPremisesProvisioningErrors?.forEach(element => {
+                onPremisesProvisioningErrorsArrValue.push((element instanceof OnPremisesProvisioningErrorImpl? element:new OnPremisesProvisioningErrorImpl(element)));
+            });
+            this._onPremisesProvisioningErrors = onPremisesProvisioningErrorsArrValue;
+        }
+    };
+    /**
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
+     * @returns a boolean
+     */
+    public get onPremisesSyncEnabled() {
+        return this._onPremisesSyncEnabled;
+    };
+    /**
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
+     * @param value Value to set for the onPremisesSyncEnabled property.
+     */
+    public set onPremisesSyncEnabled(value: boolean | undefined) {
+        if(value) {
+            this._onPremisesSyncEnabled = value;
+        }
+    };
+    /**
+     * Gets the phones property value. List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
+     * @returns a PhoneInterface
+     */
+    public get phones() {
+        return this._phones;
+    };
+    /**
+     * Sets the phones property value. List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
+     * @param value Value to set for the phones property.
+     */
+    public set phones(value: Phone[] | undefined) {
+        if(value) {
+            const phonesArrValue: PhoneImpl[] = [];
+            this.phones?.forEach(element => {
+                phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+            });
+            this._phones = phonesArrValue;
+        }
+    };
+    /**
+     * Gets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * @returns a string
+     */
+    public get proxyAddresses() {
+        return this._proxyAddresses;
+    };
+    /**
+     * Sets the proxyAddresses property value. For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * @param value Value to set for the proxyAddresses property.
+     */
+    public set proxyAddresses(value: string[] | undefined) {
+        if(value) {
+            this._proxyAddresses = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalOfficeAddressImpl[] = []; this.addresses?.forEach(element => {addressesArrValue.push(new PhysicalOfficeAddressImpl(element));});
+        if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalOfficeAddressImpl[] = [];
+        this.addresses?.forEach(element => {
+            addressesArrValue.push((element instanceof PhysicalOfficeAddressImpl? element:new PhysicalOfficeAddressImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PhysicalOfficeAddressImpl>("addresses", addressesArrValue);
         }
         if(this.companyName){
@@ -115,7 +394,10 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
         if(this.department){
             writer.writeStringValue("department", this.department);
         }
-        if(this.directReports && this.directReports.length != 0){        const directReportsArrValue: DirectoryObjectImpl[] = []; this.directReports?.forEach(element => {directReportsArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.directReports && this.directReports.length != 0){        const directReportsArrValue: DirectoryObjectImpl[] = [];
+        this.directReports?.forEach(element => {
+            directReportsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("directReports", directReportsArrValue);
         }
         if(this.displayName){
@@ -134,21 +416,30 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
             writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.manager){
-            writer.writeObjectValue<DirectoryObjectImpl>("manager", new DirectoryObjectImpl(this.manager));
+            writer.writeObjectValue<DirectoryObjectImpl>("manager", (!this.manager || this.manager instanceof DirectoryObjectImpl? this.manager : new DirectoryObjectImpl(this.manager)));
         }
-        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = []; this.memberOf?.forEach(element => {memberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = [];
+        this.memberOf?.forEach(element => {
+            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.onPremisesLastSyncDateTime){
             writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         }
-        if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = []; this.onPremisesProvisioningErrors?.forEach(element => {onPremisesProvisioningErrorsArrValue.push(new OnPremisesProvisioningErrorImpl(element));});
+        if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = [];
+        this.onPremisesProvisioningErrors?.forEach(element => {
+            onPremisesProvisioningErrorsArrValue.push((element instanceof OnPremisesProvisioningErrorImpl? element:new OnPremisesProvisioningErrorImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
         if(this.onPremisesSyncEnabled){
             writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         }
-        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = []; this.phones?.forEach(element => {phonesArrValue.push(new PhoneImpl(element));});
+        if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = [];
+        this.phones?.forEach(element => {
+            phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.proxyAddresses){
@@ -157,8 +448,47 @@ export class OrgContactImpl extends DirectoryObjectImpl implements OrgContact {
         if(this.surname){
             writer.writeStringValue("surname", this.surname);
         }
-        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = []; this.transitiveMemberOf?.forEach(element => {transitiveMemberOfArrValue.push(new DirectoryObjectImpl(element));});
+        if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
+        this.transitiveMemberOf?.forEach(element => {
+            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
+        }
+    };
+    /**
+     * Gets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+     * @returns a string
+     */
+    public get surname() {
+        return this._surname;
+    };
+    /**
+     * Sets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+     * @param value Value to set for the surname property.
+     */
+    public set surname(value: string | undefined) {
+        if(value) {
+            this._surname = value;
+        }
+    };
+    /**
+     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * @returns a DirectoryObjectInterface
+     */
+    public get transitiveMemberOf() {
+        return this._transitiveMemberOf;
+    };
+    /**
+     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * @param value Value to set for the transitiveMemberOf property.
+     */
+    public set transitiveMemberOf(value: DirectoryObject[] | undefined) {
+        if(value) {
+            const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
+            this.transitiveMemberOf?.forEach(element => {
+                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            });
+            this._transitiveMemberOf = transitiveMemberOfArrValue;
         }
     };
 }

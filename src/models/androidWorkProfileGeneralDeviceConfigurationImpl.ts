@@ -7,113 +7,113 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class AndroidWorkProfileGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl implements AndroidWorkProfileGeneralDeviceConfiguration {
     /** Indicates whether or not to block fingerprint unlock. */
-    public passwordBlockFingerprintUnlock?: boolean | undefined;
+    private _passwordBlockFingerprintUnlock?: boolean | undefined;
     /** Indicates whether or not to block Smart Lock and other trust agents. */
-    public passwordBlockTrustAgents?: boolean | undefined;
+    private _passwordBlockTrustAgents?: boolean | undefined;
     /** Number of days before the password expires. Valid values 1 to 365 */
-    public passwordExpirationDays?: number | undefined;
+    private _passwordExpirationDays?: number | undefined;
     /** Minimum length of passwords. Valid values 4 to 16 */
-    public passwordMinimumLength?: number | undefined;
+    private _passwordMinimumLength?: number | undefined;
     /** Minutes of inactivity before the screen times out. */
-    public passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    private _passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
     /** Number of previous passwords to block. Valid values 0 to 24 */
-    public passwordPreviousPasswordBlockCount?: number | undefined;
+    private _passwordPreviousPasswordBlockCount?: number | undefined;
     /** Type of password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols. */
-    public passwordRequiredType?: AndroidWorkProfileRequiredPasswordType | undefined;
+    private _passwordRequiredType?: AndroidWorkProfileRequiredPasswordType | undefined;
     /** Number of sign in failures allowed before factory reset. Valid values 1 to 16 */
-    public passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    private _passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
     /** Require the Android Verify apps feature is turned on. */
-    public securityRequireVerifyApps?: boolean | undefined;
+    private _securityRequireVerifyApps?: boolean | undefined;
     /** Block users from adding/removing accounts in work profile. */
-    public workProfileBlockAddingAccounts?: boolean | undefined;
+    private _workProfileBlockAddingAccounts?: boolean | undefined;
     /** Block work profile camera. */
-    public workProfileBlockCamera?: boolean | undefined;
+    private _workProfileBlockCamera?: boolean | undefined;
     /** Block display work profile caller ID in personal profile. */
-    public workProfileBlockCrossProfileCallerId?: boolean | undefined;
+    private _workProfileBlockCrossProfileCallerId?: boolean | undefined;
     /** Block work profile contacts availability in personal profile. */
-    public workProfileBlockCrossProfileContactsSearch?: boolean | undefined;
+    private _workProfileBlockCrossProfileContactsSearch?: boolean | undefined;
     /** Boolean that indicates if the setting disallow cross profile copy/paste is enabled. */
-    public workProfileBlockCrossProfileCopyPaste?: boolean | undefined;
+    private _workProfileBlockCrossProfileCopyPaste?: boolean | undefined;
     /** Indicates whether or not to block notifications while device locked. */
-    public workProfileBlockNotificationsWhileDeviceLocked?: boolean | undefined;
+    private _workProfileBlockNotificationsWhileDeviceLocked?: boolean | undefined;
     /** Block screen capture in work profile. */
-    public workProfileBlockScreenCapture?: boolean | undefined;
+    private _workProfileBlockScreenCapture?: boolean | undefined;
     /** Allow bluetooth devices to access enterprise contacts. */
-    public workProfileBluetoothEnableContactSharing?: boolean | undefined;
+    private _workProfileBluetoothEnableContactSharing?: boolean | undefined;
     /** Type of data sharing that is allowed. Possible values are: deviceDefault, preventAny, allowPersonalToWork, noRestrictions. */
-    public workProfileDataSharingType?: AndroidWorkProfileCrossProfileDataSharingType | undefined;
+    private _workProfileDataSharingType?: AndroidWorkProfileCrossProfileDataSharingType | undefined;
     /** Type of password that is required. Possible values are: deviceDefault, prompt, autoGrant, autoDeny. */
-    public workProfileDefaultAppPermissionPolicy?: AndroidWorkProfileDefaultAppPermissionPolicyType | undefined;
+    private _workProfileDefaultAppPermissionPolicy?: AndroidWorkProfileDefaultAppPermissionPolicyType | undefined;
     /** Indicates whether or not to block fingerprint unlock for work profile. */
-    public workProfilePasswordBlockFingerprintUnlock?: boolean | undefined;
+    private _workProfilePasswordBlockFingerprintUnlock?: boolean | undefined;
     /** Indicates whether or not to block Smart Lock and other trust agents for work profile. */
-    public workProfilePasswordBlockTrustAgents?: boolean | undefined;
+    private _workProfilePasswordBlockTrustAgents?: boolean | undefined;
     /** Number of days before the work profile password expires. Valid values 1 to 365 */
-    public workProfilePasswordExpirationDays?: number | undefined;
+    private _workProfilePasswordExpirationDays?: number | undefined;
     /** Minimum length of work profile password. Valid values 4 to 16 */
-    public workProfilePasswordMinimumLength?: number | undefined;
+    private _workProfilePasswordMinimumLength?: number | undefined;
     /** Minimum # of letter characters required in work profile password. Valid values 1 to 10 */
-    public workProfilePasswordMinLetterCharacters?: number | undefined;
+    private _workProfilePasswordMinLetterCharacters?: number | undefined;
     /** Minimum # of lower-case characters required in work profile password. Valid values 1 to 10 */
-    public workProfilePasswordMinLowerCaseCharacters?: number | undefined;
+    private _workProfilePasswordMinLowerCaseCharacters?: number | undefined;
     /** Minimum # of non-letter characters required in work profile password. Valid values 1 to 10 */
-    public workProfilePasswordMinNonLetterCharacters?: number | undefined;
+    private _workProfilePasswordMinNonLetterCharacters?: number | undefined;
     /** Minimum # of numeric characters required in work profile password. Valid values 1 to 10 */
-    public workProfilePasswordMinNumericCharacters?: number | undefined;
+    private _workProfilePasswordMinNumericCharacters?: number | undefined;
     /** Minimum # of symbols required in work profile password. Valid values 1 to 10 */
-    public workProfilePasswordMinSymbolCharacters?: number | undefined;
+    private _workProfilePasswordMinSymbolCharacters?: number | undefined;
     /** Minimum # of upper-case characters required in work profile password. Valid values 1 to 10 */
-    public workProfilePasswordMinUpperCaseCharacters?: number | undefined;
+    private _workProfilePasswordMinUpperCaseCharacters?: number | undefined;
     /** Minutes of inactivity before the screen times out. */
-    public workProfilePasswordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    private _workProfilePasswordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
     /** Number of previous work profile passwords to block. Valid values 0 to 24 */
-    public workProfilePasswordPreviousPasswordBlockCount?: number | undefined;
+    private _workProfilePasswordPreviousPasswordBlockCount?: number | undefined;
     /** Type of work profile password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols. */
-    public workProfilePasswordRequiredType?: AndroidWorkProfileRequiredPasswordType | undefined;
+    private _workProfilePasswordRequiredType?: AndroidWorkProfileRequiredPasswordType | undefined;
     /** Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16 */
-    public workProfilePasswordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    private _workProfilePasswordSignInFailureCountBeforeFactoryReset?: number | undefined;
     /** Password is required or not for work profile */
-    public workProfileRequirePassword?: boolean | undefined;
+    private _workProfileRequirePassword?: boolean | undefined;
     /**
      * Instantiates a new AndroidWorkProfileGeneralDeviceConfiguration and sets the default values.
      * @param androidWorkProfileGeneralDeviceConfigurationParameterValue 
      */
     public constructor(androidWorkProfileGeneralDeviceConfigurationParameterValue?: AndroidWorkProfileGeneralDeviceConfiguration | undefined) {
         super(androidWorkProfileGeneralDeviceConfigurationParameterValue);
-        this.passwordBlockFingerprintUnlock = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordBlockFingerprintUnlock;
-        this.passwordBlockTrustAgents = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordBlockTrustAgents;
-        this.passwordExpirationDays = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordExpirationDays;
-        this.passwordMinimumLength = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordMinimumLength;
-        this.passwordMinutesOfInactivityBeforeScreenTimeout = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
-        this.passwordPreviousPasswordBlockCount = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
-        this.passwordRequiredType = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordRequiredType;
-        this.passwordSignInFailureCountBeforeFactoryReset = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordSignInFailureCountBeforeFactoryReset;
-        this.securityRequireVerifyApps = androidWorkProfileGeneralDeviceConfigurationParameterValue?.securityRequireVerifyApps;
-        this.workProfileBlockAddingAccounts = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockAddingAccounts;
-        this.workProfileBlockCamera = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCamera;
-        this.workProfileBlockCrossProfileCallerId = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCrossProfileCallerId;
-        this.workProfileBlockCrossProfileContactsSearch = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCrossProfileContactsSearch;
-        this.workProfileBlockCrossProfileCopyPaste = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCrossProfileCopyPaste;
-        this.workProfileBlockNotificationsWhileDeviceLocked = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockNotificationsWhileDeviceLocked;
-        this.workProfileBlockScreenCapture = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockScreenCapture;
-        this.workProfileBluetoothEnableContactSharing = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBluetoothEnableContactSharing;
-        this.workProfileDataSharingType = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileDataSharingType;
-        this.workProfileDefaultAppPermissionPolicy = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileDefaultAppPermissionPolicy;
-        this.workProfilePasswordBlockFingerprintUnlock = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordBlockFingerprintUnlock;
-        this.workProfilePasswordBlockTrustAgents = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordBlockTrustAgents;
-        this.workProfilePasswordExpirationDays = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordExpirationDays;
-        this.workProfilePasswordMinimumLength = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinimumLength;
-        this.workProfilePasswordMinLetterCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinLetterCharacters;
-        this.workProfilePasswordMinLowerCaseCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinLowerCaseCharacters;
-        this.workProfilePasswordMinNonLetterCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinNonLetterCharacters;
-        this.workProfilePasswordMinNumericCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinNumericCharacters;
-        this.workProfilePasswordMinSymbolCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinSymbolCharacters;
-        this.workProfilePasswordMinUpperCaseCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinUpperCaseCharacters;
-        this.workProfilePasswordMinutesOfInactivityBeforeScreenTimeout = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinutesOfInactivityBeforeScreenTimeout;
-        this.workProfilePasswordPreviousPasswordBlockCount = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordPreviousPasswordBlockCount;
-        this.workProfilePasswordRequiredType = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordRequiredType;
-        this.workProfilePasswordSignInFailureCountBeforeFactoryReset = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordSignInFailureCountBeforeFactoryReset;
-        this.workProfileRequirePassword = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileRequirePassword;
+        this._passwordBlockFingerprintUnlock = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordBlockFingerprintUnlock;
+        this._passwordBlockTrustAgents = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordBlockTrustAgents;
+        this._passwordExpirationDays = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordExpirationDays;
+        this._passwordMinimumLength = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordMinimumLength;
+        this._passwordMinutesOfInactivityBeforeScreenTimeout = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
+        this._passwordPreviousPasswordBlockCount = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
+        this._passwordRequiredType = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordRequiredType;
+        this._passwordSignInFailureCountBeforeFactoryReset = androidWorkProfileGeneralDeviceConfigurationParameterValue?.passwordSignInFailureCountBeforeFactoryReset;
+        this._securityRequireVerifyApps = androidWorkProfileGeneralDeviceConfigurationParameterValue?.securityRequireVerifyApps;
+        this._workProfileBlockAddingAccounts = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockAddingAccounts;
+        this._workProfileBlockCamera = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCamera;
+        this._workProfileBlockCrossProfileCallerId = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCrossProfileCallerId;
+        this._workProfileBlockCrossProfileContactsSearch = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCrossProfileContactsSearch;
+        this._workProfileBlockCrossProfileCopyPaste = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockCrossProfileCopyPaste;
+        this._workProfileBlockNotificationsWhileDeviceLocked = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockNotificationsWhileDeviceLocked;
+        this._workProfileBlockScreenCapture = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBlockScreenCapture;
+        this._workProfileBluetoothEnableContactSharing = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileBluetoothEnableContactSharing;
+        this._workProfileDataSharingType = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileDataSharingType;
+        this._workProfileDefaultAppPermissionPolicy = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileDefaultAppPermissionPolicy;
+        this._workProfilePasswordBlockFingerprintUnlock = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordBlockFingerprintUnlock;
+        this._workProfilePasswordBlockTrustAgents = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordBlockTrustAgents;
+        this._workProfilePasswordExpirationDays = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordExpirationDays;
+        this._workProfilePasswordMinimumLength = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinimumLength;
+        this._workProfilePasswordMinLetterCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinLetterCharacters;
+        this._workProfilePasswordMinLowerCaseCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinLowerCaseCharacters;
+        this._workProfilePasswordMinNonLetterCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinNonLetterCharacters;
+        this._workProfilePasswordMinNumericCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinNumericCharacters;
+        this._workProfilePasswordMinSymbolCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinSymbolCharacters;
+        this._workProfilePasswordMinUpperCaseCharacters = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinUpperCaseCharacters;
+        this._workProfilePasswordMinutesOfInactivityBeforeScreenTimeout = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordMinutesOfInactivityBeforeScreenTimeout;
+        this._workProfilePasswordPreviousPasswordBlockCount = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordPreviousPasswordBlockCount;
+        this._workProfilePasswordRequiredType = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordRequiredType;
+        this._workProfilePasswordSignInFailureCountBeforeFactoryReset = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfilePasswordSignInFailureCountBeforeFactoryReset;
+        this._workProfileRequirePassword = androidWorkProfileGeneralDeviceConfigurationParameterValue?.workProfileRequirePassword;
     };
     /**
      * The deserialization information for the current model
@@ -156,6 +156,150 @@ export class AndroidWorkProfileGeneralDeviceConfigurationImpl extends DeviceConf
             "workProfilePasswordSignInFailureCountBeforeFactoryReset": n => { this.workProfilePasswordSignInFailureCountBeforeFactoryReset = n.getNumberValue(); },
             "workProfileRequirePassword": n => { this.workProfileRequirePassword = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the passwordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock.
+     * @returns a boolean
+     */
+    public get passwordBlockFingerprintUnlock() {
+        return this._passwordBlockFingerprintUnlock;
+    };
+    /**
+     * Sets the passwordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock.
+     * @param value Value to set for the passwordBlockFingerprintUnlock property.
+     */
+    public set passwordBlockFingerprintUnlock(value: boolean | undefined) {
+        if(value) {
+            this._passwordBlockFingerprintUnlock = value;
+        }
+    };
+    /**
+     * Gets the passwordBlockTrustAgents property value. Indicates whether or not to block Smart Lock and other trust agents.
+     * @returns a boolean
+     */
+    public get passwordBlockTrustAgents() {
+        return this._passwordBlockTrustAgents;
+    };
+    /**
+     * Sets the passwordBlockTrustAgents property value. Indicates whether or not to block Smart Lock and other trust agents.
+     * @param value Value to set for the passwordBlockTrustAgents property.
+     */
+    public set passwordBlockTrustAgents(value: boolean | undefined) {
+        if(value) {
+            this._passwordBlockTrustAgents = value;
+        }
+    };
+    /**
+     * Gets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 365
+     * @returns a integer
+     */
+    public get passwordExpirationDays() {
+        return this._passwordExpirationDays;
+    };
+    /**
+     * Sets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 365
+     * @param value Value to set for the passwordExpirationDays property.
+     */
+    public set passwordExpirationDays(value: number | undefined) {
+        if(value) {
+            this._passwordExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumLength property value. Minimum length of passwords. Valid values 4 to 16
+     * @returns a integer
+     */
+    public get passwordMinimumLength() {
+        return this._passwordMinimumLength;
+    };
+    /**
+     * Sets the passwordMinimumLength property value. Minimum length of passwords. Valid values 4 to 16
+     * @param value Value to set for the passwordMinimumLength property.
+     */
+    public set passwordMinimumLength(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
+     * @returns a integer
+     */
+    public get passwordMinutesOfInactivityBeforeScreenTimeout() {
+        return this._passwordMinutesOfInactivityBeforeScreenTimeout;
+    };
+    /**
+     * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
+     * @param value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     */
+    public set passwordMinutesOfInactivityBeforeScreenTimeout(value: number | undefined) {
+        if(value) {
+            this._passwordMinutesOfInactivityBeforeScreenTimeout = value;
+        }
+    };
+    /**
+     * Gets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 0 to 24
+     * @returns a integer
+     */
+    public get passwordPreviousPasswordBlockCount() {
+        return this._passwordPreviousPasswordBlockCount;
+    };
+    /**
+     * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 0 to 24
+     * @param value Value to set for the passwordPreviousPasswordBlockCount property.
+     */
+    public set passwordPreviousPasswordBlockCount(value: number | undefined) {
+        if(value) {
+            this._passwordPreviousPasswordBlockCount = value;
+        }
+    };
+    /**
+     * Gets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * @returns a androidWorkProfileRequiredPasswordType
+     */
+    public get passwordRequiredType() {
+        return this._passwordRequiredType;
+    };
+    /**
+     * Sets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * @param value Value to set for the passwordRequiredType property.
+     */
+    public set passwordRequiredType(value: AndroidWorkProfileRequiredPasswordType | undefined) {
+        if(value) {
+            this._passwordRequiredType = value;
+        }
+    };
+    /**
+     * Gets the passwordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before factory reset. Valid values 1 to 16
+     * @returns a integer
+     */
+    public get passwordSignInFailureCountBeforeFactoryReset() {
+        return this._passwordSignInFailureCountBeforeFactoryReset;
+    };
+    /**
+     * Sets the passwordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before factory reset. Valid values 1 to 16
+     * @param value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
+     */
+    public set passwordSignInFailureCountBeforeFactoryReset(value: number | undefined) {
+        if(value) {
+            this._passwordSignInFailureCountBeforeFactoryReset = value;
+        }
+    };
+    /**
+     * Gets the securityRequireVerifyApps property value. Require the Android Verify apps feature is turned on.
+     * @returns a boolean
+     */
+    public get securityRequireVerifyApps() {
+        return this._securityRequireVerifyApps;
+    };
+    /**
+     * Sets the securityRequireVerifyApps property value. Require the Android Verify apps feature is turned on.
+     * @param value Value to set for the securityRequireVerifyApps property.
+     */
+    public set securityRequireVerifyApps(value: boolean | undefined) {
+        if(value) {
+            this._securityRequireVerifyApps = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -265,6 +409,406 @@ export class AndroidWorkProfileGeneralDeviceConfigurationImpl extends DeviceConf
         }
         if(this.workProfileRequirePassword){
             writer.writeBooleanValue("workProfileRequirePassword", this.workProfileRequirePassword);
+        }
+    };
+    /**
+     * Gets the workProfileBlockAddingAccounts property value. Block users from adding/removing accounts in work profile.
+     * @returns a boolean
+     */
+    public get workProfileBlockAddingAccounts() {
+        return this._workProfileBlockAddingAccounts;
+    };
+    /**
+     * Sets the workProfileBlockAddingAccounts property value. Block users from adding/removing accounts in work profile.
+     * @param value Value to set for the workProfileBlockAddingAccounts property.
+     */
+    public set workProfileBlockAddingAccounts(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockAddingAccounts = value;
+        }
+    };
+    /**
+     * Gets the workProfileBlockCamera property value. Block work profile camera.
+     * @returns a boolean
+     */
+    public get workProfileBlockCamera() {
+        return this._workProfileBlockCamera;
+    };
+    /**
+     * Sets the workProfileBlockCamera property value. Block work profile camera.
+     * @param value Value to set for the workProfileBlockCamera property.
+     */
+    public set workProfileBlockCamera(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockCamera = value;
+        }
+    };
+    /**
+     * Gets the workProfileBlockCrossProfileCallerId property value. Block display work profile caller ID in personal profile.
+     * @returns a boolean
+     */
+    public get workProfileBlockCrossProfileCallerId() {
+        return this._workProfileBlockCrossProfileCallerId;
+    };
+    /**
+     * Sets the workProfileBlockCrossProfileCallerId property value. Block display work profile caller ID in personal profile.
+     * @param value Value to set for the workProfileBlockCrossProfileCallerId property.
+     */
+    public set workProfileBlockCrossProfileCallerId(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockCrossProfileCallerId = value;
+        }
+    };
+    /**
+     * Gets the workProfileBlockCrossProfileContactsSearch property value. Block work profile contacts availability in personal profile.
+     * @returns a boolean
+     */
+    public get workProfileBlockCrossProfileContactsSearch() {
+        return this._workProfileBlockCrossProfileContactsSearch;
+    };
+    /**
+     * Sets the workProfileBlockCrossProfileContactsSearch property value. Block work profile contacts availability in personal profile.
+     * @param value Value to set for the workProfileBlockCrossProfileContactsSearch property.
+     */
+    public set workProfileBlockCrossProfileContactsSearch(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockCrossProfileContactsSearch = value;
+        }
+    };
+    /**
+     * Gets the workProfileBlockCrossProfileCopyPaste property value. Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
+     * @returns a boolean
+     */
+    public get workProfileBlockCrossProfileCopyPaste() {
+        return this._workProfileBlockCrossProfileCopyPaste;
+    };
+    /**
+     * Sets the workProfileBlockCrossProfileCopyPaste property value. Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
+     * @param value Value to set for the workProfileBlockCrossProfileCopyPaste property.
+     */
+    public set workProfileBlockCrossProfileCopyPaste(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockCrossProfileCopyPaste = value;
+        }
+    };
+    /**
+     * Gets the workProfileBlockNotificationsWhileDeviceLocked property value. Indicates whether or not to block notifications while device locked.
+     * @returns a boolean
+     */
+    public get workProfileBlockNotificationsWhileDeviceLocked() {
+        return this._workProfileBlockNotificationsWhileDeviceLocked;
+    };
+    /**
+     * Sets the workProfileBlockNotificationsWhileDeviceLocked property value. Indicates whether or not to block notifications while device locked.
+     * @param value Value to set for the workProfileBlockNotificationsWhileDeviceLocked property.
+     */
+    public set workProfileBlockNotificationsWhileDeviceLocked(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockNotificationsWhileDeviceLocked = value;
+        }
+    };
+    /**
+     * Gets the workProfileBlockScreenCapture property value. Block screen capture in work profile.
+     * @returns a boolean
+     */
+    public get workProfileBlockScreenCapture() {
+        return this._workProfileBlockScreenCapture;
+    };
+    /**
+     * Sets the workProfileBlockScreenCapture property value. Block screen capture in work profile.
+     * @param value Value to set for the workProfileBlockScreenCapture property.
+     */
+    public set workProfileBlockScreenCapture(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBlockScreenCapture = value;
+        }
+    };
+    /**
+     * Gets the workProfileBluetoothEnableContactSharing property value. Allow bluetooth devices to access enterprise contacts.
+     * @returns a boolean
+     */
+    public get workProfileBluetoothEnableContactSharing() {
+        return this._workProfileBluetoothEnableContactSharing;
+    };
+    /**
+     * Sets the workProfileBluetoothEnableContactSharing property value. Allow bluetooth devices to access enterprise contacts.
+     * @param value Value to set for the workProfileBluetoothEnableContactSharing property.
+     */
+    public set workProfileBluetoothEnableContactSharing(value: boolean | undefined) {
+        if(value) {
+            this._workProfileBluetoothEnableContactSharing = value;
+        }
+    };
+    /**
+     * Gets the workProfileDataSharingType property value. Type of data sharing that is allowed. Possible values are: deviceDefault, preventAny, allowPersonalToWork, noRestrictions.
+     * @returns a androidWorkProfileCrossProfileDataSharingType
+     */
+    public get workProfileDataSharingType() {
+        return this._workProfileDataSharingType;
+    };
+    /**
+     * Sets the workProfileDataSharingType property value. Type of data sharing that is allowed. Possible values are: deviceDefault, preventAny, allowPersonalToWork, noRestrictions.
+     * @param value Value to set for the workProfileDataSharingType property.
+     */
+    public set workProfileDataSharingType(value: AndroidWorkProfileCrossProfileDataSharingType | undefined) {
+        if(value) {
+            this._workProfileDataSharingType = value;
+        }
+    };
+    /**
+     * Gets the workProfileDefaultAppPermissionPolicy property value. Type of password that is required. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * @returns a androidWorkProfileDefaultAppPermissionPolicyType
+     */
+    public get workProfileDefaultAppPermissionPolicy() {
+        return this._workProfileDefaultAppPermissionPolicy;
+    };
+    /**
+     * Sets the workProfileDefaultAppPermissionPolicy property value. Type of password that is required. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * @param value Value to set for the workProfileDefaultAppPermissionPolicy property.
+     */
+    public set workProfileDefaultAppPermissionPolicy(value: AndroidWorkProfileDefaultAppPermissionPolicyType | undefined) {
+        if(value) {
+            this._workProfileDefaultAppPermissionPolicy = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock for work profile.
+     * @returns a boolean
+     */
+    public get workProfilePasswordBlockFingerprintUnlock() {
+        return this._workProfilePasswordBlockFingerprintUnlock;
+    };
+    /**
+     * Sets the workProfilePasswordBlockFingerprintUnlock property value. Indicates whether or not to block fingerprint unlock for work profile.
+     * @param value Value to set for the workProfilePasswordBlockFingerprintUnlock property.
+     */
+    public set workProfilePasswordBlockFingerprintUnlock(value: boolean | undefined) {
+        if(value) {
+            this._workProfilePasswordBlockFingerprintUnlock = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordBlockTrustAgents property value. Indicates whether or not to block Smart Lock and other trust agents for work profile.
+     * @returns a boolean
+     */
+    public get workProfilePasswordBlockTrustAgents() {
+        return this._workProfilePasswordBlockTrustAgents;
+    };
+    /**
+     * Sets the workProfilePasswordBlockTrustAgents property value. Indicates whether or not to block Smart Lock and other trust agents for work profile.
+     * @param value Value to set for the workProfilePasswordBlockTrustAgents property.
+     */
+    public set workProfilePasswordBlockTrustAgents(value: boolean | undefined) {
+        if(value) {
+            this._workProfilePasswordBlockTrustAgents = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordExpirationDays property value. Number of days before the work profile password expires. Valid values 1 to 365
+     * @returns a integer
+     */
+    public get workProfilePasswordExpirationDays() {
+        return this._workProfilePasswordExpirationDays;
+    };
+    /**
+     * Sets the workProfilePasswordExpirationDays property value. Number of days before the work profile password expires. Valid values 1 to 365
+     * @param value Value to set for the workProfilePasswordExpirationDays property.
+     */
+    public set workProfilePasswordExpirationDays(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinimumLength property value. Minimum length of work profile password. Valid values 4 to 16
+     * @returns a integer
+     */
+    public get workProfilePasswordMinimumLength() {
+        return this._workProfilePasswordMinimumLength;
+    };
+    /**
+     * Sets the workProfilePasswordMinimumLength property value. Minimum length of work profile password. Valid values 4 to 16
+     * @param value Value to set for the workProfilePasswordMinimumLength property.
+     */
+    public set workProfilePasswordMinimumLength(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinLetterCharacters property value. Minimum # of letter characters required in work profile password. Valid values 1 to 10
+     * @returns a integer
+     */
+    public get workProfilePasswordMinLetterCharacters() {
+        return this._workProfilePasswordMinLetterCharacters;
+    };
+    /**
+     * Sets the workProfilePasswordMinLetterCharacters property value. Minimum # of letter characters required in work profile password. Valid values 1 to 10
+     * @param value Value to set for the workProfilePasswordMinLetterCharacters property.
+     */
+    public set workProfilePasswordMinLetterCharacters(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinLetterCharacters = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinLowerCaseCharacters property value. Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
+     * @returns a integer
+     */
+    public get workProfilePasswordMinLowerCaseCharacters() {
+        return this._workProfilePasswordMinLowerCaseCharacters;
+    };
+    /**
+     * Sets the workProfilePasswordMinLowerCaseCharacters property value. Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
+     * @param value Value to set for the workProfilePasswordMinLowerCaseCharacters property.
+     */
+    public set workProfilePasswordMinLowerCaseCharacters(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinLowerCaseCharacters = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinNonLetterCharacters property value. Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
+     * @returns a integer
+     */
+    public get workProfilePasswordMinNonLetterCharacters() {
+        return this._workProfilePasswordMinNonLetterCharacters;
+    };
+    /**
+     * Sets the workProfilePasswordMinNonLetterCharacters property value. Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
+     * @param value Value to set for the workProfilePasswordMinNonLetterCharacters property.
+     */
+    public set workProfilePasswordMinNonLetterCharacters(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinNonLetterCharacters = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinNumericCharacters property value. Minimum # of numeric characters required in work profile password. Valid values 1 to 10
+     * @returns a integer
+     */
+    public get workProfilePasswordMinNumericCharacters() {
+        return this._workProfilePasswordMinNumericCharacters;
+    };
+    /**
+     * Sets the workProfilePasswordMinNumericCharacters property value. Minimum # of numeric characters required in work profile password. Valid values 1 to 10
+     * @param value Value to set for the workProfilePasswordMinNumericCharacters property.
+     */
+    public set workProfilePasswordMinNumericCharacters(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinNumericCharacters = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinSymbolCharacters property value. Minimum # of symbols required in work profile password. Valid values 1 to 10
+     * @returns a integer
+     */
+    public get workProfilePasswordMinSymbolCharacters() {
+        return this._workProfilePasswordMinSymbolCharacters;
+    };
+    /**
+     * Sets the workProfilePasswordMinSymbolCharacters property value. Minimum # of symbols required in work profile password. Valid values 1 to 10
+     * @param value Value to set for the workProfilePasswordMinSymbolCharacters property.
+     */
+    public set workProfilePasswordMinSymbolCharacters(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinSymbolCharacters = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinUpperCaseCharacters property value. Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
+     * @returns a integer
+     */
+    public get workProfilePasswordMinUpperCaseCharacters() {
+        return this._workProfilePasswordMinUpperCaseCharacters;
+    };
+    /**
+     * Sets the workProfilePasswordMinUpperCaseCharacters property value. Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
+     * @param value Value to set for the workProfilePasswordMinUpperCaseCharacters property.
+     */
+    public set workProfilePasswordMinUpperCaseCharacters(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinUpperCaseCharacters = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
+     * @returns a integer
+     */
+    public get workProfilePasswordMinutesOfInactivityBeforeScreenTimeout() {
+        return this._workProfilePasswordMinutesOfInactivityBeforeScreenTimeout;
+    };
+    /**
+     * Sets the workProfilePasswordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
+     * @param value Value to set for the workProfilePasswordMinutesOfInactivityBeforeScreenTimeout property.
+     */
+    public set workProfilePasswordMinutesOfInactivityBeforeScreenTimeout(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordMinutesOfInactivityBeforeScreenTimeout = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordPreviousPasswordBlockCount property value. Number of previous work profile passwords to block. Valid values 0 to 24
+     * @returns a integer
+     */
+    public get workProfilePasswordPreviousPasswordBlockCount() {
+        return this._workProfilePasswordPreviousPasswordBlockCount;
+    };
+    /**
+     * Sets the workProfilePasswordPreviousPasswordBlockCount property value. Number of previous work profile passwords to block. Valid values 0 to 24
+     * @param value Value to set for the workProfilePasswordPreviousPasswordBlockCount property.
+     */
+    public set workProfilePasswordPreviousPasswordBlockCount(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordPreviousPasswordBlockCount = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordRequiredType property value. Type of work profile password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * @returns a androidWorkProfileRequiredPasswordType
+     */
+    public get workProfilePasswordRequiredType() {
+        return this._workProfilePasswordRequiredType;
+    };
+    /**
+     * Sets the workProfilePasswordRequiredType property value. Type of work profile password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * @param value Value to set for the workProfilePasswordRequiredType property.
+     */
+    public set workProfilePasswordRequiredType(value: AndroidWorkProfileRequiredPasswordType | undefined) {
+        if(value) {
+            this._workProfilePasswordRequiredType = value;
+        }
+    };
+    /**
+     * Gets the workProfilePasswordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
+     * @returns a integer
+     */
+    public get workProfilePasswordSignInFailureCountBeforeFactoryReset() {
+        return this._workProfilePasswordSignInFailureCountBeforeFactoryReset;
+    };
+    /**
+     * Sets the workProfilePasswordSignInFailureCountBeforeFactoryReset property value. Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
+     * @param value Value to set for the workProfilePasswordSignInFailureCountBeforeFactoryReset property.
+     */
+    public set workProfilePasswordSignInFailureCountBeforeFactoryReset(value: number | undefined) {
+        if(value) {
+            this._workProfilePasswordSignInFailureCountBeforeFactoryReset = value;
+        }
+    };
+    /**
+     * Gets the workProfileRequirePassword property value. Password is required or not for work profile
+     * @returns a boolean
+     */
+    public get workProfileRequirePassword() {
+        return this._workProfileRequirePassword;
+    };
+    /**
+     * Sets the workProfileRequirePassword property value. Password is required or not for work profile
+     * @param value Value to set for the workProfileRequirePassword property.
+     */
+    public set workProfileRequirePassword(value: boolean | undefined) {
+        if(value) {
+            this._workProfileRequirePassword = value;
         }
     };
 }

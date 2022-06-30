@@ -9,32 +9,80 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of subscribedSku entities. */
 export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
     /** For example, 'User' or 'Company'. */
-    public appliesTo?: string | undefined;
+    private _appliesTo?: string | undefined;
     /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription. */
-    public capabilityStatus?: string | undefined;
+    private _capabilityStatus?: string | undefined;
     /** The number of licenses that have been assigned. */
-    public consumedUnits?: number | undefined;
+    private _consumedUnits?: number | undefined;
     /** Information about the number and status of prepaid licenses. */
-    public prepaidUnits?: LicenseUnitsDetail | undefined;
+    private _prepaidUnits?: LicenseUnitsDetail | undefined;
     /** Information about the service plans that are available with the SKU. Not nullable */
-    public servicePlans?: ServicePlanInfo[] | undefined;
+    private _servicePlans?: ServicePlanInfo[] | undefined;
     /** The unique identifier (GUID) for the service SKU. */
-    public skuId?: string | undefined;
+    private _skuId?: string | undefined;
     /** The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus. */
-    public skuPartNumber?: string | undefined;
+    private _skuPartNumber?: string | undefined;
+    /**
+     * Gets the appliesTo property value. For example, 'User' or 'Company'.
+     * @returns a string
+     */
+    public get appliesTo() {
+        return this._appliesTo;
+    };
+    /**
+     * Sets the appliesTo property value. For example, 'User' or 'Company'.
+     * @param value Value to set for the appliesTo property.
+     */
+    public set appliesTo(value: string | undefined) {
+        if(value) {
+            this._appliesTo = value;
+        }
+    };
+    /**
+     * Gets the capabilityStatus property value. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.
+     * @returns a string
+     */
+    public get capabilityStatus() {
+        return this._capabilityStatus;
+    };
+    /**
+     * Sets the capabilityStatus property value. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.
+     * @param value Value to set for the capabilityStatus property.
+     */
+    public set capabilityStatus(value: string | undefined) {
+        if(value) {
+            this._capabilityStatus = value;
+        }
+    };
     /**
      * Instantiates a new subscribedSku and sets the default values.
      * @param subscribedSkuParameterValue 
      */
     public constructor(subscribedSkuParameterValue?: SubscribedSku | undefined) {
         super(subscribedSkuParameterValue);
-        this.appliesTo = subscribedSkuParameterValue?.appliesTo;
-        this.capabilityStatus = subscribedSkuParameterValue?.capabilityStatus;
-        this.consumedUnits = subscribedSkuParameterValue?.consumedUnits;
-        this.prepaidUnits = subscribedSkuParameterValue?.prepaidUnits;
-        this.servicePlans = subscribedSkuParameterValue?.servicePlans;
-        this.skuId = subscribedSkuParameterValue?.skuId;
-        this.skuPartNumber = subscribedSkuParameterValue?.skuPartNumber;
+        this._appliesTo = subscribedSkuParameterValue?.appliesTo;
+        this._capabilityStatus = subscribedSkuParameterValue?.capabilityStatus;
+        this._consumedUnits = subscribedSkuParameterValue?.consumedUnits;
+        this._prepaidUnits = subscribedSkuParameterValue?.prepaidUnits;
+        this._servicePlans = subscribedSkuParameterValue?.servicePlans;
+        this._skuId = subscribedSkuParameterValue?.skuId;
+        this._skuPartNumber = subscribedSkuParameterValue?.skuPartNumber;
+    };
+    /**
+     * Gets the consumedUnits property value. The number of licenses that have been assigned.
+     * @returns a integer
+     */
+    public get consumedUnits() {
+        return this._consumedUnits;
+    };
+    /**
+     * Sets the consumedUnits property value. The number of licenses that have been assigned.
+     * @param value Value to set for the consumedUnits property.
+     */
+    public set consumedUnits(value: number | undefined) {
+        if(value) {
+            this._consumedUnits = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -50,6 +98,22 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
             "skuId": n => { this.skuId = n.getStringValue(); },
             "skuPartNumber": n => { this.skuPartNumber = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the prepaidUnits property value. Information about the number and status of prepaid licenses.
+     * @returns a LicenseUnitsDetailInterface
+     */
+    public get prepaidUnits() {
+        return this._prepaidUnits;
+    };
+    /**
+     * Sets the prepaidUnits property value. Information about the number and status of prepaid licenses.
+     * @param value Value to set for the prepaidUnits property.
+     */
+    public set prepaidUnits(value: LicenseUnitsDetail | undefined) {
+        if(value) {
+            this._prepaidUnits = value instanceof LicenseUnitsDetailImpl? value : new LicenseUnitsDetailImpl(value);
+        }
     };
     /**
      * Serializes information the current object
@@ -68,9 +132,12 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
             writer.writeNumberValue("consumedUnits", this.consumedUnits);
         }
         if(this.prepaidUnits){
-            writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", new LicenseUnitsDetailImpl(this.prepaidUnits));
+            writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", (!this.prepaidUnits || this.prepaidUnits instanceof LicenseUnitsDetailImpl? this.prepaidUnits : new LicenseUnitsDetailImpl(this.prepaidUnits)));
         }
-        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = []; this.servicePlans?.forEach(element => {servicePlansArrValue.push(new ServicePlanInfoImpl(element));});
+        if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = [];
+        this.servicePlans?.forEach(element => {
+            servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element:new ServicePlanInfoImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
         if(this.skuId){
@@ -78,6 +145,58 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
         }
         if(this.skuPartNumber){
             writer.writeStringValue("skuPartNumber", this.skuPartNumber);
+        }
+    };
+    /**
+     * Gets the servicePlans property value. Information about the service plans that are available with the SKU. Not nullable
+     * @returns a ServicePlanInfoInterface
+     */
+    public get servicePlans() {
+        return this._servicePlans;
+    };
+    /**
+     * Sets the servicePlans property value. Information about the service plans that are available with the SKU. Not nullable
+     * @param value Value to set for the servicePlans property.
+     */
+    public set servicePlans(value: ServicePlanInfo[] | undefined) {
+        if(value) {
+            const servicePlansArrValue: ServicePlanInfoImpl[] = [];
+            this.servicePlans?.forEach(element => {
+                servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element:new ServicePlanInfoImpl(element)));
+            });
+            this._servicePlans = servicePlansArrValue;
+        }
+    };
+    /**
+     * Gets the skuId property value. The unique identifier (GUID) for the service SKU.
+     * @returns a string
+     */
+    public get skuId() {
+        return this._skuId;
+    };
+    /**
+     * Sets the skuId property value. The unique identifier (GUID) for the service SKU.
+     * @param value Value to set for the skuId property.
+     */
+    public set skuId(value: string | undefined) {
+        if(value) {
+            this._skuId = value;
+        }
+    };
+    /**
+     * Gets the skuPartNumber property value. The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
+     * @returns a string
+     */
+    public get skuPartNumber() {
+        return this._skuPartNumber;
+    };
+    /**
+     * Sets the skuPartNumber property value. The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
+     * @param value Value to set for the skuPartNumber property.
+     */
+    public set skuPartNumber(value: string | undefined) {
+        if(value) {
+            this._skuPartNumber = value;
         }
     };
 }

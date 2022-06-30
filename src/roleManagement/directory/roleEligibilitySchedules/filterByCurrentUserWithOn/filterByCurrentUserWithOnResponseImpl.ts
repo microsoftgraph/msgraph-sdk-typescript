@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the filterByCurrentUser method. */
 export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUserWithOnResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: UnifiedRoleEligibilitySchedule[] | undefined;
+    private _value?: UnifiedRoleEligibilitySchedule[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new filterByCurrentUserWithOnResponse and sets the default values.
      * @param filterByCurrentUserWithOnResponseParameterValue 
      */
     public constructor(filterByCurrentUserWithOnResponseParameterValue?: FilterByCurrentUserWithOnResponse | undefined) {
-        this.additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
-        this.value = filterByCurrentUserWithOnResponseParameterValue?.value;
+        this._additionalData = filterByCurrentUserWithOnResponseParameterValue?.additionalData ? filterByCurrentUserWithOnResponseParameterValue?.additionalData! : {};
+        this._value = filterByCurrentUserWithOnResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new UnifiedRoleEligibilityScheduleImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof UnifiedRoleEligibilityScheduleImpl? element:new UnifiedRoleEligibilityScheduleImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a UnifiedRoleEligibilityScheduleInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: UnifiedRoleEligibilitySchedule[] | undefined) {
+        if(value) {
+            const valueArrValue: UnifiedRoleEligibilityScheduleImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof UnifiedRoleEligibilityScheduleImpl? element:new UnifiedRoleEligibilityScheduleImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

@@ -3,19 +3,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IncompleteDataImpl implements IncompleteData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The service does not have source data before the specified time. */
-    public missingDataBeforeDateTime?: Date | undefined;
+    private _missingDataBeforeDateTime?: Date | undefined;
     /** Some data was not recorded due to excessive activity. */
-    public wasThrottled?: boolean | undefined;
+    private _wasThrottled?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new incompleteData and sets the default values.
      * @param incompleteDataParameterValue 
      */
     public constructor(incompleteDataParameterValue?: IncompleteData | undefined) {
-        this.additionalData = incompleteDataParameterValue?.additionalData ? incompleteDataParameterValue?.additionalData! : {};
-        this.missingDataBeforeDateTime = incompleteDataParameterValue?.missingDataBeforeDateTime;
-        this.wasThrottled = incompleteDataParameterValue?.wasThrottled;
+        this._additionalData = incompleteDataParameterValue?.additionalData ? incompleteDataParameterValue?.additionalData! : {};
+        this._missingDataBeforeDateTime = incompleteDataParameterValue?.missingDataBeforeDateTime;
+        this._wasThrottled = incompleteDataParameterValue?.wasThrottled;
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +42,22 @@ export class IncompleteDataImpl implements IncompleteData {
             "missingDataBeforeDateTime": n => { this.missingDataBeforeDateTime = n.getDateValue(); },
             "wasThrottled": n => { this.wasThrottled = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the missingDataBeforeDateTime property value. The service does not have source data before the specified time.
+     * @returns a Date
+     */
+    public get missingDataBeforeDateTime() {
+        return this._missingDataBeforeDateTime;
+    };
+    /**
+     * Sets the missingDataBeforeDateTime property value. The service does not have source data before the specified time.
+     * @param value Value to set for the missingDataBeforeDateTime property.
+     */
+    public set missingDataBeforeDateTime(value: Date | undefined) {
+        if(value) {
+            this._missingDataBeforeDateTime = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -40,5 +72,21 @@ export class IncompleteDataImpl implements IncompleteData {
             writer.writeBooleanValue("wasThrottled", this.wasThrottled);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the wasThrottled property value. Some data was not recorded due to excessive activity.
+     * @returns a boolean
+     */
+    public get wasThrottled() {
+        return this._wasThrottled;
+    };
+    /**
+     * Sets the wasThrottled property value. Some data was not recorded due to excessive activity.
+     * @param value Value to set for the wasThrottled property.
+     */
+    public set wasThrottled(value: boolean | undefined) {
+        if(value) {
+            this._wasThrottled = value;
+        }
     };
 }

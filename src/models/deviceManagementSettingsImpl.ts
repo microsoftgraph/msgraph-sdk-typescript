@@ -3,22 +3,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DeviceManagementSettingsImpl implements DeviceManagementSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The number of days a device is allowed to go without checking in to remain compliant. */
-    public deviceComplianceCheckinThresholdDays?: number | undefined;
+    private _deviceComplianceCheckinThresholdDays?: number | undefined;
     /** Is feature enabled or not for scheduled action for rule. */
-    public isScheduledActionEnabled?: boolean | undefined;
+    private _isScheduledActionEnabled?: boolean | undefined;
     /** Device should be noncompliant when there is no compliance policy targeted when this is true */
-    public secureByDefault?: boolean | undefined;
+    private _secureByDefault?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new deviceManagementSettings and sets the default values.
      * @param deviceManagementSettingsParameterValue 
      */
     public constructor(deviceManagementSettingsParameterValue?: DeviceManagementSettings | undefined) {
-        this.additionalData = deviceManagementSettingsParameterValue?.additionalData ? deviceManagementSettingsParameterValue?.additionalData! : {};
-        this.deviceComplianceCheckinThresholdDays = deviceManagementSettingsParameterValue?.deviceComplianceCheckinThresholdDays;
-        this.isScheduledActionEnabled = deviceManagementSettingsParameterValue?.isScheduledActionEnabled;
-        this.secureByDefault = deviceManagementSettingsParameterValue?.secureByDefault;
+        this._additionalData = deviceManagementSettingsParameterValue?.additionalData ? deviceManagementSettingsParameterValue?.additionalData! : {};
+        this._deviceComplianceCheckinThresholdDays = deviceManagementSettingsParameterValue?.deviceComplianceCheckinThresholdDays;
+        this._isScheduledActionEnabled = deviceManagementSettingsParameterValue?.isScheduledActionEnabled;
+        this._secureByDefault = deviceManagementSettingsParameterValue?.secureByDefault;
+    };
+    /**
+     * Gets the deviceComplianceCheckinThresholdDays property value. The number of days a device is allowed to go without checking in to remain compliant.
+     * @returns a integer
+     */
+    public get deviceComplianceCheckinThresholdDays() {
+        return this._deviceComplianceCheckinThresholdDays;
+    };
+    /**
+     * Sets the deviceComplianceCheckinThresholdDays property value. The number of days a device is allowed to go without checking in to remain compliant.
+     * @param value Value to set for the deviceComplianceCheckinThresholdDays property.
+     */
+    public set deviceComplianceCheckinThresholdDays(value: number | undefined) {
+        if(value) {
+            this._deviceComplianceCheckinThresholdDays = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,38 @@ export class DeviceManagementSettingsImpl implements DeviceManagementSettings {
             "isScheduledActionEnabled": n => { this.isScheduledActionEnabled = n.getBooleanValue(); },
             "secureByDefault": n => { this.secureByDefault = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the isScheduledActionEnabled property value. Is feature enabled or not for scheduled action for rule.
+     * @returns a boolean
+     */
+    public get isScheduledActionEnabled() {
+        return this._isScheduledActionEnabled;
+    };
+    /**
+     * Sets the isScheduledActionEnabled property value. Is feature enabled or not for scheduled action for rule.
+     * @param value Value to set for the isScheduledActionEnabled property.
+     */
+    public set isScheduledActionEnabled(value: boolean | undefined) {
+        if(value) {
+            this._isScheduledActionEnabled = value;
+        }
+    };
+    /**
+     * Gets the secureByDefault property value. Device should be noncompliant when there is no compliance policy targeted when this is true
+     * @returns a boolean
+     */
+    public get secureByDefault() {
+        return this._secureByDefault;
+    };
+    /**
+     * Sets the secureByDefault property value. Device should be noncompliant when there is no compliance policy targeted when this is true
+     * @param value Value to set for the secureByDefault property.
+     */
+    public set secureByDefault(value: boolean | undefined) {
+        if(value) {
+            this._secureByDefault = value;
+        }
     };
     /**
      * Serializes information the current object

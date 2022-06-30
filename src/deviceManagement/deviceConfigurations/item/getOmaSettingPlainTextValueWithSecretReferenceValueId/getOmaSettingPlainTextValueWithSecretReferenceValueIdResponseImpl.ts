@@ -4,16 +4,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getOmaSettingPlainTextValue method. */
 export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl implements GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse and sets the default values.
      * @param getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue 
      */
     public constructor(getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse | undefined) {
-        this.additionalData = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData ? getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData! : {};
-        this.value = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.value;
+        this._additionalData = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData ? getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.additionalData! : {};
+        this._value = getOmaSettingPlainTextValueWithSecretReferenceValueIdResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -34,5 +50,21 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseImpl i
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

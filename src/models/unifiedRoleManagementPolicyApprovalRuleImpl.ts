@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleManagementPolicyRuleImpl implements UnifiedRoleManagementPolicyApprovalRule {
     /** The settings for approval of the role assignment. */
-    public setting?: ApprovalSettings | undefined;
+    private _setting?: ApprovalSettings | undefined;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyApprovalRule and sets the default values.
      * @param unifiedRoleManagementPolicyApprovalRuleParameterValue 
      */
     public constructor(unifiedRoleManagementPolicyApprovalRuleParameterValue?: UnifiedRoleManagementPolicyApprovalRule | undefined) {
         super(unifiedRoleManagementPolicyApprovalRuleParameterValue);
-        this.setting = unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting;
+        this._setting = unifiedRoleManagementPolicyApprovalRuleParameterValue?.setting;
     };
     /**
      * The deserialization information for the current model
@@ -32,7 +32,23 @@ export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleMana
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.setting){
-            writer.writeObjectValue<ApprovalSettingsImpl>("setting", new ApprovalSettingsImpl(this.setting));
+            writer.writeObjectValue<ApprovalSettingsImpl>("setting", (!this.setting || this.setting instanceof ApprovalSettingsImpl? this.setting : new ApprovalSettingsImpl(this.setting)));
+        }
+    };
+    /**
+     * Gets the setting property value. The settings for approval of the role assignment.
+     * @returns a ApprovalSettingsInterface
+     */
+    public get setting() {
+        return this._setting;
+    };
+    /**
+     * Sets the setting property value. The settings for approval of the role assignment.
+     * @param value Value to set for the setting property.
+     */
+    public set setting(value: ApprovalSettings | undefined) {
+        if(value) {
+            this._setting = value instanceof ApprovalSettingsImpl? value : new ApprovalSettingsImpl(value);
         }
     };
 }

@@ -5,26 +5,74 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** The ManagedAppPolicy resource represents a base type for platform specific policies. */
 export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy {
     /** The date and time the policy was created. */
-    public createdDateTime?: Date | undefined;
+    private _createdDateTime?: Date | undefined;
     /** The policy's description. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Policy display name. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Last time the policy was modified. */
-    public lastModifiedDateTime?: Date | undefined;
+    private _lastModifiedDateTime?: Date | undefined;
     /** Version of the entity. */
-    public version?: string | undefined;
+    private _version?: string | undefined;
     /**
      * Instantiates a new managedAppPolicy and sets the default values.
      * @param managedAppPolicyParameterValue 
      */
     public constructor(managedAppPolicyParameterValue?: ManagedAppPolicy | undefined) {
         super(managedAppPolicyParameterValue);
-        this.createdDateTime = managedAppPolicyParameterValue?.createdDateTime;
-        this.description = managedAppPolicyParameterValue?.description;
-        this.displayName = managedAppPolicyParameterValue?.displayName;
-        this.lastModifiedDateTime = managedAppPolicyParameterValue?.lastModifiedDateTime;
-        this.version = managedAppPolicyParameterValue?.version;
+        this._createdDateTime = managedAppPolicyParameterValue?.createdDateTime;
+        this._description = managedAppPolicyParameterValue?.description;
+        this._displayName = managedAppPolicyParameterValue?.displayName;
+        this._lastModifiedDateTime = managedAppPolicyParameterValue?.lastModifiedDateTime;
+        this._version = managedAppPolicyParameterValue?.version;
+    };
+    /**
+     * Gets the createdDateTime property value. The date and time the policy was created.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The date and time the policy was created.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        if(value) {
+            this._createdDateTime = value;
+        }
+    };
+    /**
+     * Gets the description property value. The policy's description.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The policy's description.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Policy display name.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Policy display name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +86,22 @@ export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "version": n => { this.version = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. Last time the policy was modified.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. Last time the policy was modified.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        if(value) {
+            this._lastModifiedDateTime = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -60,6 +124,22 @@ export class ManagedAppPolicyImpl extends EntityImpl implements ManagedAppPolicy
         }
         if(this.version){
             writer.writeStringValue("version", this.version);
+        }
+    };
+    /**
+     * Gets the version property value. Version of the entity.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. Version of the entity.
+     * @param value Value to set for the version property.
+     */
+    public set version(value: string | undefined) {
+        if(value) {
+            this._version = value;
         }
     };
 }

@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getManagedAppPolicies method. */
 export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: ManagedAppPolicy[] | undefined;
+    private _value?: ManagedAppPolicy[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getManagedAppPoliciesResponse and sets the default values.
      * @param getManagedAppPoliciesResponseParameterValue 
      */
     public constructor(getManagedAppPoliciesResponseParameterValue?: GetManagedAppPoliciesResponse | undefined) {
-        this.additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {};
-        this.value = getManagedAppPoliciesResponseParameterValue?.value;
+        this._additionalData = getManagedAppPoliciesResponseParameterValue?.additionalData ? getManagedAppPoliciesResponseParameterValue?.additionalData! : {};
+        this._value = getManagedAppPoliciesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesR
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ManagedAppPolicyImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ManagedAppPolicyInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ManagedAppPolicy[] | undefined) {
+        if(value) {
+            const valueArrValue: ManagedAppPolicyImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

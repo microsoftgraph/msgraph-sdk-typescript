@@ -6,34 +6,118 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional. */
-    public decisionsThatWillMoveToNextStage?: string[] | undefined;
+    private _decisionsThatWillMoveToNextStage?: string[] | undefined;
     /** Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1. */
-    public dependsOn?: string[] | undefined;
+    private _dependsOn?: string[] | undefined;
     /** The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7. */
-    public durationInDays?: number | undefined;
+    private _durationInDays?: number | undefined;
     /** If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object. */
-    public fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
+    private _fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
     /** Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object. */
-    public recommendationsEnabled?: boolean | undefined;
+    private _recommendationsEnabled?: boolean | undefined;
     /** Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition. */
-    public reviewers?: AccessReviewReviewerScope[] | undefined;
+    private _reviewers?: AccessReviewReviewerScope[] | undefined;
     /** Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required. */
-    public stageId?: string | undefined;
+    private _stageId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new accessReviewStageSettings and sets the default values.
      * @param accessReviewStageSettingsParameterValue 
      */
     public constructor(accessReviewStageSettingsParameterValue?: AccessReviewStageSettings | undefined) {
-        this.additionalData = accessReviewStageSettingsParameterValue?.additionalData ? accessReviewStageSettingsParameterValue?.additionalData! : {};
-        this.decisionsThatWillMoveToNextStage = accessReviewStageSettingsParameterValue?.decisionsThatWillMoveToNextStage;
-        this.dependsOn = accessReviewStageSettingsParameterValue?.dependsOn;
-        this.durationInDays = accessReviewStageSettingsParameterValue?.durationInDays;
-        this.fallbackReviewers = accessReviewStageSettingsParameterValue?.fallbackReviewers;
-        this.recommendationsEnabled = accessReviewStageSettingsParameterValue?.recommendationsEnabled;
-        this.reviewers = accessReviewStageSettingsParameterValue?.reviewers;
-        this.stageId = accessReviewStageSettingsParameterValue?.stageId;
+        this._additionalData = accessReviewStageSettingsParameterValue?.additionalData ? accessReviewStageSettingsParameterValue?.additionalData! : {};
+        this._decisionsThatWillMoveToNextStage = accessReviewStageSettingsParameterValue?.decisionsThatWillMoveToNextStage;
+        this._dependsOn = accessReviewStageSettingsParameterValue?.dependsOn;
+        this._durationInDays = accessReviewStageSettingsParameterValue?.durationInDays;
+        this._fallbackReviewers = accessReviewStageSettingsParameterValue?.fallbackReviewers;
+        this._recommendationsEnabled = accessReviewStageSettingsParameterValue?.recommendationsEnabled;
+        this._reviewers = accessReviewStageSettingsParameterValue?.reviewers;
+        this._stageId = accessReviewStageSettingsParameterValue?.stageId;
+    };
+    /**
+     * Gets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
+     * @returns a string
+     */
+    public get decisionsThatWillMoveToNextStage() {
+        return this._decisionsThatWillMoveToNextStage;
+    };
+    /**
+     * Sets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.
+     * @param value Value to set for the decisionsThatWillMoveToNextStage property.
+     */
+    public set decisionsThatWillMoveToNextStage(value: string[] | undefined) {
+        if(value) {
+            this._decisionsThatWillMoveToNextStage = value;
+        }
+    };
+    /**
+     * Gets the dependsOn property value. Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1.
+     * @returns a string
+     */
+    public get dependsOn() {
+        return this._dependsOn;
+    };
+    /**
+     * Sets the dependsOn property value. Defines the sequential or parallel order of the stages and depends on the stageId. Only sequential stages are currently supported. For example, if stageId is 2, then dependsOn must be 1. If stageId is 1, do not specify dependsOn. Required if stageId is not 1.
+     * @param value Value to set for the dependsOn property.
+     */
+    public set dependsOn(value: string[] | undefined) {
+        if(value) {
+            this._dependsOn = value;
+        }
+    };
+    /**
+     * Gets the durationInDays property value. The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7.
+     * @returns a integer
+     */
+    public get durationInDays() {
+        return this._durationInDays;
+    };
+    /**
+     * Sets the durationInDays property value. The duration of the stage. Required.  NOTE: The cumulative value of this property across all stages  1. Will override the instanceDurationInDays setting on the accessReviewScheduleDefinition object. 2. Cannot exceed the length of one recurrence. That is, if the review recurs weekly, the cumulative durationInDays cannot exceed 7.
+     * @param value Value to set for the durationInDays property.
+     */
+    public set durationInDays(value: number | undefined) {
+        if(value) {
+            this._durationInDays = value;
+        }
+    };
+    /**
+     * Gets the fallbackReviewers property value. If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
+     * @returns a AccessReviewReviewerScopeInterface
+     */
+    public get fallbackReviewers() {
+        return this._fallbackReviewers;
+    };
+    /**
+     * Sets the fallbackReviewers property value. If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
+     * @param value Value to set for the fallbackReviewers property.
+     */
+    public set fallbackReviewers(value: AccessReviewReviewerScope[] | undefined) {
+        if(value) {
+            const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+            this.fallbackReviewers?.forEach(element => {
+                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            });
+            this._fallbackReviewers = fallbackReviewersArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -51,6 +135,42 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         };
     };
     /**
+     * Gets the recommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object.
+     * @returns a boolean
+     */
+    public get recommendationsEnabled() {
+        return this._recommendationsEnabled;
+    };
+    /**
+     * Sets the recommendationsEnabled property value. Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object.
+     * @param value Value to set for the recommendationsEnabled property.
+     */
+    public set recommendationsEnabled(value: boolean | undefined) {
+        if(value) {
+            this._recommendationsEnabled = value;
+        }
+    };
+    /**
+     * Gets the reviewers property value. Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition.
+     * @returns a AccessReviewReviewerScopeInterface
+     */
+    public get reviewers() {
+        return this._reviewers;
+    };
+    /**
+     * Sets the reviewers property value. Defines who the reviewers are. If none are specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition.
+     * @param value Value to set for the reviewers property.
+     */
+    public set reviewers(value: AccessReviewReviewerScope[] | undefined) {
+        if(value) {
+            const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+            this.reviewers?.forEach(element => {
+                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            });
+            this._reviewers = reviewersArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -65,18 +185,40 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         if(this.durationInDays){
             writer.writeNumberValue("durationInDays", this.durationInDays);
         }
-        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.fallbackReviewers?.forEach(element => {fallbackReviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+        this.fallbackReviewers?.forEach(element => {
+            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.recommendationsEnabled){
             writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
         }
-        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = []; this.reviewers?.forEach(element => {reviewersArrValue.push(new AccessReviewReviewerScopeImpl(element));});
+        if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
+        this.reviewers?.forEach(element => {
+            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.stageId){
             writer.writeStringValue("stageId", this.stageId);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the stageId property value. Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required.
+     * @returns a string
+     */
+    public get stageId() {
+        return this._stageId;
+    };
+    /**
+     * Sets the stageId property value. Unique identifier of the accessReviewStageSettings. The stageId will be used in dependsOn property to indicate the stage relationship. Required.
+     * @param value Value to set for the stageId property.
+     */
+    public set stageId(value: string | undefined) {
+        if(value) {
+            this._stageId = value;
+        }
     };
 }

@@ -9,31 +9,95 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the createOrGet method. */
 export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The chatInfo property */
-    public chatInfo?: ChatInfo | undefined;
+    private _chatInfo?: ChatInfo | undefined;
     /** The endDateTime property */
-    public endDateTime?: Date | undefined;
+    private _endDateTime?: Date | undefined;
     /** The externalId property */
-    public externalId?: string | undefined;
+    private _externalId?: string | undefined;
     /** The participants property */
-    public participants?: MeetingParticipants | undefined;
+    private _participants?: MeetingParticipants | undefined;
     /** The startDateTime property */
-    public startDateTime?: Date | undefined;
+    private _startDateTime?: Date | undefined;
     /** The subject property */
-    public subject?: string | undefined;
+    private _subject?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the chatInfo property value. The chatInfo property
+     * @returns a ChatInfoInterface
+     */
+    public get chatInfo() {
+        return this._chatInfo;
+    };
+    /**
+     * Sets the chatInfo property value. The chatInfo property
+     * @param value Value to set for the chatInfo property.
+     */
+    public set chatInfo(value: ChatInfo | undefined) {
+        if(value) {
+            this._chatInfo = value instanceof ChatInfoImpl? value : new ChatInfoImpl(value);
+        }
+    };
     /**
      * Instantiates a new createOrGetPostRequestBody and sets the default values.
      * @param createOrGetPostRequestBodyParameterValue 
      */
     public constructor(createOrGetPostRequestBodyParameterValue?: CreateOrGetPostRequestBody | undefined) {
-        this.additionalData = createOrGetPostRequestBodyParameterValue?.additionalData ? createOrGetPostRequestBodyParameterValue?.additionalData! : {};
-        this.chatInfo = createOrGetPostRequestBodyParameterValue?.chatInfo;
-        this.endDateTime = createOrGetPostRequestBodyParameterValue?.endDateTime;
-        this.externalId = createOrGetPostRequestBodyParameterValue?.externalId;
-        this.participants = createOrGetPostRequestBodyParameterValue?.participants;
-        this.startDateTime = createOrGetPostRequestBodyParameterValue?.startDateTime;
-        this.subject = createOrGetPostRequestBodyParameterValue?.subject;
+        this._additionalData = createOrGetPostRequestBodyParameterValue?.additionalData ? createOrGetPostRequestBodyParameterValue?.additionalData! : {};
+        this._chatInfo = createOrGetPostRequestBodyParameterValue?.chatInfo;
+        this._endDateTime = createOrGetPostRequestBodyParameterValue?.endDateTime;
+        this._externalId = createOrGetPostRequestBodyParameterValue?.externalId;
+        this._participants = createOrGetPostRequestBodyParameterValue?.participants;
+        this._startDateTime = createOrGetPostRequestBodyParameterValue?.startDateTime;
+        this._subject = createOrGetPostRequestBodyParameterValue?.subject;
+    };
+    /**
+     * Gets the endDateTime property value. The endDateTime property
+     * @returns a Date
+     */
+    public get endDateTime() {
+        return this._endDateTime;
+    };
+    /**
+     * Sets the endDateTime property value. The endDateTime property
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: Date | undefined) {
+        if(value) {
+            this._endDateTime = value;
+        }
+    };
+    /**
+     * Gets the externalId property value. The externalId property
+     * @returns a string
+     */
+    public get externalId() {
+        return this._externalId;
+    };
+    /**
+     * Sets the externalId property value. The externalId property
+     * @param value Value to set for the externalId property.
+     */
+    public set externalId(value: string | undefined) {
+        if(value) {
+            this._externalId = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -50,13 +114,29 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
         };
     };
     /**
+     * Gets the participants property value. The participants property
+     * @returns a MeetingParticipantsInterface
+     */
+    public get participants() {
+        return this._participants;
+    };
+    /**
+     * Sets the participants property value. The participants property
+     * @param value Value to set for the participants property.
+     */
+    public set participants(value: MeetingParticipants | undefined) {
+        if(value) {
+            this._participants = value instanceof MeetingParticipantsImpl? value : new MeetingParticipantsImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.chatInfo){
-            writer.writeObjectValue<ChatInfoImpl>("chatInfo", new ChatInfoImpl(this.chatInfo));
+            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (!this.chatInfo || this.chatInfo instanceof ChatInfoImpl? this.chatInfo : new ChatInfoImpl(this.chatInfo)));
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
@@ -65,7 +145,7 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
             writer.writeStringValue("externalId", this.externalId);
         }
         if(this.participants){
-            writer.writeObjectValue<MeetingParticipantsImpl>("participants", new MeetingParticipantsImpl(this.participants));
+            writer.writeObjectValue<MeetingParticipantsImpl>("participants", (!this.participants || this.participants instanceof MeetingParticipantsImpl? this.participants : new MeetingParticipantsImpl(this.participants)));
         }
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);
@@ -74,5 +154,37 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
             writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the startDateTime property value. The startDateTime property
+     * @returns a Date
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. The startDateTime property
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: Date | undefined) {
+        if(value) {
+            this._startDateTime = value;
+        }
+    };
+    /**
+     * Gets the subject property value. The subject property
+     * @returns a string
+     */
+    public get subject() {
+        return this._subject;
+    };
+    /**
+     * Sets the subject property value. The subject property
+     * @param value Value to set for the subject property.
+     */
+    public set subject(value: string | undefined) {
+        if(value) {
+            this._subject = value;
+        }
     };
 }

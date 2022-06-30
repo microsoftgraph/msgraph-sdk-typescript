@@ -7,23 +7,71 @@ import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kio
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentDefaultsImpl extends EntityImpl implements EducationAssignmentDefaults {
     /** Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen. */
-    public addedStudentAction?: EducationAddedStudentAction | undefined;
+    private _addedStudentAction?: EducationAddedStudentAction | undefined;
     /** Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none. */
-    public addToCalendarAction?: EducationAddToCalendarOptions | undefined;
+    private _addToCalendarAction?: EducationAddToCalendarOptions | undefined;
     /** Class-level default value for due time field. Default value is 23:59:00. */
-    public dueTime?: TimeOnly | undefined;
+    private _dueTime?: TimeOnly | undefined;
     /** Default Teams channel to which notifications will be sent. Default value is null. */
-    public notificationChannelUrl?: string | undefined;
+    private _notificationChannelUrl?: string | undefined;
+    /**
+     * Gets the addedStudentAction property value. Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.
+     * @returns a educationAddedStudentAction
+     */
+    public get addedStudentAction() {
+        return this._addedStudentAction;
+    };
+    /**
+     * Sets the addedStudentAction property value. Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.
+     * @param value Value to set for the addedStudentAction property.
+     */
+    public set addedStudentAction(value: EducationAddedStudentAction | undefined) {
+        if(value) {
+            this._addedStudentAction = value;
+        }
+    };
+    /**
+     * Gets the addToCalendarAction property value. Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
+     * @returns a educationAddToCalendarOptions
+     */
+    public get addToCalendarAction() {
+        return this._addToCalendarAction;
+    };
+    /**
+     * Sets the addToCalendarAction property value. Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
+     * @param value Value to set for the addToCalendarAction property.
+     */
+    public set addToCalendarAction(value: EducationAddToCalendarOptions | undefined) {
+        if(value) {
+            this._addToCalendarAction = value;
+        }
+    };
     /**
      * Instantiates a new educationAssignmentDefaults and sets the default values.
      * @param educationAssignmentDefaultsParameterValue 
      */
     public constructor(educationAssignmentDefaultsParameterValue?: EducationAssignmentDefaults | undefined) {
         super(educationAssignmentDefaultsParameterValue);
-        this.addedStudentAction = educationAssignmentDefaultsParameterValue?.addedStudentAction;
-        this.addToCalendarAction = educationAssignmentDefaultsParameterValue?.addToCalendarAction;
-        this.dueTime = educationAssignmentDefaultsParameterValue?.dueTime;
-        this.notificationChannelUrl = educationAssignmentDefaultsParameterValue?.notificationChannelUrl;
+        this._addedStudentAction = educationAssignmentDefaultsParameterValue?.addedStudentAction;
+        this._addToCalendarAction = educationAssignmentDefaultsParameterValue?.addToCalendarAction;
+        this._dueTime = educationAssignmentDefaultsParameterValue?.dueTime;
+        this._notificationChannelUrl = educationAssignmentDefaultsParameterValue?.notificationChannelUrl;
+    };
+    /**
+     * Gets the dueTime property value. Class-level default value for due time field. Default value is 23:59:00.
+     * @returns a TimeOnly
+     */
+    public get dueTime() {
+        return this._dueTime;
+    };
+    /**
+     * Sets the dueTime property value. Class-level default value for due time field. Default value is 23:59:00.
+     * @param value Value to set for the dueTime property.
+     */
+    public set dueTime(value: TimeOnly | undefined) {
+        if(value) {
+            this._dueTime = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +84,22 @@ export class EducationAssignmentDefaultsImpl extends EntityImpl implements Educa
             "dueTime": n => { this.dueTime = n.getTimeOnlyValue(); },
             "notificationChannelUrl": n => { this.notificationChannelUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the notificationChannelUrl property value. Default Teams channel to which notifications will be sent. Default value is null.
+     * @returns a string
+     */
+    public get notificationChannelUrl() {
+        return this._notificationChannelUrl;
+    };
+    /**
+     * Sets the notificationChannelUrl property value. Default Teams channel to which notifications will be sent. Default value is null.
+     * @param value Value to set for the notificationChannelUrl property.
+     */
+    public set notificationChannelUrl(value: string | undefined) {
+        if(value) {
+            this._notificationChannelUrl = value;
+        }
     };
     /**
      * Serializes information the current object

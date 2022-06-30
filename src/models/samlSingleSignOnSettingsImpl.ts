@@ -3,16 +3,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SamlSingleSignOnSettingsImpl implements SamlSingleSignOnSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The relative URI the service provider would redirect to after completion of the single sign-on flow. */
-    public relayState?: string | undefined;
+    private _relayState?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new samlSingleSignOnSettings and sets the default values.
      * @param samlSingleSignOnSettingsParameterValue 
      */
     public constructor(samlSingleSignOnSettingsParameterValue?: SamlSingleSignOnSettings | undefined) {
-        this.additionalData = samlSingleSignOnSettingsParameterValue?.additionalData ? samlSingleSignOnSettingsParameterValue?.additionalData! : {};
-        this.relayState = samlSingleSignOnSettingsParameterValue?.relayState;
+        this._additionalData = samlSingleSignOnSettingsParameterValue?.additionalData ? samlSingleSignOnSettingsParameterValue?.additionalData! : {};
+        this._relayState = samlSingleSignOnSettingsParameterValue?.relayState;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +38,22 @@ export class SamlSingleSignOnSettingsImpl implements SamlSingleSignOnSettings {
         return {
             "relayState": n => { this.relayState = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the relayState property value. The relative URI the service provider would redirect to after completion of the single sign-on flow.
+     * @returns a string
+     */
+    public get relayState() {
+        return this._relayState;
+    };
+    /**
+     * Sets the relayState property value. The relative URI the service provider would redirect to after completion of the single sign-on flow.
+     * @param value Value to set for the relayState property.
+     */
+    public set relayState(value: string | undefined) {
+        if(value) {
+            this._relayState = value;
+        }
     };
     /**
      * Serializes information the current object

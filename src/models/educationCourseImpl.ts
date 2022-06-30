@@ -3,28 +3,108 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EducationCourseImpl implements EducationCourse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Unique identifier for the course. */
-    public courseNumber?: string | undefined;
+    private _courseNumber?: string | undefined;
     /** Description of the course. */
-    public description?: string | undefined;
+    private _description?: string | undefined;
     /** Name of the course. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** ID of the course from the syncing system. */
-    public externalId?: string | undefined;
+    private _externalId?: string | undefined;
     /** Subject of the course. */
-    public subject?: string | undefined;
+    private _subject?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new educationCourse and sets the default values.
      * @param educationCourseParameterValue 
      */
     public constructor(educationCourseParameterValue?: EducationCourse | undefined) {
-        this.additionalData = educationCourseParameterValue?.additionalData ? educationCourseParameterValue?.additionalData! : {};
-        this.courseNumber = educationCourseParameterValue?.courseNumber;
-        this.description = educationCourseParameterValue?.description;
-        this.displayName = educationCourseParameterValue?.displayName;
-        this.externalId = educationCourseParameterValue?.externalId;
-        this.subject = educationCourseParameterValue?.subject;
+        this._additionalData = educationCourseParameterValue?.additionalData ? educationCourseParameterValue?.additionalData! : {};
+        this._courseNumber = educationCourseParameterValue?.courseNumber;
+        this._description = educationCourseParameterValue?.description;
+        this._displayName = educationCourseParameterValue?.displayName;
+        this._externalId = educationCourseParameterValue?.externalId;
+        this._subject = educationCourseParameterValue?.subject;
+    };
+    /**
+     * Gets the courseNumber property value. Unique identifier for the course.
+     * @returns a string
+     */
+    public get courseNumber() {
+        return this._courseNumber;
+    };
+    /**
+     * Sets the courseNumber property value. Unique identifier for the course.
+     * @param value Value to set for the courseNumber property.
+     */
+    public set courseNumber(value: string | undefined) {
+        if(value) {
+            this._courseNumber = value;
+        }
+    };
+    /**
+     * Gets the description property value. Description of the course.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. Description of the course.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        if(value) {
+            this._description = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. Name of the course.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Name of the course.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
+    };
+    /**
+     * Gets the externalId property value. ID of the course from the syncing system.
+     * @returns a string
+     */
+    public get externalId() {
+        return this._externalId;
+    };
+    /**
+     * Sets the externalId property value. ID of the course from the syncing system.
+     * @param value Value to set for the externalId property.
+     */
+    public set externalId(value: string | undefined) {
+        if(value) {
+            this._externalId = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -61,5 +141,21 @@ export class EducationCourseImpl implements EducationCourse {
             writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the subject property value. Subject of the course.
+     * @returns a string
+     */
+    public get subject() {
+        return this._subject;
+    };
+    /**
+     * Sets the subject property value. Subject of the course.
+     * @param value Value to set for the subject property.
+     */
+    public set subject(value: string | undefined) {
+        if(value) {
+            this._subject = value;
+        }
     };
 }

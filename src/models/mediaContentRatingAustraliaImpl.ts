@@ -5,19 +5,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MediaContentRatingAustraliaImpl implements MediaContentRatingAustralia {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18. */
-    public movieRating?: RatingAustraliaMoviesType | undefined;
+    private _movieRating?: RatingAustraliaMoviesType | undefined;
     /** TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence. */
-    public tvRating?: RatingAustraliaTelevisionType | undefined;
+    private _tvRating?: RatingAustraliaTelevisionType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mediaContentRatingAustralia and sets the default values.
      * @param mediaContentRatingAustraliaParameterValue 
      */
     public constructor(mediaContentRatingAustraliaParameterValue?: MediaContentRatingAustralia | undefined) {
-        this.additionalData = mediaContentRatingAustraliaParameterValue?.additionalData ? mediaContentRatingAustraliaParameterValue?.additionalData! : {};
-        this.movieRating = mediaContentRatingAustraliaParameterValue?.movieRating;
-        this.tvRating = mediaContentRatingAustraliaParameterValue?.tvRating;
+        this._additionalData = mediaContentRatingAustraliaParameterValue?.additionalData ? mediaContentRatingAustraliaParameterValue?.additionalData! : {};
+        this._movieRating = mediaContentRatingAustraliaParameterValue?.movieRating;
+        this._tvRating = mediaContentRatingAustraliaParameterValue?.tvRating;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +44,22 @@ export class MediaContentRatingAustraliaImpl implements MediaContentRatingAustra
             "movieRating": n => { this.movieRating = n.getEnumValue<RatingAustraliaMoviesType>(RatingAustraliaMoviesType); },
             "tvRating": n => { this.tvRating = n.getEnumValue<RatingAustraliaTelevisionType>(RatingAustraliaTelevisionType); },
         };
+    };
+    /**
+     * Gets the movieRating property value. Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18.
+     * @returns a ratingAustraliaMoviesType
+     */
+    public get movieRating() {
+        return this._movieRating;
+    };
+    /**
+     * Sets the movieRating property value. Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18.
+     * @param value Value to set for the movieRating property.
+     */
+    public set movieRating(value: RatingAustraliaMoviesType | undefined) {
+        if(value) {
+            this._movieRating = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -42,5 +74,21 @@ export class MediaContentRatingAustraliaImpl implements MediaContentRatingAustra
             writer.writeEnumValue<RatingAustraliaTelevisionType>("tvRating", this.tvRating);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the tvRating property value. TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence.
+     * @returns a ratingAustraliaTelevisionType
+     */
+    public get tvRating() {
+        return this._tvRating;
+    };
+    /**
+     * Sets the tvRating property value. TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence.
+     * @param value Value to set for the tvRating property.
+     */
+    public set tvRating(value: RatingAustraliaTelevisionType | undefined) {
+        if(value) {
+            this._tvRating = value;
+        }
     };
 }

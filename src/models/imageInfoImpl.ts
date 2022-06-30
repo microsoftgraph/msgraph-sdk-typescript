@@ -3,25 +3,89 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ImageInfoImpl implements ImageInfo {
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
-    public addImageQuery?: boolean | undefined;
+    private _addImageQuery?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Optional; alt-text accessible content for the image */
-    public alternateText?: string | undefined;
+    private _alternateText?: string | undefined;
     /** The alternativeText property */
-    public alternativeText?: string | undefined;
+    private _alternativeText?: string | undefined;
     /** Optional; URI that points to an icon which represents the application used to generate the activity */
-    public iconUrl?: string | undefined;
+    private _iconUrl?: string | undefined;
+    /**
+     * Gets the addImageQuery property value. Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
+     * @returns a boolean
+     */
+    public get addImageQuery() {
+        return this._addImageQuery;
+    };
+    /**
+     * Sets the addImageQuery property value. Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
+     * @param value Value to set for the addImageQuery property.
+     */
+    public set addImageQuery(value: boolean | undefined) {
+        if(value) {
+            this._addImageQuery = value;
+        }
+    };
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the alternateText property value. Optional; alt-text accessible content for the image
+     * @returns a string
+     */
+    public get alternateText() {
+        return this._alternateText;
+    };
+    /**
+     * Sets the alternateText property value. Optional; alt-text accessible content for the image
+     * @param value Value to set for the alternateText property.
+     */
+    public set alternateText(value: string | undefined) {
+        if(value) {
+            this._alternateText = value;
+        }
+    };
+    /**
+     * Gets the alternativeText property value. The alternativeText property
+     * @returns a string
+     */
+    public get alternativeText() {
+        return this._alternativeText;
+    };
+    /**
+     * Sets the alternativeText property value. The alternativeText property
+     * @param value Value to set for the alternativeText property.
+     */
+    public set alternativeText(value: string | undefined) {
+        if(value) {
+            this._alternativeText = value;
+        }
+    };
     /**
      * Instantiates a new imageInfo and sets the default values.
      * @param imageInfoParameterValue 
      */
     public constructor(imageInfoParameterValue?: ImageInfo | undefined) {
-        this.addImageQuery = imageInfoParameterValue?.addImageQuery;
-        this.additionalData = imageInfoParameterValue?.additionalData ? imageInfoParameterValue?.additionalData! : {};
-        this.alternateText = imageInfoParameterValue?.alternateText;
-        this.alternativeText = imageInfoParameterValue?.alternativeText;
-        this.iconUrl = imageInfoParameterValue?.iconUrl;
+        this._addImageQuery = imageInfoParameterValue?.addImageQuery;
+        this._additionalData = imageInfoParameterValue?.additionalData ? imageInfoParameterValue?.additionalData! : {};
+        this._alternateText = imageInfoParameterValue?.alternateText;
+        this._alternativeText = imageInfoParameterValue?.alternativeText;
+        this._iconUrl = imageInfoParameterValue?.iconUrl;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +98,22 @@ export class ImageInfoImpl implements ImageInfo {
             "alternativeText": n => { this.alternativeText = n.getStringValue(); },
             "iconUrl": n => { this.iconUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the iconUrl property value. Optional; URI that points to an icon which represents the application used to generate the activity
+     * @returns a string
+     */
+    public get iconUrl() {
+        return this._iconUrl;
+    };
+    /**
+     * Sets the iconUrl property value. Optional; URI that points to an icon which represents the application used to generate the activity
+     * @param value Value to set for the iconUrl property.
+     */
+    public set iconUrl(value: string | undefined) {
+        if(value) {
+            this._iconUrl = value;
+        }
     };
     /**
      * Serializes information the current object

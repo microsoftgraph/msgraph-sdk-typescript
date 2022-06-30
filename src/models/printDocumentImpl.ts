@@ -5,20 +5,52 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the print singleton. */
 export class PrintDocumentImpl extends EntityImpl implements PrintDocument {
     /** The document's content (MIME) type. Read-only. */
-    public contentType?: string | undefined;
+    private _contentType?: string | undefined;
     /** The document's name. Read-only. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** The document's size in bytes. Read-only. */
-    public size?: number | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new printDocument and sets the default values.
      * @param printDocumentParameterValue 
      */
     public constructor(printDocumentParameterValue?: PrintDocument | undefined) {
         super(printDocumentParameterValue);
-        this.contentType = printDocumentParameterValue?.contentType;
-        this.displayName = printDocumentParameterValue?.displayName;
-        this.size = printDocumentParameterValue?.size;
+        this._contentType = printDocumentParameterValue?.contentType;
+        this._displayName = printDocumentParameterValue?.displayName;
+        this._size = printDocumentParameterValue?.size;
+    };
+    /**
+     * Gets the contentType property value. The document's content (MIME) type. Read-only.
+     * @returns a string
+     */
+    public get contentType() {
+        return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. The document's content (MIME) type. Read-only.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        if(value) {
+            this._contentType = value;
+        }
+    };
+    /**
+     * Gets the displayName property value. The document's name. Read-only.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The document's name. Read-only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +78,22 @@ export class PrintDocumentImpl extends EntityImpl implements PrintDocument {
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
+        }
+    };
+    /**
+     * Gets the size property value. The document's size in bytes. Read-only.
+     * @returns a int64
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * Sets the size property value. The document's size in bytes. Read-only.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: number | undefined) {
+        if(value) {
+            this._size = value;
         }
     };
 }

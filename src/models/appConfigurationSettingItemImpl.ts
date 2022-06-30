@@ -5,22 +5,86 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for App configuration setting item. */
 export class AppConfigurationSettingItemImpl implements AppConfigurationSettingItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** app configuration key. */
-    public appConfigKey?: string | undefined;
+    private _appConfigKey?: string | undefined;
     /** app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType. */
-    public appConfigKeyType?: MdmAppConfigKeyType | undefined;
+    private _appConfigKeyType?: MdmAppConfigKeyType | undefined;
     /** app configuration key value. */
-    public appConfigKeyValue?: string | undefined;
+    private _appConfigKeyValue?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the appConfigKey property value. app configuration key.
+     * @returns a string
+     */
+    public get appConfigKey() {
+        return this._appConfigKey;
+    };
+    /**
+     * Sets the appConfigKey property value. app configuration key.
+     * @param value Value to set for the appConfigKey property.
+     */
+    public set appConfigKey(value: string | undefined) {
+        if(value) {
+            this._appConfigKey = value;
+        }
+    };
+    /**
+     * Gets the appConfigKeyType property value. app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType.
+     * @returns a mdmAppConfigKeyType
+     */
+    public get appConfigKeyType() {
+        return this._appConfigKeyType;
+    };
+    /**
+     * Sets the appConfigKeyType property value. app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType.
+     * @param value Value to set for the appConfigKeyType property.
+     */
+    public set appConfigKeyType(value: MdmAppConfigKeyType | undefined) {
+        if(value) {
+            this._appConfigKeyType = value;
+        }
+    };
+    /**
+     * Gets the appConfigKeyValue property value. app configuration key value.
+     * @returns a string
+     */
+    public get appConfigKeyValue() {
+        return this._appConfigKeyValue;
+    };
+    /**
+     * Sets the appConfigKeyValue property value. app configuration key value.
+     * @param value Value to set for the appConfigKeyValue property.
+     */
+    public set appConfigKeyValue(value: string | undefined) {
+        if(value) {
+            this._appConfigKeyValue = value;
+        }
+    };
     /**
      * Instantiates a new appConfigurationSettingItem and sets the default values.
      * @param appConfigurationSettingItemParameterValue 
      */
     public constructor(appConfigurationSettingItemParameterValue?: AppConfigurationSettingItem | undefined) {
-        this.additionalData = appConfigurationSettingItemParameterValue?.additionalData ? appConfigurationSettingItemParameterValue?.additionalData! : {};
-        this.appConfigKey = appConfigurationSettingItemParameterValue?.appConfigKey;
-        this.appConfigKeyType = appConfigurationSettingItemParameterValue?.appConfigKeyType;
-        this.appConfigKeyValue = appConfigurationSettingItemParameterValue?.appConfigKeyValue;
+        this._additionalData = appConfigurationSettingItemParameterValue?.additionalData ? appConfigurationSettingItemParameterValue?.additionalData! : {};
+        this._appConfigKey = appConfigurationSettingItemParameterValue?.appConfigKey;
+        this._appConfigKeyType = appConfigurationSettingItemParameterValue?.appConfigKeyType;
+        this._appConfigKeyValue = appConfigurationSettingItemParameterValue?.appConfigKeyValue;
     };
     /**
      * The deserialization information for the current model

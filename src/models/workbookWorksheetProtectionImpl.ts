@@ -7,17 +7,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookWorksheetProtectionImpl extends EntityImpl implements WorkbookWorksheetProtection {
     /** Sheet protection options. Read-only. */
-    public options?: WorkbookWorksheetProtectionOptions | undefined;
+    private _options?: WorkbookWorksheetProtectionOptions | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
-    public protected?: boolean | undefined;
+    private _protected?: boolean | undefined;
     /**
      * Instantiates a new workbookWorksheetProtection and sets the default values.
      * @param workbookWorksheetProtectionParameterValue 
      */
     public constructor(workbookWorksheetProtectionParameterValue?: WorkbookWorksheetProtection | undefined) {
         super(workbookWorksheetProtectionParameterValue);
-        this.options = workbookWorksheetProtectionParameterValue?.options;
-        this.protected = workbookWorksheetProtectionParameterValue?.protected;
+        this._options = workbookWorksheetProtectionParameterValue?.options;
+        this._protected = workbookWorksheetProtectionParameterValue?.protected;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +30,38 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
         };
     };
     /**
+     * Gets the options property value. Sheet protection options. Read-only.
+     * @returns a WorkbookWorksheetProtectionOptionsInterface
+     */
+    public get options() {
+        return this._options;
+    };
+    /**
+     * Sets the options property value. Sheet protection options. Read-only.
+     * @param value Value to set for the options property.
+     */
+    public set options(value: WorkbookWorksheetProtectionOptions | undefined) {
+        if(value) {
+            this._options = value instanceof WorkbookWorksheetProtectionOptionsImpl? value : new WorkbookWorksheetProtectionOptionsImpl(value);
+        }
+    };
+    /**
+     * Gets the protected property value. Indicates if the worksheet is protected.  Read-only.
+     * @returns a boolean
+     */
+    public get protected() {
+        return this._protected;
+    };
+    /**
+     * Sets the protected property value. Indicates if the worksheet is protected.  Read-only.
+     * @param value Value to set for the protected property.
+     */
+    public set protected(value: boolean | undefined) {
+        if(value) {
+            this._protected = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -37,7 +69,7 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.options){
-            writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", new WorkbookWorksheetProtectionOptionsImpl(this.options));
+            writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", (!this.options || this.options instanceof WorkbookWorksheetProtectionOptionsImpl? this.options : new WorkbookWorksheetProtectionOptionsImpl(this.options)));
         }
         if(this.protected){
             writer.writeBooleanValue("protected", this.protected);

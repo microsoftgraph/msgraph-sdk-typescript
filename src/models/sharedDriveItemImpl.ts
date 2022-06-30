@@ -16,35 +16,51 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem {
     /** Used to access the underlying driveItem */
-    public driveItem?: DriveItem | undefined;
+    private _driveItem?: DriveItem | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */
-    public items?: DriveItem[] | undefined;
+    private _items?: DriveItem[] | undefined;
     /** Used to access the underlying list */
-    public list?: List | undefined;
+    private _list?: List | undefined;
     /** Used to access the underlying listItem */
-    public listItem?: ListItem | undefined;
+    private _listItem?: ListItem | undefined;
     /** Information about the owner of the shared item being referenced. */
-    public owner?: IdentitySet | undefined;
+    private _owner?: IdentitySet | undefined;
     /** Used to access the permission representing the underlying sharing link */
-    public permission?: Permission | undefined;
+    private _permission?: Permission | undefined;
     /** Used to access the underlying driveItem. Deprecated -- use driveItem instead. */
-    public root?: DriveItem | undefined;
+    private _root?: DriveItem | undefined;
     /** Used to access the underlying site */
-    public site?: Site | undefined;
+    private _site?: Site | undefined;
     /**
      * Instantiates a new SharedDriveItem and sets the default values.
      * @param sharedDriveItemParameterValue 
      */
     public constructor(sharedDriveItemParameterValue?: SharedDriveItem | undefined) {
         super(sharedDriveItemParameterValue);
-        this.driveItem = sharedDriveItemParameterValue?.driveItem;
-        this.items = sharedDriveItemParameterValue?.items;
-        this.list = sharedDriveItemParameterValue?.list;
-        this.listItem = sharedDriveItemParameterValue?.listItem;
-        this.owner = sharedDriveItemParameterValue?.owner;
-        this.permission = sharedDriveItemParameterValue?.permission;
-        this.root = sharedDriveItemParameterValue?.root;
-        this.site = sharedDriveItemParameterValue?.site;
+        this._driveItem = sharedDriveItemParameterValue?.driveItem;
+        this._items = sharedDriveItemParameterValue?.items;
+        this._list = sharedDriveItemParameterValue?.list;
+        this._listItem = sharedDriveItemParameterValue?.listItem;
+        this._owner = sharedDriveItemParameterValue?.owner;
+        this._permission = sharedDriveItemParameterValue?.permission;
+        this._root = sharedDriveItemParameterValue?.root;
+        this._site = sharedDriveItemParameterValue?.site;
+    };
+    /**
+     * Gets the driveItem property value. Used to access the underlying driveItem
+     * @returns a DriveItemInterface
+     */
+    public get driveItem() {
+        return this._driveItem;
+    };
+    /**
+     * Sets the driveItem property value. Used to access the underlying driveItem
+     * @param value Value to set for the driveItem property.
+     */
+    public set driveItem(value: DriveItem | undefined) {
+        if(value) {
+            this._driveItem = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -63,6 +79,106 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
         };
     };
     /**
+     * Gets the items property value. All driveItems contained in the sharing root. This collection cannot be enumerated.
+     * @returns a DriveItemInterface
+     */
+    public get items() {
+        return this._items;
+    };
+    /**
+     * Sets the items property value. All driveItems contained in the sharing root. This collection cannot be enumerated.
+     * @param value Value to set for the items property.
+     */
+    public set items(value: DriveItem[] | undefined) {
+        if(value) {
+            const itemsArrValue: DriveItemImpl[] = [];
+            this.items?.forEach(element => {
+                itemsArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            });
+            this._items = itemsArrValue;
+        }
+    };
+    /**
+     * Gets the list property value. Used to access the underlying list
+     * @returns a ListInterface
+     */
+    public get list() {
+        return this._list;
+    };
+    /**
+     * Sets the list property value. Used to access the underlying list
+     * @param value Value to set for the list property.
+     */
+    public set list(value: List | undefined) {
+        if(value) {
+            this._list = value instanceof ListImpl? value : new ListImpl(value);
+        }
+    };
+    /**
+     * Gets the listItem property value. Used to access the underlying listItem
+     * @returns a ListItemInterface
+     */
+    public get listItem() {
+        return this._listItem;
+    };
+    /**
+     * Sets the listItem property value. Used to access the underlying listItem
+     * @param value Value to set for the listItem property.
+     */
+    public set listItem(value: ListItem | undefined) {
+        if(value) {
+            this._listItem = value instanceof ListItemImpl? value : new ListItemImpl(value);
+        }
+    };
+    /**
+     * Gets the owner property value. Information about the owner of the shared item being referenced.
+     * @returns a IdentitySetInterface
+     */
+    public get owner() {
+        return this._owner;
+    };
+    /**
+     * Sets the owner property value. Information about the owner of the shared item being referenced.
+     * @param value Value to set for the owner property.
+     */
+    public set owner(value: IdentitySet | undefined) {
+        if(value) {
+            this._owner = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the permission property value. Used to access the permission representing the underlying sharing link
+     * @returns a PermissionInterface
+     */
+    public get permission() {
+        return this._permission;
+    };
+    /**
+     * Sets the permission property value. Used to access the permission representing the underlying sharing link
+     * @param value Value to set for the permission property.
+     */
+    public set permission(value: Permission | undefined) {
+        if(value) {
+            this._permission = value instanceof PermissionImpl? value : new PermissionImpl(value);
+        }
+    };
+    /**
+     * Gets the root property value. Used to access the underlying driveItem. Deprecated -- use driveItem instead.
+     * @returns a DriveItemInterface
+     */
+    public get root() {
+        return this._root;
+    };
+    /**
+     * Sets the root property value. Used to access the underlying driveItem. Deprecated -- use driveItem instead.
+     * @param value Value to set for the root property.
+     */
+    public set root(value: DriveItem | undefined) {
+        if(value) {
+            this._root = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -70,28 +186,47 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.driveItem){
-            writer.writeObjectValue<DriveItemImpl>("driveItem", new DriveItemImpl(this.driveItem));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", (!this.driveItem || this.driveItem instanceof DriveItemImpl? this.driveItem : new DriveItemImpl(this.driveItem)));
         }
-        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = []; this.items?.forEach(element => {itemsArrValue.push(new DriveItemImpl(element));});
+        if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = [];
+        this.items?.forEach(element => {
+            itemsArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-            writer.writeObjectValue<ListImpl>("list", new ListImpl(this.list));
+            writer.writeObjectValue<ListImpl>("list", (!this.list || this.list instanceof ListImpl? this.list : new ListImpl(this.list)));
         }
         if(this.listItem){
-            writer.writeObjectValue<ListItemImpl>("listItem", new ListItemImpl(this.listItem));
+            writer.writeObjectValue<ListItemImpl>("listItem", (!this.listItem || this.listItem instanceof ListItemImpl? this.listItem : new ListItemImpl(this.listItem)));
         }
         if(this.owner){
-            writer.writeObjectValue<IdentitySetImpl>("owner", new IdentitySetImpl(this.owner));
+            writer.writeObjectValue<IdentitySetImpl>("owner", (!this.owner || this.owner instanceof IdentitySetImpl? this.owner : new IdentitySetImpl(this.owner)));
         }
         if(this.permission){
-            writer.writeObjectValue<PermissionImpl>("permission", new PermissionImpl(this.permission));
+            writer.writeObjectValue<PermissionImpl>("permission", (!this.permission || this.permission instanceof PermissionImpl? this.permission : new PermissionImpl(this.permission)));
         }
         if(this.root){
-            writer.writeObjectValue<DriveItemImpl>("root", new DriveItemImpl(this.root));
+            writer.writeObjectValue<DriveItemImpl>("root", (!this.root || this.root instanceof DriveItemImpl? this.root : new DriveItemImpl(this.root)));
         }
         if(this.site){
-            writer.writeObjectValue<SiteImpl>("site", new SiteImpl(this.site));
+            writer.writeObjectValue<SiteImpl>("site", (!this.site || this.site instanceof SiteImpl? this.site : new SiteImpl(this.site)));
+        }
+    };
+    /**
+     * Gets the site property value. Used to access the underlying site
+     * @returns a SiteInterface
+     */
+    public get site() {
+        return this._site;
+    };
+    /**
+     * Sets the site property value. Used to access the underlying site
+     * @param value Value to set for the site property.
+     */
+    public set site(value: Site | undefined) {
+        if(value) {
+            this._site = value instanceof SiteImpl? value : new SiteImpl(value);
         }
     };
 }

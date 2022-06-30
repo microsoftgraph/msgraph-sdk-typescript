@@ -5,14 +5,30 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the directory singleton. */
 export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProviderBase {
     /** The display name of the identity provider. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /**
      * Instantiates a new identityProviderBase and sets the default values.
      * @param identityProviderBaseParameterValue 
      */
     public constructor(identityProviderBaseParameterValue?: IdentityProviderBase | undefined) {
         super(identityProviderBaseParameterValue);
-        this.displayName = identityProviderBaseParameterValue?.displayName;
+        this._displayName = identityProviderBaseParameterValue?.displayName;
+    };
+    /**
+     * Gets the displayName property value. The display name of the identity provider.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name of the identity provider.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

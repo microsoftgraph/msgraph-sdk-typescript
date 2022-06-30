@@ -5,16 +5,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the sync method. */
 export class SyncPostRequestBodyImpl implements SyncPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The syncType property */
-    public syncType?: DeviceManagementExchangeConnectorSyncType | undefined;
+    private _syncType?: DeviceManagementExchangeConnectorSyncType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new syncPostRequestBody and sets the default values.
      * @param syncPostRequestBodyParameterValue 
      */
     public constructor(syncPostRequestBodyParameterValue?: SyncPostRequestBody | undefined) {
-        this.additionalData = syncPostRequestBodyParameterValue?.additionalData ? syncPostRequestBodyParameterValue?.additionalData! : {};
-        this.syncType = syncPostRequestBodyParameterValue?.syncType;
+        this._additionalData = syncPostRequestBodyParameterValue?.additionalData ? syncPostRequestBodyParameterValue?.additionalData! : {};
+        this._syncType = syncPostRequestBodyParameterValue?.syncType;
     };
     /**
      * The deserialization information for the current model
@@ -35,5 +51,21 @@ export class SyncPostRequestBodyImpl implements SyncPostRequestBody {
             writer.writeEnumValue<DeviceManagementExchangeConnectorSyncType>("syncType", this.syncType);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the syncType property value. The syncType property
+     * @returns a deviceManagementExchangeConnectorSyncType
+     */
+    public get syncType() {
+        return this._syncType;
+    };
+    /**
+     * Sets the syncType property value. The syncType property
+     * @param value Value to set for the syncType property.
+     */
+    public set syncType(value: DeviceManagementExchangeConnectorSyncType | undefined) {
+        if(value) {
+            this._syncType = value;
+        }
     };
 }

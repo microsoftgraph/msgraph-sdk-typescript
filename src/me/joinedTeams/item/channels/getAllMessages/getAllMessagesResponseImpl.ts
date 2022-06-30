@@ -7,16 +7,32 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getAllMessages method. */
 export class GetAllMessagesResponseImpl implements GetAllMessagesResponse {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The value property */
-    public value?: ChatMessage[] | undefined;
+    private _value?: ChatMessage[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new getAllMessagesResponse and sets the default values.
      * @param getAllMessagesResponseParameterValue 
      */
     public constructor(getAllMessagesResponseParameterValue?: GetAllMessagesResponse | undefined) {
-        this.additionalData = getAllMessagesResponseParameterValue?.additionalData ? getAllMessagesResponseParameterValue?.additionalData! : {};
-        this.value = getAllMessagesResponseParameterValue?.value;
+        this._additionalData = getAllMessagesResponseParameterValue?.additionalData ? getAllMessagesResponseParameterValue?.additionalData! : {};
+        this._value = getAllMessagesResponseParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +49,32 @@ export class GetAllMessagesResponseImpl implements GetAllMessagesResponse {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = []; this.value?.forEach(element => {valueArrValue.push(new ChatMessageImpl(element));});
+        if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = [];
+        this.value?.forEach(element => {
+            valueArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the value property value. The value property
+     * @returns a ChatMessageInterface
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The value property
+     * @param value Value to set for the value property.
+     */
+    public set value(value: ChatMessage[] | undefined) {
+        if(value) {
+            const valueArrValue: ChatMessageImpl[] = [];
+            this.value?.forEach(element => {
+                valueArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+            });
+            this._value = valueArrValue;
+        }
     };
 }

@@ -6,14 +6,34 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements ManagedAppConfiguration {
     /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service */
-    public customSettings?: KeyValuePair[] | undefined;
+    private _customSettings?: KeyValuePair[] | undefined;
     /**
      * Instantiates a new ManagedAppConfiguration and sets the default values.
      * @param managedAppConfigurationParameterValue 
      */
     public constructor(managedAppConfigurationParameterValue?: ManagedAppConfiguration | undefined) {
         super(managedAppConfigurationParameterValue);
-        this.customSettings = managedAppConfigurationParameterValue?.customSettings;
+        this._customSettings = managedAppConfigurationParameterValue?.customSettings;
+    };
+    /**
+     * Gets the customSettings property value. A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service
+     * @returns a KeyValuePairInterface
+     */
+    public get customSettings() {
+        return this._customSettings;
+    };
+    /**
+     * Sets the customSettings property value. A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service
+     * @param value Value to set for the customSettings property.
+     */
+    public set customSettings(value: KeyValuePair[] | undefined) {
+        if(value) {
+            const customSettingsArrValue: KeyValuePairImpl[] = [];
+            this.customSettings?.forEach(element => {
+                customSettingsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+            });
+            this._customSettings = customSettingsArrValue;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,7 +51,10 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = []; this.customSettings?.forEach(element => {customSettingsArrValue.push(new KeyValuePairImpl(element));});
+        if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = [];
+        this.customSettings?.forEach(element => {
+            customSettingsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }
     };

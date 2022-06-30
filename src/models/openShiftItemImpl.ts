@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem {
     /** Count of the number of slots for the given open shift. */
-    public openSlotCount?: number | undefined;
+    private _openSlotCount?: number | undefined;
     /**
      * Instantiates a new openShiftItem and sets the default values.
      * @param openShiftItemParameterValue 
      */
     public constructor(openShiftItemParameterValue?: OpenShiftItem | undefined) {
         super(openShiftItemParameterValue);
-        this.openSlotCount = openShiftItemParameterValue?.openSlotCount;
+        this._openSlotCount = openShiftItemParameterValue?.openSlotCount;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem {
         return {...super.getFieldDeserializers(),
             "openSlotCount": n => { this.openSlotCount = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the openSlotCount property value. Count of the number of slots for the given open shift.
+     * @returns a integer
+     */
+    public get openSlotCount() {
+        return this._openSlotCount;
+    };
+    /**
+     * Sets the openSlotCount property value. Count of the number of slots for the given open shift.
+     * @param value Value to set for the openSlotCount property.
+     */
+    public set openSlotCount(value: number | undefined) {
+        if(value) {
+            this._openSlotCount = value;
+        }
     };
     /**
      * Serializes information the current object

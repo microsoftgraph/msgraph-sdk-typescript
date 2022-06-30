@@ -2,23 +2,38 @@ import {ChangeTrackedEntityImpl} from './index';
 import {SchedulingGroup} from './schedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements SchedulingGroup {
     /** The display name for the schedulingGroup. Required. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
-    public isActive?: boolean | undefined;
+    private _isActive?: boolean | undefined;
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
-    public userIds?: string[] | undefined;
+    private _userIds?: string[] | undefined;
     /**
-     * Instantiates a new schedulingGroup and sets the default values.
+     * Instantiates a new SchedulingGroup and sets the default values.
      * @param schedulingGroupParameterValue 
      */
     public constructor(schedulingGroupParameterValue?: SchedulingGroup | undefined) {
         super(schedulingGroupParameterValue);
-        this.displayName = schedulingGroupParameterValue?.displayName;
-        this.isActive = schedulingGroupParameterValue?.isActive;
-        this.userIds = schedulingGroupParameterValue?.userIds;
+        this._displayName = schedulingGroupParameterValue?.displayName;
+        this._isActive = schedulingGroupParameterValue?.isActive;
+        this._userIds = schedulingGroupParameterValue?.userIds;
+    };
+    /**
+     * Gets the displayName property value. The display name for the schedulingGroup. Required.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The display name for the schedulingGroup. Required.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +45,22 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Sche
             "isActive": n => { this.isActive = n.getBooleanValue(); },
             "userIds": n => { this.userIds = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the isActive property value. Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
+     * @returns a boolean
+     */
+    public get isActive() {
+        return this._isActive;
+    };
+    /**
+     * Sets the isActive property value. Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
+     * @param value Value to set for the isActive property.
+     */
+    public set isActive(value: boolean | undefined) {
+        if(value) {
+            this._isActive = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -46,6 +77,22 @@ export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Sche
         }
         if(this.userIds){
             writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
+        }
+    };
+    /**
+     * Gets the userIds property value. The list of user IDs that are a member of the schedulingGroup. Required.
+     * @returns a string
+     */
+    public get userIds() {
+        return this._userIds;
+    };
+    /**
+     * Sets the userIds property value. The list of user IDs that are a member of the schedulingGroup. Required.
+     * @param value Value to set for the userIds property.
+     */
+    public set userIds(value: string[] | undefined) {
+        if(value) {
+            this._userIds = value;
         }
     };
 }

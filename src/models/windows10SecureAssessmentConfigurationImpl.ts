@@ -4,26 +4,90 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class Windows10SecureAssessmentConfigurationImpl extends DeviceConfigurationImpl implements Windows10SecureAssessmentConfiguration {
     /** Indicates whether or not to allow the app from printing during the test. */
-    public allowPrinting?: boolean | undefined;
+    private _allowPrinting?: boolean | undefined;
     /** Indicates whether or not to allow screen capture capability during a test. */
-    public allowScreenCapture?: boolean | undefined;
+    private _allowScreenCapture?: boolean | undefined;
     /** Indicates whether or not to allow text suggestions during the test. */
-    public allowTextSuggestion?: boolean | undefined;
+    private _allowTextSuggestion?: boolean | undefined;
     /** The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username). */
-    public configurationAccount?: string | undefined;
+    private _configurationAccount?: string | undefined;
     /** Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/). */
-    public launchUri?: string | undefined;
+    private _launchUri?: string | undefined;
+    /**
+     * Gets the allowPrinting property value. Indicates whether or not to allow the app from printing during the test.
+     * @returns a boolean
+     */
+    public get allowPrinting() {
+        return this._allowPrinting;
+    };
+    /**
+     * Sets the allowPrinting property value. Indicates whether or not to allow the app from printing during the test.
+     * @param value Value to set for the allowPrinting property.
+     */
+    public set allowPrinting(value: boolean | undefined) {
+        if(value) {
+            this._allowPrinting = value;
+        }
+    };
+    /**
+     * Gets the allowScreenCapture property value. Indicates whether or not to allow screen capture capability during a test.
+     * @returns a boolean
+     */
+    public get allowScreenCapture() {
+        return this._allowScreenCapture;
+    };
+    /**
+     * Sets the allowScreenCapture property value. Indicates whether or not to allow screen capture capability during a test.
+     * @param value Value to set for the allowScreenCapture property.
+     */
+    public set allowScreenCapture(value: boolean | undefined) {
+        if(value) {
+            this._allowScreenCapture = value;
+        }
+    };
+    /**
+     * Gets the allowTextSuggestion property value. Indicates whether or not to allow text suggestions during the test.
+     * @returns a boolean
+     */
+    public get allowTextSuggestion() {
+        return this._allowTextSuggestion;
+    };
+    /**
+     * Sets the allowTextSuggestion property value. Indicates whether or not to allow text suggestions during the test.
+     * @param value Value to set for the allowTextSuggestion property.
+     */
+    public set allowTextSuggestion(value: boolean | undefined) {
+        if(value) {
+            this._allowTextSuggestion = value;
+        }
+    };
+    /**
+     * Gets the configurationAccount property value. The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).
+     * @returns a string
+     */
+    public get configurationAccount() {
+        return this._configurationAccount;
+    };
+    /**
+     * Sets the configurationAccount property value. The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).
+     * @param value Value to set for the configurationAccount property.
+     */
+    public set configurationAccount(value: string | undefined) {
+        if(value) {
+            this._configurationAccount = value;
+        }
+    };
     /**
      * Instantiates a new Windows10SecureAssessmentConfiguration and sets the default values.
      * @param windows10SecureAssessmentConfigurationParameterValue 
      */
     public constructor(windows10SecureAssessmentConfigurationParameterValue?: Windows10SecureAssessmentConfiguration | undefined) {
         super(windows10SecureAssessmentConfigurationParameterValue);
-        this.allowPrinting = windows10SecureAssessmentConfigurationParameterValue?.allowPrinting;
-        this.allowScreenCapture = windows10SecureAssessmentConfigurationParameterValue?.allowScreenCapture;
-        this.allowTextSuggestion = windows10SecureAssessmentConfigurationParameterValue?.allowTextSuggestion;
-        this.configurationAccount = windows10SecureAssessmentConfigurationParameterValue?.configurationAccount;
-        this.launchUri = windows10SecureAssessmentConfigurationParameterValue?.launchUri;
+        this._allowPrinting = windows10SecureAssessmentConfigurationParameterValue?.allowPrinting;
+        this._allowScreenCapture = windows10SecureAssessmentConfigurationParameterValue?.allowScreenCapture;
+        this._allowTextSuggestion = windows10SecureAssessmentConfigurationParameterValue?.allowTextSuggestion;
+        this._configurationAccount = windows10SecureAssessmentConfigurationParameterValue?.configurationAccount;
+        this._launchUri = windows10SecureAssessmentConfigurationParameterValue?.launchUri;
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +101,22 @@ export class Windows10SecureAssessmentConfigurationImpl extends DeviceConfigurat
             "configurationAccount": n => { this.configurationAccount = n.getStringValue(); },
             "launchUri": n => { this.launchUri = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the launchUri property value. Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
+     * @returns a string
+     */
+    public get launchUri() {
+        return this._launchUri;
+    };
+    /**
+     * Sets the launchUri property value. Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
+     * @param value Value to set for the launchUri property.
+     */
+    public set launchUri(value: string | undefined) {
+        if(value) {
+            this._launchUri = value;
+        }
     };
     /**
      * Serializes information the current object

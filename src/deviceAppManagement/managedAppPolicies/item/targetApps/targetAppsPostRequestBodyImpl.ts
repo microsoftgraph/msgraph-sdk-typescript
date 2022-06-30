@@ -7,16 +7,52 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the targetApps method. */
 export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The apps property */
-    public apps?: ManagedMobileApp[] | undefined;
+    private _apps?: ManagedMobileApp[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the apps property value. The apps property
+     * @returns a ManagedMobileAppInterface
+     */
+    public get apps() {
+        return this._apps;
+    };
+    /**
+     * Sets the apps property value. The apps property
+     * @param value Value to set for the apps property.
+     */
+    public set apps(value: ManagedMobileApp[] | undefined) {
+        if(value) {
+            const appsArrValue: ManagedMobileAppImpl[] = [];
+            this.apps?.forEach(element => {
+                appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+            });
+            this._apps = appsArrValue;
+        }
+    };
     /**
      * Instantiates a new targetAppsPostRequestBody and sets the default values.
      * @param targetAppsPostRequestBodyParameterValue 
      */
     public constructor(targetAppsPostRequestBodyParameterValue?: TargetAppsPostRequestBody | undefined) {
-        this.additionalData = targetAppsPostRequestBodyParameterValue?.additionalData ? targetAppsPostRequestBodyParameterValue?.additionalData! : {};
-        this.apps = targetAppsPostRequestBodyParameterValue?.apps;
+        this._additionalData = targetAppsPostRequestBodyParameterValue?.additionalData ? targetAppsPostRequestBodyParameterValue?.additionalData! : {};
+        this._apps = targetAppsPostRequestBodyParameterValue?.apps;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +69,10 @@ export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = []; this.apps?.forEach(element => {appsArrValue.push(new ManagedMobileAppImpl(element));});
+        if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = [];
+        this.apps?.forEach(element => {
+            appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

@@ -4,16 +4,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the move method. */
 export class MovePostRequestBodyImpl implements MovePostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The DestinationId property */
-    public destinationId?: string | undefined;
+    private _destinationId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new movePostRequestBody and sets the default values.
      * @param movePostRequestBodyParameterValue 
      */
     public constructor(movePostRequestBodyParameterValue?: MovePostRequestBody | undefined) {
-        this.additionalData = movePostRequestBodyParameterValue?.additionalData ? movePostRequestBodyParameterValue?.additionalData! : {};
-        this.destinationId = movePostRequestBodyParameterValue?.destinationId;
+        this._additionalData = movePostRequestBodyParameterValue?.additionalData ? movePostRequestBodyParameterValue?.additionalData! : {};
+        this._destinationId = movePostRequestBodyParameterValue?.destinationId;
+    };
+    /**
+     * Gets the destinationId property value. The DestinationId property
+     * @returns a string
+     */
+    public get destinationId() {
+        return this._destinationId;
+    };
+    /**
+     * Sets the destinationId property value. The DestinationId property
+     * @param value Value to set for the DestinationId property.
+     */
+    public set destinationId(value: string | undefined) {
+        if(value) {
+            this._destinationId = value;
+        }
     };
     /**
      * The deserialization information for the current model

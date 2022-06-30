@@ -7,19 +7,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RecordingInfoImpl implements RecordingInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The identities of recording initiator. */
-    public initiator?: IdentitySet | undefined;
+    private _initiator?: IdentitySet | undefined;
     /** Possible values are: unknown, notRecording, recording, or failed. */
-    public recordingStatus?: RecordingStatus | undefined;
+    private _recordingStatus?: RecordingStatus | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new recordingInfo and sets the default values.
      * @param recordingInfoParameterValue 
      */
     public constructor(recordingInfoParameterValue?: RecordingInfo | undefined) {
-        this.additionalData = recordingInfoParameterValue?.additionalData ? recordingInfoParameterValue?.additionalData! : {};
-        this.initiator = recordingInfoParameterValue?.initiator;
-        this.recordingStatus = recordingInfoParameterValue?.recordingStatus;
+        this._additionalData = recordingInfoParameterValue?.additionalData ? recordingInfoParameterValue?.additionalData! : {};
+        this._initiator = recordingInfoParameterValue?.initiator;
+        this._recordingStatus = recordingInfoParameterValue?.recordingStatus;
     };
     /**
      * The deserialization information for the current model
@@ -32,13 +48,45 @@ export class RecordingInfoImpl implements RecordingInfo {
         };
     };
     /**
+     * Gets the initiator property value. The identities of recording initiator.
+     * @returns a IdentitySetInterface
+     */
+    public get initiator() {
+        return this._initiator;
+    };
+    /**
+     * Sets the initiator property value. The identities of recording initiator.
+     * @param value Value to set for the initiator property.
+     */
+    public set initiator(value: IdentitySet | undefined) {
+        if(value) {
+            this._initiator = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+        }
+    };
+    /**
+     * Gets the recordingStatus property value. Possible values are: unknown, notRecording, recording, or failed.
+     * @returns a recordingStatus
+     */
+    public get recordingStatus() {
+        return this._recordingStatus;
+    };
+    /**
+     * Sets the recordingStatus property value. Possible values are: unknown, notRecording, recording, or failed.
+     * @param value Value to set for the recordingStatus property.
+     */
+    public set recordingStatus(value: RecordingStatus | undefined) {
+        if(value) {
+            this._recordingStatus = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.initiator){
-            writer.writeObjectValue<IdentitySetImpl>("initiator", new IdentitySetImpl(this.initiator));
+            writer.writeObjectValue<IdentitySetImpl>("initiator", (!this.initiator || this.initiator instanceof IdentitySetImpl? this.initiator : new IdentitySetImpl(this.initiator)));
         }
         if(this.recordingStatus){
             writer.writeEnumValue<RecordingStatus>("recordingStatus", this.recordingStatus);

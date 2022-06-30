@@ -4,17 +4,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WebAppImpl extends MobileAppImpl implements WebApp {
     /** The web app URL. This property cannot be PATCHed. */
-    public appUrl?: string | undefined;
+    private _appUrl?: string | undefined;
     /** Whether or not to use managed browser. This property is only applicable for Android and IOS. */
-    public useManagedBrowser?: boolean | undefined;
+    private _useManagedBrowser?: boolean | undefined;
+    /**
+     * Gets the appUrl property value. The web app URL. This property cannot be PATCHed.
+     * @returns a string
+     */
+    public get appUrl() {
+        return this._appUrl;
+    };
+    /**
+     * Sets the appUrl property value. The web app URL. This property cannot be PATCHed.
+     * @param value Value to set for the appUrl property.
+     */
+    public set appUrl(value: string | undefined) {
+        if(value) {
+            this._appUrl = value;
+        }
+    };
     /**
      * Instantiates a new WebApp and sets the default values.
      * @param webAppParameterValue 
      */
     public constructor(webAppParameterValue?: WebApp | undefined) {
         super(webAppParameterValue);
-        this.appUrl = webAppParameterValue?.appUrl;
-        this.useManagedBrowser = webAppParameterValue?.useManagedBrowser;
+        this._appUrl = webAppParameterValue?.appUrl;
+        this._useManagedBrowser = webAppParameterValue?.useManagedBrowser;
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +54,22 @@ export class WebAppImpl extends MobileAppImpl implements WebApp {
         }
         if(this.useManagedBrowser){
             writer.writeBooleanValue("useManagedBrowser", this.useManagedBrowser);
+        }
+    };
+    /**
+     * Gets the useManagedBrowser property value. Whether or not to use managed browser. This property is only applicable for Android and IOS.
+     * @returns a boolean
+     */
+    public get useManagedBrowser() {
+        return this._useManagedBrowser;
+    };
+    /**
+     * Sets the useManagedBrowser property value. Whether or not to use managed browser. This property is only applicable for Android and IOS.
+     * @param value Value to set for the useManagedBrowser property.
+     */
+    public set useManagedBrowser(value: boolean | undefined) {
+        if(value) {
+            this._useManagedBrowser = value;
         }
     };
 }

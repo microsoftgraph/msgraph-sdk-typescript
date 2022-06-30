@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class IntegerRangeImpl implements IntegerRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The inclusive upper bound of the integer range. */
-    public end?: number | undefined;
+    private _end?: number | undefined;
     /** The inclusive lower bound of the integer range. */
-    public start?: number | undefined;
+    private _start?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new integerRange and sets the default values.
      * @param integerRangeParameterValue 
      */
     public constructor(integerRangeParameterValue?: IntegerRange | undefined) {
-        this.additionalData = integerRangeParameterValue?.additionalData ? integerRangeParameterValue?.additionalData! : {};
-        this.end = integerRangeParameterValue?.end;
-        this.start = integerRangeParameterValue?.start;
+        this._additionalData = integerRangeParameterValue?.additionalData ? integerRangeParameterValue?.additionalData! : {};
+        this._end = integerRangeParameterValue?.end;
+        this._start = integerRangeParameterValue?.start;
+    };
+    /**
+     * Gets the end property value. The inclusive upper bound of the integer range.
+     * @returns a int64
+     */
+    public get end() {
+        return this._end;
+    };
+    /**
+     * Sets the end property value. The inclusive upper bound of the integer range.
+     * @param value Value to set for the end property.
+     */
+    public set end(value: number | undefined) {
+        if(value) {
+            this._end = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -40,5 +72,21 @@ export class IntegerRangeImpl implements IntegerRange {
             writer.writeNumberValue("start", this.start);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the start property value. The inclusive lower bound of the integer range.
+     * @returns a int64
+     */
+    public get start() {
+        return this._start;
+    };
+    /**
+     * Sets the start property value. The inclusive lower bound of the integer range.
+     * @param value Value to set for the start property.
+     */
+    public set start(value: number | undefined) {
+        if(value) {
+            this._start = value;
+        }
     };
 }

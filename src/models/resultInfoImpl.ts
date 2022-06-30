@@ -3,22 +3,54 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ResultInfoImpl implements ResultInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The result code. */
-    public code?: number | undefined;
+    private _code?: number | undefined;
     /** The message. */
-    public message?: string | undefined;
+    private _message?: string | undefined;
     /** The result sub-code. */
-    public subcode?: number | undefined;
+    private _subcode?: number | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the code property value. The result code.
+     * @returns a integer
+     */
+    public get code() {
+        return this._code;
+    };
+    /**
+     * Sets the code property value. The result code.
+     * @param value Value to set for the code property.
+     */
+    public set code(value: number | undefined) {
+        if(value) {
+            this._code = value;
+        }
+    };
     /**
      * Instantiates a new resultInfo and sets the default values.
      * @param resultInfoParameterValue 
      */
     public constructor(resultInfoParameterValue?: ResultInfo | undefined) {
-        this.additionalData = resultInfoParameterValue?.additionalData ? resultInfoParameterValue?.additionalData! : {};
-        this.code = resultInfoParameterValue?.code;
-        this.message = resultInfoParameterValue?.message;
-        this.subcode = resultInfoParameterValue?.subcode;
+        this._additionalData = resultInfoParameterValue?.additionalData ? resultInfoParameterValue?.additionalData! : {};
+        this._code = resultInfoParameterValue?.code;
+        this._message = resultInfoParameterValue?.message;
+        this._subcode = resultInfoParameterValue?.subcode;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +62,22 @@ export class ResultInfoImpl implements ResultInfo {
             "message": n => { this.message = n.getStringValue(); },
             "subcode": n => { this.subcode = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the message property value. The message.
+     * @returns a string
+     */
+    public get message() {
+        return this._message;
+    };
+    /**
+     * Sets the message property value. The message.
+     * @param value Value to set for the message property.
+     */
+    public set message(value: string | undefined) {
+        if(value) {
+            this._message = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -47,5 +95,21 @@ export class ResultInfoImpl implements ResultInfo {
             writer.writeNumberValue("subcode", this.subcode);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the subcode property value. The result sub-code.
+     * @returns a integer
+     */
+    public get subcode() {
+        return this._subcode;
+    };
+    /**
+     * Sets the subcode property value. The result sub-code.
+     * @param value Value to set for the subcode property.
+     */
+    public set subcode(value: number | undefined) {
+        if(value) {
+            this._subcode = value;
+        }
     };
 }

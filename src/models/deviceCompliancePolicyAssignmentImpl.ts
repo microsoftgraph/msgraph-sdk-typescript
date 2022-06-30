@@ -7,14 +7,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Device compliance policy assignment. */
 export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements DeviceCompliancePolicyAssignment {
     /** Target for the compliance policy assignment. */
-    public target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new deviceCompliancePolicyAssignment and sets the default values.
      * @param deviceCompliancePolicyAssignmentParameterValue 
      */
     public constructor(deviceCompliancePolicyAssignmentParameterValue?: DeviceCompliancePolicyAssignment | undefined) {
         super(deviceCompliancePolicyAssignmentParameterValue);
-        this.target = deviceCompliancePolicyAssignmentParameterValue?.target;
+        this._target = deviceCompliancePolicyAssignmentParameterValue?.target;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,23 @@ export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", new DeviceAndAppManagementAssignmentTargetImpl(this.target));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+        }
+    };
+    /**
+     * Gets the target property value. Target for the compliance policy assignment.
+     * @returns a DeviceAndAppManagementAssignmentTargetInterface
+     */
+    public get target() {
+        return this._target;
+    };
+    /**
+     * Sets the target property value. Target for the compliance policy assignment.
+     * @param value Value to set for the target property.
+     */
+    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+        if(value) {
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

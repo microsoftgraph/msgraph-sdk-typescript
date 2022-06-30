@@ -5,17 +5,33 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
     /** The Application's availability. Possible values are: global, lineOfBusiness. */
-    public appAvailability?: ManagedAppAvailability | undefined;
+    private _appAvailability?: ManagedAppAvailability | undefined;
     /** The Application's version. */
-    public version?: string | undefined;
+    private _version?: string | undefined;
+    /**
+     * Gets the appAvailability property value. The Application's availability. Possible values are: global, lineOfBusiness.
+     * @returns a managedAppAvailability
+     */
+    public get appAvailability() {
+        return this._appAvailability;
+    };
+    /**
+     * Sets the appAvailability property value. The Application's availability. Possible values are: global, lineOfBusiness.
+     * @param value Value to set for the appAvailability property.
+     */
+    public set appAvailability(value: ManagedAppAvailability | undefined) {
+        if(value) {
+            this._appAvailability = value;
+        }
+    };
     /**
      * Instantiates a new ManagedApp and sets the default values.
      * @param managedAppParameterValue 
      */
     public constructor(managedAppParameterValue?: ManagedApp | undefined) {
         super(managedAppParameterValue);
-        this.appAvailability = managedAppParameterValue?.appAvailability;
-        this.version = managedAppParameterValue?.version;
+        this._appAvailability = managedAppParameterValue?.appAvailability;
+        this._version = managedAppParameterValue?.version;
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +55,22 @@ export class ManagedAppImpl extends MobileAppImpl implements ManagedApp {
         }
         if(this.version){
             writer.writeStringValue("version", this.version);
+        }
+    };
+    /**
+     * Gets the version property value. The Application's version.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. The Application's version.
+     * @param value Value to set for the version property.
+     */
+    public set version(value: string | undefined) {
+        if(value) {
+            this._version = value;
         }
     };
 }

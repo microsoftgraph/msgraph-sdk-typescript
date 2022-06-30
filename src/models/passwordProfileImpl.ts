@@ -3,22 +3,70 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PasswordProfileImpl implements PasswordProfile {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon. */
-    public forceChangePasswordNextSignIn?: boolean | undefined;
+    private _forceChangePasswordNextSignIn?: boolean | undefined;
     /** If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false. */
-    public forceChangePasswordNextSignInWithMfa?: boolean | undefined;
+    private _forceChangePasswordNextSignInWithMfa?: boolean | undefined;
     /** The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required. */
-    public password?: string | undefined;
+    private _password?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new passwordProfile and sets the default values.
      * @param passwordProfileParameterValue 
      */
     public constructor(passwordProfileParameterValue?: PasswordProfile | undefined) {
-        this.additionalData = passwordProfileParameterValue?.additionalData ? passwordProfileParameterValue?.additionalData! : {};
-        this.forceChangePasswordNextSignIn = passwordProfileParameterValue?.forceChangePasswordNextSignIn;
-        this.forceChangePasswordNextSignInWithMfa = passwordProfileParameterValue?.forceChangePasswordNextSignInWithMfa;
-        this.password = passwordProfileParameterValue?.password;
+        this._additionalData = passwordProfileParameterValue?.additionalData ? passwordProfileParameterValue?.additionalData! : {};
+        this._forceChangePasswordNextSignIn = passwordProfileParameterValue?.forceChangePasswordNextSignIn;
+        this._forceChangePasswordNextSignInWithMfa = passwordProfileParameterValue?.forceChangePasswordNextSignInWithMfa;
+        this._password = passwordProfileParameterValue?.password;
+    };
+    /**
+     * Gets the forceChangePasswordNextSignIn property value. true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
+     * @returns a boolean
+     */
+    public get forceChangePasswordNextSignIn() {
+        return this._forceChangePasswordNextSignIn;
+    };
+    /**
+     * Sets the forceChangePasswordNextSignIn property value. true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
+     * @param value Value to set for the forceChangePasswordNextSignIn property.
+     */
+    public set forceChangePasswordNextSignIn(value: boolean | undefined) {
+        if(value) {
+            this._forceChangePasswordNextSignIn = value;
+        }
+    };
+    /**
+     * Gets the forceChangePasswordNextSignInWithMfa property value. If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false.
+     * @returns a boolean
+     */
+    public get forceChangePasswordNextSignInWithMfa() {
+        return this._forceChangePasswordNextSignInWithMfa;
+    };
+    /**
+     * Sets the forceChangePasswordNextSignInWithMfa property value. If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false.
+     * @param value Value to set for the forceChangePasswordNextSignInWithMfa property.
+     */
+    public set forceChangePasswordNextSignInWithMfa(value: boolean | undefined) {
+        if(value) {
+            this._forceChangePasswordNextSignInWithMfa = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +78,22 @@ export class PasswordProfileImpl implements PasswordProfile {
             "forceChangePasswordNextSignInWithMfa": n => { this.forceChangePasswordNextSignInWithMfa = n.getBooleanValue(); },
             "password": n => { this.password = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the password property value. The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required.
+     * @returns a string
+     */
+    public get password() {
+        return this._password;
+    };
+    /**
+     * Sets the password property value. The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required.
+     * @param value Value to set for the password property.
+     */
+    public set password(value: string | undefined) {
+        if(value) {
+            this._password = value;
+        }
     };
     /**
      * Serializes information the current object

@@ -3,19 +3,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessPlatformsImpl implements ConditionalAccessPlatforms {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux. */
-    public excludePlatforms?: string[] | undefined;
+    private _excludePlatforms?: string[] | undefined;
     /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``. */
-    public includePlatforms?: string[] | undefined;
+    private _includePlatforms?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new conditionalAccessPlatforms and sets the default values.
      * @param conditionalAccessPlatformsParameterValue 
      */
     public constructor(conditionalAccessPlatformsParameterValue?: ConditionalAccessPlatforms | undefined) {
-        this.additionalData = conditionalAccessPlatformsParameterValue?.additionalData ? conditionalAccessPlatformsParameterValue?.additionalData! : {};
-        this.excludePlatforms = conditionalAccessPlatformsParameterValue?.excludePlatforms;
-        this.includePlatforms = conditionalAccessPlatformsParameterValue?.includePlatforms;
+        this._additionalData = conditionalAccessPlatformsParameterValue?.additionalData ? conditionalAccessPlatformsParameterValue?.additionalData! : {};
+        this._excludePlatforms = conditionalAccessPlatformsParameterValue?.excludePlatforms;
+        this._includePlatforms = conditionalAccessPlatformsParameterValue?.includePlatforms;
+    };
+    /**
+     * Gets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
+     * @returns a string
+     */
+    public get excludePlatforms() {
+        return this._excludePlatforms;
+    };
+    /**
+     * Sets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
+     * @param value Value to set for the excludePlatforms property.
+     */
+    public set excludePlatforms(value: string[] | undefined) {
+        if(value) {
+            this._excludePlatforms = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -26,6 +58,22 @@ export class ConditionalAccessPlatformsImpl implements ConditionalAccessPlatform
             "excludePlatforms": n => { this.excludePlatforms = n.getCollectionOfPrimitiveValues<string>(); },
             "includePlatforms": n => { this.includePlatforms = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
+     * @returns a string
+     */
+    public get includePlatforms() {
+        return this._includePlatforms;
+    };
+    /**
+     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
+     * @param value Value to set for the includePlatforms property.
+     */
+    public set includePlatforms(value: string[] | undefined) {
+        if(value) {
+            this._includePlatforms = value;
+        }
     };
     /**
      * Serializes information the current object

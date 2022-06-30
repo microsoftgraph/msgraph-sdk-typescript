@@ -6,17 +6,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class OutlookCategoryImpl extends EntityImpl implements OutlookCategory {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
-    public color?: CategoryColor | undefined;
+    private _color?: CategoryColor | undefined;
     /** A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only. */
-    public displayName?: string | undefined;
+    private _displayName?: string | undefined;
+    /**
+     * Gets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
+     * @returns a categoryColor
+     */
+    public get color() {
+        return this._color;
+    };
+    /**
+     * Sets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
+     * @param value Value to set for the color property.
+     */
+    public set color(value: CategoryColor | undefined) {
+        if(value) {
+            this._color = value;
+        }
+    };
     /**
      * Instantiates a new outlookCategory and sets the default values.
      * @param outlookCategoryParameterValue 
      */
     public constructor(outlookCategoryParameterValue?: OutlookCategory | undefined) {
         super(outlookCategoryParameterValue);
-        this.color = outlookCategoryParameterValue?.color;
-        this.displayName = outlookCategoryParameterValue?.displayName;
+        this._color = outlookCategoryParameterValue?.color;
+        this._displayName = outlookCategoryParameterValue?.displayName;
+    };
+    /**
+     * Gets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        if(value) {
+            this._displayName = value;
+        }
     };
     /**
      * The deserialization information for the current model

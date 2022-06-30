@@ -6,14 +6,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export class AuthenticationMethodConfigurationImpl extends EntityImpl implements AuthenticationMethodConfiguration {
     /** The state of the policy. Possible values are: enabled, disabled. */
-    public state?: AuthenticationMethodState | undefined;
+    private _state?: AuthenticationMethodState | undefined;
     /**
      * Instantiates a new authenticationMethodConfiguration and sets the default values.
      * @param authenticationMethodConfigurationParameterValue 
      */
     public constructor(authenticationMethodConfigurationParameterValue?: AuthenticationMethodConfiguration | undefined) {
         super(authenticationMethodConfigurationParameterValue);
-        this.state = authenticationMethodConfigurationParameterValue?.state;
+        this._state = authenticationMethodConfigurationParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +33,22 @@ export class AuthenticationMethodConfigurationImpl extends EntityImpl implements
         super.serialize(writer);
         if(this.state){
             writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
+        }
+    };
+    /**
+     * Gets the state property value. The state of the policy. Possible values are: enabled, disabled.
+     * @returns a authenticationMethodState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. The state of the policy. Possible values are: enabled, disabled.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: AuthenticationMethodState | undefined) {
+        if(value) {
+            this._state = value;
         }
     };
 }

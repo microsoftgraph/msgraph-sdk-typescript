@@ -3,16 +3,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AlbumImpl implements Album {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Unique identifier of the [driveItem][] that is the cover of the album. */
-    public coverImageItemId?: string | undefined;
+    private _coverImageItemId?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new album and sets the default values.
      * @param albumParameterValue 
      */
     public constructor(albumParameterValue?: Album | undefined) {
-        this.additionalData = albumParameterValue?.additionalData ? albumParameterValue?.additionalData! : {};
-        this.coverImageItemId = albumParameterValue?.coverImageItemId;
+        this._additionalData = albumParameterValue?.additionalData ? albumParameterValue?.additionalData! : {};
+        this._coverImageItemId = albumParameterValue?.coverImageItemId;
+    };
+    /**
+     * Gets the coverImageItemId property value. Unique identifier of the [driveItem][] that is the cover of the album.
+     * @returns a string
+     */
+    public get coverImageItemId() {
+        return this._coverImageItemId;
+    };
+    /**
+     * Sets the coverImageItemId property value. Unique identifier of the [driveItem][] that is the cover of the album.
+     * @param value Value to set for the coverImageItemId property.
+     */
+    public set coverImageItemId(value: string | undefined) {
+        if(value) {
+            this._coverImageItemId = value;
+        }
     };
     /**
      * The deserialization information for the current model

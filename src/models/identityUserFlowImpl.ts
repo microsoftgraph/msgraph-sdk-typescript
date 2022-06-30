@@ -6,17 +6,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow {
     /** The userFlowType property */
-    public userFlowType?: UserFlowType | undefined;
+    private _userFlowType?: UserFlowType | undefined;
     /** The userFlowTypeVersion property */
-    public userFlowTypeVersion?: number | undefined;
+    private _userFlowTypeVersion?: number | undefined;
     /**
      * Instantiates a new identityUserFlow and sets the default values.
      * @param identityUserFlowParameterValue 
      */
     public constructor(identityUserFlowParameterValue?: IdentityUserFlow | undefined) {
         super(identityUserFlowParameterValue);
-        this.userFlowType = identityUserFlowParameterValue?.userFlowType;
-        this.userFlowTypeVersion = identityUserFlowParameterValue?.userFlowTypeVersion;
+        this._userFlowType = identityUserFlowParameterValue?.userFlowType;
+        this._userFlowTypeVersion = identityUserFlowParameterValue?.userFlowTypeVersion;
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +40,38 @@ export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow
         }
         if(this.userFlowTypeVersion){
             writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
+        }
+    };
+    /**
+     * Gets the userFlowType property value. The userFlowType property
+     * @returns a userFlowType
+     */
+    public get userFlowType() {
+        return this._userFlowType;
+    };
+    /**
+     * Sets the userFlowType property value. The userFlowType property
+     * @param value Value to set for the userFlowType property.
+     */
+    public set userFlowType(value: UserFlowType | undefined) {
+        if(value) {
+            this._userFlowType = value;
+        }
+    };
+    /**
+     * Gets the userFlowTypeVersion property value. The userFlowTypeVersion property
+     * @returns a float
+     */
+    public get userFlowTypeVersion() {
+        return this._userFlowTypeVersion;
+    };
+    /**
+     * Sets the userFlowTypeVersion property value. The userFlowTypeVersion property
+     * @param value Value to set for the userFlowTypeVersion property.
+     */
+    public set userFlowTypeVersion(value: number | undefined) {
+        if(value) {
+            this._userFlowTypeVersion = value;
         }
     };
 }

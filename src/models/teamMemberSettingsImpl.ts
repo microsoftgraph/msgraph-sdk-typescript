@@ -3,31 +3,143 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamMemberSettingsImpl implements TeamMemberSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** If set to true, members can add and remove apps. */
-    public allowAddRemoveApps?: boolean | undefined;
+    private _allowAddRemoveApps?: boolean | undefined;
     /** If set to true, members can add and update private channels. */
-    public allowCreatePrivateChannels?: boolean | undefined;
+    private _allowCreatePrivateChannels?: boolean | undefined;
     /** If set to true, members can add and update any channels. */
-    public allowCreateUpdateChannels?: boolean | undefined;
+    private _allowCreateUpdateChannels?: boolean | undefined;
     /** If set to true, members can add, update, and remove connectors. */
-    public allowCreateUpdateRemoveConnectors?: boolean | undefined;
+    private _allowCreateUpdateRemoveConnectors?: boolean | undefined;
     /** If set to true, members can add, update, and remove tabs. */
-    public allowCreateUpdateRemoveTabs?: boolean | undefined;
+    private _allowCreateUpdateRemoveTabs?: boolean | undefined;
     /** If set to true, members can delete channels. */
-    public allowDeleteChannels?: boolean | undefined;
+    private _allowDeleteChannels?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the allowAddRemoveApps property value. If set to true, members can add and remove apps.
+     * @returns a boolean
+     */
+    public get allowAddRemoveApps() {
+        return this._allowAddRemoveApps;
+    };
+    /**
+     * Sets the allowAddRemoveApps property value. If set to true, members can add and remove apps.
+     * @param value Value to set for the allowAddRemoveApps property.
+     */
+    public set allowAddRemoveApps(value: boolean | undefined) {
+        if(value) {
+            this._allowAddRemoveApps = value;
+        }
+    };
+    /**
+     * Gets the allowCreatePrivateChannels property value. If set to true, members can add and update private channels.
+     * @returns a boolean
+     */
+    public get allowCreatePrivateChannels() {
+        return this._allowCreatePrivateChannels;
+    };
+    /**
+     * Sets the allowCreatePrivateChannels property value. If set to true, members can add and update private channels.
+     * @param value Value to set for the allowCreatePrivateChannels property.
+     */
+    public set allowCreatePrivateChannels(value: boolean | undefined) {
+        if(value) {
+            this._allowCreatePrivateChannels = value;
+        }
+    };
+    /**
+     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
+     * @returns a boolean
+     */
+    public get allowCreateUpdateChannels() {
+        return this._allowCreateUpdateChannels;
+    };
+    /**
+     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
+     * @param value Value to set for the allowCreateUpdateChannels property.
+     */
+    public set allowCreateUpdateChannels(value: boolean | undefined) {
+        if(value) {
+            this._allowCreateUpdateChannels = value;
+        }
+    };
+    /**
+     * Gets the allowCreateUpdateRemoveConnectors property value. If set to true, members can add, update, and remove connectors.
+     * @returns a boolean
+     */
+    public get allowCreateUpdateRemoveConnectors() {
+        return this._allowCreateUpdateRemoveConnectors;
+    };
+    /**
+     * Sets the allowCreateUpdateRemoveConnectors property value. If set to true, members can add, update, and remove connectors.
+     * @param value Value to set for the allowCreateUpdateRemoveConnectors property.
+     */
+    public set allowCreateUpdateRemoveConnectors(value: boolean | undefined) {
+        if(value) {
+            this._allowCreateUpdateRemoveConnectors = value;
+        }
+    };
+    /**
+     * Gets the allowCreateUpdateRemoveTabs property value. If set to true, members can add, update, and remove tabs.
+     * @returns a boolean
+     */
+    public get allowCreateUpdateRemoveTabs() {
+        return this._allowCreateUpdateRemoveTabs;
+    };
+    /**
+     * Sets the allowCreateUpdateRemoveTabs property value. If set to true, members can add, update, and remove tabs.
+     * @param value Value to set for the allowCreateUpdateRemoveTabs property.
+     */
+    public set allowCreateUpdateRemoveTabs(value: boolean | undefined) {
+        if(value) {
+            this._allowCreateUpdateRemoveTabs = value;
+        }
+    };
+    /**
+     * Gets the allowDeleteChannels property value. If set to true, members can delete channels.
+     * @returns a boolean
+     */
+    public get allowDeleteChannels() {
+        return this._allowDeleteChannels;
+    };
+    /**
+     * Sets the allowDeleteChannels property value. If set to true, members can delete channels.
+     * @param value Value to set for the allowDeleteChannels property.
+     */
+    public set allowDeleteChannels(value: boolean | undefined) {
+        if(value) {
+            this._allowDeleteChannels = value;
+        }
+    };
     /**
      * Instantiates a new teamMemberSettings and sets the default values.
      * @param teamMemberSettingsParameterValue 
      */
     public constructor(teamMemberSettingsParameterValue?: TeamMemberSettings | undefined) {
-        this.additionalData = teamMemberSettingsParameterValue?.additionalData ? teamMemberSettingsParameterValue?.additionalData! : {};
-        this.allowAddRemoveApps = teamMemberSettingsParameterValue?.allowAddRemoveApps;
-        this.allowCreatePrivateChannels = teamMemberSettingsParameterValue?.allowCreatePrivateChannels;
-        this.allowCreateUpdateChannels = teamMemberSettingsParameterValue?.allowCreateUpdateChannels;
-        this.allowCreateUpdateRemoveConnectors = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveConnectors;
-        this.allowCreateUpdateRemoveTabs = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveTabs;
-        this.allowDeleteChannels = teamMemberSettingsParameterValue?.allowDeleteChannels;
+        this._additionalData = teamMemberSettingsParameterValue?.additionalData ? teamMemberSettingsParameterValue?.additionalData! : {};
+        this._allowAddRemoveApps = teamMemberSettingsParameterValue?.allowAddRemoveApps;
+        this._allowCreatePrivateChannels = teamMemberSettingsParameterValue?.allowCreatePrivateChannels;
+        this._allowCreateUpdateChannels = teamMemberSettingsParameterValue?.allowCreateUpdateChannels;
+        this._allowCreateUpdateRemoveConnectors = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveConnectors;
+        this._allowCreateUpdateRemoveTabs = teamMemberSettingsParameterValue?.allowCreateUpdateRemoveTabs;
+        this._allowDeleteChannels = teamMemberSettingsParameterValue?.allowDeleteChannels;
     };
     /**
      * The deserialization information for the current model

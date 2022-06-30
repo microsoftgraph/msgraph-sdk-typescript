@@ -8,47 +8,99 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl implements MacOSGeneralDeviceConfiguration {
     /** List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant. */
-    public compliantAppListType?: AppListType | undefined;
+    private _compliantAppListType?: AppListType | undefined;
     /** List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements. */
-    public compliantAppsList?: AppListItem[] | undefined;
+    private _compliantAppsList?: AppListItem[] | undefined;
     /** An email address lacking a suffix that matches any of these strings will be considered out-of-domain. */
-    public emailInDomainSuffixes?: string[] | undefined;
+    private _emailInDomainSuffixes?: string[] | undefined;
     /** Block simple passwords. */
-    public passwordBlockSimple?: boolean | undefined;
+    private _passwordBlockSimple?: boolean | undefined;
     /** Number of days before the password expires. */
-    public passwordExpirationDays?: number | undefined;
+    private _passwordExpirationDays?: number | undefined;
     /** Number of character sets a password must contain. Valid values 0 to 4 */
-    public passwordMinimumCharacterSetCount?: number | undefined;
+    private _passwordMinimumCharacterSetCount?: number | undefined;
     /** Minimum length of passwords. */
-    public passwordMinimumLength?: number | undefined;
+    private _passwordMinimumLength?: number | undefined;
     /** Minutes of inactivity required before a password is required. */
-    public passwordMinutesOfInactivityBeforeLock?: number | undefined;
+    private _passwordMinutesOfInactivityBeforeLock?: number | undefined;
     /** Minutes of inactivity required before the screen times out. */
-    public passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    private _passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
     /** Number of previous passwords to block. */
-    public passwordPreviousPasswordBlockCount?: number | undefined;
+    private _passwordPreviousPasswordBlockCount?: number | undefined;
     /** Whether or not to require a password. */
-    public passwordRequired?: boolean | undefined;
+    private _passwordRequired?: boolean | undefined;
     /** Type of password that is required. Possible values are: deviceDefault, alphanumeric, numeric. */
-    public passwordRequiredType?: RequiredPasswordType | undefined;
+    private _passwordRequiredType?: RequiredPasswordType | undefined;
+    /**
+     * Gets the compliantAppListType property value. List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * @returns a appListType
+     */
+    public get compliantAppListType() {
+        return this._compliantAppListType;
+    };
+    /**
+     * Sets the compliantAppListType property value. List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * @param value Value to set for the compliantAppListType property.
+     */
+    public set compliantAppListType(value: AppListType | undefined) {
+        if(value) {
+            this._compliantAppListType = value;
+        }
+    };
+    /**
+     * Gets the compliantAppsList property value. List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+     * @returns a AppListItemInterface
+     */
+    public get compliantAppsList() {
+        return this._compliantAppsList;
+    };
+    /**
+     * Sets the compliantAppsList property value. List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+     * @param value Value to set for the compliantAppsList property.
+     */
+    public set compliantAppsList(value: AppListItem[] | undefined) {
+        if(value) {
+            const compliantAppsListArrValue: AppListItemImpl[] = [];
+            this.compliantAppsList?.forEach(element => {
+                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            });
+            this._compliantAppsList = compliantAppsListArrValue;
+        }
+    };
     /**
      * Instantiates a new MacOSGeneralDeviceConfiguration and sets the default values.
      * @param macOSGeneralDeviceConfigurationParameterValue 
      */
     public constructor(macOSGeneralDeviceConfigurationParameterValue?: MacOSGeneralDeviceConfiguration | undefined) {
         super(macOSGeneralDeviceConfigurationParameterValue);
-        this.compliantAppListType = macOSGeneralDeviceConfigurationParameterValue?.compliantAppListType;
-        this.compliantAppsList = macOSGeneralDeviceConfigurationParameterValue?.compliantAppsList;
-        this.emailInDomainSuffixes = macOSGeneralDeviceConfigurationParameterValue?.emailInDomainSuffixes;
-        this.passwordBlockSimple = macOSGeneralDeviceConfigurationParameterValue?.passwordBlockSimple;
-        this.passwordExpirationDays = macOSGeneralDeviceConfigurationParameterValue?.passwordExpirationDays;
-        this.passwordMinimumCharacterSetCount = macOSGeneralDeviceConfigurationParameterValue?.passwordMinimumCharacterSetCount;
-        this.passwordMinimumLength = macOSGeneralDeviceConfigurationParameterValue?.passwordMinimumLength;
-        this.passwordMinutesOfInactivityBeforeLock = macOSGeneralDeviceConfigurationParameterValue?.passwordMinutesOfInactivityBeforeLock;
-        this.passwordMinutesOfInactivityBeforeScreenTimeout = macOSGeneralDeviceConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
-        this.passwordPreviousPasswordBlockCount = macOSGeneralDeviceConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
-        this.passwordRequired = macOSGeneralDeviceConfigurationParameterValue?.passwordRequired;
-        this.passwordRequiredType = macOSGeneralDeviceConfigurationParameterValue?.passwordRequiredType;
+        this._compliantAppListType = macOSGeneralDeviceConfigurationParameterValue?.compliantAppListType;
+        this._compliantAppsList = macOSGeneralDeviceConfigurationParameterValue?.compliantAppsList;
+        this._emailInDomainSuffixes = macOSGeneralDeviceConfigurationParameterValue?.emailInDomainSuffixes;
+        this._passwordBlockSimple = macOSGeneralDeviceConfigurationParameterValue?.passwordBlockSimple;
+        this._passwordExpirationDays = macOSGeneralDeviceConfigurationParameterValue?.passwordExpirationDays;
+        this._passwordMinimumCharacterSetCount = macOSGeneralDeviceConfigurationParameterValue?.passwordMinimumCharacterSetCount;
+        this._passwordMinimumLength = macOSGeneralDeviceConfigurationParameterValue?.passwordMinimumLength;
+        this._passwordMinutesOfInactivityBeforeLock = macOSGeneralDeviceConfigurationParameterValue?.passwordMinutesOfInactivityBeforeLock;
+        this._passwordMinutesOfInactivityBeforeScreenTimeout = macOSGeneralDeviceConfigurationParameterValue?.passwordMinutesOfInactivityBeforeScreenTimeout;
+        this._passwordPreviousPasswordBlockCount = macOSGeneralDeviceConfigurationParameterValue?.passwordPreviousPasswordBlockCount;
+        this._passwordRequired = macOSGeneralDeviceConfigurationParameterValue?.passwordRequired;
+        this._passwordRequiredType = macOSGeneralDeviceConfigurationParameterValue?.passwordRequiredType;
+    };
+    /**
+     * Gets the emailInDomainSuffixes property value. An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
+     * @returns a string
+     */
+    public get emailInDomainSuffixes() {
+        return this._emailInDomainSuffixes;
+    };
+    /**
+     * Sets the emailInDomainSuffixes property value. An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
+     * @param value Value to set for the emailInDomainSuffixes property.
+     */
+    public set emailInDomainSuffixes(value: string[] | undefined) {
+        if(value) {
+            this._emailInDomainSuffixes = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -71,6 +123,150 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
         };
     };
     /**
+     * Gets the passwordBlockSimple property value. Block simple passwords.
+     * @returns a boolean
+     */
+    public get passwordBlockSimple() {
+        return this._passwordBlockSimple;
+    };
+    /**
+     * Sets the passwordBlockSimple property value. Block simple passwords.
+     * @param value Value to set for the passwordBlockSimple property.
+     */
+    public set passwordBlockSimple(value: boolean | undefined) {
+        if(value) {
+            this._passwordBlockSimple = value;
+        }
+    };
+    /**
+     * Gets the passwordExpirationDays property value. Number of days before the password expires.
+     * @returns a integer
+     */
+    public get passwordExpirationDays() {
+        return this._passwordExpirationDays;
+    };
+    /**
+     * Sets the passwordExpirationDays property value. Number of days before the password expires.
+     * @param value Value to set for the passwordExpirationDays property.
+     */
+    public set passwordExpirationDays(value: number | undefined) {
+        if(value) {
+            this._passwordExpirationDays = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumCharacterSetCount property value. Number of character sets a password must contain. Valid values 0 to 4
+     * @returns a integer
+     */
+    public get passwordMinimumCharacterSetCount() {
+        return this._passwordMinimumCharacterSetCount;
+    };
+    /**
+     * Sets the passwordMinimumCharacterSetCount property value. Number of character sets a password must contain. Valid values 0 to 4
+     * @param value Value to set for the passwordMinimumCharacterSetCount property.
+     */
+    public set passwordMinimumCharacterSetCount(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumCharacterSetCount = value;
+        }
+    };
+    /**
+     * Gets the passwordMinimumLength property value. Minimum length of passwords.
+     * @returns a integer
+     */
+    public get passwordMinimumLength() {
+        return this._passwordMinimumLength;
+    };
+    /**
+     * Sets the passwordMinimumLength property value. Minimum length of passwords.
+     * @param value Value to set for the passwordMinimumLength property.
+     */
+    public set passwordMinimumLength(value: number | undefined) {
+        if(value) {
+            this._passwordMinimumLength = value;
+        }
+    };
+    /**
+     * Gets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity required before a password is required.
+     * @returns a integer
+     */
+    public get passwordMinutesOfInactivityBeforeLock() {
+        return this._passwordMinutesOfInactivityBeforeLock;
+    };
+    /**
+     * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity required before a password is required.
+     * @param value Value to set for the passwordMinutesOfInactivityBeforeLock property.
+     */
+    public set passwordMinutesOfInactivityBeforeLock(value: number | undefined) {
+        if(value) {
+            this._passwordMinutesOfInactivityBeforeLock = value;
+        }
+    };
+    /**
+     * Gets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity required before the screen times out.
+     * @returns a integer
+     */
+    public get passwordMinutesOfInactivityBeforeScreenTimeout() {
+        return this._passwordMinutesOfInactivityBeforeScreenTimeout;
+    };
+    /**
+     * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity required before the screen times out.
+     * @param value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
+     */
+    public set passwordMinutesOfInactivityBeforeScreenTimeout(value: number | undefined) {
+        if(value) {
+            this._passwordMinutesOfInactivityBeforeScreenTimeout = value;
+        }
+    };
+    /**
+     * Gets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block.
+     * @returns a integer
+     */
+    public get passwordPreviousPasswordBlockCount() {
+        return this._passwordPreviousPasswordBlockCount;
+    };
+    /**
+     * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block.
+     * @param value Value to set for the passwordPreviousPasswordBlockCount property.
+     */
+    public set passwordPreviousPasswordBlockCount(value: number | undefined) {
+        if(value) {
+            this._passwordPreviousPasswordBlockCount = value;
+        }
+    };
+    /**
+     * Gets the passwordRequired property value. Whether or not to require a password.
+     * @returns a boolean
+     */
+    public get passwordRequired() {
+        return this._passwordRequired;
+    };
+    /**
+     * Sets the passwordRequired property value. Whether or not to require a password.
+     * @param value Value to set for the passwordRequired property.
+     */
+    public set passwordRequired(value: boolean | undefined) {
+        if(value) {
+            this._passwordRequired = value;
+        }
+    };
+    /**
+     * Gets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @returns a requiredPasswordType
+     */
+    public get passwordRequiredType() {
+        return this._passwordRequiredType;
+    };
+    /**
+     * Sets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @param value Value to set for the passwordRequiredType property.
+     */
+    public set passwordRequiredType(value: RequiredPasswordType | undefined) {
+        if(value) {
+            this._passwordRequiredType = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -80,7 +276,10 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
         if(this.compliantAppListType){
             writer.writeEnumValue<AppListType>("compliantAppListType", this.compliantAppListType);
         }
-        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = []; this.compliantAppsList?.forEach(element => {compliantAppsListArrValue.push(new AppListItemImpl(element));});
+        if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = [];
+        this.compliantAppsList?.forEach(element => {
+            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
         if(this.emailInDomainSuffixes){

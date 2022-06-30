@@ -5,14 +5,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Casts the previous resource to group. */
 export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEntityBaseModel {
     /** The endpoint where you can get details about the page. Read-only. */
-    public self?: string | undefined;
+    private _self?: string | undefined;
     /**
      * Instantiates a new onenoteEntityBaseModel and sets the default values.
      * @param onenoteEntityBaseModelParameterValue 
      */
     public constructor(onenoteEntityBaseModelParameterValue?: OnenoteEntityBaseModel | undefined) {
         super(onenoteEntityBaseModelParameterValue);
-        this.self = onenoteEntityBaseModelParameterValue?.self;
+        this._self = onenoteEntityBaseModelParameterValue?.self;
     };
     /**
      * The deserialization information for the current model
@@ -22,6 +22,22 @@ export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEnt
         return {...super.getFieldDeserializers(),
             "self": n => { this.self = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the self property value. The endpoint where you can get details about the page. Read-only.
+     * @returns a string
+     */
+    public get self() {
+        return this._self;
+    };
+    /**
+     * Sets the self property value. The endpoint where you can get details about the page. Read-only.
+     * @param value Value to set for the self property.
+     */
+    public set self(value: string | undefined) {
+        if(value) {
+            this._self = value;
+        }
     };
     /**
      * Serializes information the current object

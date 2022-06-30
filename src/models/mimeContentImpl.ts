@@ -4,19 +4,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for a generic mime content. */
 export class MimeContentImpl implements MimeContent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates the content mime type. */
-    public type?: string | undefined;
+    private _type?: string | undefined;
     /** The byte array that contains the actual content. */
-    public value?: string | undefined;
+    private _value?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new mimeContent and sets the default values.
      * @param mimeContentParameterValue 
      */
     public constructor(mimeContentParameterValue?: MimeContent | undefined) {
-        this.additionalData = mimeContentParameterValue?.additionalData ? mimeContentParameterValue?.additionalData! : {};
-        this.type = mimeContentParameterValue?.type;
-        this.value = mimeContentParameterValue?.value;
+        this._additionalData = mimeContentParameterValue?.additionalData ? mimeContentParameterValue?.additionalData! : {};
+        this._type = mimeContentParameterValue?.type;
+        this._value = mimeContentParameterValue?.value;
     };
     /**
      * The deserialization information for the current model
@@ -41,5 +57,37 @@ export class MimeContentImpl implements MimeContent {
             writer.writeStringValue("value", this.value);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. Indicates the content mime type.
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. Indicates the content mime type.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        if(value) {
+            this._type = value;
+        }
+    };
+    /**
+     * Gets the value property value. The byte array that contains the actual content.
+     * @returns a binary
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. The byte array that contains the actual content.
+     * @param value Value to set for the value property.
+     */
+    public set value(value: string | undefined) {
+        if(value) {
+            this._value = value;
+        }
     };
 }

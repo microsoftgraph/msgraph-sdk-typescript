@@ -7,31 +7,63 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ScheduleItemImpl implements ScheduleItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The date, time, and time zone that the corresponding event ends. */
-    public end?: DateTimeTimeZone | undefined;
+    private _end?: DateTimeTimeZone | undefined;
     /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
-    public isPrivate?: boolean | undefined;
+    private _isPrivate?: boolean | undefined;
     /** The location where the corresponding event is held or attended from. Optional. */
-    public location?: string | undefined;
+    private _location?: string | undefined;
     /** The date, time, and time zone that the corresponding event starts. */
-    public start?: DateTimeTimeZone | undefined;
+    private _start?: DateTimeTimeZone | undefined;
     /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-    public status?: FreeBusyStatus | undefined;
+    private _status?: FreeBusyStatus | undefined;
     /** The corresponding event's subject line. Optional. */
-    public subject?: string | undefined;
+    private _subject?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new scheduleItem and sets the default values.
      * @param scheduleItemParameterValue 
      */
     public constructor(scheduleItemParameterValue?: ScheduleItem | undefined) {
-        this.additionalData = scheduleItemParameterValue?.additionalData ? scheduleItemParameterValue?.additionalData! : {};
-        this.end = scheduleItemParameterValue?.end;
-        this.isPrivate = scheduleItemParameterValue?.isPrivate;
-        this.location = scheduleItemParameterValue?.location;
-        this.start = scheduleItemParameterValue?.start;
-        this.status = scheduleItemParameterValue?.status;
-        this.subject = scheduleItemParameterValue?.subject;
+        this._additionalData = scheduleItemParameterValue?.additionalData ? scheduleItemParameterValue?.additionalData! : {};
+        this._end = scheduleItemParameterValue?.end;
+        this._isPrivate = scheduleItemParameterValue?.isPrivate;
+        this._location = scheduleItemParameterValue?.location;
+        this._start = scheduleItemParameterValue?.start;
+        this._status = scheduleItemParameterValue?.status;
+        this._subject = scheduleItemParameterValue?.subject;
+    };
+    /**
+     * Gets the end property value. The date, time, and time zone that the corresponding event ends.
+     * @returns a DateTimeTimeZoneInterface
+     */
+    public get end() {
+        return this._end;
+    };
+    /**
+     * Sets the end property value. The date, time, and time zone that the corresponding event ends.
+     * @param value Value to set for the end property.
+     */
+    public set end(value: DateTimeTimeZone | undefined) {
+        if(value) {
+            this._end = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+        }
     };
     /**
      * The deserialization information for the current model
@@ -48,13 +80,45 @@ export class ScheduleItemImpl implements ScheduleItem {
         };
     };
     /**
+     * Gets the isPrivate property value. The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.
+     * @returns a boolean
+     */
+    public get isPrivate() {
+        return this._isPrivate;
+    };
+    /**
+     * Sets the isPrivate property value. The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.
+     * @param value Value to set for the isPrivate property.
+     */
+    public set isPrivate(value: boolean | undefined) {
+        if(value) {
+            this._isPrivate = value;
+        }
+    };
+    /**
+     * Gets the location property value. The location where the corresponding event is held or attended from. Optional.
+     * @returns a string
+     */
+    public get location() {
+        return this._location;
+    };
+    /**
+     * Sets the location property value. The location where the corresponding event is held or attended from. Optional.
+     * @param value Value to set for the location property.
+     */
+    public set location(value: string | undefined) {
+        if(value) {
+            this._location = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", new DateTimeTimeZoneImpl(this.end));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", (!this.end || this.end instanceof DateTimeTimeZoneImpl? this.end : new DateTimeTimeZoneImpl(this.end)));
         }
         if(this.isPrivate){
             writer.writeBooleanValue("isPrivate", this.isPrivate);
@@ -63,7 +127,7 @@ export class ScheduleItemImpl implements ScheduleItem {
             writer.writeStringValue("location", this.location);
         }
         if(this.start){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", new DateTimeTimeZoneImpl(this.start));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", (!this.start || this.start instanceof DateTimeTimeZoneImpl? this.start : new DateTimeTimeZoneImpl(this.start)));
         }
         if(this.status){
             writer.writeEnumValue<FreeBusyStatus>("status", this.status);
@@ -72,5 +136,53 @@ export class ScheduleItemImpl implements ScheduleItem {
             writer.writeStringValue("subject", this.subject);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the start property value. The date, time, and time zone that the corresponding event starts.
+     * @returns a DateTimeTimeZoneInterface
+     */
+    public get start() {
+        return this._start;
+    };
+    /**
+     * Sets the start property value. The date, time, and time zone that the corresponding event starts.
+     * @param value Value to set for the start property.
+     */
+    public set start(value: DateTimeTimeZone | undefined) {
+        if(value) {
+            this._start = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+        }
+    };
+    /**
+     * Gets the status property value. The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * @returns a freeBusyStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * @param value Value to set for the status property.
+     */
+    public set status(value: FreeBusyStatus | undefined) {
+        if(value) {
+            this._status = value;
+        }
+    };
+    /**
+     * Gets the subject property value. The corresponding event's subject line. Optional.
+     * @returns a string
+     */
+    public get subject() {
+        return this._subject;
+    };
+    /**
+     * Sets the subject property value. The corresponding event's subject line. Optional.
+     * @param value Value to set for the subject property.
+     */
+    public set subject(value: string | undefined) {
+        if(value) {
+            this._subject = value;
+        }
     };
 }

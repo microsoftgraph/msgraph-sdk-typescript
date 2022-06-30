@@ -6,17 +6,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements EducationPointsOutcome {
     /** The numeric grade the teacher has given the student for this assignment. */
-    public points?: EducationAssignmentPointsGrade | undefined;
+    private _points?: EducationAssignmentPointsGrade | undefined;
     /** A copy of the points property that is made when the grade is released to the student. */
-    public publishedPoints?: EducationAssignmentPointsGrade | undefined;
+    private _publishedPoints?: EducationAssignmentPointsGrade | undefined;
     /**
      * Instantiates a new EducationPointsOutcome and sets the default values.
      * @param educationPointsOutcomeParameterValue 
      */
     public constructor(educationPointsOutcomeParameterValue?: EducationPointsOutcome | undefined) {
         super(educationPointsOutcomeParameterValue);
-        this.points = educationPointsOutcomeParameterValue?.points;
-        this.publishedPoints = educationPointsOutcomeParameterValue?.publishedPoints;
+        this._points = educationPointsOutcomeParameterValue?.points;
+        this._publishedPoints = educationPointsOutcomeParameterValue?.publishedPoints;
     };
     /**
      * The deserialization information for the current model
@@ -29,6 +29,38 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
         };
     };
     /**
+     * Gets the points property value. The numeric grade the teacher has given the student for this assignment.
+     * @returns a EducationAssignmentPointsGradeInterface
+     */
+    public get points() {
+        return this._points;
+    };
+    /**
+     * Sets the points property value. The numeric grade the teacher has given the student for this assignment.
+     * @param value Value to set for the points property.
+     */
+    public set points(value: EducationAssignmentPointsGrade | undefined) {
+        if(value) {
+            this._points = value instanceof EducationAssignmentPointsGradeImpl? value : new EducationAssignmentPointsGradeImpl(value);
+        }
+    };
+    /**
+     * Gets the publishedPoints property value. A copy of the points property that is made when the grade is released to the student.
+     * @returns a EducationAssignmentPointsGradeInterface
+     */
+    public get publishedPoints() {
+        return this._publishedPoints;
+    };
+    /**
+     * Sets the publishedPoints property value. A copy of the points property that is made when the grade is released to the student.
+     * @param value Value to set for the publishedPoints property.
+     */
+    public set publishedPoints(value: EducationAssignmentPointsGrade | undefined) {
+        if(value) {
+            this._publishedPoints = value instanceof EducationAssignmentPointsGradeImpl? value : new EducationAssignmentPointsGradeImpl(value);
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -36,10 +68,10 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.points){
-            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("points", new EducationAssignmentPointsGradeImpl(this.points));
+            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("points", (!this.points || this.points instanceof EducationAssignmentPointsGradeImpl? this.points : new EducationAssignmentPointsGradeImpl(this.points)));
         }
         if(this.publishedPoints){
-            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("publishedPoints", new EducationAssignmentPointsGradeImpl(this.publishedPoints));
+            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("publishedPoints", (!this.publishedPoints || this.publishedPoints instanceof EducationAssignmentPointsGradeImpl? this.publishedPoints : new EducationAssignmentPointsGradeImpl(this.publishedPoints)));
         }
     };
 }

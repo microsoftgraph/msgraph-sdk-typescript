@@ -5,17 +5,49 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookCommentReplyImpl extends EntityImpl implements WorkbookCommentReply {
     /** The content of replied comment. */
-    public content?: string | undefined;
+    private _content?: string | undefined;
     /** Indicates the type for the replied comment. */
-    public contentType?: string | undefined;
+    private _contentType?: string | undefined;
     /**
      * Instantiates a new workbookCommentReply and sets the default values.
      * @param workbookCommentReplyParameterValue 
      */
     public constructor(workbookCommentReplyParameterValue?: WorkbookCommentReply | undefined) {
         super(workbookCommentReplyParameterValue);
-        this.content = workbookCommentReplyParameterValue?.content;
-        this.contentType = workbookCommentReplyParameterValue?.contentType;
+        this._content = workbookCommentReplyParameterValue?.content;
+        this._contentType = workbookCommentReplyParameterValue?.contentType;
+    };
+    /**
+     * Gets the content property value. The content of replied comment.
+     * @returns a string
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Sets the content property value. The content of replied comment.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        if(value) {
+            this._content = value;
+        }
+    };
+    /**
+     * Gets the contentType property value. Indicates the type for the replied comment.
+     * @returns a string
+     */
+    public get contentType() {
+        return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. Indicates the type for the replied comment.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        if(value) {
+            this._contentType = value;
+        }
     };
     /**
      * The deserialization information for the current model

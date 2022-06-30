@@ -7,32 +7,48 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Imported windows autopilot devices. */
 export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl implements ImportedWindowsAutopilotDeviceIdentity {
     /** UPN of the user the device will be assigned */
-    public assignedUserPrincipalName?: string | undefined;
+    private _assignedUserPrincipalName?: string | undefined;
     /** Group Tag of the Windows autopilot device. */
-    public groupTag?: string | undefined;
+    private _groupTag?: string | undefined;
     /** Hardware Blob of the Windows autopilot device. */
-    public hardwareIdentifier?: string | undefined;
+    private _hardwareIdentifier?: string | undefined;
     /** The Import Id of the Windows autopilot device. */
-    public importId?: string | undefined;
+    private _importId?: string | undefined;
     /** Product Key of the Windows autopilot device. */
-    public productKey?: string | undefined;
+    private _productKey?: string | undefined;
     /** Serial number of the Windows autopilot device. */
-    public serialNumber?: string | undefined;
+    private _serialNumber?: string | undefined;
     /** Current state of the imported device. */
-    public state?: ImportedWindowsAutopilotDeviceIdentityState | undefined;
+    private _state?: ImportedWindowsAutopilotDeviceIdentityState | undefined;
+    /**
+     * Gets the assignedUserPrincipalName property value. UPN of the user the device will be assigned
+     * @returns a string
+     */
+    public get assignedUserPrincipalName() {
+        return this._assignedUserPrincipalName;
+    };
+    /**
+     * Sets the assignedUserPrincipalName property value. UPN of the user the device will be assigned
+     * @param value Value to set for the assignedUserPrincipalName property.
+     */
+    public set assignedUserPrincipalName(value: string | undefined) {
+        if(value) {
+            this._assignedUserPrincipalName = value;
+        }
+    };
     /**
      * Instantiates a new importedWindowsAutopilotDeviceIdentity and sets the default values.
      * @param importedWindowsAutopilotDeviceIdentityParameterValue 
      */
     public constructor(importedWindowsAutopilotDeviceIdentityParameterValue?: ImportedWindowsAutopilotDeviceIdentity | undefined) {
         super(importedWindowsAutopilotDeviceIdentityParameterValue);
-        this.assignedUserPrincipalName = importedWindowsAutopilotDeviceIdentityParameterValue?.assignedUserPrincipalName;
-        this.groupTag = importedWindowsAutopilotDeviceIdentityParameterValue?.groupTag;
-        this.hardwareIdentifier = importedWindowsAutopilotDeviceIdentityParameterValue?.hardwareIdentifier;
-        this.importId = importedWindowsAutopilotDeviceIdentityParameterValue?.importId;
-        this.productKey = importedWindowsAutopilotDeviceIdentityParameterValue?.productKey;
-        this.serialNumber = importedWindowsAutopilotDeviceIdentityParameterValue?.serialNumber;
-        this.state = importedWindowsAutopilotDeviceIdentityParameterValue?.state;
+        this._assignedUserPrincipalName = importedWindowsAutopilotDeviceIdentityParameterValue?.assignedUserPrincipalName;
+        this._groupTag = importedWindowsAutopilotDeviceIdentityParameterValue?.groupTag;
+        this._hardwareIdentifier = importedWindowsAutopilotDeviceIdentityParameterValue?.hardwareIdentifier;
+        this._importId = importedWindowsAutopilotDeviceIdentityParameterValue?.importId;
+        this._productKey = importedWindowsAutopilotDeviceIdentityParameterValue?.productKey;
+        this._serialNumber = importedWindowsAutopilotDeviceIdentityParameterValue?.serialNumber;
+        this._state = importedWindowsAutopilotDeviceIdentityParameterValue?.state;
     };
     /**
      * The deserialization information for the current model
@@ -48,6 +64,70 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
             "serialNumber": n => { this.serialNumber = n.getStringValue(); },
             "state": n => { this.state = n.getObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>(createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the groupTag property value. Group Tag of the Windows autopilot device.
+     * @returns a string
+     */
+    public get groupTag() {
+        return this._groupTag;
+    };
+    /**
+     * Sets the groupTag property value. Group Tag of the Windows autopilot device.
+     * @param value Value to set for the groupTag property.
+     */
+    public set groupTag(value: string | undefined) {
+        if(value) {
+            this._groupTag = value;
+        }
+    };
+    /**
+     * Gets the hardwareIdentifier property value. Hardware Blob of the Windows autopilot device.
+     * @returns a binary
+     */
+    public get hardwareIdentifier() {
+        return this._hardwareIdentifier;
+    };
+    /**
+     * Sets the hardwareIdentifier property value. Hardware Blob of the Windows autopilot device.
+     * @param value Value to set for the hardwareIdentifier property.
+     */
+    public set hardwareIdentifier(value: string | undefined) {
+        if(value) {
+            this._hardwareIdentifier = value;
+        }
+    };
+    /**
+     * Gets the importId property value. The Import Id of the Windows autopilot device.
+     * @returns a string
+     */
+    public get importId() {
+        return this._importId;
+    };
+    /**
+     * Sets the importId property value. The Import Id of the Windows autopilot device.
+     * @param value Value to set for the importId property.
+     */
+    public set importId(value: string | undefined) {
+        if(value) {
+            this._importId = value;
+        }
+    };
+    /**
+     * Gets the productKey property value. Product Key of the Windows autopilot device.
+     * @returns a string
+     */
+    public get productKey() {
+        return this._productKey;
+    };
+    /**
+     * Sets the productKey property value. Product Key of the Windows autopilot device.
+     * @param value Value to set for the productKey property.
+     */
+    public set productKey(value: string | undefined) {
+        if(value) {
+            this._productKey = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -75,7 +155,39 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
             writer.writeStringValue("serialNumber", this.serialNumber);
         }
         if(this.state){
-            writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state));
+            writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", (!this.state || this.state instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? this.state : new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state)));
+        }
+    };
+    /**
+     * Gets the serialNumber property value. Serial number of the Windows autopilot device.
+     * @returns a string
+     */
+    public get serialNumber() {
+        return this._serialNumber;
+    };
+    /**
+     * Sets the serialNumber property value. Serial number of the Windows autopilot device.
+     * @param value Value to set for the serialNumber property.
+     */
+    public set serialNumber(value: string | undefined) {
+        if(value) {
+            this._serialNumber = value;
+        }
+    };
+    /**
+     * Gets the state property value. Current state of the imported device.
+     * @returns a ImportedWindowsAutopilotDeviceIdentityStateInterface
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Sets the state property value. Current state of the imported device.
+     * @param value Value to set for the state property.
+     */
+    public set state(value: ImportedWindowsAutopilotDeviceIdentityState | undefined) {
+        if(value) {
+            this._state = value instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? value : new ImportedWindowsAutopilotDeviceIdentityStateImpl(value);
         }
     };
 }

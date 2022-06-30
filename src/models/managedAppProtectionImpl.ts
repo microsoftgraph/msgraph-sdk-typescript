@@ -8,92 +8,236 @@ import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 
 export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements ManagedAppProtection {
     /** Data storage locations where a user may store managed data. */
-    public allowedDataStorageLocations?: string[] | undefined;
+    private _allowedDataStorageLocations?: string[] | undefined;
     /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
-    public allowedInboundDataTransferSources?: ManagedAppDataTransferLevel | undefined;
+    private _allowedInboundDataTransferSources?: ManagedAppDataTransferLevel | undefined;
     /** The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked. */
-    public allowedOutboundClipboardSharingLevel?: ManagedAppClipboardSharingLevel | undefined;
+    private _allowedOutboundClipboardSharingLevel?: ManagedAppClipboardSharingLevel | undefined;
     /** Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
-    public allowedOutboundDataTransferDestinations?: ManagedAppDataTransferLevel | undefined;
+    private _allowedOutboundDataTransferDestinations?: ManagedAppDataTransferLevel | undefined;
     /** Indicates whether contacts can be synced to the user's device. */
-    public contactSyncBlocked?: boolean | undefined;
+    private _contactSyncBlocked?: boolean | undefined;
     /** Indicates whether the backup of a managed app's data is blocked. */
-    public dataBackupBlocked?: boolean | undefined;
+    private _dataBackupBlocked?: boolean | undefined;
     /** Indicates whether device compliance is required. */
-    public deviceComplianceRequired?: boolean | undefined;
+    private _deviceComplianceRequired?: boolean | undefined;
     /** Indicates whether use of the app pin is required if the device pin is set. */
-    public disableAppPinIfDevicePinIsSet?: boolean | undefined;
+    private _disableAppPinIfDevicePinIsSet?: boolean | undefined;
     /** Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. */
-    public fingerprintBlocked?: boolean | undefined;
+    private _fingerprintBlocked?: boolean | undefined;
     /** Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge. */
-    public managedBrowser?: ManagedBrowserType | undefined;
+    private _managedBrowser?: ManagedBrowserType | undefined;
     /** Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android) */
-    public managedBrowserToOpenLinksRequired?: boolean | undefined;
+    private _managedBrowserToOpenLinksRequired?: boolean | undefined;
     /** Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. */
-    public maximumPinRetries?: number | undefined;
+    private _maximumPinRetries?: number | undefined;
     /** Minimum pin length required for an app-level pin if PinRequired is set to True */
-    public minimumPinLength?: number | undefined;
+    private _minimumPinLength?: number | undefined;
     /** Versions less than the specified version will block the managed app from accessing company data. */
-    public minimumRequiredAppVersion?: string | undefined;
+    private _minimumRequiredAppVersion?: string | undefined;
     /** Versions less than the specified version will block the managed app from accessing company data. */
-    public minimumRequiredOsVersion?: string | undefined;
+    private _minimumRequiredOsVersion?: string | undefined;
     /** Versions less than the specified version will result in warning message on the managed app. */
-    public minimumWarningAppVersion?: string | undefined;
+    private _minimumWarningAppVersion?: string | undefined;
     /** Versions less than the specified version will result in warning message on the managed app from accessing company data. */
-    public minimumWarningOsVersion?: string | undefined;
+    private _minimumWarningOsVersion?: string | undefined;
     /** Indicates whether organizational credentials are required for app use. */
-    public organizationalCredentialsRequired?: boolean | undefined;
+    private _organizationalCredentialsRequired?: boolean | undefined;
     /** TimePeriod before the all-level pin must be reset if PinRequired is set to True. */
-    public periodBeforePinReset?: Duration | undefined;
+    private _periodBeforePinReset?: Duration | undefined;
     /** The period after which access is checked when the device is not connected to the internet. */
-    public periodOfflineBeforeAccessCheck?: Duration | undefined;
+    private _periodOfflineBeforeAccessCheck?: Duration | undefined;
     /** The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. */
-    public periodOfflineBeforeWipeIsEnforced?: Duration | undefined;
+    private _periodOfflineBeforeWipeIsEnforced?: Duration | undefined;
     /** The period after which access is checked when the device is connected to the internet. */
-    public periodOnlineBeforeAccessCheck?: Duration | undefined;
+    private _periodOnlineBeforeAccessCheck?: Duration | undefined;
     /** Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol. */
-    public pinCharacterSet?: ManagedAppPinCharacterSet | undefined;
+    private _pinCharacterSet?: ManagedAppPinCharacterSet | undefined;
     /** Indicates whether an app-level pin is required. */
-    public pinRequired?: boolean | undefined;
+    private _pinRequired?: boolean | undefined;
     /** Indicates whether printing is allowed from managed apps. */
-    public printBlocked?: boolean | undefined;
+    private _printBlocked?: boolean | undefined;
     /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
-    public saveAsBlocked?: boolean | undefined;
+    private _saveAsBlocked?: boolean | undefined;
     /** Indicates whether simplePin is blocked. */
-    public simplePinBlocked?: boolean | undefined;
+    private _simplePinBlocked?: boolean | undefined;
+    /**
+     * Gets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
+     * @returns a string
+     */
+    public get allowedDataStorageLocations() {
+        return this._allowedDataStorageLocations;
+    };
+    /**
+     * Sets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
+     * @param value Value to set for the allowedDataStorageLocations property.
+     */
+    public set allowedDataStorageLocations(value: string[] | undefined) {
+        if(value) {
+            this._allowedDataStorageLocations = value;
+        }
+    };
+    /**
+     * Gets the allowedInboundDataTransferSources property value. Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * @returns a managedAppDataTransferLevel
+     */
+    public get allowedInboundDataTransferSources() {
+        return this._allowedInboundDataTransferSources;
+    };
+    /**
+     * Sets the allowedInboundDataTransferSources property value. Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * @param value Value to set for the allowedInboundDataTransferSources property.
+     */
+    public set allowedInboundDataTransferSources(value: ManagedAppDataTransferLevel | undefined) {
+        if(value) {
+            this._allowedInboundDataTransferSources = value;
+        }
+    };
+    /**
+     * Gets the allowedOutboundClipboardSharingLevel property value. The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked.
+     * @returns a managedAppClipboardSharingLevel
+     */
+    public get allowedOutboundClipboardSharingLevel() {
+        return this._allowedOutboundClipboardSharingLevel;
+    };
+    /**
+     * Sets the allowedOutboundClipboardSharingLevel property value. The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked.
+     * @param value Value to set for the allowedOutboundClipboardSharingLevel property.
+     */
+    public set allowedOutboundClipboardSharingLevel(value: ManagedAppClipboardSharingLevel | undefined) {
+        if(value) {
+            this._allowedOutboundClipboardSharingLevel = value;
+        }
+    };
+    /**
+     * Gets the allowedOutboundDataTransferDestinations property value. Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * @returns a managedAppDataTransferLevel
+     */
+    public get allowedOutboundDataTransferDestinations() {
+        return this._allowedOutboundDataTransferDestinations;
+    };
+    /**
+     * Sets the allowedOutboundDataTransferDestinations property value. Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * @param value Value to set for the allowedOutboundDataTransferDestinations property.
+     */
+    public set allowedOutboundDataTransferDestinations(value: ManagedAppDataTransferLevel | undefined) {
+        if(value) {
+            this._allowedOutboundDataTransferDestinations = value;
+        }
+    };
     /**
      * Instantiates a new ManagedAppProtection and sets the default values.
      * @param managedAppProtectionParameterValue 
      */
     public constructor(managedAppProtectionParameterValue?: ManagedAppProtection | undefined) {
         super(managedAppProtectionParameterValue);
-        this.allowedDataStorageLocations = managedAppProtectionParameterValue?.allowedDataStorageLocations;
-        this.allowedInboundDataTransferSources = managedAppProtectionParameterValue?.allowedInboundDataTransferSources;
-        this.allowedOutboundClipboardSharingLevel = managedAppProtectionParameterValue?.allowedOutboundClipboardSharingLevel;
-        this.allowedOutboundDataTransferDestinations = managedAppProtectionParameterValue?.allowedOutboundDataTransferDestinations;
-        this.contactSyncBlocked = managedAppProtectionParameterValue?.contactSyncBlocked;
-        this.dataBackupBlocked = managedAppProtectionParameterValue?.dataBackupBlocked;
-        this.deviceComplianceRequired = managedAppProtectionParameterValue?.deviceComplianceRequired;
-        this.disableAppPinIfDevicePinIsSet = managedAppProtectionParameterValue?.disableAppPinIfDevicePinIsSet;
-        this.fingerprintBlocked = managedAppProtectionParameterValue?.fingerprintBlocked;
-        this.managedBrowser = managedAppProtectionParameterValue?.managedBrowser;
-        this.managedBrowserToOpenLinksRequired = managedAppProtectionParameterValue?.managedBrowserToOpenLinksRequired;
-        this.maximumPinRetries = managedAppProtectionParameterValue?.maximumPinRetries;
-        this.minimumPinLength = managedAppProtectionParameterValue?.minimumPinLength;
-        this.minimumRequiredAppVersion = managedAppProtectionParameterValue?.minimumRequiredAppVersion;
-        this.minimumRequiredOsVersion = managedAppProtectionParameterValue?.minimumRequiredOsVersion;
-        this.minimumWarningAppVersion = managedAppProtectionParameterValue?.minimumWarningAppVersion;
-        this.minimumWarningOsVersion = managedAppProtectionParameterValue?.minimumWarningOsVersion;
-        this.organizationalCredentialsRequired = managedAppProtectionParameterValue?.organizationalCredentialsRequired;
-        this.periodBeforePinReset = managedAppProtectionParameterValue?.periodBeforePinReset;
-        this.periodOfflineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOfflineBeforeAccessCheck;
-        this.periodOfflineBeforeWipeIsEnforced = managedAppProtectionParameterValue?.periodOfflineBeforeWipeIsEnforced;
-        this.periodOnlineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOnlineBeforeAccessCheck;
-        this.pinCharacterSet = managedAppProtectionParameterValue?.pinCharacterSet;
-        this.pinRequired = managedAppProtectionParameterValue?.pinRequired;
-        this.printBlocked = managedAppProtectionParameterValue?.printBlocked;
-        this.saveAsBlocked = managedAppProtectionParameterValue?.saveAsBlocked;
-        this.simplePinBlocked = managedAppProtectionParameterValue?.simplePinBlocked;
+        this._allowedDataStorageLocations = managedAppProtectionParameterValue?.allowedDataStorageLocations;
+        this._allowedInboundDataTransferSources = managedAppProtectionParameterValue?.allowedInboundDataTransferSources;
+        this._allowedOutboundClipboardSharingLevel = managedAppProtectionParameterValue?.allowedOutboundClipboardSharingLevel;
+        this._allowedOutboundDataTransferDestinations = managedAppProtectionParameterValue?.allowedOutboundDataTransferDestinations;
+        this._contactSyncBlocked = managedAppProtectionParameterValue?.contactSyncBlocked;
+        this._dataBackupBlocked = managedAppProtectionParameterValue?.dataBackupBlocked;
+        this._deviceComplianceRequired = managedAppProtectionParameterValue?.deviceComplianceRequired;
+        this._disableAppPinIfDevicePinIsSet = managedAppProtectionParameterValue?.disableAppPinIfDevicePinIsSet;
+        this._fingerprintBlocked = managedAppProtectionParameterValue?.fingerprintBlocked;
+        this._managedBrowser = managedAppProtectionParameterValue?.managedBrowser;
+        this._managedBrowserToOpenLinksRequired = managedAppProtectionParameterValue?.managedBrowserToOpenLinksRequired;
+        this._maximumPinRetries = managedAppProtectionParameterValue?.maximumPinRetries;
+        this._minimumPinLength = managedAppProtectionParameterValue?.minimumPinLength;
+        this._minimumRequiredAppVersion = managedAppProtectionParameterValue?.minimumRequiredAppVersion;
+        this._minimumRequiredOsVersion = managedAppProtectionParameterValue?.minimumRequiredOsVersion;
+        this._minimumWarningAppVersion = managedAppProtectionParameterValue?.minimumWarningAppVersion;
+        this._minimumWarningOsVersion = managedAppProtectionParameterValue?.minimumWarningOsVersion;
+        this._organizationalCredentialsRequired = managedAppProtectionParameterValue?.organizationalCredentialsRequired;
+        this._periodBeforePinReset = managedAppProtectionParameterValue?.periodBeforePinReset;
+        this._periodOfflineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOfflineBeforeAccessCheck;
+        this._periodOfflineBeforeWipeIsEnforced = managedAppProtectionParameterValue?.periodOfflineBeforeWipeIsEnforced;
+        this._periodOnlineBeforeAccessCheck = managedAppProtectionParameterValue?.periodOnlineBeforeAccessCheck;
+        this._pinCharacterSet = managedAppProtectionParameterValue?.pinCharacterSet;
+        this._pinRequired = managedAppProtectionParameterValue?.pinRequired;
+        this._printBlocked = managedAppProtectionParameterValue?.printBlocked;
+        this._saveAsBlocked = managedAppProtectionParameterValue?.saveAsBlocked;
+        this._simplePinBlocked = managedAppProtectionParameterValue?.simplePinBlocked;
+    };
+    /**
+     * Gets the contactSyncBlocked property value. Indicates whether contacts can be synced to the user's device.
+     * @returns a boolean
+     */
+    public get contactSyncBlocked() {
+        return this._contactSyncBlocked;
+    };
+    /**
+     * Sets the contactSyncBlocked property value. Indicates whether contacts can be synced to the user's device.
+     * @param value Value to set for the contactSyncBlocked property.
+     */
+    public set contactSyncBlocked(value: boolean | undefined) {
+        if(value) {
+            this._contactSyncBlocked = value;
+        }
+    };
+    /**
+     * Gets the dataBackupBlocked property value. Indicates whether the backup of a managed app's data is blocked.
+     * @returns a boolean
+     */
+    public get dataBackupBlocked() {
+        return this._dataBackupBlocked;
+    };
+    /**
+     * Sets the dataBackupBlocked property value. Indicates whether the backup of a managed app's data is blocked.
+     * @param value Value to set for the dataBackupBlocked property.
+     */
+    public set dataBackupBlocked(value: boolean | undefined) {
+        if(value) {
+            this._dataBackupBlocked = value;
+        }
+    };
+    /**
+     * Gets the deviceComplianceRequired property value. Indicates whether device compliance is required.
+     * @returns a boolean
+     */
+    public get deviceComplianceRequired() {
+        return this._deviceComplianceRequired;
+    };
+    /**
+     * Sets the deviceComplianceRequired property value. Indicates whether device compliance is required.
+     * @param value Value to set for the deviceComplianceRequired property.
+     */
+    public set deviceComplianceRequired(value: boolean | undefined) {
+        if(value) {
+            this._deviceComplianceRequired = value;
+        }
+    };
+    /**
+     * Gets the disableAppPinIfDevicePinIsSet property value. Indicates whether use of the app pin is required if the device pin is set.
+     * @returns a boolean
+     */
+    public get disableAppPinIfDevicePinIsSet() {
+        return this._disableAppPinIfDevicePinIsSet;
+    };
+    /**
+     * Sets the disableAppPinIfDevicePinIsSet property value. Indicates whether use of the app pin is required if the device pin is set.
+     * @param value Value to set for the disableAppPinIfDevicePinIsSet property.
+     */
+    public set disableAppPinIfDevicePinIsSet(value: boolean | undefined) {
+        if(value) {
+            this._disableAppPinIfDevicePinIsSet = value;
+        }
+    };
+    /**
+     * Gets the fingerprintBlocked property value. Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.
+     * @returns a boolean
+     */
+    public get fingerprintBlocked() {
+        return this._fingerprintBlocked;
+    };
+    /**
+     * Sets the fingerprintBlocked property value. Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.
+     * @param value Value to set for the fingerprintBlocked property.
+     */
+    public set fingerprintBlocked(value: boolean | undefined) {
+        if(value) {
+            this._fingerprintBlocked = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -129,6 +273,278 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
             "saveAsBlocked": n => { this.saveAsBlocked = n.getBooleanValue(); },
             "simplePinBlocked": n => { this.simplePinBlocked = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the managedBrowser property value. Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge.
+     * @returns a managedBrowserType
+     */
+    public get managedBrowser() {
+        return this._managedBrowser;
+    };
+    /**
+     * Sets the managedBrowser property value. Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge.
+     * @param value Value to set for the managedBrowser property.
+     */
+    public set managedBrowser(value: ManagedBrowserType | undefined) {
+        if(value) {
+            this._managedBrowser = value;
+        }
+    };
+    /**
+     * Gets the managedBrowserToOpenLinksRequired property value. Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)
+     * @returns a boolean
+     */
+    public get managedBrowserToOpenLinksRequired() {
+        return this._managedBrowserToOpenLinksRequired;
+    };
+    /**
+     * Sets the managedBrowserToOpenLinksRequired property value. Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)
+     * @param value Value to set for the managedBrowserToOpenLinksRequired property.
+     */
+    public set managedBrowserToOpenLinksRequired(value: boolean | undefined) {
+        if(value) {
+            this._managedBrowserToOpenLinksRequired = value;
+        }
+    };
+    /**
+     * Gets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
+     * @returns a integer
+     */
+    public get maximumPinRetries() {
+        return this._maximumPinRetries;
+    };
+    /**
+     * Sets the maximumPinRetries property value. Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
+     * @param value Value to set for the maximumPinRetries property.
+     */
+    public set maximumPinRetries(value: number | undefined) {
+        if(value) {
+            this._maximumPinRetries = value;
+        }
+    };
+    /**
+     * Gets the minimumPinLength property value. Minimum pin length required for an app-level pin if PinRequired is set to True
+     * @returns a integer
+     */
+    public get minimumPinLength() {
+        return this._minimumPinLength;
+    };
+    /**
+     * Sets the minimumPinLength property value. Minimum pin length required for an app-level pin if PinRequired is set to True
+     * @param value Value to set for the minimumPinLength property.
+     */
+    public set minimumPinLength(value: number | undefined) {
+        if(value) {
+            this._minimumPinLength = value;
+        }
+    };
+    /**
+     * Gets the minimumRequiredAppVersion property value. Versions less than the specified version will block the managed app from accessing company data.
+     * @returns a string
+     */
+    public get minimumRequiredAppVersion() {
+        return this._minimumRequiredAppVersion;
+    };
+    /**
+     * Sets the minimumRequiredAppVersion property value. Versions less than the specified version will block the managed app from accessing company data.
+     * @param value Value to set for the minimumRequiredAppVersion property.
+     */
+    public set minimumRequiredAppVersion(value: string | undefined) {
+        if(value) {
+            this._minimumRequiredAppVersion = value;
+        }
+    };
+    /**
+     * Gets the minimumRequiredOsVersion property value. Versions less than the specified version will block the managed app from accessing company data.
+     * @returns a string
+     */
+    public get minimumRequiredOsVersion() {
+        return this._minimumRequiredOsVersion;
+    };
+    /**
+     * Sets the minimumRequiredOsVersion property value. Versions less than the specified version will block the managed app from accessing company data.
+     * @param value Value to set for the minimumRequiredOsVersion property.
+     */
+    public set minimumRequiredOsVersion(value: string | undefined) {
+        if(value) {
+            this._minimumRequiredOsVersion = value;
+        }
+    };
+    /**
+     * Gets the minimumWarningAppVersion property value. Versions less than the specified version will result in warning message on the managed app.
+     * @returns a string
+     */
+    public get minimumWarningAppVersion() {
+        return this._minimumWarningAppVersion;
+    };
+    /**
+     * Sets the minimumWarningAppVersion property value. Versions less than the specified version will result in warning message on the managed app.
+     * @param value Value to set for the minimumWarningAppVersion property.
+     */
+    public set minimumWarningAppVersion(value: string | undefined) {
+        if(value) {
+            this._minimumWarningAppVersion = value;
+        }
+    };
+    /**
+     * Gets the minimumWarningOsVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
+     * @returns a string
+     */
+    public get minimumWarningOsVersion() {
+        return this._minimumWarningOsVersion;
+    };
+    /**
+     * Sets the minimumWarningOsVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
+     * @param value Value to set for the minimumWarningOsVersion property.
+     */
+    public set minimumWarningOsVersion(value: string | undefined) {
+        if(value) {
+            this._minimumWarningOsVersion = value;
+        }
+    };
+    /**
+     * Gets the organizationalCredentialsRequired property value. Indicates whether organizational credentials are required for app use.
+     * @returns a boolean
+     */
+    public get organizationalCredentialsRequired() {
+        return this._organizationalCredentialsRequired;
+    };
+    /**
+     * Sets the organizationalCredentialsRequired property value. Indicates whether organizational credentials are required for app use.
+     * @param value Value to set for the organizationalCredentialsRequired property.
+     */
+    public set organizationalCredentialsRequired(value: boolean | undefined) {
+        if(value) {
+            this._organizationalCredentialsRequired = value;
+        }
+    };
+    /**
+     * Gets the periodBeforePinReset property value. TimePeriod before the all-level pin must be reset if PinRequired is set to True.
+     * @returns a Duration
+     */
+    public get periodBeforePinReset() {
+        return this._periodBeforePinReset;
+    };
+    /**
+     * Sets the periodBeforePinReset property value. TimePeriod before the all-level pin must be reset if PinRequired is set to True.
+     * @param value Value to set for the periodBeforePinReset property.
+     */
+    public set periodBeforePinReset(value: Duration | undefined) {
+        if(value) {
+            this._periodBeforePinReset = value;
+        }
+    };
+    /**
+     * Gets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet.
+     * @returns a Duration
+     */
+    public get periodOfflineBeforeAccessCheck() {
+        return this._periodOfflineBeforeAccessCheck;
+    };
+    /**
+     * Sets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet.
+     * @param value Value to set for the periodOfflineBeforeAccessCheck property.
+     */
+    public set periodOfflineBeforeAccessCheck(value: Duration | undefined) {
+        if(value) {
+            this._periodOfflineBeforeAccessCheck = value;
+        }
+    };
+    /**
+     * Gets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
+     * @returns a Duration
+     */
+    public get periodOfflineBeforeWipeIsEnforced() {
+        return this._periodOfflineBeforeWipeIsEnforced;
+    };
+    /**
+     * Sets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
+     * @param value Value to set for the periodOfflineBeforeWipeIsEnforced property.
+     */
+    public set periodOfflineBeforeWipeIsEnforced(value: Duration | undefined) {
+        if(value) {
+            this._periodOfflineBeforeWipeIsEnforced = value;
+        }
+    };
+    /**
+     * Gets the periodOnlineBeforeAccessCheck property value. The period after which access is checked when the device is connected to the internet.
+     * @returns a Duration
+     */
+    public get periodOnlineBeforeAccessCheck() {
+        return this._periodOnlineBeforeAccessCheck;
+    };
+    /**
+     * Sets the periodOnlineBeforeAccessCheck property value. The period after which access is checked when the device is connected to the internet.
+     * @param value Value to set for the periodOnlineBeforeAccessCheck property.
+     */
+    public set periodOnlineBeforeAccessCheck(value: Duration | undefined) {
+        if(value) {
+            this._periodOnlineBeforeAccessCheck = value;
+        }
+    };
+    /**
+     * Gets the pinCharacterSet property value. Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.
+     * @returns a managedAppPinCharacterSet
+     */
+    public get pinCharacterSet() {
+        return this._pinCharacterSet;
+    };
+    /**
+     * Sets the pinCharacterSet property value. Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.
+     * @param value Value to set for the pinCharacterSet property.
+     */
+    public set pinCharacterSet(value: ManagedAppPinCharacterSet | undefined) {
+        if(value) {
+            this._pinCharacterSet = value;
+        }
+    };
+    /**
+     * Gets the pinRequired property value. Indicates whether an app-level pin is required.
+     * @returns a boolean
+     */
+    public get pinRequired() {
+        return this._pinRequired;
+    };
+    /**
+     * Sets the pinRequired property value. Indicates whether an app-level pin is required.
+     * @param value Value to set for the pinRequired property.
+     */
+    public set pinRequired(value: boolean | undefined) {
+        if(value) {
+            this._pinRequired = value;
+        }
+    };
+    /**
+     * Gets the printBlocked property value. Indicates whether printing is allowed from managed apps.
+     * @returns a boolean
+     */
+    public get printBlocked() {
+        return this._printBlocked;
+    };
+    /**
+     * Sets the printBlocked property value. Indicates whether printing is allowed from managed apps.
+     * @param value Value to set for the printBlocked property.
+     */
+    public set printBlocked(value: boolean | undefined) {
+        if(value) {
+            this._printBlocked = value;
+        }
+    };
+    /**
+     * Gets the saveAsBlocked property value. Indicates whether users may use the 'Save As' menu item to save a copy of protected files.
+     * @returns a boolean
+     */
+    public get saveAsBlocked() {
+        return this._saveAsBlocked;
+    };
+    /**
+     * Sets the saveAsBlocked property value. Indicates whether users may use the 'Save As' menu item to save a copy of protected files.
+     * @param value Value to set for the saveAsBlocked property.
+     */
+    public set saveAsBlocked(value: boolean | undefined) {
+        if(value) {
+            this._saveAsBlocked = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -217,6 +633,22 @@ export class ManagedAppProtectionImpl extends ManagedAppPolicyImpl implements Ma
         }
         if(this.simplePinBlocked){
             writer.writeBooleanValue("simplePinBlocked", this.simplePinBlocked);
+        }
+    };
+    /**
+     * Gets the simplePinBlocked property value. Indicates whether simplePin is blocked.
+     * @returns a boolean
+     */
+    public get simplePinBlocked() {
+        return this._simplePinBlocked;
+    };
+    /**
+     * Sets the simplePinBlocked property value. Indicates whether simplePin is blocked.
+     * @param value Value to set for the simplePinBlocked property.
+     */
+    public set simplePinBlocked(value: boolean | undefined) {
+        if(value) {
+            this._simplePinBlocked = value;
         }
     };
 }

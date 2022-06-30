@@ -6,19 +6,51 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsResult {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
-    public emptySuggestionsReason?: string | undefined;
+    private _emptySuggestionsReason?: string | undefined;
     /** An array of meeting suggestions. */
-    public meetingTimeSuggestions?: MeetingTimeSuggestion[] | undefined;
+    private _meetingTimeSuggestions?: MeetingTimeSuggestion[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new MeetingTimeSuggestionsResult and sets the default values.
      * @param meetingTimeSuggestionsResultParameterValue 
      */
     public constructor(meetingTimeSuggestionsResultParameterValue?: MeetingTimeSuggestionsResult | undefined) {
-        this.additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {};
-        this.emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason;
-        this.meetingTimeSuggestions = meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions;
+        this._additionalData = meetingTimeSuggestionsResultParameterValue?.additionalData ? meetingTimeSuggestionsResultParameterValue?.additionalData! : {};
+        this._emptySuggestionsReason = meetingTimeSuggestionsResultParameterValue?.emptySuggestionsReason;
+        this._meetingTimeSuggestions = meetingTimeSuggestionsResultParameterValue?.meetingTimeSuggestions;
+    };
+    /**
+     * Gets the emptySuggestionsReason property value. A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
+     * @returns a string
+     */
+    public get emptySuggestionsReason() {
+        return this._emptySuggestionsReason;
+    };
+    /**
+     * Sets the emptySuggestionsReason property value. A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
+     * @param value Value to set for the emptySuggestionsReason property.
+     */
+    public set emptySuggestionsReason(value: string | undefined) {
+        if(value) {
+            this._emptySuggestionsReason = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -31,6 +63,26 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
         };
     };
     /**
+     * Gets the meetingTimeSuggestions property value. An array of meeting suggestions.
+     * @returns a MeetingTimeSuggestionInterface
+     */
+    public get meetingTimeSuggestions() {
+        return this._meetingTimeSuggestions;
+    };
+    /**
+     * Sets the meetingTimeSuggestions property value. An array of meeting suggestions.
+     * @param value Value to set for the meetingTimeSuggestions property.
+     */
+    public set meetingTimeSuggestions(value: MeetingTimeSuggestion[] | undefined) {
+        if(value) {
+            const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = [];
+            this.meetingTimeSuggestions?.forEach(element => {
+                meetingTimeSuggestionsArrValue.push((element instanceof MeetingTimeSuggestionImpl? element:new MeetingTimeSuggestionImpl(element)));
+            });
+            this._meetingTimeSuggestions = meetingTimeSuggestionsArrValue;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -39,7 +91,10 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
         if(this.emptySuggestionsReason){
             writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
         }
-        if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = []; this.meetingTimeSuggestions?.forEach(element => {meetingTimeSuggestionsArrValue.push(new MeetingTimeSuggestionImpl(element));});
+        if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = [];
+        this.meetingTimeSuggestions?.forEach(element => {
+            meetingTimeSuggestionsArrValue.push((element instanceof MeetingTimeSuggestionImpl? element:new MeetingTimeSuggestionImpl(element)));
+        });
             writer.writeCollectionOfObjectValues<MeetingTimeSuggestionImpl>("meetingTimeSuggestions", meetingTimeSuggestionsArrValue);
         }
         writer.writeAdditionalData(this.additionalData);

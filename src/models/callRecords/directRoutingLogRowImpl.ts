@@ -3,76 +3,252 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DirectRoutingLogRowImpl implements DirectRoutingLogRow {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Number of the user or bot who received the call. E.164 format, but may include additional data. */
-    public calleeNumber?: string | undefined;
+    private _calleeNumber?: string | undefined;
     /** In addition to the SIP codes, Microsoft has own subcodes that indicate the specific issue. */
-    public callEndSubReason?: number | undefined;
+    private _callEndSubReason?: number | undefined;
     /** Number of the user or bot who made the call. E.164 format, but may include additional data. */
-    public callerNumber?: string | undefined;
+    private _callerNumber?: string | undefined;
     /** Call type and direction. */
-    public callType?: string | undefined;
+    private _callType?: string | undefined;
     /** Identifier for the call that you can use when calling Microsoft Support. GUID. */
-    public correlationId?: string | undefined;
+    private _correlationId?: string | undefined;
     /** Duration of the call in seconds. */
-    public duration?: number | undefined;
+    private _duration?: number | undefined;
     /** Only exists for successful (fully established) calls. Time when call ended. */
-    public endDateTime?: Date | undefined;
+    private _endDateTime?: Date | undefined;
     /** Only exists for failed (not fully established) calls. */
-    public failureDateTime?: Date | undefined;
+    private _failureDateTime?: Date | undefined;
     /** The code with which the call ended, RFC 3261. */
-    public finalSipCode?: number | undefined;
+    private _finalSipCode?: number | undefined;
     /** Description of the SIP code and Microsoft subcode. */
-    public finalSipCodePhrase?: string | undefined;
+    private _finalSipCodePhrase?: string | undefined;
     /** Unique call identifier. GUID. */
-    public id?: string | undefined;
+    private _id?: string | undefined;
     /** When the initial invite was sent. */
-    public inviteDateTime?: Date | undefined;
+    private _inviteDateTime?: Date | undefined;
     /** Indicates if the trunk was enabled for media bypass or not. */
-    public mediaBypassEnabled?: boolean | undefined;
+    private _mediaBypassEnabled?: boolean | undefined;
     /** The datacenter used for media path in non-bypass call. */
-    public mediaPathLocation?: string | undefined;
+    private _mediaPathLocation?: string | undefined;
     /** The datacenter used for signaling for both bypass and non-bypass calls. */
-    public signalingLocation?: string | undefined;
+    private _signalingLocation?: string | undefined;
     /** Call start time.For failed and unanswered calls, this can be equal to invite or failure time. */
-    public startDateTime?: Date | undefined;
+    private _startDateTime?: Date | undefined;
     /** Success or attempt. */
-    public successfulCall?: boolean | undefined;
+    private _successfulCall?: boolean | undefined;
     /** Fully qualified domain name of the session border controller. */
-    public trunkFullyQualifiedDomainName?: string | undefined;
+    private _trunkFullyQualifiedDomainName?: string | undefined;
     /** Display name of the user. */
-    public userDisplayName?: string | undefined;
+    private _userDisplayName?: string | undefined;
     /** Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID. */
-    public userId?: string | undefined;
+    private _userId?: string | undefined;
     /** UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address. */
-    public userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the calleeNumber property value. Number of the user or bot who received the call. E.164 format, but may include additional data.
+     * @returns a string
+     */
+    public get calleeNumber() {
+        return this._calleeNumber;
+    };
+    /**
+     * Sets the calleeNumber property value. Number of the user or bot who received the call. E.164 format, but may include additional data.
+     * @param value Value to set for the calleeNumber property.
+     */
+    public set calleeNumber(value: string | undefined) {
+        if(value) {
+            this._calleeNumber = value;
+        }
+    };
+    /**
+     * Gets the callEndSubReason property value. In addition to the SIP codes, Microsoft has own subcodes that indicate the specific issue.
+     * @returns a integer
+     */
+    public get callEndSubReason() {
+        return this._callEndSubReason;
+    };
+    /**
+     * Sets the callEndSubReason property value. In addition to the SIP codes, Microsoft has own subcodes that indicate the specific issue.
+     * @param value Value to set for the callEndSubReason property.
+     */
+    public set callEndSubReason(value: number | undefined) {
+        if(value) {
+            this._callEndSubReason = value;
+        }
+    };
+    /**
+     * Gets the callerNumber property value. Number of the user or bot who made the call. E.164 format, but may include additional data.
+     * @returns a string
+     */
+    public get callerNumber() {
+        return this._callerNumber;
+    };
+    /**
+     * Sets the callerNumber property value. Number of the user or bot who made the call. E.164 format, but may include additional data.
+     * @param value Value to set for the callerNumber property.
+     */
+    public set callerNumber(value: string | undefined) {
+        if(value) {
+            this._callerNumber = value;
+        }
+    };
+    /**
+     * Gets the callType property value. Call type and direction.
+     * @returns a string
+     */
+    public get callType() {
+        return this._callType;
+    };
+    /**
+     * Sets the callType property value. Call type and direction.
+     * @param value Value to set for the callType property.
+     */
+    public set callType(value: string | undefined) {
+        if(value) {
+            this._callType = value;
+        }
+    };
     /**
      * Instantiates a new directRoutingLogRow and sets the default values.
      * @param directRoutingLogRowParameterValue 
      */
     public constructor(directRoutingLogRowParameterValue?: DirectRoutingLogRow | undefined) {
-        this.additionalData = directRoutingLogRowParameterValue?.additionalData ? directRoutingLogRowParameterValue?.additionalData! : {};
-        this.calleeNumber = directRoutingLogRowParameterValue?.calleeNumber;
-        this.callEndSubReason = directRoutingLogRowParameterValue?.callEndSubReason;
-        this.callerNumber = directRoutingLogRowParameterValue?.callerNumber;
-        this.callType = directRoutingLogRowParameterValue?.callType;
-        this.correlationId = directRoutingLogRowParameterValue?.correlationId;
-        this.duration = directRoutingLogRowParameterValue?.duration;
-        this.endDateTime = directRoutingLogRowParameterValue?.endDateTime;
-        this.failureDateTime = directRoutingLogRowParameterValue?.failureDateTime;
-        this.finalSipCode = directRoutingLogRowParameterValue?.finalSipCode;
-        this.finalSipCodePhrase = directRoutingLogRowParameterValue?.finalSipCodePhrase;
-        this.id = directRoutingLogRowParameterValue?.id;
-        this.inviteDateTime = directRoutingLogRowParameterValue?.inviteDateTime;
-        this.mediaBypassEnabled = directRoutingLogRowParameterValue?.mediaBypassEnabled;
-        this.mediaPathLocation = directRoutingLogRowParameterValue?.mediaPathLocation;
-        this.signalingLocation = directRoutingLogRowParameterValue?.signalingLocation;
-        this.startDateTime = directRoutingLogRowParameterValue?.startDateTime;
-        this.successfulCall = directRoutingLogRowParameterValue?.successfulCall;
-        this.trunkFullyQualifiedDomainName = directRoutingLogRowParameterValue?.trunkFullyQualifiedDomainName;
-        this.userDisplayName = directRoutingLogRowParameterValue?.userDisplayName;
-        this.userId = directRoutingLogRowParameterValue?.userId;
-        this.userPrincipalName = directRoutingLogRowParameterValue?.userPrincipalName;
+        this._additionalData = directRoutingLogRowParameterValue?.additionalData ? directRoutingLogRowParameterValue?.additionalData! : {};
+        this._calleeNumber = directRoutingLogRowParameterValue?.calleeNumber;
+        this._callEndSubReason = directRoutingLogRowParameterValue?.callEndSubReason;
+        this._callerNumber = directRoutingLogRowParameterValue?.callerNumber;
+        this._callType = directRoutingLogRowParameterValue?.callType;
+        this._correlationId = directRoutingLogRowParameterValue?.correlationId;
+        this._duration = directRoutingLogRowParameterValue?.duration;
+        this._endDateTime = directRoutingLogRowParameterValue?.endDateTime;
+        this._failureDateTime = directRoutingLogRowParameterValue?.failureDateTime;
+        this._finalSipCode = directRoutingLogRowParameterValue?.finalSipCode;
+        this._finalSipCodePhrase = directRoutingLogRowParameterValue?.finalSipCodePhrase;
+        this._id = directRoutingLogRowParameterValue?.id;
+        this._inviteDateTime = directRoutingLogRowParameterValue?.inviteDateTime;
+        this._mediaBypassEnabled = directRoutingLogRowParameterValue?.mediaBypassEnabled;
+        this._mediaPathLocation = directRoutingLogRowParameterValue?.mediaPathLocation;
+        this._signalingLocation = directRoutingLogRowParameterValue?.signalingLocation;
+        this._startDateTime = directRoutingLogRowParameterValue?.startDateTime;
+        this._successfulCall = directRoutingLogRowParameterValue?.successfulCall;
+        this._trunkFullyQualifiedDomainName = directRoutingLogRowParameterValue?.trunkFullyQualifiedDomainName;
+        this._userDisplayName = directRoutingLogRowParameterValue?.userDisplayName;
+        this._userId = directRoutingLogRowParameterValue?.userId;
+        this._userPrincipalName = directRoutingLogRowParameterValue?.userPrincipalName;
+    };
+    /**
+     * Gets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
+     * @returns a string
+     */
+    public get correlationId() {
+        return this._correlationId;
+    };
+    /**
+     * Sets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
+     * @param value Value to set for the correlationId property.
+     */
+    public set correlationId(value: string | undefined) {
+        if(value) {
+            this._correlationId = value;
+        }
+    };
+    /**
+     * Gets the duration property value. Duration of the call in seconds.
+     * @returns a integer
+     */
+    public get duration() {
+        return this._duration;
+    };
+    /**
+     * Sets the duration property value. Duration of the call in seconds.
+     * @param value Value to set for the duration property.
+     */
+    public set duration(value: number | undefined) {
+        if(value) {
+            this._duration = value;
+        }
+    };
+    /**
+     * Gets the endDateTime property value. Only exists for successful (fully established) calls. Time when call ended.
+     * @returns a Date
+     */
+    public get endDateTime() {
+        return this._endDateTime;
+    };
+    /**
+     * Sets the endDateTime property value. Only exists for successful (fully established) calls. Time when call ended.
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: Date | undefined) {
+        if(value) {
+            this._endDateTime = value;
+        }
+    };
+    /**
+     * Gets the failureDateTime property value. Only exists for failed (not fully established) calls.
+     * @returns a Date
+     */
+    public get failureDateTime() {
+        return this._failureDateTime;
+    };
+    /**
+     * Sets the failureDateTime property value. Only exists for failed (not fully established) calls.
+     * @param value Value to set for the failureDateTime property.
+     */
+    public set failureDateTime(value: Date | undefined) {
+        if(value) {
+            this._failureDateTime = value;
+        }
+    };
+    /**
+     * Gets the finalSipCode property value. The code with which the call ended, RFC 3261.
+     * @returns a integer
+     */
+    public get finalSipCode() {
+        return this._finalSipCode;
+    };
+    /**
+     * Sets the finalSipCode property value. The code with which the call ended, RFC 3261.
+     * @param value Value to set for the finalSipCode property.
+     */
+    public set finalSipCode(value: number | undefined) {
+        if(value) {
+            this._finalSipCode = value;
+        }
+    };
+    /**
+     * Gets the finalSipCodePhrase property value. Description of the SIP code and Microsoft subcode.
+     * @returns a string
+     */
+    public get finalSipCodePhrase() {
+        return this._finalSipCodePhrase;
+    };
+    /**
+     * Sets the finalSipCodePhrase property value. Description of the SIP code and Microsoft subcode.
+     * @param value Value to set for the finalSipCodePhrase property.
+     */
+    public set finalSipCodePhrase(value: string | undefined) {
+        if(value) {
+            this._finalSipCodePhrase = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -102,6 +278,70 @@ export class DirectRoutingLogRowImpl implements DirectRoutingLogRow {
             "userId": n => { this.userId = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the id property value. Unique call identifier. GUID.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Unique call identifier. GUID.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        if(value) {
+            this._id = value;
+        }
+    };
+    /**
+     * Gets the inviteDateTime property value. When the initial invite was sent.
+     * @returns a Date
+     */
+    public get inviteDateTime() {
+        return this._inviteDateTime;
+    };
+    /**
+     * Sets the inviteDateTime property value. When the initial invite was sent.
+     * @param value Value to set for the inviteDateTime property.
+     */
+    public set inviteDateTime(value: Date | undefined) {
+        if(value) {
+            this._inviteDateTime = value;
+        }
+    };
+    /**
+     * Gets the mediaBypassEnabled property value. Indicates if the trunk was enabled for media bypass or not.
+     * @returns a boolean
+     */
+    public get mediaBypassEnabled() {
+        return this._mediaBypassEnabled;
+    };
+    /**
+     * Sets the mediaBypassEnabled property value. Indicates if the trunk was enabled for media bypass or not.
+     * @param value Value to set for the mediaBypassEnabled property.
+     */
+    public set mediaBypassEnabled(value: boolean | undefined) {
+        if(value) {
+            this._mediaBypassEnabled = value;
+        }
+    };
+    /**
+     * Gets the mediaPathLocation property value. The datacenter used for media path in non-bypass call.
+     * @returns a string
+     */
+    public get mediaPathLocation() {
+        return this._mediaPathLocation;
+    };
+    /**
+     * Sets the mediaPathLocation property value. The datacenter used for media path in non-bypass call.
+     * @param value Value to set for the mediaPathLocation property.
+     */
+    public set mediaPathLocation(value: string | undefined) {
+        if(value) {
+            this._mediaPathLocation = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -173,5 +413,117 @@ export class DirectRoutingLogRowImpl implements DirectRoutingLogRow {
             writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
+     * @returns a string
+     */
+    public get signalingLocation() {
+        return this._signalingLocation;
+    };
+    /**
+     * Sets the signalingLocation property value. The datacenter used for signaling for both bypass and non-bypass calls.
+     * @param value Value to set for the signalingLocation property.
+     */
+    public set signalingLocation(value: string | undefined) {
+        if(value) {
+            this._signalingLocation = value;
+        }
+    };
+    /**
+     * Gets the startDateTime property value. Call start time.For failed and unanswered calls, this can be equal to invite or failure time.
+     * @returns a Date
+     */
+    public get startDateTime() {
+        return this._startDateTime;
+    };
+    /**
+     * Sets the startDateTime property value. Call start time.For failed and unanswered calls, this can be equal to invite or failure time.
+     * @param value Value to set for the startDateTime property.
+     */
+    public set startDateTime(value: Date | undefined) {
+        if(value) {
+            this._startDateTime = value;
+        }
+    };
+    /**
+     * Gets the successfulCall property value. Success or attempt.
+     * @returns a boolean
+     */
+    public get successfulCall() {
+        return this._successfulCall;
+    };
+    /**
+     * Sets the successfulCall property value. Success or attempt.
+     * @param value Value to set for the successfulCall property.
+     */
+    public set successfulCall(value: boolean | undefined) {
+        if(value) {
+            this._successfulCall = value;
+        }
+    };
+    /**
+     * Gets the trunkFullyQualifiedDomainName property value. Fully qualified domain name of the session border controller.
+     * @returns a string
+     */
+    public get trunkFullyQualifiedDomainName() {
+        return this._trunkFullyQualifiedDomainName;
+    };
+    /**
+     * Sets the trunkFullyQualifiedDomainName property value. Fully qualified domain name of the session border controller.
+     * @param value Value to set for the trunkFullyQualifiedDomainName property.
+     */
+    public set trunkFullyQualifiedDomainName(value: string | undefined) {
+        if(value) {
+            this._trunkFullyQualifiedDomainName = value;
+        }
+    };
+    /**
+     * Gets the userDisplayName property value. Display name of the user.
+     * @returns a string
+     */
+    public get userDisplayName() {
+        return this._userDisplayName;
+    };
+    /**
+     * Sets the userDisplayName property value. Display name of the user.
+     * @param value Value to set for the userDisplayName property.
+     */
+    public set userDisplayName(value: string | undefined) {
+        if(value) {
+            this._userDisplayName = value;
+        }
+    };
+    /**
+     * Gets the userId property value. Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID.
+     * @returns a string
+     */
+    public get userId() {
+        return this._userId;
+    };
+    /**
+     * Sets the userId property value. Calling user's ID in Graph. This and other user info will be null/empty for bot call types. GUID.
+     * @param value Value to set for the userId property.
+     */
+    public set userId(value: string | undefined) {
+        if(value) {
+            this._userId = value;
+        }
+    };
+    /**
+     * Gets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
+    };
+    /**
+     * Sets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * @param value Value to set for the userPrincipalName property.
+     */
+    public set userPrincipalName(value: string | undefined) {
+        if(value) {
+            this._userPrincipalName = value;
+        }
     };
 }

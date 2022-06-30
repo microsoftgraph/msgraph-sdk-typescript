@@ -7,17 +7,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of application entities. */
 export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotTable {
     /** Name of the PivotTable. */
-    public name?: string | undefined;
+    private _name?: string | undefined;
     /** The worksheet containing the current PivotTable. Read-only. */
-    public worksheet?: WorkbookWorksheet | undefined;
+    private _worksheet?: WorkbookWorksheet | undefined;
     /**
      * Instantiates a new workbookPivotTable and sets the default values.
      * @param workbookPivotTableParameterValue 
      */
     public constructor(workbookPivotTableParameterValue?: WorkbookPivotTable | undefined) {
         super(workbookPivotTableParameterValue);
-        this.name = workbookPivotTableParameterValue?.name;
-        this.worksheet = workbookPivotTableParameterValue?.worksheet;
+        this._name = workbookPivotTableParameterValue?.name;
+        this._worksheet = workbookPivotTableParameterValue?.worksheet;
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +30,22 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
         };
     };
     /**
+     * Gets the name property value. Name of the PivotTable.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. Name of the PivotTable.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        if(value) {
+            this._name = value;
+        }
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -40,7 +56,23 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
             writer.writeStringValue("name", this.name);
         }
         if(this.worksheet){
-            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", new WorkbookWorksheetImpl(this.worksheet));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (!this.worksheet || this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet : new WorkbookWorksheetImpl(this.worksheet)));
+        }
+    };
+    /**
+     * Gets the worksheet property value. The worksheet containing the current PivotTable. Read-only.
+     * @returns a WorkbookWorksheetInterface
+     */
+    public get worksheet() {
+        return this._worksheet;
+    };
+    /**
+     * Sets the worksheet property value. The worksheet containing the current PivotTable. Read-only.
+     * @param value Value to set for the worksheet property.
+     */
+    public set worksheet(value: WorkbookWorksheet | undefined) {
+        if(value) {
+            this._worksheet = value instanceof WorkbookWorksheetImpl? value : new WorkbookWorksheetImpl(value);
         }
     };
 }

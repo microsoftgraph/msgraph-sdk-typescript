@@ -4,14 +4,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class DeviceEnrollmentLimitConfigurationImpl extends DeviceEnrollmentConfigurationImpl implements DeviceEnrollmentLimitConfiguration {
     /** The maximum number of devices that a user can enroll */
-    public limit?: number | undefined;
+    private _limit?: number | undefined;
     /**
      * Instantiates a new DeviceEnrollmentLimitConfiguration and sets the default values.
      * @param deviceEnrollmentLimitConfigurationParameterValue 
      */
     public constructor(deviceEnrollmentLimitConfigurationParameterValue?: DeviceEnrollmentLimitConfiguration | undefined) {
         super(deviceEnrollmentLimitConfigurationParameterValue);
-        this.limit = deviceEnrollmentLimitConfigurationParameterValue?.limit;
+        this._limit = deviceEnrollmentLimitConfigurationParameterValue?.limit;
     };
     /**
      * The deserialization information for the current model
@@ -21,6 +21,22 @@ export class DeviceEnrollmentLimitConfigurationImpl extends DeviceEnrollmentConf
         return {...super.getFieldDeserializers(),
             "limit": n => { this.limit = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the limit property value. The maximum number of devices that a user can enroll
+     * @returns a integer
+     */
+    public get limit() {
+        return this._limit;
+    };
+    /**
+     * Sets the limit property value. The maximum number of devices that a user can enroll
+     * @param value Value to set for the limit property.
+     */
+    public set limit(value: number | undefined) {
+        if(value) {
+            this._limit = value;
+        }
     };
     /**
      * Serializes information the current object

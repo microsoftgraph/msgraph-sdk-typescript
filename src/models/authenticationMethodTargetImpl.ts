@@ -6,17 +6,17 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export class AuthenticationMethodTargetImpl extends EntityImpl implements AuthenticationMethodTarget {
     /** Determines if the user is enforced to register the authentication method. */
-    public isRegistrationRequired?: boolean | undefined;
+    private _isRegistrationRequired?: boolean | undefined;
     /** Possible values are: user, group, and unknownFutureValue. */
-    public targetType?: AuthenticationMethodTargetType | undefined;
+    private _targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Instantiates a new authenticationMethodTarget and sets the default values.
      * @param authenticationMethodTargetParameterValue 
      */
     public constructor(authenticationMethodTargetParameterValue?: AuthenticationMethodTarget | undefined) {
         super(authenticationMethodTargetParameterValue);
-        this.isRegistrationRequired = authenticationMethodTargetParameterValue?.isRegistrationRequired;
-        this.targetType = authenticationMethodTargetParameterValue?.targetType;
+        this._isRegistrationRequired = authenticationMethodTargetParameterValue?.isRegistrationRequired;
+        this._targetType = authenticationMethodTargetParameterValue?.targetType;
     };
     /**
      * The deserialization information for the current model
@@ -27,6 +27,22 @@ export class AuthenticationMethodTargetImpl extends EntityImpl implements Authen
             "isRegistrationRequired": n => { this.isRegistrationRequired = n.getBooleanValue(); },
             "targetType": n => { this.targetType = n.getEnumValue<AuthenticationMethodTargetType>(AuthenticationMethodTargetType); },
         };
+    };
+    /**
+     * Gets the isRegistrationRequired property value. Determines if the user is enforced to register the authentication method.
+     * @returns a boolean
+     */
+    public get isRegistrationRequired() {
+        return this._isRegistrationRequired;
+    };
+    /**
+     * Sets the isRegistrationRequired property value. Determines if the user is enforced to register the authentication method.
+     * @param value Value to set for the isRegistrationRequired property.
+     */
+    public set isRegistrationRequired(value: boolean | undefined) {
+        if(value) {
+            this._isRegistrationRequired = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -40,6 +56,22 @@ export class AuthenticationMethodTargetImpl extends EntityImpl implements Authen
         }
         if(this.targetType){
             writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
+        }
+    };
+    /**
+     * Gets the targetType property value. Possible values are: user, group, and unknownFutureValue.
+     * @returns a authenticationMethodTargetType
+     */
+    public get targetType() {
+        return this._targetType;
+    };
+    /**
+     * Sets the targetType property value. Possible values are: user, group, and unknownFutureValue.
+     * @param value Value to set for the targetType property.
+     */
+    public set targetType(value: AuthenticationMethodTargetType | undefined) {
+        if(value) {
+            this._targetType = value;
         }
     };
 }

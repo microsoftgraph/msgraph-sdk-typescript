@@ -5,19 +5,35 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains return code properties for a Win32 App */
 export class Win32LobAppReturnCodeImpl implements Win32LobAppReturnCode {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Return code. */
-    public returnCode?: number | undefined;
+    private _returnCode?: number | undefined;
     /** The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry. */
-    public type?: Win32LobAppReturnCodeType | undefined;
+    private _type?: Win32LobAppReturnCodeType | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
     /**
      * Instantiates a new win32LobAppReturnCode and sets the default values.
      * @param win32LobAppReturnCodeParameterValue 
      */
     public constructor(win32LobAppReturnCodeParameterValue?: Win32LobAppReturnCode | undefined) {
-        this.additionalData = win32LobAppReturnCodeParameterValue?.additionalData ? win32LobAppReturnCodeParameterValue?.additionalData! : {};
-        this.returnCode = win32LobAppReturnCodeParameterValue?.returnCode;
-        this.type = win32LobAppReturnCodeParameterValue?.type;
+        this._additionalData = win32LobAppReturnCodeParameterValue?.additionalData ? win32LobAppReturnCodeParameterValue?.additionalData! : {};
+        this._returnCode = win32LobAppReturnCodeParameterValue?.returnCode;
+        this._type = win32LobAppReturnCodeParameterValue?.type;
     };
     /**
      * The deserialization information for the current model
@@ -28,6 +44,22 @@ export class Win32LobAppReturnCodeImpl implements Win32LobAppReturnCode {
             "returnCode": n => { this.returnCode = n.getNumberValue(); },
             "type": n => { this.type = n.getEnumValue<Win32LobAppReturnCodeType>(Win32LobAppReturnCodeType); },
         };
+    };
+    /**
+     * Gets the returnCode property value. Return code.
+     * @returns a integer
+     */
+    public get returnCode() {
+        return this._returnCode;
+    };
+    /**
+     * Sets the returnCode property value. Return code.
+     * @param value Value to set for the returnCode property.
+     */
+    public set returnCode(value: number | undefined) {
+        if(value) {
+            this._returnCode = value;
+        }
     };
     /**
      * Serializes information the current object
@@ -42,5 +74,21 @@ export class Win32LobAppReturnCodeImpl implements Win32LobAppReturnCode {
             writer.writeEnumValue<Win32LobAppReturnCodeType>("type", this.type);
         }
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the type property value. The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
+     * @returns a win32LobAppReturnCodeType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the type property value. The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: Win32LobAppReturnCodeType | undefined) {
+        if(value) {
+            this._type = value;
+        }
     };
 }

@@ -3,16 +3,48 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConfigurationImpl implements Configuration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    public additionalData: Record<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection. */
-    public authorizedAppIds?: string[] | undefined;
+    private _authorizedAppIds?: string[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        if(value) {
+            this._additionalData = value;
+        }
+    };
+    /**
+     * Gets the authorizedAppIds property value. A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
+     * @returns a string
+     */
+    public get authorizedAppIds() {
+        return this._authorizedAppIds;
+    };
+    /**
+     * Sets the authorizedAppIds property value. A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
+     * @param value Value to set for the authorizedAppIds property.
+     */
+    public set authorizedAppIds(value: string[] | undefined) {
+        if(value) {
+            this._authorizedAppIds = value;
+        }
+    };
     /**
      * Instantiates a new configuration and sets the default values.
      * @param configurationParameterValue 
      */
     public constructor(configurationParameterValue?: Configuration | undefined) {
-        this.additionalData = configurationParameterValue?.additionalData ? configurationParameterValue?.additionalData! : {};
-        this.authorizedAppIds = configurationParameterValue?.authorizedAppIds;
+        this._additionalData = configurationParameterValue?.additionalData ? configurationParameterValue?.additionalData! : {};
+        this._authorizedAppIds = configurationParameterValue?.authorizedAppIds;
     };
     /**
      * The deserialization information for the current model

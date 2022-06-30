@@ -5,20 +5,36 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class MailAssessmentRequestImpl extends ThreatAssessmentRequestImpl implements MailAssessmentRequest {
     /** The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk. */
-    public destinationRoutingReason?: MailDestinationRoutingReason | undefined;
+    private _destinationRoutingReason?: MailDestinationRoutingReason | undefined;
     /** The resource URI of the mail message for assessment. */
-    public messageUri?: string | undefined;
+    private _messageUri?: string | undefined;
     /** The mail recipient whose policies are used to assess the mail. */
-    public recipientEmail?: string | undefined;
+    private _recipientEmail?: string | undefined;
     /**
      * Instantiates a new MailAssessmentRequest and sets the default values.
      * @param mailAssessmentRequestParameterValue 
      */
     public constructor(mailAssessmentRequestParameterValue?: MailAssessmentRequest | undefined) {
         super(mailAssessmentRequestParameterValue);
-        this.destinationRoutingReason = mailAssessmentRequestParameterValue?.destinationRoutingReason;
-        this.messageUri = mailAssessmentRequestParameterValue?.messageUri;
-        this.recipientEmail = mailAssessmentRequestParameterValue?.recipientEmail;
+        this._destinationRoutingReason = mailAssessmentRequestParameterValue?.destinationRoutingReason;
+        this._messageUri = mailAssessmentRequestParameterValue?.messageUri;
+        this._recipientEmail = mailAssessmentRequestParameterValue?.recipientEmail;
+    };
+    /**
+     * Gets the destinationRoutingReason property value. The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
+     * @returns a mailDestinationRoutingReason
+     */
+    public get destinationRoutingReason() {
+        return this._destinationRoutingReason;
+    };
+    /**
+     * Sets the destinationRoutingReason property value. The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
+     * @param value Value to set for the destinationRoutingReason property.
+     */
+    public set destinationRoutingReason(value: MailDestinationRoutingReason | undefined) {
+        if(value) {
+            this._destinationRoutingReason = value;
+        }
     };
     /**
      * The deserialization information for the current model
@@ -30,6 +46,38 @@ export class MailAssessmentRequestImpl extends ThreatAssessmentRequestImpl imple
             "messageUri": n => { this.messageUri = n.getStringValue(); },
             "recipientEmail": n => { this.recipientEmail = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the messageUri property value. The resource URI of the mail message for assessment.
+     * @returns a string
+     */
+    public get messageUri() {
+        return this._messageUri;
+    };
+    /**
+     * Sets the messageUri property value. The resource URI of the mail message for assessment.
+     * @param value Value to set for the messageUri property.
+     */
+    public set messageUri(value: string | undefined) {
+        if(value) {
+            this._messageUri = value;
+        }
+    };
+    /**
+     * Gets the recipientEmail property value. The mail recipient whose policies are used to assess the mail.
+     * @returns a string
+     */
+    public get recipientEmail() {
+        return this._recipientEmail;
+    };
+    /**
+     * Sets the recipientEmail property value. The mail recipient whose policies are used to assess the mail.
+     * @param value Value to set for the recipientEmail property.
+     */
+    public set recipientEmail(value: string | undefined) {
+        if(value) {
+            this._recipientEmail = value;
+        }
     };
     /**
      * Serializes information the current object
