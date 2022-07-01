@@ -4,7 +4,7 @@ export interface ImageInfo extends Partial<AdditionalDataHolder>, Partial<Parsab
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
     addImageQuery?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Optional; alt-text accessible content for the image */
     alternateText?: string | undefined;
     /** The alternativeText property */

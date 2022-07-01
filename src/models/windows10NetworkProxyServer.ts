@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows10NetworkProxyServer extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Address to the proxy server. Specify an address in the format <server>[':'<port>] */
     address?: string | undefined;
     /** Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node. */

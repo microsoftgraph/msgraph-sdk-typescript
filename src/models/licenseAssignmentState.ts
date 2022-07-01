@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LicenseAssignmentState extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only. */
     assignedByGroup?: string | undefined;
     /** The service plans that are disabled in this assignment. Read-Only. */

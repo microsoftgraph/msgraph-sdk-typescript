@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ImplicitGrantSettingsImpl implements ImplicitGrantSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow. */
     private _enableAccessTokenIssuance?: boolean | undefined;
     /** Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow. */
@@ -19,7 +19,7 @@ export class ImplicitGrantSettingsImpl implements ImplicitGrantSettings {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

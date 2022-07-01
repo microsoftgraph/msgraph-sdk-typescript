@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesProvisioningError extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Category of the provisioning error. Note: Currently, there is only one possible value. Possible value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the property. */
     category?: string | undefined;
     /** The date and time at which the error occurred. */

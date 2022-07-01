@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WorkbookIconImpl implements WorkbookIcon {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Represents the index of the icon in the given set. */
     private _index?: number | undefined;
     /** Represents the set that the icon is part of. Possible values are: Invalid, ThreeArrows, ThreeArrowsGray, ThreeFlags, ThreeTrafficLights1, ThreeTrafficLights2, ThreeSigns, ThreeSymbols, ThreeSymbols2, FourArrows, FourArrowsGray, FourRedToBlack, FourRating, FourTrafficLights, FiveArrows, FiveArrowsGray, FiveRating, FiveQuarters, ThreeStars, ThreeTriangles, FiveBoxes. */
@@ -19,7 +19,7 @@ export class WorkbookIconImpl implements WorkbookIcon {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

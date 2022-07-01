@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class WebApplicationImpl implements WebApplication {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Home page or landing page of the application. */
     private _homePageUrl?: string | undefined;
     /** Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow. */
@@ -26,7 +26,7 @@ export class WebApplicationImpl implements WebApplication {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

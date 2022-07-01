@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class TeamsTabConfigurationImpl implements TeamsTabConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Url used for rendering tab contents in Teams. Required. */
     private _contentUrl?: string | undefined;
     /** Identifier for the entity hosted by the tab provider. */
@@ -23,7 +23,7 @@ export class TeamsTabConfigurationImpl implements TeamsTabConfiguration {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

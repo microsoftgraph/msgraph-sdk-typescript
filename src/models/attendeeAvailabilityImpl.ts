@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AttendeeAvailabilityImpl implements AttendeeAvailability {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person. */
     private _attendee?: AttendeeBase | undefined;
     /** The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
@@ -23,7 +23,7 @@ export class AttendeeAvailabilityImpl implements AttendeeAvailability {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

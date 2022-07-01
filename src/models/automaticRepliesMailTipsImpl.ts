@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The automatic reply message. */
     private _message?: string | undefined;
     /** The language that the automatic reply message is in. */
@@ -28,7 +28,7 @@ export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

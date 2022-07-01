@@ -11,7 +11,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintJobConfiguration extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
     collate?: boolean | undefined;
     /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only. */

@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ParticipantInfo extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
     countryCode?: string | undefined;
     /** The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only. */

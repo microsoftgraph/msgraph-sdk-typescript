@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackageAssignmentApprovalSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** If false, then approval is not required for new requests in this policy. */
     private _isApprovalRequiredForAdd?: boolean | undefined;
     /** If false, then approval is not required for updates to requests in this policy. */
@@ -24,7 +24,7 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

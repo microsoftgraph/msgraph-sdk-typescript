@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrinterDefaults extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The default color mode to use when printing the document. Valid values are described in the following table. */
     colorMode?: PrintColorMode | undefined;
     /** The default content (MIME) type to use when processing documents. */

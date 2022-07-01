@@ -4,7 +4,7 @@ import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter
 
 export class RecurrenceRangeImpl implements RecurrenceRange {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate. */
     private _endDate?: DateOnly | undefined;
     /** The number of times to repeat the event. Required and must be positive if type is numbered. */
@@ -26,7 +26,7 @@ export class RecurrenceRangeImpl implements RecurrenceRange {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

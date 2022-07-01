@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface VisualInfo extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Optional. JSON object used to represent an icon which represents the application used to generate the activity */
     attribution?: ImageInfo | undefined;
     /** Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color */

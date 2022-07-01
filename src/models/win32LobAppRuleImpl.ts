@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** A base complex type to store the detection or requirement rule data for a Win32 LOB app. */
 export class Win32LobAppRuleImpl implements Win32LobAppRule {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The rule type indicating the purpose of the rule. Possible values are: detection, requirement. */
     private _ruleType?: Win32LobAppRuleType | undefined;
     /**
@@ -19,7 +19,7 @@ export class Win32LobAppRuleImpl implements Win32LobAppRule {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

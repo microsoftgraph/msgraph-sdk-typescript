@@ -5,7 +5,7 @@ export class VerifiedPublisherImpl implements VerifiedPublisher {
     /** The timestamp when the verified publisher was first added or most recently updated. */
     private _addedDateTime?: Date | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account. */
     private _displayName?: string | undefined;
     /** The ID of the verified publisher from the app publisher's Partner Center account. */
@@ -37,7 +37,7 @@ export class VerifiedPublisherImpl implements VerifiedPublisher {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

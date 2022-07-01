@@ -6,5 +6,5 @@ export interface ItemActionStat extends Partial<AdditionalDataHolder>, Partial<P
     /** The number of distinct actors that performed the action. Read-only. */
     actorCount?: number | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
 }

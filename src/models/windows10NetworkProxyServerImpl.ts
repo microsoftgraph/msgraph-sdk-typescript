@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Network Proxy Server Policy. */
 export class Windows10NetworkProxyServerImpl implements Windows10NetworkProxyServer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Address to the proxy server. Specify an address in the format <server>[':'<port>] */
     private _address?: string | undefined;
     /** Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node. */
@@ -22,7 +22,7 @@ export class Windows10NetworkProxyServerImpl implements Windows10NetworkProxySer
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceInfo extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Name of the capture device driver used by the media endpoint. */
     captureDeviceDriver?: string | undefined;
     /** Name of the capture device used by the media endpoint. */

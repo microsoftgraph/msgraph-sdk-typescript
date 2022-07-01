@@ -5,7 +5,7 @@ export class ImageInfoImpl implements ImageInfo {
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
     private _addImageQuery?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Optional; alt-text accessible content for the image */
     private _alternateText?: string | undefined;
     /** The alternativeText property */
@@ -39,7 +39,7 @@ export class ImageInfoImpl implements ImageInfo {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

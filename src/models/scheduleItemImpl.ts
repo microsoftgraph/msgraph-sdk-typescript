@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ScheduleItemImpl implements ScheduleItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The date, time, and time zone that the corresponding event ends. */
     private _end?: DateTimeTimeZone | undefined;
     /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
@@ -31,7 +31,7 @@ export class ScheduleItemImpl implements ScheduleItem {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

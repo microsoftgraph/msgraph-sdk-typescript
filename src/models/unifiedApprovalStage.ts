@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedApprovalStage extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The number of days that a request can be pending a response before it is automatically denied. */
     approvalStageTimeOutInDays?: number | undefined;
     /** The escalation approvers for this stage when the primary approvers don't respond. */

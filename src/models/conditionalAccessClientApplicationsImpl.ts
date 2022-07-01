@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessClientApplicationsImpl implements ConditionalAccessClientApplications {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Service principal IDs excluded from the policy scope. */
     private _excludeServicePrincipals?: string[] | undefined;
     /** Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
@@ -19,7 +19,7 @@ export class ConditionalAccessClientApplicationsImpl implements ConditionalAcces
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

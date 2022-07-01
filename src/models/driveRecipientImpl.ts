@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class DriveRecipientImpl implements DriveRecipient {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The alias of the domain object, for cases where an email address is unavailable (e.g. security groups). */
     private _alias?: string | undefined;
     /** The email address for the recipient, if the recipient has an associated email address. */
@@ -21,7 +21,7 @@ export class DriveRecipientImpl implements DriveRecipient {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

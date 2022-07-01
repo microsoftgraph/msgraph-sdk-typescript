@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** configuration Manager client enabled features */
 export class ConfigurationManagerClientEnabledFeaturesImpl implements ConfigurationManagerClientEnabledFeatures {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Whether compliance policy is managed by Intune */
     private _compliancePolicy?: boolean | undefined;
     /** Whether device configuration is managed by Intune */
@@ -28,7 +28,7 @@ export class ConfigurationManagerClientEnabledFeaturesImpl implements Configurat
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintTaskStatusImpl implements PrintTaskStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** A human-readable description of the current processing state of the printTask. */
     private _description?: string | undefined;
     /** The current processing state of the printTask. Valid values are described in the following table. */
@@ -20,7 +20,7 @@ export class PrintTaskStatusImpl implements PrintTaskStatus {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

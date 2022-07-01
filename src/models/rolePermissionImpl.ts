@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains the set of ResourceActions determining the allowed and not allowed permissions for each role. */
 export class RolePermissionImpl implements RolePermission {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Resource Actions each containing a set of allowed and not allowed permissions. */
     private _resourceActions?: ResourceAction[] | undefined;
     /**
@@ -21,7 +21,7 @@ export class RolePermissionImpl implements RolePermission {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

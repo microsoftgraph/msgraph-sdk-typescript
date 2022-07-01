@@ -2,13 +2,14 @@ import {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of directoryRoleTemplate entities. */
 export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements DirectoryRoleTemplate {
     /** The description to set for the directory role. Read-only. */
     private _description?: string | undefined;
     /** The display name to set for the directory role. Read-only. */
     private _displayName?: string | undefined;
     /**
-     * Instantiates a new DirectoryRoleTemplate and sets the default values.
+     * Instantiates a new directoryRoleTemplate and sets the default values.
      * @param directoryRoleTemplateParameterValue 
      */
     public constructor(directoryRoleTemplateParameterValue?: DirectoryRoleTemplate | undefined) {

@@ -8,7 +8,7 @@ export class OptionalClaimsImpl implements OptionalClaims {
     /** The optional claims returned in the JWT access token. */
     private _accessToken?: OptionalClaim[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The optional claims returned in the JWT ID token. */
     private _idToken?: OptionalClaim[] | undefined;
     /** The optional claims returned in the SAML token. */
@@ -44,7 +44,7 @@ export class OptionalClaimsImpl implements OptionalClaims {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

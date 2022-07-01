@@ -9,7 +9,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthenticationMethodsRegistrationCampaignImpl implements AuthenticationMethodsRegistrationCampaign {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Users and groups of users that are excluded from being prompted to set up the authentication method. */
     private _excludeTargets?: ExcludeTarget[] | undefined;
     /** Users and groups of users that are prompted to set up the authentication method. */
@@ -29,7 +29,7 @@ export class AuthenticationMethodsRegistrationCampaignImpl implements Authentica
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

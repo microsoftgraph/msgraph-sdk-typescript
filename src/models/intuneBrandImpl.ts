@@ -9,7 +9,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
 export class IntuneBrandImpl implements IntuneBrand {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Email address of the person/organization responsible for IT support. */
     private _contactITEmailAddress?: string | undefined;
     /** Name of the person/organization responsible for IT support. */
@@ -49,7 +49,7 @@ export class IntuneBrandImpl implements IntuneBrand {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

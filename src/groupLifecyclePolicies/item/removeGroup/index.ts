@@ -1,5 +1,5 @@
-export * from './removeGroupPostRequestBodyImpl'
 export * from './removeGroupResponseImpl'
+export * from './removeGroupPostRequestBodyImpl'
 export * from './removeGroupResponse'
 export * from './removeGroupRequestBuilderPostRequestConfiguration'
 export * from './removeGroupPostRequestBody'

@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for iOS Volume-Purchased Program (Vpp) Licensing Type. */
 export class VppLicensingTypeImpl implements VppLicensingType {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Whether the program supports the device licensing type. */
     private _supportsDeviceLicensing?: boolean | undefined;
     /** Whether the program supports the user licensing type. */
@@ -20,7 +20,7 @@ export class VppLicensingTypeImpl implements VppLicensingType {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

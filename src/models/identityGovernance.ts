@@ -8,7 +8,7 @@ export interface IdentityGovernance extends Partial<AdditionalDataHolder>, Parti
     /** The accessReviews property */
     accessReviews?: AccessReviewSet | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The appConsent property */
     appConsent?: AppConsentApprovalRoute | undefined;
     /** The entitlementManagement property */

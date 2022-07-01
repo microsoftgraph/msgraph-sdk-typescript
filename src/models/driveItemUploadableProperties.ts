@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DriveItemUploadableProperties extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Provides a user-visible description of the item. Read-write. Only on OneDrive Personal. */
     description?: string | undefined;
     /** Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal. */

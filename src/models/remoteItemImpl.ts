@@ -26,7 +26,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RemoteItemImpl implements RemoteItem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Identity of the user, device, and application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;
     /** Date and time of item creation. Read-only. */
@@ -76,7 +76,7 @@ export class RemoteItemImpl implements RemoteItem {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -6,7 +6,7 @@ export interface Process extends Partial<AdditionalDataHolder>, Partial<Parsable
     /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on. */
     accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The full process invocation commandline including all parameters. */
     commandLine?: string | undefined;
     /** Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */

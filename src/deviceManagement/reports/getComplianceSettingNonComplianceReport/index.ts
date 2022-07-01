@@ -1,3 +1,3 @@
 export * from './getComplianceSettingNonComplianceReportPostRequestBodyImpl'
-export * from './getComplianceSettingNonComplianceReportRequestBuilderPostRequestConfiguration'
 export * from './getComplianceSettingNonComplianceReportPostRequestBody'
+export * from './getComplianceSettingNonComplianceReportRequestBuilderPostRequestConfiguration'

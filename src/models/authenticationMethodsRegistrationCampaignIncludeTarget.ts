@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodsRegistrationCampaignIncludeTarget extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The object identifier of an Azure AD user or group. */
     id?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */

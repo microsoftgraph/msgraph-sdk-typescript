@@ -7,7 +7,7 @@ export class OnenotePatchContentCommandImpl implements OnenotePatchContentComman
     /** The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend. */
     private _action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part. */
     private _content?: string | undefined;
     /** The location to add the supplied content, relative to the target element. Possible values are: after (default) or before. */
@@ -41,7 +41,7 @@ export class OnenotePatchContentCommandImpl implements OnenotePatchContentComman
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

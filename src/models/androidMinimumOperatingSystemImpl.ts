@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains properties for the minimum operating system required for an Android mobile app. */
 export class AndroidMinimumOperatingSystemImpl implements AndroidMinimumOperatingSystem {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Version 10.0 or later. */
     private _v10_0?: boolean | undefined;
     /** Version 11.0 or later. */
@@ -36,7 +36,7 @@ export class AndroidMinimumOperatingSystemImpl implements AndroidMinimumOperatin
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Media extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Device information associated with the callee endpoint of this media. */
     calleeDevice?: DeviceInfo | undefined;
     /** Network information associated with the callee endpoint of this media. */

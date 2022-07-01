@@ -9,7 +9,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageAssignmentReviewSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue. */
     private _expirationBehavior?: AccessReviewExpirationBehavior | undefined;
     /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond. */
@@ -37,7 +37,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

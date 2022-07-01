@@ -12,7 +12,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSessionControls {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
     private _applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | undefined;
     /** Session control to apply cloud app security. */
@@ -34,7 +34,7 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessSessionControls extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
     applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | undefined;
     /** Session control to apply cloud app security. */

@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Platform specific enrollment restrictions */
 export class DeviceEnrollmentPlatformRestrictionImpl implements DeviceEnrollmentPlatformRestriction {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Max OS version supported */
     private _osMaximumVersion?: string | undefined;
     /** Min OS version supported */
@@ -24,7 +24,7 @@ export class DeviceEnrollmentPlatformRestrictionImpl implements DeviceEnrollment
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

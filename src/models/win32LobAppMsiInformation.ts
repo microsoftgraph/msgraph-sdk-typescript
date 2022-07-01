@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppMsiInformation extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The MSI package type. Possible values are: perMachine, perUser, dualPurpose. */
     packageType?: Win32LobAppMsiPackageType | undefined;
     /** The MSI product code. */

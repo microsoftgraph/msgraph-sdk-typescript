@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Contains installation experience properties for a Win32 App */
 export class Win32LobAppInstallExperienceImpl implements Win32LobAppInstallExperience {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Device restart behavior. Possible values are: basedOnReturnCode, allow, suppress, force. */
     private _deviceRestartBehavior?: Win32LobAppRestartBehavior | undefined;
     /** Indicates the type of execution context the app runs in. Possible values are: system, user. */
@@ -22,7 +22,7 @@ export class Win32LobAppInstallExperienceImpl implements Win32LobAppInstallExper
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

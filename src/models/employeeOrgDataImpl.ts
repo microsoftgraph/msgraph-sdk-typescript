@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class EmployeeOrgDataImpl implements EmployeeOrgData {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The cost center associated with the user. Returned only on $select. Supports $filter. */
     private _costCenter?: string | undefined;
     /** The name of the division in which the user works. Returned only on $select. Supports $filter. */
@@ -19,7 +19,7 @@ export class EmployeeOrgDataImpl implements EmployeeOrgData {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

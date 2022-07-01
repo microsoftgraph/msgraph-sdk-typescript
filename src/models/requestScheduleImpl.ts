@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RequestScheduleImpl implements RequestSchedule {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** In entitlement management, when the access should expire. */
     private _expiration?: ExpirationPattern | undefined;
     /** For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management. */
@@ -26,7 +26,7 @@ export class RequestScheduleImpl implements RequestSchedule {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

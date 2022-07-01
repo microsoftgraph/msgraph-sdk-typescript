@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 
 export class MediaStreamImpl implements MediaStream {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue. */
     private _audioCodec?: AudioCodec | undefined;
     /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
@@ -72,7 +72,7 @@ export class MediaStreamImpl implements MediaStream {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

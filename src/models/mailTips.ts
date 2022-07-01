@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MailTips extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Mail tips for automatic reply if it has been set up by the recipient. */
     automaticReplies?: AutomaticRepliesMailTips | undefined;
     /** A custom mail tip that can be set on the recipient's mailbox. */

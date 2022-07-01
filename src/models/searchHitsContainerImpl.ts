@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SearchHitsContainerImpl implements SearchHitsContainer {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
     private _aggregations?: SearchAggregation[] | undefined;
     /** A collection of the search results. */
@@ -28,7 +28,7 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

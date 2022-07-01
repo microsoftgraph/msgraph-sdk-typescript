@@ -6,7 +6,7 @@ export interface OnenotePatchContentCommand extends Partial<AdditionalDataHolder
     /** The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend. */
     action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part. */
     content?: string | undefined;
     /** The location to add the supplied content, relative to the target element. Possible values are: after (default) or before. */

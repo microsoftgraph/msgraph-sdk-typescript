@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InformationalUrl extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** CDN URL to the application's logo, Read-only. */
     logoUrl?: string | undefined;
     /** Link to the application's marketing page. For example, https://www.contoso.com/app/marketing */

@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ExternalItemContentImpl implements ExternalItemContent {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required. */
     private _type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required. */
@@ -20,7 +20,7 @@ export class ExternalItemContentImpl implements ExternalItemContent {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

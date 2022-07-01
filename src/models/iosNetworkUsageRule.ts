@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosNetworkUsageRule extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** If set to true, corresponding managed apps will not be allowed to use cellular data at any time. */
     cellularDataBlocked?: boolean | undefined;
     /** If set to true, corresponding managed apps will not be allowed to use cellular data when roaming. */

@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** A page containing apps, folders, and web clips on the Home Screen. */
 export class IosHomeScreenPageImpl implements IosHomeScreenPage {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Name of the page */
     private _displayName?: string | undefined;
     /** A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements. */
@@ -23,7 +23,7 @@ export class IosHomeScreenPageImpl implements IosHomeScreenPage {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

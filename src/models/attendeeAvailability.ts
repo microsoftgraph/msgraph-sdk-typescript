@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttendeeAvailability extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person. */
     attendee?: AttendeeBase | undefined;
     /** The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */

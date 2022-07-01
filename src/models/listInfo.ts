@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ListInfo extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** If true, indicates that content types are enabled for this list. */
     contentTypesEnabled?: boolean | undefined;
     /** If true, indicates that the list is not normally visible in the SharePoint user experience. */

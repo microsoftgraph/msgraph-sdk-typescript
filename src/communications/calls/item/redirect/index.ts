@@ -1,3 +1,3 @@
 export * from './redirectPostRequestBodyImpl'
-export * from './redirectPostRequestBody'
 export * from './redirectRequestBuilderPostRequestConfiguration'
+export * from './redirectPostRequestBody'

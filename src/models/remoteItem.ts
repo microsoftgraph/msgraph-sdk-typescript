@@ -13,7 +13,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RemoteItem extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Identity of the user, device, and application which created the item. Read-only. */
     createdBy?: IdentitySet | undefined;
     /** Date and time of item creation. Read-only. */

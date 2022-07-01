@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InvitedUserMessageInfo extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported. */
     ccRecipients?: Recipient[] | undefined;
     /** Customized message body you want to send if you don't want the default message. */

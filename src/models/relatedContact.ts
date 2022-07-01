@@ -5,7 +5,7 @@ export interface RelatedContact extends Partial<AdditionalDataHolder>, Partial<P
     /** Indicates whether the user has been consented to access student data. */
     accessConsent?: boolean | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Name of the contact. Required. */
     displayName?: string | undefined;
     /** Email address of the contact. */

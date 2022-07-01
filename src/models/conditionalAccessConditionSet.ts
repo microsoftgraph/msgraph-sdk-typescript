@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessConditionSet extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Applications and user actions included in and excluded from the policy. Required. */
     applications?: ConditionalAccessApplications | undefined;
     /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */

@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequestRequirements extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Indicates whether the requestor is allowed to set a custom schedule. */
     allowCustomAssignmentSchedule?: boolean | undefined;
     /** Indicates whether a request to add must be approved by an approver. */

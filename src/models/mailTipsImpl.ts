@@ -13,7 +13,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class MailTipsImpl implements MailTips {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Mail tips for automatic reply if it has been set up by the recipient. */
     private _automaticReplies?: AutomaticRepliesMailTips | undefined;
     /** A custom mail tip that can be set on the recipient's mailbox. */
@@ -49,7 +49,7 @@ export class MailTipsImpl implements MailTips {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

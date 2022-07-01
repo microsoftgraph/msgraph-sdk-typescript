@@ -15,7 +15,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrintJobConfigurationImpl implements PrintJobConfiguration {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
     private _collate?: boolean | undefined;
     /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only. */
@@ -65,7 +65,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

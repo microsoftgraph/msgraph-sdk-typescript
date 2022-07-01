@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LicenseAssignmentStateImpl implements LicenseAssignmentState {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only. */
     private _assignedByGroup?: string | undefined;
     /** The service plans that are disabled in this assignment. Read-Only. */
@@ -27,7 +27,7 @@ export class LicenseAssignmentStateImpl implements LicenseAssignmentState {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class VisualInfoImpl implements VisualInfo {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Optional. JSON object used to represent an icon which represents the application used to generate the activity */
     private _attribution?: ImageInfo | undefined;
     /** Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color */
@@ -30,7 +30,7 @@ export class VisualInfoImpl implements VisualInfo {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

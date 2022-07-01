@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstrac
 
 export interface TraceRouteHop extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The network path count of this hop that was used to compute the RTT. */
     hopCount?: number | undefined;
     /** IP address used for this hop in the network trace. */

@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LookupColumn extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Indicates whether multiple values can be selected from the source. */
     allowMultipleValues?: boolean | undefined;
     /** Indicates whether values in the column should be able to exceed the standard limit of 255 characters. */

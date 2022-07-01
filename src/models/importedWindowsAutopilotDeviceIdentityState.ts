@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ImportedWindowsAutopilotDeviceIdentityState extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Device error code reported by Device Directory Service(DDS). */
     deviceErrorCode?: number | undefined;
     /** Device error name reported by Device Directory Service(DDS). */

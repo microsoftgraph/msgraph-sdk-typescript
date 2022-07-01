@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Network Usage Rules allow enterprises to specify how managed apps use networks, such as cellular data networks. */
 export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** If set to true, corresponding managed apps will not be allowed to use cellular data at any time. */
     private _cellularDataBlocked?: boolean | undefined;
     /** If set to true, corresponding managed apps will not be allowed to use cellular data when roaming. */
@@ -25,7 +25,7 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

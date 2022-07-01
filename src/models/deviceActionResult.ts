@@ -7,7 +7,7 @@ export interface DeviceActionResult extends Partial<AdditionalDataHolder>, Parti
     /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
     actionState?: ActionState | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Time the action state was last updated */
     lastUpdatedDateTime?: Date | undefined;
     /** Time the action was initiated */

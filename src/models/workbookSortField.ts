@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookSortField extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Represents whether the sorting is done in an ascending fashion. */
     ascending?: boolean | undefined;
     /** Represents the color that is the target of the condition if the sorting is on font or cell color. */

@@ -8,7 +8,7 @@ export interface ArchivedPrintJob extends Partial<AdditionalDataHolder>, Partial
     /** The dateTimeOffset when the job was acquired by the printer, if any. Read-only. */
     acquiredDateTime?: Date | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The dateTimeOffset when the job was completed, canceled or aborted. Read-only. */
     completionDateTime?: Date | undefined;
     /** The number of copies that were printed. Read-only. */

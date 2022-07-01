@@ -1,3 +1,3 @@
 export * from './restorePostRequestBodyImpl'
-export * from './restorePostRequestBody'
 export * from './restoreRequestBuilderPostRequestConfiguration'
+export * from './restorePostRequestBody'

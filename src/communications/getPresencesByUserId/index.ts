@@ -1,5 +1,5 @@
 export * from './getPresencesByUserIdResponseImpl'
 export * from './getPresencesByUserIdPostRequestBodyImpl'
 export * from './getPresencesByUserIdRequestBuilderPostRequestConfiguration'
-export * from './getPresencesByUserIdResponse'
 export * from './getPresencesByUserIdPostRequestBody'
+export * from './getPresencesByUserIdResponse'

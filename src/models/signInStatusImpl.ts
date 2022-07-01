@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class SignInStatusImpl implements SignInStatus {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Provides additional details on the sign-in activity */
     private _additionalDetails?: string | undefined;
     /** Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages. */
@@ -21,7 +21,7 @@ export class SignInStatusImpl implements SignInStatus {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

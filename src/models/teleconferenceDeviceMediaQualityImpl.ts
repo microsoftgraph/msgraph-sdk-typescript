@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 
 export class TeleconferenceDeviceMediaQualityImpl implements TeleconferenceDeviceMediaQuality {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The average inbound stream network jitter. */
     private _averageInboundJitter?: Duration | undefined;
     /** The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
@@ -57,7 +57,7 @@ export class TeleconferenceDeviceMediaQualityImpl implements TeleconferenceDevic
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

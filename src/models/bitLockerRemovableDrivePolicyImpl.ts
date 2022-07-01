@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** BitLocker Removable Drive Policies. */
 export class BitLockerRemovableDrivePolicyImpl implements BitLockerRemovableDrivePolicy {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** This policy setting determines whether BitLocker protection is required for removable data drives to be writable on a computer. */
     private _blockCrossOrganizationWriteAccess?: boolean | undefined;
     /** Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256. */
@@ -23,7 +23,7 @@ export class BitLockerRemovableDrivePolicyImpl implements BitLockerRemovableDriv
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

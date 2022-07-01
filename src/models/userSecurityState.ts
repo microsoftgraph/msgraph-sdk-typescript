@@ -9,7 +9,7 @@ export interface UserSecurityState extends Partial<AdditionalDataHolder>, Partia
     /** Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName). */
     accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** NetBIOS/Active Directory domain of user account (that is, domain/account format). */
     domainName?: string | undefined;
     /** For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient. */

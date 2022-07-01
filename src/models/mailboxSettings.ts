@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MailboxSettings extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Folder ID of an archive folder for the user. Read only. */
     archiveFolder?: string | undefined;
     /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */

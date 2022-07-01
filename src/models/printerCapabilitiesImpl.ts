@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class PrinterCapabilitiesImpl implements PrinterCapabilities {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** A list of supported bottom margins(in microns) for the printer. */
     private _bottomMargins?: number[] | undefined;
     /** True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise. */
@@ -68,7 +68,7 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

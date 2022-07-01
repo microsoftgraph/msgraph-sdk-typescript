@@ -16,7 +16,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessConditionSetImpl implements ConditionalAccessConditionSet {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Applications and user actions included in and excluded from the policy. Required. */
     private _applications?: ConditionalAccessApplications | undefined;
     /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */
@@ -46,7 +46,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

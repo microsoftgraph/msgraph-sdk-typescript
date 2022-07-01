@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AverageComparativeScoreImpl implements AverageComparativeScore {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Average score within specified basis. */
     private _averageScore?: number | undefined;
     /** Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes. */
@@ -19,7 +19,7 @@ export class AverageComparativeScoreImpl implements AverageComparativeScore {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

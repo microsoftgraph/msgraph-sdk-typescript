@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ColumnValidationImpl implements ColumnValidation {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Default BCP 47 language tag for the description. */
     private _defaultLanguage?: string | undefined;
     /** Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails. */
@@ -24,7 +24,7 @@ export class ColumnValidationImpl implements ColumnValidation {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

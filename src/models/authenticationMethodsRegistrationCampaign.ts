@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodsRegistrationCampaign extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Users and groups of users that are excluded from being prompted to set up the authentication method. */
     excludeTargets?: ExcludeTarget[] | undefined;
     /** Users and groups of users that are prompted to set up the authentication method. */

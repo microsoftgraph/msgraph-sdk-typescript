@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosNotificationSettings extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Indicates the type of alert for notifications for this app. Possible values are: deviceDefault, banner, modal, none. */
     alertType?: IosNotificationAlertType | undefined;
     /** Application name to be associated with the bundleID. */

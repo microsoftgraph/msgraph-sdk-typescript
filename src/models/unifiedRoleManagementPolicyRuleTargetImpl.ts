@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleManagementPolicyRuleTarget {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser. */
     private _caller?: string | undefined;
     /** The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings. */
@@ -30,7 +30,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

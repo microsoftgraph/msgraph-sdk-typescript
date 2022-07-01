@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectRoutingLogRow extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Number of the user or bot who received the call. E.164 format, but may include additional data. */
     calleeNumber?: string | undefined;
     /** In addition to the SIP codes, Microsoft has own subcodes that indicate the specific issue. */

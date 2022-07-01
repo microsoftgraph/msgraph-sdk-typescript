@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstrac
 
 export interface BookingSchedulingPolicy extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** True if to allow customers to choose a specific person for the booking. */
     allowStaffSelection?: boolean | undefined;
     /** Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format. */

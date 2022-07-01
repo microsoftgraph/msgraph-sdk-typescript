@@ -5,7 +5,7 @@ export class OutlookGeoCoordinatesImpl implements OutlookGeoCoordinates {
     /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
     private _accuracy?: number | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The altitude of the location. */
     private _altitude?: number | undefined;
     /** The accuracy of the altitude. */
@@ -41,7 +41,7 @@ export class OutlookGeoCoordinatesImpl implements OutlookGeoCoordinates {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

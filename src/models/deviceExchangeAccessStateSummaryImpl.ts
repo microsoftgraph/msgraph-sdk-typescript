@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Device Exchange Access State summary */
 export class DeviceExchangeAccessStateSummaryImpl implements DeviceExchangeAccessStateSummary {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Total count of devices with Exchange Access State: Allowed. */
     private _allowedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Blocked. */
@@ -26,7 +26,7 @@ export class DeviceExchangeAccessStateSummaryImpl implements DeviceExchangeAcces
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

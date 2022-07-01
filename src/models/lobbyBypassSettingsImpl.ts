@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LobbyBypassSettingsImpl implements LobbyBypassSettings {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
     private _isDialInBypassEnabled?: boolean | undefined;
     /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
@@ -20,7 +20,7 @@ export class LobbyBypassSettingsImpl implements LobbyBypassSettings {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

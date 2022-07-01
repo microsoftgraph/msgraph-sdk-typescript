@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstrac
 
 export interface TeleconferenceDeviceMediaQuality extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** The average inbound stream network jitter. */
     averageInboundJitter?: Duration | undefined;
     /** The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */

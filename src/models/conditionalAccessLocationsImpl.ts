@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class ConditionalAccessLocationsImpl implements ConditionalAccessLocations {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Location IDs excluded from scope of policy. */
     private _excludeLocations?: string[] | undefined;
     /** Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted. */
@@ -19,7 +19,7 @@ export class ConditionalAccessLocationsImpl implements ConditionalAccessLocation
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

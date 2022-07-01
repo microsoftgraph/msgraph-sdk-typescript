@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookWorksheetProtectionOptions extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Represents the worksheet protection option of allowing using auto filter feature. */
     allowAutoFilter?: boolean | undefined;
     /** Represents the worksheet protection option of allowing deleting columns. */

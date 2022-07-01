@@ -2,7 +2,7 @@ import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SecurityVendorInformation extends Partial<AdditionalDataHolder>, Partial<Parsable> {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    additionalData?: Record<string, unknown>;
+    additionalData?: Record<string, unknown> | undefined;
     /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP. */
     provider?: string | undefined;
     /** Version of the provider or subprovider, if it exists, that generated the alert. Required */

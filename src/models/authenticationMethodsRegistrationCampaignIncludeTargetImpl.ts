@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implements AuthenticationMethodsRegistrationCampaignIncludeTarget {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The object identifier of an Azure AD user or group. */
     private _id?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
@@ -22,7 +22,7 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implemen
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

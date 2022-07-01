@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 /** Provides operations to call the getCompliancePolicyNonComplianceReport method. */
 export class GetCompliancePolicyNonComplianceReportPostRequestBodyImpl implements GetCompliancePolicyNonComplianceReportPostRequestBody {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The filter property */
     private _filter?: string | undefined;
     /** The groupBy property */
@@ -34,7 +34,7 @@ export class GetCompliancePolicyNonComplianceReportPostRequestBodyImpl implement
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

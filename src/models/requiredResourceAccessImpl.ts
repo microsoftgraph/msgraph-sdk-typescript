@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class RequiredResourceAccessImpl implements RequiredResourceAccess {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource. */
     private _resourceAccess?: ResourceAccess[] | undefined;
     /** The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application. */
@@ -22,7 +22,7 @@ export class RequiredResourceAccessImpl implements RequiredResourceAccess {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }

@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export class LookupColumnImpl implements LookupColumn {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    private _additionalData?: Record<string, unknown> | undefined;
     /** Indicates whether multiple values can be selected from the source. */
     private _allowMultipleValues?: boolean | undefined;
     /** Indicates whether values in the column should be able to exceed the standard limit of 255 characters. */
@@ -25,7 +25,7 @@ export class LookupColumnImpl implements LookupColumn {
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @param value Value to set for the AdditionalData property.
      */
-    public set additionalData(value: Record<string, unknown>) {
+    public set additionalData(value: Record<string, unknown> | undefined) {
         if(value) {
             this._additionalData = value;
         }
