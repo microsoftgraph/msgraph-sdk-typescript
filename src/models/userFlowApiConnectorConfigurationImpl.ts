@@ -59,7 +59,7 @@ export class UserFlowApiConnectorConfigurationImpl implements UserFlowApiConnect
      */
     public set postAttributeCollection(value: IdentityApiConnector | undefined) {
         if(value) {
-            this._postAttributeCollection = value instanceof IdentityApiConnectorImpl? value : new IdentityApiConnectorImpl(value);
+            this._postAttributeCollection = value instanceof IdentityApiConnectorImpl? value as IdentityApiConnectorImpl: new IdentityApiConnectorImpl(value);
         }
     };
     /**
@@ -75,7 +75,7 @@ export class UserFlowApiConnectorConfigurationImpl implements UserFlowApiConnect
      */
     public set postFederationSignup(value: IdentityApiConnector | undefined) {
         if(value) {
-            this._postFederationSignup = value instanceof IdentityApiConnectorImpl? value : new IdentityApiConnectorImpl(value);
+            this._postFederationSignup = value instanceof IdentityApiConnectorImpl? value as IdentityApiConnectorImpl: new IdentityApiConnectorImpl(value);
         }
     };
     /**
@@ -85,10 +85,10 @@ export class UserFlowApiConnectorConfigurationImpl implements UserFlowApiConnect
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.postAttributeCollection){
-            writer.writeObjectValue<IdentityApiConnectorImpl>("postAttributeCollection", (!this.postAttributeCollection || this.postAttributeCollection instanceof IdentityApiConnectorImpl? this.postAttributeCollection : new IdentityApiConnectorImpl(this.postAttributeCollection)));
+            writer.writeObjectValue<IdentityApiConnectorImpl>("postAttributeCollection", (this.postAttributeCollection instanceof IdentityApiConnectorImpl? this.postAttributeCollection as IdentityApiConnectorImpl: new IdentityApiConnectorImpl(this.postAttributeCollection)));
         }
         if(this.postFederationSignup){
-            writer.writeObjectValue<IdentityApiConnectorImpl>("postFederationSignup", (!this.postFederationSignup || this.postFederationSignup instanceof IdentityApiConnectorImpl? this.postFederationSignup : new IdentityApiConnectorImpl(this.postFederationSignup)));
+            writer.writeObjectValue<IdentityApiConnectorImpl>("postFederationSignup", (this.postFederationSignup instanceof IdentityApiConnectorImpl? this.postFederationSignup as IdentityApiConnectorImpl: new IdentityApiConnectorImpl(this.postFederationSignup)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

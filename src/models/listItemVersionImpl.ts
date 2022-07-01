@@ -28,7 +28,7 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
      */
     public set fields(value: FieldValueSet | undefined) {
         if(value) {
-            this._fields = value instanceof FieldValueSetImpl? value : new FieldValueSetImpl(value);
+            this._fields = value instanceof FieldValueSetImpl? value as FieldValueSetImpl: new FieldValueSetImpl(value);
         }
     };
     /**
@@ -48,7 +48,7 @@ export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fields){
-            writer.writeObjectValue<FieldValueSetImpl>("fields", (!this.fields || this.fields instanceof FieldValueSetImpl? this.fields : new FieldValueSetImpl(this.fields)));
+            writer.writeObjectValue<FieldValueSetImpl>("fields", (this.fields instanceof FieldValueSetImpl? this.fields as FieldValueSetImpl: new FieldValueSetImpl(this.fields)));
         }
     };
 }

@@ -73,7 +73,7 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PlannerPlanImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+            valueArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PlannerPlanCollectionResponseImpl implements PlannerPlanCollectionR
         if(value) {
             const valueArrValue: PlannerPlanImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+                valueArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
             });
             this._value = valueArrValue;
         }

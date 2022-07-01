@@ -73,7 +73,7 @@ export class ComplianceManagementPartnerCollectionResponseImpl implements Compli
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ComplianceManagementPartnerImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ComplianceManagementPartnerImpl? element:new ComplianceManagementPartnerImpl(element)));
+            valueArrValue.push((element instanceof ComplianceManagementPartnerImpl? element as ComplianceManagementPartnerImpl:new ComplianceManagementPartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ComplianceManagementPartnerImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ComplianceManagementPartnerCollectionResponseImpl implements Compli
         if(value) {
             const valueArrValue: ComplianceManagementPartnerImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ComplianceManagementPartnerImpl? element:new ComplianceManagementPartnerImpl(element)));
+                valueArrValue.push((element instanceof ComplianceManagementPartnerImpl? element as ComplianceManagementPartnerImpl:new ComplianceManagementPartnerImpl(element)));
             });
             this._value = valueArrValue;
         }

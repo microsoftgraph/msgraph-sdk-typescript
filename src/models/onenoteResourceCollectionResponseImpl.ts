@@ -73,7 +73,7 @@ export class OnenoteResourceCollectionResponseImpl implements OnenoteResourceCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenoteResourceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OnenoteResourceImpl? element:new OnenoteResourceImpl(element)));
+            valueArrValue.push((element instanceof OnenoteResourceImpl? element as OnenoteResourceImpl:new OnenoteResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteResourceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OnenoteResourceCollectionResponseImpl implements OnenoteResourceCol
         if(value) {
             const valueArrValue: OnenoteResourceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OnenoteResourceImpl? element:new OnenoteResourceImpl(element)));
+                valueArrValue.push((element instanceof OnenoteResourceImpl? element as OnenoteResourceImpl:new OnenoteResourceImpl(element)));
             });
             this._value = valueArrValue;
         }

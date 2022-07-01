@@ -54,7 +54,7 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
      */
     public set policy(value: UnifiedRoleManagementPolicy | undefined) {
         if(value) {
-            this._policy = value instanceof UnifiedRoleManagementPolicyImpl? value : new UnifiedRoleManagementPolicyImpl(value);
+            this._policy = value instanceof UnifiedRoleManagementPolicyImpl? value as UnifiedRoleManagementPolicyImpl: new UnifiedRoleManagementPolicyImpl(value);
         }
     };
     /**
@@ -129,7 +129,7 @@ export class UnifiedRoleManagementPolicyAssignmentImpl extends EntityImpl implem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.policy){
-            writer.writeObjectValue<UnifiedRoleManagementPolicyImpl>("policy", (!this.policy || this.policy instanceof UnifiedRoleManagementPolicyImpl? this.policy : new UnifiedRoleManagementPolicyImpl(this.policy)));
+            writer.writeObjectValue<UnifiedRoleManagementPolicyImpl>("policy", (this.policy instanceof UnifiedRoleManagementPolicyImpl? this.policy as UnifiedRoleManagementPolicyImpl: new UnifiedRoleManagementPolicyImpl(this.policy)));
         }
         if(this.policyId){
             writer.writeStringValue("policyId", this.policyId);

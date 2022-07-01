@@ -73,7 +73,7 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: GroupImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+            valueArrValue.push((element instanceof GroupImpl? element as GroupImpl:new GroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class GroupCollectionResponseImpl implements GroupCollectionResponse {
         if(value) {
             const valueArrValue: GroupImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+                valueArrValue.push((element instanceof GroupImpl? element as GroupImpl:new GroupImpl(element)));
             });
             this._value = valueArrValue;
         }

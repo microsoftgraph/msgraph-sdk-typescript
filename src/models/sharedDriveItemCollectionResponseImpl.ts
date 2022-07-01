@@ -73,7 +73,7 @@ export class SharedDriveItemCollectionResponseImpl implements SharedDriveItemCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SharedDriveItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SharedDriveItemImpl? element:new SharedDriveItemImpl(element)));
+            valueArrValue.push((element instanceof SharedDriveItemImpl? element as SharedDriveItemImpl:new SharedDriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharedDriveItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SharedDriveItemCollectionResponseImpl implements SharedDriveItemCol
         if(value) {
             const valueArrValue: SharedDriveItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SharedDriveItemImpl? element:new SharedDriveItemImpl(element)));
+                valueArrValue.push((element instanceof SharedDriveItemImpl? element as SharedDriveItemImpl:new SharedDriveItemImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -64,7 +64,7 @@ export class ApprovalSettingsImpl implements ApprovalSettings {
         if(value) {
             const approvalStagesArrValue: UnifiedApprovalStageImpl[] = [];
             this.approvalStages?.forEach(element => {
-                approvalStagesArrValue.push((element instanceof UnifiedApprovalStageImpl? element:new UnifiedApprovalStageImpl(element)));
+                approvalStagesArrValue.push((element instanceof UnifiedApprovalStageImpl? element as UnifiedApprovalStageImpl:new UnifiedApprovalStageImpl(element)));
             });
             this._approvalStages = approvalStagesArrValue;
         }
@@ -153,7 +153,7 @@ export class ApprovalSettingsImpl implements ApprovalSettings {
         }
         if(this.approvalStages && this.approvalStages.length != 0){        const approvalStagesArrValue: UnifiedApprovalStageImpl[] = [];
         this.approvalStages?.forEach(element => {
-            approvalStagesArrValue.push((element instanceof UnifiedApprovalStageImpl? element:new UnifiedApprovalStageImpl(element)));
+            approvalStagesArrValue.push((element instanceof UnifiedApprovalStageImpl? element as UnifiedApprovalStageImpl:new UnifiedApprovalStageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedApprovalStageImpl>("approvalStages", approvalStagesArrValue);
         }

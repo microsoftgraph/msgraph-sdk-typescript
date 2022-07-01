@@ -50,7 +50,7 @@ export class ProvisioningStatusInfoImpl implements ProvisioningStatusInfo {
      */
     public set errorInformation(value: ProvisioningErrorInfo | undefined) {
         if(value) {
-            this._errorInformation = value instanceof ProvisioningErrorInfoImpl? value : new ProvisioningErrorInfoImpl(value);
+            this._errorInformation = value instanceof ProvisioningErrorInfoImpl? value as ProvisioningErrorInfoImpl: new ProvisioningErrorInfoImpl(value);
         }
     };
     /**
@@ -70,7 +70,7 @@ export class ProvisioningStatusInfoImpl implements ProvisioningStatusInfo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorInformation){
-            writer.writeObjectValue<ProvisioningErrorInfoImpl>("errorInformation", (!this.errorInformation || this.errorInformation instanceof ProvisioningErrorInfoImpl? this.errorInformation : new ProvisioningErrorInfoImpl(this.errorInformation)));
+            writer.writeObjectValue<ProvisioningErrorInfoImpl>("errorInformation", (this.errorInformation instanceof ProvisioningErrorInfoImpl? this.errorInformation as ProvisioningErrorInfoImpl: new ProvisioningErrorInfoImpl(this.errorInformation)));
         }
         if(this.status){
             writer.writeEnumValue<ProvisioningResult>("status", this.status);

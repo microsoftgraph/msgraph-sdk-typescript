@@ -65,7 +65,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
      */
     public set appliedBy(value: UserIdentity | undefined) {
         if(value) {
-            this._appliedBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+            this._appliedBy = value instanceof UserIdentityImpl? value as UserIdentityImpl: new UserIdentityImpl(value);
         }
     };
     /**
@@ -186,7 +186,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
      */
     public set principal(value: Identity | undefined) {
         if(value) {
-            this._principal = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._principal = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -234,7 +234,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
      */
     public set resource(value: AccessReviewInstanceDecisionItemResource | undefined) {
         if(value) {
-            this._resource = value instanceof AccessReviewInstanceDecisionItemResourceImpl? value : new AccessReviewInstanceDecisionItemResourceImpl(value);
+            this._resource = value instanceof AccessReviewInstanceDecisionItemResourceImpl? value as AccessReviewInstanceDecisionItemResourceImpl: new AccessReviewInstanceDecisionItemResourceImpl(value);
         }
     };
     /**
@@ -266,7 +266,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
      */
     public set reviewedBy(value: UserIdentity | undefined) {
         if(value) {
-            this._reviewedBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+            this._reviewedBy = value instanceof UserIdentityImpl? value as UserIdentityImpl: new UserIdentityImpl(value);
         }
     };
     /**
@@ -296,7 +296,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
             writer.writeStringValue("accessReviewId", this.accessReviewId);
         }
         if(this.appliedBy){
-            writer.writeObjectValue<UserIdentityImpl>("appliedBy", (!this.appliedBy || this.appliedBy instanceof UserIdentityImpl? this.appliedBy : new UserIdentityImpl(this.appliedBy)));
+            writer.writeObjectValue<UserIdentityImpl>("appliedBy", (this.appliedBy instanceof UserIdentityImpl? this.appliedBy as UserIdentityImpl: new UserIdentityImpl(this.appliedBy)));
         }
         if(this.appliedDateTime){
             writer.writeDateValue("appliedDateTime", this.appliedDateTime);
@@ -311,7 +311,7 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
             writer.writeStringValue("justification", this.justification);
         }
         if(this.principal){
-            writer.writeObjectValue<IdentityImpl>("principal", (!this.principal || this.principal instanceof IdentityImpl? this.principal : new IdentityImpl(this.principal)));
+            writer.writeObjectValue<IdentityImpl>("principal", (this.principal instanceof IdentityImpl? this.principal as IdentityImpl: new IdentityImpl(this.principal)));
         }
         if(this.principalLink){
             writer.writeStringValue("principalLink", this.principalLink);
@@ -320,13 +320,13 @@ export class AccessReviewInstanceDecisionItemImpl extends EntityImpl implements 
             writer.writeStringValue("recommendation", this.recommendation);
         }
         if(this.resource){
-            writer.writeObjectValue<AccessReviewInstanceDecisionItemResourceImpl>("resource", (!this.resource || this.resource instanceof AccessReviewInstanceDecisionItemResourceImpl? this.resource : new AccessReviewInstanceDecisionItemResourceImpl(this.resource)));
+            writer.writeObjectValue<AccessReviewInstanceDecisionItemResourceImpl>("resource", (this.resource instanceof AccessReviewInstanceDecisionItemResourceImpl? this.resource as AccessReviewInstanceDecisionItemResourceImpl: new AccessReviewInstanceDecisionItemResourceImpl(this.resource)));
         }
         if(this.resourceLink){
             writer.writeStringValue("resourceLink", this.resourceLink);
         }
         if(this.reviewedBy){
-            writer.writeObjectValue<UserIdentityImpl>("reviewedBy", (!this.reviewedBy || this.reviewedBy instanceof UserIdentityImpl? this.reviewedBy : new UserIdentityImpl(this.reviewedBy)));
+            writer.writeObjectValue<UserIdentityImpl>("reviewedBy", (this.reviewedBy instanceof UserIdentityImpl? this.reviewedBy as UserIdentityImpl: new UserIdentityImpl(this.reviewedBy)));
         }
         if(this.reviewedDateTime){
             writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);

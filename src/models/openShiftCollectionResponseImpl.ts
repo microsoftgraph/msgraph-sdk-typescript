@@ -73,7 +73,7 @@ export class OpenShiftCollectionResponseImpl implements OpenShiftCollectionRespo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OpenShiftImpl? element:new OpenShiftImpl(element)));
+            valueArrValue.push((element instanceof OpenShiftImpl? element as OpenShiftImpl:new OpenShiftImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OpenShiftImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OpenShiftCollectionResponseImpl implements OpenShiftCollectionRespo
         if(value) {
             const valueArrValue: OpenShiftImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OpenShiftImpl? element:new OpenShiftImpl(element)));
+                valueArrValue.push((element instanceof OpenShiftImpl? element as OpenShiftImpl:new OpenShiftImpl(element)));
             });
             this._value = valueArrValue;
         }

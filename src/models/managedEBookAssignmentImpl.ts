@@ -57,7 +57,7 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
             writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
         }
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target as DeviceAndAppManagementAssignmentTargetImpl: new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
         }
     };
     /**
@@ -73,7 +73,7 @@ export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBo
      */
     public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
         if(value) {
-            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value as DeviceAndAppManagementAssignmentTargetImpl: new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

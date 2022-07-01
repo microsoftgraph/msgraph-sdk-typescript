@@ -73,7 +73,7 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements RemoteAssi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RemoteAssistancePartnerImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RemoteAssistancePartnerImpl? element:new RemoteAssistancePartnerImpl(element)));
+            valueArrValue.push((element instanceof RemoteAssistancePartnerImpl? element as RemoteAssistancePartnerImpl:new RemoteAssistancePartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RemoteAssistancePartnerCollectionResponseImpl implements RemoteAssi
         if(value) {
             const valueArrValue: RemoteAssistancePartnerImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RemoteAssistancePartnerImpl? element:new RemoteAssistancePartnerImpl(element)));
+                valueArrValue.push((element instanceof RemoteAssistancePartnerImpl? element as RemoteAssistancePartnerImpl:new RemoteAssistancePartnerImpl(element)));
             });
             this._value = valueArrValue;
         }

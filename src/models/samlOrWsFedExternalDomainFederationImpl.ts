@@ -30,7 +30,7 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
         if(value) {
             const domainsArrValue: ExternalDomainNameImpl[] = [];
             this.domains?.forEach(element => {
-                domainsArrValue.push((element instanceof ExternalDomainNameImpl? element:new ExternalDomainNameImpl(element)));
+                domainsArrValue.push((element instanceof ExternalDomainNameImpl? element as ExternalDomainNameImpl:new ExternalDomainNameImpl(element)));
             });
             this._domains = domainsArrValue;
         }
@@ -53,7 +53,7 @@ export class SamlOrWsFedExternalDomainFederationImpl extends SamlOrWsFedProvider
         super.serialize(writer);
         if(this.domains && this.domains.length != 0){        const domainsArrValue: ExternalDomainNameImpl[] = [];
         this.domains?.forEach(element => {
-            domainsArrValue.push((element instanceof ExternalDomainNameImpl? element:new ExternalDomainNameImpl(element)));
+            domainsArrValue.push((element instanceof ExternalDomainNameImpl? element as ExternalDomainNameImpl:new ExternalDomainNameImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalDomainNameImpl>("domains", domainsArrValue);
         }

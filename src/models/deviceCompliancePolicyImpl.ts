@@ -57,7 +57,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         if(value) {
             const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element:new DeviceCompliancePolicyAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element as DeviceCompliancePolicyAssignmentImpl:new DeviceCompliancePolicyAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -128,7 +128,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         if(value) {
             const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = [];
             this.deviceSettingStateSummaries?.forEach(element => {
-                deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element:new SettingStateDeviceSummaryImpl(element)));
+                deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element as SettingStateDeviceSummaryImpl:new SettingStateDeviceSummaryImpl(element)));
             });
             this._deviceSettingStateSummaries = deviceSettingStateSummariesArrValue;
         }
@@ -148,7 +148,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         if(value) {
             const deviceStatusesArrValue: DeviceComplianceDeviceStatusImpl[] = [];
             this.deviceStatuses?.forEach(element => {
-                deviceStatusesArrValue.push((element instanceof DeviceComplianceDeviceStatusImpl? element:new DeviceComplianceDeviceStatusImpl(element)));
+                deviceStatusesArrValue.push((element instanceof DeviceComplianceDeviceStatusImpl? element as DeviceComplianceDeviceStatusImpl:new DeviceComplianceDeviceStatusImpl(element)));
             });
             this._deviceStatuses = deviceStatusesArrValue;
         }
@@ -166,7 +166,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
      */
     public set deviceStatusOverview(value: DeviceComplianceDeviceOverview | undefined) {
         if(value) {
-            this._deviceStatusOverview = value instanceof DeviceComplianceDeviceOverviewImpl? value : new DeviceComplianceDeviceOverviewImpl(value);
+            this._deviceStatusOverview = value instanceof DeviceComplianceDeviceOverviewImpl? value as DeviceComplianceDeviceOverviewImpl: new DeviceComplianceDeviceOverviewImpl(value);
         }
     };
     /**
@@ -236,7 +236,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         if(value) {
             const scheduledActionsForRuleArrValue: DeviceComplianceScheduledActionForRuleImpl[] = [];
             this.scheduledActionsForRule?.forEach(element => {
-                scheduledActionsForRuleArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element:new DeviceComplianceScheduledActionForRuleImpl(element)));
+                scheduledActionsForRuleArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element as DeviceComplianceScheduledActionForRuleImpl:new DeviceComplianceScheduledActionForRuleImpl(element)));
             });
             this._scheduledActionsForRule = scheduledActionsForRuleArrValue;
         }
@@ -250,7 +250,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceCompliancePolicyAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element:new DeviceCompliancePolicyAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element as DeviceCompliancePolicyAssignmentImpl:new DeviceCompliancePolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
@@ -262,18 +262,18 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         }
         if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = [];
         this.deviceSettingStateSummaries?.forEach(element => {
-            deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element:new SettingStateDeviceSummaryImpl(element)));
+            deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element as SettingStateDeviceSummaryImpl:new SettingStateDeviceSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
         }
         if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceComplianceDeviceStatusImpl[] = [];
         this.deviceStatuses?.forEach(element => {
-            deviceStatusesArrValue.push((element instanceof DeviceComplianceDeviceStatusImpl? element:new DeviceComplianceDeviceStatusImpl(element)));
+            deviceStatusesArrValue.push((element instanceof DeviceComplianceDeviceStatusImpl? element as DeviceComplianceDeviceStatusImpl:new DeviceComplianceDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusOverview){
-            writer.writeObjectValue<DeviceComplianceDeviceOverviewImpl>("deviceStatusOverview", (!this.deviceStatusOverview || this.deviceStatusOverview instanceof DeviceComplianceDeviceOverviewImpl? this.deviceStatusOverview : new DeviceComplianceDeviceOverviewImpl(this.deviceStatusOverview)));
+            writer.writeObjectValue<DeviceComplianceDeviceOverviewImpl>("deviceStatusOverview", (this.deviceStatusOverview instanceof DeviceComplianceDeviceOverviewImpl? this.deviceStatusOverview as DeviceComplianceDeviceOverviewImpl: new DeviceComplianceDeviceOverviewImpl(this.deviceStatusOverview)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
@@ -283,18 +283,18 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         }
         if(this.scheduledActionsForRule && this.scheduledActionsForRule.length != 0){        const scheduledActionsForRuleArrValue: DeviceComplianceScheduledActionForRuleImpl[] = [];
         this.scheduledActionsForRule?.forEach(element => {
-            scheduledActionsForRuleArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element:new DeviceComplianceScheduledActionForRuleImpl(element)));
+            scheduledActionsForRuleArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element as DeviceComplianceScheduledActionForRuleImpl:new DeviceComplianceScheduledActionForRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("scheduledActionsForRule", scheduledActionsForRuleArrValue);
         }
         if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceComplianceUserStatusImpl[] = [];
         this.userStatuses?.forEach(element => {
-            userStatusesArrValue.push((element instanceof DeviceComplianceUserStatusImpl? element:new DeviceComplianceUserStatusImpl(element)));
+            userStatusesArrValue.push((element instanceof DeviceComplianceUserStatusImpl? element as DeviceComplianceUserStatusImpl:new DeviceComplianceUserStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusOverview){
-            writer.writeObjectValue<DeviceComplianceUserOverviewImpl>("userStatusOverview", (!this.userStatusOverview || this.userStatusOverview instanceof DeviceComplianceUserOverviewImpl? this.userStatusOverview : new DeviceComplianceUserOverviewImpl(this.userStatusOverview)));
+            writer.writeObjectValue<DeviceComplianceUserOverviewImpl>("userStatusOverview", (this.userStatusOverview instanceof DeviceComplianceUserOverviewImpl? this.userStatusOverview as DeviceComplianceUserOverviewImpl: new DeviceComplianceUserOverviewImpl(this.userStatusOverview)));
         }
         if(this.version){
             writer.writeNumberValue("version", this.version);
@@ -315,7 +315,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
         if(value) {
             const userStatusesArrValue: DeviceComplianceUserStatusImpl[] = [];
             this.userStatuses?.forEach(element => {
-                userStatusesArrValue.push((element instanceof DeviceComplianceUserStatusImpl? element:new DeviceComplianceUserStatusImpl(element)));
+                userStatusesArrValue.push((element instanceof DeviceComplianceUserStatusImpl? element as DeviceComplianceUserStatusImpl:new DeviceComplianceUserStatusImpl(element)));
             });
             this._userStatuses = userStatusesArrValue;
         }
@@ -333,7 +333,7 @@ export class DeviceCompliancePolicyImpl extends EntityImpl implements DeviceComp
      */
     public set userStatusOverview(value: DeviceComplianceUserOverview | undefined) {
         if(value) {
-            this._userStatusOverview = value instanceof DeviceComplianceUserOverviewImpl? value : new DeviceComplianceUserOverviewImpl(value);
+            this._userStatusOverview = value instanceof DeviceComplianceUserOverviewImpl? value as DeviceComplianceUserOverviewImpl: new DeviceComplianceUserOverviewImpl(value);
         }
     };
     /**

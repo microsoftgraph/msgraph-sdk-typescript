@@ -56,7 +56,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessi
      */
     public set item(value: DriveItemUploadableProperties | undefined) {
         if(value) {
-            this._item = value instanceof DriveItemUploadablePropertiesImpl? value : new DriveItemUploadablePropertiesImpl(value);
+            this._item = value instanceof DriveItemUploadablePropertiesImpl? value as DriveItemUploadablePropertiesImpl: new DriveItemUploadablePropertiesImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.item){
-            writer.writeObjectValue<DriveItemUploadablePropertiesImpl>("item", (!this.item || this.item instanceof DriveItemUploadablePropertiesImpl? this.item : new DriveItemUploadablePropertiesImpl(this.item)));
+            writer.writeObjectValue<DriveItemUploadablePropertiesImpl>("item", (this.item instanceof DriveItemUploadablePropertiesImpl? this.item as DriveItemUploadablePropertiesImpl: new DriveItemUploadablePropertiesImpl(this.item)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

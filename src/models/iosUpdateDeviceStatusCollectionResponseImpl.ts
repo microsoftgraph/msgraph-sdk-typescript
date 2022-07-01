@@ -73,7 +73,7 @@ export class IosUpdateDeviceStatusCollectionResponseImpl implements IosUpdateDev
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IosUpdateDeviceStatusImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element:new IosUpdateDeviceStatusImpl(element)));
+            valueArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element as IosUpdateDeviceStatusImpl:new IosUpdateDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosUpdateDeviceStatusImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IosUpdateDeviceStatusCollectionResponseImpl implements IosUpdateDev
         if(value) {
             const valueArrValue: IosUpdateDeviceStatusImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element:new IosUpdateDeviceStatusImpl(element)));
+                valueArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element as IosUpdateDeviceStatusImpl:new IosUpdateDeviceStatusImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -113,11 +113,11 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
             writer.writeBooleanValue("requiresVerification", this.requiresVerification);
         }
         if(this.userAttribute){
-            writer.writeObjectValue<IdentityUserFlowAttributeImpl>("userAttribute", (!this.userAttribute || this.userAttribute instanceof IdentityUserFlowAttributeImpl? this.userAttribute : new IdentityUserFlowAttributeImpl(this.userAttribute)));
+            writer.writeObjectValue<IdentityUserFlowAttributeImpl>("userAttribute", (this.userAttribute instanceof IdentityUserFlowAttributeImpl? this.userAttribute as IdentityUserFlowAttributeImpl: new IdentityUserFlowAttributeImpl(this.userAttribute)));
         }
         if(this.userAttributeValues && this.userAttributeValues.length != 0){        const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = [];
         this.userAttributeValues?.forEach(element => {
-            userAttributeValuesArrValue.push((element instanceof UserAttributeValuesItemImpl? element:new UserAttributeValuesItemImpl(element)));
+            userAttributeValuesArrValue.push((element instanceof UserAttributeValuesItemImpl? element as UserAttributeValuesItemImpl:new UserAttributeValuesItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserAttributeValuesItemImpl>("userAttributeValues", userAttributeValuesArrValue);
         }
@@ -138,7 +138,7 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
      */
     public set userAttribute(value: IdentityUserFlowAttribute | undefined) {
         if(value) {
-            this._userAttribute = value instanceof IdentityUserFlowAttributeImpl? value : new IdentityUserFlowAttributeImpl(value);
+            this._userAttribute = value instanceof IdentityUserFlowAttributeImpl? value as IdentityUserFlowAttributeImpl: new IdentityUserFlowAttributeImpl(value);
         }
     };
     /**
@@ -156,7 +156,7 @@ export class IdentityUserFlowAttributeAssignmentImpl extends EntityImpl implemen
         if(value) {
             const userAttributeValuesArrValue: UserAttributeValuesItemImpl[] = [];
             this.userAttributeValues?.forEach(element => {
-                userAttributeValuesArrValue.push((element instanceof UserAttributeValuesItemImpl? element:new UserAttributeValuesItemImpl(element)));
+                userAttributeValuesArrValue.push((element instanceof UserAttributeValuesItemImpl? element as UserAttributeValuesItemImpl:new UserAttributeValuesItemImpl(element)));
             });
             this._userAttributeValues = userAttributeValuesArrValue;
         }

@@ -73,7 +73,7 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Provisio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ProvisioningObjectSummaryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element:new ProvisioningObjectSummaryImpl(element)));
+            valueArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element as ProvisioningObjectSummaryImpl:new ProvisioningObjectSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ProvisioningObjectSummaryCollectionResponseImpl implements Provisio
         if(value) {
             const valueArrValue: ProvisioningObjectSummaryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element:new ProvisioningObjectSummaryImpl(element)));
+                valueArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element as ProvisioningObjectSummaryImpl:new ProvisioningObjectSummaryImpl(element)));
             });
             this._value = valueArrValue;
         }

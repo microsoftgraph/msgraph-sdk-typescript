@@ -72,7 +72,7 @@ export class FolderImpl implements Folder {
             writer.writeNumberValue("childCount", this.childCount);
         }
         if(this.view){
-            writer.writeObjectValue<FolderViewImpl>("view", (!this.view || this.view instanceof FolderViewImpl? this.view : new FolderViewImpl(this.view)));
+            writer.writeObjectValue<FolderViewImpl>("view", (this.view instanceof FolderViewImpl? this.view as FolderViewImpl: new FolderViewImpl(this.view)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -89,7 +89,7 @@ export class FolderImpl implements Folder {
      */
     public set view(value: FolderView | undefined) {
         if(value) {
-            this._view = value instanceof FolderViewImpl? value : new FolderViewImpl(value);
+            this._view = value instanceof FolderViewImpl? value as FolderViewImpl: new FolderViewImpl(value);
         }
     };
 }

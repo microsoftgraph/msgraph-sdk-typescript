@@ -72,7 +72,7 @@ export class InvitationImpl extends EntityImpl implements Invitation {
      */
     public set invitedUser(value: User | undefined) {
         if(value) {
-            this._invitedUser = value instanceof UserImpl? value : new UserImpl(value);
+            this._invitedUser = value instanceof UserImpl? value as UserImpl: new UserImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class InvitationImpl extends EntityImpl implements Invitation {
      */
     public set invitedUserMessageInfo(value: InvitedUserMessageInfo | undefined) {
         if(value) {
-            this._invitedUserMessageInfo = value instanceof InvitedUserMessageInfoImpl? value : new InvitedUserMessageInfoImpl(value);
+            this._invitedUserMessageInfo = value instanceof InvitedUserMessageInfoImpl? value as InvitedUserMessageInfoImpl: new InvitedUserMessageInfoImpl(value);
         }
     };
     /**
@@ -195,7 +195,7 @@ export class InvitationImpl extends EntityImpl implements Invitation {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.invitedUser){
-            writer.writeObjectValue<UserImpl>("invitedUser", (!this.invitedUser || this.invitedUser instanceof UserImpl? this.invitedUser : new UserImpl(this.invitedUser)));
+            writer.writeObjectValue<UserImpl>("invitedUser", (this.invitedUser instanceof UserImpl? this.invitedUser as UserImpl: new UserImpl(this.invitedUser)));
         }
         if(this.invitedUserDisplayName){
             writer.writeStringValue("invitedUserDisplayName", this.invitedUserDisplayName);
@@ -204,7 +204,7 @@ export class InvitationImpl extends EntityImpl implements Invitation {
             writer.writeStringValue("invitedUserEmailAddress", this.invitedUserEmailAddress);
         }
         if(this.invitedUserMessageInfo){
-            writer.writeObjectValue<InvitedUserMessageInfoImpl>("invitedUserMessageInfo", (!this.invitedUserMessageInfo || this.invitedUserMessageInfo instanceof InvitedUserMessageInfoImpl? this.invitedUserMessageInfo : new InvitedUserMessageInfoImpl(this.invitedUserMessageInfo)));
+            writer.writeObjectValue<InvitedUserMessageInfoImpl>("invitedUserMessageInfo", (this.invitedUserMessageInfo instanceof InvitedUserMessageInfoImpl? this.invitedUserMessageInfo as InvitedUserMessageInfoImpl: new InvitedUserMessageInfoImpl(this.invitedUserMessageInfo)));
         }
         if(this.invitedUserType){
             writer.writeStringValue("invitedUserType", this.invitedUserType);

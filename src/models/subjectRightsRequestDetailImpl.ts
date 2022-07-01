@@ -97,7 +97,7 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
         if(value) {
             const insightCountsArrValue: KeyValuePairImpl[] = [];
             this.insightCounts?.forEach(element => {
-                insightCountsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+                insightCountsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
             });
             this._insightCounts = insightCountsArrValue;
         }
@@ -149,7 +149,7 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
         if(value) {
             const productItemCountsArrValue: KeyValuePairImpl[] = [];
             this.productItemCounts?.forEach(element => {
-                productItemCountsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+                productItemCountsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
             });
             this._productItemCounts = productItemCountsArrValue;
         }
@@ -165,7 +165,7 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
         }
         if(this.insightCounts && this.insightCounts.length != 0){        const insightCountsArrValue: KeyValuePairImpl[] = [];
         this.insightCounts?.forEach(element => {
-            insightCountsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+            insightCountsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("insightCounts", insightCountsArrValue);
         }
@@ -177,7 +177,7 @@ export class SubjectRightsRequestDetailImpl implements SubjectRightsRequestDetai
         }
         if(this.productItemCounts && this.productItemCounts.length != 0){        const productItemCountsArrValue: KeyValuePairImpl[] = [];
         this.productItemCounts?.forEach(element => {
-            productItemCountsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+            productItemCountsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("productItemCounts", productItemCountsArrValue);
         }

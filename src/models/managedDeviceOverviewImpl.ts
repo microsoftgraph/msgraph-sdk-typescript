@@ -43,7 +43,7 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
      */
     public set deviceExchangeAccessStateSummary(value: DeviceExchangeAccessStateSummary | undefined) {
         if(value) {
-            this._deviceExchangeAccessStateSummary = value instanceof DeviceExchangeAccessStateSummaryImpl? value : new DeviceExchangeAccessStateSummaryImpl(value);
+            this._deviceExchangeAccessStateSummary = value instanceof DeviceExchangeAccessStateSummaryImpl? value as DeviceExchangeAccessStateSummaryImpl: new DeviceExchangeAccessStateSummaryImpl(value);
         }
     };
     /**
@@ -59,7 +59,7 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
      */
     public set deviceOperatingSystemSummary(value: DeviceOperatingSystemSummary | undefined) {
         if(value) {
-            this._deviceOperatingSystemSummary = value instanceof DeviceOperatingSystemSummaryImpl? value : new DeviceOperatingSystemSummaryImpl(value);
+            this._deviceOperatingSystemSummary = value instanceof DeviceOperatingSystemSummaryImpl? value as DeviceOperatingSystemSummaryImpl: new DeviceOperatingSystemSummaryImpl(value);
         }
     };
     /**
@@ -131,10 +131,10 @@ export class ManagedDeviceOverviewImpl extends EntityImpl implements ManagedDevi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.deviceExchangeAccessStateSummary){
-            writer.writeObjectValue<DeviceExchangeAccessStateSummaryImpl>("deviceExchangeAccessStateSummary", (!this.deviceExchangeAccessStateSummary || this.deviceExchangeAccessStateSummary instanceof DeviceExchangeAccessStateSummaryImpl? this.deviceExchangeAccessStateSummary : new DeviceExchangeAccessStateSummaryImpl(this.deviceExchangeAccessStateSummary)));
+            writer.writeObjectValue<DeviceExchangeAccessStateSummaryImpl>("deviceExchangeAccessStateSummary", (this.deviceExchangeAccessStateSummary instanceof DeviceExchangeAccessStateSummaryImpl? this.deviceExchangeAccessStateSummary as DeviceExchangeAccessStateSummaryImpl: new DeviceExchangeAccessStateSummaryImpl(this.deviceExchangeAccessStateSummary)));
         }
         if(this.deviceOperatingSystemSummary){
-            writer.writeObjectValue<DeviceOperatingSystemSummaryImpl>("deviceOperatingSystemSummary", (!this.deviceOperatingSystemSummary || this.deviceOperatingSystemSummary instanceof DeviceOperatingSystemSummaryImpl? this.deviceOperatingSystemSummary : new DeviceOperatingSystemSummaryImpl(this.deviceOperatingSystemSummary)));
+            writer.writeObjectValue<DeviceOperatingSystemSummaryImpl>("deviceOperatingSystemSummary", (this.deviceOperatingSystemSummary instanceof DeviceOperatingSystemSummaryImpl? this.deviceOperatingSystemSummary as DeviceOperatingSystemSummaryImpl: new DeviceOperatingSystemSummaryImpl(this.deviceOperatingSystemSummary)));
         }
         if(this.dualEnrolledDeviceCount){
             writer.writeNumberValue("dualEnrolledDeviceCount", this.dualEnrolledDeviceCount);

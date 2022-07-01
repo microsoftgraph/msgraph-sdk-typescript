@@ -95,7 +95,7 @@ export class TeamworkOnlineMeetingInfoImpl implements TeamworkOnlineMeetingInfo 
      */
     public set organizer(value: TeamworkUserIdentity | undefined) {
         if(value) {
-            this._organizer = value instanceof TeamworkUserIdentityImpl? value : new TeamworkUserIdentityImpl(value);
+            this._organizer = value instanceof TeamworkUserIdentityImpl? value as TeamworkUserIdentityImpl: new TeamworkUserIdentityImpl(value);
         }
     };
     /**
@@ -111,7 +111,7 @@ export class TeamworkOnlineMeetingInfoImpl implements TeamworkOnlineMeetingInfo 
             writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.organizer){
-            writer.writeObjectValue<TeamworkUserIdentityImpl>("organizer", (!this.organizer || this.organizer instanceof TeamworkUserIdentityImpl? this.organizer : new TeamworkUserIdentityImpl(this.organizer)));
+            writer.writeObjectValue<TeamworkUserIdentityImpl>("organizer", (this.organizer instanceof TeamworkUserIdentityImpl? this.organizer as TeamworkUserIdentityImpl: new TeamworkUserIdentityImpl(this.organizer)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

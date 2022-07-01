@@ -51,7 +51,7 @@ export class SupportedLanguagesResponseImpl implements SupportedLanguagesRespons
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: LocaleInfoImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof LocaleInfoImpl? element:new LocaleInfoImpl(element)));
+            valueArrValue.push((element instanceof LocaleInfoImpl? element as LocaleInfoImpl:new LocaleInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocaleInfoImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class SupportedLanguagesResponseImpl implements SupportedLanguagesRespons
         if(value) {
             const valueArrValue: LocaleInfoImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof LocaleInfoImpl? element:new LocaleInfoImpl(element)));
+                valueArrValue.push((element instanceof LocaleInfoImpl? element as LocaleInfoImpl:new LocaleInfoImpl(element)));
             });
             this._value = valueArrValue;
         }

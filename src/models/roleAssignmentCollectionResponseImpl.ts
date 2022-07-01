@@ -73,7 +73,7 @@ export class RoleAssignmentCollectionResponseImpl implements RoleAssignmentColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RoleAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RoleAssignmentImpl? element:new RoleAssignmentImpl(element)));
+            valueArrValue.push((element instanceof RoleAssignmentImpl? element as RoleAssignmentImpl:new RoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RoleAssignmentCollectionResponseImpl implements RoleAssignmentColle
         if(value) {
             const valueArrValue: RoleAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RoleAssignmentImpl? element:new RoleAssignmentImpl(element)));
+                valueArrValue.push((element instanceof RoleAssignmentImpl? element as RoleAssignmentImpl:new RoleAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

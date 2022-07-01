@@ -96,7 +96,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const attachmentsArrValue: AttachmentImpl[] = [];
             this.attachments?.forEach(element => {
-                attachmentsArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+                attachmentsArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
             });
             this._attachments = attachmentsArrValue;
         }
@@ -116,7 +116,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const bccRecipientsArrValue: RecipientImpl[] = [];
             this.bccRecipients?.forEach(element => {
-                bccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                bccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._bccRecipients = bccRecipientsArrValue;
         }
@@ -134,7 +134,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
      */
     public set body(value: ItemBody | undefined) {
         if(value) {
-            this._body = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._body = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -168,7 +168,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const ccRecipientsArrValue: RecipientImpl[] = [];
             this.ccRecipients?.forEach(element => {
-                ccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                ccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._ccRecipients = ccRecipientsArrValue;
         }
@@ -257,7 +257,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -275,7 +275,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
      */
     public set flag(value: FollowupFlag | undefined) {
         if(value) {
-            this._flag = value instanceof FollowupFlagImpl? value : new FollowupFlagImpl(value);
+            this._flag = value instanceof FollowupFlagImpl? value as FollowupFlagImpl: new FollowupFlagImpl(value);
         }
     };
     /**
@@ -291,7 +291,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
      */
     public set from(value: Recipient | undefined) {
         if(value) {
-            this._from = value instanceof RecipientImpl? value : new RecipientImpl(value);
+            this._from = value instanceof RecipientImpl? value as RecipientImpl: new RecipientImpl(value);
         }
     };
     /**
@@ -395,7 +395,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const internetMessageHeadersArrValue: InternetMessageHeaderImpl[] = [];
             this.internetMessageHeaders?.forEach(element => {
-                internetMessageHeadersArrValue.push((element instanceof InternetMessageHeaderImpl? element:new InternetMessageHeaderImpl(element)));
+                internetMessageHeadersArrValue.push((element instanceof InternetMessageHeaderImpl? element as InternetMessageHeaderImpl:new InternetMessageHeaderImpl(element)));
             });
             this._internetMessageHeaders = internetMessageHeadersArrValue;
         }
@@ -495,7 +495,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.multiValueExtendedProperties?.forEach(element => {
-                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         }
@@ -547,7 +547,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const replyToArrValue: RecipientImpl[] = [];
             this.replyTo?.forEach(element => {
-                replyToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                replyToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._replyTo = replyToArrValue;
         }
@@ -565,7 +565,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
      */
     public set sender(value: Recipient | undefined) {
         if(value) {
-            this._sender = value instanceof RecipientImpl? value : new RecipientImpl(value);
+            this._sender = value instanceof RecipientImpl? value as RecipientImpl: new RecipientImpl(value);
         }
     };
     /**
@@ -593,25 +593,25 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         super.serialize(writer);
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = [];
         this.attachments?.forEach(element => {
-            attachmentsArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+            attachmentsArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.bccRecipients && this.bccRecipients.length != 0){        const bccRecipientsArrValue: RecipientImpl[] = [];
         this.bccRecipients?.forEach(element => {
-            bccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            bccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("bccRecipients", bccRecipientsArrValue);
         }
         if(this.body){
-            writer.writeObjectValue<ItemBodyImpl>("body", (!this.body || this.body instanceof ItemBodyImpl? this.body : new ItemBodyImpl(this.body)));
+            writer.writeObjectValue<ItemBodyImpl>("body", (this.body instanceof ItemBodyImpl? this.body as ItemBodyImpl: new ItemBodyImpl(this.body)));
         }
         if(this.bodyPreview){
             writer.writeStringValue("bodyPreview", this.bodyPreview);
         }
         if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = [];
         this.ccRecipients?.forEach(element => {
-            ccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            ccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
@@ -623,15 +623,15 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.flag){
-            writer.writeObjectValue<FollowupFlagImpl>("flag", (!this.flag || this.flag instanceof FollowupFlagImpl? this.flag : new FollowupFlagImpl(this.flag)));
+            writer.writeObjectValue<FollowupFlagImpl>("flag", (this.flag instanceof FollowupFlagImpl? this.flag as FollowupFlagImpl: new FollowupFlagImpl(this.flag)));
         }
         if(this.from){
-            writer.writeObjectValue<RecipientImpl>("from", (!this.from || this.from instanceof RecipientImpl? this.from : new RecipientImpl(this.from)));
+            writer.writeObjectValue<RecipientImpl>("from", (this.from instanceof RecipientImpl? this.from as RecipientImpl: new RecipientImpl(this.from)));
         }
         if(this.hasAttachments){
             writer.writeBooleanValue("hasAttachments", this.hasAttachments);
@@ -644,7 +644,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         }
         if(this.internetMessageHeaders && this.internetMessageHeaders.length != 0){        const internetMessageHeadersArrValue: InternetMessageHeaderImpl[] = [];
         this.internetMessageHeaders?.forEach(element => {
-            internetMessageHeadersArrValue.push((element instanceof InternetMessageHeaderImpl? element:new InternetMessageHeaderImpl(element)));
+            internetMessageHeadersArrValue.push((element instanceof InternetMessageHeaderImpl? element as InternetMessageHeaderImpl:new InternetMessageHeaderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InternetMessageHeaderImpl>("internetMessageHeaders", internetMessageHeadersArrValue);
         }
@@ -665,7 +665,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.multiValueExtendedProperties?.forEach(element => {
-            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
@@ -677,19 +677,19 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         }
         if(this.replyTo && this.replyTo.length != 0){        const replyToArrValue: RecipientImpl[] = [];
         this.replyTo?.forEach(element => {
-            replyToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            replyToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("replyTo", replyToArrValue);
         }
         if(this.sender){
-            writer.writeObjectValue<RecipientImpl>("sender", (!this.sender || this.sender instanceof RecipientImpl? this.sender : new RecipientImpl(this.sender)));
+            writer.writeObjectValue<RecipientImpl>("sender", (this.sender instanceof RecipientImpl? this.sender as RecipientImpl: new RecipientImpl(this.sender)));
         }
         if(this.sentDateTime){
             writer.writeDateValue("sentDateTime", this.sentDateTime);
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.singleValueExtendedProperties?.forEach(element => {
-            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
@@ -698,12 +698,12 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = [];
         this.toRecipients?.forEach(element => {
-            toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
         if(this.uniqueBody){
-            writer.writeObjectValue<ItemBodyImpl>("uniqueBody", (!this.uniqueBody || this.uniqueBody instanceof ItemBodyImpl? this.uniqueBody : new ItemBodyImpl(this.uniqueBody)));
+            writer.writeObjectValue<ItemBodyImpl>("uniqueBody", (this.uniqueBody instanceof ItemBodyImpl? this.uniqueBody as ItemBodyImpl: new ItemBodyImpl(this.uniqueBody)));
         }
         if(this.webLink){
             writer.writeStringValue("webLink", this.webLink);
@@ -724,7 +724,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.singleValueExtendedProperties?.forEach(element => {
-                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         }
@@ -760,7 +760,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
         if(value) {
             const toRecipientsArrValue: RecipientImpl[] = [];
             this.toRecipients?.forEach(element => {
-                toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._toRecipients = toRecipientsArrValue;
         }
@@ -778,7 +778,7 @@ export class MessageImpl extends OutlookItemImpl implements Message {
      */
     public set uniqueBody(value: ItemBody | undefined) {
         if(value) {
-            this._uniqueBody = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._uniqueBody = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**

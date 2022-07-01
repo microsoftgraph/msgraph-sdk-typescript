@@ -47,7 +47,7 @@ export class ODataErrorImpl extends ApiError implements ODataError {
      */
     public set error_escaped(value: MainError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof MainErrorImpl? value : new MainErrorImpl(value);
+            this._error_escaped = value instanceof MainErrorImpl? value as MainErrorImpl: new MainErrorImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class ODataErrorImpl extends ApiError implements ODataError {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.error_escaped){
-            writer.writeObjectValue<MainErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof MainErrorImpl? this.error_escaped : new MainErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<MainErrorImpl>("error", (this.error_escaped instanceof MainErrorImpl? this.error_escaped as MainErrorImpl: new MainErrorImpl(this.error_escaped)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

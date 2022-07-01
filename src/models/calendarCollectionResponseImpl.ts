@@ -73,7 +73,7 @@ export class CalendarCollectionResponseImpl implements CalendarCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CalendarImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof CalendarImpl? element:new CalendarImpl(element)));
+            valueArrValue.push((element instanceof CalendarImpl? element as CalendarImpl:new CalendarImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CalendarImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class CalendarCollectionResponseImpl implements CalendarCollectionRespons
         if(value) {
             const valueArrValue: CalendarImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof CalendarImpl? element:new CalendarImpl(element)));
+                valueArrValue.push((element instanceof CalendarImpl? element as CalendarImpl:new CalendarImpl(element)));
             });
             this._value = valueArrValue;
         }

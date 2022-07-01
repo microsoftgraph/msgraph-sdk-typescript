@@ -74,7 +74,7 @@ export class TimeConstraintImpl implements TimeConstraint {
         }
         if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeSlotImpl[] = [];
         this.timeSlots?.forEach(element => {
-            timeSlotsArrValue.push((element instanceof TimeSlotImpl? element:new TimeSlotImpl(element)));
+            timeSlotsArrValue.push((element instanceof TimeSlotImpl? element as TimeSlotImpl:new TimeSlotImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
@@ -95,7 +95,7 @@ export class TimeConstraintImpl implements TimeConstraint {
         if(value) {
             const timeSlotsArrValue: TimeSlotImpl[] = [];
             this.timeSlots?.forEach(element => {
-                timeSlotsArrValue.push((element instanceof TimeSlotImpl? element:new TimeSlotImpl(element)));
+                timeSlotsArrValue.push((element instanceof TimeSlotImpl? element as TimeSlotImpl:new TimeSlotImpl(element)));
             });
             this._timeSlots = timeSlotsArrValue;
         }

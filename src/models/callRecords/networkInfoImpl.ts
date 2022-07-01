@@ -442,7 +442,7 @@ export class NetworkInfoImpl implements NetworkInfo {
         }
         if(this.traceRouteHops && this.traceRouteHops.length != 0){        const traceRouteHopsArrValue: TraceRouteHopImpl[] = [];
         this.traceRouteHops?.forEach(element => {
-            traceRouteHopsArrValue.push((element instanceof TraceRouteHopImpl? element:new TraceRouteHopImpl(element)));
+            traceRouteHopsArrValue.push((element instanceof TraceRouteHopImpl? element as TraceRouteHopImpl:new TraceRouteHopImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TraceRouteHopImpl>("traceRouteHops", traceRouteHopsArrValue);
         }
@@ -506,7 +506,7 @@ export class NetworkInfoImpl implements NetworkInfo {
         if(value) {
             const traceRouteHopsArrValue: TraceRouteHopImpl[] = [];
             this.traceRouteHops?.forEach(element => {
-                traceRouteHopsArrValue.push((element instanceof TraceRouteHopImpl? element:new TraceRouteHopImpl(element)));
+                traceRouteHopsArrValue.push((element instanceof TraceRouteHopImpl? element as TraceRouteHopImpl:new TraceRouteHopImpl(element)));
             });
             this._traceRouteHops = traceRouteHopsArrValue;
         }

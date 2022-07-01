@@ -73,7 +73,7 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements FeatureRollou
         }
         if(this.value && this.value.length != 0){        const valueArrValue: FeatureRolloutPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof FeatureRolloutPolicyImpl? element:new FeatureRolloutPolicyImpl(element)));
+            valueArrValue.push((element instanceof FeatureRolloutPolicyImpl? element as FeatureRolloutPolicyImpl:new FeatureRolloutPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class FeatureRolloutPolicyCollectionResponseImpl implements FeatureRollou
         if(value) {
             const valueArrValue: FeatureRolloutPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof FeatureRolloutPolicyImpl? element:new FeatureRolloutPolicyImpl(element)));
+                valueArrValue.push((element instanceof FeatureRolloutPolicyImpl? element as FeatureRolloutPolicyImpl:new FeatureRolloutPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -40,7 +40,7 @@ export class TodoImpl extends EntityImpl implements Todo {
         if(value) {
             const listsArrValue: TodoTaskListImpl[] = [];
             this.lists?.forEach(element => {
-                listsArrValue.push((element instanceof TodoTaskListImpl? element:new TodoTaskListImpl(element)));
+                listsArrValue.push((element instanceof TodoTaskListImpl? element as TodoTaskListImpl:new TodoTaskListImpl(element)));
             });
             this._lists = listsArrValue;
         }
@@ -54,7 +54,7 @@ export class TodoImpl extends EntityImpl implements Todo {
         super.serialize(writer);
         if(this.lists && this.lists.length != 0){        const listsArrValue: TodoTaskListImpl[] = [];
         this.lists?.forEach(element => {
-            listsArrValue.push((element instanceof TodoTaskListImpl? element:new TodoTaskListImpl(element)));
+            listsArrValue.push((element instanceof TodoTaskListImpl? element as TodoTaskListImpl:new TodoTaskListImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TodoTaskListImpl>("lists", listsArrValue);
         }

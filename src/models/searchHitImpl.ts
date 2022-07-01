@@ -123,7 +123,7 @@ export class SearchHitImpl implements SearchHit {
      */
     public set resource(value: Entity | undefined) {
         if(value) {
-            this._resource = value instanceof EntityImpl? value : new EntityImpl(value);
+            this._resource = value instanceof EntityImpl? value as EntityImpl: new EntityImpl(value);
         }
     };
     /**
@@ -158,7 +158,7 @@ export class SearchHitImpl implements SearchHit {
             writer.writeNumberValue("rank", this.rank);
         }
         if(this.resource){
-            writer.writeObjectValue<EntityImpl>("resource", (!this.resource || this.resource instanceof EntityImpl? this.resource : new EntityImpl(this.resource)));
+            writer.writeObjectValue<EntityImpl>("resource", (this.resource instanceof EntityImpl? this.resource as EntityImpl: new EntityImpl(this.resource)));
         }
         if(this.resultTemplateId){
             writer.writeStringValue("resultTemplateId", this.resultTemplateId);

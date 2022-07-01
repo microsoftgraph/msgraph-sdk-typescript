@@ -40,7 +40,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
         if(value) {
             const defaultPagesArrValue: UserFlowLanguagePageImpl[] = [];
             this.defaultPages?.forEach(element => {
-                defaultPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element:new UserFlowLanguagePageImpl(element)));
+                defaultPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element as UserFlowLanguagePageImpl:new UserFlowLanguagePageImpl(element)));
             });
             this._defaultPages = defaultPagesArrValue;
         }
@@ -104,7 +104,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
         if(value) {
             const overridesPagesArrValue: UserFlowLanguagePageImpl[] = [];
             this.overridesPages?.forEach(element => {
-                overridesPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element:new UserFlowLanguagePageImpl(element)));
+                overridesPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element as UserFlowLanguagePageImpl:new UserFlowLanguagePageImpl(element)));
             });
             this._overridesPages = overridesPagesArrValue;
         }
@@ -118,7 +118,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
         super.serialize(writer);
         if(this.defaultPages && this.defaultPages.length != 0){        const defaultPagesArrValue: UserFlowLanguagePageImpl[] = [];
         this.defaultPages?.forEach(element => {
-            defaultPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element:new UserFlowLanguagePageImpl(element)));
+            defaultPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element as UserFlowLanguagePageImpl:new UserFlowLanguagePageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("defaultPages", defaultPagesArrValue);
         }
@@ -130,7 +130,7 @@ export class UserFlowLanguageConfigurationImpl extends EntityImpl implements Use
         }
         if(this.overridesPages && this.overridesPages.length != 0){        const overridesPagesArrValue: UserFlowLanguagePageImpl[] = [];
         this.overridesPages?.forEach(element => {
-            overridesPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element:new UserFlowLanguagePageImpl(element)));
+            overridesPagesArrValue.push((element instanceof UserFlowLanguagePageImpl? element as UserFlowLanguagePageImpl:new UserFlowLanguagePageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("overridesPages", overridesPagesArrValue);
         }

@@ -37,7 +37,7 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
         if(value) {
             const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = [];
             this.authenticationMethodConfigurations?.forEach(element => {
-                authenticationMethodConfigurationsArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element:new AuthenticationMethodConfigurationImpl(element)));
+                authenticationMethodConfigurationsArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element as AuthenticationMethodConfigurationImpl:new AuthenticationMethodConfigurationImpl(element)));
             });
             this._authenticationMethodConfigurations = authenticationMethodConfigurationsArrValue;
         }
@@ -164,7 +164,7 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
      */
     public set registrationEnforcement(value: RegistrationEnforcement | undefined) {
         if(value) {
-            this._registrationEnforcement = value instanceof RegistrationEnforcementImpl? value : new RegistrationEnforcementImpl(value);
+            this._registrationEnforcement = value instanceof RegistrationEnforcementImpl? value as RegistrationEnforcementImpl: new RegistrationEnforcementImpl(value);
         }
     };
     /**
@@ -176,7 +176,7 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
         super.serialize(writer);
         if(this.authenticationMethodConfigurations && this.authenticationMethodConfigurations.length != 0){        const authenticationMethodConfigurationsArrValue: AuthenticationMethodConfigurationImpl[] = [];
         this.authenticationMethodConfigurations?.forEach(element => {
-            authenticationMethodConfigurationsArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element:new AuthenticationMethodConfigurationImpl(element)));
+            authenticationMethodConfigurationsArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element as AuthenticationMethodConfigurationImpl:new AuthenticationMethodConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("authenticationMethodConfigurations", authenticationMethodConfigurationsArrValue);
         }
@@ -196,7 +196,7 @@ export class AuthenticationMethodsPolicyImpl extends EntityImpl implements Authe
             writer.writeNumberValue("reconfirmationInDays", this.reconfirmationInDays);
         }
         if(this.registrationEnforcement){
-            writer.writeObjectValue<RegistrationEnforcementImpl>("registrationEnforcement", (!this.registrationEnforcement || this.registrationEnforcement instanceof RegistrationEnforcementImpl? this.registrationEnforcement : new RegistrationEnforcementImpl(this.registrationEnforcement)));
+            writer.writeObjectValue<RegistrationEnforcementImpl>("registrationEnforcement", (this.registrationEnforcement instanceof RegistrationEnforcementImpl? this.registrationEnforcement as RegistrationEnforcementImpl: new RegistrationEnforcementImpl(this.registrationEnforcement)));
         }
     };
 }

@@ -51,7 +51,7 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
      */
     public set chatInfo(value: ChatInfo | undefined) {
         if(value) {
-            this._chatInfo = value instanceof ChatInfoImpl? value : new ChatInfoImpl(value);
+            this._chatInfo = value instanceof ChatInfoImpl? value as ChatInfoImpl: new ChatInfoImpl(value);
         }
     };
     /**
@@ -126,7 +126,7 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
      */
     public set participants(value: MeetingParticipants | undefined) {
         if(value) {
-            this._participants = value instanceof MeetingParticipantsImpl? value : new MeetingParticipantsImpl(value);
+            this._participants = value instanceof MeetingParticipantsImpl? value as MeetingParticipantsImpl: new MeetingParticipantsImpl(value);
         }
     };
     /**
@@ -136,7 +136,7 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.chatInfo){
-            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (!this.chatInfo || this.chatInfo instanceof ChatInfoImpl? this.chatInfo : new ChatInfoImpl(this.chatInfo)));
+            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (this.chatInfo instanceof ChatInfoImpl? this.chatInfo as ChatInfoImpl: new ChatInfoImpl(this.chatInfo)));
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
@@ -145,7 +145,7 @@ export class CreateOrGetPostRequestBodyImpl implements CreateOrGetPostRequestBod
             writer.writeStringValue("externalId", this.externalId);
         }
         if(this.participants){
-            writer.writeObjectValue<MeetingParticipantsImpl>("participants", (!this.participants || this.participants instanceof MeetingParticipantsImpl? this.participants : new MeetingParticipantsImpl(this.participants)));
+            writer.writeObjectValue<MeetingParticipantsImpl>("participants", (this.participants instanceof MeetingParticipantsImpl? this.participants as MeetingParticipantsImpl: new MeetingParticipantsImpl(this.participants)));
         }
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);

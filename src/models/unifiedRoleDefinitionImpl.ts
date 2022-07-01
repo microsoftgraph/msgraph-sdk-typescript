@@ -105,7 +105,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         if(value) {
             const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = [];
             this.inheritsPermissionsFrom?.forEach(element => {
-                inheritsPermissionsFromArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element:new UnifiedRoleDefinitionImpl(element)));
+                inheritsPermissionsFromArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element as UnifiedRoleDefinitionImpl:new UnifiedRoleDefinitionImpl(element)));
             });
             this._inheritsPermissionsFrom = inheritsPermissionsFromArrValue;
         }
@@ -173,7 +173,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         if(value) {
             const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = [];
             this.rolePermissions?.forEach(element => {
-                rolePermissionsArrValue.push((element instanceof UnifiedRolePermissionImpl? element:new UnifiedRolePermissionImpl(element)));
+                rolePermissionsArrValue.push((element instanceof UnifiedRolePermissionImpl? element as UnifiedRolePermissionImpl:new UnifiedRolePermissionImpl(element)));
             });
             this._rolePermissions = rolePermissionsArrValue;
         }
@@ -193,7 +193,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         }
         if(this.inheritsPermissionsFrom && this.inheritsPermissionsFrom.length != 0){        const inheritsPermissionsFromArrValue: UnifiedRoleDefinitionImpl[] = [];
         this.inheritsPermissionsFrom?.forEach(element => {
-            inheritsPermissionsFromArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element:new UnifiedRoleDefinitionImpl(element)));
+            inheritsPermissionsFromArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element as UnifiedRoleDefinitionImpl:new UnifiedRoleDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("inheritsPermissionsFrom", inheritsPermissionsFromArrValue);
         }
@@ -208,7 +208,7 @@ export class UnifiedRoleDefinitionImpl extends EntityImpl implements UnifiedRole
         }
         if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: UnifiedRolePermissionImpl[] = [];
         this.rolePermissions?.forEach(element => {
-            rolePermissionsArrValue.push((element instanceof UnifiedRolePermissionImpl? element:new UnifiedRolePermissionImpl(element)));
+            rolePermissionsArrValue.push((element instanceof UnifiedRolePermissionImpl? element as UnifiedRolePermissionImpl:new UnifiedRolePermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }

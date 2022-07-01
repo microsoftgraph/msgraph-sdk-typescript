@@ -63,7 +63,7 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         if(value) {
             const contactedReviewersArrValue: AccessReviewReviewerImpl[] = [];
             this.contactedReviewers?.forEach(element => {
-                contactedReviewersArrValue.push((element instanceof AccessReviewReviewerImpl? element:new AccessReviewReviewerImpl(element)));
+                contactedReviewersArrValue.push((element instanceof AccessReviewReviewerImpl? element as AccessReviewReviewerImpl:new AccessReviewReviewerImpl(element)));
             });
             this._contactedReviewers = contactedReviewersArrValue;
         }
@@ -83,7 +83,7 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         if(value) {
             const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
             this.decisions?.forEach(element => {
-                decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+                decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element as AccessReviewInstanceDecisionItemImpl:new AccessReviewInstanceDecisionItemImpl(element)));
             });
             this._decisions = decisionsArrValue;
         }
@@ -119,7 +119,7 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         if(value) {
             const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.fallbackReviewers?.forEach(element => {
-                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._fallbackReviewers = fallbackReviewersArrValue;
         }
@@ -156,7 +156,7 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         if(value) {
             const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.reviewers?.forEach(element => {
-                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._reviewers = reviewersArrValue;
         }
@@ -174,7 +174,7 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
      */
     public set scope(value: AccessReviewScope | undefined) {
         if(value) {
-            this._scope = value instanceof AccessReviewScopeImpl? value : new AccessReviewScopeImpl(value);
+            this._scope = value instanceof AccessReviewScopeImpl? value as AccessReviewScopeImpl: new AccessReviewScopeImpl(value);
         }
     };
     /**
@@ -186,13 +186,13 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         super.serialize(writer);
         if(this.contactedReviewers && this.contactedReviewers.length != 0){        const contactedReviewersArrValue: AccessReviewReviewerImpl[] = [];
         this.contactedReviewers?.forEach(element => {
-            contactedReviewersArrValue.push((element instanceof AccessReviewReviewerImpl? element:new AccessReviewReviewerImpl(element)));
+            contactedReviewersArrValue.push((element instanceof AccessReviewReviewerImpl? element as AccessReviewReviewerImpl:new AccessReviewReviewerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerImpl>("contactedReviewers", contactedReviewersArrValue);
         }
         if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
         this.decisions?.forEach(element => {
-            decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+            decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element as AccessReviewInstanceDecisionItemImpl:new AccessReviewInstanceDecisionItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("decisions", decisionsArrValue);
         }
@@ -201,22 +201,22 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         }
         if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.fallbackReviewers?.forEach(element => {
-            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.reviewers?.forEach(element => {
-            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }
         if(this.scope){
-            writer.writeObjectValue<AccessReviewScopeImpl>("scope", (!this.scope || this.scope instanceof AccessReviewScopeImpl? this.scope : new AccessReviewScopeImpl(this.scope)));
+            writer.writeObjectValue<AccessReviewScopeImpl>("scope", (this.scope instanceof AccessReviewScopeImpl? this.scope as AccessReviewScopeImpl: new AccessReviewScopeImpl(this.scope)));
         }
         if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessReviewStageImpl[] = [];
         this.stages?.forEach(element => {
-            stagesArrValue.push((element instanceof AccessReviewStageImpl? element:new AccessReviewStageImpl(element)));
+            stagesArrValue.push((element instanceof AccessReviewStageImpl? element as AccessReviewStageImpl:new AccessReviewStageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewStageImpl>("stages", stagesArrValue);
         }
@@ -242,7 +242,7 @@ export class AccessReviewInstanceImpl extends EntityImpl implements AccessReview
         if(value) {
             const stagesArrValue: AccessReviewStageImpl[] = [];
             this.stages?.forEach(element => {
-                stagesArrValue.push((element instanceof AccessReviewStageImpl? element:new AccessReviewStageImpl(element)));
+                stagesArrValue.push((element instanceof AccessReviewStageImpl? element as AccessReviewStageImpl:new AccessReviewStageImpl(element)));
             });
             this._stages = stagesArrValue;
         }

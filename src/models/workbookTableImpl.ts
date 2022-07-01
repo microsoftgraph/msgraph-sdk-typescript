@@ -55,7 +55,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
         if(value) {
             const columnsArrValue: WorkbookTableColumnImpl[] = [];
             this.columns?.forEach(element => {
-                columnsArrValue.push((element instanceof WorkbookTableColumnImpl? element:new WorkbookTableColumnImpl(element)));
+                columnsArrValue.push((element instanceof WorkbookTableColumnImpl? element as WorkbookTableColumnImpl:new WorkbookTableColumnImpl(element)));
             });
             this._columns = columnsArrValue;
         }
@@ -182,7 +182,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
         if(value) {
             const rowsArrValue: WorkbookTableRowImpl[] = [];
             this.rows?.forEach(element => {
-                rowsArrValue.push((element instanceof WorkbookTableRowImpl? element:new WorkbookTableRowImpl(element)));
+                rowsArrValue.push((element instanceof WorkbookTableRowImpl? element as WorkbookTableRowImpl:new WorkbookTableRowImpl(element)));
             });
             this._rows = rowsArrValue;
         }
@@ -196,7 +196,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
         super.serialize(writer);
         if(this.columns && this.columns.length != 0){        const columnsArrValue: WorkbookTableColumnImpl[] = [];
         this.columns?.forEach(element => {
-            columnsArrValue.push((element instanceof WorkbookTableColumnImpl? element:new WorkbookTableColumnImpl(element)));
+            columnsArrValue.push((element instanceof WorkbookTableColumnImpl? element as WorkbookTableColumnImpl:new WorkbookTableColumnImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookTableColumnImpl>("columns", columnsArrValue);
         }
@@ -214,7 +214,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
         }
         if(this.rows && this.rows.length != 0){        const rowsArrValue: WorkbookTableRowImpl[] = [];
         this.rows?.forEach(element => {
-            rowsArrValue.push((element instanceof WorkbookTableRowImpl? element:new WorkbookTableRowImpl(element)));
+            rowsArrValue.push((element instanceof WorkbookTableRowImpl? element as WorkbookTableRowImpl:new WorkbookTableRowImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookTableRowImpl>("rows", rowsArrValue);
         }
@@ -234,13 +234,13 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
             writer.writeBooleanValue("showTotals", this.showTotals);
         }
         if(this.sort){
-            writer.writeObjectValue<WorkbookTableSortImpl>("sort", (!this.sort || this.sort instanceof WorkbookTableSortImpl? this.sort : new WorkbookTableSortImpl(this.sort)));
+            writer.writeObjectValue<WorkbookTableSortImpl>("sort", (this.sort instanceof WorkbookTableSortImpl? this.sort as WorkbookTableSortImpl: new WorkbookTableSortImpl(this.sort)));
         }
         if(this.style){
             writer.writeStringValue("style", this.style);
         }
         if(this.worksheet){
-            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (!this.worksheet || this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet : new WorkbookWorksheetImpl(this.worksheet)));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(this.worksheet)));
         }
     };
     /**
@@ -336,7 +336,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
      */
     public set sort(value: WorkbookTableSort | undefined) {
         if(value) {
-            this._sort = value instanceof WorkbookTableSortImpl? value : new WorkbookTableSortImpl(value);
+            this._sort = value instanceof WorkbookTableSortImpl? value as WorkbookTableSortImpl: new WorkbookTableSortImpl(value);
         }
     };
     /**
@@ -368,7 +368,7 @@ export class WorkbookTableImpl extends EntityImpl implements WorkbookTable {
      */
     public set worksheet(value: WorkbookWorksheet | undefined) {
         if(value) {
-            this._worksheet = value instanceof WorkbookWorksheetImpl? value : new WorkbookWorksheetImpl(value);
+            this._worksheet = value instanceof WorkbookWorksheetImpl? value as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(value);
         }
     };
 }

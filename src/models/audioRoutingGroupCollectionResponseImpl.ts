@@ -73,7 +73,7 @@ export class AudioRoutingGroupCollectionResponseImpl implements AudioRoutingGrou
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AudioRoutingGroupImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AudioRoutingGroupImpl? element:new AudioRoutingGroupImpl(element)));
+            valueArrValue.push((element instanceof AudioRoutingGroupImpl? element as AudioRoutingGroupImpl:new AudioRoutingGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AudioRoutingGroupImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AudioRoutingGroupCollectionResponseImpl implements AudioRoutingGrou
         if(value) {
             const valueArrValue: AudioRoutingGroupImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AudioRoutingGroupImpl? element:new AudioRoutingGroupImpl(element)));
+                valueArrValue.push((element instanceof AudioRoutingGroupImpl? element as AudioRoutingGroupImpl:new AudioRoutingGroupImpl(element)));
             });
             this._value = valueArrValue;
         }

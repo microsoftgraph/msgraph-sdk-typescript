@@ -73,7 +73,7 @@ export class OutlookCategoryCollectionResponseImpl implements OutlookCategoryCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OutlookCategoryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OutlookCategoryImpl? element:new OutlookCategoryImpl(element)));
+            valueArrValue.push((element instanceof OutlookCategoryImpl? element as OutlookCategoryImpl:new OutlookCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OutlookCategoryCollectionResponseImpl implements OutlookCategoryCol
         if(value) {
             const valueArrValue: OutlookCategoryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OutlookCategoryImpl? element:new OutlookCategoryImpl(element)));
+                valueArrValue.push((element instanceof OutlookCategoryImpl? element as OutlookCategoryImpl:new OutlookCategoryImpl(element)));
             });
             this._value = valueArrValue;
         }

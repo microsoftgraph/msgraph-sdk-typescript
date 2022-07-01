@@ -54,7 +54,7 @@ export class EntitlementManagementScheduleImpl implements EntitlementManagementS
      */
     public set expiration(value: ExpirationPattern | undefined) {
         if(value) {
-            this._expiration = value instanceof ExpirationPatternImpl? value : new ExpirationPatternImpl(value);
+            this._expiration = value instanceof ExpirationPatternImpl? value as ExpirationPatternImpl: new ExpirationPatternImpl(value);
         }
     };
     /**
@@ -81,7 +81,7 @@ export class EntitlementManagementScheduleImpl implements EntitlementManagementS
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         if(value) {
-            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(value);
         }
     };
     /**
@@ -91,10 +91,10 @@ export class EntitlementManagementScheduleImpl implements EntitlementManagementS
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.expiration){
-            writer.writeObjectValue<ExpirationPatternImpl>("expiration", (!this.expiration || this.expiration instanceof ExpirationPatternImpl? this.expiration : new ExpirationPatternImpl(this.expiration)));
+            writer.writeObjectValue<ExpirationPatternImpl>("expiration", (this.expiration instanceof ExpirationPatternImpl? this.expiration as ExpirationPatternImpl: new ExpirationPatternImpl(this.expiration)));
         }
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);

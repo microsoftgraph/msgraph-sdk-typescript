@@ -73,7 +73,7 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ListItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ListItemImpl? element:new ListItemImpl(element)));
+            valueArrValue.push((element instanceof ListItemImpl? element as ListItemImpl:new ListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ListItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ListItemCollectionResponseImpl implements ListItemCollectionRespons
         if(value) {
             const valueArrValue: ListItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ListItemImpl? element:new ListItemImpl(element)));
+                valueArrValue.push((element instanceof ListItemImpl? element as ListItemImpl:new ListItemImpl(element)));
             });
             this._value = valueArrValue;
         }

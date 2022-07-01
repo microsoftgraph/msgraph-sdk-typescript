@@ -73,7 +73,7 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
         }
         if(this.value && this.value.length != 0){        const valueArrValue: B2xIdentityUserFlowImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof B2xIdentityUserFlowImpl? element:new B2xIdentityUserFlowImpl(element)));
+            valueArrValue.push((element instanceof B2xIdentityUserFlowImpl? element as B2xIdentityUserFlowImpl:new B2xIdentityUserFlowImpl(element)));
         });
             writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class B2xIdentityUserFlowCollectionResponseImpl implements B2xIdentityUse
         if(value) {
             const valueArrValue: B2xIdentityUserFlowImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof B2xIdentityUserFlowImpl? element:new B2xIdentityUserFlowImpl(element)));
+                valueArrValue.push((element instanceof B2xIdentityUserFlowImpl? element as B2xIdentityUserFlowImpl:new B2xIdentityUserFlowImpl(element)));
             });
             this._value = valueArrValue;
         }

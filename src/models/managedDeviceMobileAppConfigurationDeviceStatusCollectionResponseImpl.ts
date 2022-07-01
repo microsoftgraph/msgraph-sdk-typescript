@@ -73,7 +73,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseIm
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
+            valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element as ManagedDeviceMobileAppConfigurationDeviceStatusImpl:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatusImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseIm
         if(value) {
             const valueArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
+                valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element as ManagedDeviceMobileAppConfigurationDeviceStatusImpl:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
             });
             this._value = valueArrValue;
         }

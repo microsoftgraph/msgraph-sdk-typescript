@@ -1,5 +1,5 @@
 export * from './checkMemberObjectsPostRequestBodyImpl'
 export * from './checkMemberObjectsResponseImpl'
 export * from './checkMemberObjectsResponse'
-export * from './checkMemberObjectsRequestBuilderPostRequestConfiguration'
 export * from './checkMemberObjectsPostRequestBody'
+export * from './checkMemberObjectsRequestBuilderPostRequestConfiguration'

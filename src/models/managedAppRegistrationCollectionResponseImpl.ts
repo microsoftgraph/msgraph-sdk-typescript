@@ -73,7 +73,7 @@ export class ManagedAppRegistrationCollectionResponseImpl implements ManagedAppR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppRegistrationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedAppRegistrationImpl? element:new ManagedAppRegistrationImpl(element)));
+            valueArrValue.push((element instanceof ManagedAppRegistrationImpl? element as ManagedAppRegistrationImpl:new ManagedAppRegistrationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedAppRegistrationCollectionResponseImpl implements ManagedAppR
         if(value) {
             const valueArrValue: ManagedAppRegistrationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedAppRegistrationImpl? element:new ManagedAppRegistrationImpl(element)));
+                valueArrValue.push((element instanceof ManagedAppRegistrationImpl? element as ManagedAppRegistrationImpl:new ManagedAppRegistrationImpl(element)));
             });
             this._value = valueArrValue;
         }

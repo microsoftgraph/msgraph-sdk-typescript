@@ -73,7 +73,7 @@ export class LinkedResourceCollectionResponseImpl implements LinkedResourceColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: LinkedResourceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof LinkedResourceImpl? element:new LinkedResourceImpl(element)));
+            valueArrValue.push((element instanceof LinkedResourceImpl? element as LinkedResourceImpl:new LinkedResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LinkedResourceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class LinkedResourceCollectionResponseImpl implements LinkedResourceColle
         if(value) {
             const valueArrValue: LinkedResourceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof LinkedResourceImpl? element:new LinkedResourceImpl(element)));
+                valueArrValue.push((element instanceof LinkedResourceImpl? element as LinkedResourceImpl:new LinkedResourceImpl(element)));
             });
             this._value = valueArrValue;
         }

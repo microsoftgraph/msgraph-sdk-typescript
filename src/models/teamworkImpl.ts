@@ -34,7 +34,7 @@ export class TeamworkImpl extends EntityImpl implements Teamwork {
         super.serialize(writer);
         if(this.workforceIntegrations && this.workforceIntegrations.length != 0){        const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = [];
         this.workforceIntegrations?.forEach(element => {
-            workforceIntegrationsArrValue.push((element instanceof WorkforceIntegrationImpl? element:new WorkforceIntegrationImpl(element)));
+            workforceIntegrationsArrValue.push((element instanceof WorkforceIntegrationImpl? element as WorkforceIntegrationImpl:new WorkforceIntegrationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("workforceIntegrations", workforceIntegrationsArrValue);
         }
@@ -54,7 +54,7 @@ export class TeamworkImpl extends EntityImpl implements Teamwork {
         if(value) {
             const workforceIntegrationsArrValue: WorkforceIntegrationImpl[] = [];
             this.workforceIntegrations?.forEach(element => {
-                workforceIntegrationsArrValue.push((element instanceof WorkforceIntegrationImpl? element:new WorkforceIntegrationImpl(element)));
+                workforceIntegrationsArrValue.push((element instanceof WorkforceIntegrationImpl? element as WorkforceIntegrationImpl:new WorkforceIntegrationImpl(element)));
             });
             this._workforceIntegrations = workforceIntegrationsArrValue;
         }

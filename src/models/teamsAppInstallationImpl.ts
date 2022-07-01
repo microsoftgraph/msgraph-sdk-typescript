@@ -39,10 +39,10 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.teamsApp){
-            writer.writeObjectValue<TeamsAppImpl>("teamsApp", (!this.teamsApp || this.teamsApp instanceof TeamsAppImpl? this.teamsApp : new TeamsAppImpl(this.teamsApp)));
+            writer.writeObjectValue<TeamsAppImpl>("teamsApp", (this.teamsApp instanceof TeamsAppImpl? this.teamsApp as TeamsAppImpl: new TeamsAppImpl(this.teamsApp)));
         }
         if(this.teamsAppDefinition){
-            writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", (!this.teamsAppDefinition || this.teamsAppDefinition instanceof TeamsAppDefinitionImpl? this.teamsAppDefinition : new TeamsAppDefinitionImpl(this.teamsAppDefinition)));
+            writer.writeObjectValue<TeamsAppDefinitionImpl>("teamsAppDefinition", (this.teamsAppDefinition instanceof TeamsAppDefinitionImpl? this.teamsAppDefinition as TeamsAppDefinitionImpl: new TeamsAppDefinitionImpl(this.teamsAppDefinition)));
         }
     };
     /**
@@ -58,7 +58,7 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
      */
     public set teamsApp(value: TeamsApp | undefined) {
         if(value) {
-            this._teamsApp = value instanceof TeamsAppImpl? value : new TeamsAppImpl(value);
+            this._teamsApp = value instanceof TeamsAppImpl? value as TeamsAppImpl: new TeamsAppImpl(value);
         }
     };
     /**
@@ -74,7 +74,7 @@ export class TeamsAppInstallationImpl extends EntityImpl implements TeamsAppInst
      */
     public set teamsAppDefinition(value: TeamsAppDefinition | undefined) {
         if(value) {
-            this._teamsAppDefinition = value instanceof TeamsAppDefinitionImpl? value : new TeamsAppDefinitionImpl(value);
+            this._teamsAppDefinition = value instanceof TeamsAppDefinitionImpl? value as TeamsAppDefinitionImpl: new TeamsAppDefinitionImpl(value);
         }
     };
 }

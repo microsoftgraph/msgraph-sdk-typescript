@@ -106,7 +106,7 @@ export class PrintConnectorImpl extends EntityImpl implements PrintConnector {
      */
     public set location(value: PrinterLocation | undefined) {
         if(value) {
-            this._location = value instanceof PrinterLocationImpl? value : new PrinterLocationImpl(value);
+            this._location = value instanceof PrinterLocationImpl? value as PrinterLocationImpl: new PrinterLocationImpl(value);
         }
     };
     /**
@@ -158,7 +158,7 @@ export class PrintConnectorImpl extends EntityImpl implements PrintConnector {
             writer.writeStringValue("fullyQualifiedDomainName", this.fullyQualifiedDomainName);
         }
         if(this.location){
-            writer.writeObjectValue<PrinterLocationImpl>("location", (!this.location || this.location instanceof PrinterLocationImpl? this.location : new PrinterLocationImpl(this.location)));
+            writer.writeObjectValue<PrinterLocationImpl>("location", (this.location instanceof PrinterLocationImpl? this.location as PrinterLocationImpl: new PrinterLocationImpl(this.location)));
         }
         if(this.operatingSystem){
             writer.writeStringValue("operatingSystem", this.operatingSystem);

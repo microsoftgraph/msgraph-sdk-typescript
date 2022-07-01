@@ -32,7 +32,7 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
      */
     public set activatedUsing(value: UnifiedRoleEligibilityScheduleInstance | undefined) {
         if(value) {
-            this._activatedUsing = value instanceof UnifiedRoleEligibilityScheduleInstanceImpl? value : new UnifiedRoleEligibilityScheduleInstanceImpl(value);
+            this._activatedUsing = value instanceof UnifiedRoleEligibilityScheduleInstanceImpl? value as UnifiedRoleEligibilityScheduleInstanceImpl: new UnifiedRoleEligibilityScheduleInstanceImpl(value);
         }
     };
     /**
@@ -152,7 +152,7 @@ export class UnifiedRoleAssignmentScheduleInstanceImpl extends UnifiedRoleSchedu
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activatedUsing){
-            writer.writeObjectValue<UnifiedRoleEligibilityScheduleInstanceImpl>("activatedUsing", (!this.activatedUsing || this.activatedUsing instanceof UnifiedRoleEligibilityScheduleInstanceImpl? this.activatedUsing : new UnifiedRoleEligibilityScheduleInstanceImpl(this.activatedUsing)));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleInstanceImpl>("activatedUsing", (this.activatedUsing instanceof UnifiedRoleEligibilityScheduleInstanceImpl? this.activatedUsing as UnifiedRoleEligibilityScheduleInstanceImpl: new UnifiedRoleEligibilityScheduleInstanceImpl(this.activatedUsing)));
         }
         if(this.assignmentType){
             writer.writeStringValue("assignmentType", this.assignmentType);

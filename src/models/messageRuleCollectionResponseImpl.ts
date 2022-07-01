@@ -73,7 +73,7 @@ export class MessageRuleCollectionResponseImpl implements MessageRuleCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MessageRuleImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MessageRuleImpl? element:new MessageRuleImpl(element)));
+            valueArrValue.push((element instanceof MessageRuleImpl? element as MessageRuleImpl:new MessageRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MessageRuleImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MessageRuleCollectionResponseImpl implements MessageRuleCollectionR
         if(value) {
             const valueArrValue: MessageRuleImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MessageRuleImpl? element:new MessageRuleImpl(element)));
+                valueArrValue.push((element instanceof MessageRuleImpl? element as MessageRuleImpl:new MessageRuleImpl(element)));
             });
             this._value = valueArrValue;
         }

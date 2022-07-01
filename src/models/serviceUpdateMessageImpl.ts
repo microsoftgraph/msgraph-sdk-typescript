@@ -64,7 +64,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
         if(value) {
             const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = [];
             this.attachments?.forEach(element => {
-                attachmentsArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element:new ServiceAnnouncementAttachmentImpl(element)));
+                attachmentsArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element as ServiceAnnouncementAttachmentImpl:new ServiceAnnouncementAttachmentImpl(element)));
             });
             this._attachments = attachmentsArrValue;
         }
@@ -98,7 +98,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
      */
     public set body(value: ItemBody | undefined) {
         if(value) {
-            this._body = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._body = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -198,7 +198,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
         }
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ServiceAnnouncementAttachmentImpl[] = [];
         this.attachments?.forEach(element => {
-            attachmentsArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element:new ServiceAnnouncementAttachmentImpl(element)));
+            attachmentsArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element as ServiceAnnouncementAttachmentImpl:new ServiceAnnouncementAttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("attachments", attachmentsArrValue);
         }
@@ -206,7 +206,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
             writer.writeStringValue("attachmentsArchive", this.attachmentsArchive);
         }
         if(this.body){
-            writer.writeObjectValue<ItemBodyImpl>("body", (!this.body || this.body instanceof ItemBodyImpl? this.body : new ItemBodyImpl(this.body)));
+            writer.writeObjectValue<ItemBodyImpl>("body", (this.body instanceof ItemBodyImpl? this.body as ItemBodyImpl: new ItemBodyImpl(this.body)));
         }
         if(this.category){
             writer.writeEnumValue<ServiceUpdateCategory>("category", this.category);
@@ -227,7 +227,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
             writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
         }
         if(this.viewPoint){
-            writer.writeObjectValue<ServiceUpdateMessageViewpointImpl>("viewPoint", (!this.viewPoint || this.viewPoint instanceof ServiceUpdateMessageViewpointImpl? this.viewPoint : new ServiceUpdateMessageViewpointImpl(this.viewPoint)));
+            writer.writeObjectValue<ServiceUpdateMessageViewpointImpl>("viewPoint", (this.viewPoint instanceof ServiceUpdateMessageViewpointImpl? this.viewPoint as ServiceUpdateMessageViewpointImpl: new ServiceUpdateMessageViewpointImpl(this.viewPoint)));
         }
     };
     /**
@@ -291,7 +291,7 @@ export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implem
      */
     public set viewPoint(value: ServiceUpdateMessageViewpoint | undefined) {
         if(value) {
-            this._viewPoint = value instanceof ServiceUpdateMessageViewpointImpl? value : new ServiceUpdateMessageViewpointImpl(value);
+            this._viewPoint = value instanceof ServiceUpdateMessageViewpointImpl? value as ServiceUpdateMessageViewpointImpl: new ServiceUpdateMessageViewpointImpl(value);
         }
     };
 }

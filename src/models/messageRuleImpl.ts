@@ -37,7 +37,7 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
      */
     public set actions(value: MessageRuleActions | undefined) {
         if(value) {
-            this._actions = value instanceof MessageRuleActionsImpl? value : new MessageRuleActionsImpl(value);
+            this._actions = value instanceof MessageRuleActionsImpl? value as MessageRuleActionsImpl: new MessageRuleActionsImpl(value);
         }
     };
     /**
@@ -53,7 +53,7 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
      */
     public set conditions(value: MessageRulePredicates | undefined) {
         if(value) {
-            this._conditions = value instanceof MessageRulePredicatesImpl? value : new MessageRulePredicatesImpl(value);
+            this._conditions = value instanceof MessageRulePredicatesImpl? value as MessageRulePredicatesImpl: new MessageRulePredicatesImpl(value);
         }
     };
     /**
@@ -100,7 +100,7 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
      */
     public set exceptions(value: MessageRulePredicates | undefined) {
         if(value) {
-            this._exceptions = value instanceof MessageRulePredicatesImpl? value : new MessageRulePredicatesImpl(value);
+            this._exceptions = value instanceof MessageRulePredicatesImpl? value as MessageRulePredicatesImpl: new MessageRulePredicatesImpl(value);
         }
     };
     /**
@@ -191,16 +191,16 @@ export class MessageRuleImpl extends EntityImpl implements MessageRule {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.actions){
-            writer.writeObjectValue<MessageRuleActionsImpl>("actions", (!this.actions || this.actions instanceof MessageRuleActionsImpl? this.actions : new MessageRuleActionsImpl(this.actions)));
+            writer.writeObjectValue<MessageRuleActionsImpl>("actions", (this.actions instanceof MessageRuleActionsImpl? this.actions as MessageRuleActionsImpl: new MessageRuleActionsImpl(this.actions)));
         }
         if(this.conditions){
-            writer.writeObjectValue<MessageRulePredicatesImpl>("conditions", (!this.conditions || this.conditions instanceof MessageRulePredicatesImpl? this.conditions : new MessageRulePredicatesImpl(this.conditions)));
+            writer.writeObjectValue<MessageRulePredicatesImpl>("conditions", (this.conditions instanceof MessageRulePredicatesImpl? this.conditions as MessageRulePredicatesImpl: new MessageRulePredicatesImpl(this.conditions)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.exceptions){
-            writer.writeObjectValue<MessageRulePredicatesImpl>("exceptions", (!this.exceptions || this.exceptions instanceof MessageRulePredicatesImpl? this.exceptions : new MessageRulePredicatesImpl(this.exceptions)));
+            writer.writeObjectValue<MessageRulePredicatesImpl>("exceptions", (this.exceptions instanceof MessageRulePredicatesImpl? this.exceptions as MessageRulePredicatesImpl: new MessageRulePredicatesImpl(this.exceptions)));
         }
         if(this.hasError){
             writer.writeBooleanValue("hasError", this.hasError);

@@ -244,7 +244,7 @@ export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
      */
     public set location(value: SignInLocation | undefined) {
         if(value) {
-            this._location = value instanceof SignInLocationImpl? value : new SignInLocationImpl(value);
+            this._location = value instanceof SignInLocationImpl? value as SignInLocationImpl: new SignInLocationImpl(value);
         }
     };
     /**
@@ -359,7 +359,7 @@ export class RiskDetectionImpl extends EntityImpl implements RiskDetection {
             writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         }
         if(this.location){
-            writer.writeObjectValue<SignInLocationImpl>("location", (!this.location || this.location instanceof SignInLocationImpl? this.location : new SignInLocationImpl(this.location)));
+            writer.writeObjectValue<SignInLocationImpl>("location", (this.location instanceof SignInLocationImpl? this.location as SignInLocationImpl: new SignInLocationImpl(this.location)));
         }
         if(this.requestId){
             writer.writeStringValue("requestId", this.requestId);

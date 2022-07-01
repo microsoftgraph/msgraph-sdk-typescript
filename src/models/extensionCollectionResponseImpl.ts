@@ -73,7 +73,7 @@ export class ExtensionCollectionResponseImpl implements ExtensionCollectionRespo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExtensionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            valueArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ExtensionCollectionResponseImpl implements ExtensionCollectionRespo
         if(value) {
             const valueArrValue: ExtensionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                valueArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Permis
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantConditionSetImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PermissionGrantConditionSetImpl? element:new PermissionGrantConditionSetImpl(element)));
+            valueArrValue.push((element instanceof PermissionGrantConditionSetImpl? element as PermissionGrantConditionSetImpl:new PermissionGrantConditionSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PermissionGrantConditionSetCollectionResponseImpl implements Permis
         if(value) {
             const valueArrValue: PermissionGrantConditionSetImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PermissionGrantConditionSetImpl? element:new PermissionGrantConditionSetImpl(element)));
+                valueArrValue.push((element instanceof PermissionGrantConditionSetImpl? element as PermissionGrantConditionSetImpl:new PermissionGrantConditionSetImpl(element)));
             });
             this._value = valueArrValue;
         }

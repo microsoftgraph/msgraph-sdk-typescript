@@ -38,7 +38,7 @@ export class RegistrationEnforcementImpl implements RegistrationEnforcement {
      */
     public set authenticationMethodsRegistrationCampaign(value: AuthenticationMethodsRegistrationCampaign | undefined) {
         if(value) {
-            this._authenticationMethodsRegistrationCampaign = value instanceof AuthenticationMethodsRegistrationCampaignImpl? value : new AuthenticationMethodsRegistrationCampaignImpl(value);
+            this._authenticationMethodsRegistrationCampaign = value instanceof AuthenticationMethodsRegistrationCampaignImpl? value as AuthenticationMethodsRegistrationCampaignImpl: new AuthenticationMethodsRegistrationCampaignImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class RegistrationEnforcementImpl implements RegistrationEnforcement {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.authenticationMethodsRegistrationCampaign){
-            writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", (!this.authenticationMethodsRegistrationCampaign || this.authenticationMethodsRegistrationCampaign instanceof AuthenticationMethodsRegistrationCampaignImpl? this.authenticationMethodsRegistrationCampaign : new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign)));
+            writer.writeObjectValue<AuthenticationMethodsRegistrationCampaignImpl>("authenticationMethodsRegistrationCampaign", (this.authenticationMethodsRegistrationCampaign instanceof AuthenticationMethodsRegistrationCampaignImpl? this.authenticationMethodsRegistrationCampaign as AuthenticationMethodsRegistrationCampaignImpl: new AuthenticationMethodsRegistrationCampaignImpl(this.authenticationMethodsRegistrationCampaign)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

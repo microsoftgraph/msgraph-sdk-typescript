@@ -38,7 +38,7 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         if(value) {
             const childFoldersArrValue: ContactFolderImpl[] = [];
             this.childFolders?.forEach(element => {
-                childFoldersArrValue.push((element instanceof ContactFolderImpl? element:new ContactFolderImpl(element)));
+                childFoldersArrValue.push((element instanceof ContactFolderImpl? element as ContactFolderImpl:new ContactFolderImpl(element)));
             });
             this._childFolders = childFoldersArrValue;
         }
@@ -71,7 +71,7 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         if(value) {
             const contactsArrValue: ContactImpl[] = [];
             this.contacts?.forEach(element => {
-                contactsArrValue.push((element instanceof ContactImpl? element:new ContactImpl(element)));
+                contactsArrValue.push((element instanceof ContactImpl? element as ContactImpl:new ContactImpl(element)));
             });
             this._contacts = contactsArrValue;
         }
@@ -121,7 +121,7 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         if(value) {
             const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.multiValueExtendedProperties?.forEach(element => {
-                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         }
@@ -151,13 +151,13 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         super.serialize(writer);
         if(this.childFolders && this.childFolders.length != 0){        const childFoldersArrValue: ContactFolderImpl[] = [];
         this.childFolders?.forEach(element => {
-            childFoldersArrValue.push((element instanceof ContactFolderImpl? element:new ContactFolderImpl(element)));
+            childFoldersArrValue.push((element instanceof ContactFolderImpl? element as ContactFolderImpl:new ContactFolderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContactFolderImpl>("childFolders", childFoldersArrValue);
         }
         if(this.contacts && this.contacts.length != 0){        const contactsArrValue: ContactImpl[] = [];
         this.contacts?.forEach(element => {
-            contactsArrValue.push((element instanceof ContactImpl? element:new ContactImpl(element)));
+            contactsArrValue.push((element instanceof ContactImpl? element as ContactImpl:new ContactImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContactImpl>("contacts", contactsArrValue);
         }
@@ -166,7 +166,7 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.multiValueExtendedProperties?.forEach(element => {
-            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
@@ -175,7 +175,7 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.singleValueExtendedProperties?.forEach(element => {
-            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
@@ -195,7 +195,7 @@ export class ContactFolderImpl extends EntityImpl implements ContactFolder {
         if(value) {
             const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.singleValueExtendedProperties?.forEach(element => {
-                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         }

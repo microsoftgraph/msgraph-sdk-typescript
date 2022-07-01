@@ -73,7 +73,7 @@ export class TodoTaskCollectionResponseImpl implements TodoTaskCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TodoTaskImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TodoTaskImpl? element:new TodoTaskImpl(element)));
+            valueArrValue.push((element instanceof TodoTaskImpl? element as TodoTaskImpl:new TodoTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TodoTaskImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TodoTaskCollectionResponseImpl implements TodoTaskCollectionRespons
         if(value) {
             const valueArrValue: TodoTaskImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TodoTaskImpl? element:new TodoTaskImpl(element)));
+                valueArrValue.push((element instanceof TodoTaskImpl? element as TodoTaskImpl:new TodoTaskImpl(element)));
             });
             this._value = valueArrValue;
         }

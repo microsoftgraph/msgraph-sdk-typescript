@@ -73,7 +73,7 @@ export class ManagedMobileLobAppCollectionResponseImpl implements ManagedMobileL
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileLobAppImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedMobileLobAppImpl? element:new ManagedMobileLobAppImpl(element)));
+            valueArrValue.push((element instanceof ManagedMobileLobAppImpl? element as ManagedMobileLobAppImpl:new ManagedMobileLobAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedMobileLobAppImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedMobileLobAppCollectionResponseImpl implements ManagedMobileL
         if(value) {
             const valueArrValue: ManagedMobileLobAppImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedMobileLobAppImpl? element:new ManagedMobileLobAppImpl(element)));
+                valueArrValue.push((element instanceof ManagedMobileLobAppImpl? element as ManagedMobileLobAppImpl:new ManagedMobileLobAppImpl(element)));
             });
             this._value = valueArrValue;
         }

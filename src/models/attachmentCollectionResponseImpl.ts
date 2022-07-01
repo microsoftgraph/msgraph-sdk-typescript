@@ -73,7 +73,7 @@ export class AttachmentCollectionResponseImpl implements AttachmentCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AttachmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+            valueArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttachmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AttachmentCollectionResponseImpl implements AttachmentCollectionRes
         if(value) {
             const valueArrValue: AttachmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+                valueArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
             });
             this._value = valueArrValue;
         }

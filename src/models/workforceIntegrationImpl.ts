@@ -76,7 +76,7 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
      */
     public set encryption(value: WorkforceIntegrationEncryption | undefined) {
         if(value) {
-            this._encryption = value instanceof WorkforceIntegrationEncryptionImpl? value : new WorkforceIntegrationEncryptionImpl(value);
+            this._encryption = value instanceof WorkforceIntegrationEncryptionImpl? value as WorkforceIntegrationEncryptionImpl: new WorkforceIntegrationEncryptionImpl(value);
         }
     };
     /**
@@ -123,7 +123,7 @@ export class WorkforceIntegrationImpl extends ChangeTrackedEntityImpl implements
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.encryption){
-            writer.writeObjectValue<WorkforceIntegrationEncryptionImpl>("encryption", (!this.encryption || this.encryption instanceof WorkforceIntegrationEncryptionImpl? this.encryption : new WorkforceIntegrationEncryptionImpl(this.encryption)));
+            writer.writeObjectValue<WorkforceIntegrationEncryptionImpl>("encryption", (this.encryption instanceof WorkforceIntegrationEncryptionImpl? this.encryption as WorkforceIntegrationEncryptionImpl: new WorkforceIntegrationEncryptionImpl(this.encryption)));
         }
         if(this.isActive){
             writer.writeBooleanValue("isActive", this.isActive);

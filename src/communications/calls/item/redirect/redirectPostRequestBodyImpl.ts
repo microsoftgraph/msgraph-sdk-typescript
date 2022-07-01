@@ -78,7 +78,7 @@ export class RedirectPostRequestBodyImpl implements RedirectPostRequestBody {
         }
         if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = [];
         this.targets?.forEach(element => {
-            targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+            targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
         }
@@ -102,7 +102,7 @@ export class RedirectPostRequestBodyImpl implements RedirectPostRequestBody {
         if(value) {
             const targetsArrValue: InvitationParticipantInfoImpl[] = [];
             this.targets?.forEach(element => {
-                targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+                targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
             });
             this._targets = targetsArrValue;
         }

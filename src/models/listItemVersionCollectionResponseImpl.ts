@@ -73,7 +73,7 @@ export class ListItemVersionCollectionResponseImpl implements ListItemVersionCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ListItemVersionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ListItemVersionImpl? element:new ListItemVersionImpl(element)));
+            valueArrValue.push((element instanceof ListItemVersionImpl? element as ListItemVersionImpl:new ListItemVersionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ListItemVersionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ListItemVersionCollectionResponseImpl implements ListItemVersionCol
         if(value) {
             const valueArrValue: ListItemVersionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ListItemVersionImpl? element:new ListItemVersionImpl(element)));
+                valueArrValue.push((element instanceof ListItemVersionImpl? element as ListItemVersionImpl:new ListItemVersionImpl(element)));
             });
             this._value = valueArrValue;
         }

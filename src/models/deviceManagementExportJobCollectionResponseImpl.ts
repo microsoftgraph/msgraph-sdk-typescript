@@ -73,7 +73,7 @@ export class DeviceManagementExportJobCollectionResponseImpl implements DeviceMa
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExportJobImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceManagementExportJobImpl? element:new DeviceManagementExportJobImpl(element)));
+            valueArrValue.push((element instanceof DeviceManagementExportJobImpl? element as DeviceManagementExportJobImpl:new DeviceManagementExportJobImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceManagementExportJobCollectionResponseImpl implements DeviceMa
         if(value) {
             const valueArrValue: DeviceManagementExportJobImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceManagementExportJobImpl? element:new DeviceManagementExportJobImpl(element)));
+                valueArrValue.push((element instanceof DeviceManagementExportJobImpl? element as DeviceManagementExportJobImpl:new DeviceManagementExportJobImpl(element)));
             });
             this._value = valueArrValue;
         }

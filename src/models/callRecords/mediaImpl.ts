@@ -52,7 +52,7 @@ export class MediaImpl implements Media {
      */
     public set calleeDevice(value: DeviceInfo | undefined) {
         if(value) {
-            this._calleeDevice = value instanceof DeviceInfoImpl? value : new DeviceInfoImpl(value);
+            this._calleeDevice = value instanceof DeviceInfoImpl? value as DeviceInfoImpl: new DeviceInfoImpl(value);
         }
     };
     /**
@@ -68,7 +68,7 @@ export class MediaImpl implements Media {
      */
     public set calleeNetwork(value: NetworkInfo | undefined) {
         if(value) {
-            this._calleeNetwork = value instanceof NetworkInfoImpl? value : new NetworkInfoImpl(value);
+            this._calleeNetwork = value instanceof NetworkInfoImpl? value as NetworkInfoImpl: new NetworkInfoImpl(value);
         }
     };
     /**
@@ -84,7 +84,7 @@ export class MediaImpl implements Media {
      */
     public set callerDevice(value: DeviceInfo | undefined) {
         if(value) {
-            this._callerDevice = value instanceof DeviceInfoImpl? value : new DeviceInfoImpl(value);
+            this._callerDevice = value instanceof DeviceInfoImpl? value as DeviceInfoImpl: new DeviceInfoImpl(value);
         }
     };
     /**
@@ -100,7 +100,7 @@ export class MediaImpl implements Media {
      */
     public set callerNetwork(value: NetworkInfo | undefined) {
         if(value) {
-            this._callerNetwork = value instanceof NetworkInfoImpl? value : new NetworkInfoImpl(value);
+            this._callerNetwork = value instanceof NetworkInfoImpl? value as NetworkInfoImpl: new NetworkInfoImpl(value);
         }
     };
     /**
@@ -153,23 +153,23 @@ export class MediaImpl implements Media {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.calleeDevice){
-            writer.writeObjectValue<DeviceInfoImpl>("calleeDevice", (!this.calleeDevice || this.calleeDevice instanceof DeviceInfoImpl? this.calleeDevice : new DeviceInfoImpl(this.calleeDevice)));
+            writer.writeObjectValue<DeviceInfoImpl>("calleeDevice", (this.calleeDevice instanceof DeviceInfoImpl? this.calleeDevice as DeviceInfoImpl: new DeviceInfoImpl(this.calleeDevice)));
         }
         if(this.calleeNetwork){
-            writer.writeObjectValue<NetworkInfoImpl>("calleeNetwork", (!this.calleeNetwork || this.calleeNetwork instanceof NetworkInfoImpl? this.calleeNetwork : new NetworkInfoImpl(this.calleeNetwork)));
+            writer.writeObjectValue<NetworkInfoImpl>("calleeNetwork", (this.calleeNetwork instanceof NetworkInfoImpl? this.calleeNetwork as NetworkInfoImpl: new NetworkInfoImpl(this.calleeNetwork)));
         }
         if(this.callerDevice){
-            writer.writeObjectValue<DeviceInfoImpl>("callerDevice", (!this.callerDevice || this.callerDevice instanceof DeviceInfoImpl? this.callerDevice : new DeviceInfoImpl(this.callerDevice)));
+            writer.writeObjectValue<DeviceInfoImpl>("callerDevice", (this.callerDevice instanceof DeviceInfoImpl? this.callerDevice as DeviceInfoImpl: new DeviceInfoImpl(this.callerDevice)));
         }
         if(this.callerNetwork){
-            writer.writeObjectValue<NetworkInfoImpl>("callerNetwork", (!this.callerNetwork || this.callerNetwork instanceof NetworkInfoImpl? this.callerNetwork : new NetworkInfoImpl(this.callerNetwork)));
+            writer.writeObjectValue<NetworkInfoImpl>("callerNetwork", (this.callerNetwork instanceof NetworkInfoImpl? this.callerNetwork as NetworkInfoImpl: new NetworkInfoImpl(this.callerNetwork)));
         }
         if(this.label){
             writer.writeStringValue("label", this.label);
         }
         if(this.streams && this.streams.length != 0){        const streamsArrValue: MediaStreamImpl[] = [];
         this.streams?.forEach(element => {
-            streamsArrValue.push((element instanceof MediaStreamImpl? element:new MediaStreamImpl(element)));
+            streamsArrValue.push((element instanceof MediaStreamImpl? element as MediaStreamImpl:new MediaStreamImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MediaStreamImpl>("streams", streamsArrValue);
         }
@@ -190,7 +190,7 @@ export class MediaImpl implements Media {
         if(value) {
             const streamsArrValue: MediaStreamImpl[] = [];
             this.streams?.forEach(element => {
-                streamsArrValue.push((element instanceof MediaStreamImpl? element:new MediaStreamImpl(element)));
+                streamsArrValue.push((element instanceof MediaStreamImpl? element as MediaStreamImpl:new MediaStreamImpl(element)));
             });
             this._streams = streamsArrValue;
         }

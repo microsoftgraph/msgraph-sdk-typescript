@@ -46,7 +46,7 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
         if(value) {
             const plansArrValue: PlannerPlanImpl[] = [];
             this.plans?.forEach(element => {
-                plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+                plansArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
             });
             this._plans = plansArrValue;
         }
@@ -60,13 +60,13 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
         super.serialize(writer);
         if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = [];
         this.plans?.forEach(element => {
-            plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+            plansArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+            tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
@@ -86,7 +86,7 @@ export class PlannerUserImpl extends EntityImpl implements PlannerUser {
         if(value) {
             const tasksArrValue: PlannerTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+                tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

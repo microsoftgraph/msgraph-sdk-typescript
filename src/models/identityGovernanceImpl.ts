@@ -34,7 +34,7 @@ export class IdentityGovernanceImpl implements IdentityGovernance {
      */
     public set accessReviews(value: AccessReviewSet | undefined) {
         if(value) {
-            this._accessReviews = value instanceof AccessReviewSetImpl? value : new AccessReviewSetImpl(value);
+            this._accessReviews = value instanceof AccessReviewSetImpl? value as AccessReviewSetImpl: new AccessReviewSetImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class IdentityGovernanceImpl implements IdentityGovernance {
      */
     public set appConsent(value: AppConsentApprovalRoute | undefined) {
         if(value) {
-            this._appConsent = value instanceof AppConsentApprovalRouteImpl? value : new AppConsentApprovalRouteImpl(value);
+            this._appConsent = value instanceof AppConsentApprovalRouteImpl? value as AppConsentApprovalRouteImpl: new AppConsentApprovalRouteImpl(value);
         }
     };
     /**
@@ -93,7 +93,7 @@ export class IdentityGovernanceImpl implements IdentityGovernance {
      */
     public set entitlementManagement(value: EntitlementManagement | undefined) {
         if(value) {
-            this._entitlementManagement = value instanceof EntitlementManagementImpl? value : new EntitlementManagementImpl(value);
+            this._entitlementManagement = value instanceof EntitlementManagementImpl? value as EntitlementManagementImpl: new EntitlementManagementImpl(value);
         }
     };
     /**
@@ -115,16 +115,16 @@ export class IdentityGovernanceImpl implements IdentityGovernance {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessReviews){
-            writer.writeObjectValue<AccessReviewSetImpl>("accessReviews", (!this.accessReviews || this.accessReviews instanceof AccessReviewSetImpl? this.accessReviews : new AccessReviewSetImpl(this.accessReviews)));
+            writer.writeObjectValue<AccessReviewSetImpl>("accessReviews", (this.accessReviews instanceof AccessReviewSetImpl? this.accessReviews as AccessReviewSetImpl: new AccessReviewSetImpl(this.accessReviews)));
         }
         if(this.appConsent){
-            writer.writeObjectValue<AppConsentApprovalRouteImpl>("appConsent", (!this.appConsent || this.appConsent instanceof AppConsentApprovalRouteImpl? this.appConsent : new AppConsentApprovalRouteImpl(this.appConsent)));
+            writer.writeObjectValue<AppConsentApprovalRouteImpl>("appConsent", (this.appConsent instanceof AppConsentApprovalRouteImpl? this.appConsent as AppConsentApprovalRouteImpl: new AppConsentApprovalRouteImpl(this.appConsent)));
         }
         if(this.entitlementManagement){
-            writer.writeObjectValue<EntitlementManagementImpl>("entitlementManagement", (!this.entitlementManagement || this.entitlementManagement instanceof EntitlementManagementImpl? this.entitlementManagement : new EntitlementManagementImpl(this.entitlementManagement)));
+            writer.writeObjectValue<EntitlementManagementImpl>("entitlementManagement", (this.entitlementManagement instanceof EntitlementManagementImpl? this.entitlementManagement as EntitlementManagementImpl: new EntitlementManagementImpl(this.entitlementManagement)));
         }
         if(this.termsOfUse){
-            writer.writeObjectValue<TermsOfUseContainerImpl>("termsOfUse", (!this.termsOfUse || this.termsOfUse instanceof TermsOfUseContainerImpl? this.termsOfUse : new TermsOfUseContainerImpl(this.termsOfUse)));
+            writer.writeObjectValue<TermsOfUseContainerImpl>("termsOfUse", (this.termsOfUse instanceof TermsOfUseContainerImpl? this.termsOfUse as TermsOfUseContainerImpl: new TermsOfUseContainerImpl(this.termsOfUse)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -141,7 +141,7 @@ export class IdentityGovernanceImpl implements IdentityGovernance {
      */
     public set termsOfUse(value: TermsOfUseContainer | undefined) {
         if(value) {
-            this._termsOfUse = value instanceof TermsOfUseContainerImpl? value : new TermsOfUseContainerImpl(value);
+            this._termsOfUse = value instanceof TermsOfUseContainerImpl? value as TermsOfUseContainerImpl: new TermsOfUseContainerImpl(value);
         }
     };
 }

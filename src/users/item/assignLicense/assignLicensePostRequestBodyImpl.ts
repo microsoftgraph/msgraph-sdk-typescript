@@ -43,7 +43,7 @@ export class AssignLicensePostRequestBodyImpl implements AssignLicensePostReques
         if(value) {
             const addLicensesArrValue: AssignedLicenseImpl[] = [];
             this.addLicenses?.forEach(element => {
-                addLicensesArrValue.push((element instanceof AssignedLicenseImpl? element:new AssignedLicenseImpl(element)));
+                addLicensesArrValue.push((element instanceof AssignedLicenseImpl? element as AssignedLicenseImpl:new AssignedLicenseImpl(element)));
             });
             this._addLicenses = addLicensesArrValue;
         }
@@ -91,7 +91,7 @@ export class AssignLicensePostRequestBodyImpl implements AssignLicensePostReques
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.addLicenses && this.addLicenses.length != 0){        const addLicensesArrValue: AssignedLicenseImpl[] = [];
         this.addLicenses?.forEach(element => {
-            addLicensesArrValue.push((element instanceof AssignedLicenseImpl? element:new AssignedLicenseImpl(element)));
+            addLicensesArrValue.push((element instanceof AssignedLicenseImpl? element as AssignedLicenseImpl:new AssignedLicenseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("addLicenses", addLicensesArrValue);
         }

@@ -51,7 +51,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessPackageImpl? element:new AccessPackageImpl(element)));
+            valueArrValue.push((element instanceof AccessPackageImpl? element as AccessPackageImpl:new AccessPackageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(value) {
             const valueArrValue: AccessPackageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessPackageImpl? element:new AccessPackageImpl(element)));
+                valueArrValue.push((element instanceof AccessPackageImpl? element as AccessPackageImpl:new AccessPackageImpl(element)));
             });
             this._value = valueArrValue;
         }

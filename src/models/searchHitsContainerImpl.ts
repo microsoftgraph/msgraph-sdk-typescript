@@ -48,7 +48,7 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
         if(value) {
             const aggregationsArrValue: SearchAggregationImpl[] = [];
             this.aggregations?.forEach(element => {
-                aggregationsArrValue.push((element instanceof SearchAggregationImpl? element:new SearchAggregationImpl(element)));
+                aggregationsArrValue.push((element instanceof SearchAggregationImpl? element as SearchAggregationImpl:new SearchAggregationImpl(element)));
             });
             this._aggregations = aggregationsArrValue;
         }
@@ -91,7 +91,7 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
         if(value) {
             const hitsArrValue: SearchHitImpl[] = [];
             this.hits?.forEach(element => {
-                hitsArrValue.push((element instanceof SearchHitImpl? element:new SearchHitImpl(element)));
+                hitsArrValue.push((element instanceof SearchHitImpl? element as SearchHitImpl:new SearchHitImpl(element)));
             });
             this._hits = hitsArrValue;
         }
@@ -120,13 +120,13 @@ export class SearchHitsContainerImpl implements SearchHitsContainer {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: SearchAggregationImpl[] = [];
         this.aggregations?.forEach(element => {
-            aggregationsArrValue.push((element instanceof SearchAggregationImpl? element:new SearchAggregationImpl(element)));
+            aggregationsArrValue.push((element instanceof SearchAggregationImpl? element as SearchAggregationImpl:new SearchAggregationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SearchAggregationImpl>("aggregations", aggregationsArrValue);
         }
         if(this.hits && this.hits.length != 0){        const hitsArrValue: SearchHitImpl[] = [];
         this.hits?.forEach(element => {
-            hitsArrValue.push((element instanceof SearchHitImpl? element:new SearchHitImpl(element)));
+            hitsArrValue.push((element instanceof SearchHitImpl? element as SearchHitImpl:new SearchHitImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SearchHitImpl>("hits", hitsArrValue);
         }

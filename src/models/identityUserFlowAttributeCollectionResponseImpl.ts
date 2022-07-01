@@ -73,7 +73,7 @@ export class IdentityUserFlowAttributeCollectionResponseImpl implements Identity
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element:new IdentityUserFlowAttributeImpl(element)));
+            valueArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element as IdentityUserFlowAttributeImpl:new IdentityUserFlowAttributeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IdentityUserFlowAttributeCollectionResponseImpl implements Identity
         if(value) {
             const valueArrValue: IdentityUserFlowAttributeImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element:new IdentityUserFlowAttributeImpl(element)));
+                valueArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element as IdentityUserFlowAttributeImpl:new IdentityUserFlowAttributeImpl(element)));
             });
             this._value = valueArrValue;
         }

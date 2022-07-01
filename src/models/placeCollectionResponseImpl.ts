@@ -73,7 +73,7 @@ export class PlaceCollectionResponseImpl implements PlaceCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PlaceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PlaceImpl? element:new PlaceImpl(element)));
+            valueArrValue.push((element instanceof PlaceImpl? element as PlaceImpl:new PlaceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlaceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PlaceCollectionResponseImpl implements PlaceCollectionResponse {
         if(value) {
             const valueArrValue: PlaceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PlaceImpl? element:new PlaceImpl(element)));
+                valueArrValue.push((element instanceof PlaceImpl? element as PlaceImpl:new PlaceImpl(element)));
             });
             this._value = valueArrValue;
         }

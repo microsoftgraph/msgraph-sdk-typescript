@@ -37,7 +37,7 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
      */
     public set createdBy(value: AppIdentity | undefined) {
         if(value) {
-            this._createdBy = value instanceof AppIdentityImpl? value : new AppIdentityImpl(value);
+            this._createdBy = value instanceof AppIdentityImpl? value as AppIdentityImpl: new AppIdentityImpl(value);
         }
     };
     /**
@@ -75,14 +75,14 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-            writer.writeObjectValue<AppIdentityImpl>("createdBy", (!this.createdBy || this.createdBy instanceof AppIdentityImpl? this.createdBy : new AppIdentityImpl(this.createdBy)));
+            writer.writeObjectValue<AppIdentityImpl>("createdBy", (this.createdBy instanceof AppIdentityImpl? this.createdBy as AppIdentityImpl: new AppIdentityImpl(this.createdBy)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+            tasksArrValue.push((element instanceof PrintTaskImpl? element as PrintTaskImpl:new PrintTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
@@ -102,7 +102,7 @@ export class PrintTaskDefinitionImpl extends EntityImpl implements PrintTaskDefi
         if(value) {
             const tasksArrValue: PrintTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+                tasksArrValue.push((element instanceof PrintTaskImpl? element as PrintTaskImpl:new PrintTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

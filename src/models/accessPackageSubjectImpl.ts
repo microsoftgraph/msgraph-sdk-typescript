@@ -34,7 +34,7 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
      */
     public set connectedOrganization(value: ConnectedOrganization | undefined) {
         if(value) {
-            this._connectedOrganization = value instanceof ConnectedOrganizationImpl? value : new ConnectedOrganizationImpl(value);
+            this._connectedOrganization = value instanceof ConnectedOrganizationImpl? value as ConnectedOrganizationImpl: new ConnectedOrganizationImpl(value);
         }
     };
     /**
@@ -154,7 +154,7 @@ export class AccessPackageSubjectImpl extends EntityImpl implements AccessPackag
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.connectedOrganization){
-            writer.writeObjectValue<ConnectedOrganizationImpl>("connectedOrganization", (!this.connectedOrganization || this.connectedOrganization instanceof ConnectedOrganizationImpl? this.connectedOrganization : new ConnectedOrganizationImpl(this.connectedOrganization)));
+            writer.writeObjectValue<ConnectedOrganizationImpl>("connectedOrganization", (this.connectedOrganization instanceof ConnectedOrganizationImpl? this.connectedOrganization as ConnectedOrganizationImpl: new ConnectedOrganizationImpl(this.connectedOrganization)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);

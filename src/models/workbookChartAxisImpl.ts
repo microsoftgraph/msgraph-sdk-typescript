@@ -56,7 +56,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set format(value: WorkbookChartAxisFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartAxisFormatImpl? value : new WorkbookChartAxisFormatImpl(value);
+            this._format = value instanceof WorkbookChartAxisFormatImpl? value as WorkbookChartAxisFormatImpl: new WorkbookChartAxisFormatImpl(value);
         }
     };
     /**
@@ -88,7 +88,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set majorGridlines(value: WorkbookChartGridlines | undefined) {
         if(value) {
-            this._majorGridlines = value instanceof WorkbookChartGridlinesImpl? value : new WorkbookChartGridlinesImpl(value);
+            this._majorGridlines = value instanceof WorkbookChartGridlinesImpl? value as WorkbookChartGridlinesImpl: new WorkbookChartGridlinesImpl(value);
         }
     };
     /**
@@ -104,7 +104,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set majorUnit(value: Json | undefined) {
         if(value) {
-            this._majorUnit = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._majorUnit = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set maximum(value: Json | undefined) {
         if(value) {
-            this._maximum = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._maximum = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -136,7 +136,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set minimum(value: Json | undefined) {
         if(value) {
-            this._minimum = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._minimum = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -152,7 +152,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set minorGridlines(value: WorkbookChartGridlines | undefined) {
         if(value) {
-            this._minorGridlines = value instanceof WorkbookChartGridlinesImpl? value : new WorkbookChartGridlinesImpl(value);
+            this._minorGridlines = value instanceof WorkbookChartGridlinesImpl? value as WorkbookChartGridlinesImpl: new WorkbookChartGridlinesImpl(value);
         }
     };
     /**
@@ -168,7 +168,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set minorUnit(value: Json | undefined) {
         if(value) {
-            this._minorUnit = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._minorUnit = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -179,28 +179,28 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartAxisFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartAxisFormatImpl? this.format : new WorkbookChartAxisFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartAxisFormatImpl>("format", (this.format instanceof WorkbookChartAxisFormatImpl? this.format as WorkbookChartAxisFormatImpl: new WorkbookChartAxisFormatImpl(this.format)));
         }
         if(this.majorGridlines){
-            writer.writeObjectValue<WorkbookChartGridlinesImpl>("majorGridlines", (!this.majorGridlines || this.majorGridlines instanceof WorkbookChartGridlinesImpl? this.majorGridlines : new WorkbookChartGridlinesImpl(this.majorGridlines)));
+            writer.writeObjectValue<WorkbookChartGridlinesImpl>("majorGridlines", (this.majorGridlines instanceof WorkbookChartGridlinesImpl? this.majorGridlines as WorkbookChartGridlinesImpl: new WorkbookChartGridlinesImpl(this.majorGridlines)));
         }
         if(this.majorUnit){
-            writer.writeObjectValue<JsonImpl>("majorUnit", (!this.majorUnit || this.majorUnit instanceof JsonImpl? this.majorUnit : new JsonImpl(this.majorUnit)));
+            writer.writeObjectValue<JsonImpl>("majorUnit", (this.majorUnit instanceof JsonImpl? this.majorUnit as JsonImpl: new JsonImpl(this.majorUnit)));
         }
         if(this.maximum){
-            writer.writeObjectValue<JsonImpl>("maximum", (!this.maximum || this.maximum instanceof JsonImpl? this.maximum : new JsonImpl(this.maximum)));
+            writer.writeObjectValue<JsonImpl>("maximum", (this.maximum instanceof JsonImpl? this.maximum as JsonImpl: new JsonImpl(this.maximum)));
         }
         if(this.minimum){
-            writer.writeObjectValue<JsonImpl>("minimum", (!this.minimum || this.minimum instanceof JsonImpl? this.minimum : new JsonImpl(this.minimum)));
+            writer.writeObjectValue<JsonImpl>("minimum", (this.minimum instanceof JsonImpl? this.minimum as JsonImpl: new JsonImpl(this.minimum)));
         }
         if(this.minorGridlines){
-            writer.writeObjectValue<WorkbookChartGridlinesImpl>("minorGridlines", (!this.minorGridlines || this.minorGridlines instanceof WorkbookChartGridlinesImpl? this.minorGridlines : new WorkbookChartGridlinesImpl(this.minorGridlines)));
+            writer.writeObjectValue<WorkbookChartGridlinesImpl>("minorGridlines", (this.minorGridlines instanceof WorkbookChartGridlinesImpl? this.minorGridlines as WorkbookChartGridlinesImpl: new WorkbookChartGridlinesImpl(this.minorGridlines)));
         }
         if(this.minorUnit){
-            writer.writeObjectValue<JsonImpl>("minorUnit", (!this.minorUnit || this.minorUnit instanceof JsonImpl? this.minorUnit : new JsonImpl(this.minorUnit)));
+            writer.writeObjectValue<JsonImpl>("minorUnit", (this.minorUnit instanceof JsonImpl? this.minorUnit as JsonImpl: new JsonImpl(this.minorUnit)));
         }
         if(this.title){
-            writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", (!this.title || this.title instanceof WorkbookChartAxisTitleImpl? this.title : new WorkbookChartAxisTitleImpl(this.title)));
+            writer.writeObjectValue<WorkbookChartAxisTitleImpl>("title", (this.title instanceof WorkbookChartAxisTitleImpl? this.title as WorkbookChartAxisTitleImpl: new WorkbookChartAxisTitleImpl(this.title)));
         }
     };
     /**
@@ -216,7 +216,7 @@ export class WorkbookChartAxisImpl extends EntityImpl implements WorkbookChartAx
      */
     public set title(value: WorkbookChartAxisTitle | undefined) {
         if(value) {
-            this._title = value instanceof WorkbookChartAxisTitleImpl? value : new WorkbookChartAxisTitleImpl(value);
+            this._title = value instanceof WorkbookChartAxisTitleImpl? value as WorkbookChartAxisTitleImpl: new WorkbookChartAxisTitleImpl(value);
         }
     };
 }

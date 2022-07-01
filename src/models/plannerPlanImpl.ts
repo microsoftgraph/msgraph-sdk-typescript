@@ -12,7 +12,7 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     private _buckets?: PlannerBucket[] | undefined;
@@ -45,7 +45,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
         if(value) {
             const bucketsArrValue: PlannerBucketImpl[] = [];
             this.buckets?.forEach(element => {
-                bucketsArrValue.push((element instanceof PlannerBucketImpl? element:new PlannerBucketImpl(element)));
+                bucketsArrValue.push((element instanceof PlannerBucketImpl? element as PlannerBucketImpl:new PlannerBucketImpl(element)));
             });
             this._buckets = bucketsArrValue;
         }
@@ -78,7 +78,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
      */
     public set container(value: PlannerPlanContainer | undefined) {
         if(value) {
-            this._container = value instanceof PlannerPlanContainerImpl? value : new PlannerPlanContainerImpl(value);
+            this._container = value instanceof PlannerPlanContainerImpl? value as PlannerPlanContainerImpl: new PlannerPlanContainerImpl(value);
         }
     };
     /**
@@ -94,7 +94,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -126,7 +126,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
      */
     public set details(value: PlannerPlanDetails | undefined) {
         if(value) {
-            this._details = value instanceof PlannerPlanDetailsImpl? value : new PlannerPlanDetailsImpl(value);
+            this._details = value instanceof PlannerPlanDetailsImpl? value as PlannerPlanDetailsImpl: new PlannerPlanDetailsImpl(value);
         }
     };
     /**
@@ -170,28 +170,28 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
         super.serialize(writer);
         if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: PlannerBucketImpl[] = [];
         this.buckets?.forEach(element => {
-            bucketsArrValue.push((element instanceof PlannerBucketImpl? element:new PlannerBucketImpl(element)));
+            bucketsArrValue.push((element instanceof PlannerBucketImpl? element as PlannerBucketImpl:new PlannerBucketImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerBucketImpl>("buckets", bucketsArrValue);
         }
         if(this.container){
-            writer.writeObjectValue<PlannerPlanContainerImpl>("container", (!this.container || this.container instanceof PlannerPlanContainerImpl? this.container : new PlannerPlanContainerImpl(this.container)));
+            writer.writeObjectValue<PlannerPlanContainerImpl>("container", (this.container instanceof PlannerPlanContainerImpl? this.container as PlannerPlanContainerImpl: new PlannerPlanContainerImpl(this.container)));
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.details){
-            writer.writeObjectValue<PlannerPlanDetailsImpl>("details", (!this.details || this.details instanceof PlannerPlanDetailsImpl? this.details : new PlannerPlanDetailsImpl(this.details)));
+            writer.writeObjectValue<PlannerPlanDetailsImpl>("details", (this.details instanceof PlannerPlanDetailsImpl? this.details as PlannerPlanDetailsImpl: new PlannerPlanDetailsImpl(this.details)));
         }
         if(this.owner){
             writer.writeStringValue("owner", this.owner);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+            tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
@@ -214,7 +214,7 @@ export class PlannerPlanImpl extends EntityImpl implements PlannerPlan {
         if(value) {
             const tasksArrValue: PlannerTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+                tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

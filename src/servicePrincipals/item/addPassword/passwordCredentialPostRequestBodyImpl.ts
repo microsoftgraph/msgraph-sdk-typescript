@@ -56,7 +56,7 @@ export class PasswordCredentialPostRequestBodyImpl implements PasswordCredential
      */
     public set passwordCredential(value: PasswordCredential | undefined) {
         if(value) {
-            this._passwordCredential = value instanceof PasswordCredentialImpl? value : new PasswordCredentialImpl(value);
+            this._passwordCredential = value instanceof PasswordCredentialImpl? value as PasswordCredentialImpl: new PasswordCredentialImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class PasswordCredentialPostRequestBodyImpl implements PasswordCredential
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.passwordCredential){
-            writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", (!this.passwordCredential || this.passwordCredential instanceof PasswordCredentialImpl? this.passwordCredential : new PasswordCredentialImpl(this.passwordCredential)));
+            writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", (this.passwordCredential instanceof PasswordCredentialImpl? this.passwordCredential as PasswordCredentialImpl: new PasswordCredentialImpl(this.passwordCredential)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -53,7 +53,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
         if(value) {
             const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
             this.includeTargets?.forEach(element => {
-                includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+                includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element as AuthenticationMethodTargetImpl:new AuthenticationMethodTargetImpl(element)));
             });
             this._includeTargets = includeTargetsArrValue;
         }
@@ -103,7 +103,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
      */
     public set keyRestrictions(value: Fido2KeyRestrictions | undefined) {
         if(value) {
-            this._keyRestrictions = value instanceof Fido2KeyRestrictionsImpl? value : new Fido2KeyRestrictionsImpl(value);
+            this._keyRestrictions = value instanceof Fido2KeyRestrictionsImpl? value as Fido2KeyRestrictionsImpl: new Fido2KeyRestrictionsImpl(value);
         }
     };
     /**
@@ -115,7 +115,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
         super.serialize(writer);
         if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
         this.includeTargets?.forEach(element => {
-            includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+            includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element as AuthenticationMethodTargetImpl:new AuthenticationMethodTargetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }
@@ -126,7 +126,7 @@ export class Fido2AuthenticationMethodConfigurationImpl extends AuthenticationMe
             writer.writeBooleanValue("isSelfServiceRegistrationAllowed", this.isSelfServiceRegistrationAllowed);
         }
         if(this.keyRestrictions){
-            writer.writeObjectValue<Fido2KeyRestrictionsImpl>("keyRestrictions", (!this.keyRestrictions || this.keyRestrictions instanceof Fido2KeyRestrictionsImpl? this.keyRestrictions : new Fido2KeyRestrictionsImpl(this.keyRestrictions)));
+            writer.writeObjectValue<Fido2KeyRestrictionsImpl>("keyRestrictions", (this.keyRestrictions instanceof Fido2KeyRestrictionsImpl? this.keyRestrictions as Fido2KeyRestrictionsImpl: new Fido2KeyRestrictionsImpl(this.keyRestrictions)));
         }
     };
 }

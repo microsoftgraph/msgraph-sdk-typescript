@@ -73,7 +73,7 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements RiskyUserHist
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserHistoryItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RiskyUserHistoryItemImpl? element:new RiskyUserHistoryItemImpl(element)));
+            valueArrValue.push((element instanceof RiskyUserHistoryItemImpl? element as RiskyUserHistoryItemImpl:new RiskyUserHistoryItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RiskyUserHistoryItemCollectionResponseImpl implements RiskyUserHist
         if(value) {
             const valueArrValue: RiskyUserHistoryItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RiskyUserHistoryItemImpl? element:new RiskyUserHistoryItemImpl(element)));
+                valueArrValue.push((element instanceof RiskyUserHistoryItemImpl? element as RiskyUserHistoryItemImpl:new RiskyUserHistoryItemImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class DirectoryRoleCollectionResponseImpl implements DirectoryRoleCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DirectoryRoleImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DirectoryRoleImpl? element:new DirectoryRoleImpl(element)));
+            valueArrValue.push((element instanceof DirectoryRoleImpl? element as DirectoryRoleImpl:new DirectoryRoleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryRoleImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DirectoryRoleCollectionResponseImpl implements DirectoryRoleCollect
         if(value) {
             const valueArrValue: DirectoryRoleImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DirectoryRoleImpl? element:new DirectoryRoleImpl(element)));
+                valueArrValue.push((element instanceof DirectoryRoleImpl? element as DirectoryRoleImpl:new DirectoryRoleImpl(element)));
             });
             this._value = valueArrValue;
         }

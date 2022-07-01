@@ -73,7 +73,7 @@ export class ContactFolderCollectionResponseImpl implements ContactFolderCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContactFolderImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ContactFolderImpl? element:new ContactFolderImpl(element)));
+            valueArrValue.push((element instanceof ContactFolderImpl? element as ContactFolderImpl:new ContactFolderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContactFolderImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ContactFolderCollectionResponseImpl implements ContactFolderCollect
         if(value) {
             const valueArrValue: ContactFolderImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ContactFolderImpl? element:new ContactFolderImpl(element)));
+                valueArrValue.push((element instanceof ContactFolderImpl? element as ContactFolderImpl:new ContactFolderImpl(element)));
             });
             this._value = valueArrValue;
         }

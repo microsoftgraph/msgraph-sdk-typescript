@@ -73,7 +73,7 @@ export class NotebookCollectionResponseImpl implements NotebookCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: NotebookImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof NotebookImpl? element:new NotebookImpl(element)));
+            valueArrValue.push((element instanceof NotebookImpl? element as NotebookImpl:new NotebookImpl(element)));
         });
             writer.writeCollectionOfObjectValues<NotebookImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class NotebookCollectionResponseImpl implements NotebookCollectionRespons
         if(value) {
             const valueArrValue: NotebookImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof NotebookImpl? element:new NotebookImpl(element)));
+                valueArrValue.push((element instanceof NotebookImpl? element as NotebookImpl:new NotebookImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class UserScopeTeamsAppInstallationCollectionResponseImpl implements User
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UserScopeTeamsAppInstallationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element:new UserScopeTeamsAppInstallationImpl(element)));
+            valueArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element as UserScopeTeamsAppInstallationImpl:new UserScopeTeamsAppInstallationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UserScopeTeamsAppInstallationCollectionResponseImpl implements User
         if(value) {
             const valueArrValue: UserScopeTeamsAppInstallationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element:new UserScopeTeamsAppInstallationImpl(element)));
+                valueArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element as UserScopeTeamsAppInstallationImpl:new UserScopeTeamsAppInstallationImpl(element)));
             });
             this._value = valueArrValue;
         }

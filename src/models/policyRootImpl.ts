@@ -79,7 +79,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = [];
             this.activityBasedTimeoutPolicies?.forEach(element => {
-                activityBasedTimeoutPoliciesArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element:new ActivityBasedTimeoutPolicyImpl(element)));
+                activityBasedTimeoutPoliciesArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element as ActivityBasedTimeoutPolicyImpl:new ActivityBasedTimeoutPolicyImpl(element)));
             });
             this._activityBasedTimeoutPolicies = activityBasedTimeoutPoliciesArrValue;
         }
@@ -97,7 +97,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
      */
     public set adminConsentRequestPolicy(value: AdminConsentRequestPolicy | undefined) {
         if(value) {
-            this._adminConsentRequestPolicy = value instanceof AdminConsentRequestPolicyImpl? value : new AdminConsentRequestPolicyImpl(value);
+            this._adminConsentRequestPolicy = value instanceof AdminConsentRequestPolicyImpl? value as AdminConsentRequestPolicyImpl: new AdminConsentRequestPolicyImpl(value);
         }
     };
     /**
@@ -113,7 +113,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
      */
     public set authenticationFlowsPolicy(value: AuthenticationFlowsPolicy | undefined) {
         if(value) {
-            this._authenticationFlowsPolicy = value instanceof AuthenticationFlowsPolicyImpl? value : new AuthenticationFlowsPolicyImpl(value);
+            this._authenticationFlowsPolicy = value instanceof AuthenticationFlowsPolicyImpl? value as AuthenticationFlowsPolicyImpl: new AuthenticationFlowsPolicyImpl(value);
         }
     };
     /**
@@ -129,7 +129,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
      */
     public set authenticationMethodsPolicy(value: AuthenticationMethodsPolicy | undefined) {
         if(value) {
-            this._authenticationMethodsPolicy = value instanceof AuthenticationMethodsPolicyImpl? value : new AuthenticationMethodsPolicyImpl(value);
+            this._authenticationMethodsPolicy = value instanceof AuthenticationMethodsPolicyImpl? value as AuthenticationMethodsPolicyImpl: new AuthenticationMethodsPolicyImpl(value);
         }
     };
     /**
@@ -145,7 +145,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
      */
     public set authorizationPolicy(value: AuthorizationPolicy | undefined) {
         if(value) {
-            this._authorizationPolicy = value instanceof AuthorizationPolicyImpl? value : new AuthorizationPolicyImpl(value);
+            this._authorizationPolicy = value instanceof AuthorizationPolicyImpl? value as AuthorizationPolicyImpl: new AuthorizationPolicyImpl(value);
         }
     };
     /**
@@ -163,7 +163,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = [];
             this.claimsMappingPolicies?.forEach(element => {
-                claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+                claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element as ClaimsMappingPolicyImpl:new ClaimsMappingPolicyImpl(element)));
             });
             this._claimsMappingPolicies = claimsMappingPoliciesArrValue;
         }
@@ -183,7 +183,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = [];
             this.conditionalAccessPolicies?.forEach(element => {
-                conditionalAccessPoliciesArrValue.push((element instanceof ConditionalAccessPolicyImpl? element:new ConditionalAccessPolicyImpl(element)));
+                conditionalAccessPoliciesArrValue.push((element instanceof ConditionalAccessPolicyImpl? element as ConditionalAccessPolicyImpl:new ConditionalAccessPolicyImpl(element)));
             });
             this._conditionalAccessPolicies = conditionalAccessPoliciesArrValue;
         }
@@ -225,7 +225,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = [];
             this.featureRolloutPolicies?.forEach(element => {
-                featureRolloutPoliciesArrValue.push((element instanceof FeatureRolloutPolicyImpl? element:new FeatureRolloutPolicyImpl(element)));
+                featureRolloutPoliciesArrValue.push((element instanceof FeatureRolloutPolicyImpl? element as FeatureRolloutPolicyImpl:new FeatureRolloutPolicyImpl(element)));
             });
             this._featureRolloutPolicies = featureRolloutPoliciesArrValue;
         }
@@ -268,7 +268,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
             this.homeRealmDiscoveryPolicies?.forEach(element => {
-                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
             });
             this._homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesArrValue;
         }
@@ -286,7 +286,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
      */
     public set identitySecurityDefaultsEnforcementPolicy(value: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
         if(value) {
-            this._identitySecurityDefaultsEnforcementPolicy = value instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? value : new IdentitySecurityDefaultsEnforcementPolicyImpl(value);
+            this._identitySecurityDefaultsEnforcementPolicy = value instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? value as IdentitySecurityDefaultsEnforcementPolicyImpl: new IdentitySecurityDefaultsEnforcementPolicyImpl(value);
         }
     };
     /**
@@ -304,7 +304,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = [];
             this.permissionGrantPolicies?.forEach(element => {
-                permissionGrantPoliciesArrValue.push((element instanceof PermissionGrantPolicyImpl? element:new PermissionGrantPolicyImpl(element)));
+                permissionGrantPoliciesArrValue.push((element instanceof PermissionGrantPolicyImpl? element as PermissionGrantPolicyImpl:new PermissionGrantPolicyImpl(element)));
             });
             this._permissionGrantPolicies = permissionGrantPoliciesArrValue;
         }
@@ -324,7 +324,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = [];
             this.roleManagementPolicies?.forEach(element => {
-                roleManagementPoliciesArrValue.push((element instanceof UnifiedRoleManagementPolicyImpl? element:new UnifiedRoleManagementPolicyImpl(element)));
+                roleManagementPoliciesArrValue.push((element instanceof UnifiedRoleManagementPolicyImpl? element as UnifiedRoleManagementPolicyImpl:new UnifiedRoleManagementPolicyImpl(element)));
             });
             this._roleManagementPolicies = roleManagementPoliciesArrValue;
         }
@@ -344,7 +344,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = [];
             this.roleManagementPolicyAssignments?.forEach(element => {
-                roleManagementPolicyAssignmentsArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
+                roleManagementPolicyAssignmentsArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element as UnifiedRoleManagementPolicyAssignmentImpl:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
             });
             this._roleManagementPolicyAssignments = roleManagementPolicyAssignmentsArrValue;
         }
@@ -358,76 +358,76 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         super.serialize(writer);
         if(this.activityBasedTimeoutPolicies && this.activityBasedTimeoutPolicies.length != 0){        const activityBasedTimeoutPoliciesArrValue: ActivityBasedTimeoutPolicyImpl[] = [];
         this.activityBasedTimeoutPolicies?.forEach(element => {
-            activityBasedTimeoutPoliciesArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element:new ActivityBasedTimeoutPolicyImpl(element)));
+            activityBasedTimeoutPoliciesArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element as ActivityBasedTimeoutPolicyImpl:new ActivityBasedTimeoutPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicyImpl>("activityBasedTimeoutPolicies", activityBasedTimeoutPoliciesArrValue);
         }
         if(this.adminConsentRequestPolicy){
-            writer.writeObjectValue<AdminConsentRequestPolicyImpl>("adminConsentRequestPolicy", (!this.adminConsentRequestPolicy || this.adminConsentRequestPolicy instanceof AdminConsentRequestPolicyImpl? this.adminConsentRequestPolicy : new AdminConsentRequestPolicyImpl(this.adminConsentRequestPolicy)));
+            writer.writeObjectValue<AdminConsentRequestPolicyImpl>("adminConsentRequestPolicy", (this.adminConsentRequestPolicy instanceof AdminConsentRequestPolicyImpl? this.adminConsentRequestPolicy as AdminConsentRequestPolicyImpl: new AdminConsentRequestPolicyImpl(this.adminConsentRequestPolicy)));
         }
         if(this.authenticationFlowsPolicy){
-            writer.writeObjectValue<AuthenticationFlowsPolicyImpl>("authenticationFlowsPolicy", (!this.authenticationFlowsPolicy || this.authenticationFlowsPolicy instanceof AuthenticationFlowsPolicyImpl? this.authenticationFlowsPolicy : new AuthenticationFlowsPolicyImpl(this.authenticationFlowsPolicy)));
+            writer.writeObjectValue<AuthenticationFlowsPolicyImpl>("authenticationFlowsPolicy", (this.authenticationFlowsPolicy instanceof AuthenticationFlowsPolicyImpl? this.authenticationFlowsPolicy as AuthenticationFlowsPolicyImpl: new AuthenticationFlowsPolicyImpl(this.authenticationFlowsPolicy)));
         }
         if(this.authenticationMethodsPolicy){
-            writer.writeObjectValue<AuthenticationMethodsPolicyImpl>("authenticationMethodsPolicy", (!this.authenticationMethodsPolicy || this.authenticationMethodsPolicy instanceof AuthenticationMethodsPolicyImpl? this.authenticationMethodsPolicy : new AuthenticationMethodsPolicyImpl(this.authenticationMethodsPolicy)));
+            writer.writeObjectValue<AuthenticationMethodsPolicyImpl>("authenticationMethodsPolicy", (this.authenticationMethodsPolicy instanceof AuthenticationMethodsPolicyImpl? this.authenticationMethodsPolicy as AuthenticationMethodsPolicyImpl: new AuthenticationMethodsPolicyImpl(this.authenticationMethodsPolicy)));
         }
         if(this.authorizationPolicy){
-            writer.writeObjectValue<AuthorizationPolicyImpl>("authorizationPolicy", (!this.authorizationPolicy || this.authorizationPolicy instanceof AuthorizationPolicyImpl? this.authorizationPolicy : new AuthorizationPolicyImpl(this.authorizationPolicy)));
+            writer.writeObjectValue<AuthorizationPolicyImpl>("authorizationPolicy", (this.authorizationPolicy instanceof AuthorizationPolicyImpl? this.authorizationPolicy as AuthorizationPolicyImpl: new AuthorizationPolicyImpl(this.authorizationPolicy)));
         }
         if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = [];
         this.claimsMappingPolicies?.forEach(element => {
-            claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+            claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element as ClaimsMappingPolicyImpl:new ClaimsMappingPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
         }
         if(this.conditionalAccessPolicies && this.conditionalAccessPolicies.length != 0){        const conditionalAccessPoliciesArrValue: ConditionalAccessPolicyImpl[] = [];
         this.conditionalAccessPolicies?.forEach(element => {
-            conditionalAccessPoliciesArrValue.push((element instanceof ConditionalAccessPolicyImpl? element:new ConditionalAccessPolicyImpl(element)));
+            conditionalAccessPoliciesArrValue.push((element instanceof ConditionalAccessPolicyImpl? element as ConditionalAccessPolicyImpl:new ConditionalAccessPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("conditionalAccessPolicies", conditionalAccessPoliciesArrValue);
         }
         if(this.featureRolloutPolicies && this.featureRolloutPolicies.length != 0){        const featureRolloutPoliciesArrValue: FeatureRolloutPolicyImpl[] = [];
         this.featureRolloutPolicies?.forEach(element => {
-            featureRolloutPoliciesArrValue.push((element instanceof FeatureRolloutPolicyImpl? element:new FeatureRolloutPolicyImpl(element)));
+            featureRolloutPoliciesArrValue.push((element instanceof FeatureRolloutPolicyImpl? element as FeatureRolloutPolicyImpl:new FeatureRolloutPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<FeatureRolloutPolicyImpl>("featureRolloutPolicies", featureRolloutPoliciesArrValue);
         }
         if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
         this.homeRealmDiscoveryPolicies?.forEach(element => {
-            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.identitySecurityDefaultsEnforcementPolicy){
-            writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicyImpl>("identitySecurityDefaultsEnforcementPolicy", (!this.identitySecurityDefaultsEnforcementPolicy || this.identitySecurityDefaultsEnforcementPolicy instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? this.identitySecurityDefaultsEnforcementPolicy : new IdentitySecurityDefaultsEnforcementPolicyImpl(this.identitySecurityDefaultsEnforcementPolicy)));
+            writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicyImpl>("identitySecurityDefaultsEnforcementPolicy", (this.identitySecurityDefaultsEnforcementPolicy instanceof IdentitySecurityDefaultsEnforcementPolicyImpl? this.identitySecurityDefaultsEnforcementPolicy as IdentitySecurityDefaultsEnforcementPolicyImpl: new IdentitySecurityDefaultsEnforcementPolicyImpl(this.identitySecurityDefaultsEnforcementPolicy)));
         }
         if(this.permissionGrantPolicies && this.permissionGrantPolicies.length != 0){        const permissionGrantPoliciesArrValue: PermissionGrantPolicyImpl[] = [];
         this.permissionGrantPolicies?.forEach(element => {
-            permissionGrantPoliciesArrValue.push((element instanceof PermissionGrantPolicyImpl? element:new PermissionGrantPolicyImpl(element)));
+            permissionGrantPoliciesArrValue.push((element instanceof PermissionGrantPolicyImpl? element as PermissionGrantPolicyImpl:new PermissionGrantPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionGrantPolicyImpl>("permissionGrantPolicies", permissionGrantPoliciesArrValue);
         }
         if(this.roleManagementPolicies && this.roleManagementPolicies.length != 0){        const roleManagementPoliciesArrValue: UnifiedRoleManagementPolicyImpl[] = [];
         this.roleManagementPolicies?.forEach(element => {
-            roleManagementPoliciesArrValue.push((element instanceof UnifiedRoleManagementPolicyImpl? element:new UnifiedRoleManagementPolicyImpl(element)));
+            roleManagementPoliciesArrValue.push((element instanceof UnifiedRoleManagementPolicyImpl? element as UnifiedRoleManagementPolicyImpl:new UnifiedRoleManagementPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyImpl>("roleManagementPolicies", roleManagementPoliciesArrValue);
         }
         if(this.roleManagementPolicyAssignments && this.roleManagementPolicyAssignments.length != 0){        const roleManagementPolicyAssignmentsArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = [];
         this.roleManagementPolicyAssignments?.forEach(element => {
-            roleManagementPolicyAssignmentsArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
+            roleManagementPolicyAssignmentsArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element as UnifiedRoleManagementPolicyAssignmentImpl:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignmentImpl>("roleManagementPolicyAssignments", roleManagementPolicyAssignmentsArrValue);
         }
         if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
         this.tokenIssuancePolicies?.forEach(element => {
-            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
         if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
         this.tokenLifetimePolicies?.forEach(element => {
-            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
@@ -447,7 +447,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
             this.tokenIssuancePolicies?.forEach(element => {
-                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
             });
             this._tokenIssuancePolicies = tokenIssuancePoliciesArrValue;
         }
@@ -467,7 +467,7 @@ export class PolicyRootImpl extends EntityImpl implements PolicyRoot {
         if(value) {
             const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
             this.tokenLifetimePolicies?.forEach(element => {
-                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
             });
             this._tokenLifetimePolicies = tokenLifetimePoliciesArrValue;
         }

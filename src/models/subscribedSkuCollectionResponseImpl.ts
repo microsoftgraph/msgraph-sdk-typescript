@@ -73,7 +73,7 @@ export class SubscribedSkuCollectionResponseImpl implements SubscribedSkuCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SubscribedSkuImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SubscribedSkuImpl? element:new SubscribedSkuImpl(element)));
+            valueArrValue.push((element instanceof SubscribedSkuImpl? element as SubscribedSkuImpl:new SubscribedSkuImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubscribedSkuImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SubscribedSkuCollectionResponseImpl implements SubscribedSkuCollect
         if(value) {
             const valueArrValue: SubscribedSkuImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SubscribedSkuImpl? element:new SubscribedSkuImpl(element)));
+                valueArrValue.push((element instanceof SubscribedSkuImpl? element as SubscribedSkuImpl:new SubscribedSkuImpl(element)));
             });
             this._value = valueArrValue;
         }

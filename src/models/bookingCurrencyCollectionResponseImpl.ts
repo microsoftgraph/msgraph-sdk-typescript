@@ -73,7 +73,7 @@ export class BookingCurrencyCollectionResponseImpl implements BookingCurrencyCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingCurrencyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingCurrencyImpl? element:new BookingCurrencyImpl(element)));
+            valueArrValue.push((element instanceof BookingCurrencyImpl? element as BookingCurrencyImpl:new BookingCurrencyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCurrencyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingCurrencyCollectionResponseImpl implements BookingCurrencyCol
         if(value) {
             const valueArrValue: BookingCurrencyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingCurrencyImpl? element:new BookingCurrencyImpl(element)));
+                valueArrValue.push((element instanceof BookingCurrencyImpl? element as BookingCurrencyImpl:new BookingCurrencyImpl(element)));
             });
             this._value = valueArrValue;
         }

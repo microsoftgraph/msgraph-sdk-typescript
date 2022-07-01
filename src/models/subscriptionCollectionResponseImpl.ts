@@ -73,7 +73,7 @@ export class SubscriptionCollectionResponseImpl implements SubscriptionCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SubscriptionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+            valueArrValue.push((element instanceof SubscriptionImpl? element as SubscriptionImpl:new SubscriptionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubscriptionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SubscriptionCollectionResponseImpl implements SubscriptionCollectio
         if(value) {
             const valueArrValue: SubscriptionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+                valueArrValue.push((element instanceof SubscriptionImpl? element as SubscriptionImpl:new SubscriptionImpl(element)));
             });
             this._value = valueArrValue;
         }

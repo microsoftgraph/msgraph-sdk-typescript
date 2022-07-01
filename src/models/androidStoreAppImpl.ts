@@ -61,7 +61,7 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
      */
     public set minimumSupportedOperatingSystem(value: AndroidMinimumOperatingSystem | undefined) {
         if(value) {
-            this._minimumSupportedOperatingSystem = value instanceof AndroidMinimumOperatingSystemImpl? value : new AndroidMinimumOperatingSystemImpl(value);
+            this._minimumSupportedOperatingSystem = value instanceof AndroidMinimumOperatingSystemImpl? value as AndroidMinimumOperatingSystemImpl: new AndroidMinimumOperatingSystemImpl(value);
         }
     };
     /**
@@ -91,7 +91,7 @@ export class AndroidStoreAppImpl extends MobileAppImpl implements AndroidStoreAp
             writer.writeStringValue("appStoreUrl", this.appStoreUrl);
         }
         if(this.minimumSupportedOperatingSystem){
-            writer.writeObjectValue<AndroidMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (!this.minimumSupportedOperatingSystem || this.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem : new AndroidMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
+            writer.writeObjectValue<AndroidMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (this.minimumSupportedOperatingSystem instanceof AndroidMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem as AndroidMinimumOperatingSystemImpl: new AndroidMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
         }
         if(this.packageId){
             writer.writeStringValue("packageId", this.packageId);

@@ -37,7 +37,7 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
      */
     public set format(value: WorkbookChartSeriesFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartSeriesFormatImpl? value : new WorkbookChartSeriesFormatImpl(value);
+            this._format = value instanceof WorkbookChartSeriesFormatImpl? value as WorkbookChartSeriesFormatImpl: new WorkbookChartSeriesFormatImpl(value);
         }
     };
     /**
@@ -82,7 +82,7 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         if(value) {
             const pointsArrValue: WorkbookChartPointImpl[] = [];
             this.points?.forEach(element => {
-                pointsArrValue.push((element instanceof WorkbookChartPointImpl? element:new WorkbookChartPointImpl(element)));
+                pointsArrValue.push((element instanceof WorkbookChartPointImpl? element as WorkbookChartPointImpl:new WorkbookChartPointImpl(element)));
             });
             this._points = pointsArrValue;
         }
@@ -95,14 +95,14 @@ export class WorkbookChartSeriesImpl extends EntityImpl implements WorkbookChart
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartSeriesFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartSeriesFormatImpl? this.format : new WorkbookChartSeriesFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartSeriesFormatImpl>("format", (this.format instanceof WorkbookChartSeriesFormatImpl? this.format as WorkbookChartSeriesFormatImpl: new WorkbookChartSeriesFormatImpl(this.format)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
         if(this.points && this.points.length != 0){        const pointsArrValue: WorkbookChartPointImpl[] = [];
         this.points?.forEach(element => {
-            pointsArrValue.push((element instanceof WorkbookChartPointImpl? element:new WorkbookChartPointImpl(element)));
+            pointsArrValue.push((element instanceof WorkbookChartPointImpl? element as WorkbookChartPointImpl:new WorkbookChartPointImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookChartPointImpl>("points", pointsArrValue);
         }

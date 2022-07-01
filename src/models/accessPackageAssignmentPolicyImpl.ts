@@ -56,7 +56,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public set accessPackage(value: AccessPackage | undefined) {
         if(value) {
-            this._accessPackage = value instanceof AccessPackageImpl? value : new AccessPackageImpl(value);
+            this._accessPackage = value instanceof AccessPackageImpl? value as AccessPackageImpl: new AccessPackageImpl(value);
         }
     };
     /**
@@ -88,7 +88,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public set catalog(value: AccessPackageCatalog | undefined) {
         if(value) {
-            this._catalog = value instanceof AccessPackageCatalogImpl? value : new AccessPackageCatalogImpl(value);
+            this._catalog = value instanceof AccessPackageCatalogImpl? value as AccessPackageCatalogImpl: new AccessPackageCatalogImpl(value);
         }
     };
     /**
@@ -171,7 +171,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public set expiration(value: ExpirationPattern | undefined) {
         if(value) {
-            this._expiration = value instanceof ExpirationPatternImpl? value : new ExpirationPatternImpl(value);
+            this._expiration = value instanceof ExpirationPatternImpl? value as ExpirationPatternImpl: new ExpirationPatternImpl(value);
         }
     };
     /**
@@ -223,7 +223,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public set requestApprovalSettings(value: AccessPackageAssignmentApprovalSettings | undefined) {
         if(value) {
-            this._requestApprovalSettings = value instanceof AccessPackageAssignmentApprovalSettingsImpl? value : new AccessPackageAssignmentApprovalSettingsImpl(value);
+            this._requestApprovalSettings = value instanceof AccessPackageAssignmentApprovalSettingsImpl? value as AccessPackageAssignmentApprovalSettingsImpl: new AccessPackageAssignmentApprovalSettingsImpl(value);
         }
     };
     /**
@@ -239,7 +239,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public set requestorSettings(value: AccessPackageAssignmentRequestorSettings | undefined) {
         if(value) {
-            this._requestorSettings = value instanceof AccessPackageAssignmentRequestorSettingsImpl? value : new AccessPackageAssignmentRequestorSettingsImpl(value);
+            this._requestorSettings = value instanceof AccessPackageAssignmentRequestorSettingsImpl? value as AccessPackageAssignmentRequestorSettingsImpl: new AccessPackageAssignmentRequestorSettingsImpl(value);
         }
     };
     /**
@@ -255,7 +255,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
      */
     public set reviewSettings(value: AccessPackageAssignmentReviewSettings | undefined) {
         if(value) {
-            this._reviewSettings = value instanceof AccessPackageAssignmentReviewSettingsImpl? value : new AccessPackageAssignmentReviewSettingsImpl(value);
+            this._reviewSettings = value instanceof AccessPackageAssignmentReviewSettingsImpl? value as AccessPackageAssignmentReviewSettingsImpl: new AccessPackageAssignmentReviewSettingsImpl(value);
         }
     };
     /**
@@ -266,13 +266,13 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-            writer.writeObjectValue<AccessPackageImpl>("accessPackage", (!this.accessPackage || this.accessPackage instanceof AccessPackageImpl? this.accessPackage : new AccessPackageImpl(this.accessPackage)));
+            writer.writeObjectValue<AccessPackageImpl>("accessPackage", (this.accessPackage instanceof AccessPackageImpl? this.accessPackage as AccessPackageImpl: new AccessPackageImpl(this.accessPackage)));
         }
         if(this.allowedTargetScope){
             writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
         }
         if(this.catalog){
-            writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", (!this.catalog || this.catalog instanceof AccessPackageCatalogImpl? this.catalog : new AccessPackageCatalogImpl(this.catalog)));
+            writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", (this.catalog instanceof AccessPackageCatalogImpl? this.catalog as AccessPackageCatalogImpl: new AccessPackageCatalogImpl(this.catalog)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -284,23 +284,23 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.expiration){
-            writer.writeObjectValue<ExpirationPatternImpl>("expiration", (!this.expiration || this.expiration instanceof ExpirationPatternImpl? this.expiration : new ExpirationPatternImpl(this.expiration)));
+            writer.writeObjectValue<ExpirationPatternImpl>("expiration", (this.expiration instanceof ExpirationPatternImpl? this.expiration as ExpirationPatternImpl: new ExpirationPatternImpl(this.expiration)));
         }
         if(this.modifiedDateTime){
             writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.requestApprovalSettings){
-            writer.writeObjectValue<AccessPackageAssignmentApprovalSettingsImpl>("requestApprovalSettings", (!this.requestApprovalSettings || this.requestApprovalSettings instanceof AccessPackageAssignmentApprovalSettingsImpl? this.requestApprovalSettings : new AccessPackageAssignmentApprovalSettingsImpl(this.requestApprovalSettings)));
+            writer.writeObjectValue<AccessPackageAssignmentApprovalSettingsImpl>("requestApprovalSettings", (this.requestApprovalSettings instanceof AccessPackageAssignmentApprovalSettingsImpl? this.requestApprovalSettings as AccessPackageAssignmentApprovalSettingsImpl: new AccessPackageAssignmentApprovalSettingsImpl(this.requestApprovalSettings)));
         }
         if(this.requestorSettings){
-            writer.writeObjectValue<AccessPackageAssignmentRequestorSettingsImpl>("requestorSettings", (!this.requestorSettings || this.requestorSettings instanceof AccessPackageAssignmentRequestorSettingsImpl? this.requestorSettings : new AccessPackageAssignmentRequestorSettingsImpl(this.requestorSettings)));
+            writer.writeObjectValue<AccessPackageAssignmentRequestorSettingsImpl>("requestorSettings", (this.requestorSettings instanceof AccessPackageAssignmentRequestorSettingsImpl? this.requestorSettings as AccessPackageAssignmentRequestorSettingsImpl: new AccessPackageAssignmentRequestorSettingsImpl(this.requestorSettings)));
         }
         if(this.reviewSettings){
-            writer.writeObjectValue<AccessPackageAssignmentReviewSettingsImpl>("reviewSettings", (!this.reviewSettings || this.reviewSettings instanceof AccessPackageAssignmentReviewSettingsImpl? this.reviewSettings : new AccessPackageAssignmentReviewSettingsImpl(this.reviewSettings)));
+            writer.writeObjectValue<AccessPackageAssignmentReviewSettingsImpl>("reviewSettings", (this.reviewSettings instanceof AccessPackageAssignmentReviewSettingsImpl? this.reviewSettings as AccessPackageAssignmentReviewSettingsImpl: new AccessPackageAssignmentReviewSettingsImpl(this.reviewSettings)));
         }
         if(this.specificAllowedTargets && this.specificAllowedTargets.length != 0){        const specificAllowedTargetsArrValue: SubjectSetImpl[] = [];
         this.specificAllowedTargets?.forEach(element => {
-            specificAllowedTargetsArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            specificAllowedTargetsArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("specificAllowedTargets", specificAllowedTargetsArrValue);
         }
@@ -320,7 +320,7 @@ export class AccessPackageAssignmentPolicyImpl extends EntityImpl implements Acc
         if(value) {
             const specificAllowedTargetsArrValue: SubjectSetImpl[] = [];
             this.specificAllowedTargets?.forEach(element => {
-                specificAllowedTargetsArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+                specificAllowedTargetsArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
             });
             this._specificAllowedTargets = specificAllowedTargetsArrValue;
         }

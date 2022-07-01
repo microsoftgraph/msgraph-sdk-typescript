@@ -4,7 +4,7 @@ import {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoard
 import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl implements PlannerAssignedToTaskBoardTaskFormat {
     /** Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here. */
     private _orderHintsByAssignee?: PlannerOrderHintsByAssignee | undefined;
@@ -42,7 +42,7 @@ export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl impleme
      */
     public set orderHintsByAssignee(value: PlannerOrderHintsByAssignee | undefined) {
         if(value) {
-            this._orderHintsByAssignee = value instanceof PlannerOrderHintsByAssigneeImpl? value : new PlannerOrderHintsByAssigneeImpl(value);
+            this._orderHintsByAssignee = value instanceof PlannerOrderHintsByAssigneeImpl? value as PlannerOrderHintsByAssigneeImpl: new PlannerOrderHintsByAssigneeImpl(value);
         }
     };
     /**
@@ -53,7 +53,7 @@ export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl impleme
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.orderHintsByAssignee){
-            writer.writeObjectValue<PlannerOrderHintsByAssigneeImpl>("orderHintsByAssignee", (!this.orderHintsByAssignee || this.orderHintsByAssignee instanceof PlannerOrderHintsByAssigneeImpl? this.orderHintsByAssignee : new PlannerOrderHintsByAssigneeImpl(this.orderHintsByAssignee)));
+            writer.writeObjectValue<PlannerOrderHintsByAssigneeImpl>("orderHintsByAssignee", (this.orderHintsByAssignee instanceof PlannerOrderHintsByAssigneeImpl? this.orderHintsByAssignee as PlannerOrderHintsByAssigneeImpl: new PlannerOrderHintsByAssigneeImpl(this.orderHintsByAssignee)));
         }
         if(this.unassignedOrderHint){
             writer.writeStringValue("unassignedOrderHint", this.unassignedOrderHint);

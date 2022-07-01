@@ -33,7 +33,7 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements U
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.target){
-            writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTargetImpl>("target", (!this.target || this.target instanceof UnifiedRoleManagementPolicyRuleTargetImpl? this.target : new UnifiedRoleManagementPolicyRuleTargetImpl(this.target)));
+            writer.writeObjectValue<UnifiedRoleManagementPolicyRuleTargetImpl>("target", (this.target instanceof UnifiedRoleManagementPolicyRuleTargetImpl? this.target as UnifiedRoleManagementPolicyRuleTargetImpl: new UnifiedRoleManagementPolicyRuleTargetImpl(this.target)));
         }
     };
     /**
@@ -49,7 +49,7 @@ export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements U
      */
     public set target(value: UnifiedRoleManagementPolicyRuleTarget | undefined) {
         if(value) {
-            this._target = value instanceof UnifiedRoleManagementPolicyRuleTargetImpl? value : new UnifiedRoleManagementPolicyRuleTargetImpl(value);
+            this._target = value instanceof UnifiedRoleManagementPolicyRuleTargetImpl? value as UnifiedRoleManagementPolicyRuleTargetImpl: new UnifiedRoleManagementPolicyRuleTargetImpl(value);
         }
     };
 }

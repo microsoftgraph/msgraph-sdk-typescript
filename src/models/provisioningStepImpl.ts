@@ -76,7 +76,7 @@ export class ProvisioningStepImpl implements ProvisioningStep {
      */
     public set details(value: DetailsInfo | undefined) {
         if(value) {
-            this._details = value instanceof DetailsInfoImpl? value : new DetailsInfoImpl(value);
+            this._details = value instanceof DetailsInfoImpl? value as DetailsInfoImpl: new DetailsInfoImpl(value);
         }
     };
     /**
@@ -134,7 +134,7 @@ export class ProvisioningStepImpl implements ProvisioningStep {
             writer.writeStringValue("description", this.description);
         }
         if(this.details){
-            writer.writeObjectValue<DetailsInfoImpl>("details", (!this.details || this.details instanceof DetailsInfoImpl? this.details : new DetailsInfoImpl(this.details)));
+            writer.writeObjectValue<DetailsInfoImpl>("details", (this.details instanceof DetailsInfoImpl? this.details as DetailsInfoImpl: new DetailsInfoImpl(this.details)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);

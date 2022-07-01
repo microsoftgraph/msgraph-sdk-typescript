@@ -49,7 +49,7 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements ScheduleActio
         if(value) {
             const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = [];
             this.deviceComplianceScheduledActionForRules?.forEach(element => {
-                deviceComplianceScheduledActionForRulesArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element:new DeviceComplianceScheduledActionForRuleImpl(element)));
+                deviceComplianceScheduledActionForRulesArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element as DeviceComplianceScheduledActionForRuleImpl:new DeviceComplianceScheduledActionForRuleImpl(element)));
             });
             this._deviceComplianceScheduledActionForRules = deviceComplianceScheduledActionForRulesArrValue;
         }
@@ -71,7 +71,7 @@ export class ScheduleActionsForRulesPostRequestBodyImpl implements ScheduleActio
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceComplianceScheduledActionForRules && this.deviceComplianceScheduledActionForRules.length != 0){        const deviceComplianceScheduledActionForRulesArrValue: DeviceComplianceScheduledActionForRuleImpl[] = [];
         this.deviceComplianceScheduledActionForRules?.forEach(element => {
-            deviceComplianceScheduledActionForRulesArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element:new DeviceComplianceScheduledActionForRuleImpl(element)));
+            deviceComplianceScheduledActionForRulesArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element as DeviceComplianceScheduledActionForRuleImpl:new DeviceComplianceScheduledActionForRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("deviceComplianceScheduledActionForRules", deviceComplianceScheduledActionForRulesArrValue);
         }

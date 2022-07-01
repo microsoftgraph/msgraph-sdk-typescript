@@ -62,7 +62,7 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -92,7 +92,7 @@ export class ChangeTrackedEntityImpl extends EntityImpl implements ChangeTracked
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy as IdentitySetImpl: new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);

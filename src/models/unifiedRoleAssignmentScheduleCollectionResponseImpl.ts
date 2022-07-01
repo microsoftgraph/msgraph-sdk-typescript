@@ -73,7 +73,7 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Unif
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element:new UnifiedRoleAssignmentScheduleImpl(element)));
+            valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element as UnifiedRoleAssignmentScheduleImpl:new UnifiedRoleAssignmentScheduleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UnifiedRoleAssignmentScheduleCollectionResponseImpl implements Unif
         if(value) {
             const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element:new UnifiedRoleAssignmentScheduleImpl(element)));
+                valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element as UnifiedRoleAssignmentScheduleImpl:new UnifiedRoleAssignmentScheduleImpl(element)));
             });
             this._value = valueArrValue;
         }

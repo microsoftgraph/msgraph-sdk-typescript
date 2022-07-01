@@ -51,7 +51,7 @@ export class GetMailTipsResponseImpl implements GetMailTipsResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: MailTipsImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MailTipsImpl? element:new MailTipsImpl(element)));
+            valueArrValue.push((element instanceof MailTipsImpl? element as MailTipsImpl:new MailTipsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MailTipsImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetMailTipsResponseImpl implements GetMailTipsResponse {
         if(value) {
             const valueArrValue: MailTipsImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MailTipsImpl? element:new MailTipsImpl(element)));
+                valueArrValue.push((element instanceof MailTipsImpl? element as MailTipsImpl:new MailTipsImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements OAuth2Permis
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OAuth2PermissionGrantImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OAuth2PermissionGrantImpl? element:new OAuth2PermissionGrantImpl(element)));
+            valueArrValue.push((element instanceof OAuth2PermissionGrantImpl? element as OAuth2PermissionGrantImpl:new OAuth2PermissionGrantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OAuth2PermissionGrantCollectionResponseImpl implements OAuth2Permis
         if(value) {
             const valueArrValue: OAuth2PermissionGrantImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OAuth2PermissionGrantImpl? element:new OAuth2PermissionGrantImpl(element)));
+                valueArrValue.push((element instanceof OAuth2PermissionGrantImpl? element as OAuth2PermissionGrantImpl:new OAuth2PermissionGrantImpl(element)));
             });
             this._value = valueArrValue;
         }

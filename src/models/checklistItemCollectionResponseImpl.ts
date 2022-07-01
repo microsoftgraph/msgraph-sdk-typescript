@@ -73,7 +73,7 @@ export class ChecklistItemCollectionResponseImpl implements ChecklistItemCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChecklistItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ChecklistItemImpl? element:new ChecklistItemImpl(element)));
+            valueArrValue.push((element instanceof ChecklistItemImpl? element as ChecklistItemImpl:new ChecklistItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChecklistItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ChecklistItemCollectionResponseImpl implements ChecklistItemCollect
         if(value) {
             const valueArrValue: ChecklistItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ChecklistItemImpl? element:new ChecklistItemImpl(element)));
+                valueArrValue.push((element instanceof ChecklistItemImpl? element as ChecklistItemImpl:new ChecklistItemImpl(element)));
             });
             this._value = valueArrValue;
         }

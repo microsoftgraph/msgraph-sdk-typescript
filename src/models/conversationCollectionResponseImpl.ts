@@ -73,7 +73,7 @@ export class ConversationCollectionResponseImpl implements ConversationCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConversationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ConversationImpl? element:new ConversationImpl(element)));
+            valueArrValue.push((element instanceof ConversationImpl? element as ConversationImpl:new ConversationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ConversationCollectionResponseImpl implements ConversationCollectio
         if(value) {
             const valueArrValue: ConversationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ConversationImpl? element:new ConversationImpl(element)));
+                valueArrValue.push((element instanceof ConversationImpl? element as ConversationImpl:new ConversationImpl(element)));
             });
             this._value = valueArrValue;
         }

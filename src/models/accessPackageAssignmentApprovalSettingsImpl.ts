@@ -96,7 +96,7 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
         }
         if(this.stages && this.stages.length != 0){        const stagesArrValue: AccessPackageApprovalStageImpl[] = [];
         this.stages?.forEach(element => {
-            stagesArrValue.push((element instanceof AccessPackageApprovalStageImpl? element:new AccessPackageApprovalStageImpl(element)));
+            stagesArrValue.push((element instanceof AccessPackageApprovalStageImpl? element as AccessPackageApprovalStageImpl:new AccessPackageApprovalStageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageApprovalStageImpl>("stages", stagesArrValue);
         }
@@ -117,7 +117,7 @@ export class AccessPackageAssignmentApprovalSettingsImpl implements AccessPackag
         if(value) {
             const stagesArrValue: AccessPackageApprovalStageImpl[] = [];
             this.stages?.forEach(element => {
-                stagesArrValue.push((element instanceof AccessPackageApprovalStageImpl? element:new AccessPackageApprovalStageImpl(element)));
+                stagesArrValue.push((element instanceof AccessPackageApprovalStageImpl? element as AccessPackageApprovalStageImpl:new AccessPackageApprovalStageImpl(element)));
             });
             this._stages = stagesArrValue;
         }

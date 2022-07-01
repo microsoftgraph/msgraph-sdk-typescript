@@ -31,7 +31,7 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
         if(value) {
             const exportJobsArrValue: DeviceManagementExportJobImpl[] = [];
             this.exportJobs?.forEach(element => {
-                exportJobsArrValue.push((element instanceof DeviceManagementExportJobImpl? element:new DeviceManagementExportJobImpl(element)));
+                exportJobsArrValue.push((element instanceof DeviceManagementExportJobImpl? element as DeviceManagementExportJobImpl:new DeviceManagementExportJobImpl(element)));
             });
             this._exportJobs = exportJobsArrValue;
         }
@@ -54,7 +54,7 @@ export class DeviceManagementReportsImpl extends EntityImpl implements DeviceMan
         super.serialize(writer);
         if(this.exportJobs && this.exportJobs.length != 0){        const exportJobsArrValue: DeviceManagementExportJobImpl[] = [];
         this.exportJobs?.forEach(element => {
-            exportJobsArrValue.push((element instanceof DeviceManagementExportJobImpl? element:new DeviceManagementExportJobImpl(element)));
+            exportJobsArrValue.push((element instanceof DeviceManagementExportJobImpl? element as DeviceManagementExportJobImpl:new DeviceManagementExportJobImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementExportJobImpl>("exportJobs", exportJobsArrValue);
         }

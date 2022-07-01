@@ -73,7 +73,7 @@ export class SchedulingGroupCollectionResponseImpl implements SchedulingGroupCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SchedulingGroupImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SchedulingGroupImpl? element:new SchedulingGroupImpl(element)));
+            valueArrValue.push((element instanceof SchedulingGroupImpl? element as SchedulingGroupImpl:new SchedulingGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SchedulingGroupCollectionResponseImpl implements SchedulingGroupCol
         if(value) {
             const valueArrValue: SchedulingGroupImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SchedulingGroupImpl? element:new SchedulingGroupImpl(element)));
+                valueArrValue.push((element instanceof SchedulingGroupImpl? element as SchedulingGroupImpl:new SchedulingGroupImpl(element)));
             });
             this._value = valueArrValue;
         }

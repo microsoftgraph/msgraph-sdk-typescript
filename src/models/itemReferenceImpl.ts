@@ -175,7 +175,7 @@ export class ItemReferenceImpl implements ItemReference {
             writer.writeStringValue("shareId", this.shareId);
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds as SharepointIdsImpl: new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.siteId){
             writer.writeStringValue("siteId", this.siteId);
@@ -211,7 +211,7 @@ export class ItemReferenceImpl implements ItemReference {
      */
     public set sharepointIds(value: SharepointIds | undefined) {
         if(value) {
-            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+            this._sharepointIds = value instanceof SharepointIdsImpl? value as SharepointIdsImpl: new SharepointIdsImpl(value);
         }
     };
     /**

@@ -36,7 +36,7 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
         if(value) {
             const callRecordsArrValue: CallRecordImpl[] = [];
             this.callRecords?.forEach(element => {
-                callRecordsArrValue.push((element instanceof CallRecordImpl? element:new CallRecordImpl(element)));
+                callRecordsArrValue.push((element instanceof CallRecordImpl? element as CallRecordImpl:new CallRecordImpl(element)));
             });
             this._callRecords = callRecordsArrValue;
         }
@@ -56,7 +56,7 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
         if(value) {
             const callsArrValue: CallImpl[] = [];
             this.calls?.forEach(element => {
-                callsArrValue.push((element instanceof CallImpl? element:new CallImpl(element)));
+                callsArrValue.push((element instanceof CallImpl? element as CallImpl:new CallImpl(element)));
             });
             this._calls = callsArrValue;
         }
@@ -99,7 +99,7 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
         if(value) {
             const onlineMeetingsArrValue: OnlineMeetingImpl[] = [];
             this.onlineMeetings?.forEach(element => {
-                onlineMeetingsArrValue.push((element instanceof OnlineMeetingImpl? element:new OnlineMeetingImpl(element)));
+                onlineMeetingsArrValue.push((element instanceof OnlineMeetingImpl? element as OnlineMeetingImpl:new OnlineMeetingImpl(element)));
             });
             this._onlineMeetings = onlineMeetingsArrValue;
         }
@@ -119,7 +119,7 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
         if(value) {
             const presencesArrValue: PresenceImpl[] = [];
             this.presences?.forEach(element => {
-                presencesArrValue.push((element instanceof PresenceImpl? element:new PresenceImpl(element)));
+                presencesArrValue.push((element instanceof PresenceImpl? element as PresenceImpl:new PresenceImpl(element)));
             });
             this._presences = presencesArrValue;
         }
@@ -133,25 +133,25 @@ export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunic
         super.serialize(writer);
         if(this.callRecords && this.callRecords.length != 0){        const callRecordsArrValue: CallRecordImpl[] = [];
         this.callRecords?.forEach(element => {
-            callRecordsArrValue.push((element instanceof CallRecordImpl? element:new CallRecordImpl(element)));
+            callRecordsArrValue.push((element instanceof CallRecordImpl? element as CallRecordImpl:new CallRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CallRecordImpl>("callRecords", callRecordsArrValue);
         }
         if(this.calls && this.calls.length != 0){        const callsArrValue: CallImpl[] = [];
         this.calls?.forEach(element => {
-            callsArrValue.push((element instanceof CallImpl? element:new CallImpl(element)));
+            callsArrValue.push((element instanceof CallImpl? element as CallImpl:new CallImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CallImpl>("calls", callsArrValue);
         }
         if(this.onlineMeetings && this.onlineMeetings.length != 0){        const onlineMeetingsArrValue: OnlineMeetingImpl[] = [];
         this.onlineMeetings?.forEach(element => {
-            onlineMeetingsArrValue.push((element instanceof OnlineMeetingImpl? element:new OnlineMeetingImpl(element)));
+            onlineMeetingsArrValue.push((element instanceof OnlineMeetingImpl? element as OnlineMeetingImpl:new OnlineMeetingImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("onlineMeetings", onlineMeetingsArrValue);
         }
         if(this.presences && this.presences.length != 0){        const presencesArrValue: PresenceImpl[] = [];
         this.presences?.forEach(element => {
-            presencesArrValue.push((element instanceof PresenceImpl? element:new PresenceImpl(element)));
+            presencesArrValue.push((element instanceof PresenceImpl? element as PresenceImpl:new PresenceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PresenceImpl>("presences", presencesArrValue);
         }

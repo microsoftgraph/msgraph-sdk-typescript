@@ -73,7 +73,7 @@ export class ApplicationTemplateCollectionResponseImpl implements ApplicationTem
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ApplicationTemplateImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ApplicationTemplateImpl? element:new ApplicationTemplateImpl(element)));
+            valueArrValue.push((element instanceof ApplicationTemplateImpl? element as ApplicationTemplateImpl:new ApplicationTemplateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ApplicationTemplateImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ApplicationTemplateCollectionResponseImpl implements ApplicationTem
         if(value) {
             const valueArrValue: ApplicationTemplateImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ApplicationTemplateImpl? element:new ApplicationTemplateImpl(element)));
+                valueArrValue.push((element instanceof ApplicationTemplateImpl? element as ApplicationTemplateImpl:new ApplicationTemplateImpl(element)));
             });
             this._value = valueArrValue;
         }

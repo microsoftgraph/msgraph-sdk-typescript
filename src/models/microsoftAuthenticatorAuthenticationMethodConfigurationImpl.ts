@@ -39,7 +39,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
         if(value) {
             const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = [];
             this.includeTargets?.forEach(element => {
-                includeTargetsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element:new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element)));
+                includeTargetsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element as MicrosoftAuthenticatorAuthenticationMethodTargetImpl:new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element)));
             });
             this._includeTargets = includeTargetsArrValue;
         }
@@ -53,7 +53,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfigurationImpl extends
         super.serialize(writer);
         if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: MicrosoftAuthenticatorAuthenticationMethodTargetImpl[] = [];
         this.includeTargets?.forEach(element => {
-            includeTargetsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element:new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element)));
+            includeTargetsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodTargetImpl? element as MicrosoftAuthenticatorAuthenticationMethodTargetImpl:new MicrosoftAuthenticatorAuthenticationMethodTargetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }

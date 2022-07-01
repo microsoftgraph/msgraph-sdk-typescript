@@ -60,7 +60,7 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
         if(value) {
             const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
             this.includeTargets?.forEach(element => {
-                includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+                includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element as AuthenticationMethodTargetImpl:new AuthenticationMethodTargetImpl(element)));
             });
             this._includeTargets = includeTargetsArrValue;
         }
@@ -77,7 +77,7 @@ export class EmailAuthenticationMethodConfigurationImpl extends AuthenticationMe
         }
         if(this.includeTargets && this.includeTargets.length != 0){        const includeTargetsArrValue: AuthenticationMethodTargetImpl[] = [];
         this.includeTargets?.forEach(element => {
-            includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element:new AuthenticationMethodTargetImpl(element)));
+            includeTargetsArrValue.push((element instanceof AuthenticationMethodTargetImpl? element as AuthenticationMethodTargetImpl:new AuthenticationMethodTargetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthenticationMethodTargetImpl>("includeTargets", includeTargetsArrValue);
         }

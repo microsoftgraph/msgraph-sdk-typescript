@@ -56,7 +56,7 @@ export class SnoozeReminderPostRequestBodyImpl implements SnoozeReminderPostRequ
      */
     public set newReminderTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._newReminderTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._newReminderTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class SnoozeReminderPostRequestBodyImpl implements SnoozeReminderPostRequ
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.newReminderTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("newReminderTime", (!this.newReminderTime || this.newReminderTime instanceof DateTimeTimeZoneImpl? this.newReminderTime : new DateTimeTimeZoneImpl(this.newReminderTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("newReminderTime", (this.newReminderTime instanceof DateTimeTimeZoneImpl? this.newReminderTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.newReminderTime)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

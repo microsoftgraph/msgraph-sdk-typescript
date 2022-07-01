@@ -59,7 +59,7 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
      */
     public set senderEmailAddress(value: EmailAddress | undefined) {
         if(value) {
-            this._senderEmailAddress = value instanceof EmailAddressImpl? value : new EmailAddressImpl(value);
+            this._senderEmailAddress = value instanceof EmailAddressImpl? value as EmailAddressImpl: new EmailAddressImpl(value);
         }
     };
     /**
@@ -73,7 +73,7 @@ export class InferenceClassificationOverrideImpl extends EntityImpl implements I
             writer.writeEnumValue<InferenceClassificationType>("classifyAs", this.classifyAs);
         }
         if(this.senderEmailAddress){
-            writer.writeObjectValue<EmailAddressImpl>("senderEmailAddress", (!this.senderEmailAddress || this.senderEmailAddress instanceof EmailAddressImpl? this.senderEmailAddress : new EmailAddressImpl(this.senderEmailAddress)));
+            writer.writeObjectValue<EmailAddressImpl>("senderEmailAddress", (this.senderEmailAddress instanceof EmailAddressImpl? this.senderEmailAddress as EmailAddressImpl: new EmailAddressImpl(this.senderEmailAddress)));
         }
     };
 }

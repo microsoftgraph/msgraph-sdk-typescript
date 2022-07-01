@@ -73,7 +73,7 @@ export class ServiceAnnouncementAttachmentCollectionResponseImpl implements Serv
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServiceAnnouncementAttachmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element:new ServiceAnnouncementAttachmentImpl(element)));
+            valueArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element as ServiceAnnouncementAttachmentImpl:new ServiceAnnouncementAttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ServiceAnnouncementAttachmentCollectionResponseImpl implements Serv
         if(value) {
             const valueArrValue: ServiceAnnouncementAttachmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element:new ServiceAnnouncementAttachmentImpl(element)));
+                valueArrValue.push((element instanceof ServiceAnnouncementAttachmentImpl? element as ServiceAnnouncementAttachmentImpl:new ServiceAnnouncementAttachmentImpl(element)));
             });
             this._value = valueArrValue;
         }

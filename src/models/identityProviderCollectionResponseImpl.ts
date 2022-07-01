@@ -73,7 +73,7 @@ export class IdentityProviderCollectionResponseImpl implements IdentityProviderC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IdentityProviderImpl? element:new IdentityProviderImpl(element)));
+            valueArrValue.push((element instanceof IdentityProviderImpl? element as IdentityProviderImpl:new IdentityProviderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityProviderImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IdentityProviderCollectionResponseImpl implements IdentityProviderC
         if(value) {
             const valueArrValue: IdentityProviderImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IdentityProviderImpl? element:new IdentityProviderImpl(element)));
+                valueArrValue.push((element instanceof IdentityProviderImpl? element as IdentityProviderImpl:new IdentityProviderImpl(element)));
             });
             this._value = valueArrValue;
         }

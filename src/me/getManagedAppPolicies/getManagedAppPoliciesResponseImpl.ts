@@ -51,7 +51,7 @@ export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesR
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+            valueArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetManagedAppPoliciesResponseImpl implements GetManagedAppPoliciesR
         if(value) {
             const valueArrValue: ManagedAppPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+                valueArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

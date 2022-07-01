@@ -73,7 +73,7 @@ export class SetCollectionResponseImpl implements SetCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SetImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SetImpl? element:new SetImpl(element)));
+            valueArrValue.push((element instanceof SetImpl? element as SetImpl:new SetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SetImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SetCollectionResponseImpl implements SetCollectionResponse {
         if(value) {
             const valueArrValue: SetImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SetImpl? element:new SetImpl(element)));
+                valueArrValue.push((element instanceof SetImpl? element as SetImpl:new SetImpl(element)));
             });
             this._value = valueArrValue;
         }

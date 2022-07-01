@@ -28,7 +28,7 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public set androidRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
         if(value) {
-            this._androidRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+            this._androidRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(value);
         }
     };
     /**
@@ -69,7 +69,7 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public set iosRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
         if(value) {
-            this._iosRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+            this._iosRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public set macOSRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
         if(value) {
-            this._macOSRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+            this._macOSRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(value);
         }
     };
     /**
@@ -96,19 +96,19 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.androidRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("androidRestriction", (!this.androidRestriction || this.androidRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.androidRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.androidRestriction)));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("androidRestriction", (this.androidRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.androidRestriction as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(this.androidRestriction)));
         }
         if(this.iosRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("iosRestriction", (!this.iosRestriction || this.iosRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.iosRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.iosRestriction)));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("iosRestriction", (this.iosRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.iosRestriction as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(this.iosRestriction)));
         }
         if(this.macOSRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("macOSRestriction", (!this.macOSRestriction || this.macOSRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.macOSRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.macOSRestriction)));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("macOSRestriction", (this.macOSRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.macOSRestriction as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(this.macOSRestriction)));
         }
         if(this.windowsMobileRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsMobileRestriction", (!this.windowsMobileRestriction || this.windowsMobileRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.windowsMobileRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.windowsMobileRestriction)));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsMobileRestriction", (this.windowsMobileRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.windowsMobileRestriction as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(this.windowsMobileRestriction)));
         }
         if(this.windowsRestriction){
-            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsRestriction", (!this.windowsRestriction || this.windowsRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.windowsRestriction : new DeviceEnrollmentPlatformRestrictionImpl(this.windowsRestriction)));
+            writer.writeObjectValue<DeviceEnrollmentPlatformRestrictionImpl>("windowsRestriction", (this.windowsRestriction instanceof DeviceEnrollmentPlatformRestrictionImpl? this.windowsRestriction as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(this.windowsRestriction)));
         }
     };
     /**
@@ -124,7 +124,7 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public set windowsMobileRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
         if(value) {
-            this._windowsMobileRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+            this._windowsMobileRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(value);
         }
     };
     /**
@@ -140,7 +140,7 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationImpl extends Devic
      */
     public set windowsRestriction(value: DeviceEnrollmentPlatformRestriction | undefined) {
         if(value) {
-            this._windowsRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value : new DeviceEnrollmentPlatformRestrictionImpl(value);
+            this._windowsRestriction = value instanceof DeviceEnrollmentPlatformRestrictionImpl? value as DeviceEnrollmentPlatformRestrictionImpl: new DeviceEnrollmentPlatformRestrictionImpl(value);
         }
     };
 }

@@ -73,7 +73,7 @@ export class PrintTaskCollectionResponseImpl implements PrintTaskCollectionRespo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+            valueArrValue.push((element instanceof PrintTaskImpl? element as PrintTaskImpl:new PrintTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintTaskCollectionResponseImpl implements PrintTaskCollectionRespo
         if(value) {
             const valueArrValue: PrintTaskImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+                valueArrValue.push((element instanceof PrintTaskImpl? element as PrintTaskImpl:new PrintTaskImpl(element)));
             });
             this._value = valueArrValue;
         }

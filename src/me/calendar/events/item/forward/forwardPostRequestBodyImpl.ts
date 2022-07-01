@@ -74,7 +74,7 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = [];
         this.toRecipients?.forEach(element => {
-            toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
@@ -94,8 +94,8 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     public set toRecipients(value: Recipient[] | undefined) {
         if(value) {
             const toRecipientsArrValue: RecipientImpl[] = [];
-            this.ToRecipients?.forEach(element => {
-                toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            this.toRecipients?.forEach(element => {
+                toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._toRecipients = toRecipientsArrValue;
         }

@@ -51,7 +51,7 @@ export class ImportResponseImpl implements ImportResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+            valueArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element as ImportedWindowsAutopilotDeviceIdentityImpl:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class ImportResponseImpl implements ImportResponse {
         if(value) {
             const valueArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+                valueArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element as ImportedWindowsAutopilotDeviceIdentityImpl:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
             });
             this._value = valueArrValue;
         }

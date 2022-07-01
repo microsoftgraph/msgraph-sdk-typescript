@@ -73,7 +73,7 @@ export class ManagedMobileAppCollectionResponseImpl implements ManagedMobileAppC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedMobileAppImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+            valueArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedMobileAppCollectionResponseImpl implements ManagedMobileAppC
         if(value) {
             const valueArrValue: ManagedMobileAppImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+                valueArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
             });
             this._value = valueArrValue;
         }

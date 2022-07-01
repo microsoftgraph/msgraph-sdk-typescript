@@ -54,7 +54,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
      */
     public set address(value: PhysicalAddress | undefined) {
         if(value) {
-            this._address = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._address = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -70,7 +70,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
      */
     public set administrativeUnit(value: AdministrativeUnit | undefined) {
         if(value) {
-            this._administrativeUnit = value instanceof AdministrativeUnitImpl? value : new AdministrativeUnitImpl(value);
+            this._administrativeUnit = value instanceof AdministrativeUnitImpl? value as AdministrativeUnitImpl: new AdministrativeUnitImpl(value);
         }
     };
     /**
@@ -88,7 +88,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(value) {
             const classesArrValue: EducationClassImpl[] = [];
             this.classes?.forEach(element => {
-                classesArrValue.push((element instanceof EducationClassImpl? element:new EducationClassImpl(element)));
+                classesArrValue.push((element instanceof EducationClassImpl? element as EducationClassImpl:new EducationClassImpl(element)));
             });
             this._classes = classesArrValue;
         }
@@ -127,7 +127,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -304,19 +304,19 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-            writer.writeObjectValue<PhysicalAddressImpl>("address", (!this.address || this.address instanceof PhysicalAddressImpl? this.address : new PhysicalAddressImpl(this.address)));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", (this.address instanceof PhysicalAddressImpl? this.address as PhysicalAddressImpl: new PhysicalAddressImpl(this.address)));
         }
         if(this.administrativeUnit){
-            writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", (!this.administrativeUnit || this.administrativeUnit instanceof AdministrativeUnitImpl? this.administrativeUnit : new AdministrativeUnitImpl(this.administrativeUnit)));
+            writer.writeObjectValue<AdministrativeUnitImpl>("administrativeUnit", (this.administrativeUnit instanceof AdministrativeUnitImpl? this.administrativeUnit as AdministrativeUnitImpl: new AdministrativeUnitImpl(this.administrativeUnit)));
         }
         if(this.classes && this.classes.length != 0){        const classesArrValue: EducationClassImpl[] = [];
         this.classes?.forEach(element => {
-            classesArrValue.push((element instanceof EducationClassImpl? element:new EducationClassImpl(element)));
+            classesArrValue.push((element instanceof EducationClassImpl? element as EducationClassImpl:new EducationClassImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationClassImpl>("classes", classesArrValue);
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.externalId){
             writer.writeStringValue("externalId", this.externalId);
@@ -347,7 +347,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         }
         if(this.users && this.users.length != 0){        const usersArrValue: EducationUserImpl[] = [];
         this.users?.forEach(element => {
-            usersArrValue.push((element instanceof EducationUserImpl? element:new EducationUserImpl(element)));
+            usersArrValue.push((element instanceof EducationUserImpl? element as EducationUserImpl:new EducationUserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationUserImpl>("users", usersArrValue);
         }
@@ -367,7 +367,7 @@ export class EducationSchoolImpl extends EducationOrganizationImpl implements Ed
         if(value) {
             const usersArrValue: EducationUserImpl[] = [];
             this.users?.forEach(element => {
-                usersArrValue.push((element instanceof EducationUserImpl? element:new EducationUserImpl(element)));
+                usersArrValue.push((element instanceof EducationUserImpl? element as EducationUserImpl:new EducationUserImpl(element)));
             });
             this._users = usersArrValue;
         }

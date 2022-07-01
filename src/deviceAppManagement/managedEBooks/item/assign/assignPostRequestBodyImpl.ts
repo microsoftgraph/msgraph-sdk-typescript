@@ -58,7 +58,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(value) {
             const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = [];
             this.managedEBookAssignments?.forEach(element => {
-                managedEBookAssignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element:new ManagedEBookAssignmentImpl(element)));
+                managedEBookAssignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element as ManagedEBookAssignmentImpl:new ManagedEBookAssignmentImpl(element)));
             });
             this._managedEBookAssignments = managedEBookAssignmentsArrValue;
         }
@@ -71,7 +71,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.managedEBookAssignments && this.managedEBookAssignments.length != 0){        const managedEBookAssignmentsArrValue: ManagedEBookAssignmentImpl[] = [];
         this.managedEBookAssignments?.forEach(element => {
-            managedEBookAssignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element:new ManagedEBookAssignmentImpl(element)));
+            managedEBookAssignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element as ManagedEBookAssignmentImpl:new ManagedEBookAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedEBookAssignmentImpl>("managedEBookAssignments", managedEBookAssignmentsArrValue);
         }

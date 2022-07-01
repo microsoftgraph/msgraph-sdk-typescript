@@ -95,7 +95,7 @@ export class ChatMessageReactionImpl implements ChatMessageReaction {
             writer.writeStringValue("reactionType", this.reactionType);
         }
         if(this.user){
-            writer.writeObjectValue<ChatMessageReactionIdentitySetImpl>("user", (!this.user || this.user instanceof ChatMessageReactionIdentitySetImpl? this.user : new ChatMessageReactionIdentitySetImpl(this.user)));
+            writer.writeObjectValue<ChatMessageReactionIdentitySetImpl>("user", (this.user instanceof ChatMessageReactionIdentitySetImpl? this.user as ChatMessageReactionIdentitySetImpl: new ChatMessageReactionIdentitySetImpl(this.user)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -112,7 +112,7 @@ export class ChatMessageReactionImpl implements ChatMessageReaction {
      */
     public set user(value: ChatMessageReactionIdentitySet | undefined) {
         if(value) {
-            this._user = value instanceof ChatMessageReactionIdentitySetImpl? value : new ChatMessageReactionIdentitySetImpl(value);
+            this._user = value instanceof ChatMessageReactionIdentitySetImpl? value as ChatMessageReactionIdentitySetImpl: new ChatMessageReactionIdentitySetImpl(value);
         }
     };
 }

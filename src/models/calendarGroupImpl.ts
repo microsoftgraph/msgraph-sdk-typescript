@@ -29,7 +29,7 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
         if(value) {
             const calendarsArrValue: CalendarImpl[] = [];
             this.calendars?.forEach(element => {
-                calendarsArrValue.push((element instanceof CalendarImpl? element:new CalendarImpl(element)));
+                calendarsArrValue.push((element instanceof CalendarImpl? element as CalendarImpl:new CalendarImpl(element)));
             });
             this._calendars = calendarsArrValue;
         }
@@ -114,7 +114,7 @@ export class CalendarGroupImpl extends EntityImpl implements CalendarGroup {
         super.serialize(writer);
         if(this.calendars && this.calendars.length != 0){        const calendarsArrValue: CalendarImpl[] = [];
         this.calendars?.forEach(element => {
-            calendarsArrValue.push((element instanceof CalendarImpl? element:new CalendarImpl(element)));
+            calendarsArrValue.push((element instanceof CalendarImpl? element as CalendarImpl:new CalendarImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CalendarImpl>("calendars", calendarsArrValue);
         }

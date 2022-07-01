@@ -70,7 +70,7 @@ export class ColumnValidationImpl implements ColumnValidation {
         if(value) {
             const descriptionsArrValue: DisplayNameLocalizationImpl[] = [];
             this.descriptions?.forEach(element => {
-                descriptionsArrValue.push((element instanceof DisplayNameLocalizationImpl? element:new DisplayNameLocalizationImpl(element)));
+                descriptionsArrValue.push((element instanceof DisplayNameLocalizationImpl? element as DisplayNameLocalizationImpl:new DisplayNameLocalizationImpl(element)));
             });
             this._descriptions = descriptionsArrValue;
         }
@@ -113,7 +113,7 @@ export class ColumnValidationImpl implements ColumnValidation {
         }
         if(this.descriptions && this.descriptions.length != 0){        const descriptionsArrValue: DisplayNameLocalizationImpl[] = [];
         this.descriptions?.forEach(element => {
-            descriptionsArrValue.push((element instanceof DisplayNameLocalizationImpl? element:new DisplayNameLocalizationImpl(element)));
+            descriptionsArrValue.push((element instanceof DisplayNameLocalizationImpl? element as DisplayNameLocalizationImpl:new DisplayNameLocalizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DisplayNameLocalizationImpl>("descriptions", descriptionsArrValue);
         }

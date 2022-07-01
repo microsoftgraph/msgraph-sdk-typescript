@@ -120,7 +120,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(value) {
             const customersArrValue: BookingCustomerInformationBaseImpl[] = [];
             this.customers?.forEach(element => {
-                customersArrValue.push((element instanceof BookingCustomerInformationBaseImpl? element:new BookingCustomerInformationBaseImpl(element)));
+                customersArrValue.push((element instanceof BookingCustomerInformationBaseImpl? element as BookingCustomerInformationBaseImpl:new BookingCustomerInformationBaseImpl(element)));
             });
             this._customers = customersArrValue;
         }
@@ -170,7 +170,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
      */
     public set endDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._endDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._endDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -363,7 +363,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         if(value) {
             const remindersArrValue: BookingReminderImpl[] = [];
             this.reminders?.forEach(element => {
-                remindersArrValue.push((element instanceof BookingReminderImpl? element:new BookingReminderImpl(element)));
+                remindersArrValue.push((element instanceof BookingReminderImpl? element as BookingReminderImpl:new BookingReminderImpl(element)));
             });
             this._reminders = remindersArrValue;
         }
@@ -396,7 +396,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         }
         if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerInformationBaseImpl[] = [];
         this.customers?.forEach(element => {
-            customersArrValue.push((element instanceof BookingCustomerInformationBaseImpl? element:new BookingCustomerInformationBaseImpl(element)));
+            customersArrValue.push((element instanceof BookingCustomerInformationBaseImpl? element as BookingCustomerInformationBaseImpl:new BookingCustomerInformationBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCustomerInformationBaseImpl>("customers", customersArrValue);
         }
@@ -407,7 +407,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
             writer.writeDurationValue("duration", this.duration);
         }
         if(this.endDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", (!this.endDateTime || this.endDateTime instanceof DateTimeTimeZoneImpl? this.endDateTime : new DateTimeTimeZoneImpl(this.endDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", (this.endDateTime instanceof DateTimeTimeZoneImpl? this.endDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.endDateTime)));
         }
         if(this.filledAttendeesCount){
             writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
@@ -438,7 +438,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
         }
         if(this.reminders && this.reminders.length != 0){        const remindersArrValue: BookingReminderImpl[] = [];
         this.reminders?.forEach(element => {
-            remindersArrValue.push((element instanceof BookingReminderImpl? element:new BookingReminderImpl(element)));
+            remindersArrValue.push((element instanceof BookingReminderImpl? element as BookingReminderImpl:new BookingReminderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingReminderImpl>("reminders", remindersArrValue);
         }
@@ -449,7 +449,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
             writer.writeStringValue("serviceId", this.serviceId);
         }
         if(this.serviceLocation){
-            writer.writeObjectValue<LocationImpl>("serviceLocation", (!this.serviceLocation || this.serviceLocation instanceof LocationImpl? this.serviceLocation : new LocationImpl(this.serviceLocation)));
+            writer.writeObjectValue<LocationImpl>("serviceLocation", (this.serviceLocation instanceof LocationImpl? this.serviceLocation as LocationImpl: new LocationImpl(this.serviceLocation)));
         }
         if(this.serviceName){
             writer.writeStringValue("serviceName", this.serviceName);
@@ -464,7 +464,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
             writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
         }
         if(this.startDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (!this.startDateTime || this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime : new DateTimeTimeZoneImpl(this.startDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.startDateTime)));
         }
     };
     /**
@@ -496,7 +496,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
      */
     public set serviceLocation(value: Location | undefined) {
         if(value) {
-            this._serviceLocation = value instanceof LocationImpl? value : new LocationImpl(value);
+            this._serviceLocation = value instanceof LocationImpl? value as LocationImpl: new LocationImpl(value);
         }
     };
     /**
@@ -576,7 +576,7 @@ export class BookingAppointmentImpl extends EntityImpl implements BookingAppoint
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
 }

@@ -81,7 +81,7 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         if(value) {
             const membersArrValue: IdentityImpl[] = [];
             this.members?.forEach(element => {
-                membersArrValue.push((element instanceof IdentityImpl? element:new IdentityImpl(element)));
+                membersArrValue.push((element instanceof IdentityImpl? element as IdentityImpl:new IdentityImpl(element)));
             });
             this._members = membersArrValue;
         }
@@ -101,7 +101,7 @@ export class ExternalGroupImpl extends EntityImpl implements ExternalGroup {
         }
         if(this.members && this.members.length != 0){        const membersArrValue: IdentityImpl[] = [];
         this.members?.forEach(element => {
-            membersArrValue.push((element instanceof IdentityImpl? element:new IdentityImpl(element)));
+            membersArrValue.push((element instanceof IdentityImpl? element as IdentityImpl:new IdentityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityImpl>("members", membersArrValue);
         }

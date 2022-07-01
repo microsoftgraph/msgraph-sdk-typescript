@@ -30,7 +30,7 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
         if(value) {
             const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = [];
             this.appDefinitions?.forEach(element => {
-                appDefinitionsArrValue.push((element instanceof TeamsAppDefinitionImpl? element:new TeamsAppDefinitionImpl(element)));
+                appDefinitionsArrValue.push((element instanceof TeamsAppDefinitionImpl? element as TeamsAppDefinitionImpl:new TeamsAppDefinitionImpl(element)));
             });
             this._appDefinitions = appDefinitionsArrValue;
         }
@@ -115,7 +115,7 @@ export class TeamsAppImpl extends EntityImpl implements TeamsApp {
         super.serialize(writer);
         if(this.appDefinitions && this.appDefinitions.length != 0){        const appDefinitionsArrValue: TeamsAppDefinitionImpl[] = [];
         this.appDefinitions?.forEach(element => {
-            appDefinitionsArrValue.push((element instanceof TeamsAppDefinitionImpl? element:new TeamsAppDefinitionImpl(element)));
+            appDefinitionsArrValue.push((element instanceof TeamsAppDefinitionImpl? element as TeamsAppDefinitionImpl:new TeamsAppDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAppDefinitionImpl>("appDefinitions", appDefinitionsArrValue);
         }

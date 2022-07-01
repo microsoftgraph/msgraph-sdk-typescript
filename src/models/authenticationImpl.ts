@@ -51,7 +51,7 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         if(value) {
             const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = [];
             this.fido2Methods?.forEach(element => {
-                fido2MethodsArrValue.push((element instanceof Fido2AuthenticationMethodImpl? element:new Fido2AuthenticationMethodImpl(element)));
+                fido2MethodsArrValue.push((element instanceof Fido2AuthenticationMethodImpl? element as Fido2AuthenticationMethodImpl:new Fido2AuthenticationMethodImpl(element)));
             });
             this._fido2Methods = fido2MethodsArrValue;
         }
@@ -84,7 +84,7 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         if(value) {
             const methodsArrValue: AuthenticationMethodImpl[] = [];
             this.methods?.forEach(element => {
-                methodsArrValue.push((element instanceof AuthenticationMethodImpl? element:new AuthenticationMethodImpl(element)));
+                methodsArrValue.push((element instanceof AuthenticationMethodImpl? element as AuthenticationMethodImpl:new AuthenticationMethodImpl(element)));
             });
             this._methods = methodsArrValue;
         }
@@ -104,7 +104,7 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         if(value) {
             const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = [];
             this.microsoftAuthenticatorMethods?.forEach(element => {
-                microsoftAuthenticatorMethodsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
+                microsoftAuthenticatorMethodsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element as MicrosoftAuthenticatorAuthenticationMethodImpl:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
             });
             this._microsoftAuthenticatorMethods = microsoftAuthenticatorMethodsArrValue;
         }
@@ -118,31 +118,31 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         super.serialize(writer);
         if(this.fido2Methods && this.fido2Methods.length != 0){        const fido2MethodsArrValue: Fido2AuthenticationMethodImpl[] = [];
         this.fido2Methods?.forEach(element => {
-            fido2MethodsArrValue.push((element instanceof Fido2AuthenticationMethodImpl? element:new Fido2AuthenticationMethodImpl(element)));
+            fido2MethodsArrValue.push((element instanceof Fido2AuthenticationMethodImpl? element as Fido2AuthenticationMethodImpl:new Fido2AuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<Fido2AuthenticationMethodImpl>("fido2Methods", fido2MethodsArrValue);
         }
         if(this.methods && this.methods.length != 0){        const methodsArrValue: AuthenticationMethodImpl[] = [];
         this.methods?.forEach(element => {
-            methodsArrValue.push((element instanceof AuthenticationMethodImpl? element:new AuthenticationMethodImpl(element)));
+            methodsArrValue.push((element instanceof AuthenticationMethodImpl? element as AuthenticationMethodImpl:new AuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthenticationMethodImpl>("methods", methodsArrValue);
         }
         if(this.microsoftAuthenticatorMethods && this.microsoftAuthenticatorMethods.length != 0){        const microsoftAuthenticatorMethodsArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = [];
         this.microsoftAuthenticatorMethods?.forEach(element => {
-            microsoftAuthenticatorMethodsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
+            microsoftAuthenticatorMethodsArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element as MicrosoftAuthenticatorAuthenticationMethodImpl:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodImpl>("microsoftAuthenticatorMethods", microsoftAuthenticatorMethodsArrValue);
         }
         if(this.temporaryAccessPassMethods && this.temporaryAccessPassMethods.length != 0){        const temporaryAccessPassMethodsArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = [];
         this.temporaryAccessPassMethods?.forEach(element => {
-            temporaryAccessPassMethodsArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element:new TemporaryAccessPassAuthenticationMethodImpl(element)));
+            temporaryAccessPassMethodsArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element as TemporaryAccessPassAuthenticationMethodImpl:new TemporaryAccessPassAuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethodImpl>("temporaryAccessPassMethods", temporaryAccessPassMethodsArrValue);
         }
         if(this.windowsHelloForBusinessMethods && this.windowsHelloForBusinessMethods.length != 0){        const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = [];
         this.windowsHelloForBusinessMethods?.forEach(element => {
-            windowsHelloForBusinessMethodsArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
+            windowsHelloForBusinessMethodsArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element as WindowsHelloForBusinessAuthenticationMethodImpl:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethodImpl>("windowsHelloForBusinessMethods", windowsHelloForBusinessMethodsArrValue);
         }
@@ -162,7 +162,7 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         if(value) {
             const temporaryAccessPassMethodsArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = [];
             this.temporaryAccessPassMethods?.forEach(element => {
-                temporaryAccessPassMethodsArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element:new TemporaryAccessPassAuthenticationMethodImpl(element)));
+                temporaryAccessPassMethodsArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element as TemporaryAccessPassAuthenticationMethodImpl:new TemporaryAccessPassAuthenticationMethodImpl(element)));
             });
             this._temporaryAccessPassMethods = temporaryAccessPassMethodsArrValue;
         }
@@ -182,7 +182,7 @@ export class AuthenticationImpl extends EntityImpl implements Authentication {
         if(value) {
             const windowsHelloForBusinessMethodsArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = [];
             this.windowsHelloForBusinessMethods?.forEach(element => {
-                windowsHelloForBusinessMethodsArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
+                windowsHelloForBusinessMethodsArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element as WindowsHelloForBusinessAuthenticationMethodImpl:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
             });
             this._windowsHelloForBusinessMethods = windowsHelloForBusinessMethodsArrValue;
         }

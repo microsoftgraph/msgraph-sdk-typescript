@@ -73,7 +73,7 @@ export class UserConsentRequestCollectionResponseImpl implements UserConsentRequ
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UserConsentRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UserConsentRequestImpl? element:new UserConsentRequestImpl(element)));
+            valueArrValue.push((element instanceof UserConsentRequestImpl? element as UserConsentRequestImpl:new UserConsentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UserConsentRequestCollectionResponseImpl implements UserConsentRequ
         if(value) {
             const valueArrValue: UserConsentRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UserConsentRequestImpl? element:new UserConsentRequestImpl(element)));
+                valueArrValue.push((element instanceof UserConsentRequestImpl? element as UserConsentRequestImpl:new UserConsentRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

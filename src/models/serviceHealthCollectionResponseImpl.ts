@@ -73,7 +73,7 @@ export class ServiceHealthCollectionResponseImpl implements ServiceHealthCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServiceHealthImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ServiceHealthImpl? element:new ServiceHealthImpl(element)));
+            valueArrValue.push((element instanceof ServiceHealthImpl? element as ServiceHealthImpl:new ServiceHealthImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceHealthImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ServiceHealthCollectionResponseImpl implements ServiceHealthCollect
         if(value) {
             const valueArrValue: ServiceHealthImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ServiceHealthImpl? element:new ServiceHealthImpl(element)));
+                valueArrValue.push((element instanceof ServiceHealthImpl? element as ServiceHealthImpl:new ServiceHealthImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -76,7 +76,7 @@ export class ManagedAppPolicyDeploymentSummaryPerAppImpl implements ManagedAppPo
      */
     public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
         if(value) {
-            this._mobileAppIdentifier = value instanceof MobileAppIdentifierImpl? value : new MobileAppIdentifierImpl(value);
+            this._mobileAppIdentifier = value instanceof MobileAppIdentifierImpl? value as MobileAppIdentifierImpl: new MobileAppIdentifierImpl(value);
         }
     };
     /**
@@ -89,7 +89,7 @@ export class ManagedAppPolicyDeploymentSummaryPerAppImpl implements ManagedAppPo
             writer.writeNumberValue("configurationAppliedUserCount", this.configurationAppliedUserCount);
         }
         if(this.mobileAppIdentifier){
-            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", (!this.mobileAppIdentifier || this.mobileAppIdentifier instanceof MobileAppIdentifierImpl? this.mobileAppIdentifier : new MobileAppIdentifierImpl(this.mobileAppIdentifier)));
+            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", (this.mobileAppIdentifier instanceof MobileAppIdentifierImpl? this.mobileAppIdentifier as MobileAppIdentifierImpl: new MobileAppIdentifierImpl(this.mobileAppIdentifier)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

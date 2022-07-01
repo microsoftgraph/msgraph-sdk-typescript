@@ -98,7 +98,7 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         if(value) {
             const managedAppsArrValue: AppListItemImpl[] = [];
             this.managedApps?.forEach(element => {
-                managedAppsArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+                managedAppsArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
             });
             this._managedApps = managedAppsArrValue;
         }
@@ -117,7 +117,7 @@ export class IosNetworkUsageRuleImpl implements IosNetworkUsageRule {
         }
         if(this.managedApps && this.managedApps.length != 0){        const managedAppsArrValue: AppListItemImpl[] = [];
         this.managedApps?.forEach(element => {
-            managedAppsArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            managedAppsArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("managedApps", managedAppsArrValue);
         }

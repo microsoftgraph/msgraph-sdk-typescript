@@ -61,7 +61,7 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
      */
     public set parentNotebook(value: Notebook | undefined) {
         if(value) {
-            this._parentNotebook = value instanceof NotebookImpl? value : new NotebookImpl(value);
+            this._parentNotebook = value instanceof NotebookImpl? value as NotebookImpl: new NotebookImpl(value);
         }
     };
     /**
@@ -77,7 +77,7 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
      */
     public set parentSectionGroup(value: SectionGroup | undefined) {
         if(value) {
-            this._parentSectionGroup = value instanceof SectionGroupImpl? value : new SectionGroupImpl(value);
+            this._parentSectionGroup = value instanceof SectionGroupImpl? value as SectionGroupImpl: new SectionGroupImpl(value);
         }
     };
     /**
@@ -95,7 +95,7 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         if(value) {
             const sectionGroupsArrValue: SectionGroupImpl[] = [];
             this.sectionGroups?.forEach(element => {
-                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
             });
             this._sectionGroups = sectionGroupsArrValue;
         }
@@ -131,7 +131,7 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         if(value) {
             const sectionsArrValue: OnenoteSectionImpl[] = [];
             this.sections?.forEach(element => {
-                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
             });
             this._sections = sectionsArrValue;
         }
@@ -160,14 +160,14 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.parentNotebook){
-            writer.writeObjectValue<NotebookImpl>("parentNotebook", (!this.parentNotebook || this.parentNotebook instanceof NotebookImpl? this.parentNotebook : new NotebookImpl(this.parentNotebook)));
+            writer.writeObjectValue<NotebookImpl>("parentNotebook", (this.parentNotebook instanceof NotebookImpl? this.parentNotebook as NotebookImpl: new NotebookImpl(this.parentNotebook)));
         }
         if(this.parentSectionGroup){
-            writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", (!this.parentSectionGroup || this.parentSectionGroup instanceof SectionGroupImpl? this.parentSectionGroup : new SectionGroupImpl(this.parentSectionGroup)));
+            writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", (this.parentSectionGroup instanceof SectionGroupImpl? this.parentSectionGroup as SectionGroupImpl: new SectionGroupImpl(this.parentSectionGroup)));
         }
         if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = [];
         this.sectionGroups?.forEach(element => {
-            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
@@ -176,7 +176,7 @@ export class SectionGroupImpl extends OnenoteEntityHierarchyModelImpl implements
         }
         if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = [];
         this.sections?.forEach(element => {
-            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }

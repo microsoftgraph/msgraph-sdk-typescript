@@ -73,7 +73,7 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Defaul
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DefaultManagedAppProtectionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element:new DefaultManagedAppProtectionImpl(element)));
+            valueArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element as DefaultManagedAppProtectionImpl:new DefaultManagedAppProtectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DefaultManagedAppProtectionCollectionResponseImpl implements Defaul
         if(value) {
             const valueArrValue: DefaultManagedAppProtectionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element:new DefaultManagedAppProtectionImpl(element)));
+                valueArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element as DefaultManagedAppProtectionImpl:new DefaultManagedAppProtectionImpl(element)));
             });
             this._value = valueArrValue;
         }

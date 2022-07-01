@@ -73,7 +73,7 @@ export class MobileAppAssignmentCollectionResponseImpl implements MobileAppAssig
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileAppAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+            valueArrValue.push((element instanceof MobileAppAssignmentImpl? element as MobileAppAssignmentImpl:new MobileAppAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MobileAppAssignmentCollectionResponseImpl implements MobileAppAssig
         if(value) {
             const valueArrValue: MobileAppAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+                valueArrValue.push((element instanceof MobileAppAssignmentImpl? element as MobileAppAssignmentImpl:new MobileAppAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

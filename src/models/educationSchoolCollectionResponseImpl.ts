@@ -73,7 +73,7 @@ export class EducationSchoolCollectionResponseImpl implements EducationSchoolCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EducationSchoolImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EducationSchoolImpl? element:new EducationSchoolImpl(element)));
+            valueArrValue.push((element instanceof EducationSchoolImpl? element as EducationSchoolImpl:new EducationSchoolImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationSchoolImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EducationSchoolCollectionResponseImpl implements EducationSchoolCol
         if(value) {
             const valueArrValue: EducationSchoolImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EducationSchoolImpl? element:new EducationSchoolImpl(element)));
+                valueArrValue.push((element instanceof EducationSchoolImpl? element as EducationSchoolImpl:new EducationSchoolImpl(element)));
             });
             this._value = valueArrValue;
         }

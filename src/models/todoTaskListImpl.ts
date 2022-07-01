@@ -65,7 +65,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -128,7 +128,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
@@ -140,7 +140,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: TodoTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof TodoTaskImpl? element:new TodoTaskImpl(element)));
+            tasksArrValue.push((element instanceof TodoTaskImpl? element as TodoTaskImpl:new TodoTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TodoTaskImpl>("tasks", tasksArrValue);
         }
@@ -163,7 +163,7 @@ export class TodoTaskListImpl extends EntityImpl implements TodoTaskList {
         if(value) {
             const tasksArrValue: TodoTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof TodoTaskImpl? element:new TodoTaskImpl(element)));
+                tasksArrValue.push((element instanceof TodoTaskImpl? element as TodoTaskImpl:new TodoTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

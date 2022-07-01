@@ -89,7 +89,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(value) {
             const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = [];
             this.alternativeSecurityIds?.forEach(element => {
-                alternativeSecurityIdsArrValue.push((element instanceof AlternativeSecurityIdImpl? element:new AlternativeSecurityIdImpl(element)));
+                alternativeSecurityIdsArrValue.push((element instanceof AlternativeSecurityIdImpl? element as AlternativeSecurityIdImpl:new AlternativeSecurityIdImpl(element)));
             });
             this._alternativeSecurityIds = alternativeSecurityIdsArrValue;
         }
@@ -236,7 +236,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -336,7 +336,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(value) {
             const memberOfArrValue: DirectoryObjectImpl[] = [];
             this.memberOf?.forEach(element => {
-                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._memberOf = memberOfArrValue;
         }
@@ -452,7 +452,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(value) {
             const registeredOwnersArrValue: DirectoryObjectImpl[] = [];
             this.registeredOwners?.forEach(element => {
-                registeredOwnersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                registeredOwnersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._registeredOwners = registeredOwnersArrValue;
         }
@@ -472,7 +472,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(value) {
             const registeredUsersArrValue: DirectoryObjectImpl[] = [];
             this.registeredUsers?.forEach(element => {
-                registeredUsersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                registeredUsersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._registeredUsers = registeredUsersArrValue;
         }
@@ -489,7 +489,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         }
         if(this.alternativeSecurityIds && this.alternativeSecurityIds.length != 0){        const alternativeSecurityIdsArrValue: AlternativeSecurityIdImpl[] = [];
         this.alternativeSecurityIds?.forEach(element => {
-            alternativeSecurityIdsArrValue.push((element instanceof AlternativeSecurityIdImpl? element:new AlternativeSecurityIdImpl(element)));
+            alternativeSecurityIdsArrValue.push((element instanceof AlternativeSecurityIdImpl? element as AlternativeSecurityIdImpl:new AlternativeSecurityIdImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AlternativeSecurityIdImpl>("alternativeSecurityIds", alternativeSecurityIdsArrValue);
         }
@@ -513,7 +513,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
@@ -528,7 +528,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         }
         if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = [];
         this.memberOf?.forEach(element => {
-            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
@@ -552,13 +552,13 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         }
         if(this.registeredOwners && this.registeredOwners.length != 0){        const registeredOwnersArrValue: DirectoryObjectImpl[] = [];
         this.registeredOwners?.forEach(element => {
-            registeredOwnersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            registeredOwnersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredOwners", registeredOwnersArrValue);
         }
         if(this.registeredUsers && this.registeredUsers.length != 0){        const registeredUsersArrValue: DirectoryObjectImpl[] = [];
         this.registeredUsers?.forEach(element => {
-            registeredUsersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            registeredUsersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("registeredUsers", registeredUsersArrValue);
         }
@@ -567,7 +567,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         }
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
         this.transitiveMemberOf?.forEach(element => {
-            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
@@ -606,7 +606,7 @@ export class DeviceImpl extends DirectoryObjectImpl implements Device {
         if(value) {
             const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
             this.transitiveMemberOf?.forEach(element => {
-                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._transitiveMemberOf = transitiveMemberOfArrValue;
         }

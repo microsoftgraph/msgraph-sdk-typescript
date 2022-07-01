@@ -24,7 +24,7 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUser
      */
     public set activity(value: RiskUserActivity | undefined) {
         if(value) {
-            this._activity = value instanceof RiskUserActivityImpl? value : new RiskUserActivityImpl(value);
+            this._activity = value instanceof RiskUserActivityImpl? value as RiskUserActivityImpl: new RiskUserActivityImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class RiskyUserHistoryItemImpl extends RiskyUserImpl implements RiskyUser
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activity){
-            writer.writeObjectValue<RiskUserActivityImpl>("activity", (!this.activity || this.activity instanceof RiskUserActivityImpl? this.activity : new RiskUserActivityImpl(this.activity)));
+            writer.writeObjectValue<RiskUserActivityImpl>("activity", (this.activity instanceof RiskUserActivityImpl? this.activity as RiskUserActivityImpl: new RiskUserActivityImpl(this.activity)));
         }
         if(this.initiatedBy){
             writer.writeStringValue("initiatedBy", this.initiatedBy);

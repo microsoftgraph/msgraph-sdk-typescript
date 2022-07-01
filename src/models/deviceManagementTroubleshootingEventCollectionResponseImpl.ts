@@ -73,7 +73,7 @@ export class DeviceManagementTroubleshootingEventCollectionResponseImpl implemen
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element:new DeviceManagementTroubleshootingEventImpl(element)));
+            valueArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element as DeviceManagementTroubleshootingEventImpl:new DeviceManagementTroubleshootingEventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceManagementTroubleshootingEventCollectionResponseImpl implemen
         if(value) {
             const valueArrValue: DeviceManagementTroubleshootingEventImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element:new DeviceManagementTroubleshootingEventImpl(element)));
+                valueArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element as DeviceManagementTroubleshootingEventImpl:new DeviceManagementTroubleshootingEventImpl(element)));
             });
             this._value = valueArrValue;
         }

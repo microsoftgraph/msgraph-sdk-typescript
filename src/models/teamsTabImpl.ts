@@ -29,7 +29,7 @@ export class TeamsTabImpl extends EntityImpl implements TeamsTab {
      */
     public set configuration(value: TeamsTabConfiguration | undefined) {
         if(value) {
-            this._configuration = value instanceof TeamsTabConfigurationImpl? value : new TeamsTabConfigurationImpl(value);
+            this._configuration = value instanceof TeamsTabConfigurationImpl? value as TeamsTabConfigurationImpl: new TeamsTabConfigurationImpl(value);
         }
     };
     /**
@@ -79,13 +79,13 @@ export class TeamsTabImpl extends EntityImpl implements TeamsTab {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-            writer.writeObjectValue<TeamsTabConfigurationImpl>("configuration", (!this.configuration || this.configuration instanceof TeamsTabConfigurationImpl? this.configuration : new TeamsTabConfigurationImpl(this.configuration)));
+            writer.writeObjectValue<TeamsTabConfigurationImpl>("configuration", (this.configuration instanceof TeamsTabConfigurationImpl? this.configuration as TeamsTabConfigurationImpl: new TeamsTabConfigurationImpl(this.configuration)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.teamsApp){
-            writer.writeObjectValue<TeamsAppImpl>("teamsApp", (!this.teamsApp || this.teamsApp instanceof TeamsAppImpl? this.teamsApp : new TeamsAppImpl(this.teamsApp)));
+            writer.writeObjectValue<TeamsAppImpl>("teamsApp", (this.teamsApp instanceof TeamsAppImpl? this.teamsApp as TeamsAppImpl: new TeamsAppImpl(this.teamsApp)));
         }
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);
@@ -104,7 +104,7 @@ export class TeamsTabImpl extends EntityImpl implements TeamsTab {
      */
     public set teamsApp(value: TeamsApp | undefined) {
         if(value) {
-            this._teamsApp = value instanceof TeamsAppImpl? value : new TeamsAppImpl(value);
+            this._teamsApp = value instanceof TeamsAppImpl? value as TeamsAppImpl: new TeamsAppImpl(value);
         }
     };
     /**

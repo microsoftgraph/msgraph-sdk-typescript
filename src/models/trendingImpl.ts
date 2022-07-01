@@ -74,7 +74,7 @@ export class TrendingImpl extends EntityImpl implements Trending {
      */
     public set resource(value: Entity | undefined) {
         if(value) {
-            this._resource = value instanceof EntityImpl? value : new EntityImpl(value);
+            this._resource = value instanceof EntityImpl? value as EntityImpl: new EntityImpl(value);
         }
     };
     /**
@@ -90,7 +90,7 @@ export class TrendingImpl extends EntityImpl implements Trending {
      */
     public set resourceReference(value: ResourceReference | undefined) {
         if(value) {
-            this._resourceReference = value instanceof ResourceReferenceImpl? value : new ResourceReferenceImpl(value);
+            this._resourceReference = value instanceof ResourceReferenceImpl? value as ResourceReferenceImpl: new ResourceReferenceImpl(value);
         }
     };
     /**
@@ -106,7 +106,7 @@ export class TrendingImpl extends EntityImpl implements Trending {
      */
     public set resourceVisualization(value: ResourceVisualization | undefined) {
         if(value) {
-            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value : new ResourceVisualizationImpl(value);
+            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value as ResourceVisualizationImpl: new ResourceVisualizationImpl(value);
         }
     };
     /**
@@ -120,13 +120,13 @@ export class TrendingImpl extends EntityImpl implements Trending {
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.resource){
-            writer.writeObjectValue<EntityImpl>("resource", (!this.resource || this.resource instanceof EntityImpl? this.resource : new EntityImpl(this.resource)));
+            writer.writeObjectValue<EntityImpl>("resource", (this.resource instanceof EntityImpl? this.resource as EntityImpl: new EntityImpl(this.resource)));
         }
         if(this.resourceReference){
-            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (!this.resourceReference || this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference : new ResourceReferenceImpl(this.resourceReference)));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference as ResourceReferenceImpl: new ResourceReferenceImpl(this.resourceReference)));
         }
         if(this.resourceVisualization){
-            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (!this.resourceVisualization || this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization : new ResourceVisualizationImpl(this.resourceVisualization)));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization as ResourceVisualizationImpl: new ResourceVisualizationImpl(this.resourceVisualization)));
         }
         if(this.weight){
             writer.writeNumberValue("weight", this.weight);

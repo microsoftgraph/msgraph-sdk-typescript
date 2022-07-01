@@ -64,7 +64,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public set lastShared(value: SharingDetail | undefined) {
         if(value) {
-            this._lastShared = value instanceof SharingDetailImpl? value : new SharingDetailImpl(value);
+            this._lastShared = value instanceof SharingDetailImpl? value as SharingDetailImpl: new SharingDetailImpl(value);
         }
     };
     /**
@@ -80,7 +80,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public set lastSharedMethod(value: Entity | undefined) {
         if(value) {
-            this._lastSharedMethod = value instanceof EntityImpl? value : new EntityImpl(value);
+            this._lastSharedMethod = value instanceof EntityImpl? value as EntityImpl: new EntityImpl(value);
         }
     };
     /**
@@ -96,7 +96,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public set resource(value: Entity | undefined) {
         if(value) {
-            this._resource = value instanceof EntityImpl? value : new EntityImpl(value);
+            this._resource = value instanceof EntityImpl? value as EntityImpl: new EntityImpl(value);
         }
     };
     /**
@@ -112,7 +112,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public set resourceReference(value: ResourceReference | undefined) {
         if(value) {
-            this._resourceReference = value instanceof ResourceReferenceImpl? value : new ResourceReferenceImpl(value);
+            this._resourceReference = value instanceof ResourceReferenceImpl? value as ResourceReferenceImpl: new ResourceReferenceImpl(value);
         }
     };
     /**
@@ -128,7 +128,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
      */
     public set resourceVisualization(value: ResourceVisualization | undefined) {
         if(value) {
-            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value : new ResourceVisualizationImpl(value);
+            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value as ResourceVisualizationImpl: new ResourceVisualizationImpl(value);
         }
     };
     /**
@@ -139,23 +139,23 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastShared){
-            writer.writeObjectValue<SharingDetailImpl>("lastShared", (!this.lastShared || this.lastShared instanceof SharingDetailImpl? this.lastShared : new SharingDetailImpl(this.lastShared)));
+            writer.writeObjectValue<SharingDetailImpl>("lastShared", (this.lastShared instanceof SharingDetailImpl? this.lastShared as SharingDetailImpl: new SharingDetailImpl(this.lastShared)));
         }
         if(this.lastSharedMethod){
-            writer.writeObjectValue<EntityImpl>("lastSharedMethod", (!this.lastSharedMethod || this.lastSharedMethod instanceof EntityImpl? this.lastSharedMethod : new EntityImpl(this.lastSharedMethod)));
+            writer.writeObjectValue<EntityImpl>("lastSharedMethod", (this.lastSharedMethod instanceof EntityImpl? this.lastSharedMethod as EntityImpl: new EntityImpl(this.lastSharedMethod)));
         }
         if(this.resource){
-            writer.writeObjectValue<EntityImpl>("resource", (!this.resource || this.resource instanceof EntityImpl? this.resource : new EntityImpl(this.resource)));
+            writer.writeObjectValue<EntityImpl>("resource", (this.resource instanceof EntityImpl? this.resource as EntityImpl: new EntityImpl(this.resource)));
         }
         if(this.resourceReference){
-            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (!this.resourceReference || this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference : new ResourceReferenceImpl(this.resourceReference)));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference as ResourceReferenceImpl: new ResourceReferenceImpl(this.resourceReference)));
         }
         if(this.resourceVisualization){
-            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (!this.resourceVisualization || this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization : new ResourceVisualizationImpl(this.resourceVisualization)));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization as ResourceVisualizationImpl: new ResourceVisualizationImpl(this.resourceVisualization)));
         }
         if(this.sharingHistory && this.sharingHistory.length != 0){        const sharingHistoryArrValue: SharingDetailImpl[] = [];
         this.sharingHistory?.forEach(element => {
-            sharingHistoryArrValue.push((element instanceof SharingDetailImpl? element:new SharingDetailImpl(element)));
+            sharingHistoryArrValue.push((element instanceof SharingDetailImpl? element as SharingDetailImpl:new SharingDetailImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharingDetailImpl>("sharingHistory", sharingHistoryArrValue);
         }
@@ -175,7 +175,7 @@ export class SharedInsightImpl extends EntityImpl implements SharedInsight {
         if(value) {
             const sharingHistoryArrValue: SharingDetailImpl[] = [];
             this.sharingHistory?.forEach(element => {
-                sharingHistoryArrValue.push((element instanceof SharingDetailImpl? element:new SharingDetailImpl(element)));
+                sharingHistoryArrValue.push((element instanceof SharingDetailImpl? element as SharingDetailImpl:new SharingDetailImpl(element)));
             });
             this._sharingHistory = sharingHistoryArrValue;
         }

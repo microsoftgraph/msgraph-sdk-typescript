@@ -27,7 +27,7 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote {
      */
     public set author(value: Identity | undefined) {
         if(value) {
-            this._author = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._author = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -53,7 +53,7 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote {
      */
     public set content(value: ItemBody | undefined) {
         if(value) {
-            this._content = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._content = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -91,10 +91,10 @@ export class AuthoredNoteImpl extends EntityImpl implements AuthoredNote {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.author){
-            writer.writeObjectValue<IdentityImpl>("author", (!this.author || this.author instanceof IdentityImpl? this.author : new IdentityImpl(this.author)));
+            writer.writeObjectValue<IdentityImpl>("author", (this.author instanceof IdentityImpl? this.author as IdentityImpl: new IdentityImpl(this.author)));
         }
         if(this.content){
-            writer.writeObjectValue<ItemBodyImpl>("content", (!this.content || this.content instanceof ItemBodyImpl? this.content : new ItemBodyImpl(this.content)));
+            writer.writeObjectValue<ItemBodyImpl>("content", (this.content instanceof ItemBodyImpl? this.content as ItemBodyImpl: new ItemBodyImpl(this.content)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);

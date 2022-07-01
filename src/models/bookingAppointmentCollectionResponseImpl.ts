@@ -73,7 +73,7 @@ export class BookingAppointmentCollectionResponseImpl implements BookingAppointm
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingAppointmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingAppointmentImpl? element:new BookingAppointmentImpl(element)));
+            valueArrValue.push((element instanceof BookingAppointmentImpl? element as BookingAppointmentImpl:new BookingAppointmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingAppointmentCollectionResponseImpl implements BookingAppointm
         if(value) {
             const valueArrValue: BookingAppointmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingAppointmentImpl? element:new BookingAppointmentImpl(element)));
+                valueArrValue.push((element instanceof BookingAppointmentImpl? element as BookingAppointmentImpl:new BookingAppointmentImpl(element)));
             });
             this._value = valueArrValue;
         }

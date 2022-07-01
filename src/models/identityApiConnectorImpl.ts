@@ -25,7 +25,7 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
      */
     public set authenticationConfiguration(value: ApiAuthenticationConfigurationBase | undefined) {
         if(value) {
-            this._authenticationConfiguration = value instanceof ApiAuthenticationConfigurationBaseImpl? value : new ApiAuthenticationConfigurationBaseImpl(value);
+            this._authenticationConfiguration = value instanceof ApiAuthenticationConfigurationBaseImpl? value as ApiAuthenticationConfigurationBaseImpl: new ApiAuthenticationConfigurationBaseImpl(value);
         }
     };
     /**
@@ -73,7 +73,7 @@ export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.authenticationConfiguration){
-            writer.writeObjectValue<ApiAuthenticationConfigurationBaseImpl>("authenticationConfiguration", (!this.authenticationConfiguration || this.authenticationConfiguration instanceof ApiAuthenticationConfigurationBaseImpl? this.authenticationConfiguration : new ApiAuthenticationConfigurationBaseImpl(this.authenticationConfiguration)));
+            writer.writeObjectValue<ApiAuthenticationConfigurationBaseImpl>("authenticationConfiguration", (this.authenticationConfiguration instanceof ApiAuthenticationConfigurationBaseImpl? this.authenticationConfiguration as ApiAuthenticationConfigurationBaseImpl: new ApiAuthenticationConfigurationBaseImpl(this.authenticationConfiguration)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);

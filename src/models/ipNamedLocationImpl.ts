@@ -43,7 +43,7 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
         if(value) {
             const ipRangesArrValue: IpRangeImpl[] = [];
             this.ipRanges?.forEach(element => {
-                ipRangesArrValue.push((element instanceof IpRangeImpl? element:new IpRangeImpl(element)));
+                ipRangesArrValue.push((element instanceof IpRangeImpl? element as IpRangeImpl:new IpRangeImpl(element)));
             });
             this._ipRanges = ipRangesArrValue;
         }
@@ -73,7 +73,7 @@ export class IpNamedLocationImpl extends NamedLocationImpl implements IpNamedLoc
         super.serialize(writer);
         if(this.ipRanges && this.ipRanges.length != 0){        const ipRangesArrValue: IpRangeImpl[] = [];
         this.ipRanges?.forEach(element => {
-            ipRangesArrValue.push((element instanceof IpRangeImpl? element:new IpRangeImpl(element)));
+            ipRangesArrValue.push((element instanceof IpRangeImpl? element as IpRangeImpl:new IpRangeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IpRangeImpl>("ipRanges", ipRangesArrValue);
         }

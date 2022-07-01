@@ -73,7 +73,7 @@ export class TeamsAppCollectionResponseImpl implements TeamsAppCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamsAppImpl? element:new TeamsAppImpl(element)));
+            valueArrValue.push((element instanceof TeamsAppImpl? element as TeamsAppImpl:new TeamsAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAppImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamsAppCollectionResponseImpl implements TeamsAppCollectionRespons
         if(value) {
             const valueArrValue: TeamsAppImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamsAppImpl? element:new TeamsAppImpl(element)));
+                valueArrValue.push((element instanceof TeamsAppImpl? element as TeamsAppImpl:new TeamsAppImpl(element)));
             });
             this._value = valueArrValue;
         }

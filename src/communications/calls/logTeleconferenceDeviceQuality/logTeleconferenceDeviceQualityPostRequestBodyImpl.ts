@@ -56,7 +56,7 @@ export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements LogTel
      */
     public set quality(value: TeleconferenceDeviceQuality | undefined) {
         if(value) {
-            this._quality = value instanceof TeleconferenceDeviceQualityImpl? value : new TeleconferenceDeviceQualityImpl(value);
+            this._quality = value instanceof TeleconferenceDeviceQualityImpl? value as TeleconferenceDeviceQualityImpl: new TeleconferenceDeviceQualityImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class LogTeleconferenceDeviceQualityPostRequestBodyImpl implements LogTel
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.quality){
-            writer.writeObjectValue<TeleconferenceDeviceQualityImpl>("quality", (!this.quality || this.quality instanceof TeleconferenceDeviceQualityImpl? this.quality : new TeleconferenceDeviceQualityImpl(this.quality)));
+            writer.writeObjectValue<TeleconferenceDeviceQualityImpl>("quality", (this.quality instanceof TeleconferenceDeviceQualityImpl? this.quality as TeleconferenceDeviceQualityImpl: new TeleconferenceDeviceQualityImpl(this.quality)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

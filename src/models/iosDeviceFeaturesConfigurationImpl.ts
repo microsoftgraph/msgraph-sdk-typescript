@@ -75,7 +75,7 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         if(value) {
             const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = [];
             this.homeScreenDockIcons?.forEach(element => {
-                homeScreenDockIconsArrValue.push((element instanceof IosHomeScreenItemImpl? element:new IosHomeScreenItemImpl(element)));
+                homeScreenDockIconsArrValue.push((element instanceof IosHomeScreenItemImpl? element as IosHomeScreenItemImpl:new IosHomeScreenItemImpl(element)));
             });
             this._homeScreenDockIcons = homeScreenDockIconsArrValue;
         }
@@ -95,7 +95,7 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         if(value) {
             const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = [];
             this.homeScreenPages?.forEach(element => {
-                homeScreenPagesArrValue.push((element instanceof IosHomeScreenPageImpl? element:new IosHomeScreenPageImpl(element)));
+                homeScreenPagesArrValue.push((element instanceof IosHomeScreenPageImpl? element as IosHomeScreenPageImpl:new IosHomeScreenPageImpl(element)));
             });
             this._homeScreenPages = homeScreenPagesArrValue;
         }
@@ -131,7 +131,7 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         if(value) {
             const notificationSettingsArrValue: IosNotificationSettingsImpl[] = [];
             this.notificationSettings?.forEach(element => {
-                notificationSettingsArrValue.push((element instanceof IosNotificationSettingsImpl? element:new IosNotificationSettingsImpl(element)));
+                notificationSettingsArrValue.push((element instanceof IosNotificationSettingsImpl? element as IosNotificationSettingsImpl:new IosNotificationSettingsImpl(element)));
             });
             this._notificationSettings = notificationSettingsArrValue;
         }
@@ -148,13 +148,13 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         }
         if(this.homeScreenDockIcons && this.homeScreenDockIcons.length != 0){        const homeScreenDockIconsArrValue: IosHomeScreenItemImpl[] = [];
         this.homeScreenDockIcons?.forEach(element => {
-            homeScreenDockIconsArrValue.push((element instanceof IosHomeScreenItemImpl? element:new IosHomeScreenItemImpl(element)));
+            homeScreenDockIconsArrValue.push((element instanceof IosHomeScreenItemImpl? element as IosHomeScreenItemImpl:new IosHomeScreenItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosHomeScreenItemImpl>("homeScreenDockIcons", homeScreenDockIconsArrValue);
         }
         if(this.homeScreenPages && this.homeScreenPages.length != 0){        const homeScreenPagesArrValue: IosHomeScreenPageImpl[] = [];
         this.homeScreenPages?.forEach(element => {
-            homeScreenPagesArrValue.push((element instanceof IosHomeScreenPageImpl? element:new IosHomeScreenPageImpl(element)));
+            homeScreenPagesArrValue.push((element instanceof IosHomeScreenPageImpl? element as IosHomeScreenPageImpl:new IosHomeScreenPageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosHomeScreenPageImpl>("homeScreenPages", homeScreenPagesArrValue);
         }
@@ -163,7 +163,7 @@ export class IosDeviceFeaturesConfigurationImpl extends AppleDeviceFeaturesConfi
         }
         if(this.notificationSettings && this.notificationSettings.length != 0){        const notificationSettingsArrValue: IosNotificationSettingsImpl[] = [];
         this.notificationSettings?.forEach(element => {
-            notificationSettingsArrValue.push((element instanceof IosNotificationSettingsImpl? element:new IosNotificationSettingsImpl(element)));
+            notificationSettingsArrValue.push((element instanceof IosNotificationSettingsImpl? element as IosNotificationSettingsImpl:new IosNotificationSettingsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosNotificationSettingsImpl>("notificationSettings", notificationSettingsArrValue);
         }

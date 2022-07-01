@@ -41,7 +41,7 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
      */
     public set appScope(value: AppScope | undefined) {
         if(value) {
-            this._appScope = value instanceof AppScopeImpl? value : new AppScopeImpl(value);
+            this._appScope = value instanceof AppScopeImpl? value as AppScopeImpl: new AppScopeImpl(value);
         }
     };
     /**
@@ -105,7 +105,7 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
      */
     public set directoryScope(value: DirectoryObject | undefined) {
         if(value) {
-            this._directoryScope = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+            this._directoryScope = value instanceof DirectoryObjectImpl? value as DirectoryObjectImpl: new DirectoryObjectImpl(value);
         }
     };
     /**
@@ -154,7 +154,7 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
      */
     public set principal(value: DirectoryObject | undefined) {
         if(value) {
-            this._principal = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+            this._principal = value instanceof DirectoryObjectImpl? value as DirectoryObjectImpl: new DirectoryObjectImpl(value);
         }
     };
     /**
@@ -186,7 +186,7 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
      */
     public set roleDefinition(value: UnifiedRoleDefinition | undefined) {
         if(value) {
-            this._roleDefinition = value instanceof UnifiedRoleDefinitionImpl? value : new UnifiedRoleDefinitionImpl(value);
+            this._roleDefinition = value instanceof UnifiedRoleDefinitionImpl? value as UnifiedRoleDefinitionImpl: new UnifiedRoleDefinitionImpl(value);
         }
     };
     /**
@@ -213,7 +213,7 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appScope){
-            writer.writeObjectValue<AppScopeImpl>("appScope", (!this.appScope || this.appScope instanceof AppScopeImpl? this.appScope : new AppScopeImpl(this.appScope)));
+            writer.writeObjectValue<AppScopeImpl>("appScope", (this.appScope instanceof AppScopeImpl? this.appScope as AppScopeImpl: new AppScopeImpl(this.appScope)));
         }
         if(this.appScopeId){
             writer.writeStringValue("appScopeId", this.appScopeId);
@@ -222,19 +222,19 @@ export class UnifiedRoleAssignmentImpl extends EntityImpl implements UnifiedRole
             writer.writeStringValue("condition", this.condition);
         }
         if(this.directoryScope){
-            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", (!this.directoryScope || this.directoryScope instanceof DirectoryObjectImpl? this.directoryScope : new DirectoryObjectImpl(this.directoryScope)));
+            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", (this.directoryScope instanceof DirectoryObjectImpl? this.directoryScope as DirectoryObjectImpl: new DirectoryObjectImpl(this.directoryScope)));
         }
         if(this.directoryScopeId){
             writer.writeStringValue("directoryScopeId", this.directoryScopeId);
         }
         if(this.principal){
-            writer.writeObjectValue<DirectoryObjectImpl>("principal", (!this.principal || this.principal instanceof DirectoryObjectImpl? this.principal : new DirectoryObjectImpl(this.principal)));
+            writer.writeObjectValue<DirectoryObjectImpl>("principal", (this.principal instanceof DirectoryObjectImpl? this.principal as DirectoryObjectImpl: new DirectoryObjectImpl(this.principal)));
         }
         if(this.principalId){
             writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", (!this.roleDefinition || this.roleDefinition instanceof UnifiedRoleDefinitionImpl? this.roleDefinition : new UnifiedRoleDefinitionImpl(this.roleDefinition)));
+            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", (this.roleDefinition instanceof UnifiedRoleDefinitionImpl? this.roleDefinition as UnifiedRoleDefinitionImpl: new UnifiedRoleDefinitionImpl(this.roleDefinition)));
         }
         if(this.roleDefinitionId){
             writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);

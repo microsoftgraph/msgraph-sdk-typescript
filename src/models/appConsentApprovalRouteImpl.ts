@@ -23,7 +23,7 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
         if(value) {
             const appConsentRequestsArrValue: AppConsentRequestImpl[] = [];
             this.appConsentRequests?.forEach(element => {
-                appConsentRequestsArrValue.push((element instanceof AppConsentRequestImpl? element:new AppConsentRequestImpl(element)));
+                appConsentRequestsArrValue.push((element instanceof AppConsentRequestImpl? element as AppConsentRequestImpl:new AppConsentRequestImpl(element)));
             });
             this._appConsentRequests = appConsentRequestsArrValue;
         }
@@ -54,7 +54,7 @@ export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsen
         super.serialize(writer);
         if(this.appConsentRequests && this.appConsentRequests.length != 0){        const appConsentRequestsArrValue: AppConsentRequestImpl[] = [];
         this.appConsentRequests?.forEach(element => {
-            appConsentRequestsArrValue.push((element instanceof AppConsentRequestImpl? element:new AppConsentRequestImpl(element)));
+            appConsentRequestsArrValue.push((element instanceof AppConsentRequestImpl? element as AppConsentRequestImpl:new AppConsentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("appConsentRequests", appConsentRequestsArrValue);
         }

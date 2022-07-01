@@ -42,7 +42,7 @@ export class AuditActivityInitiatorImpl implements AuditActivityInitiator {
      */
     public set app(value: AppIdentity | undefined) {
         if(value) {
-            this._app = value instanceof AppIdentityImpl? value : new AppIdentityImpl(value);
+            this._app = value instanceof AppIdentityImpl? value as AppIdentityImpl: new AppIdentityImpl(value);
         }
     };
     /**
@@ -71,10 +71,10 @@ export class AuditActivityInitiatorImpl implements AuditActivityInitiator {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.app){
-            writer.writeObjectValue<AppIdentityImpl>("app", (!this.app || this.app instanceof AppIdentityImpl? this.app : new AppIdentityImpl(this.app)));
+            writer.writeObjectValue<AppIdentityImpl>("app", (this.app instanceof AppIdentityImpl? this.app as AppIdentityImpl: new AppIdentityImpl(this.app)));
         }
         if(this.user){
-            writer.writeObjectValue<UserIdentityImpl>("user", (!this.user || this.user instanceof UserIdentityImpl? this.user : new UserIdentityImpl(this.user)));
+            writer.writeObjectValue<UserIdentityImpl>("user", (this.user instanceof UserIdentityImpl? this.user as UserIdentityImpl: new UserIdentityImpl(this.user)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -91,7 +91,7 @@ export class AuditActivityInitiatorImpl implements AuditActivityInitiator {
      */
     public set user(value: UserIdentity | undefined) {
         if(value) {
-            this._user = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+            this._user = value instanceof UserIdentityImpl? value as UserIdentityImpl: new UserIdentityImpl(value);
         }
     };
 }

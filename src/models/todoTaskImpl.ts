@@ -63,7 +63,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public set body(value: ItemBody | undefined) {
         if(value) {
-            this._body = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._body = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -113,7 +113,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(value) {
             const checklistItemsArrValue: ChecklistItemImpl[] = [];
             this.checklistItems?.forEach(element => {
-                checklistItemsArrValue.push((element instanceof ChecklistItemImpl? element:new ChecklistItemImpl(element)));
+                checklistItemsArrValue.push((element instanceof ChecklistItemImpl? element as ChecklistItemImpl:new ChecklistItemImpl(element)));
             });
             this._checklistItems = checklistItemsArrValue;
         }
@@ -131,7 +131,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public set completedDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._completedDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._completedDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -186,7 +186,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public set dueDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._dueDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._dueDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -204,7 +204,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -296,7 +296,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(value) {
             const linkedResourcesArrValue: LinkedResourceImpl[] = [];
             this.linkedResources?.forEach(element => {
-                linkedResourcesArrValue.push((element instanceof LinkedResourceImpl? element:new LinkedResourceImpl(element)));
+                linkedResourcesArrValue.push((element instanceof LinkedResourceImpl? element as LinkedResourceImpl:new LinkedResourceImpl(element)));
             });
             this._linkedResources = linkedResourcesArrValue;
         }
@@ -314,7 +314,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         if(value) {
-            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(value);
         }
     };
     /**
@@ -330,7 +330,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
      */
     public set reminderDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._reminderDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._reminderDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -341,7 +341,7 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.body){
-            writer.writeObjectValue<ItemBodyImpl>("body", (!this.body || this.body instanceof ItemBodyImpl? this.body : new ItemBodyImpl(this.body)));
+            writer.writeObjectValue<ItemBodyImpl>("body", (this.body instanceof ItemBodyImpl? this.body as ItemBodyImpl: new ItemBodyImpl(this.body)));
         }
         if(this.bodyLastModifiedDateTime){
             writer.writeDateValue("bodyLastModifiedDateTime", this.bodyLastModifiedDateTime);
@@ -351,22 +351,22 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         }
         if(this.checklistItems && this.checklistItems.length != 0){        const checklistItemsArrValue: ChecklistItemImpl[] = [];
         this.checklistItems?.forEach(element => {
-            checklistItemsArrValue.push((element instanceof ChecklistItemImpl? element:new ChecklistItemImpl(element)));
+            checklistItemsArrValue.push((element instanceof ChecklistItemImpl? element as ChecklistItemImpl:new ChecklistItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChecklistItemImpl>("checklistItems", checklistItemsArrValue);
         }
         if(this.completedDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", (!this.completedDateTime || this.completedDateTime instanceof DateTimeTimeZoneImpl? this.completedDateTime : new DateTimeTimeZoneImpl(this.completedDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", (this.completedDateTime instanceof DateTimeTimeZoneImpl? this.completedDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.completedDateTime)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.dueDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", (!this.dueDateTime || this.dueDateTime instanceof DateTimeTimeZoneImpl? this.dueDateTime : new DateTimeTimeZoneImpl(this.dueDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", (this.dueDateTime instanceof DateTimeTimeZoneImpl? this.dueDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.dueDateTime)));
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
@@ -381,15 +381,15 @@ export class TodoTaskImpl extends EntityImpl implements TodoTask {
         }
         if(this.linkedResources && this.linkedResources.length != 0){        const linkedResourcesArrValue: LinkedResourceImpl[] = [];
         this.linkedResources?.forEach(element => {
-            linkedResourcesArrValue.push((element instanceof LinkedResourceImpl? element:new LinkedResourceImpl(element)));
+            linkedResourcesArrValue.push((element instanceof LinkedResourceImpl? element as LinkedResourceImpl:new LinkedResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LinkedResourceImpl>("linkedResources", linkedResourcesArrValue);
         }
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.reminderDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderDateTime", (!this.reminderDateTime || this.reminderDateTime instanceof DateTimeTimeZoneImpl? this.reminderDateTime : new DateTimeTimeZoneImpl(this.reminderDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderDateTime", (this.reminderDateTime instanceof DateTimeTimeZoneImpl? this.reminderDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.reminderDateTime)));
         }
         if(this.status){
             writer.writeEnumValue<TaskStatus>("status", this.status);

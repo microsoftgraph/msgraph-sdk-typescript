@@ -73,7 +73,7 @@ export class TrendingCollectionResponseImpl implements TrendingCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TrendingImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TrendingImpl? element:new TrendingImpl(element)));
+            valueArrValue.push((element instanceof TrendingImpl? element as TrendingImpl:new TrendingImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TrendingImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TrendingCollectionResponseImpl implements TrendingCollectionRespons
         if(value) {
             const valueArrValue: TrendingImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TrendingImpl? element:new TrendingImpl(element)));
+                valueArrValue.push((element instanceof TrendingImpl? element as TrendingImpl:new TrendingImpl(element)));
             });
             this._value = valueArrValue;
         }

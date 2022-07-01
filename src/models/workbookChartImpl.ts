@@ -55,7 +55,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public set axes(value: WorkbookChartAxes | undefined) {
         if(value) {
-            this._axes = value instanceof WorkbookChartAxesImpl? value : new WorkbookChartAxesImpl(value);
+            this._axes = value instanceof WorkbookChartAxesImpl? value as WorkbookChartAxesImpl: new WorkbookChartAxesImpl(value);
         }
     };
     /**
@@ -90,7 +90,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public set dataLabels(value: WorkbookChartDataLabels | undefined) {
         if(value) {
-            this._dataLabels = value instanceof WorkbookChartDataLabelsImpl? value : new WorkbookChartDataLabelsImpl(value);
+            this._dataLabels = value instanceof WorkbookChartDataLabelsImpl? value as WorkbookChartDataLabelsImpl: new WorkbookChartDataLabelsImpl(value);
         }
     };
     /**
@@ -106,7 +106,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public set format(value: WorkbookChartAreaFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartAreaFormatImpl? value : new WorkbookChartAreaFormatImpl(value);
+            this._format = value instanceof WorkbookChartAreaFormatImpl? value as WorkbookChartAreaFormatImpl: new WorkbookChartAreaFormatImpl(value);
         }
     };
     /**
@@ -174,7 +174,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public set legend(value: WorkbookChartLegend | undefined) {
         if(value) {
-            this._legend = value instanceof WorkbookChartLegendImpl? value : new WorkbookChartLegendImpl(value);
+            this._legend = value instanceof WorkbookChartLegendImpl? value as WorkbookChartLegendImpl: new WorkbookChartLegendImpl(value);
         }
     };
     /**
@@ -201,13 +201,13 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.axes){
-            writer.writeObjectValue<WorkbookChartAxesImpl>("axes", (!this.axes || this.axes instanceof WorkbookChartAxesImpl? this.axes : new WorkbookChartAxesImpl(this.axes)));
+            writer.writeObjectValue<WorkbookChartAxesImpl>("axes", (this.axes instanceof WorkbookChartAxesImpl? this.axes as WorkbookChartAxesImpl: new WorkbookChartAxesImpl(this.axes)));
         }
         if(this.dataLabels){
-            writer.writeObjectValue<WorkbookChartDataLabelsImpl>("dataLabels", (!this.dataLabels || this.dataLabels instanceof WorkbookChartDataLabelsImpl? this.dataLabels : new WorkbookChartDataLabelsImpl(this.dataLabels)));
+            writer.writeObjectValue<WorkbookChartDataLabelsImpl>("dataLabels", (this.dataLabels instanceof WorkbookChartDataLabelsImpl? this.dataLabels as WorkbookChartDataLabelsImpl: new WorkbookChartDataLabelsImpl(this.dataLabels)));
         }
         if(this.format){
-            writer.writeObjectValue<WorkbookChartAreaFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartAreaFormatImpl? this.format : new WorkbookChartAreaFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartAreaFormatImpl>("format", (this.format instanceof WorkbookChartAreaFormatImpl? this.format as WorkbookChartAreaFormatImpl: new WorkbookChartAreaFormatImpl(this.format)));
         }
         if(this.height){
             writer.writeNumberValue("height", this.height);
@@ -216,19 +216,19 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
             writer.writeNumberValue("left", this.left);
         }
         if(this.legend){
-            writer.writeObjectValue<WorkbookChartLegendImpl>("legend", (!this.legend || this.legend instanceof WorkbookChartLegendImpl? this.legend : new WorkbookChartLegendImpl(this.legend)));
+            writer.writeObjectValue<WorkbookChartLegendImpl>("legend", (this.legend instanceof WorkbookChartLegendImpl? this.legend as WorkbookChartLegendImpl: new WorkbookChartLegendImpl(this.legend)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
         if(this.series && this.series.length != 0){        const seriesArrValue: WorkbookChartSeriesImpl[] = [];
         this.series?.forEach(element => {
-            seriesArrValue.push((element instanceof WorkbookChartSeriesImpl? element:new WorkbookChartSeriesImpl(element)));
+            seriesArrValue.push((element instanceof WorkbookChartSeriesImpl? element as WorkbookChartSeriesImpl:new WorkbookChartSeriesImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookChartSeriesImpl>("series", seriesArrValue);
         }
         if(this.title){
-            writer.writeObjectValue<WorkbookChartTitleImpl>("title", (!this.title || this.title instanceof WorkbookChartTitleImpl? this.title : new WorkbookChartTitleImpl(this.title)));
+            writer.writeObjectValue<WorkbookChartTitleImpl>("title", (this.title instanceof WorkbookChartTitleImpl? this.title as WorkbookChartTitleImpl: new WorkbookChartTitleImpl(this.title)));
         }
         if(this.top){
             writer.writeNumberValue("top", this.top);
@@ -237,7 +237,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
             writer.writeNumberValue("width", this.width);
         }
         if(this.worksheet){
-            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (!this.worksheet || this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet : new WorkbookWorksheetImpl(this.worksheet)));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(this.worksheet)));
         }
     };
     /**
@@ -255,7 +255,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
         if(value) {
             const seriesArrValue: WorkbookChartSeriesImpl[] = [];
             this.series?.forEach(element => {
-                seriesArrValue.push((element instanceof WorkbookChartSeriesImpl? element:new WorkbookChartSeriesImpl(element)));
+                seriesArrValue.push((element instanceof WorkbookChartSeriesImpl? element as WorkbookChartSeriesImpl:new WorkbookChartSeriesImpl(element)));
             });
             this._series = seriesArrValue;
         }
@@ -273,7 +273,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public set title(value: WorkbookChartTitle | undefined) {
         if(value) {
-            this._title = value instanceof WorkbookChartTitleImpl? value : new WorkbookChartTitleImpl(value);
+            this._title = value instanceof WorkbookChartTitleImpl? value as WorkbookChartTitleImpl: new WorkbookChartTitleImpl(value);
         }
     };
     /**
@@ -321,7 +321,7 @@ export class WorkbookChartImpl extends EntityImpl implements WorkbookChart {
      */
     public set worksheet(value: WorkbookWorksheet | undefined) {
         if(value) {
-            this._worksheet = value instanceof WorkbookWorksheetImpl? value : new WorkbookWorksheetImpl(value);
+            this._worksheet = value instanceof WorkbookWorksheetImpl? value as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(value);
         }
     };
 }

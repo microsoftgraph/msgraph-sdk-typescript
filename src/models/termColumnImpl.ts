@@ -85,7 +85,7 @@ export class TermColumnImpl implements TermColumn {
      */
     public set parentTerm(value: Term | undefined) {
         if(value) {
-            this._parentTerm = value instanceof TermImpl? value : new TermImpl(value);
+            this._parentTerm = value instanceof TermImpl? value as TermImpl: new TermImpl(value);
         }
     };
     /**
@@ -98,13 +98,13 @@ export class TermColumnImpl implements TermColumn {
             writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
         }
         if(this.parentTerm){
-            writer.writeObjectValue<TermImpl>("parentTerm", (!this.parentTerm || this.parentTerm instanceof TermImpl? this.parentTerm : new TermImpl(this.parentTerm)));
+            writer.writeObjectValue<TermImpl>("parentTerm", (this.parentTerm instanceof TermImpl? this.parentTerm as TermImpl: new TermImpl(this.parentTerm)));
         }
         if(this.showFullyQualifiedName){
             writer.writeBooleanValue("showFullyQualifiedName", this.showFullyQualifiedName);
         }
         if(this.termSet){
-            writer.writeObjectValue<SetImpl>("termSet", (!this.termSet || this.termSet instanceof SetImpl? this.termSet : new SetImpl(this.termSet)));
+            writer.writeObjectValue<SetImpl>("termSet", (this.termSet instanceof SetImpl? this.termSet as SetImpl: new SetImpl(this.termSet)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -137,7 +137,7 @@ export class TermColumnImpl implements TermColumn {
      */
     public set termSet(value: Set | undefined) {
         if(value) {
-            this._termSet = value instanceof SetImpl? value : new SetImpl(value);
+            this._termSet = value instanceof SetImpl? value as SetImpl: new SetImpl(value);
         }
     };
 }

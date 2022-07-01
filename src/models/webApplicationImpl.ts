@@ -83,7 +83,7 @@ export class WebApplicationImpl implements WebApplication {
      */
     public set implicitGrantSettings(value: ImplicitGrantSettings | undefined) {
         if(value) {
-            this._implicitGrantSettings = value instanceof ImplicitGrantSettingsImpl? value : new ImplicitGrantSettingsImpl(value);
+            this._implicitGrantSettings = value instanceof ImplicitGrantSettingsImpl? value as ImplicitGrantSettingsImpl: new ImplicitGrantSettingsImpl(value);
         }
     };
     /**
@@ -128,7 +128,7 @@ export class WebApplicationImpl implements WebApplication {
             writer.writeStringValue("homePageUrl", this.homePageUrl);
         }
         if(this.implicitGrantSettings){
-            writer.writeObjectValue<ImplicitGrantSettingsImpl>("implicitGrantSettings", (!this.implicitGrantSettings || this.implicitGrantSettings instanceof ImplicitGrantSettingsImpl? this.implicitGrantSettings : new ImplicitGrantSettingsImpl(this.implicitGrantSettings)));
+            writer.writeObjectValue<ImplicitGrantSettingsImpl>("implicitGrantSettings", (this.implicitGrantSettings instanceof ImplicitGrantSettingsImpl? this.implicitGrantSettings as ImplicitGrantSettingsImpl: new ImplicitGrantSettingsImpl(this.implicitGrantSettings)));
         }
         if(this.logoutUrl){
             writer.writeStringValue("logoutUrl", this.logoutUrl);

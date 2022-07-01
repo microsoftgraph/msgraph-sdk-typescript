@@ -73,7 +73,7 @@ export class TelecomExpenseManagementPartnerCollectionResponseImpl implements Te
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TelecomExpenseManagementPartnerImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element:new TelecomExpenseManagementPartnerImpl(element)));
+            valueArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element as TelecomExpenseManagementPartnerImpl:new TelecomExpenseManagementPartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartnerImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TelecomExpenseManagementPartnerCollectionResponseImpl implements Te
         if(value) {
             const valueArrValue: TelecomExpenseManagementPartnerImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element:new TelecomExpenseManagementPartnerImpl(element)));
+                valueArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element as TelecomExpenseManagementPartnerImpl:new TelecomExpenseManagementPartnerImpl(element)));
             });
             this._value = valueArrValue;
         }

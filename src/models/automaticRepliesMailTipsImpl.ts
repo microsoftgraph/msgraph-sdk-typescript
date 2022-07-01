@@ -85,7 +85,7 @@ export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
      */
     public set messageLanguage(value: LocaleInfo | undefined) {
         if(value) {
-            this._messageLanguage = value instanceof LocaleInfoImpl? value : new LocaleInfoImpl(value);
+            this._messageLanguage = value instanceof LocaleInfoImpl? value as LocaleInfoImpl: new LocaleInfoImpl(value);
         }
     };
     /**
@@ -101,7 +101,7 @@ export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
      */
     public set scheduledEndTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._scheduledEndTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._scheduledEndTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -117,7 +117,7 @@ export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
      */
     public set scheduledStartTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._scheduledStartTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._scheduledStartTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -130,13 +130,13 @@ export class AutomaticRepliesMailTipsImpl implements AutomaticRepliesMailTips {
             writer.writeStringValue("message", this.message);
         }
         if(this.messageLanguage){
-            writer.writeObjectValue<LocaleInfoImpl>("messageLanguage", (!this.messageLanguage || this.messageLanguage instanceof LocaleInfoImpl? this.messageLanguage : new LocaleInfoImpl(this.messageLanguage)));
+            writer.writeObjectValue<LocaleInfoImpl>("messageLanguage", (this.messageLanguage instanceof LocaleInfoImpl? this.messageLanguage as LocaleInfoImpl: new LocaleInfoImpl(this.messageLanguage)));
         }
         if(this.scheduledEndTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndTime", (!this.scheduledEndTime || this.scheduledEndTime instanceof DateTimeTimeZoneImpl? this.scheduledEndTime : new DateTimeTimeZoneImpl(this.scheduledEndTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndTime", (this.scheduledEndTime instanceof DateTimeTimeZoneImpl? this.scheduledEndTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.scheduledEndTime)));
         }
         if(this.scheduledStartTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartTime", (!this.scheduledStartTime || this.scheduledStartTime instanceof DateTimeTimeZoneImpl? this.scheduledStartTime : new DateTimeTimeZoneImpl(this.scheduledStartTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartTime", (this.scheduledStartTime instanceof DateTimeTimeZoneImpl? this.scheduledStartTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.scheduledStartTime)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -83,7 +83,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -149,7 +149,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
      */
     public set dataRecoveryCertificate(value: WindowsInformationProtectionDataRecoveryCertificate | undefined) {
         if(value) {
-            this._dataRecoveryCertificate = value instanceof WindowsInformationProtectionDataRecoveryCertificateImpl? value : new WindowsInformationProtectionDataRecoveryCertificateImpl(value);
+            this._dataRecoveryCertificate = value instanceof WindowsInformationProtectionDataRecoveryCertificateImpl? value as WindowsInformationProtectionDataRecoveryCertificateImpl: new WindowsInformationProtectionDataRecoveryCertificateImpl(value);
         }
     };
     /**
@@ -199,7 +199,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const enterpriseInternalProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
             this.enterpriseInternalProxyServers?.forEach(element => {
-                enterpriseInternalProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+                enterpriseInternalProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
             });
             this._enterpriseInternalProxyServers = enterpriseInternalProxyServersArrValue;
         }
@@ -219,7 +219,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const enterpriseIPRangesArrValue: WindowsInformationProtectionIPRangeCollectionImpl[] = [];
             this.enterpriseIPRanges?.forEach(element => {
-                enterpriseIPRangesArrValue.push((element instanceof WindowsInformationProtectionIPRangeCollectionImpl? element:new WindowsInformationProtectionIPRangeCollectionImpl(element)));
+                enterpriseIPRangesArrValue.push((element instanceof WindowsInformationProtectionIPRangeCollectionImpl? element as WindowsInformationProtectionIPRangeCollectionImpl:new WindowsInformationProtectionIPRangeCollectionImpl(element)));
             });
             this._enterpriseIPRanges = enterpriseIPRangesArrValue;
         }
@@ -255,7 +255,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const enterpriseNetworkDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
             this.enterpriseNetworkDomainNames?.forEach(element => {
-                enterpriseNetworkDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+                enterpriseNetworkDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
             });
             this._enterpriseNetworkDomainNames = enterpriseNetworkDomainNamesArrValue;
         }
@@ -275,7 +275,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const enterpriseProtectedDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
             this.enterpriseProtectedDomainNames?.forEach(element => {
-                enterpriseProtectedDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+                enterpriseProtectedDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
             });
             this._enterpriseProtectedDomainNames = enterpriseProtectedDomainNamesArrValue;
         }
@@ -295,7 +295,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const enterpriseProxiedDomainsArrValue: WindowsInformationProtectionProxiedDomainCollectionImpl[] = [];
             this.enterpriseProxiedDomains?.forEach(element => {
-                enterpriseProxiedDomainsArrValue.push((element instanceof WindowsInformationProtectionProxiedDomainCollectionImpl? element:new WindowsInformationProtectionProxiedDomainCollectionImpl(element)));
+                enterpriseProxiedDomainsArrValue.push((element instanceof WindowsInformationProtectionProxiedDomainCollectionImpl? element as WindowsInformationProtectionProxiedDomainCollectionImpl:new WindowsInformationProtectionProxiedDomainCollectionImpl(element)));
             });
             this._enterpriseProxiedDomains = enterpriseProxiedDomainsArrValue;
         }
@@ -315,7 +315,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const enterpriseProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
             this.enterpriseProxyServers?.forEach(element => {
-                enterpriseProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+                enterpriseProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
             });
             this._enterpriseProxyServers = enterpriseProxyServersArrValue;
         }
@@ -351,7 +351,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const exemptAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = [];
             this.exemptAppLockerFiles?.forEach(element => {
-                exemptAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element:new WindowsInformationProtectionAppLockerFileImpl(element)));
+                exemptAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element as WindowsInformationProtectionAppLockerFileImpl:new WindowsInformationProtectionAppLockerFileImpl(element)));
             });
             this._exemptAppLockerFiles = exemptAppLockerFilesArrValue;
         }
@@ -371,7 +371,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const exemptAppsArrValue: WindowsInformationProtectionAppImpl[] = [];
             this.exemptApps?.forEach(element => {
-                exemptAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element:new WindowsInformationProtectionAppImpl(element)));
+                exemptAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element as WindowsInformationProtectionAppImpl:new WindowsInformationProtectionAppImpl(element)));
             });
             this._exemptApps = exemptAppsArrValue;
         }
@@ -472,7 +472,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const neutralDomainResourcesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
             this.neutralDomainResources?.forEach(element => {
-                neutralDomainResourcesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+                neutralDomainResourcesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
             });
             this._neutralDomainResources = neutralDomainResourcesArrValue;
         }
@@ -492,7 +492,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const protectedAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = [];
             this.protectedAppLockerFiles?.forEach(element => {
-                protectedAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element:new WindowsInformationProtectionAppLockerFileImpl(element)));
+                protectedAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element as WindowsInformationProtectionAppLockerFileImpl:new WindowsInformationProtectionAppLockerFileImpl(element)));
             });
             this._protectedAppLockerFiles = protectedAppLockerFilesArrValue;
         }
@@ -512,7 +512,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const protectedAppsArrValue: WindowsInformationProtectionAppImpl[] = [];
             this.protectedApps?.forEach(element => {
-                protectedAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element:new WindowsInformationProtectionAppImpl(element)));
+                protectedAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element as WindowsInformationProtectionAppImpl:new WindowsInformationProtectionAppImpl(element)));
             });
             this._protectedApps = protectedAppsArrValue;
         }
@@ -574,7 +574,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
@@ -582,7 +582,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
             writer.writeBooleanValue("azureRightsManagementServicesAllowed", this.azureRightsManagementServicesAllowed);
         }
         if(this.dataRecoveryCertificate){
-            writer.writeObjectValue<WindowsInformationProtectionDataRecoveryCertificateImpl>("dataRecoveryCertificate", (!this.dataRecoveryCertificate || this.dataRecoveryCertificate instanceof WindowsInformationProtectionDataRecoveryCertificateImpl? this.dataRecoveryCertificate : new WindowsInformationProtectionDataRecoveryCertificateImpl(this.dataRecoveryCertificate)));
+            writer.writeObjectValue<WindowsInformationProtectionDataRecoveryCertificateImpl>("dataRecoveryCertificate", (this.dataRecoveryCertificate instanceof WindowsInformationProtectionDataRecoveryCertificateImpl? this.dataRecoveryCertificate as WindowsInformationProtectionDataRecoveryCertificateImpl: new WindowsInformationProtectionDataRecoveryCertificateImpl(this.dataRecoveryCertificate)));
         }
         if(this.enforcementLevel){
             writer.writeEnumValue<WindowsInformationProtectionEnforcementLevel>("enforcementLevel", this.enforcementLevel);
@@ -592,13 +592,13 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         }
         if(this.enterpriseInternalProxyServers && this.enterpriseInternalProxyServers.length != 0){        const enterpriseInternalProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
         this.enterpriseInternalProxyServers?.forEach(element => {
-            enterpriseInternalProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+            enterpriseInternalProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseInternalProxyServers", enterpriseInternalProxyServersArrValue);
         }
         if(this.enterpriseIPRanges && this.enterpriseIPRanges.length != 0){        const enterpriseIPRangesArrValue: WindowsInformationProtectionIPRangeCollectionImpl[] = [];
         this.enterpriseIPRanges?.forEach(element => {
-            enterpriseIPRangesArrValue.push((element instanceof WindowsInformationProtectionIPRangeCollectionImpl? element:new WindowsInformationProtectionIPRangeCollectionImpl(element)));
+            enterpriseIPRangesArrValue.push((element instanceof WindowsInformationProtectionIPRangeCollectionImpl? element as WindowsInformationProtectionIPRangeCollectionImpl:new WindowsInformationProtectionIPRangeCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionIPRangeCollectionImpl>("enterpriseIPRanges", enterpriseIPRangesArrValue);
         }
@@ -607,25 +607,25 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         }
         if(this.enterpriseNetworkDomainNames && this.enterpriseNetworkDomainNames.length != 0){        const enterpriseNetworkDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
         this.enterpriseNetworkDomainNames?.forEach(element => {
-            enterpriseNetworkDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+            enterpriseNetworkDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseNetworkDomainNames", enterpriseNetworkDomainNamesArrValue);
         }
         if(this.enterpriseProtectedDomainNames && this.enterpriseProtectedDomainNames.length != 0){        const enterpriseProtectedDomainNamesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
         this.enterpriseProtectedDomainNames?.forEach(element => {
-            enterpriseProtectedDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+            enterpriseProtectedDomainNamesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseProtectedDomainNames", enterpriseProtectedDomainNamesArrValue);
         }
         if(this.enterpriseProxiedDomains && this.enterpriseProxiedDomains.length != 0){        const enterpriseProxiedDomainsArrValue: WindowsInformationProtectionProxiedDomainCollectionImpl[] = [];
         this.enterpriseProxiedDomains?.forEach(element => {
-            enterpriseProxiedDomainsArrValue.push((element instanceof WindowsInformationProtectionProxiedDomainCollectionImpl? element:new WindowsInformationProtectionProxiedDomainCollectionImpl(element)));
+            enterpriseProxiedDomainsArrValue.push((element instanceof WindowsInformationProtectionProxiedDomainCollectionImpl? element as WindowsInformationProtectionProxiedDomainCollectionImpl:new WindowsInformationProtectionProxiedDomainCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollectionImpl>("enterpriseProxiedDomains", enterpriseProxiedDomainsArrValue);
         }
         if(this.enterpriseProxyServers && this.enterpriseProxyServers.length != 0){        const enterpriseProxyServersArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
         this.enterpriseProxyServers?.forEach(element => {
-            enterpriseProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+            enterpriseProxyServersArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("enterpriseProxyServers", enterpriseProxyServersArrValue);
         }
@@ -634,13 +634,13 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         }
         if(this.exemptAppLockerFiles && this.exemptAppLockerFiles.length != 0){        const exemptAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = [];
         this.exemptAppLockerFiles?.forEach(element => {
-            exemptAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element:new WindowsInformationProtectionAppLockerFileImpl(element)));
+            exemptAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element as WindowsInformationProtectionAppLockerFileImpl:new WindowsInformationProtectionAppLockerFileImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFileImpl>("exemptAppLockerFiles", exemptAppLockerFilesArrValue);
         }
         if(this.exemptApps && this.exemptApps.length != 0){        const exemptAppsArrValue: WindowsInformationProtectionAppImpl[] = [];
         this.exemptApps?.forEach(element => {
-            exemptAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element:new WindowsInformationProtectionAppImpl(element)));
+            exemptAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element as WindowsInformationProtectionAppImpl:new WindowsInformationProtectionAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppImpl>("exemptApps", exemptAppsArrValue);
         }
@@ -655,19 +655,19 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         }
         if(this.neutralDomainResources && this.neutralDomainResources.length != 0){        const neutralDomainResourcesArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
         this.neutralDomainResources?.forEach(element => {
-            neutralDomainResourcesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+            neutralDomainResourcesArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("neutralDomainResources", neutralDomainResourcesArrValue);
         }
         if(this.protectedAppLockerFiles && this.protectedAppLockerFiles.length != 0){        const protectedAppLockerFilesArrValue: WindowsInformationProtectionAppLockerFileImpl[] = [];
         this.protectedAppLockerFiles?.forEach(element => {
-            protectedAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element:new WindowsInformationProtectionAppLockerFileImpl(element)));
+            protectedAppLockerFilesArrValue.push((element instanceof WindowsInformationProtectionAppLockerFileImpl? element as WindowsInformationProtectionAppLockerFileImpl:new WindowsInformationProtectionAppLockerFileImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFileImpl>("protectedAppLockerFiles", protectedAppLockerFilesArrValue);
         }
         if(this.protectedApps && this.protectedApps.length != 0){        const protectedAppsArrValue: WindowsInformationProtectionAppImpl[] = [];
         this.protectedApps?.forEach(element => {
-            protectedAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element:new WindowsInformationProtectionAppImpl(element)));
+            protectedAppsArrValue.push((element instanceof WindowsInformationProtectionAppImpl? element as WindowsInformationProtectionAppImpl:new WindowsInformationProtectionAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppImpl>("protectedApps", protectedAppsArrValue);
         }
@@ -682,7 +682,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         }
         if(this.smbAutoEncryptedFileExtensions && this.smbAutoEncryptedFileExtensions.length != 0){        const smbAutoEncryptedFileExtensionsArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
         this.smbAutoEncryptedFileExtensions?.forEach(element => {
-            smbAutoEncryptedFileExtensionsArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+            smbAutoEncryptedFileExtensionsArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollectionImpl>("smbAutoEncryptedFileExtensions", smbAutoEncryptedFileExtensionsArrValue);
         }
@@ -702,7 +702,7 @@ export class WindowsInformationProtectionImpl extends ManagedAppPolicyImpl imple
         if(value) {
             const smbAutoEncryptedFileExtensionsArrValue: WindowsInformationProtectionResourceCollectionImpl[] = [];
             this.smbAutoEncryptedFileExtensions?.forEach(element => {
-                smbAutoEncryptedFileExtensionsArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element:new WindowsInformationProtectionResourceCollectionImpl(element)));
+                smbAutoEncryptedFileExtensionsArrValue.push((element instanceof WindowsInformationProtectionResourceCollectionImpl? element as WindowsInformationProtectionResourceCollectionImpl:new WindowsInformationProtectionResourceCollectionImpl(element)));
             });
             this._smbAutoEncryptedFileExtensions = smbAutoEncryptedFileExtensionsArrValue;
         }

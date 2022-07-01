@@ -64,7 +64,7 @@ export class MeetingParticipantInfoImpl implements MeetingParticipantInfo {
      */
     public set identity(value: IdentitySet | undefined) {
         if(value) {
-            this._identity = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._identity = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -90,7 +90,7 @@ export class MeetingParticipantInfoImpl implements MeetingParticipantInfo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.identity){
-            writer.writeObjectValue<IdentitySetImpl>("identity", (!this.identity || this.identity instanceof IdentitySetImpl? this.identity : new IdentitySetImpl(this.identity)));
+            writer.writeObjectValue<IdentitySetImpl>("identity", (this.identity instanceof IdentitySetImpl? this.identity as IdentitySetImpl: new IdentitySetImpl(this.identity)));
         }
         if(this.role){
             writer.writeEnumValue<OnlineMeetingRole>("role", this.role);

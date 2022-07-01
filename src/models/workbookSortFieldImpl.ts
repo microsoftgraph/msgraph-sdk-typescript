@@ -123,7 +123,7 @@ export class WorkbookSortFieldImpl implements WorkbookSortField {
      */
     public set icon(value: WorkbookIcon | undefined) {
         if(value) {
-            this._icon = value instanceof WorkbookIconImpl? value : new WorkbookIconImpl(value);
+            this._icon = value instanceof WorkbookIconImpl? value as WorkbookIconImpl: new WorkbookIconImpl(value);
         }
     };
     /**
@@ -158,7 +158,7 @@ export class WorkbookSortFieldImpl implements WorkbookSortField {
             writer.writeStringValue("dataOption", this.dataOption);
         }
         if(this.icon){
-            writer.writeObjectValue<WorkbookIconImpl>("icon", (!this.icon || this.icon instanceof WorkbookIconImpl? this.icon : new WorkbookIconImpl(this.icon)));
+            writer.writeObjectValue<WorkbookIconImpl>("icon", (this.icon instanceof WorkbookIconImpl? this.icon as WorkbookIconImpl: new WorkbookIconImpl(this.icon)));
         }
         if(this.key){
             writer.writeNumberValue("key", this.key);

@@ -75,7 +75,7 @@ export class BookingWorkHoursImpl implements BookingWorkHours {
         }
         if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = [];
         this.timeSlots?.forEach(element => {
-            timeSlotsArrValue.push((element instanceof BookingWorkTimeSlotImpl? element:new BookingWorkTimeSlotImpl(element)));
+            timeSlotsArrValue.push((element instanceof BookingWorkTimeSlotImpl? element as BookingWorkTimeSlotImpl:new BookingWorkTimeSlotImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingWorkTimeSlotImpl>("timeSlots", timeSlotsArrValue);
         }
@@ -96,7 +96,7 @@ export class BookingWorkHoursImpl implements BookingWorkHours {
         if(value) {
             const timeSlotsArrValue: BookingWorkTimeSlotImpl[] = [];
             this.timeSlots?.forEach(element => {
-                timeSlotsArrValue.push((element instanceof BookingWorkTimeSlotImpl? element:new BookingWorkTimeSlotImpl(element)));
+                timeSlotsArrValue.push((element instanceof BookingWorkTimeSlotImpl? element as BookingWorkTimeSlotImpl:new BookingWorkTimeSlotImpl(element)));
             });
             this._timeSlots = timeSlotsArrValue;
         }

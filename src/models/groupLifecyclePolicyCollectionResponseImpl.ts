@@ -73,7 +73,7 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements GroupLifecycl
         }
         if(this.value && this.value.length != 0){        const valueArrValue: GroupLifecyclePolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof GroupLifecyclePolicyImpl? element:new GroupLifecyclePolicyImpl(element)));
+            valueArrValue.push((element instanceof GroupLifecyclePolicyImpl? element as GroupLifecyclePolicyImpl:new GroupLifecyclePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupLifecyclePolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class GroupLifecyclePolicyCollectionResponseImpl implements GroupLifecycl
         if(value) {
             const valueArrValue: GroupLifecyclePolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof GroupLifecyclePolicyImpl? element:new GroupLifecyclePolicyImpl(element)));
+                valueArrValue.push((element instanceof GroupLifecyclePolicyImpl? element as GroupLifecyclePolicyImpl:new GroupLifecyclePolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

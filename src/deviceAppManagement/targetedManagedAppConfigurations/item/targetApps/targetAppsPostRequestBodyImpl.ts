@@ -60,7 +60,7 @@ export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody 
         if(value) {
             const appsArrValue: ManagedMobileAppImpl[] = [];
             this.apps?.forEach(element => {
-                appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+                appsArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
             });
             this._apps = appsArrValue;
         }
@@ -95,7 +95,7 @@ export class TargetAppsPostRequestBodyImpl implements TargetAppsPostRequestBody 
         }
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = [];
         this.apps?.forEach(element => {
-            appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+            appsArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }

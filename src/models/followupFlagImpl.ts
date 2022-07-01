@@ -45,7 +45,7 @@ export class FollowupFlagImpl implements FollowupFlag {
      */
     public set completedDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._completedDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._completedDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class FollowupFlagImpl implements FollowupFlag {
      */
     public set dueDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._dueDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._dueDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -110,16 +110,16 @@ export class FollowupFlagImpl implements FollowupFlag {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.completedDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", (!this.completedDateTime || this.completedDateTime instanceof DateTimeTimeZoneImpl? this.completedDateTime : new DateTimeTimeZoneImpl(this.completedDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("completedDateTime", (this.completedDateTime instanceof DateTimeTimeZoneImpl? this.completedDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.completedDateTime)));
         }
         if(this.dueDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", (!this.dueDateTime || this.dueDateTime instanceof DateTimeTimeZoneImpl? this.dueDateTime : new DateTimeTimeZoneImpl(this.dueDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("dueDateTime", (this.dueDateTime instanceof DateTimeTimeZoneImpl? this.dueDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.dueDateTime)));
         }
         if(this.flagStatus){
             writer.writeEnumValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
         }
         if(this.startDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (!this.startDateTime || this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime : new DateTimeTimeZoneImpl(this.startDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.startDateTime)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -136,7 +136,7 @@ export class FollowupFlagImpl implements FollowupFlag {
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
 }

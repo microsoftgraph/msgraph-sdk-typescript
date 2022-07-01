@@ -73,7 +73,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
+            valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element as ManagedDeviceMobileAppConfigurationAssignmentImpl:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl
         if(value) {
             const valueArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
+                valueArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element as ManagedDeviceMobileAppConfigurationAssignmentImpl:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

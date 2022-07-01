@@ -135,7 +135,7 @@ export class ArchivedPrintJobImpl implements ArchivedPrintJob {
      */
     public set createdBy(value: UserIdentity | undefined) {
         if(value) {
-            this._createdBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+            this._createdBy = value instanceof UserIdentityImpl? value as UserIdentityImpl: new UserIdentityImpl(value);
         }
     };
     /**
@@ -238,7 +238,7 @@ export class ArchivedPrintJobImpl implements ArchivedPrintJob {
             writer.writeNumberValue("copiesPrinted", this.copiesPrinted);
         }
         if(this.createdBy){
-            writer.writeObjectValue<UserIdentityImpl>("createdBy", (!this.createdBy || this.createdBy instanceof UserIdentityImpl? this.createdBy : new UserIdentityImpl(this.createdBy)));
+            writer.writeObjectValue<UserIdentityImpl>("createdBy", (this.createdBy instanceof UserIdentityImpl? this.createdBy as UserIdentityImpl: new UserIdentityImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);

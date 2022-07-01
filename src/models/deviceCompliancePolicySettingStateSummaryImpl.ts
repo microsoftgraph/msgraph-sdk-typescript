@@ -94,7 +94,7 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         if(value) {
             const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = [];
             this.deviceComplianceSettingStates?.forEach(element => {
-                deviceComplianceSettingStatesArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element:new DeviceComplianceSettingStateImpl(element)));
+                deviceComplianceSettingStatesArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element as DeviceComplianceSettingStateImpl:new DeviceComplianceSettingStateImpl(element)));
             });
             this._deviceComplianceSettingStates = deviceComplianceSettingStatesArrValue;
         }
@@ -213,7 +213,7 @@ export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl im
         }
         if(this.deviceComplianceSettingStates && this.deviceComplianceSettingStates.length != 0){        const deviceComplianceSettingStatesArrValue: DeviceComplianceSettingStateImpl[] = [];
         this.deviceComplianceSettingStates?.forEach(element => {
-            deviceComplianceSettingStatesArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element:new DeviceComplianceSettingStateImpl(element)));
+            deviceComplianceSettingStatesArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element as DeviceComplianceSettingStateImpl:new DeviceComplianceSettingStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("deviceComplianceSettingStates", deviceComplianceSettingStatesArrValue);
         }

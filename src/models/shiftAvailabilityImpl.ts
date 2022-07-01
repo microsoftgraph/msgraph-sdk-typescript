@@ -65,7 +65,7 @@ export class ShiftAvailabilityImpl implements ShiftAvailability {
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         if(value) {
-            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(value);
         }
     };
     /**
@@ -75,11 +75,11 @@ export class ShiftAvailabilityImpl implements ShiftAvailability {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.timeSlots && this.timeSlots.length != 0){        const timeSlotsArrValue: TimeRangeImpl[] = [];
         this.timeSlots?.forEach(element => {
-            timeSlotsArrValue.push((element instanceof TimeRangeImpl? element:new TimeRangeImpl(element)));
+            timeSlotsArrValue.push((element instanceof TimeRangeImpl? element as TimeRangeImpl:new TimeRangeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeRangeImpl>("timeSlots", timeSlotsArrValue);
         }
@@ -103,7 +103,7 @@ export class ShiftAvailabilityImpl implements ShiftAvailability {
         if(value) {
             const timeSlotsArrValue: TimeRangeImpl[] = [];
             this.timeSlots?.forEach(element => {
-                timeSlotsArrValue.push((element instanceof TimeRangeImpl? element:new TimeRangeImpl(element)));
+                timeSlotsArrValue.push((element instanceof TimeRangeImpl? element as TimeRangeImpl:new TimeRangeImpl(element)));
             });
             this._timeSlots = timeSlotsArrValue;
         }

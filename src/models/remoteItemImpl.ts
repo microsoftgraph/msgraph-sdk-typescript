@@ -120,7 +120,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -152,7 +152,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set file(value: File | undefined) {
         if(value) {
-            this._file = value instanceof FileImpl? value : new FileImpl(value);
+            this._file = value instanceof FileImpl? value as FileImpl: new FileImpl(value);
         }
     };
     /**
@@ -168,7 +168,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set fileSystemInfo(value: FileSystemInfo | undefined) {
         if(value) {
-            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value : new FileSystemInfoImpl(value);
+            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value as FileSystemInfoImpl: new FileSystemInfoImpl(value);
         }
     };
     /**
@@ -184,7 +184,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set folder(value: Folder | undefined) {
         if(value) {
-            this._folder = value instanceof FolderImpl? value : new FolderImpl(value);
+            this._folder = value instanceof FolderImpl? value as FolderImpl: new FolderImpl(value);
         }
     };
     /**
@@ -243,7 +243,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set image(value: Image | undefined) {
         if(value) {
-            this._image = value instanceof ImageImpl? value : new ImageImpl(value);
+            this._image = value instanceof ImageImpl? value as ImageImpl: new ImageImpl(value);
         }
     };
     /**
@@ -259,7 +259,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -307,7 +307,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set package(value: Package | undefined) {
         if(value) {
-            this._package = value instanceof PackageImpl? value : new PackageImpl(value);
+            this._package = value instanceof PackageImpl? value as PackageImpl: new PackageImpl(value);
         }
     };
     /**
@@ -323,7 +323,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set parentReference(value: ItemReference | undefined) {
         if(value) {
-            this._parentReference = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+            this._parentReference = value instanceof ItemReferenceImpl? value as ItemReferenceImpl: new ItemReferenceImpl(value);
         }
     };
     /**
@@ -333,28 +333,28 @@ export class RemoteItemImpl implements RemoteItem {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.file){
-            writer.writeObjectValue<FileImpl>("file", (!this.file || this.file instanceof FileImpl? this.file : new FileImpl(this.file)));
+            writer.writeObjectValue<FileImpl>("file", (this.file instanceof FileImpl? this.file as FileImpl: new FileImpl(this.file)));
         }
         if(this.fileSystemInfo){
-            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (!this.fileSystemInfo || this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo : new FileSystemInfoImpl(this.fileSystemInfo)));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo as FileSystemInfoImpl: new FileSystemInfoImpl(this.fileSystemInfo)));
         }
         if(this.folder){
-            writer.writeObjectValue<FolderImpl>("folder", (!this.folder || this.folder instanceof FolderImpl? this.folder : new FolderImpl(this.folder)));
+            writer.writeObjectValue<FolderImpl>("folder", (this.folder instanceof FolderImpl? this.folder as FolderImpl: new FolderImpl(this.folder)));
         }
         if(this.id){
             writer.writeStringValue("id", this.id);
         }
         if(this.image){
-            writer.writeObjectValue<ImageImpl>("image", (!this.image || this.image instanceof ImageImpl? this.image : new ImageImpl(this.image)));
+            writer.writeObjectValue<ImageImpl>("image", (this.image instanceof ImageImpl? this.image as ImageImpl: new ImageImpl(this.image)));
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy as IdentitySetImpl: new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
@@ -363,25 +363,25 @@ export class RemoteItemImpl implements RemoteItem {
             writer.writeStringValue("name", this.name);
         }
         if(this.package){
-            writer.writeObjectValue<PackageImpl>("package", (!this.package || this.package instanceof PackageImpl? this.package : new PackageImpl(this.package)));
+            writer.writeObjectValue<PackageImpl>("package", (this.package instanceof PackageImpl? this.package as PackageImpl: new PackageImpl(this.package)));
         }
         if(this.parentReference){
-            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (!this.parentReference || this.parentReference instanceof ItemReferenceImpl? this.parentReference : new ItemReferenceImpl(this.parentReference)));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (this.parentReference instanceof ItemReferenceImpl? this.parentReference as ItemReferenceImpl: new ItemReferenceImpl(this.parentReference)));
         }
         if(this.shared){
-            writer.writeObjectValue<SharedImpl>("shared", (!this.shared || this.shared instanceof SharedImpl? this.shared : new SharedImpl(this.shared)));
+            writer.writeObjectValue<SharedImpl>("shared", (this.shared instanceof SharedImpl? this.shared as SharedImpl: new SharedImpl(this.shared)));
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds as SharepointIdsImpl: new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", (!this.specialFolder || this.specialFolder instanceof SpecialFolderImpl? this.specialFolder : new SpecialFolderImpl(this.specialFolder)));
+            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", (this.specialFolder instanceof SpecialFolderImpl? this.specialFolder as SpecialFolderImpl: new SpecialFolderImpl(this.specialFolder)));
         }
         if(this.video){
-            writer.writeObjectValue<VideoImpl>("video", (!this.video || this.video instanceof VideoImpl? this.video : new VideoImpl(this.video)));
+            writer.writeObjectValue<VideoImpl>("video", (this.video instanceof VideoImpl? this.video as VideoImpl: new VideoImpl(this.video)));
         }
         if(this.webDavUrl){
             writer.writeStringValue("webDavUrl", this.webDavUrl);
@@ -404,7 +404,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set shared(value: Shared | undefined) {
         if(value) {
-            this._shared = value instanceof SharedImpl? value : new SharedImpl(value);
+            this._shared = value instanceof SharedImpl? value as SharedImpl: new SharedImpl(value);
         }
     };
     /**
@@ -420,7 +420,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set sharepointIds(value: SharepointIds | undefined) {
         if(value) {
-            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+            this._sharepointIds = value instanceof SharepointIdsImpl? value as SharepointIdsImpl: new SharepointIdsImpl(value);
         }
     };
     /**
@@ -452,7 +452,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set specialFolder(value: SpecialFolder | undefined) {
         if(value) {
-            this._specialFolder = value instanceof SpecialFolderImpl? value : new SpecialFolderImpl(value);
+            this._specialFolder = value instanceof SpecialFolderImpl? value as SpecialFolderImpl: new SpecialFolderImpl(value);
         }
     };
     /**
@@ -468,7 +468,7 @@ export class RemoteItemImpl implements RemoteItem {
      */
     public set video(value: Video | undefined) {
         if(value) {
-            this._video = value instanceof VideoImpl? value : new VideoImpl(value);
+            this._video = value instanceof VideoImpl? value as VideoImpl: new VideoImpl(value);
         }
     };
     /**

@@ -102,7 +102,7 @@ export class WorkingHoursImpl implements WorkingHours {
             writer.writeTimeOnlyValue("startTime", this.startTime);
         }
         if(this.timeZone){
-            writer.writeObjectValue<TimeZoneBaseImpl>("timeZone", (!this.timeZone || this.timeZone instanceof TimeZoneBaseImpl? this.timeZone : new TimeZoneBaseImpl(this.timeZone)));
+            writer.writeObjectValue<TimeZoneBaseImpl>("timeZone", (this.timeZone instanceof TimeZoneBaseImpl? this.timeZone as TimeZoneBaseImpl: new TimeZoneBaseImpl(this.timeZone)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -135,7 +135,7 @@ export class WorkingHoursImpl implements WorkingHours {
      */
     public set timeZone(value: TimeZoneBase | undefined) {
         if(value) {
-            this._timeZone = value instanceof TimeZoneBaseImpl? value : new TimeZoneBaseImpl(value);
+            this._timeZone = value instanceof TimeZoneBaseImpl? value as TimeZoneBaseImpl: new TimeZoneBaseImpl(value);
         }
     };
 }

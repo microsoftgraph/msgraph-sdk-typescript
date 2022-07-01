@@ -37,7 +37,7 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
      */
     public set error_escaped(value: PublicError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof PublicErrorImpl? value : new PublicErrorImpl(value);
+            this._error_escaped = value instanceof PublicErrorImpl? value as PublicErrorImpl: new PublicErrorImpl(value);
         }
     };
     /**
@@ -92,7 +92,7 @@ export class RichLongRunningOperationImpl extends LongRunningOperationImpl imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-            writer.writeObjectValue<PublicErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof PublicErrorImpl? this.error_escaped : new PublicErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<PublicErrorImpl>("error", (this.error_escaped instanceof PublicErrorImpl? this.error_escaped as PublicErrorImpl: new PublicErrorImpl(this.error_escaped)));
         }
         if(this.percentageComplete){
             writer.writeNumberValue("percentageComplete", this.percentageComplete);

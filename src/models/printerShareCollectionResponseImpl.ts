@@ -73,7 +73,7 @@ export class PrinterShareCollectionResponseImpl implements PrinterShareCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrinterShareImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrinterShareImpl? element:new PrinterShareImpl(element)));
+            valueArrValue.push((element instanceof PrinterShareImpl? element as PrinterShareImpl:new PrinterShareImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrinterShareImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrinterShareCollectionResponseImpl implements PrinterShareCollectio
         if(value) {
             const valueArrValue: PrinterShareImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrinterShareImpl? element:new PrinterShareImpl(element)));
+                valueArrValue.push((element instanceof PrinterShareImpl? element as PrinterShareImpl:new PrinterShareImpl(element)));
             });
             this._value = valueArrValue;
         }

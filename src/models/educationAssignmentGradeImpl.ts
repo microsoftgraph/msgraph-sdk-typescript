@@ -59,7 +59,7 @@ export class EducationAssignmentGradeImpl implements EducationAssignmentGrade {
      */
     public set gradedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._gradedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._gradedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class EducationAssignmentGradeImpl implements EducationAssignmentGrade {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.gradedBy){
-            writer.writeObjectValue<IdentitySetImpl>("gradedBy", (!this.gradedBy || this.gradedBy instanceof IdentitySetImpl? this.gradedBy : new IdentitySetImpl(this.gradedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("gradedBy", (this.gradedBy instanceof IdentitySetImpl? this.gradedBy as IdentitySetImpl: new IdentitySetImpl(this.gradedBy)));
         }
         if(this.gradedDateTime){
             writer.writeDateValue("gradedDateTime", this.gradedDateTime);

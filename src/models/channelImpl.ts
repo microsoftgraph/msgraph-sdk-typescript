@@ -138,7 +138,7 @@ export class ChannelImpl extends EntityImpl implements Channel {
      */
     public set filesFolder(value: DriveItem | undefined) {
         if(value) {
-            this._filesFolder = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+            this._filesFolder = value instanceof DriveItemImpl? value as DriveItemImpl: new DriveItemImpl(value);
         }
     };
     /**
@@ -193,7 +193,7 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(value) {
             const membersArrValue: ConversationMemberImpl[] = [];
             this.members?.forEach(element => {
-                membersArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+                membersArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
             });
             this._members = membersArrValue;
         }
@@ -229,7 +229,7 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(value) {
             const messagesArrValue: ChatMessageImpl[] = [];
             this.messages?.forEach(element => {
-                messagesArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+                messagesArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
             });
             this._messages = messagesArrValue;
         }
@@ -254,14 +254,14 @@ export class ChannelImpl extends EntityImpl implements Channel {
             writer.writeStringValue("email", this.email);
         }
         if(this.filesFolder){
-            writer.writeObjectValue<DriveItemImpl>("filesFolder", (!this.filesFolder || this.filesFolder instanceof DriveItemImpl? this.filesFolder : new DriveItemImpl(this.filesFolder)));
+            writer.writeObjectValue<DriveItemImpl>("filesFolder", (this.filesFolder instanceof DriveItemImpl? this.filesFolder as DriveItemImpl: new DriveItemImpl(this.filesFolder)));
         }
         if(this.isFavoriteByDefault){
             writer.writeBooleanValue("isFavoriteByDefault", this.isFavoriteByDefault);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = [];
         this.members?.forEach(element => {
-            membersArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+            membersArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
@@ -270,19 +270,19 @@ export class ChannelImpl extends EntityImpl implements Channel {
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = [];
         this.messages?.forEach(element => {
-            messagesArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+            messagesArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
         if(this.sharedWithTeams && this.sharedWithTeams.length != 0){        const sharedWithTeamsArrValue: SharedWithChannelTeamInfoImpl[] = [];
         this.sharedWithTeams?.forEach(element => {
-            sharedWithTeamsArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element:new SharedWithChannelTeamInfoImpl(element)));
+            sharedWithTeamsArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element as SharedWithChannelTeamInfoImpl:new SharedWithChannelTeamInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfoImpl>("sharedWithTeams", sharedWithTeamsArrValue);
         }
         if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = [];
         this.tabs?.forEach(element => {
-            tabsArrValue.push((element instanceof TeamsTabImpl? element:new TeamsTabImpl(element)));
+            tabsArrValue.push((element instanceof TeamsTabImpl? element as TeamsTabImpl:new TeamsTabImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
@@ -308,7 +308,7 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(value) {
             const sharedWithTeamsArrValue: SharedWithChannelTeamInfoImpl[] = [];
             this.sharedWithTeams?.forEach(element => {
-                sharedWithTeamsArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element:new SharedWithChannelTeamInfoImpl(element)));
+                sharedWithTeamsArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element as SharedWithChannelTeamInfoImpl:new SharedWithChannelTeamInfoImpl(element)));
             });
             this._sharedWithTeams = sharedWithTeamsArrValue;
         }
@@ -328,7 +328,7 @@ export class ChannelImpl extends EntityImpl implements Channel {
         if(value) {
             const tabsArrValue: TeamsTabImpl[] = [];
             this.tabs?.forEach(element => {
-                tabsArrValue.push((element instanceof TeamsTabImpl? element:new TeamsTabImpl(element)));
+                tabsArrValue.push((element instanceof TeamsTabImpl? element as TeamsTabImpl:new TeamsTabImpl(element)));
             });
             this._tabs = tabsArrValue;
         }

@@ -161,7 +161,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
         if(value) {
             const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = [];
             this.attendanceReports?.forEach(element => {
-                attendanceReportsArrValue.push((element instanceof MeetingAttendanceReportImpl? element:new MeetingAttendanceReportImpl(element)));
+                attendanceReportsArrValue.push((element instanceof MeetingAttendanceReportImpl? element as MeetingAttendanceReportImpl:new MeetingAttendanceReportImpl(element)));
             });
             this._attendanceReports = attendanceReportsArrValue;
         }
@@ -195,7 +195,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public set audioConferencing(value: AudioConferencing | undefined) {
         if(value) {
-            this._audioConferencing = value instanceof AudioConferencingImpl? value : new AudioConferencingImpl(value);
+            this._audioConferencing = value instanceof AudioConferencingImpl? value as AudioConferencingImpl: new AudioConferencingImpl(value);
         }
     };
     /**
@@ -211,7 +211,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public set broadcastSettings(value: BroadcastMeetingSettings | undefined) {
         if(value) {
-            this._broadcastSettings = value instanceof BroadcastMeetingSettingsImpl? value : new BroadcastMeetingSettingsImpl(value);
+            this._broadcastSettings = value instanceof BroadcastMeetingSettingsImpl? value as BroadcastMeetingSettingsImpl: new BroadcastMeetingSettingsImpl(value);
         }
     };
     /**
@@ -227,7 +227,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public set chatInfo(value: ChatInfo | undefined) {
         if(value) {
-            this._chatInfo = value instanceof ChatInfoImpl? value : new ChatInfoImpl(value);
+            this._chatInfo = value instanceof ChatInfoImpl? value as ChatInfoImpl: new ChatInfoImpl(value);
         }
     };
     /**
@@ -384,7 +384,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public set joinInformation(value: ItemBody | undefined) {
         if(value) {
-            this._joinInformation = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._joinInformation = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -416,7 +416,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public set lobbyBypassSettings(value: LobbyBypassSettings | undefined) {
         if(value) {
-            this._lobbyBypassSettings = value instanceof LobbyBypassSettingsImpl? value : new LobbyBypassSettingsImpl(value);
+            this._lobbyBypassSettings = value instanceof LobbyBypassSettingsImpl? value as LobbyBypassSettingsImpl: new LobbyBypassSettingsImpl(value);
         }
     };
     /**
@@ -432,7 +432,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
      */
     public set participants(value: MeetingParticipants | undefined) {
         if(value) {
-            this._participants = value instanceof MeetingParticipantsImpl? value : new MeetingParticipantsImpl(value);
+            this._participants = value instanceof MeetingParticipantsImpl? value as MeetingParticipantsImpl: new MeetingParticipantsImpl(value);
         }
     };
     /**
@@ -475,7 +475,7 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
         }
         if(this.attendanceReports && this.attendanceReports.length != 0){        const attendanceReportsArrValue: MeetingAttendanceReportImpl[] = [];
         this.attendanceReports?.forEach(element => {
-            attendanceReportsArrValue.push((element instanceof MeetingAttendanceReportImpl? element:new MeetingAttendanceReportImpl(element)));
+            attendanceReportsArrValue.push((element instanceof MeetingAttendanceReportImpl? element as MeetingAttendanceReportImpl:new MeetingAttendanceReportImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("attendanceReports", attendanceReportsArrValue);
         }
@@ -483,13 +483,13 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
             writer.writeStringValue("attendeeReport", this.attendeeReport);
         }
         if(this.audioConferencing){
-            writer.writeObjectValue<AudioConferencingImpl>("audioConferencing", (!this.audioConferencing || this.audioConferencing instanceof AudioConferencingImpl? this.audioConferencing : new AudioConferencingImpl(this.audioConferencing)));
+            writer.writeObjectValue<AudioConferencingImpl>("audioConferencing", (this.audioConferencing instanceof AudioConferencingImpl? this.audioConferencing as AudioConferencingImpl: new AudioConferencingImpl(this.audioConferencing)));
         }
         if(this.broadcastSettings){
-            writer.writeObjectValue<BroadcastMeetingSettingsImpl>("broadcastSettings", (!this.broadcastSettings || this.broadcastSettings instanceof BroadcastMeetingSettingsImpl? this.broadcastSettings : new BroadcastMeetingSettingsImpl(this.broadcastSettings)));
+            writer.writeObjectValue<BroadcastMeetingSettingsImpl>("broadcastSettings", (this.broadcastSettings instanceof BroadcastMeetingSettingsImpl? this.broadcastSettings as BroadcastMeetingSettingsImpl: new BroadcastMeetingSettingsImpl(this.broadcastSettings)));
         }
         if(this.chatInfo){
-            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (!this.chatInfo || this.chatInfo instanceof ChatInfoImpl? this.chatInfo : new ChatInfoImpl(this.chatInfo)));
+            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (this.chatInfo instanceof ChatInfoImpl? this.chatInfo as ChatInfoImpl: new ChatInfoImpl(this.chatInfo)));
         }
         if(this.creationDateTime){
             writer.writeDateValue("creationDateTime", this.creationDateTime);
@@ -507,16 +507,16 @@ export class OnlineMeetingImpl extends EntityImpl implements OnlineMeeting {
             writer.writeBooleanValue("isEntryExitAnnounced", this.isEntryExitAnnounced);
         }
         if(this.joinInformation){
-            writer.writeObjectValue<ItemBodyImpl>("joinInformation", (!this.joinInformation || this.joinInformation instanceof ItemBodyImpl? this.joinInformation : new ItemBodyImpl(this.joinInformation)));
+            writer.writeObjectValue<ItemBodyImpl>("joinInformation", (this.joinInformation instanceof ItemBodyImpl? this.joinInformation as ItemBodyImpl: new ItemBodyImpl(this.joinInformation)));
         }
         if(this.joinWebUrl){
             writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         }
         if(this.lobbyBypassSettings){
-            writer.writeObjectValue<LobbyBypassSettingsImpl>("lobbyBypassSettings", (!this.lobbyBypassSettings || this.lobbyBypassSettings instanceof LobbyBypassSettingsImpl? this.lobbyBypassSettings : new LobbyBypassSettingsImpl(this.lobbyBypassSettings)));
+            writer.writeObjectValue<LobbyBypassSettingsImpl>("lobbyBypassSettings", (this.lobbyBypassSettings instanceof LobbyBypassSettingsImpl? this.lobbyBypassSettings as LobbyBypassSettingsImpl: new LobbyBypassSettingsImpl(this.lobbyBypassSettings)));
         }
         if(this.participants){
-            writer.writeObjectValue<MeetingParticipantsImpl>("participants", (!this.participants || this.participants instanceof MeetingParticipantsImpl? this.participants : new MeetingParticipantsImpl(this.participants)));
+            writer.writeObjectValue<MeetingParticipantsImpl>("participants", (this.participants instanceof MeetingParticipantsImpl? this.participants as MeetingParticipantsImpl: new MeetingParticipantsImpl(this.participants)));
         }
         if(this.recordAutomatically){
             writer.writeBooleanValue("recordAutomatically", this.recordAutomatically);

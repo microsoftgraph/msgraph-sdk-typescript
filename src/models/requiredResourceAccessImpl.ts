@@ -61,7 +61,7 @@ export class RequiredResourceAccessImpl implements RequiredResourceAccess {
         if(value) {
             const resourceAccessArrValue: ResourceAccessImpl[] = [];
             this.resourceAccess?.forEach(element => {
-                resourceAccessArrValue.push((element instanceof ResourceAccessImpl? element:new ResourceAccessImpl(element)));
+                resourceAccessArrValue.push((element instanceof ResourceAccessImpl? element as ResourceAccessImpl:new ResourceAccessImpl(element)));
             });
             this._resourceAccess = resourceAccessArrValue;
         }
@@ -90,7 +90,7 @@ export class RequiredResourceAccessImpl implements RequiredResourceAccess {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.resourceAccess && this.resourceAccess.length != 0){        const resourceAccessArrValue: ResourceAccessImpl[] = [];
         this.resourceAccess?.forEach(element => {
-            resourceAccessArrValue.push((element instanceof ResourceAccessImpl? element:new ResourceAccessImpl(element)));
+            resourceAccessArrValue.push((element instanceof ResourceAccessImpl? element as ResourceAccessImpl:new ResourceAccessImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceAccessImpl>("resourceAccess", resourceAccessArrValue);
         }

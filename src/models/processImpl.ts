@@ -128,7 +128,7 @@ export class ProcessImpl implements Process {
      */
     public set fileHash(value: FileHash | undefined) {
         if(value) {
-            this._fileHash = value instanceof FileHashImpl? value : new FileHashImpl(value);
+            this._fileHash = value instanceof FileHashImpl? value as FileHashImpl: new FileHashImpl(value);
         }
     };
     /**
@@ -295,7 +295,7 @@ export class ProcessImpl implements Process {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.fileHash){
-            writer.writeObjectValue<FileHashImpl>("fileHash", (!this.fileHash || this.fileHash instanceof FileHashImpl? this.fileHash : new FileHashImpl(this.fileHash)));
+            writer.writeObjectValue<FileHashImpl>("fileHash", (this.fileHash instanceof FileHashImpl? this.fileHash as FileHashImpl: new FileHashImpl(this.fileHash)));
         }
         if(this.integrityLevel){
             writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);

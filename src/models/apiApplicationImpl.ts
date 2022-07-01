@@ -107,7 +107,7 @@ export class ApiApplicationImpl implements ApiApplication {
         if(value) {
             const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = [];
             this.oauth2PermissionScopes?.forEach(element => {
-                oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element:new PermissionScopeImpl(element)));
+                oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element as PermissionScopeImpl:new PermissionScopeImpl(element)));
             });
             this._oauth2PermissionScopes = oauth2PermissionScopesArrValue;
         }
@@ -127,7 +127,7 @@ export class ApiApplicationImpl implements ApiApplication {
         if(value) {
             const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = [];
             this.preAuthorizedApplications?.forEach(element => {
-                preAuthorizedApplicationsArrValue.push((element instanceof PreAuthorizedApplicationImpl? element:new PreAuthorizedApplicationImpl(element)));
+                preAuthorizedApplicationsArrValue.push((element instanceof PreAuthorizedApplicationImpl? element as PreAuthorizedApplicationImpl:new PreAuthorizedApplicationImpl(element)));
             });
             this._preAuthorizedApplications = preAuthorizedApplicationsArrValue;
         }
@@ -162,13 +162,13 @@ export class ApiApplicationImpl implements ApiApplication {
         }
         if(this.oauth2PermissionScopes && this.oauth2PermissionScopes.length != 0){        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = [];
         this.oauth2PermissionScopes?.forEach(element => {
-            oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element:new PermissionScopeImpl(element)));
+            oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element as PermissionScopeImpl:new PermissionScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
         }
         if(this.preAuthorizedApplications && this.preAuthorizedApplications.length != 0){        const preAuthorizedApplicationsArrValue: PreAuthorizedApplicationImpl[] = [];
         this.preAuthorizedApplications?.forEach(element => {
-            preAuthorizedApplicationsArrValue.push((element instanceof PreAuthorizedApplicationImpl? element:new PreAuthorizedApplicationImpl(element)));
+            preAuthorizedApplicationsArrValue.push((element instanceof PreAuthorizedApplicationImpl? element as PreAuthorizedApplicationImpl:new PreAuthorizedApplicationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PreAuthorizedApplicationImpl>("preAuthorizedApplications", preAuthorizedApplicationsArrValue);
         }

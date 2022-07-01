@@ -61,7 +61,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         if(value) {
             const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = [];
             this.averageComparativeScores?.forEach(element => {
-                averageComparativeScoresArrValue.push((element instanceof AverageComparativeScoreImpl? element:new AverageComparativeScoreImpl(element)));
+                averageComparativeScoresArrValue.push((element instanceof AverageComparativeScoreImpl? element as AverageComparativeScoreImpl:new AverageComparativeScoreImpl(element)));
             });
             this._averageComparativeScores = averageComparativeScoresArrValue;
         }
@@ -114,7 +114,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         if(value) {
             const controlScoresArrValue: ControlScoreImpl[] = [];
             this.controlScores?.forEach(element => {
-                controlScoresArrValue.push((element instanceof ControlScoreImpl? element:new ControlScoreImpl(element)));
+                controlScoresArrValue.push((element instanceof ControlScoreImpl? element as ControlScoreImpl:new ControlScoreImpl(element)));
             });
             this._controlScores = controlScoresArrValue;
         }
@@ -229,7 +229,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         }
         if(this.averageComparativeScores && this.averageComparativeScores.length != 0){        const averageComparativeScoresArrValue: AverageComparativeScoreImpl[] = [];
         this.averageComparativeScores?.forEach(element => {
-            averageComparativeScoresArrValue.push((element instanceof AverageComparativeScoreImpl? element:new AverageComparativeScoreImpl(element)));
+            averageComparativeScoresArrValue.push((element instanceof AverageComparativeScoreImpl? element as AverageComparativeScoreImpl:new AverageComparativeScoreImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AverageComparativeScoreImpl>("averageComparativeScores", averageComparativeScoresArrValue);
         }
@@ -238,7 +238,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
         }
         if(this.controlScores && this.controlScores.length != 0){        const controlScoresArrValue: ControlScoreImpl[] = [];
         this.controlScores?.forEach(element => {
-            controlScoresArrValue.push((element instanceof ControlScoreImpl? element:new ControlScoreImpl(element)));
+            controlScoresArrValue.push((element instanceof ControlScoreImpl? element as ControlScoreImpl:new ControlScoreImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ControlScoreImpl>("controlScores", controlScoresArrValue);
         }
@@ -258,7 +258,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
             writer.writeNumberValue("maxScore", this.maxScore);
         }
         if(this.vendorInformation){
-            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", (!this.vendorInformation || this.vendorInformation instanceof SecurityVendorInformationImpl? this.vendorInformation : new SecurityVendorInformationImpl(this.vendorInformation)));
+            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", (this.vendorInformation instanceof SecurityVendorInformationImpl? this.vendorInformation as SecurityVendorInformationImpl: new SecurityVendorInformationImpl(this.vendorInformation)));
         }
     };
     /**
@@ -274,7 +274,7 @@ export class SecureScoreImpl extends EntityImpl implements SecureScore {
      */
     public set vendorInformation(value: SecurityVendorInformation | undefined) {
         if(value) {
-            this._vendorInformation = value instanceof SecurityVendorInformationImpl? value : new SecurityVendorInformationImpl(value);
+            this._vendorInformation = value instanceof SecurityVendorInformationImpl? value as SecurityVendorInformationImpl: new SecurityVendorInformationImpl(value);
         }
     };
 }

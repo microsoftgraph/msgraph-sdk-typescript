@@ -73,7 +73,7 @@ export class ClaimsMappingPolicyCollectionResponseImpl implements ClaimsMappingP
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ClaimsMappingPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+            valueArrValue.push((element instanceof ClaimsMappingPolicyImpl? element as ClaimsMappingPolicyImpl:new ClaimsMappingPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ClaimsMappingPolicyCollectionResponseImpl implements ClaimsMappingP
         if(value) {
             const valueArrValue: ClaimsMappingPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+                valueArrValue.push((element instanceof ClaimsMappingPolicyImpl? element as ClaimsMappingPolicyImpl:new ClaimsMappingPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

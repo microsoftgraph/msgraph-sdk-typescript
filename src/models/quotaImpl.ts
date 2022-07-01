@@ -110,7 +110,7 @@ export class QuotaImpl implements Quota {
             writer.writeStringValue("state", this.state);
         }
         if(this.storagePlanInformation){
-            writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", (!this.storagePlanInformation || this.storagePlanInformation instanceof StoragePlanInformationImpl? this.storagePlanInformation : new StoragePlanInformationImpl(this.storagePlanInformation)));
+            writer.writeObjectValue<StoragePlanInformationImpl>("storagePlanInformation", (this.storagePlanInformation instanceof StoragePlanInformationImpl? this.storagePlanInformation as StoragePlanInformationImpl: new StoragePlanInformationImpl(this.storagePlanInformation)));
         }
         if(this.total){
             writer.writeNumberValue("total", this.total);
@@ -149,7 +149,7 @@ export class QuotaImpl implements Quota {
      */
     public set storagePlanInformation(value: StoragePlanInformation | undefined) {
         if(value) {
-            this._storagePlanInformation = value instanceof StoragePlanInformationImpl? value : new StoragePlanInformationImpl(value);
+            this._storagePlanInformation = value instanceof StoragePlanInformationImpl? value as StoragePlanInformationImpl: new StoragePlanInformationImpl(value);
         }
     };
     /**

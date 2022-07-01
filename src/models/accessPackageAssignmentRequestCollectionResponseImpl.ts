@@ -73,7 +73,7 @@ export class AccessPackageAssignmentRequestCollectionResponseImpl implements Acc
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element:new AccessPackageAssignmentRequestImpl(element)));
+            valueArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element as AccessPackageAssignmentRequestImpl:new AccessPackageAssignmentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AccessPackageAssignmentRequestCollectionResponseImpl implements Acc
         if(value) {
             const valueArrValue: AccessPackageAssignmentRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element:new AccessPackageAssignmentRequestImpl(element)));
+                valueArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element as AccessPackageAssignmentRequestImpl:new AccessPackageAssignmentRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -34,7 +34,7 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
      */
     public set font(value: WorkbookChartFont | undefined) {
         if(value) {
-            this._font = value instanceof WorkbookChartFontImpl? value : new WorkbookChartFontImpl(value);
+            this._font = value instanceof WorkbookChartFontImpl? value as WorkbookChartFontImpl: new WorkbookChartFontImpl(value);
         }
     };
     /**
@@ -60,7 +60,7 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
      */
     public set line(value: WorkbookChartLineFormat | undefined) {
         if(value) {
-            this._line = value instanceof WorkbookChartLineFormatImpl? value : new WorkbookChartLineFormatImpl(value);
+            this._line = value instanceof WorkbookChartLineFormatImpl? value as WorkbookChartLineFormatImpl: new WorkbookChartLineFormatImpl(value);
         }
     };
     /**
@@ -71,10 +71,10 @@ export class WorkbookChartAxisFormatImpl extends EntityImpl implements WorkbookC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.font){
-            writer.writeObjectValue<WorkbookChartFontImpl>("font", (!this.font || this.font instanceof WorkbookChartFontImpl? this.font : new WorkbookChartFontImpl(this.font)));
+            writer.writeObjectValue<WorkbookChartFontImpl>("font", (this.font instanceof WorkbookChartFontImpl? this.font as WorkbookChartFontImpl: new WorkbookChartFontImpl(this.font)));
         }
         if(this.line){
-            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (!this.line || this.line instanceof WorkbookChartLineFormatImpl? this.line : new WorkbookChartLineFormatImpl(this.line)));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (this.line instanceof WorkbookChartLineFormatImpl? this.line as WorkbookChartLineFormatImpl: new WorkbookChartLineFormatImpl(this.line)));
         }
     };
 }

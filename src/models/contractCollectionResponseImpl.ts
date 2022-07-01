@@ -73,7 +73,7 @@ export class ContractCollectionResponseImpl implements ContractCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContractImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ContractImpl? element:new ContractImpl(element)));
+            valueArrValue.push((element instanceof ContractImpl? element as ContractImpl:new ContractImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContractImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ContractCollectionResponseImpl implements ContractCollectionRespons
         if(value) {
             const valueArrValue: ContractImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ContractImpl? element:new ContractImpl(element)));
+                valueArrValue.push((element instanceof ContractImpl? element as ContractImpl:new ContractImpl(element)));
             });
             this._value = valueArrValue;
         }

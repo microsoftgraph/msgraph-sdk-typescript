@@ -47,7 +47,7 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
         if(value) {
             const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = [];
             this.configurationDeploymentSummaryPerApp?.forEach(element => {
-                configurationDeploymentSummaryPerAppArrValue.push((element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element:new ManagedAppPolicyDeploymentSummaryPerAppImpl(element)));
+                configurationDeploymentSummaryPerAppArrValue.push((element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element as ManagedAppPolicyDeploymentSummaryPerAppImpl:new ManagedAppPolicyDeploymentSummaryPerAppImpl(element)));
             });
             this._configurationDeploymentSummaryPerApp = configurationDeploymentSummaryPerAppArrValue;
         }
@@ -121,7 +121,7 @@ export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements
         }
         if(this.configurationDeploymentSummaryPerApp && this.configurationDeploymentSummaryPerApp.length != 0){        const configurationDeploymentSummaryPerAppArrValue: ManagedAppPolicyDeploymentSummaryPerAppImpl[] = [];
         this.configurationDeploymentSummaryPerApp?.forEach(element => {
-            configurationDeploymentSummaryPerAppArrValue.push((element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element:new ManagedAppPolicyDeploymentSummaryPerAppImpl(element)));
+            configurationDeploymentSummaryPerAppArrValue.push((element instanceof ManagedAppPolicyDeploymentSummaryPerAppImpl? element as ManagedAppPolicyDeploymentSummaryPerAppImpl:new ManagedAppPolicyDeploymentSummaryPerAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerAppImpl>("configurationDeploymentSummaryPerApp", configurationDeploymentSummaryPerAppArrValue);
         }

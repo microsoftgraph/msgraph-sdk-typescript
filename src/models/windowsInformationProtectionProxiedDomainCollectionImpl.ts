@@ -78,7 +78,7 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
         if(value) {
             const proxiedDomainsArrValue: ProxiedDomainImpl[] = [];
             this.proxiedDomains?.forEach(element => {
-                proxiedDomainsArrValue.push((element instanceof ProxiedDomainImpl? element:new ProxiedDomainImpl(element)));
+                proxiedDomainsArrValue.push((element instanceof ProxiedDomainImpl? element as ProxiedDomainImpl:new ProxiedDomainImpl(element)));
             });
             this._proxiedDomains = proxiedDomainsArrValue;
         }
@@ -94,7 +94,7 @@ export class WindowsInformationProtectionProxiedDomainCollectionImpl implements 
         }
         if(this.proxiedDomains && this.proxiedDomains.length != 0){        const proxiedDomainsArrValue: ProxiedDomainImpl[] = [];
         this.proxiedDomains?.forEach(element => {
-            proxiedDomainsArrValue.push((element instanceof ProxiedDomainImpl? element:new ProxiedDomainImpl(element)));
+            proxiedDomainsArrValue.push((element instanceof ProxiedDomainImpl? element as ProxiedDomainImpl:new ProxiedDomainImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProxiedDomainImpl>("proxiedDomains", proxiedDomainsArrValue);
         }

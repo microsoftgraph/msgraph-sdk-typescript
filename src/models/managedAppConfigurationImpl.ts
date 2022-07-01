@@ -30,7 +30,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
         if(value) {
             const customSettingsArrValue: KeyValuePairImpl[] = [];
             this.customSettings?.forEach(element => {
-                customSettingsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+                customSettingsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
             });
             this._customSettings = customSettingsArrValue;
         }
@@ -53,7 +53,7 @@ export class ManagedAppConfigurationImpl extends ManagedAppPolicyImpl implements
         super.serialize(writer);
         if(this.customSettings && this.customSettings.length != 0){        const customSettingsArrValue: KeyValuePairImpl[] = [];
         this.customSettings?.forEach(element => {
-            customSettingsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+            customSettingsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("customSettings", customSettingsArrValue);
         }

@@ -73,7 +73,7 @@ export class ChatMessageHostedContentCollectionResponseImpl implements ChatMessa
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageHostedContentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ChatMessageHostedContentImpl? element:new ChatMessageHostedContentImpl(element)));
+            valueArrValue.push((element instanceof ChatMessageHostedContentImpl? element as ChatMessageHostedContentImpl:new ChatMessageHostedContentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ChatMessageHostedContentCollectionResponseImpl implements ChatMessa
         if(value) {
             const valueArrValue: ChatMessageHostedContentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ChatMessageHostedContentImpl? element:new ChatMessageHostedContentImpl(element)));
+                valueArrValue.push((element instanceof ChatMessageHostedContentImpl? element as ChatMessageHostedContentImpl:new ChatMessageHostedContentImpl(element)));
             });
             this._value = valueArrValue;
         }

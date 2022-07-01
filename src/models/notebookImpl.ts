@@ -102,7 +102,7 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
      */
     public set links(value: NotebookLinks | undefined) {
         if(value) {
-            this._links = value instanceof NotebookLinksImpl? value : new NotebookLinksImpl(value);
+            this._links = value instanceof NotebookLinksImpl? value as NotebookLinksImpl: new NotebookLinksImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         if(value) {
             const sectionGroupsArrValue: SectionGroupImpl[] = [];
             this.sectionGroups?.forEach(element => {
-                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
             });
             this._sectionGroups = sectionGroupsArrValue;
         }
@@ -156,7 +156,7 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         if(value) {
             const sectionsArrValue: OnenoteSectionImpl[] = [];
             this.sections?.forEach(element => {
-                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
             });
             this._sections = sectionsArrValue;
         }
@@ -191,11 +191,11 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
             writer.writeBooleanValue("isShared", this.isShared);
         }
         if(this.links){
-            writer.writeObjectValue<NotebookLinksImpl>("links", (!this.links || this.links instanceof NotebookLinksImpl? this.links : new NotebookLinksImpl(this.links)));
+            writer.writeObjectValue<NotebookLinksImpl>("links", (this.links instanceof NotebookLinksImpl? this.links as NotebookLinksImpl: new NotebookLinksImpl(this.links)));
         }
         if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = [];
         this.sectionGroups?.forEach(element => {
-            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
@@ -204,7 +204,7 @@ export class NotebookImpl extends OnenoteEntityHierarchyModelImpl implements Not
         }
         if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = [];
         this.sections?.forEach(element => {
-            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }

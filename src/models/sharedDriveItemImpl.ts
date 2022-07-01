@@ -59,7 +59,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set driveItem(value: DriveItem | undefined) {
         if(value) {
-            this._driveItem = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+            this._driveItem = value instanceof DriveItemImpl? value as DriveItemImpl: new DriveItemImpl(value);
         }
     };
     /**
@@ -93,7 +93,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
         if(value) {
             const itemsArrValue: DriveItemImpl[] = [];
             this.items?.forEach(element => {
-                itemsArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                itemsArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._items = itemsArrValue;
         }
@@ -111,7 +111,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set list(value: List | undefined) {
         if(value) {
-            this._list = value instanceof ListImpl? value : new ListImpl(value);
+            this._list = value instanceof ListImpl? value as ListImpl: new ListImpl(value);
         }
     };
     /**
@@ -127,7 +127,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set listItem(value: ListItem | undefined) {
         if(value) {
-            this._listItem = value instanceof ListItemImpl? value : new ListItemImpl(value);
+            this._listItem = value instanceof ListItemImpl? value as ListItemImpl: new ListItemImpl(value);
         }
     };
     /**
@@ -143,7 +143,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set owner(value: IdentitySet | undefined) {
         if(value) {
-            this._owner = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._owner = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -159,7 +159,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set permission(value: Permission | undefined) {
         if(value) {
-            this._permission = value instanceof PermissionImpl? value : new PermissionImpl(value);
+            this._permission = value instanceof PermissionImpl? value as PermissionImpl: new PermissionImpl(value);
         }
     };
     /**
@@ -175,7 +175,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set root(value: DriveItem | undefined) {
         if(value) {
-            this._root = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+            this._root = value instanceof DriveItemImpl? value as DriveItemImpl: new DriveItemImpl(value);
         }
     };
     /**
@@ -186,31 +186,31 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.driveItem){
-            writer.writeObjectValue<DriveItemImpl>("driveItem", (!this.driveItem || this.driveItem instanceof DriveItemImpl? this.driveItem : new DriveItemImpl(this.driveItem)));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", (this.driveItem instanceof DriveItemImpl? this.driveItem as DriveItemImpl: new DriveItemImpl(this.driveItem)));
         }
         if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = [];
         this.items?.forEach(element => {
-            itemsArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            itemsArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-            writer.writeObjectValue<ListImpl>("list", (!this.list || this.list instanceof ListImpl? this.list : new ListImpl(this.list)));
+            writer.writeObjectValue<ListImpl>("list", (this.list instanceof ListImpl? this.list as ListImpl: new ListImpl(this.list)));
         }
         if(this.listItem){
-            writer.writeObjectValue<ListItemImpl>("listItem", (!this.listItem || this.listItem instanceof ListItemImpl? this.listItem : new ListItemImpl(this.listItem)));
+            writer.writeObjectValue<ListItemImpl>("listItem", (this.listItem instanceof ListItemImpl? this.listItem as ListItemImpl: new ListItemImpl(this.listItem)));
         }
         if(this.owner){
-            writer.writeObjectValue<IdentitySetImpl>("owner", (!this.owner || this.owner instanceof IdentitySetImpl? this.owner : new IdentitySetImpl(this.owner)));
+            writer.writeObjectValue<IdentitySetImpl>("owner", (this.owner instanceof IdentitySetImpl? this.owner as IdentitySetImpl: new IdentitySetImpl(this.owner)));
         }
         if(this.permission){
-            writer.writeObjectValue<PermissionImpl>("permission", (!this.permission || this.permission instanceof PermissionImpl? this.permission : new PermissionImpl(this.permission)));
+            writer.writeObjectValue<PermissionImpl>("permission", (this.permission instanceof PermissionImpl? this.permission as PermissionImpl: new PermissionImpl(this.permission)));
         }
         if(this.root){
-            writer.writeObjectValue<DriveItemImpl>("root", (!this.root || this.root instanceof DriveItemImpl? this.root : new DriveItemImpl(this.root)));
+            writer.writeObjectValue<DriveItemImpl>("root", (this.root instanceof DriveItemImpl? this.root as DriveItemImpl: new DriveItemImpl(this.root)));
         }
         if(this.site){
-            writer.writeObjectValue<SiteImpl>("site", (!this.site || this.site instanceof SiteImpl? this.site : new SiteImpl(this.site)));
+            writer.writeObjectValue<SiteImpl>("site", (this.site instanceof SiteImpl? this.site as SiteImpl: new SiteImpl(this.site)));
         }
     };
     /**
@@ -226,7 +226,7 @@ export class SharedDriveItemImpl extends BaseItemImpl implements SharedDriveItem
      */
     public set site(value: Site | undefined) {
         if(value) {
-            this._site = value instanceof SiteImpl? value : new SiteImpl(value);
+            this._site = value instanceof SiteImpl? value as SiteImpl: new SiteImpl(value);
         }
     };
 }

@@ -188,7 +188,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         if(value) {
             const fromAddressesArrValue: RecipientImpl[] = [];
             this.fromAddresses?.forEach(element => {
-                fromAddressesArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                fromAddressesArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._fromAddresses = fromAddressesArrValue;
         }
@@ -582,7 +582,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         if(value) {
             const sentToAddressesArrValue: RecipientImpl[] = [];
             this.sentToAddresses?.forEach(element => {
-                sentToAddressesArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                sentToAddressesArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._sentToAddresses = sentToAddressesArrValue;
         }
@@ -636,7 +636,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         }
         if(this.fromAddresses && this.fromAddresses.length != 0){        const fromAddressesArrValue: RecipientImpl[] = [];
         this.fromAddresses?.forEach(element => {
-            fromAddressesArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            fromAddressesArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("fromAddresses", fromAddressesArrValue);
         }
@@ -705,7 +705,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
         }
         if(this.sentToAddresses && this.sentToAddresses.length != 0){        const sentToAddressesArrValue: RecipientImpl[] = [];
         this.sentToAddresses?.forEach(element => {
-            sentToAddressesArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            sentToAddressesArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("sentToAddresses", sentToAddressesArrValue);
         }
@@ -719,7 +719,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
             writer.writeCollectionOfPrimitiveValues<string>("subjectContains", this.subjectContains);
         }
         if(this.withinSizeRange){
-            writer.writeObjectValue<SizeRangeImpl>("withinSizeRange", (!this.withinSizeRange || this.withinSizeRange instanceof SizeRangeImpl? this.withinSizeRange : new SizeRangeImpl(this.withinSizeRange)));
+            writer.writeObjectValue<SizeRangeImpl>("withinSizeRange", (this.withinSizeRange instanceof SizeRangeImpl? this.withinSizeRange as SizeRangeImpl: new SizeRangeImpl(this.withinSizeRange)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -752,7 +752,7 @@ export class MessageRulePredicatesImpl implements MessageRulePredicates {
      */
     public set withinSizeRange(value: SizeRange | undefined) {
         if(value) {
-            this._withinSizeRange = value instanceof SizeRangeImpl? value : new SizeRangeImpl(value);
+            this._withinSizeRange = value instanceof SizeRangeImpl? value as SizeRangeImpl: new SizeRangeImpl(value);
         }
     };
 }

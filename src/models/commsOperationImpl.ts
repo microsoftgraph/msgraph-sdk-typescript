@@ -63,7 +63,7 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
      */
     public set resultInfo(value: ResultInfo | undefined) {
         if(value) {
-            this._resultInfo = value instanceof ResultInfoImpl? value : new ResultInfoImpl(value);
+            this._resultInfo = value instanceof ResultInfoImpl? value as ResultInfoImpl: new ResultInfoImpl(value);
         }
     };
     /**
@@ -77,7 +77,7 @@ export class CommsOperationImpl extends EntityImpl implements CommsOperation {
             writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.resultInfo){
-            writer.writeObjectValue<ResultInfoImpl>("resultInfo", (!this.resultInfo || this.resultInfo instanceof ResultInfoImpl? this.resultInfo : new ResultInfoImpl(this.resultInfo)));
+            writer.writeObjectValue<ResultInfoImpl>("resultInfo", (this.resultInfo instanceof ResultInfoImpl? this.resultInfo as ResultInfoImpl: new ResultInfoImpl(this.resultInfo)));
         }
         if(this.status){
             writer.writeEnumValue<OperationStatus>("status", this.status);

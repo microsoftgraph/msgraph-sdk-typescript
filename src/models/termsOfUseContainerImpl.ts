@@ -27,7 +27,7 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
         if(value) {
             const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = [];
             this.agreementAcceptances?.forEach(element => {
-                agreementAcceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element:new AgreementAcceptanceImpl(element)));
+                agreementAcceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element as AgreementAcceptanceImpl:new AgreementAcceptanceImpl(element)));
             });
             this._agreementAcceptances = agreementAcceptancesArrValue;
         }
@@ -47,7 +47,7 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
         if(value) {
             const agreementsArrValue: AgreementImpl[] = [];
             this.agreements?.forEach(element => {
-                agreementsArrValue.push((element instanceof AgreementImpl? element:new AgreementImpl(element)));
+                agreementsArrValue.push((element instanceof AgreementImpl? element as AgreementImpl:new AgreementImpl(element)));
             });
             this._agreements = agreementsArrValue;
         }
@@ -80,13 +80,13 @@ export class TermsOfUseContainerImpl extends EntityImpl implements TermsOfUseCon
         super.serialize(writer);
         if(this.agreementAcceptances && this.agreementAcceptances.length != 0){        const agreementAcceptancesArrValue: AgreementAcceptanceImpl[] = [];
         this.agreementAcceptances?.forEach(element => {
-            agreementAcceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element:new AgreementAcceptanceImpl(element)));
+            agreementAcceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element as AgreementAcceptanceImpl:new AgreementAcceptanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("agreementAcceptances", agreementAcceptancesArrValue);
         }
         if(this.agreements && this.agreements.length != 0){        const agreementsArrValue: AgreementImpl[] = [];
         this.agreements?.forEach(element => {
-            agreementsArrValue.push((element instanceof AgreementImpl? element:new AgreementImpl(element)));
+            agreementsArrValue.push((element instanceof AgreementImpl? element as AgreementImpl:new AgreementImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementImpl>("agreements", agreementsArrValue);
         }

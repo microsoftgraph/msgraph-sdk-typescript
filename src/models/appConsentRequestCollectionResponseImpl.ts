@@ -73,7 +73,7 @@ export class AppConsentRequestCollectionResponseImpl implements AppConsentReques
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AppConsentRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AppConsentRequestImpl? element:new AppConsentRequestImpl(element)));
+            valueArrValue.push((element instanceof AppConsentRequestImpl? element as AppConsentRequestImpl:new AppConsentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AppConsentRequestCollectionResponseImpl implements AppConsentReques
         if(value) {
             const valueArrValue: AppConsentRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AppConsentRequestImpl? element:new AppConsentRequestImpl(element)));
+                valueArrValue.push((element instanceof AppConsentRequestImpl? element as AppConsentRequestImpl:new AppConsentRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

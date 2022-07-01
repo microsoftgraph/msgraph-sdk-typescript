@@ -73,7 +73,7 @@ export class TimeOffCollectionResponseImpl implements TimeOffCollectionResponse 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TimeOffImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TimeOffImpl? element:new TimeOffImpl(element)));
+            valueArrValue.push((element instanceof TimeOffImpl? element as TimeOffImpl:new TimeOffImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeOffImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TimeOffCollectionResponseImpl implements TimeOffCollectionResponse 
         if(value) {
             const valueArrValue: TimeOffImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TimeOffImpl? element:new TimeOffImpl(element)));
+                valueArrValue.push((element instanceof TimeOffImpl? element as TimeOffImpl:new TimeOffImpl(element)));
             });
             this._value = valueArrValue;
         }

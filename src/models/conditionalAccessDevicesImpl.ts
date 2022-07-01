@@ -46,7 +46,7 @@ export class ConditionalAccessDevicesImpl implements ConditionalAccessDevices {
      */
     public set deviceFilter(value: ConditionalAccessFilter | undefined) {
         if(value) {
-            this._deviceFilter = value instanceof ConditionalAccessFilterImpl? value : new ConditionalAccessFilterImpl(value);
+            this._deviceFilter = value instanceof ConditionalAccessFilterImpl? value as ConditionalAccessFilterImpl: new ConditionalAccessFilterImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class ConditionalAccessDevicesImpl implements ConditionalAccessDevices {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.deviceFilter){
-            writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", (!this.deviceFilter || this.deviceFilter instanceof ConditionalAccessFilterImpl? this.deviceFilter : new ConditionalAccessFilterImpl(this.deviceFilter)));
+            writer.writeObjectValue<ConditionalAccessFilterImpl>("deviceFilter", (this.deviceFilter instanceof ConditionalAccessFilterImpl? this.deviceFilter as ConditionalAccessFilterImpl: new ConditionalAccessFilterImpl(this.deviceFilter)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

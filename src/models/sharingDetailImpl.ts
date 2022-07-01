@@ -67,13 +67,13 @@ export class SharingDetailImpl implements SharingDetail {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.sharedBy){
-            writer.writeObjectValue<InsightIdentityImpl>("sharedBy", (!this.sharedBy || this.sharedBy instanceof InsightIdentityImpl? this.sharedBy : new InsightIdentityImpl(this.sharedBy)));
+            writer.writeObjectValue<InsightIdentityImpl>("sharedBy", (this.sharedBy instanceof InsightIdentityImpl? this.sharedBy as InsightIdentityImpl: new InsightIdentityImpl(this.sharedBy)));
         }
         if(this.sharedDateTime){
             writer.writeDateValue("sharedDateTime", this.sharedDateTime);
         }
         if(this.sharingReference){
-            writer.writeObjectValue<ResourceReferenceImpl>("sharingReference", (!this.sharingReference || this.sharingReference instanceof ResourceReferenceImpl? this.sharingReference : new ResourceReferenceImpl(this.sharingReference)));
+            writer.writeObjectValue<ResourceReferenceImpl>("sharingReference", (this.sharingReference instanceof ResourceReferenceImpl? this.sharingReference as ResourceReferenceImpl: new ResourceReferenceImpl(this.sharingReference)));
         }
         if(this.sharingSubject){
             writer.writeStringValue("sharingSubject", this.sharingSubject);
@@ -96,7 +96,7 @@ export class SharingDetailImpl implements SharingDetail {
      */
     public set sharedBy(value: InsightIdentity | undefined) {
         if(value) {
-            this._sharedBy = value instanceof InsightIdentityImpl? value : new InsightIdentityImpl(value);
+            this._sharedBy = value instanceof InsightIdentityImpl? value as InsightIdentityImpl: new InsightIdentityImpl(value);
         }
     };
     /**
@@ -128,7 +128,7 @@ export class SharingDetailImpl implements SharingDetail {
      */
     public set sharingReference(value: ResourceReference | undefined) {
         if(value) {
-            this._sharingReference = value instanceof ResourceReferenceImpl? value : new ResourceReferenceImpl(value);
+            this._sharingReference = value instanceof ResourceReferenceImpl? value as ResourceReferenceImpl: new ResourceReferenceImpl(value);
         }
     };
     /**

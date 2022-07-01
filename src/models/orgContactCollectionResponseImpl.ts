@@ -73,7 +73,7 @@ export class OrgContactCollectionResponseImpl implements OrgContactCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OrgContactImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OrgContactImpl? element:new OrgContactImpl(element)));
+            valueArrValue.push((element instanceof OrgContactImpl? element as OrgContactImpl:new OrgContactImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OrgContactImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OrgContactCollectionResponseImpl implements OrgContactCollectionRes
         if(value) {
             const valueArrValue: OrgContactImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OrgContactImpl? element:new OrgContactImpl(element)));
+                valueArrValue.push((element instanceof OrgContactImpl? element as OrgContactImpl:new OrgContactImpl(element)));
             });
             this._value = valueArrValue;
         }

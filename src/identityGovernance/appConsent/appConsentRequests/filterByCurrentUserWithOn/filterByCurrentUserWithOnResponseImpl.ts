@@ -51,7 +51,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: AppConsentRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AppConsentRequestImpl? element:new AppConsentRequestImpl(element)));
+            valueArrValue.push((element instanceof AppConsentRequestImpl? element as AppConsentRequestImpl:new AppConsentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppConsentRequestImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(value) {
             const valueArrValue: AppConsentRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AppConsentRequestImpl? element:new AppConsentRequestImpl(element)));
+                valueArrValue.push((element instanceof AppConsentRequestImpl? element as AppConsentRequestImpl:new AppConsentRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

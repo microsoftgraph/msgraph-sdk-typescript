@@ -176,7 +176,7 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         if(value) {
             const compliantAppsListArrValue: AppListItemImpl[] = [];
             this.compliantAppsList?.forEach(element => {
-                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
             });
             this._compliantAppsList = compliantAppsListArrValue;
         }
@@ -521,7 +521,7 @@ export class WindowsPhone81GeneralConfigurationImpl extends DeviceConfigurationI
         }
         if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = [];
         this.compliantAppsList?.forEach(element => {
-            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }

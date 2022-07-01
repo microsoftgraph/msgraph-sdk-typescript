@@ -48,7 +48,7 @@ export class SharingLinkImpl implements SharingLink {
      */
     public set application(value: Identity | undefined) {
         if(value) {
-            this._application = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._application = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -117,7 +117,7 @@ export class SharingLinkImpl implements SharingLink {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-            writer.writeObjectValue<IdentityImpl>("application", (!this.application || this.application instanceof IdentityImpl? this.application : new IdentityImpl(this.application)));
+            writer.writeObjectValue<IdentityImpl>("application", (this.application instanceof IdentityImpl? this.application as IdentityImpl: new IdentityImpl(this.application)));
         }
         if(this.preventsDownload){
             writer.writeBooleanValue("preventsDownload", this.preventsDownload);

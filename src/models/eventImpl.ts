@@ -150,7 +150,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const attachmentsArrValue: AttachmentImpl[] = [];
             this.attachments?.forEach(element => {
-                attachmentsArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+                attachmentsArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
             });
             this._attachments = attachmentsArrValue;
         }
@@ -170,7 +170,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const attendeesArrValue: AttendeeImpl[] = [];
             this.attendees?.forEach(element => {
-                attendeesArrValue.push((element instanceof AttendeeImpl? element:new AttendeeImpl(element)));
+                attendeesArrValue.push((element instanceof AttendeeImpl? element as AttendeeImpl:new AttendeeImpl(element)));
             });
             this._attendees = attendeesArrValue;
         }
@@ -188,7 +188,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set body(value: ItemBody | undefined) {
         if(value) {
-            this._body = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._body = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -220,7 +220,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set calendar(value: Calendar | undefined) {
         if(value) {
-            this._calendar = value instanceof CalendarImpl? value : new CalendarImpl(value);
+            this._calendar = value instanceof CalendarImpl? value as CalendarImpl: new CalendarImpl(value);
         }
     };
     /**
@@ -285,7 +285,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set end(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._end = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._end = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -303,7 +303,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -437,7 +437,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const instancesArrValue: EventImpl[] = [];
             this.instances?.forEach(element => {
-                instancesArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+                instancesArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
             });
             this._instances = instancesArrValue;
         }
@@ -551,7 +551,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set location(value: Location | undefined) {
         if(value) {
-            this._location = value instanceof LocationImpl? value : new LocationImpl(value);
+            this._location = value instanceof LocationImpl? value as LocationImpl: new LocationImpl(value);
         }
     };
     /**
@@ -569,7 +569,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const locationsArrValue: LocationImpl[] = [];
             this.locations?.forEach(element => {
-                locationsArrValue.push((element instanceof LocationImpl? element:new LocationImpl(element)));
+                locationsArrValue.push((element instanceof LocationImpl? element as LocationImpl:new LocationImpl(element)));
             });
             this._locations = locationsArrValue;
         }
@@ -589,7 +589,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.multiValueExtendedProperties?.forEach(element => {
-                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         }
@@ -607,7 +607,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set onlineMeeting(value: OnlineMeetingInfo | undefined) {
         if(value) {
-            this._onlineMeeting = value instanceof OnlineMeetingInfoImpl? value : new OnlineMeetingInfoImpl(value);
+            this._onlineMeeting = value instanceof OnlineMeetingInfoImpl? value as OnlineMeetingInfoImpl: new OnlineMeetingInfoImpl(value);
         }
     };
     /**
@@ -655,7 +655,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set organizer(value: Recipient | undefined) {
         if(value) {
-            this._organizer = value instanceof RecipientImpl? value : new RecipientImpl(value);
+            this._organizer = value instanceof RecipientImpl? value as RecipientImpl: new RecipientImpl(value);
         }
     };
     /**
@@ -719,7 +719,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         if(value) {
-            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(value);
         }
     };
     /**
@@ -767,7 +767,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set responseStatus(value: ResponseStatus | undefined) {
         if(value) {
-            this._responseStatus = value instanceof ResponseStatusImpl? value : new ResponseStatusImpl(value);
+            this._responseStatus = value instanceof ResponseStatusImpl? value as ResponseStatusImpl: new ResponseStatusImpl(value);
         }
     };
     /**
@@ -798,31 +798,31 @@ export class EventImpl extends OutlookItemImpl implements Event {
         }
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = [];
         this.attachments?.forEach(element => {
-            attachmentsArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+            attachmentsArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeImpl[] = [];
         this.attendees?.forEach(element => {
-            attendeesArrValue.push((element instanceof AttendeeImpl? element:new AttendeeImpl(element)));
+            attendeesArrValue.push((element instanceof AttendeeImpl? element as AttendeeImpl:new AttendeeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttendeeImpl>("attendees", attendeesArrValue);
         }
         if(this.body){
-            writer.writeObjectValue<ItemBodyImpl>("body", (!this.body || this.body instanceof ItemBodyImpl? this.body : new ItemBodyImpl(this.body)));
+            writer.writeObjectValue<ItemBodyImpl>("body", (this.body instanceof ItemBodyImpl? this.body as ItemBodyImpl: new ItemBodyImpl(this.body)));
         }
         if(this.bodyPreview){
             writer.writeStringValue("bodyPreview", this.bodyPreview);
         }
         if(this.calendar){
-            writer.writeObjectValue<CalendarImpl>("calendar", (!this.calendar || this.calendar instanceof CalendarImpl? this.calendar : new CalendarImpl(this.calendar)));
+            writer.writeObjectValue<CalendarImpl>("calendar", (this.calendar instanceof CalendarImpl? this.calendar as CalendarImpl: new CalendarImpl(this.calendar)));
         }
         if(this.end){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", (!this.end || this.end instanceof DateTimeTimeZoneImpl? this.end : new DateTimeTimeZoneImpl(this.end)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", (this.end instanceof DateTimeTimeZoneImpl? this.end as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.end)));
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
@@ -840,7 +840,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         }
         if(this.instances && this.instances.length != 0){        const instancesArrValue: EventImpl[] = [];
         this.instances?.forEach(element => {
-            instancesArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            instancesArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EventImpl>("instances", instancesArrValue);
         }
@@ -863,22 +863,22 @@ export class EventImpl extends OutlookItemImpl implements Event {
             writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         }
         if(this.location){
-            writer.writeObjectValue<LocationImpl>("location", (!this.location || this.location instanceof LocationImpl? this.location : new LocationImpl(this.location)));
+            writer.writeObjectValue<LocationImpl>("location", (this.location instanceof LocationImpl? this.location as LocationImpl: new LocationImpl(this.location)));
         }
         if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = [];
         this.locations?.forEach(element => {
-            locationsArrValue.push((element instanceof LocationImpl? element:new LocationImpl(element)));
+            locationsArrValue.push((element instanceof LocationImpl? element as LocationImpl:new LocationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.multiValueExtendedProperties?.forEach(element => {
-            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.onlineMeeting){
-            writer.writeObjectValue<OnlineMeetingInfoImpl>("onlineMeeting", (!this.onlineMeeting || this.onlineMeeting instanceof OnlineMeetingInfoImpl? this.onlineMeeting : new OnlineMeetingInfoImpl(this.onlineMeeting)));
+            writer.writeObjectValue<OnlineMeetingInfoImpl>("onlineMeeting", (this.onlineMeeting instanceof OnlineMeetingInfoImpl? this.onlineMeeting as OnlineMeetingInfoImpl: new OnlineMeetingInfoImpl(this.onlineMeeting)));
         }
         if(this.onlineMeetingProvider){
             writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
@@ -887,7 +887,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
             writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
         }
         if(this.organizer){
-            writer.writeObjectValue<RecipientImpl>("organizer", (!this.organizer || this.organizer instanceof RecipientImpl? this.organizer : new RecipientImpl(this.organizer)));
+            writer.writeObjectValue<RecipientImpl>("organizer", (this.organizer instanceof RecipientImpl? this.organizer as RecipientImpl: new RecipientImpl(this.organizer)));
         }
         if(this.originalEndTimeZone){
             writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
@@ -899,7 +899,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
             writer.writeStringValue("originalStartTimeZone", this.originalStartTimeZone);
         }
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.reminderMinutesBeforeStart){
             writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
@@ -908,7 +908,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
             writer.writeBooleanValue("responseRequested", this.responseRequested);
         }
         if(this.responseStatus){
-            writer.writeObjectValue<ResponseStatusImpl>("responseStatus", (!this.responseStatus || this.responseStatus instanceof ResponseStatusImpl? this.responseStatus : new ResponseStatusImpl(this.responseStatus)));
+            writer.writeObjectValue<ResponseStatusImpl>("responseStatus", (this.responseStatus instanceof ResponseStatusImpl? this.responseStatus as ResponseStatusImpl: new ResponseStatusImpl(this.responseStatus)));
         }
         if(this.sensitivity){
             writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
@@ -921,12 +921,12 @@ export class EventImpl extends OutlookItemImpl implements Event {
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.singleValueExtendedProperties?.forEach(element => {
-            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
         if(this.start){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", (!this.start || this.start instanceof DateTimeTimeZoneImpl? this.start : new DateTimeTimeZoneImpl(this.start)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", (this.start instanceof DateTimeTimeZoneImpl? this.start as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.start)));
         }
         if(this.subject){
             writer.writeStringValue("subject", this.subject);
@@ -988,7 +988,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
         if(value) {
             const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.singleValueExtendedProperties?.forEach(element => {
-                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         }
@@ -1006,7 +1006,7 @@ export class EventImpl extends OutlookItemImpl implements Event {
      */
     public set start(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._start = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._start = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**

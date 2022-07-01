@@ -73,7 +73,7 @@ export class UserFlowLanguagePageCollectionResponseImpl implements UserFlowLangu
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UserFlowLanguagePageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UserFlowLanguagePageImpl? element:new UserFlowLanguagePageImpl(element)));
+            valueArrValue.push((element instanceof UserFlowLanguagePageImpl? element as UserFlowLanguagePageImpl:new UserFlowLanguagePageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserFlowLanguagePageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UserFlowLanguagePageCollectionResponseImpl implements UserFlowLangu
         if(value) {
             const valueArrValue: UserFlowLanguagePageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UserFlowLanguagePageImpl? element:new UserFlowLanguagePageImpl(element)));
+                valueArrValue.push((element instanceof UserFlowLanguagePageImpl? element as UserFlowLanguagePageImpl:new UserFlowLanguagePageImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -31,7 +31,7 @@ export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implement
      */
     public set feedback(value: EducationFeedback | undefined) {
         if(value) {
-            this._feedback = value instanceof EducationFeedbackImpl? value : new EducationFeedbackImpl(value);
+            this._feedback = value instanceof EducationFeedbackImpl? value as EducationFeedbackImpl: new EducationFeedbackImpl(value);
         }
     };
     /**
@@ -57,7 +57,7 @@ export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implement
      */
     public set publishedFeedback(value: EducationFeedback | undefined) {
         if(value) {
-            this._publishedFeedback = value instanceof EducationFeedbackImpl? value : new EducationFeedbackImpl(value);
+            this._publishedFeedback = value instanceof EducationFeedbackImpl? value as EducationFeedbackImpl: new EducationFeedbackImpl(value);
         }
     };
     /**
@@ -68,10 +68,10 @@ export class EducationFeedbackOutcomeImpl extends EducationOutcomeImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.feedback){
-            writer.writeObjectValue<EducationFeedbackImpl>("feedback", (!this.feedback || this.feedback instanceof EducationFeedbackImpl? this.feedback : new EducationFeedbackImpl(this.feedback)));
+            writer.writeObjectValue<EducationFeedbackImpl>("feedback", (this.feedback instanceof EducationFeedbackImpl? this.feedback as EducationFeedbackImpl: new EducationFeedbackImpl(this.feedback)));
         }
         if(this.publishedFeedback){
-            writer.writeObjectValue<EducationFeedbackImpl>("publishedFeedback", (!this.publishedFeedback || this.publishedFeedback instanceof EducationFeedbackImpl? this.publishedFeedback : new EducationFeedbackImpl(this.publishedFeedback)));
+            writer.writeObjectValue<EducationFeedbackImpl>("publishedFeedback", (this.publishedFeedback instanceof EducationFeedbackImpl? this.publishedFeedback as EducationFeedbackImpl: new EducationFeedbackImpl(this.publishedFeedback)));
         }
     };
 }

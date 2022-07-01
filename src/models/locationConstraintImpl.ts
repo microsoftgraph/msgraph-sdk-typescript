@@ -81,7 +81,7 @@ export class LocationConstraintImpl implements LocationConstraint {
         if(value) {
             const locationsArrValue: LocationConstraintItemImpl[] = [];
             this.locations?.forEach(element => {
-                locationsArrValue.push((element instanceof LocationConstraintItemImpl? element:new LocationConstraintItemImpl(element)));
+                locationsArrValue.push((element instanceof LocationConstraintItemImpl? element as LocationConstraintItemImpl:new LocationConstraintItemImpl(element)));
             });
             this._locations = locationsArrValue;
         }
@@ -97,7 +97,7 @@ export class LocationConstraintImpl implements LocationConstraint {
         }
         if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationConstraintItemImpl[] = [];
         this.locations?.forEach(element => {
-            locationsArrValue.push((element instanceof LocationConstraintItemImpl? element:new LocationConstraintItemImpl(element)));
+            locationsArrValue.push((element instanceof LocationConstraintItemImpl? element as LocationConstraintItemImpl:new LocationConstraintItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocationConstraintItemImpl>("locations", locationsArrValue);
         }

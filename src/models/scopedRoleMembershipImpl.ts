@@ -78,7 +78,7 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMe
      */
     public set roleMemberInfo(value: Identity | undefined) {
         if(value) {
-            this._roleMemberInfo = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._roleMemberInfo = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -95,7 +95,7 @@ export class ScopedRoleMembershipImpl extends EntityImpl implements ScopedRoleMe
             writer.writeStringValue("roleId", this.roleId);
         }
         if(this.roleMemberInfo){
-            writer.writeObjectValue<IdentityImpl>("roleMemberInfo", (!this.roleMemberInfo || this.roleMemberInfo instanceof IdentityImpl? this.roleMemberInfo : new IdentityImpl(this.roleMemberInfo)));
+            writer.writeObjectValue<IdentityImpl>("roleMemberInfo", (this.roleMemberInfo instanceof IdentityImpl? this.roleMemberInfo as IdentityImpl: new IdentityImpl(this.roleMemberInfo)));
         }
     };
 }

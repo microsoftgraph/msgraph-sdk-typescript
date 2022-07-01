@@ -79,7 +79,7 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
      */
     public set fileData(value: AgreementFileData | undefined) {
         if(value) {
-            this._fileData = value instanceof AgreementFileDataImpl? value : new AgreementFileDataImpl(value);
+            this._fileData = value instanceof AgreementFileDataImpl? value as AgreementFileDataImpl: new AgreementFileDataImpl(value);
         }
     };
     /**
@@ -175,7 +175,7 @@ export class AgreementFilePropertiesImpl extends EntityImpl implements Agreement
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.fileData){
-            writer.writeObjectValue<AgreementFileDataImpl>("fileData", (!this.fileData || this.fileData instanceof AgreementFileDataImpl? this.fileData : new AgreementFileDataImpl(this.fileData)));
+            writer.writeObjectValue<AgreementFileDataImpl>("fileData", (this.fileData instanceof AgreementFileDataImpl? this.fileData as AgreementFileDataImpl: new AgreementFileDataImpl(this.fileData)));
         }
         if(this.fileName){
             writer.writeStringValue("fileName", this.fileName);

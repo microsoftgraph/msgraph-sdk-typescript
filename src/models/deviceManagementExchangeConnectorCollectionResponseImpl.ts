@@ -73,7 +73,7 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementExchangeConnectorImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element:new DeviceManagementExchangeConnectorImpl(element)));
+            valueArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element as DeviceManagementExchangeConnectorImpl:new DeviceManagementExchangeConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceManagementExchangeConnectorCollectionResponseImpl implements 
         if(value) {
             const valueArrValue: DeviceManagementExchangeConnectorImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element:new DeviceManagementExchangeConnectorImpl(element)));
+                valueArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element as DeviceManagementExchangeConnectorImpl:new DeviceManagementExchangeConnectorImpl(element)));
             });
             this._value = valueArrValue;
         }

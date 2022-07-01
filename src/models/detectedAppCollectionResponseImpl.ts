@@ -73,7 +73,7 @@ export class DetectedAppCollectionResponseImpl implements DetectedAppCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DetectedAppImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DetectedAppImpl? element:new DetectedAppImpl(element)));
+            valueArrValue.push((element instanceof DetectedAppImpl? element as DetectedAppImpl:new DetectedAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DetectedAppImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DetectedAppCollectionResponseImpl implements DetectedAppCollectionR
         if(value) {
             const valueArrValue: DetectedAppImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DetectedAppImpl? element:new DetectedAppImpl(element)));
+                valueArrValue.push((element instanceof DetectedAppImpl? element as DetectedAppImpl:new DetectedAppImpl(element)));
             });
             this._value = valueArrValue;
         }

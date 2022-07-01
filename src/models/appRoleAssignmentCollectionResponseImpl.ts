@@ -73,7 +73,7 @@ export class AppRoleAssignmentCollectionResponseImpl implements AppRoleAssignmen
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AppRoleAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+            valueArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AppRoleAssignmentCollectionResponseImpl implements AppRoleAssignmen
         if(value) {
             const valueArrValue: AppRoleAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+                valueArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

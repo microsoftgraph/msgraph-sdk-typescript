@@ -73,7 +73,7 @@ export class PublicInnerErrorImpl implements PublicInnerError {
         if(value) {
             const detailsArrValue: PublicErrorDetailImpl[] = [];
             this.details?.forEach(element => {
-                detailsArrValue.push((element instanceof PublicErrorDetailImpl? element:new PublicErrorDetailImpl(element)));
+                detailsArrValue.push((element instanceof PublicErrorDetailImpl? element as PublicErrorDetailImpl:new PublicErrorDetailImpl(element)));
             });
             this._details = detailsArrValue;
         }
@@ -117,7 +117,7 @@ export class PublicInnerErrorImpl implements PublicInnerError {
         }
         if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = [];
         this.details?.forEach(element => {
-            detailsArrValue.push((element instanceof PublicErrorDetailImpl? element:new PublicErrorDetailImpl(element)));
+            detailsArrValue.push((element instanceof PublicErrorDetailImpl? element as PublicErrorDetailImpl:new PublicErrorDetailImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
         }

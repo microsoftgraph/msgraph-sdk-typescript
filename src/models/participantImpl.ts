@@ -62,7 +62,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
      */
     public set info(value: ParticipantInfo | undefined) {
         if(value) {
-            this._info = value instanceof ParticipantInfoImpl? value : new ParticipantInfoImpl(value);
+            this._info = value instanceof ParticipantInfoImpl? value as ParticipantInfoImpl: new ParticipantInfoImpl(value);
         }
     };
     /**
@@ -112,7 +112,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         if(value) {
             const mediaStreamsArrValue: MediaStreamImpl[] = [];
             this.mediaStreams?.forEach(element => {
-                mediaStreamsArrValue.push((element instanceof MediaStreamImpl? element:new MediaStreamImpl(element)));
+                mediaStreamsArrValue.push((element instanceof MediaStreamImpl? element as MediaStreamImpl:new MediaStreamImpl(element)));
             });
             this._mediaStreams = mediaStreamsArrValue;
         }
@@ -146,7 +146,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
      */
     public set recordingInfo(value: RecordingInfo | undefined) {
         if(value) {
-            this._recordingInfo = value instanceof RecordingInfoImpl? value : new RecordingInfoImpl(value);
+            this._recordingInfo = value instanceof RecordingInfoImpl? value as RecordingInfoImpl: new RecordingInfoImpl(value);
         }
     };
     /**
@@ -157,7 +157,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.info){
-            writer.writeObjectValue<ParticipantInfoImpl>("info", (!this.info || this.info instanceof ParticipantInfoImpl? this.info : new ParticipantInfoImpl(this.info)));
+            writer.writeObjectValue<ParticipantInfoImpl>("info", (this.info instanceof ParticipantInfoImpl? this.info as ParticipantInfoImpl: new ParticipantInfoImpl(this.info)));
         }
         if(this.isInLobby){
             writer.writeBooleanValue("isInLobby", this.isInLobby);
@@ -167,7 +167,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
         }
         if(this.mediaStreams && this.mediaStreams.length != 0){        const mediaStreamsArrValue: MediaStreamImpl[] = [];
         this.mediaStreams?.forEach(element => {
-            mediaStreamsArrValue.push((element instanceof MediaStreamImpl? element:new MediaStreamImpl(element)));
+            mediaStreamsArrValue.push((element instanceof MediaStreamImpl? element as MediaStreamImpl:new MediaStreamImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MediaStreamImpl>("mediaStreams", mediaStreamsArrValue);
         }
@@ -175,7 +175,7 @@ export class ParticipantImpl extends EntityImpl implements Participant {
             writer.writeStringValue("metadata", this.metadata);
         }
         if(this.recordingInfo){
-            writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", (!this.recordingInfo || this.recordingInfo instanceof RecordingInfoImpl? this.recordingInfo : new RecordingInfoImpl(this.recordingInfo)));
+            writer.writeObjectValue<RecordingInfoImpl>("recordingInfo", (this.recordingInfo instanceof RecordingInfoImpl? this.recordingInfo as RecordingInfoImpl: new RecordingInfoImpl(this.recordingInfo)));
         }
     };
 }

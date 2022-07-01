@@ -24,7 +24,7 @@ export class SharedWithChannelTeamInfoImpl extends TeamInfoImpl implements Share
         if(value) {
             const allowedMembersArrValue: ConversationMemberImpl[] = [];
             this.allowedMembers?.forEach(element => {
-                allowedMembersArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+                allowedMembersArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
             });
             this._allowedMembers = allowedMembersArrValue;
         }
@@ -73,7 +73,7 @@ export class SharedWithChannelTeamInfoImpl extends TeamInfoImpl implements Share
         super.serialize(writer);
         if(this.allowedMembers && this.allowedMembers.length != 0){        const allowedMembersArrValue: ConversationMemberImpl[] = [];
         this.allowedMembers?.forEach(element => {
-            allowedMembersArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+            allowedMembersArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("allowedMembers", allowedMembersArrValue);
         }

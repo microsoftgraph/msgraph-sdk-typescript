@@ -109,7 +109,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
         if(value) {
             const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = [];
             this.appliedConditionalAccessPolicies?.forEach(element => {
-                appliedConditionalAccessPoliciesArrValue.push((element instanceof AppliedConditionalAccessPolicyImpl? element:new AppliedConditionalAccessPolicyImpl(element)));
+                appliedConditionalAccessPoliciesArrValue.push((element instanceof AppliedConditionalAccessPolicyImpl? element as AppliedConditionalAccessPolicyImpl:new AppliedConditionalAccessPolicyImpl(element)));
             });
             this._appliedConditionalAccessPolicies = appliedConditionalAccessPoliciesArrValue;
         }
@@ -221,7 +221,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
      */
     public set deviceDetail(value: DeviceDetail | undefined) {
         if(value) {
-            this._deviceDetail = value instanceof DeviceDetailImpl? value : new DeviceDetailImpl(value);
+            this._deviceDetail = value instanceof DeviceDetailImpl? value as DeviceDetailImpl: new DeviceDetailImpl(value);
         }
     };
     /**
@@ -300,7 +300,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
      */
     public set location(value: SignInLocation | undefined) {
         if(value) {
-            this._location = value instanceof SignInLocationImpl? value : new SignInLocationImpl(value);
+            this._location = value instanceof SignInLocationImpl? value as SignInLocationImpl: new SignInLocationImpl(value);
         }
     };
     /**
@@ -446,7 +446,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
         }
         if(this.appliedConditionalAccessPolicies && this.appliedConditionalAccessPolicies.length != 0){        const appliedConditionalAccessPoliciesArrValue: AppliedConditionalAccessPolicyImpl[] = [];
         this.appliedConditionalAccessPolicies?.forEach(element => {
-            appliedConditionalAccessPoliciesArrValue.push((element instanceof AppliedConditionalAccessPolicyImpl? element:new AppliedConditionalAccessPolicyImpl(element)));
+            appliedConditionalAccessPoliciesArrValue.push((element instanceof AppliedConditionalAccessPolicyImpl? element as AppliedConditionalAccessPolicyImpl:new AppliedConditionalAccessPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicyImpl>("appliedConditionalAccessPolicies", appliedConditionalAccessPoliciesArrValue);
         }
@@ -463,7 +463,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.deviceDetail){
-            writer.writeObjectValue<DeviceDetailImpl>("deviceDetail", (!this.deviceDetail || this.deviceDetail instanceof DeviceDetailImpl? this.deviceDetail : new DeviceDetailImpl(this.deviceDetail)));
+            writer.writeObjectValue<DeviceDetailImpl>("deviceDetail", (this.deviceDetail instanceof DeviceDetailImpl? this.deviceDetail as DeviceDetailImpl: new DeviceDetailImpl(this.deviceDetail)));
         }
         if(this.ipAddress){
             writer.writeStringValue("ipAddress", this.ipAddress);
@@ -472,7 +472,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
             writer.writeBooleanValue("isInteractive", this.isInteractive);
         }
         if(this.location){
-            writer.writeObjectValue<SignInLocationImpl>("location", (!this.location || this.location instanceof SignInLocationImpl? this.location : new SignInLocationImpl(this.location)));
+            writer.writeObjectValue<SignInLocationImpl>("location", (this.location instanceof SignInLocationImpl? this.location as SignInLocationImpl: new SignInLocationImpl(this.location)));
         }
         if(this.resourceDisplayName){
             writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
@@ -499,7 +499,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
             writer.writeEnumValue<RiskState>("riskState", this.riskState);
         }
         if(this.status){
-            writer.writeObjectValue<SignInStatusImpl>("status", (!this.status || this.status instanceof SignInStatusImpl? this.status : new SignInStatusImpl(this.status)));
+            writer.writeObjectValue<SignInStatusImpl>("status", (this.status instanceof SignInStatusImpl? this.status as SignInStatusImpl: new SignInStatusImpl(this.status)));
         }
         if(this.userDisplayName){
             writer.writeStringValue("userDisplayName", this.userDisplayName);
@@ -524,7 +524,7 @@ export class SignInImpl extends EntityImpl implements SignIn {
      */
     public set status(value: SignInStatus | undefined) {
         if(value) {
-            this._status = value instanceof SignInStatusImpl? value : new SignInStatusImpl(value);
+            this._status = value instanceof SignInStatusImpl? value as SignInStatusImpl: new SignInStatusImpl(value);
         }
     };
     /**

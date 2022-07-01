@@ -40,7 +40,7 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
      */
     public set accessPackage(value: AccessPackage | undefined) {
         if(value) {
-            this._accessPackage = value instanceof AccessPackageImpl? value : new AccessPackageImpl(value);
+            this._accessPackage = value instanceof AccessPackageImpl? value as AccessPackageImpl: new AccessPackageImpl(value);
         }
     };
     /**
@@ -56,7 +56,7 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
      */
     public set assignmentPolicy(value: AccessPackageAssignmentPolicy | undefined) {
         if(value) {
-            this._assignmentPolicy = value instanceof AccessPackageAssignmentPolicyImpl? value : new AccessPackageAssignmentPolicyImpl(value);
+            this._assignmentPolicy = value instanceof AccessPackageAssignmentPolicyImpl? value as AccessPackageAssignmentPolicyImpl: new AccessPackageAssignmentPolicyImpl(value);
         }
     };
     /**
@@ -117,7 +117,7 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
      */
     public set schedule(value: EntitlementManagementSchedule | undefined) {
         if(value) {
-            this._schedule = value instanceof EntitlementManagementScheduleImpl? value : new EntitlementManagementScheduleImpl(value);
+            this._schedule = value instanceof EntitlementManagementScheduleImpl? value as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(value);
         }
     };
     /**
@@ -128,16 +128,16 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-            writer.writeObjectValue<AccessPackageImpl>("accessPackage", (!this.accessPackage || this.accessPackage instanceof AccessPackageImpl? this.accessPackage : new AccessPackageImpl(this.accessPackage)));
+            writer.writeObjectValue<AccessPackageImpl>("accessPackage", (this.accessPackage instanceof AccessPackageImpl? this.accessPackage as AccessPackageImpl: new AccessPackageImpl(this.accessPackage)));
         }
         if(this.assignmentPolicy){
-            writer.writeObjectValue<AccessPackageAssignmentPolicyImpl>("assignmentPolicy", (!this.assignmentPolicy || this.assignmentPolicy instanceof AccessPackageAssignmentPolicyImpl? this.assignmentPolicy : new AccessPackageAssignmentPolicyImpl(this.assignmentPolicy)));
+            writer.writeObjectValue<AccessPackageAssignmentPolicyImpl>("assignmentPolicy", (this.assignmentPolicy instanceof AccessPackageAssignmentPolicyImpl? this.assignmentPolicy as AccessPackageAssignmentPolicyImpl: new AccessPackageAssignmentPolicyImpl(this.assignmentPolicy)));
         }
         if(this.expiredDateTime){
             writer.writeDateValue("expiredDateTime", this.expiredDateTime);
         }
         if(this.schedule){
-            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (!this.schedule || this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule : new EntitlementManagementScheduleImpl(this.schedule)));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(this.schedule)));
         }
         if(this.state){
             writer.writeEnumValue<AccessPackageAssignmentState>("state", this.state);
@@ -146,7 +146,7 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
             writer.writeStringValue("status", this.status);
         }
         if(this.target){
-            writer.writeObjectValue<AccessPackageSubjectImpl>("target", (!this.target || this.target instanceof AccessPackageSubjectImpl? this.target : new AccessPackageSubjectImpl(this.target)));
+            writer.writeObjectValue<AccessPackageSubjectImpl>("target", (this.target instanceof AccessPackageSubjectImpl? this.target as AccessPackageSubjectImpl: new AccessPackageSubjectImpl(this.target)));
         }
     };
     /**
@@ -194,7 +194,7 @@ export class AccessPackageAssignmentImpl extends EntityImpl implements AccessPac
      */
     public set target(value: AccessPackageSubject | undefined) {
         if(value) {
-            this._target = value instanceof AccessPackageSubjectImpl? value : new AccessPackageSubjectImpl(value);
+            this._target = value instanceof AccessPackageSubjectImpl? value as AccessPackageSubjectImpl: new AccessPackageSubjectImpl(value);
         }
     };
 }

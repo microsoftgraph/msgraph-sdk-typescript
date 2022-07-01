@@ -78,7 +78,7 @@ export class ScheduleInformationImpl implements ScheduleInformation {
      */
     public set error_escaped(value: FreeBusyError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof FreeBusyErrorImpl? value : new FreeBusyErrorImpl(value);
+            this._error_escaped = value instanceof FreeBusyErrorImpl? value as FreeBusyErrorImpl: new FreeBusyErrorImpl(value);
         }
     };
     /**
@@ -125,7 +125,7 @@ export class ScheduleInformationImpl implements ScheduleInformation {
         if(value) {
             const scheduleItemsArrValue: ScheduleItemImpl[] = [];
             this.scheduleItems?.forEach(element => {
-                scheduleItemsArrValue.push((element instanceof ScheduleItemImpl? element:new ScheduleItemImpl(element)));
+                scheduleItemsArrValue.push((element instanceof ScheduleItemImpl? element as ScheduleItemImpl:new ScheduleItemImpl(element)));
             });
             this._scheduleItems = scheduleItemsArrValue;
         }
@@ -140,19 +140,19 @@ export class ScheduleInformationImpl implements ScheduleInformation {
             writer.writeStringValue("availabilityView", this.availabilityView);
         }
         if(this.error_escaped){
-            writer.writeObjectValue<FreeBusyErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof FreeBusyErrorImpl? this.error_escaped : new FreeBusyErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<FreeBusyErrorImpl>("error", (this.error_escaped instanceof FreeBusyErrorImpl? this.error_escaped as FreeBusyErrorImpl: new FreeBusyErrorImpl(this.error_escaped)));
         }
         if(this.scheduleId){
             writer.writeStringValue("scheduleId", this.scheduleId);
         }
         if(this.scheduleItems && this.scheduleItems.length != 0){        const scheduleItemsArrValue: ScheduleItemImpl[] = [];
         this.scheduleItems?.forEach(element => {
-            scheduleItemsArrValue.push((element instanceof ScheduleItemImpl? element:new ScheduleItemImpl(element)));
+            scheduleItemsArrValue.push((element instanceof ScheduleItemImpl? element as ScheduleItemImpl:new ScheduleItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ScheduleItemImpl>("scheduleItems", scheduleItemsArrValue);
         }
         if(this.workingHours){
-            writer.writeObjectValue<WorkingHoursImpl>("workingHours", (!this.workingHours || this.workingHours instanceof WorkingHoursImpl? this.workingHours : new WorkingHoursImpl(this.workingHours)));
+            writer.writeObjectValue<WorkingHoursImpl>("workingHours", (this.workingHours instanceof WorkingHoursImpl? this.workingHours as WorkingHoursImpl: new WorkingHoursImpl(this.workingHours)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -169,7 +169,7 @@ export class ScheduleInformationImpl implements ScheduleInformation {
      */
     public set workingHours(value: WorkingHours | undefined) {
         if(value) {
-            this._workingHours = value instanceof WorkingHoursImpl? value : new WorkingHoursImpl(value);
+            this._workingHours = value instanceof WorkingHoursImpl? value as WorkingHoursImpl: new WorkingHoursImpl(value);
         }
     };
 }

@@ -32,7 +32,7 @@ export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleMana
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.setting){
-            writer.writeObjectValue<ApprovalSettingsImpl>("setting", (!this.setting || this.setting instanceof ApprovalSettingsImpl? this.setting : new ApprovalSettingsImpl(this.setting)));
+            writer.writeObjectValue<ApprovalSettingsImpl>("setting", (this.setting instanceof ApprovalSettingsImpl? this.setting as ApprovalSettingsImpl: new ApprovalSettingsImpl(this.setting)));
         }
     };
     /**
@@ -48,7 +48,7 @@ export class UnifiedRoleManagementPolicyApprovalRuleImpl extends UnifiedRoleMana
      */
     public set setting(value: ApprovalSettings | undefined) {
         if(value) {
-            this._setting = value instanceof ApprovalSettingsImpl? value : new ApprovalSettingsImpl(value);
+            this._setting = value instanceof ApprovalSettingsImpl? value as ApprovalSettingsImpl: new ApprovalSettingsImpl(value);
         }
     };
 }

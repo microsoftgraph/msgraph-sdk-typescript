@@ -62,7 +62,7 @@ export class ScheduleItemImpl implements ScheduleItem {
      */
     public set end(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._end = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._end = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -118,7 +118,7 @@ export class ScheduleItemImpl implements ScheduleItem {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.end){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", (!this.end || this.end instanceof DateTimeTimeZoneImpl? this.end : new DateTimeTimeZoneImpl(this.end)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("end", (this.end instanceof DateTimeTimeZoneImpl? this.end as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.end)));
         }
         if(this.isPrivate){
             writer.writeBooleanValue("isPrivate", this.isPrivate);
@@ -127,7 +127,7 @@ export class ScheduleItemImpl implements ScheduleItem {
             writer.writeStringValue("location", this.location);
         }
         if(this.start){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", (!this.start || this.start instanceof DateTimeTimeZoneImpl? this.start : new DateTimeTimeZoneImpl(this.start)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("start", (this.start instanceof DateTimeTimeZoneImpl? this.start as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.start)));
         }
         if(this.status){
             writer.writeEnumValue<FreeBusyStatus>("status", this.status);
@@ -150,7 +150,7 @@ export class ScheduleItemImpl implements ScheduleItem {
      */
     public set start(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._start = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._start = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**

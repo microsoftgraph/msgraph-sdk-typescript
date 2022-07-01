@@ -280,7 +280,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
      */
     public set margin(value: PrintMargin | undefined) {
         if(value) {
-            this._margin = value instanceof PrintMarginImpl? value : new PrintMarginImpl(value);
+            this._margin = value instanceof PrintMarginImpl? value as PrintMarginImpl: new PrintMarginImpl(value);
         }
     };
     /**
@@ -378,7 +378,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
         if(value) {
             const pageRangesArrValue: IntegerRangeImpl[] = [];
             this.pageRanges?.forEach(element => {
-                pageRangesArrValue.push((element instanceof IntegerRangeImpl? element:new IntegerRangeImpl(element)));
+                pageRangesArrValue.push((element instanceof IntegerRangeImpl? element as IntegerRangeImpl:new IntegerRangeImpl(element)));
             });
             this._pageRanges = pageRangesArrValue;
         }
@@ -465,7 +465,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
             writer.writeStringValue("inputBin", this.inputBin);
         }
         if(this.margin){
-            writer.writeObjectValue<PrintMarginImpl>("margin", (!this.margin || this.margin instanceof PrintMarginImpl? this.margin : new PrintMarginImpl(this.margin)));
+            writer.writeObjectValue<PrintMarginImpl>("margin", (this.margin instanceof PrintMarginImpl? this.margin as PrintMarginImpl: new PrintMarginImpl(this.margin)));
         }
         if(this.mediaSize){
             writer.writeStringValue("mediaSize", this.mediaSize);
@@ -484,7 +484,7 @@ export class PrintJobConfigurationImpl implements PrintJobConfiguration {
         }
         if(this.pageRanges && this.pageRanges.length != 0){        const pageRangesArrValue: IntegerRangeImpl[] = [];
         this.pageRanges?.forEach(element => {
-            pageRangesArrValue.push((element instanceof IntegerRangeImpl? element:new IntegerRangeImpl(element)));
+            pageRangesArrValue.push((element instanceof IntegerRangeImpl? element as IntegerRangeImpl:new IntegerRangeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IntegerRangeImpl>("pageRanges", pageRangesArrValue);
         }

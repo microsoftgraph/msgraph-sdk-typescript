@@ -49,7 +49,7 @@ export class RubricQualityFeedbackModelImpl implements RubricQualityFeedbackMode
      */
     public set feedback(value: EducationItemBody | undefined) {
         if(value) {
-            this._feedback = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+            this._feedback = value instanceof EducationItemBodyImpl? value as EducationItemBodyImpl: new EducationItemBodyImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class RubricQualityFeedbackModelImpl implements RubricQualityFeedbackMode
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.feedback){
-            writer.writeObjectValue<EducationItemBodyImpl>("feedback", (!this.feedback || this.feedback instanceof EducationItemBodyImpl? this.feedback : new EducationItemBodyImpl(this.feedback)));
+            writer.writeObjectValue<EducationItemBodyImpl>("feedback", (this.feedback instanceof EducationItemBodyImpl? this.feedback as EducationItemBodyImpl: new EducationItemBodyImpl(this.feedback)));
         }
         if(this.qualityId){
             writer.writeStringValue("qualityId", this.qualityId);

@@ -73,7 +73,7 @@ export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistor
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ActivityHistoryItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ActivityHistoryItemImpl? element:new ActivityHistoryItemImpl(element)));
+            valueArrValue.push((element instanceof ActivityHistoryItemImpl? element as ActivityHistoryItemImpl:new ActivityHistoryItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ActivityHistoryItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ActivityHistoryItemCollectionResponseImpl implements ActivityHistor
         if(value) {
             const valueArrValue: ActivityHistoryItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ActivityHistoryItemImpl? element:new ActivityHistoryItemImpl(element)));
+                valueArrValue.push((element instanceof ActivityHistoryItemImpl? element as ActivityHistoryItemImpl:new ActivityHistoryItemImpl(element)));
             });
             this._value = valueArrValue;
         }

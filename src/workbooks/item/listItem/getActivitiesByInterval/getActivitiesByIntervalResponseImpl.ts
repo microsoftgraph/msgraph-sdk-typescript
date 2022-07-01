@@ -51,7 +51,7 @@ export class GetActivitiesByIntervalResponseImpl implements GetActivitiesByInter
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ItemActivityStatImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ItemActivityStatImpl? element:new ItemActivityStatImpl(element)));
+            valueArrValue.push((element instanceof ItemActivityStatImpl? element as ItemActivityStatImpl:new ItemActivityStatImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetActivitiesByIntervalResponseImpl implements GetActivitiesByInter
         if(value) {
             const valueArrValue: ItemActivityStatImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ItemActivityStatImpl? element:new ItemActivityStatImpl(element)));
+                valueArrValue.push((element instanceof ItemActivityStatImpl? element as ItemActivityStatImpl:new ItemActivityStatImpl(element)));
             });
             this._value = valueArrValue;
         }

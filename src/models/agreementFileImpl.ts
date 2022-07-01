@@ -39,7 +39,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
         if(value) {
             const localizationsArrValue: AgreementFileLocalizationImpl[] = [];
             this.localizations?.forEach(element => {
-                localizationsArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+                localizationsArrValue.push((element instanceof AgreementFileLocalizationImpl? element as AgreementFileLocalizationImpl:new AgreementFileLocalizationImpl(element)));
             });
             this._localizations = localizationsArrValue;
         }
@@ -53,7 +53,7 @@ export class AgreementFileImpl extends AgreementFilePropertiesImpl implements Ag
         super.serialize(writer);
         if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: AgreementFileLocalizationImpl[] = [];
         this.localizations?.forEach(element => {
-            localizationsArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+            localizationsArrValue.push((element instanceof AgreementFileLocalizationImpl? element as AgreementFileLocalizationImpl:new AgreementFileLocalizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("localizations", localizationsArrValue);
         }

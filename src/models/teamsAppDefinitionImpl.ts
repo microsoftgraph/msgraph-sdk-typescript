@@ -40,7 +40,7 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefini
      */
     public set bot(value: TeamworkBot | undefined) {
         if(value) {
-            this._bot = value instanceof TeamworkBotImpl? value : new TeamworkBotImpl(value);
+            this._bot = value instanceof TeamworkBotImpl? value as TeamworkBotImpl: new TeamworkBotImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefini
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -164,10 +164,10 @@ export class TeamsAppDefinitionImpl extends EntityImpl implements TeamsAppDefini
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bot){
-            writer.writeObjectValue<TeamworkBotImpl>("bot", (!this.bot || this.bot instanceof TeamworkBotImpl? this.bot : new TeamworkBotImpl(this.bot)));
+            writer.writeObjectValue<TeamworkBotImpl>("bot", (this.bot instanceof TeamworkBotImpl? this.bot as TeamworkBotImpl: new TeamworkBotImpl(this.bot)));
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);

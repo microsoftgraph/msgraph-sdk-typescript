@@ -40,7 +40,7 @@ export class BundleImpl implements Bundle {
      */
     public set album(value: Album | undefined) {
         if(value) {
-            this._album = value instanceof AlbumImpl? value : new AlbumImpl(value);
+            this._album = value instanceof AlbumImpl? value as AlbumImpl: new AlbumImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class BundleImpl implements Bundle {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.album){
-            writer.writeObjectValue<AlbumImpl>("album", (!this.album || this.album instanceof AlbumImpl? this.album : new AlbumImpl(this.album)));
+            writer.writeObjectValue<AlbumImpl>("album", (this.album instanceof AlbumImpl? this.album as AlbumImpl: new AlbumImpl(this.album)));
         }
         if(this.childCount){
             writer.writeNumberValue("childCount", this.childCount);

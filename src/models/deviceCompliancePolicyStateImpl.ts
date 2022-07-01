@@ -97,7 +97,7 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         }
         if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = [];
         this.settingStates?.forEach(element => {
-            settingStatesArrValue.push((element instanceof DeviceCompliancePolicySettingStateImpl? element:new DeviceCompliancePolicySettingStateImpl(element)));
+            settingStatesArrValue.push((element instanceof DeviceCompliancePolicySettingStateImpl? element as DeviceCompliancePolicySettingStateImpl:new DeviceCompliancePolicySettingStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateImpl>("settingStates", settingStatesArrValue);
         }
@@ -139,7 +139,7 @@ export class DeviceCompliancePolicyStateImpl extends EntityImpl implements Devic
         if(value) {
             const settingStatesArrValue: DeviceCompliancePolicySettingStateImpl[] = [];
             this.settingStates?.forEach(element => {
-                settingStatesArrValue.push((element instanceof DeviceCompliancePolicySettingStateImpl? element:new DeviceCompliancePolicySettingStateImpl(element)));
+                settingStatesArrValue.push((element instanceof DeviceCompliancePolicySettingStateImpl? element as DeviceCompliancePolicySettingStateImpl:new DeviceCompliancePolicySettingStateImpl(element)));
             });
             this._settingStates = settingStatesArrValue;
         }

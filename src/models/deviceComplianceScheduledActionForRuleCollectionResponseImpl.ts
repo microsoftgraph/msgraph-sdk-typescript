@@ -73,7 +73,7 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element:new DeviceComplianceScheduledActionForRuleImpl(element)));
+            valueArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element as DeviceComplianceScheduledActionForRuleImpl:new DeviceComplianceScheduledActionForRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRuleImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponseImpl implem
         if(value) {
             const valueArrValue: DeviceComplianceScheduledActionForRuleImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element:new DeviceComplianceScheduledActionForRuleImpl(element)));
+                valueArrValue.push((element instanceof DeviceComplianceScheduledActionForRuleImpl? element as DeviceComplianceScheduledActionForRuleImpl:new DeviceComplianceScheduledActionForRuleImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -42,7 +42,7 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
         super.serialize(writer);
         if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = [];
         this.servicePlans?.forEach(element => {
-            servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element:new ServicePlanInfoImpl(element)));
+            servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element as ServicePlanInfoImpl:new ServicePlanInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
@@ -68,7 +68,7 @@ export class LicenseDetailsImpl extends EntityImpl implements LicenseDetails {
         if(value) {
             const servicePlansArrValue: ServicePlanInfoImpl[] = [];
             this.servicePlans?.forEach(element => {
-                servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element:new ServicePlanInfoImpl(element)));
+                servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element as ServicePlanInfoImpl:new ServicePlanInfoImpl(element)));
             });
             this._servicePlans = servicePlansArrValue;
         }

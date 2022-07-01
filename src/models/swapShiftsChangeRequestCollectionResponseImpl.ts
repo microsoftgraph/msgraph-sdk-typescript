@@ -73,7 +73,7 @@ export class SwapShiftsChangeRequestCollectionResponseImpl implements SwapShifts
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SwapShiftsChangeRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element:new SwapShiftsChangeRequestImpl(element)));
+            valueArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element as SwapShiftsChangeRequestImpl:new SwapShiftsChangeRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SwapShiftsChangeRequestCollectionResponseImpl implements SwapShifts
         if(value) {
             const valueArrValue: SwapShiftsChangeRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element:new SwapShiftsChangeRequestImpl(element)));
+                valueArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element as SwapShiftsChangeRequestImpl:new SwapShiftsChangeRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

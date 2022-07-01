@@ -175,7 +175,7 @@ export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPac
      */
     public set schedule(value: EntitlementManagementSchedule | undefined) {
         if(value) {
-            this._schedule = value instanceof EntitlementManagementScheduleImpl? value : new EntitlementManagementScheduleImpl(value);
+            this._schedule = value instanceof EntitlementManagementScheduleImpl? value as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(value);
         }
     };
     /**
@@ -203,7 +203,7 @@ export class AccessPackageAssignmentRequestRequirementsImpl implements AccessPac
             writer.writeStringValue("policyId", this.policyId);
         }
         if(this.schedule){
-            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (!this.schedule || this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule : new EntitlementManagementScheduleImpl(this.schedule)));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(this.schedule)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -37,7 +37,7 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
      */
     public set draftShift(value: ShiftItem | undefined) {
         if(value) {
-            this._draftShift = value instanceof ShiftItemImpl? value : new ShiftItemImpl(value);
+            this._draftShift = value instanceof ShiftItemImpl? value as ShiftItemImpl: new ShiftItemImpl(value);
         }
     };
     /**
@@ -76,13 +76,13 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftShift){
-            writer.writeObjectValue<ShiftItemImpl>("draftShift", (!this.draftShift || this.draftShift instanceof ShiftItemImpl? this.draftShift : new ShiftItemImpl(this.draftShift)));
+            writer.writeObjectValue<ShiftItemImpl>("draftShift", (this.draftShift instanceof ShiftItemImpl? this.draftShift as ShiftItemImpl: new ShiftItemImpl(this.draftShift)));
         }
         if(this.schedulingGroupId){
             writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
         }
         if(this.sharedShift){
-            writer.writeObjectValue<ShiftItemImpl>("sharedShift", (!this.sharedShift || this.sharedShift instanceof ShiftItemImpl? this.sharedShift : new ShiftItemImpl(this.sharedShift)));
+            writer.writeObjectValue<ShiftItemImpl>("sharedShift", (this.sharedShift instanceof ShiftItemImpl? this.sharedShift as ShiftItemImpl: new ShiftItemImpl(this.sharedShift)));
         }
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
@@ -101,7 +101,7 @@ export class ShiftImpl extends ChangeTrackedEntityImpl implements Shift {
      */
     public set sharedShift(value: ShiftItem | undefined) {
         if(value) {
-            this._sharedShift = value instanceof ShiftItemImpl? value : new ShiftItemImpl(value);
+            this._sharedShift = value instanceof ShiftItemImpl? value as ShiftItemImpl: new ShiftItemImpl(value);
         }
     };
     /**

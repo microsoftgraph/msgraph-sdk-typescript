@@ -73,7 +73,7 @@ export class PrintTaskDefinitionCollectionResponseImpl implements PrintTaskDefin
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskDefinitionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintTaskDefinitionImpl? element:new PrintTaskDefinitionImpl(element)));
+            valueArrValue.push((element instanceof PrintTaskDefinitionImpl? element as PrintTaskDefinitionImpl:new PrintTaskDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintTaskDefinitionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintTaskDefinitionCollectionResponseImpl implements PrintTaskDefin
         if(value) {
             const valueArrValue: PrintTaskDefinitionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintTaskDefinitionImpl? element:new PrintTaskDefinitionImpl(element)));
+                valueArrValue.push((element instanceof PrintTaskDefinitionImpl? element as PrintTaskDefinitionImpl:new PrintTaskDefinitionImpl(element)));
             });
             this._value = valueArrValue;
         }

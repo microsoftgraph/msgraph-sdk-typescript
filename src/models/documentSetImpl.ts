@@ -56,7 +56,7 @@ export class DocumentSetImpl implements DocumentSet {
         if(value) {
             const allowedContentTypesArrValue: ContentTypeInfoImpl[] = [];
             this.allowedContentTypes?.forEach(element => {
-                allowedContentTypesArrValue.push((element instanceof ContentTypeInfoImpl? element:new ContentTypeInfoImpl(element)));
+                allowedContentTypesArrValue.push((element instanceof ContentTypeInfoImpl? element as ContentTypeInfoImpl:new ContentTypeInfoImpl(element)));
             });
             this._allowedContentTypes = allowedContentTypesArrValue;
         }
@@ -90,7 +90,7 @@ export class DocumentSetImpl implements DocumentSet {
         if(value) {
             const defaultContentsArrValue: DocumentSetContentImpl[] = [];
             this.defaultContents?.forEach(element => {
-                defaultContentsArrValue.push((element instanceof DocumentSetContentImpl? element:new DocumentSetContentImpl(element)));
+                defaultContentsArrValue.push((element instanceof DocumentSetContentImpl? element as DocumentSetContentImpl:new DocumentSetContentImpl(element)));
             });
             this._defaultContents = defaultContentsArrValue;
         }
@@ -134,13 +134,13 @@ export class DocumentSetImpl implements DocumentSet {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.allowedContentTypes && this.allowedContentTypes.length != 0){        const allowedContentTypesArrValue: ContentTypeInfoImpl[] = [];
         this.allowedContentTypes?.forEach(element => {
-            allowedContentTypesArrValue.push((element instanceof ContentTypeInfoImpl? element:new ContentTypeInfoImpl(element)));
+            allowedContentTypesArrValue.push((element instanceof ContentTypeInfoImpl? element as ContentTypeInfoImpl:new ContentTypeInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContentTypeInfoImpl>("allowedContentTypes", allowedContentTypesArrValue);
         }
         if(this.defaultContents && this.defaultContents.length != 0){        const defaultContentsArrValue: DocumentSetContentImpl[] = [];
         this.defaultContents?.forEach(element => {
-            defaultContentsArrValue.push((element instanceof DocumentSetContentImpl? element:new DocumentSetContentImpl(element)));
+            defaultContentsArrValue.push((element instanceof DocumentSetContentImpl? element as DocumentSetContentImpl:new DocumentSetContentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DocumentSetContentImpl>("defaultContents", defaultContentsArrValue);
         }
@@ -149,7 +149,7 @@ export class DocumentSetImpl implements DocumentSet {
         }
         if(this.sharedColumns && this.sharedColumns.length != 0){        const sharedColumnsArrValue: ColumnDefinitionImpl[] = [];
         this.sharedColumns?.forEach(element => {
-            sharedColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+            sharedColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("sharedColumns", sharedColumnsArrValue);
         }
@@ -158,7 +158,7 @@ export class DocumentSetImpl implements DocumentSet {
         }
         if(this.welcomePageColumns && this.welcomePageColumns.length != 0){        const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = [];
         this.welcomePageColumns?.forEach(element => {
-            welcomePageColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+            welcomePageColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("welcomePageColumns", welcomePageColumnsArrValue);
         }
@@ -182,7 +182,7 @@ export class DocumentSetImpl implements DocumentSet {
         if(value) {
             const sharedColumnsArrValue: ColumnDefinitionImpl[] = [];
             this.sharedColumns?.forEach(element => {
-                sharedColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+                sharedColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
             });
             this._sharedColumns = sharedColumnsArrValue;
         }
@@ -218,7 +218,7 @@ export class DocumentSetImpl implements DocumentSet {
         if(value) {
             const welcomePageColumnsArrValue: ColumnDefinitionImpl[] = [];
             this.welcomePageColumns?.forEach(element => {
-                welcomePageColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+                welcomePageColumnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
             });
             this._welcomePageColumns = welcomePageColumnsArrValue;
         }

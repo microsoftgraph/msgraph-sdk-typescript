@@ -45,7 +45,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
      */
     public set capabilities(value: PrinterCapabilities | undefined) {
         if(value) {
-            this._capabilities = value instanceof PrinterCapabilitiesImpl? value : new PrinterCapabilitiesImpl(value);
+            this._capabilities = value instanceof PrinterCapabilitiesImpl? value as PrinterCapabilitiesImpl: new PrinterCapabilitiesImpl(value);
         }
     };
     /**
@@ -77,7 +77,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
      */
     public set defaults(value: PrinterDefaults | undefined) {
         if(value) {
-            this._defaults = value instanceof PrinterDefaultsImpl? value : new PrinterDefaultsImpl(value);
+            this._defaults = value instanceof PrinterDefaultsImpl? value as PrinterDefaultsImpl: new PrinterDefaultsImpl(value);
         }
     };
     /**
@@ -144,7 +144,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         if(value) {
             const jobsArrValue: PrintJobImpl[] = [];
             this.jobs?.forEach(element => {
-                jobsArrValue.push((element instanceof PrintJobImpl? element:new PrintJobImpl(element)));
+                jobsArrValue.push((element instanceof PrintJobImpl? element as PrintJobImpl:new PrintJobImpl(element)));
             });
             this._jobs = jobsArrValue;
         }
@@ -162,7 +162,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
      */
     public set location(value: PrinterLocation | undefined) {
         if(value) {
-            this._location = value instanceof PrinterLocationImpl? value : new PrinterLocationImpl(value);
+            this._location = value instanceof PrinterLocationImpl? value as PrinterLocationImpl: new PrinterLocationImpl(value);
         }
     };
     /**
@@ -205,10 +205,10 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.capabilities){
-            writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", (!this.capabilities || this.capabilities instanceof PrinterCapabilitiesImpl? this.capabilities : new PrinterCapabilitiesImpl(this.capabilities)));
+            writer.writeObjectValue<PrinterCapabilitiesImpl>("capabilities", (this.capabilities instanceof PrinterCapabilitiesImpl? this.capabilities as PrinterCapabilitiesImpl: new PrinterCapabilitiesImpl(this.capabilities)));
         }
         if(this.defaults){
-            writer.writeObjectValue<PrinterDefaultsImpl>("defaults", (!this.defaults || this.defaults instanceof PrinterDefaultsImpl? this.defaults : new PrinterDefaultsImpl(this.defaults)));
+            writer.writeObjectValue<PrinterDefaultsImpl>("defaults", (this.defaults instanceof PrinterDefaultsImpl? this.defaults as PrinterDefaultsImpl: new PrinterDefaultsImpl(this.defaults)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
@@ -218,12 +218,12 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
         }
         if(this.jobs && this.jobs.length != 0){        const jobsArrValue: PrintJobImpl[] = [];
         this.jobs?.forEach(element => {
-            jobsArrValue.push((element instanceof PrintJobImpl? element:new PrintJobImpl(element)));
+            jobsArrValue.push((element instanceof PrintJobImpl? element as PrintJobImpl:new PrintJobImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintJobImpl>("jobs", jobsArrValue);
         }
         if(this.location){
-            writer.writeObjectValue<PrinterLocationImpl>("location", (!this.location || this.location instanceof PrinterLocationImpl? this.location : new PrinterLocationImpl(this.location)));
+            writer.writeObjectValue<PrinterLocationImpl>("location", (this.location instanceof PrinterLocationImpl? this.location as PrinterLocationImpl: new PrinterLocationImpl(this.location)));
         }
         if(this.manufacturer){
             writer.writeStringValue("manufacturer", this.manufacturer);
@@ -232,7 +232,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
             writer.writeStringValue("model", this.model);
         }
         if(this.status){
-            writer.writeObjectValue<PrinterStatusImpl>("status", (!this.status || this.status instanceof PrinterStatusImpl? this.status : new PrinterStatusImpl(this.status)));
+            writer.writeObjectValue<PrinterStatusImpl>("status", (this.status instanceof PrinterStatusImpl? this.status as PrinterStatusImpl: new PrinterStatusImpl(this.status)));
         }
     };
     /**
@@ -248,7 +248,7 @@ export class PrinterBaseImpl extends EntityImpl implements PrinterBase {
      */
     public set status(value: PrinterStatus | undefined) {
         if(value) {
-            this._status = value instanceof PrinterStatusImpl? value : new PrinterStatusImpl(value);
+            this._status = value instanceof PrinterStatusImpl? value as PrinterStatusImpl: new PrinterStatusImpl(value);
         }
     };
 }

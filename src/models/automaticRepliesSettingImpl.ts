@@ -125,7 +125,7 @@ export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
      */
     public set scheduledEndDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._scheduledEndDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._scheduledEndDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -141,7 +141,7 @@ export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
      */
     public set scheduledStartDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._scheduledStartDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._scheduledStartDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -160,10 +160,10 @@ export class AutomaticRepliesSettingImpl implements AutomaticRepliesSetting {
             writer.writeStringValue("internalReplyMessage", this.internalReplyMessage);
         }
         if(this.scheduledEndDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndDateTime", (!this.scheduledEndDateTime || this.scheduledEndDateTime instanceof DateTimeTimeZoneImpl? this.scheduledEndDateTime : new DateTimeTimeZoneImpl(this.scheduledEndDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledEndDateTime", (this.scheduledEndDateTime instanceof DateTimeTimeZoneImpl? this.scheduledEndDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.scheduledEndDateTime)));
         }
         if(this.scheduledStartDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartDateTime", (!this.scheduledStartDateTime || this.scheduledStartDateTime instanceof DateTimeTimeZoneImpl? this.scheduledStartDateTime : new DateTimeTimeZoneImpl(this.scheduledStartDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("scheduledStartDateTime", (this.scheduledStartDateTime instanceof DateTimeTimeZoneImpl? this.scheduledStartDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.scheduledStartDateTime)));
         }
         if(this.status){
             writer.writeEnumValue<AutomaticRepliesStatus>("status", this.status);

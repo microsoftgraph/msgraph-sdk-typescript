@@ -60,7 +60,7 @@ export class TeamInfoImpl extends EntityImpl implements TeamInfo {
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.team){
-            writer.writeObjectValue<TeamImpl>("team", (!this.team || this.team instanceof TeamImpl? this.team : new TeamImpl(this.team)));
+            writer.writeObjectValue<TeamImpl>("team", (this.team instanceof TeamImpl? this.team as TeamImpl: new TeamImpl(this.team)));
         }
         if(this.tenantId){
             writer.writeStringValue("tenantId", this.tenantId);
@@ -79,7 +79,7 @@ export class TeamInfoImpl extends EntityImpl implements TeamInfo {
      */
     public set team(value: Team | undefined) {
         if(value) {
-            this._team = value instanceof TeamImpl? value : new TeamImpl(value);
+            this._team = value instanceof TeamImpl? value as TeamImpl: new TeamImpl(value);
         }
     };
     /**

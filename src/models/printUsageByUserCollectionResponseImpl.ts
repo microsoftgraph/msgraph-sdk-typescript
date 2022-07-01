@@ -73,7 +73,7 @@ export class PrintUsageByUserCollectionResponseImpl implements PrintUsageByUserC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintUsageByUserImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintUsageByUserImpl? element:new PrintUsageByUserImpl(element)));
+            valueArrValue.push((element instanceof PrintUsageByUserImpl? element as PrintUsageByUserImpl:new PrintUsageByUserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintUsageByUserImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintUsageByUserCollectionResponseImpl implements PrintUsageByUserC
         if(value) {
             const valueArrValue: PrintUsageByUserImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintUsageByUserImpl? element:new PrintUsageByUserImpl(element)));
+                valueArrValue.push((element instanceof PrintUsageByUserImpl? element as PrintUsageByUserImpl:new PrintUsageByUserImpl(element)));
             });
             this._value = valueArrValue;
         }

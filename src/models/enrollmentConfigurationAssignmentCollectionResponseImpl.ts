@@ -73,7 +73,7 @@ export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EnrollmentConfigurationAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element:new EnrollmentConfigurationAssignmentImpl(element)));
+            valueArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element as EnrollmentConfigurationAssignmentImpl:new EnrollmentConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements 
         if(value) {
             const valueArrValue: EnrollmentConfigurationAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element:new EnrollmentConfigurationAssignmentImpl(element)));
+                valueArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element as EnrollmentConfigurationAssignmentImpl:new EnrollmentConfigurationAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

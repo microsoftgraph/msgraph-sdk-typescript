@@ -73,7 +73,7 @@ export class ServicePrincipalCollectionResponseImpl implements ServicePrincipalC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServicePrincipalImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ServicePrincipalImpl? element:new ServicePrincipalImpl(element)));
+            valueArrValue.push((element instanceof ServicePrincipalImpl? element as ServicePrincipalImpl:new ServicePrincipalImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServicePrincipalImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ServicePrincipalCollectionResponseImpl implements ServicePrincipalC
         if(value) {
             const valueArrValue: ServicePrincipalImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ServicePrincipalImpl? element:new ServicePrincipalImpl(element)));
+                valueArrValue.push((element instanceof ServicePrincipalImpl? element as ServicePrincipalImpl:new ServicePrincipalImpl(element)));
             });
             this._value = valueArrValue;
         }

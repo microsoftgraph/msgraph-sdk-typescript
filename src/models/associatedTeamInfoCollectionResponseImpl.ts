@@ -73,7 +73,7 @@ export class AssociatedTeamInfoCollectionResponseImpl implements AssociatedTeamI
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AssociatedTeamInfoImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AssociatedTeamInfoImpl? element:new AssociatedTeamInfoImpl(element)));
+            valueArrValue.push((element instanceof AssociatedTeamInfoImpl? element as AssociatedTeamInfoImpl:new AssociatedTeamInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AssociatedTeamInfoImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AssociatedTeamInfoCollectionResponseImpl implements AssociatedTeamI
         if(value) {
             const valueArrValue: AssociatedTeamInfoImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AssociatedTeamInfoImpl? element:new AssociatedTeamInfoImpl(element)));
+                valueArrValue.push((element instanceof AssociatedTeamInfoImpl? element as AssociatedTeamInfoImpl:new AssociatedTeamInfoImpl(element)));
             });
             this._value = valueArrValue;
         }

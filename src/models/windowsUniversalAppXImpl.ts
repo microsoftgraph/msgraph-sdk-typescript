@@ -179,7 +179,7 @@ export class WindowsUniversalAppXImpl extends MobileLobAppImpl implements Window
      */
     public set minimumSupportedOperatingSystem(value: WindowsMinimumOperatingSystem | undefined) {
         if(value) {
-            this._minimumSupportedOperatingSystem = value instanceof WindowsMinimumOperatingSystemImpl? value : new WindowsMinimumOperatingSystemImpl(value);
+            this._minimumSupportedOperatingSystem = value instanceof WindowsMinimumOperatingSystemImpl? value as WindowsMinimumOperatingSystemImpl: new WindowsMinimumOperatingSystemImpl(value);
         }
     };
     /**
@@ -211,7 +211,7 @@ export class WindowsUniversalAppXImpl extends MobileLobAppImpl implements Window
             writer.writeBooleanValue("isBundle", this.isBundle);
         }
         if(this.minimumSupportedOperatingSystem){
-            writer.writeObjectValue<WindowsMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (!this.minimumSupportedOperatingSystem || this.minimumSupportedOperatingSystem instanceof WindowsMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem : new WindowsMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
+            writer.writeObjectValue<WindowsMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (this.minimumSupportedOperatingSystem instanceof WindowsMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem as WindowsMinimumOperatingSystemImpl: new WindowsMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
         }
     };
 }

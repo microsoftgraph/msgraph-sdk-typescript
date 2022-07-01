@@ -73,7 +73,7 @@ export class ApprovalCollectionResponseImpl implements ApprovalCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ApprovalImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ApprovalImpl? element:new ApprovalImpl(element)));
+            valueArrValue.push((element instanceof ApprovalImpl? element as ApprovalImpl:new ApprovalImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ApprovalImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ApprovalCollectionResponseImpl implements ApprovalCollectionRespons
         if(value) {
             const valueArrValue: ApprovalImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ApprovalImpl? element:new ApprovalImpl(element)));
+                valueArrValue.push((element instanceof ApprovalImpl? element as ApprovalImpl:new ApprovalImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class AlertCollectionResponseImpl implements AlertCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AlertImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AlertImpl? element:new AlertImpl(element)));
+            valueArrValue.push((element instanceof AlertImpl? element as AlertImpl:new AlertImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AlertImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AlertCollectionResponseImpl implements AlertCollectionResponse {
         if(value) {
             const valueArrValue: AlertImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AlertImpl? element:new AlertImpl(element)));
+                valueArrValue.push((element instanceof AlertImpl? element as AlertImpl:new AlertImpl(element)));
             });
             this._value = valueArrValue;
         }

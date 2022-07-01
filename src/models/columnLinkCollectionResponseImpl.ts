@@ -73,7 +73,7 @@ export class ColumnLinkCollectionResponseImpl implements ColumnLinkCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ColumnLinkImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ColumnLinkImpl? element:new ColumnLinkImpl(element)));
+            valueArrValue.push((element instanceof ColumnLinkImpl? element as ColumnLinkImpl:new ColumnLinkImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnLinkImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ColumnLinkCollectionResponseImpl implements ColumnLinkCollectionRes
         if(value) {
             const valueArrValue: ColumnLinkImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ColumnLinkImpl? element:new ColumnLinkImpl(element)));
+                valueArrValue.push((element instanceof ColumnLinkImpl? element as ColumnLinkImpl:new ColumnLinkImpl(element)));
             });
             this._value = valueArrValue;
         }

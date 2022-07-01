@@ -78,7 +78,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         if(value) {
             const participantsArrValue: InvitationParticipantInfoImpl[] = [];
             this.participants?.forEach(element => {
-                participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+                participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
             });
             this._participants = participantsArrValue;
         }
@@ -94,7 +94,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         }
         if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = [];
         this.participants?.forEach(element => {
-            participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+            participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }

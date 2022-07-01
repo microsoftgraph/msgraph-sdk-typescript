@@ -76,7 +76,7 @@ export class SearchAlterationImpl implements SearchAlteration {
         if(value) {
             const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = [];
             this.alteredQueryTokens?.forEach(element => {
-                alteredQueryTokensArrValue.push((element instanceof AlteredQueryTokenImpl? element:new AlteredQueryTokenImpl(element)));
+                alteredQueryTokensArrValue.push((element instanceof AlteredQueryTokenImpl? element as AlteredQueryTokenImpl:new AlteredQueryTokenImpl(element)));
             });
             this._alteredQueryTokens = alteredQueryTokensArrValue;
         }
@@ -116,7 +116,7 @@ export class SearchAlterationImpl implements SearchAlteration {
         }
         if(this.alteredQueryTokens && this.alteredQueryTokens.length != 0){        const alteredQueryTokensArrValue: AlteredQueryTokenImpl[] = [];
         this.alteredQueryTokens?.forEach(element => {
-            alteredQueryTokensArrValue.push((element instanceof AlteredQueryTokenImpl? element:new AlteredQueryTokenImpl(element)));
+            alteredQueryTokensArrValue.push((element instanceof AlteredQueryTokenImpl? element as AlteredQueryTokenImpl:new AlteredQueryTokenImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AlteredQueryTokenImpl>("alteredQueryTokens", alteredQueryTokensArrValue);
         }

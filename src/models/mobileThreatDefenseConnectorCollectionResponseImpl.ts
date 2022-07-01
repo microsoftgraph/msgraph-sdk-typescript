@@ -73,7 +73,7 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Mobil
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileThreatDefenseConnectorImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element:new MobileThreatDefenseConnectorImpl(element)));
+            valueArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element as MobileThreatDefenseConnectorImpl:new MobileThreatDefenseConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MobileThreatDefenseConnectorCollectionResponseImpl implements Mobil
         if(value) {
             const valueArrValue: MobileThreatDefenseConnectorImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element:new MobileThreatDefenseConnectorImpl(element)));
+                valueArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element as MobileThreatDefenseConnectorImpl:new MobileThreatDefenseConnectorImpl(element)));
             });
             this._value = valueArrValue;
         }

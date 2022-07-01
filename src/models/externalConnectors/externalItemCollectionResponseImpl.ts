@@ -73,7 +73,7 @@ export class ExternalItemCollectionResponseImpl implements ExternalItemCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExternalItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ExternalItemImpl? element:new ExternalItemImpl(element)));
+            valueArrValue.push((element instanceof ExternalItemImpl? element as ExternalItemImpl:new ExternalItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ExternalItemCollectionResponseImpl implements ExternalItemCollectio
         if(value) {
             const valueArrValue: ExternalItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ExternalItemImpl? element:new ExternalItemImpl(element)));
+                valueArrValue.push((element instanceof ExternalItemImpl? element as ExternalItemImpl:new ExternalItemImpl(element)));
             });
             this._value = valueArrValue;
         }

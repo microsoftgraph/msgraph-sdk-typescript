@@ -13,7 +13,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class SetImpl extends EntityImpl implements Set {
     /** Children terms of set in term [store]. */
     private _children?: Term[] | undefined;
@@ -46,7 +46,7 @@ export class SetImpl extends EntityImpl implements Set {
         if(value) {
             const childrenArrValue: TermImpl[] = [];
             this.children?.forEach(element => {
-                childrenArrValue.push((element instanceof TermImpl? element:new TermImpl(element)));
+                childrenArrValue.push((element instanceof TermImpl? element as TermImpl:new TermImpl(element)));
             });
             this._children = childrenArrValue;
         }
@@ -129,7 +129,7 @@ export class SetImpl extends EntityImpl implements Set {
         if(value) {
             const localizedNamesArrValue: LocalizedNameImpl[] = [];
             this.localizedNames?.forEach(element => {
-                localizedNamesArrValue.push((element instanceof LocalizedNameImpl? element:new LocalizedNameImpl(element)));
+                localizedNamesArrValue.push((element instanceof LocalizedNameImpl? element as LocalizedNameImpl:new LocalizedNameImpl(element)));
             });
             this._localizedNames = localizedNamesArrValue;
         }
@@ -147,7 +147,7 @@ export class SetImpl extends EntityImpl implements Set {
      */
     public set parentGroup(value: Group | undefined) {
         if(value) {
-            this._parentGroup = value instanceof GroupImpl? value : new GroupImpl(value);
+            this._parentGroup = value instanceof GroupImpl? value as GroupImpl: new GroupImpl(value);
         }
     };
     /**
@@ -165,7 +165,7 @@ export class SetImpl extends EntityImpl implements Set {
         if(value) {
             const propertiesArrValue: KeyValueImpl[] = [];
             this.properties?.forEach(element => {
-                propertiesArrValue.push((element instanceof KeyValueImpl? element:new KeyValueImpl(element)));
+                propertiesArrValue.push((element instanceof KeyValueImpl? element as KeyValueImpl:new KeyValueImpl(element)));
             });
             this._properties = propertiesArrValue;
         }
@@ -185,7 +185,7 @@ export class SetImpl extends EntityImpl implements Set {
         if(value) {
             const relationsArrValue: RelationImpl[] = [];
             this.relations?.forEach(element => {
-                relationsArrValue.push((element instanceof RelationImpl? element:new RelationImpl(element)));
+                relationsArrValue.push((element instanceof RelationImpl? element as RelationImpl:new RelationImpl(element)));
             });
             this._relations = relationsArrValue;
         }
@@ -199,7 +199,7 @@ export class SetImpl extends EntityImpl implements Set {
         super.serialize(writer);
         if(this.children && this.children.length != 0){        const childrenArrValue: TermImpl[] = [];
         this.children?.forEach(element => {
-            childrenArrValue.push((element instanceof TermImpl? element:new TermImpl(element)));
+            childrenArrValue.push((element instanceof TermImpl? element as TermImpl:new TermImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TermImpl>("children", childrenArrValue);
         }
@@ -211,28 +211,28 @@ export class SetImpl extends EntityImpl implements Set {
         }
         if(this.localizedNames && this.localizedNames.length != 0){        const localizedNamesArrValue: LocalizedNameImpl[] = [];
         this.localizedNames?.forEach(element => {
-            localizedNamesArrValue.push((element instanceof LocalizedNameImpl? element:new LocalizedNameImpl(element)));
+            localizedNamesArrValue.push((element instanceof LocalizedNameImpl? element as LocalizedNameImpl:new LocalizedNameImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocalizedNameImpl>("localizedNames", localizedNamesArrValue);
         }
         if(this.parentGroup){
-            writer.writeObjectValue<GroupImpl>("parentGroup", (!this.parentGroup || this.parentGroup instanceof GroupImpl? this.parentGroup : new GroupImpl(this.parentGroup)));
+            writer.writeObjectValue<GroupImpl>("parentGroup", (this.parentGroup instanceof GroupImpl? this.parentGroup as GroupImpl: new GroupImpl(this.parentGroup)));
         }
         if(this.properties && this.properties.length != 0){        const propertiesArrValue: KeyValueImpl[] = [];
         this.properties?.forEach(element => {
-            propertiesArrValue.push((element instanceof KeyValueImpl? element:new KeyValueImpl(element)));
+            propertiesArrValue.push((element instanceof KeyValueImpl? element as KeyValueImpl:new KeyValueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValueImpl>("properties", propertiesArrValue);
         }
         if(this.relations && this.relations.length != 0){        const relationsArrValue: RelationImpl[] = [];
         this.relations?.forEach(element => {
-            relationsArrValue.push((element instanceof RelationImpl? element:new RelationImpl(element)));
+            relationsArrValue.push((element instanceof RelationImpl? element as RelationImpl:new RelationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RelationImpl>("relations", relationsArrValue);
         }
         if(this.terms && this.terms.length != 0){        const termsArrValue: TermImpl[] = [];
         this.terms?.forEach(element => {
-            termsArrValue.push((element instanceof TermImpl? element:new TermImpl(element)));
+            termsArrValue.push((element instanceof TermImpl? element as TermImpl:new TermImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TermImpl>("terms", termsArrValue);
         }
@@ -252,7 +252,7 @@ export class SetImpl extends EntityImpl implements Set {
         if(value) {
             const termsArrValue: TermImpl[] = [];
             this.terms?.forEach(element => {
-                termsArrValue.push((element instanceof TermImpl? element:new TermImpl(element)));
+                termsArrValue.push((element instanceof TermImpl? element as TermImpl:new TermImpl(element)));
             });
             this._terms = termsArrValue;
         }

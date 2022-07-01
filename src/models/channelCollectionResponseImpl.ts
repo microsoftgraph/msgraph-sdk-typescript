@@ -73,7 +73,7 @@ export class ChannelCollectionResponseImpl implements ChannelCollectionResponse 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChannelImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ChannelImpl? element:new ChannelImpl(element)));
+            valueArrValue.push((element instanceof ChannelImpl? element as ChannelImpl:new ChannelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChannelImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ChannelCollectionResponseImpl implements ChannelCollectionResponse 
         if(value) {
             const valueArrValue: ChannelImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ChannelImpl? element:new ChannelImpl(element)));
+                valueArrValue.push((element instanceof ChannelImpl? element as ChannelImpl:new ChannelImpl(element)));
             });
             this._value = valueArrValue;
         }

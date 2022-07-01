@@ -434,7 +434,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(value) {
             const appsSingleAppModeListArrValue: AppListItemImpl[] = [];
             this.appsSingleAppModeList?.forEach(element => {
-                appsSingleAppModeListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+                appsSingleAppModeListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
             });
             this._appsSingleAppModeList = appsSingleAppModeListArrValue;
         }
@@ -534,7 +534,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(value) {
             const appsVisibilityListArrValue: AppListItemImpl[] = [];
             this.appsVisibilityList?.forEach(element => {
-                appsVisibilityListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+                appsVisibilityListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
             });
             this._appsVisibilityList = appsVisibilityListArrValue;
         }
@@ -746,7 +746,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(value) {
             const compliantAppsListArrValue: AppListItemImpl[] = [];
             this.compliantAppsList?.forEach(element => {
-                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
             });
             this._compliantAppsList = compliantAppsListArrValue;
         }
@@ -2001,7 +2001,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingAustralia(value: MediaContentRatingAustralia | undefined) {
         if(value) {
-            this._mediaContentRatingAustralia = value instanceof MediaContentRatingAustraliaImpl? value : new MediaContentRatingAustraliaImpl(value);
+            this._mediaContentRatingAustralia = value instanceof MediaContentRatingAustraliaImpl? value as MediaContentRatingAustraliaImpl: new MediaContentRatingAustraliaImpl(value);
         }
     };
     /**
@@ -2017,7 +2017,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingCanada(value: MediaContentRatingCanada | undefined) {
         if(value) {
-            this._mediaContentRatingCanada = value instanceof MediaContentRatingCanadaImpl? value : new MediaContentRatingCanadaImpl(value);
+            this._mediaContentRatingCanada = value instanceof MediaContentRatingCanadaImpl? value as MediaContentRatingCanadaImpl: new MediaContentRatingCanadaImpl(value);
         }
     };
     /**
@@ -2033,7 +2033,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingFrance(value: MediaContentRatingFrance | undefined) {
         if(value) {
-            this._mediaContentRatingFrance = value instanceof MediaContentRatingFranceImpl? value : new MediaContentRatingFranceImpl(value);
+            this._mediaContentRatingFrance = value instanceof MediaContentRatingFranceImpl? value as MediaContentRatingFranceImpl: new MediaContentRatingFranceImpl(value);
         }
     };
     /**
@@ -2049,7 +2049,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingGermany(value: MediaContentRatingGermany | undefined) {
         if(value) {
-            this._mediaContentRatingGermany = value instanceof MediaContentRatingGermanyImpl? value : new MediaContentRatingGermanyImpl(value);
+            this._mediaContentRatingGermany = value instanceof MediaContentRatingGermanyImpl? value as MediaContentRatingGermanyImpl: new MediaContentRatingGermanyImpl(value);
         }
     };
     /**
@@ -2065,7 +2065,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingIreland(value: MediaContentRatingIreland | undefined) {
         if(value) {
-            this._mediaContentRatingIreland = value instanceof MediaContentRatingIrelandImpl? value : new MediaContentRatingIrelandImpl(value);
+            this._mediaContentRatingIreland = value instanceof MediaContentRatingIrelandImpl? value as MediaContentRatingIrelandImpl: new MediaContentRatingIrelandImpl(value);
         }
     };
     /**
@@ -2081,7 +2081,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingJapan(value: MediaContentRatingJapan | undefined) {
         if(value) {
-            this._mediaContentRatingJapan = value instanceof MediaContentRatingJapanImpl? value : new MediaContentRatingJapanImpl(value);
+            this._mediaContentRatingJapan = value instanceof MediaContentRatingJapanImpl? value as MediaContentRatingJapanImpl: new MediaContentRatingJapanImpl(value);
         }
     };
     /**
@@ -2097,7 +2097,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingNewZealand(value: MediaContentRatingNewZealand | undefined) {
         if(value) {
-            this._mediaContentRatingNewZealand = value instanceof MediaContentRatingNewZealandImpl? value : new MediaContentRatingNewZealandImpl(value);
+            this._mediaContentRatingNewZealand = value instanceof MediaContentRatingNewZealandImpl? value as MediaContentRatingNewZealandImpl: new MediaContentRatingNewZealandImpl(value);
         }
     };
     /**
@@ -2113,7 +2113,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingUnitedKingdom(value: MediaContentRatingUnitedKingdom | undefined) {
         if(value) {
-            this._mediaContentRatingUnitedKingdom = value instanceof MediaContentRatingUnitedKingdomImpl? value : new MediaContentRatingUnitedKingdomImpl(value);
+            this._mediaContentRatingUnitedKingdom = value instanceof MediaContentRatingUnitedKingdomImpl? value as MediaContentRatingUnitedKingdomImpl: new MediaContentRatingUnitedKingdomImpl(value);
         }
     };
     /**
@@ -2129,7 +2129,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set mediaContentRatingUnitedStates(value: MediaContentRatingUnitedStates | undefined) {
         if(value) {
-            this._mediaContentRatingUnitedStates = value instanceof MediaContentRatingUnitedStatesImpl? value : new MediaContentRatingUnitedStatesImpl(value);
+            this._mediaContentRatingUnitedStates = value instanceof MediaContentRatingUnitedStatesImpl? value as MediaContentRatingUnitedStatesImpl: new MediaContentRatingUnitedStatesImpl(value);
         }
     };
     /**
@@ -2163,7 +2163,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         if(value) {
             const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = [];
             this.networkUsageRules?.forEach(element => {
-                networkUsageRulesArrValue.push((element instanceof IosNetworkUsageRuleImpl? element:new IosNetworkUsageRuleImpl(element)));
+                networkUsageRulesArrValue.push((element instanceof IosNetworkUsageRuleImpl? element as IosNetworkUsageRuleImpl:new IosNetworkUsageRuleImpl(element)));
             });
             this._networkUsageRules = networkUsageRulesArrValue;
         }
@@ -2585,7 +2585,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         }
         if(this.appsSingleAppModeList && this.appsSingleAppModeList.length != 0){        const appsSingleAppModeListArrValue: AppListItemImpl[] = [];
         this.appsSingleAppModeList?.forEach(element => {
-            appsSingleAppModeListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            appsSingleAppModeListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsSingleAppModeList", appsSingleAppModeListArrValue);
         }
@@ -2606,7 +2606,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         }
         if(this.appsVisibilityList && this.appsVisibilityList.length != 0){        const appsVisibilityListArrValue: AppListItemImpl[] = [];
         this.appsVisibilityList?.forEach(element => {
-            appsVisibilityListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            appsVisibilityListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("appsVisibilityList", appsVisibilityListArrValue);
         }
@@ -2648,7 +2648,7 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
         }
         if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = [];
         this.compliantAppsList?.forEach(element => {
-            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }
@@ -2833,38 +2833,38 @@ export class IosGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeEnumValue<RatingAppsType>("mediaContentRatingApps", this.mediaContentRatingApps);
         }
         if(this.mediaContentRatingAustralia){
-            writer.writeObjectValue<MediaContentRatingAustraliaImpl>("mediaContentRatingAustralia", (!this.mediaContentRatingAustralia || this.mediaContentRatingAustralia instanceof MediaContentRatingAustraliaImpl? this.mediaContentRatingAustralia : new MediaContentRatingAustraliaImpl(this.mediaContentRatingAustralia)));
+            writer.writeObjectValue<MediaContentRatingAustraliaImpl>("mediaContentRatingAustralia", (this.mediaContentRatingAustralia instanceof MediaContentRatingAustraliaImpl? this.mediaContentRatingAustralia as MediaContentRatingAustraliaImpl: new MediaContentRatingAustraliaImpl(this.mediaContentRatingAustralia)));
         }
         if(this.mediaContentRatingCanada){
-            writer.writeObjectValue<MediaContentRatingCanadaImpl>("mediaContentRatingCanada", (!this.mediaContentRatingCanada || this.mediaContentRatingCanada instanceof MediaContentRatingCanadaImpl? this.mediaContentRatingCanada : new MediaContentRatingCanadaImpl(this.mediaContentRatingCanada)));
+            writer.writeObjectValue<MediaContentRatingCanadaImpl>("mediaContentRatingCanada", (this.mediaContentRatingCanada instanceof MediaContentRatingCanadaImpl? this.mediaContentRatingCanada as MediaContentRatingCanadaImpl: new MediaContentRatingCanadaImpl(this.mediaContentRatingCanada)));
         }
         if(this.mediaContentRatingFrance){
-            writer.writeObjectValue<MediaContentRatingFranceImpl>("mediaContentRatingFrance", (!this.mediaContentRatingFrance || this.mediaContentRatingFrance instanceof MediaContentRatingFranceImpl? this.mediaContentRatingFrance : new MediaContentRatingFranceImpl(this.mediaContentRatingFrance)));
+            writer.writeObjectValue<MediaContentRatingFranceImpl>("mediaContentRatingFrance", (this.mediaContentRatingFrance instanceof MediaContentRatingFranceImpl? this.mediaContentRatingFrance as MediaContentRatingFranceImpl: new MediaContentRatingFranceImpl(this.mediaContentRatingFrance)));
         }
         if(this.mediaContentRatingGermany){
-            writer.writeObjectValue<MediaContentRatingGermanyImpl>("mediaContentRatingGermany", (!this.mediaContentRatingGermany || this.mediaContentRatingGermany instanceof MediaContentRatingGermanyImpl? this.mediaContentRatingGermany : new MediaContentRatingGermanyImpl(this.mediaContentRatingGermany)));
+            writer.writeObjectValue<MediaContentRatingGermanyImpl>("mediaContentRatingGermany", (this.mediaContentRatingGermany instanceof MediaContentRatingGermanyImpl? this.mediaContentRatingGermany as MediaContentRatingGermanyImpl: new MediaContentRatingGermanyImpl(this.mediaContentRatingGermany)));
         }
         if(this.mediaContentRatingIreland){
-            writer.writeObjectValue<MediaContentRatingIrelandImpl>("mediaContentRatingIreland", (!this.mediaContentRatingIreland || this.mediaContentRatingIreland instanceof MediaContentRatingIrelandImpl? this.mediaContentRatingIreland : new MediaContentRatingIrelandImpl(this.mediaContentRatingIreland)));
+            writer.writeObjectValue<MediaContentRatingIrelandImpl>("mediaContentRatingIreland", (this.mediaContentRatingIreland instanceof MediaContentRatingIrelandImpl? this.mediaContentRatingIreland as MediaContentRatingIrelandImpl: new MediaContentRatingIrelandImpl(this.mediaContentRatingIreland)));
         }
         if(this.mediaContentRatingJapan){
-            writer.writeObjectValue<MediaContentRatingJapanImpl>("mediaContentRatingJapan", (!this.mediaContentRatingJapan || this.mediaContentRatingJapan instanceof MediaContentRatingJapanImpl? this.mediaContentRatingJapan : new MediaContentRatingJapanImpl(this.mediaContentRatingJapan)));
+            writer.writeObjectValue<MediaContentRatingJapanImpl>("mediaContentRatingJapan", (this.mediaContentRatingJapan instanceof MediaContentRatingJapanImpl? this.mediaContentRatingJapan as MediaContentRatingJapanImpl: new MediaContentRatingJapanImpl(this.mediaContentRatingJapan)));
         }
         if(this.mediaContentRatingNewZealand){
-            writer.writeObjectValue<MediaContentRatingNewZealandImpl>("mediaContentRatingNewZealand", (!this.mediaContentRatingNewZealand || this.mediaContentRatingNewZealand instanceof MediaContentRatingNewZealandImpl? this.mediaContentRatingNewZealand : new MediaContentRatingNewZealandImpl(this.mediaContentRatingNewZealand)));
+            writer.writeObjectValue<MediaContentRatingNewZealandImpl>("mediaContentRatingNewZealand", (this.mediaContentRatingNewZealand instanceof MediaContentRatingNewZealandImpl? this.mediaContentRatingNewZealand as MediaContentRatingNewZealandImpl: new MediaContentRatingNewZealandImpl(this.mediaContentRatingNewZealand)));
         }
         if(this.mediaContentRatingUnitedKingdom){
-            writer.writeObjectValue<MediaContentRatingUnitedKingdomImpl>("mediaContentRatingUnitedKingdom", (!this.mediaContentRatingUnitedKingdom || this.mediaContentRatingUnitedKingdom instanceof MediaContentRatingUnitedKingdomImpl? this.mediaContentRatingUnitedKingdom : new MediaContentRatingUnitedKingdomImpl(this.mediaContentRatingUnitedKingdom)));
+            writer.writeObjectValue<MediaContentRatingUnitedKingdomImpl>("mediaContentRatingUnitedKingdom", (this.mediaContentRatingUnitedKingdom instanceof MediaContentRatingUnitedKingdomImpl? this.mediaContentRatingUnitedKingdom as MediaContentRatingUnitedKingdomImpl: new MediaContentRatingUnitedKingdomImpl(this.mediaContentRatingUnitedKingdom)));
         }
         if(this.mediaContentRatingUnitedStates){
-            writer.writeObjectValue<MediaContentRatingUnitedStatesImpl>("mediaContentRatingUnitedStates", (!this.mediaContentRatingUnitedStates || this.mediaContentRatingUnitedStates instanceof MediaContentRatingUnitedStatesImpl? this.mediaContentRatingUnitedStates : new MediaContentRatingUnitedStatesImpl(this.mediaContentRatingUnitedStates)));
+            writer.writeObjectValue<MediaContentRatingUnitedStatesImpl>("mediaContentRatingUnitedStates", (this.mediaContentRatingUnitedStates instanceof MediaContentRatingUnitedStatesImpl? this.mediaContentRatingUnitedStates as MediaContentRatingUnitedStatesImpl: new MediaContentRatingUnitedStatesImpl(this.mediaContentRatingUnitedStates)));
         }
         if(this.messagesBlocked){
             writer.writeBooleanValue("messagesBlocked", this.messagesBlocked);
         }
         if(this.networkUsageRules && this.networkUsageRules.length != 0){        const networkUsageRulesArrValue: IosNetworkUsageRuleImpl[] = [];
         this.networkUsageRules?.forEach(element => {
-            networkUsageRulesArrValue.push((element instanceof IosNetworkUsageRuleImpl? element:new IosNetworkUsageRuleImpl(element)));
+            networkUsageRulesArrValue.push((element instanceof IosNetworkUsageRuleImpl? element as IosNetworkUsageRuleImpl:new IosNetworkUsageRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosNetworkUsageRuleImpl>("networkUsageRules", networkUsageRulesArrValue);
         }

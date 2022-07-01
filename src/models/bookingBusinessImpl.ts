@@ -67,7 +67,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
      */
     public set address(value: PhysicalAddress | undefined) {
         if(value) {
-            this._address = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._address = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const appointmentsArrValue: BookingAppointmentImpl[] = [];
             this.appointments?.forEach(element => {
-                appointmentsArrValue.push((element instanceof BookingAppointmentImpl? element:new BookingAppointmentImpl(element)));
+                appointmentsArrValue.push((element instanceof BookingAppointmentImpl? element as BookingAppointmentImpl:new BookingAppointmentImpl(element)));
             });
             this._appointments = appointmentsArrValue;
         }
@@ -105,7 +105,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const businessHoursArrValue: BookingWorkHoursImpl[] = [];
             this.businessHours?.forEach(element => {
-                businessHoursArrValue.push((element instanceof BookingWorkHoursImpl? element:new BookingWorkHoursImpl(element)));
+                businessHoursArrValue.push((element instanceof BookingWorkHoursImpl? element as BookingWorkHoursImpl:new BookingWorkHoursImpl(element)));
             });
             this._businessHours = businessHoursArrValue;
         }
@@ -141,7 +141,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const calendarViewArrValue: BookingAppointmentImpl[] = [];
             this.calendarView?.forEach(element => {
-                calendarViewArrValue.push((element instanceof BookingAppointmentImpl? element:new BookingAppointmentImpl(element)));
+                calendarViewArrValue.push((element instanceof BookingAppointmentImpl? element as BookingAppointmentImpl:new BookingAppointmentImpl(element)));
             });
             this._calendarView = calendarViewArrValue;
         }
@@ -185,7 +185,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const customersArrValue: BookingCustomerBaseImpl[] = [];
             this.customers?.forEach(element => {
-                customersArrValue.push((element instanceof BookingCustomerBaseImpl? element:new BookingCustomerBaseImpl(element)));
+                customersArrValue.push((element instanceof BookingCustomerBaseImpl? element as BookingCustomerBaseImpl:new BookingCustomerBaseImpl(element)));
             });
             this._customers = customersArrValue;
         }
@@ -205,7 +205,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const customQuestionsArrValue: BookingCustomQuestionImpl[] = [];
             this.customQuestions?.forEach(element => {
-                customQuestionsArrValue.push((element instanceof BookingCustomQuestionImpl? element:new BookingCustomQuestionImpl(element)));
+                customQuestionsArrValue.push((element instanceof BookingCustomQuestionImpl? element as BookingCustomQuestionImpl:new BookingCustomQuestionImpl(element)));
             });
             this._customQuestions = customQuestionsArrValue;
         }
@@ -344,7 +344,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
      */
     public set schedulingPolicy(value: BookingSchedulingPolicy | undefined) {
         if(value) {
-            this._schedulingPolicy = value instanceof BookingSchedulingPolicyImpl? value : new BookingSchedulingPolicyImpl(value);
+            this._schedulingPolicy = value instanceof BookingSchedulingPolicyImpl? value as BookingSchedulingPolicyImpl: new BookingSchedulingPolicyImpl(value);
         }
     };
     /**
@@ -355,17 +355,17 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-            writer.writeObjectValue<PhysicalAddressImpl>("address", (!this.address || this.address instanceof PhysicalAddressImpl? this.address : new PhysicalAddressImpl(this.address)));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", (this.address instanceof PhysicalAddressImpl? this.address as PhysicalAddressImpl: new PhysicalAddressImpl(this.address)));
         }
         if(this.appointments && this.appointments.length != 0){        const appointmentsArrValue: BookingAppointmentImpl[] = [];
         this.appointments?.forEach(element => {
-            appointmentsArrValue.push((element instanceof BookingAppointmentImpl? element:new BookingAppointmentImpl(element)));
+            appointmentsArrValue.push((element instanceof BookingAppointmentImpl? element as BookingAppointmentImpl:new BookingAppointmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("appointments", appointmentsArrValue);
         }
         if(this.businessHours && this.businessHours.length != 0){        const businessHoursArrValue: BookingWorkHoursImpl[] = [];
         this.businessHours?.forEach(element => {
-            businessHoursArrValue.push((element instanceof BookingWorkHoursImpl? element:new BookingWorkHoursImpl(element)));
+            businessHoursArrValue.push((element instanceof BookingWorkHoursImpl? element as BookingWorkHoursImpl:new BookingWorkHoursImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("businessHours", businessHoursArrValue);
         }
@@ -374,19 +374,19 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         }
         if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: BookingAppointmentImpl[] = [];
         this.calendarView?.forEach(element => {
-            calendarViewArrValue.push((element instanceof BookingAppointmentImpl? element:new BookingAppointmentImpl(element)));
+            calendarViewArrValue.push((element instanceof BookingAppointmentImpl? element as BookingAppointmentImpl:new BookingAppointmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingAppointmentImpl>("calendarView", calendarViewArrValue);
         }
         if(this.customers && this.customers.length != 0){        const customersArrValue: BookingCustomerBaseImpl[] = [];
         this.customers?.forEach(element => {
-            customersArrValue.push((element instanceof BookingCustomerBaseImpl? element:new BookingCustomerBaseImpl(element)));
+            customersArrValue.push((element instanceof BookingCustomerBaseImpl? element as BookingCustomerBaseImpl:new BookingCustomerBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("customers", customersArrValue);
         }
         if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingCustomQuestionImpl[] = [];
         this.customQuestions?.forEach(element => {
-            customQuestionsArrValue.push((element instanceof BookingCustomQuestionImpl? element:new BookingCustomQuestionImpl(element)));
+            customQuestionsArrValue.push((element instanceof BookingCustomQuestionImpl? element as BookingCustomQuestionImpl:new BookingCustomQuestionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("customQuestions", customQuestionsArrValue);
         }
@@ -409,17 +409,17 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
             writer.writeStringValue("publicUrl", this.publicUrl);
         }
         if(this.schedulingPolicy){
-            writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", (!this.schedulingPolicy || this.schedulingPolicy instanceof BookingSchedulingPolicyImpl? this.schedulingPolicy : new BookingSchedulingPolicyImpl(this.schedulingPolicy)));
+            writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", (this.schedulingPolicy instanceof BookingSchedulingPolicyImpl? this.schedulingPolicy as BookingSchedulingPolicyImpl: new BookingSchedulingPolicyImpl(this.schedulingPolicy)));
         }
         if(this.services && this.services.length != 0){        const servicesArrValue: BookingServiceImpl[] = [];
         this.services?.forEach(element => {
-            servicesArrValue.push((element instanceof BookingServiceImpl? element:new BookingServiceImpl(element)));
+            servicesArrValue.push((element instanceof BookingServiceImpl? element as BookingServiceImpl:new BookingServiceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingServiceImpl>("services", servicesArrValue);
         }
         if(this.staffMembers && this.staffMembers.length != 0){        const staffMembersArrValue: BookingStaffMemberBaseImpl[] = [];
         this.staffMembers?.forEach(element => {
-            staffMembersArrValue.push((element instanceof BookingStaffMemberBaseImpl? element:new BookingStaffMemberBaseImpl(element)));
+            staffMembersArrValue.push((element instanceof BookingStaffMemberBaseImpl? element as BookingStaffMemberBaseImpl:new BookingStaffMemberBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingStaffMemberBaseImpl>("staffMembers", staffMembersArrValue);
         }
@@ -442,7 +442,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const servicesArrValue: BookingServiceImpl[] = [];
             this.services?.forEach(element => {
-                servicesArrValue.push((element instanceof BookingServiceImpl? element:new BookingServiceImpl(element)));
+                servicesArrValue.push((element instanceof BookingServiceImpl? element as BookingServiceImpl:new BookingServiceImpl(element)));
             });
             this._services = servicesArrValue;
         }
@@ -462,7 +462,7 @@ export class BookingBusinessImpl extends EntityImpl implements BookingBusiness {
         if(value) {
             const staffMembersArrValue: BookingStaffMemberBaseImpl[] = [];
             this.staffMembers?.forEach(element => {
-                staffMembersArrValue.push((element instanceof BookingStaffMemberBaseImpl? element:new BookingStaffMemberBaseImpl(element)));
+                staffMembersArrValue.push((element instanceof BookingStaffMemberBaseImpl? element as BookingStaffMemberBaseImpl:new BookingStaffMemberBaseImpl(element)));
             });
             this._staffMembers = staffMembersArrValue;
         }

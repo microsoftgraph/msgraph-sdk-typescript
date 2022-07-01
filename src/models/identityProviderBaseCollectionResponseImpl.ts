@@ -73,7 +73,7 @@ export class IdentityProviderBaseCollectionResponseImpl implements IdentityProvi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityProviderBaseImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+            valueArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IdentityProviderBaseCollectionResponseImpl implements IdentityProvi
         if(value) {
             const valueArrValue: IdentityProviderBaseImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+                valueArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
             });
             this._value = valueArrValue;
         }

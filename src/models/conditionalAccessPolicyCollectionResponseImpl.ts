@@ -73,7 +73,7 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Conditiona
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConditionalAccessPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ConditionalAccessPolicyImpl? element:new ConditionalAccessPolicyImpl(element)));
+            valueArrValue.push((element instanceof ConditionalAccessPolicyImpl? element as ConditionalAccessPolicyImpl:new ConditionalAccessPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConditionalAccessPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ConditionalAccessPolicyCollectionResponseImpl implements Conditiona
         if(value) {
             const valueArrValue: ConditionalAccessPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ConditionalAccessPolicyImpl? element:new ConditionalAccessPolicyImpl(element)));
+                valueArrValue.push((element instanceof ConditionalAccessPolicyImpl? element as ConditionalAccessPolicyImpl:new ConditionalAccessPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

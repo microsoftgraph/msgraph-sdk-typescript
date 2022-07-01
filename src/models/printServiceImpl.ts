@@ -31,7 +31,7 @@ export class PrintServiceImpl extends EntityImpl implements PrintService {
         if(value) {
             const endpointsArrValue: PrintServiceEndpointImpl[] = [];
             this.endpoints?.forEach(element => {
-                endpointsArrValue.push((element instanceof PrintServiceEndpointImpl? element:new PrintServiceEndpointImpl(element)));
+                endpointsArrValue.push((element instanceof PrintServiceEndpointImpl? element as PrintServiceEndpointImpl:new PrintServiceEndpointImpl(element)));
             });
             this._endpoints = endpointsArrValue;
         }
@@ -54,7 +54,7 @@ export class PrintServiceImpl extends EntityImpl implements PrintService {
         super.serialize(writer);
         if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: PrintServiceEndpointImpl[] = [];
         this.endpoints?.forEach(element => {
-            endpointsArrValue.push((element instanceof PrintServiceEndpointImpl? element:new PrintServiceEndpointImpl(element)));
+            endpointsArrValue.push((element instanceof PrintServiceEndpointImpl? element as PrintServiceEndpointImpl:new PrintServiceEndpointImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintServiceEndpointImpl>("endpoints", endpointsArrValue);
         }

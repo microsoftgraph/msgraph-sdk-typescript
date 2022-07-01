@@ -1,3 +1,3 @@
 export * from './wipeManagedAppRegistrationsByDeviceTagPostRequestBodyImpl'
-export * from './wipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration'
 export * from './wipeManagedAppRegistrationsByDeviceTagPostRequestBody'
+export * from './wipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration'

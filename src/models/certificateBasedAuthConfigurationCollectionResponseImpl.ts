@@ -73,7 +73,7 @@ export class CertificateBasedAuthConfigurationCollectionResponseImpl implements 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CertificateBasedAuthConfigurationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element:new CertificateBasedAuthConfigurationImpl(element)));
+            valueArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element as CertificateBasedAuthConfigurationImpl:new CertificateBasedAuthConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class CertificateBasedAuthConfigurationCollectionResponseImpl implements 
         if(value) {
             const valueArrValue: CertificateBasedAuthConfigurationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element:new CertificateBasedAuthConfigurationImpl(element)));
+                valueArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element as CertificateBasedAuthConfigurationImpl:new CertificateBasedAuthConfigurationImpl(element)));
             });
             this._value = valueArrValue;
         }

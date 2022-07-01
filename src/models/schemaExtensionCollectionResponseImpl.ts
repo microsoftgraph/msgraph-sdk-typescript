@@ -73,7 +73,7 @@ export class SchemaExtensionCollectionResponseImpl implements SchemaExtensionCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SchemaExtensionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SchemaExtensionImpl? element:new SchemaExtensionImpl(element)));
+            valueArrValue.push((element instanceof SchemaExtensionImpl? element as SchemaExtensionImpl:new SchemaExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SchemaExtensionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SchemaExtensionCollectionResponseImpl implements SchemaExtensionCol
         if(value) {
             const valueArrValue: SchemaExtensionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SchemaExtensionImpl? element:new SchemaExtensionImpl(element)));
+                valueArrValue.push((element instanceof SchemaExtensionImpl? element as SchemaExtensionImpl:new SchemaExtensionImpl(element)));
             });
             this._value = valueArrValue;
         }

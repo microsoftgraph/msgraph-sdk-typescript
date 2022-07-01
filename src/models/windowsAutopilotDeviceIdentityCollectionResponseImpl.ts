@@ -73,7 +73,7 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Win
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element:new WindowsAutopilotDeviceIdentityImpl(element)));
+            valueArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element as WindowsAutopilotDeviceIdentityImpl:new WindowsAutopilotDeviceIdentityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class WindowsAutopilotDeviceIdentityCollectionResponseImpl implements Win
         if(value) {
             const valueArrValue: WindowsAutopilotDeviceIdentityImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element:new WindowsAutopilotDeviceIdentityImpl(element)));
+                valueArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element as WindowsAutopilotDeviceIdentityImpl:new WindowsAutopilotDeviceIdentityImpl(element)));
             });
             this._value = valueArrValue;
         }

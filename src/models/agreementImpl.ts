@@ -43,7 +43,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
         if(value) {
             const acceptancesArrValue: AgreementAcceptanceImpl[] = [];
             this.acceptances?.forEach(element => {
-                acceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element:new AgreementAcceptanceImpl(element)));
+                acceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element as AgreementAcceptanceImpl:new AgreementAcceptanceImpl(element)));
             });
             this._acceptances = acceptancesArrValue;
         }
@@ -92,7 +92,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
      */
     public set file(value: AgreementFile | undefined) {
         if(value) {
-            this._file = value instanceof AgreementFileImpl? value : new AgreementFileImpl(value);
+            this._file = value instanceof AgreementFileImpl? value as AgreementFileImpl: new AgreementFileImpl(value);
         }
     };
     /**
@@ -110,7 +110,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
         if(value) {
             const filesArrValue: AgreementFileLocalizationImpl[] = [];
             this.files?.forEach(element => {
-                filesArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+                filesArrValue.push((element instanceof AgreementFileLocalizationImpl? element as AgreementFileLocalizationImpl:new AgreementFileLocalizationImpl(element)));
             });
             this._files = filesArrValue;
         }
@@ -172,7 +172,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
         super.serialize(writer);
         if(this.acceptances && this.acceptances.length != 0){        const acceptancesArrValue: AgreementAcceptanceImpl[] = [];
         this.acceptances?.forEach(element => {
-            acceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element:new AgreementAcceptanceImpl(element)));
+            acceptancesArrValue.push((element instanceof AgreementAcceptanceImpl? element as AgreementAcceptanceImpl:new AgreementAcceptanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("acceptances", acceptancesArrValue);
         }
@@ -180,11 +180,11 @@ export class AgreementImpl extends EntityImpl implements Agreement {
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.file){
-            writer.writeObjectValue<AgreementFileImpl>("file", (!this.file || this.file instanceof AgreementFileImpl? this.file : new AgreementFileImpl(this.file)));
+            writer.writeObjectValue<AgreementFileImpl>("file", (this.file instanceof AgreementFileImpl? this.file as AgreementFileImpl: new AgreementFileImpl(this.file)));
         }
         if(this.files && this.files.length != 0){        const filesArrValue: AgreementFileLocalizationImpl[] = [];
         this.files?.forEach(element => {
-            filesArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+            filesArrValue.push((element instanceof AgreementFileLocalizationImpl? element as AgreementFileLocalizationImpl:new AgreementFileLocalizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("files", filesArrValue);
         }
@@ -195,7 +195,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
             writer.writeBooleanValue("isViewingBeforeAcceptanceRequired", this.isViewingBeforeAcceptanceRequired);
         }
         if(this.termsExpiration){
-            writer.writeObjectValue<TermsExpirationImpl>("termsExpiration", (!this.termsExpiration || this.termsExpiration instanceof TermsExpirationImpl? this.termsExpiration : new TermsExpirationImpl(this.termsExpiration)));
+            writer.writeObjectValue<TermsExpirationImpl>("termsExpiration", (this.termsExpiration instanceof TermsExpirationImpl? this.termsExpiration as TermsExpirationImpl: new TermsExpirationImpl(this.termsExpiration)));
         }
         if(this.userReacceptRequiredFrequency){
             writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
@@ -214,7 +214,7 @@ export class AgreementImpl extends EntityImpl implements Agreement {
      */
     public set termsExpiration(value: TermsExpiration | undefined) {
         if(value) {
-            this._termsExpiration = value instanceof TermsExpirationImpl? value : new TermsExpirationImpl(value);
+            this._termsExpiration = value instanceof TermsExpirationImpl? value as TermsExpirationImpl: new TermsExpirationImpl(value);
         }
     };
     /**

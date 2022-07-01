@@ -1,5 +1,5 @@
-export * from './translateExchangeIdsResponseImpl'
 export * from './translateExchangeIdsPostRequestBodyImpl'
-export * from './translateExchangeIdsResponse'
+export * from './translateExchangeIdsResponseImpl'
 export * from './translateExchangeIdsPostRequestBody'
+export * from './translateExchangeIdsResponse'
 export * from './translateExchangeIdsRequestBuilderPostRequestConfiguration'

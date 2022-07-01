@@ -73,7 +73,7 @@ export class ExternalGroupCollectionResponseImpl implements ExternalGroupCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExternalGroupImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ExternalGroupImpl? element:new ExternalGroupImpl(element)));
+            valueArrValue.push((element instanceof ExternalGroupImpl? element as ExternalGroupImpl:new ExternalGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalGroupImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ExternalGroupCollectionResponseImpl implements ExternalGroupCollect
         if(value) {
             const valueArrValue: ExternalGroupImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ExternalGroupImpl? element:new ExternalGroupImpl(element)));
+                valueArrValue.push((element instanceof ExternalGroupImpl? element as ExternalGroupImpl:new ExternalGroupImpl(element)));
             });
             this._value = valueArrValue;
         }

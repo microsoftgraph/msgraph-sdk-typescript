@@ -73,7 +73,7 @@ export class SearchResponseImpl implements SearchResponse {
         if(value) {
             const hitsContainersArrValue: SearchHitsContainerImpl[] = [];
             this.hitsContainers?.forEach(element => {
-                hitsContainersArrValue.push((element instanceof SearchHitsContainerImpl? element:new SearchHitsContainerImpl(element)));
+                hitsContainersArrValue.push((element instanceof SearchHitsContainerImpl? element as SearchHitsContainerImpl:new SearchHitsContainerImpl(element)));
             });
             this._hitsContainers = hitsContainersArrValue;
         }
@@ -91,7 +91,7 @@ export class SearchResponseImpl implements SearchResponse {
      */
     public set queryAlterationResponse(value: AlterationResponse | undefined) {
         if(value) {
-            this._queryAlterationResponse = value instanceof AlterationResponseImpl? value : new AlterationResponseImpl(value);
+            this._queryAlterationResponse = value instanceof AlterationResponseImpl? value as AlterationResponseImpl: new AlterationResponseImpl(value);
         }
     };
     /**
@@ -107,7 +107,7 @@ export class SearchResponseImpl implements SearchResponse {
      */
     public set resultTemplates(value: ResultTemplateDictionary | undefined) {
         if(value) {
-            this._resultTemplates = value instanceof ResultTemplateDictionaryImpl? value : new ResultTemplateDictionaryImpl(value);
+            this._resultTemplates = value instanceof ResultTemplateDictionaryImpl? value as ResultTemplateDictionaryImpl: new ResultTemplateDictionaryImpl(value);
         }
     };
     /**
@@ -134,15 +134,15 @@ export class SearchResponseImpl implements SearchResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hitsContainers && this.hitsContainers.length != 0){        const hitsContainersArrValue: SearchHitsContainerImpl[] = [];
         this.hitsContainers?.forEach(element => {
-            hitsContainersArrValue.push((element instanceof SearchHitsContainerImpl? element:new SearchHitsContainerImpl(element)));
+            hitsContainersArrValue.push((element instanceof SearchHitsContainerImpl? element as SearchHitsContainerImpl:new SearchHitsContainerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SearchHitsContainerImpl>("hitsContainers", hitsContainersArrValue);
         }
         if(this.queryAlterationResponse){
-            writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", (!this.queryAlterationResponse || this.queryAlterationResponse instanceof AlterationResponseImpl? this.queryAlterationResponse : new AlterationResponseImpl(this.queryAlterationResponse)));
+            writer.writeObjectValue<AlterationResponseImpl>("queryAlterationResponse", (this.queryAlterationResponse instanceof AlterationResponseImpl? this.queryAlterationResponse as AlterationResponseImpl: new AlterationResponseImpl(this.queryAlterationResponse)));
         }
         if(this.resultTemplates){
-            writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", (!this.resultTemplates || this.resultTemplates instanceof ResultTemplateDictionaryImpl? this.resultTemplates : new ResultTemplateDictionaryImpl(this.resultTemplates)));
+            writer.writeObjectValue<ResultTemplateDictionaryImpl>("resultTemplates", (this.resultTemplates instanceof ResultTemplateDictionaryImpl? this.resultTemplates as ResultTemplateDictionaryImpl: new ResultTemplateDictionaryImpl(this.resultTemplates)));
         }
         if(this.searchTerms){
             writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);

@@ -53,7 +53,7 @@ export class CallRouteImpl implements CallRoute {
      */
     public set final(value: IdentitySet | undefined) {
         if(value) {
-            this._final = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._final = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -80,7 +80,7 @@ export class CallRouteImpl implements CallRoute {
      */
     public set original(value: IdentitySet | undefined) {
         if(value) {
-            this._original = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._original = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -106,10 +106,10 @@ export class CallRouteImpl implements CallRoute {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.final){
-            writer.writeObjectValue<IdentitySetImpl>("final", (!this.final || this.final instanceof IdentitySetImpl? this.final : new IdentitySetImpl(this.final)));
+            writer.writeObjectValue<IdentitySetImpl>("final", (this.final instanceof IdentitySetImpl? this.final as IdentitySetImpl: new IdentitySetImpl(this.final)));
         }
         if(this.original){
-            writer.writeObjectValue<IdentitySetImpl>("original", (!this.original || this.original instanceof IdentitySetImpl? this.original : new IdentitySetImpl(this.original)));
+            writer.writeObjectValue<IdentitySetImpl>("original", (this.original instanceof IdentitySetImpl? this.original as IdentitySetImpl: new IdentitySetImpl(this.original)));
         }
         if(this.routingType){
             writer.writeEnumValue<RoutingType>("routingType", this.routingType);

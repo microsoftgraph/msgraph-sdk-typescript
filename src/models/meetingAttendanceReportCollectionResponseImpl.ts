@@ -73,7 +73,7 @@ export class MeetingAttendanceReportCollectionResponseImpl implements MeetingAtt
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MeetingAttendanceReportImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MeetingAttendanceReportImpl? element:new MeetingAttendanceReportImpl(element)));
+            valueArrValue.push((element instanceof MeetingAttendanceReportImpl? element as MeetingAttendanceReportImpl:new MeetingAttendanceReportImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MeetingAttendanceReportImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MeetingAttendanceReportCollectionResponseImpl implements MeetingAtt
         if(value) {
             const valueArrValue: MeetingAttendanceReportImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MeetingAttendanceReportImpl? element:new MeetingAttendanceReportImpl(element)));
+                valueArrValue.push((element instanceof MeetingAttendanceReportImpl? element as MeetingAttendanceReportImpl:new MeetingAttendanceReportImpl(element)));
             });
             this._value = valueArrValue;
         }

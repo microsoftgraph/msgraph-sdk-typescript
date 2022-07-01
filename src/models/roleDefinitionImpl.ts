@@ -106,7 +106,7 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         if(value) {
             const roleAssignmentsArrValue: RoleAssignmentImpl[] = [];
             this.roleAssignments?.forEach(element => {
-                roleAssignmentsArrValue.push((element instanceof RoleAssignmentImpl? element:new RoleAssignmentImpl(element)));
+                roleAssignmentsArrValue.push((element instanceof RoleAssignmentImpl? element as RoleAssignmentImpl:new RoleAssignmentImpl(element)));
             });
             this._roleAssignments = roleAssignmentsArrValue;
         }
@@ -126,7 +126,7 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         if(value) {
             const rolePermissionsArrValue: RolePermissionImpl[] = [];
             this.rolePermissions?.forEach(element => {
-                rolePermissionsArrValue.push((element instanceof RolePermissionImpl? element:new RolePermissionImpl(element)));
+                rolePermissionsArrValue.push((element instanceof RolePermissionImpl? element as RolePermissionImpl:new RolePermissionImpl(element)));
             });
             this._rolePermissions = rolePermissionsArrValue;
         }
@@ -149,13 +149,13 @@ export class RoleDefinitionImpl extends EntityImpl implements RoleDefinition {
         }
         if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: RoleAssignmentImpl[] = [];
         this.roleAssignments?.forEach(element => {
-            roleAssignmentsArrValue.push((element instanceof RoleAssignmentImpl? element:new RoleAssignmentImpl(element)));
+            roleAssignmentsArrValue.push((element instanceof RoleAssignmentImpl? element as RoleAssignmentImpl:new RoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
         if(this.rolePermissions && this.rolePermissions.length != 0){        const rolePermissionsArrValue: RolePermissionImpl[] = [];
         this.rolePermissions?.forEach(element => {
-            rolePermissionsArrValue.push((element instanceof RolePermissionImpl? element:new RolePermissionImpl(element)));
+            rolePermissionsArrValue.push((element instanceof RolePermissionImpl? element as RolePermissionImpl:new RolePermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RolePermissionImpl>("rolePermissions", rolePermissionsArrValue);
         }

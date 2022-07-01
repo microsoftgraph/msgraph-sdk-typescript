@@ -56,7 +56,7 @@ export class LocationImpl implements Location {
      */
     public set address(value: PhysicalAddress | undefined) {
         if(value) {
-            this._address = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._address = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -87,7 +87,7 @@ export class LocationImpl implements Location {
      */
     public set coordinates(value: OutlookGeoCoordinates | undefined) {
         if(value) {
-            this._coordinates = value instanceof OutlookGeoCoordinatesImpl? value : new OutlookGeoCoordinatesImpl(value);
+            this._coordinates = value instanceof OutlookGeoCoordinatesImpl? value as OutlookGeoCoordinatesImpl: new OutlookGeoCoordinatesImpl(value);
         }
     };
     /**
@@ -177,10 +177,10 @@ export class LocationImpl implements Location {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.address){
-            writer.writeObjectValue<PhysicalAddressImpl>("address", (!this.address || this.address instanceof PhysicalAddressImpl? this.address : new PhysicalAddressImpl(this.address)));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", (this.address instanceof PhysicalAddressImpl? this.address as PhysicalAddressImpl: new PhysicalAddressImpl(this.address)));
         }
         if(this.coordinates){
-            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("coordinates", (!this.coordinates || this.coordinates instanceof OutlookGeoCoordinatesImpl? this.coordinates : new OutlookGeoCoordinatesImpl(this.coordinates)));
+            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("coordinates", (this.coordinates instanceof OutlookGeoCoordinatesImpl? this.coordinates as OutlookGeoCoordinatesImpl: new OutlookGeoCoordinatesImpl(this.coordinates)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);

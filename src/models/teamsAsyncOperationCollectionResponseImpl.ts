@@ -73,7 +73,7 @@ export class TeamsAsyncOperationCollectionResponseImpl implements TeamsAsyncOper
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsAsyncOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamsAsyncOperationImpl? element:new TeamsAsyncOperationImpl(element)));
+            valueArrValue.push((element instanceof TeamsAsyncOperationImpl? element as TeamsAsyncOperationImpl:new TeamsAsyncOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAsyncOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamsAsyncOperationCollectionResponseImpl implements TeamsAsyncOper
         if(value) {
             const valueArrValue: TeamsAsyncOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamsAsyncOperationImpl? element:new TeamsAsyncOperationImpl(element)));
+                valueArrValue.push((element instanceof TeamsAsyncOperationImpl? element as TeamsAsyncOperationImpl:new TeamsAsyncOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -27,7 +27,7 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
         if(value) {
             const activitiesArrValue: ShiftActivityImpl[] = [];
             this.activities?.forEach(element => {
-                activitiesArrValue.push((element instanceof ShiftActivityImpl? element:new ShiftActivityImpl(element)));
+                activitiesArrValue.push((element instanceof ShiftActivityImpl? element as ShiftActivityImpl:new ShiftActivityImpl(element)));
             });
             this._activities = activitiesArrValue;
         }
@@ -94,7 +94,7 @@ export class ShiftItemImpl extends ScheduleEntityImpl implements ShiftItem {
         super.serialize(writer);
         if(this.activities && this.activities.length != 0){        const activitiesArrValue: ShiftActivityImpl[] = [];
         this.activities?.forEach(element => {
-            activitiesArrValue.push((element instanceof ShiftActivityImpl? element:new ShiftActivityImpl(element)));
+            activitiesArrValue.push((element instanceof ShiftActivityImpl? element as ShiftActivityImpl:new ShiftActivityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ShiftActivityImpl>("activities", activitiesArrValue);
         }

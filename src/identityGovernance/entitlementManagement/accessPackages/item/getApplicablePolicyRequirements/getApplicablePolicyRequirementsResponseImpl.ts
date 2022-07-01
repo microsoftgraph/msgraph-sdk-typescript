@@ -51,7 +51,7 @@ export class GetApplicablePolicyRequirementsResponseImpl implements GetApplicabl
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessPackageAssignmentRequestRequirementsImpl? element:new AccessPackageAssignmentRequestRequirementsImpl(element)));
+            valueArrValue.push((element instanceof AccessPackageAssignmentRequestRequirementsImpl? element as AccessPackageAssignmentRequestRequirementsImpl:new AccessPackageAssignmentRequestRequirementsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirementsImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetApplicablePolicyRequirementsResponseImpl implements GetApplicabl
         if(value) {
             const valueArrValue: AccessPackageAssignmentRequestRequirementsImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessPackageAssignmentRequestRequirementsImpl? element:new AccessPackageAssignmentRequestRequirementsImpl(element)));
+                valueArrValue.push((element instanceof AccessPackageAssignmentRequestRequirementsImpl? element as AccessPackageAssignmentRequestRequirementsImpl:new AccessPackageAssignmentRequestRequirementsImpl(element)));
             });
             this._value = valueArrValue;
         }

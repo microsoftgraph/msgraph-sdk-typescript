@@ -73,7 +73,7 @@ export class ThumbnailSetCollectionResponseImpl implements ThumbnailSetCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ThumbnailSetImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ThumbnailSetImpl? element:new ThumbnailSetImpl(element)));
+            valueArrValue.push((element instanceof ThumbnailSetImpl? element as ThumbnailSetImpl:new ThumbnailSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ThumbnailSetCollectionResponseImpl implements ThumbnailSetCollectio
         if(value) {
             const valueArrValue: ThumbnailSetImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ThumbnailSetImpl? element:new ThumbnailSetImpl(element)));
+                valueArrValue.push((element instanceof ThumbnailSetImpl? element as ThumbnailSetImpl:new ThumbnailSetImpl(element)));
             });
             this._value = valueArrValue;
         }

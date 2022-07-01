@@ -51,7 +51,7 @@ export class SupportedTimeZonesWithTimeZoneStandardResponseImpl implements Suppo
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: TimeZoneInformationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TimeZoneInformationImpl? element:new TimeZoneInformationImpl(element)));
+            valueArrValue.push((element instanceof TimeZoneInformationImpl? element as TimeZoneInformationImpl:new TimeZoneInformationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeZoneInformationImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class SupportedTimeZonesWithTimeZoneStandardResponseImpl implements Suppo
         if(value) {
             const valueArrValue: TimeZoneInformationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TimeZoneInformationImpl? element:new TimeZoneInformationImpl(element)));
+                valueArrValue.push((element instanceof TimeZoneInformationImpl? element as TimeZoneInformationImpl:new TimeZoneInformationImpl(element)));
             });
             this._value = valueArrValue;
         }

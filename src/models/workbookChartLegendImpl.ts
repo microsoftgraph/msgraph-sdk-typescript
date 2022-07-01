@@ -38,7 +38,7 @@ export class WorkbookChartLegendImpl extends EntityImpl implements WorkbookChart
      */
     public set format(value: WorkbookChartLegendFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartLegendFormatImpl? value : new WorkbookChartLegendFormatImpl(value);
+            this._format = value instanceof WorkbookChartLegendFormatImpl? value as WorkbookChartLegendFormatImpl: new WorkbookChartLegendFormatImpl(value);
         }
     };
     /**
@@ -93,7 +93,7 @@ export class WorkbookChartLegendImpl extends EntityImpl implements WorkbookChart
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartLegendFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartLegendFormatImpl? this.format : new WorkbookChartLegendFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartLegendFormatImpl>("format", (this.format instanceof WorkbookChartLegendFormatImpl? this.format as WorkbookChartLegendFormatImpl: new WorkbookChartLegendFormatImpl(this.format)));
         }
         if(this.overlay){
             writer.writeBooleanValue("overlay", this.overlay);

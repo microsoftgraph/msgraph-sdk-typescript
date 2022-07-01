@@ -51,7 +51,7 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl implements G
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: PstnCallLogRowImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PstnCallLogRowImpl? element:new PstnCallLogRowImpl(element)));
+            valueArrValue.push((element instanceof PstnCallLogRowImpl? element as PstnCallLogRowImpl:new PstnCallLogRowImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PstnCallLogRowImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeResponseImpl implements G
         if(value) {
             const valueArrValue: PstnCallLogRowImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PstnCallLogRowImpl? element:new PstnCallLogRowImpl(element)));
+                valueArrValue.push((element instanceof PstnCallLogRowImpl? element as PstnCallLogRowImpl:new PstnCallLogRowImpl(element)));
             });
             this._value = valueArrValue;
         }

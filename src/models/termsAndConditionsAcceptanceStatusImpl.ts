@@ -87,7 +87,7 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
             writer.writeNumberValue("acceptedVersion", this.acceptedVersion);
         }
         if(this.termsAndConditions){
-            writer.writeObjectValue<TermsAndConditionsImpl>("termsAndConditions", (!this.termsAndConditions || this.termsAndConditions instanceof TermsAndConditionsImpl? this.termsAndConditions : new TermsAndConditionsImpl(this.termsAndConditions)));
+            writer.writeObjectValue<TermsAndConditionsImpl>("termsAndConditions", (this.termsAndConditions instanceof TermsAndConditionsImpl? this.termsAndConditions as TermsAndConditionsImpl: new TermsAndConditionsImpl(this.termsAndConditions)));
         }
         if(this.userDisplayName){
             writer.writeStringValue("userDisplayName", this.userDisplayName);
@@ -109,7 +109,7 @@ export class TermsAndConditionsAcceptanceStatusImpl extends EntityImpl implement
      */
     public set termsAndConditions(value: TermsAndConditions | undefined) {
         if(value) {
-            this._termsAndConditions = value instanceof TermsAndConditionsImpl? value : new TermsAndConditionsImpl(value);
+            this._termsAndConditions = value instanceof TermsAndConditionsImpl? value as TermsAndConditionsImpl: new TermsAndConditionsImpl(value);
         }
     };
     /**

@@ -88,7 +88,7 @@ export class SchemaExtensionImpl extends EntityImpl implements SchemaExtension {
         if(value) {
             const propertiesArrValue: ExtensionSchemaPropertyImpl[] = [];
             this.properties?.forEach(element => {
-                propertiesArrValue.push((element instanceof ExtensionSchemaPropertyImpl? element:new ExtensionSchemaPropertyImpl(element)));
+                propertiesArrValue.push((element instanceof ExtensionSchemaPropertyImpl? element as ExtensionSchemaPropertyImpl:new ExtensionSchemaPropertyImpl(element)));
             });
             this._properties = propertiesArrValue;
         }
@@ -108,7 +108,7 @@ export class SchemaExtensionImpl extends EntityImpl implements SchemaExtension {
         }
         if(this.properties && this.properties.length != 0){        const propertiesArrValue: ExtensionSchemaPropertyImpl[] = [];
         this.properties?.forEach(element => {
-            propertiesArrValue.push((element instanceof ExtensionSchemaPropertyImpl? element:new ExtensionSchemaPropertyImpl(element)));
+            propertiesArrValue.push((element instanceof ExtensionSchemaPropertyImpl? element as ExtensionSchemaPropertyImpl:new ExtensionSchemaPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionSchemaPropertyImpl>("properties", propertiesArrValue);
         }

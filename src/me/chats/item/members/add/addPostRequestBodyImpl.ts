@@ -51,7 +51,7 @@ export class AddPostRequestBodyImpl implements AddPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.values && this.values.length != 0){        const valuesArrValue: ConversationMemberImpl[] = [];
         this.values?.forEach(element => {
-            valuesArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+            valuesArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("values", valuesArrValue);
         }
@@ -72,7 +72,7 @@ export class AddPostRequestBodyImpl implements AddPostRequestBody {
         if(value) {
             const valuesArrValue: ConversationMemberImpl[] = [];
             this.values?.forEach(element => {
-                valuesArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+                valuesArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
             });
             this._values = valuesArrValue;
         }

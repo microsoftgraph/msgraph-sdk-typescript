@@ -62,7 +62,7 @@ export class RubricQualityImpl implements RubricQuality {
         if(value) {
             const criteriaArrValue: RubricCriterionImpl[] = [];
             this.criteria?.forEach(element => {
-                criteriaArrValue.push((element instanceof RubricCriterionImpl? element:new RubricCriterionImpl(element)));
+                criteriaArrValue.push((element instanceof RubricCriterionImpl? element as RubricCriterionImpl:new RubricCriterionImpl(element)));
             });
             this._criteria = criteriaArrValue;
         }
@@ -80,7 +80,7 @@ export class RubricQualityImpl implements RubricQuality {
      */
     public set description(value: EducationItemBody | undefined) {
         if(value) {
-            this._description = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+            this._description = value instanceof EducationItemBodyImpl? value as EducationItemBodyImpl: new EducationItemBodyImpl(value);
         }
     };
     /**
@@ -136,12 +136,12 @@ export class RubricQualityImpl implements RubricQuality {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.criteria && this.criteria.length != 0){        const criteriaArrValue: RubricCriterionImpl[] = [];
         this.criteria?.forEach(element => {
-            criteriaArrValue.push((element instanceof RubricCriterionImpl? element:new RubricCriterionImpl(element)));
+            criteriaArrValue.push((element instanceof RubricCriterionImpl? element as RubricCriterionImpl:new RubricCriterionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricCriterionImpl>("criteria", criteriaArrValue);
         }
         if(this.description){
-            writer.writeObjectValue<EducationItemBodyImpl>("description", (!this.description || this.description instanceof EducationItemBodyImpl? this.description : new EducationItemBodyImpl(this.description)));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", (this.description instanceof EducationItemBodyImpl? this.description as EducationItemBodyImpl: new EducationItemBodyImpl(this.description)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);

@@ -73,7 +73,7 @@ export class AttendanceRecordCollectionResponseImpl implements AttendanceRecordC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AttendanceRecordImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AttendanceRecordImpl? element:new AttendanceRecordImpl(element)));
+            valueArrValue.push((element instanceof AttendanceRecordImpl? element as AttendanceRecordImpl:new AttendanceRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttendanceRecordImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AttendanceRecordCollectionResponseImpl implements AttendanceRecordC
         if(value) {
             const valueArrValue: AttendanceRecordImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AttendanceRecordImpl? element:new AttendanceRecordImpl(element)));
+                valueArrValue.push((element instanceof AttendanceRecordImpl? element as AttendanceRecordImpl:new AttendanceRecordImpl(element)));
             });
             this._value = valueArrValue;
         }

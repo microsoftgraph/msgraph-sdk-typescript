@@ -73,7 +73,7 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements OpenShiftCh
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OpenShiftChangeRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OpenShiftChangeRequestImpl? element:new OpenShiftChangeRequestImpl(element)));
+            valueArrValue.push((element instanceof OpenShiftChangeRequestImpl? element as OpenShiftChangeRequestImpl:new OpenShiftChangeRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OpenShiftChangeRequestCollectionResponseImpl implements OpenShiftCh
         if(value) {
             const valueArrValue: OpenShiftChangeRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OpenShiftChangeRequestImpl? element:new OpenShiftChangeRequestImpl(element)));
+                valueArrValue.push((element instanceof OpenShiftChangeRequestImpl? element as OpenShiftChangeRequestImpl:new OpenShiftChangeRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

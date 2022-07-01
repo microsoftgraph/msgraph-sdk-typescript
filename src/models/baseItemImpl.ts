@@ -63,7 +63,7 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -79,7 +79,7 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
      */
     public set createdByUser(value: User | undefined) {
         if(value) {
-            this._createdByUser = value instanceof UserImpl? value : new UserImpl(value);
+            this._createdByUser = value instanceof UserImpl? value as UserImpl: new UserImpl(value);
         }
     };
     /**
@@ -162,7 +162,7 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -178,7 +178,7 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
      */
     public set lastModifiedByUser(value: User | undefined) {
         if(value) {
-            this._lastModifiedByUser = value instanceof UserImpl? value : new UserImpl(value);
+            this._lastModifiedByUser = value instanceof UserImpl? value as UserImpl: new UserImpl(value);
         }
     };
     /**
@@ -226,7 +226,7 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
      */
     public set parentReference(value: ItemReference | undefined) {
         if(value) {
-            this._parentReference = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+            this._parentReference = value instanceof ItemReferenceImpl? value as ItemReferenceImpl: new ItemReferenceImpl(value);
         }
     };
     /**
@@ -237,10 +237,10 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdByUser){
-            writer.writeObjectValue<UserImpl>("createdByUser", (!this.createdByUser || this.createdByUser instanceof UserImpl? this.createdByUser : new UserImpl(this.createdByUser)));
+            writer.writeObjectValue<UserImpl>("createdByUser", (this.createdByUser instanceof UserImpl? this.createdByUser as UserImpl: new UserImpl(this.createdByUser)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -252,10 +252,10 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
             writer.writeStringValue("eTag", this.eTag);
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy as IdentitySetImpl: new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedByUser){
-            writer.writeObjectValue<UserImpl>("lastModifiedByUser", (!this.lastModifiedByUser || this.lastModifiedByUser instanceof UserImpl? this.lastModifiedByUser : new UserImpl(this.lastModifiedByUser)));
+            writer.writeObjectValue<UserImpl>("lastModifiedByUser", (this.lastModifiedByUser instanceof UserImpl? this.lastModifiedByUser as UserImpl: new UserImpl(this.lastModifiedByUser)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
@@ -264,7 +264,7 @@ export class BaseItemImpl extends EntityImpl implements BaseItem {
             writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (!this.parentReference || this.parentReference instanceof ItemReferenceImpl? this.parentReference : new ItemReferenceImpl(this.parentReference)));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (this.parentReference instanceof ItemReferenceImpl? this.parentReference as ItemReferenceImpl: new ItemReferenceImpl(this.parentReference)));
         }
         if(this.webUrl){
             writer.writeStringValue("webUrl", this.webUrl);

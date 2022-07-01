@@ -23,7 +23,7 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
         if(value) {
             const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = [];
             this.certificateAuthorities?.forEach(element => {
-                certificateAuthoritiesArrValue.push((element instanceof CertificateAuthorityImpl? element:new CertificateAuthorityImpl(element)));
+                certificateAuthoritiesArrValue.push((element instanceof CertificateAuthorityImpl? element as CertificateAuthorityImpl:new CertificateAuthorityImpl(element)));
             });
             this._certificateAuthorities = certificateAuthoritiesArrValue;
         }
@@ -54,7 +54,7 @@ export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements
         super.serialize(writer);
         if(this.certificateAuthorities && this.certificateAuthorities.length != 0){        const certificateAuthoritiesArrValue: CertificateAuthorityImpl[] = [];
         this.certificateAuthorities?.forEach(element => {
-            certificateAuthoritiesArrValue.push((element instanceof CertificateAuthorityImpl? element:new CertificateAuthorityImpl(element)));
+            certificateAuthoritiesArrValue.push((element instanceof CertificateAuthorityImpl? element as CertificateAuthorityImpl:new CertificateAuthorityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CertificateAuthorityImpl>("certificateAuthorities", certificateAuthoritiesArrValue);
         }

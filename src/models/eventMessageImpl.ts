@@ -63,7 +63,7 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public set endDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._endDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._endDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -79,7 +79,7 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public set event(value: Event | undefined) {
         if(value) {
-            this._event = value instanceof EventImpl? value : new EventImpl(value);
+            this._event = value instanceof EventImpl? value as EventImpl: new EventImpl(value);
         }
     };
     /**
@@ -161,7 +161,7 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public set location(value: Location | undefined) {
         if(value) {
-            this._location = value instanceof LocationImpl? value : new LocationImpl(value);
+            this._location = value instanceof LocationImpl? value as LocationImpl: new LocationImpl(value);
         }
     };
     /**
@@ -193,7 +193,7 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         if(value) {
-            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(value);
         }
     };
     /**
@@ -204,10 +204,10 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.endDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", (!this.endDateTime || this.endDateTime instanceof DateTimeTimeZoneImpl? this.endDateTime : new DateTimeTimeZoneImpl(this.endDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("endDateTime", (this.endDateTime instanceof DateTimeTimeZoneImpl? this.endDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.endDateTime)));
         }
         if(this.event){
-            writer.writeObjectValue<EventImpl>("event", (!this.event || this.event instanceof EventImpl? this.event : new EventImpl(this.event)));
+            writer.writeObjectValue<EventImpl>("event", (this.event instanceof EventImpl? this.event as EventImpl: new EventImpl(this.event)));
         }
         if(this.isAllDay){
             writer.writeBooleanValue("isAllDay", this.isAllDay);
@@ -219,16 +219,16 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
             writer.writeBooleanValue("isOutOfDate", this.isOutOfDate);
         }
         if(this.location){
-            writer.writeObjectValue<LocationImpl>("location", (!this.location || this.location instanceof LocationImpl? this.location : new LocationImpl(this.location)));
+            writer.writeObjectValue<LocationImpl>("location", (this.location instanceof LocationImpl? this.location as LocationImpl: new LocationImpl(this.location)));
         }
         if(this.meetingMessageType){
             writer.writeEnumValue<MeetingMessageType>("meetingMessageType", this.meetingMessageType);
         }
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.startDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (!this.startDateTime || this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime : new DateTimeTimeZoneImpl(this.startDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("startDateTime", (this.startDateTime instanceof DateTimeTimeZoneImpl? this.startDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.startDateTime)));
         }
         if(this.type){
             writer.writeEnumValue<EventType>("type", this.type);
@@ -247,7 +247,7 @@ export class EventMessageImpl extends MessageImpl implements EventMessage {
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._startDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**

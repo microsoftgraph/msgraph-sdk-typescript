@@ -28,7 +28,7 @@ export class OptionalClaimsImpl implements OptionalClaims {
         if(value) {
             const accessTokenArrValue: OptionalClaimImpl[] = [];
             this.accessToken?.forEach(element => {
-                accessTokenArrValue.push((element instanceof OptionalClaimImpl? element:new OptionalClaimImpl(element)));
+                accessTokenArrValue.push((element instanceof OptionalClaimImpl? element as OptionalClaimImpl:new OptionalClaimImpl(element)));
             });
             this._accessToken = accessTokenArrValue;
         }
@@ -85,7 +85,7 @@ export class OptionalClaimsImpl implements OptionalClaims {
         if(value) {
             const idTokenArrValue: OptionalClaimImpl[] = [];
             this.idToken?.forEach(element => {
-                idTokenArrValue.push((element instanceof OptionalClaimImpl? element:new OptionalClaimImpl(element)));
+                idTokenArrValue.push((element instanceof OptionalClaimImpl? element as OptionalClaimImpl:new OptionalClaimImpl(element)));
             });
             this._idToken = idTokenArrValue;
         }
@@ -105,7 +105,7 @@ export class OptionalClaimsImpl implements OptionalClaims {
         if(value) {
             const saml2TokenArrValue: OptionalClaimImpl[] = [];
             this.saml2Token?.forEach(element => {
-                saml2TokenArrValue.push((element instanceof OptionalClaimImpl? element:new OptionalClaimImpl(element)));
+                saml2TokenArrValue.push((element instanceof OptionalClaimImpl? element as OptionalClaimImpl:new OptionalClaimImpl(element)));
             });
             this._saml2Token = saml2TokenArrValue;
         }
@@ -118,19 +118,19 @@ export class OptionalClaimsImpl implements OptionalClaims {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.accessToken && this.accessToken.length != 0){        const accessTokenArrValue: OptionalClaimImpl[] = [];
         this.accessToken?.forEach(element => {
-            accessTokenArrValue.push((element instanceof OptionalClaimImpl? element:new OptionalClaimImpl(element)));
+            accessTokenArrValue.push((element instanceof OptionalClaimImpl? element as OptionalClaimImpl:new OptionalClaimImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OptionalClaimImpl>("accessToken", accessTokenArrValue);
         }
         if(this.idToken && this.idToken.length != 0){        const idTokenArrValue: OptionalClaimImpl[] = [];
         this.idToken?.forEach(element => {
-            idTokenArrValue.push((element instanceof OptionalClaimImpl? element:new OptionalClaimImpl(element)));
+            idTokenArrValue.push((element instanceof OptionalClaimImpl? element as OptionalClaimImpl:new OptionalClaimImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OptionalClaimImpl>("idToken", idTokenArrValue);
         }
         if(this.saml2Token && this.saml2Token.length != 0){        const saml2TokenArrValue: OptionalClaimImpl[] = [];
         this.saml2Token?.forEach(element => {
-            saml2TokenArrValue.push((element instanceof OptionalClaimImpl? element:new OptionalClaimImpl(element)));
+            saml2TokenArrValue.push((element instanceof OptionalClaimImpl? element as OptionalClaimImpl:new OptionalClaimImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OptionalClaimImpl>("saml2Token", saml2TokenArrValue);
         }

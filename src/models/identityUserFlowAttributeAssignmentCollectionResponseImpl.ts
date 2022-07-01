@@ -73,7 +73,7 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element:new IdentityUserFlowAttributeAssignmentImpl(element)));
+            valueArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element as IdentityUserFlowAttributeAssignmentImpl:new IdentityUserFlowAttributeAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponseImpl implement
         if(value) {
             const valueArrValue: IdentityUserFlowAttributeAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element:new IdentityUserFlowAttributeAssignmentImpl(element)));
+                valueArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element as IdentityUserFlowAttributeAssignmentImpl:new IdentityUserFlowAttributeAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

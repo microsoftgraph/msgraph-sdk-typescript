@@ -73,7 +73,7 @@ export class SubjectRightsRequestCollectionResponseImpl implements SubjectRights
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SubjectRightsRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SubjectRightsRequestImpl? element:new SubjectRightsRequestImpl(element)));
+            valueArrValue.push((element instanceof SubjectRightsRequestImpl? element as SubjectRightsRequestImpl:new SubjectRightsRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SubjectRightsRequestCollectionResponseImpl implements SubjectRights
         if(value) {
             const valueArrValue: SubjectRightsRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SubjectRightsRequestImpl? element:new SubjectRightsRequestImpl(element)));
+                valueArrValue.push((element instanceof SubjectRightsRequestImpl? element as SubjectRightsRequestImpl:new SubjectRightsRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

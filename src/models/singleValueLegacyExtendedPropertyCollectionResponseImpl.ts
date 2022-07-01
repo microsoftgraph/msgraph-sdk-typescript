@@ -73,7 +73,7 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            valueArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SingleValueLegacyExtendedPropertyCollectionResponseImpl implements 
         if(value) {
             const valueArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                valueArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._value = valueArrValue;
         }

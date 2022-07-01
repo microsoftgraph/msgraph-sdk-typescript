@@ -73,7 +73,7 @@ export class DriveItemCollectionResponseImpl implements DriveItemCollectionRespo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            valueArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DriveItemCollectionResponseImpl implements DriveItemCollectionRespo
         if(value) {
             const valueArrValue: DriveItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                valueArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._value = valueArrValue;
         }

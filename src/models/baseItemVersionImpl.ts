@@ -48,7 +48,7 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -80,7 +80,7 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
      */
     public set publication(value: PublicationFacet | undefined) {
         if(value) {
-            this._publication = value instanceof PublicationFacetImpl? value : new PublicationFacetImpl(value);
+            this._publication = value instanceof PublicationFacetImpl? value as PublicationFacetImpl: new PublicationFacetImpl(value);
         }
     };
     /**
@@ -91,13 +91,13 @@ export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy as IdentitySetImpl: new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.publication){
-            writer.writeObjectValue<PublicationFacetImpl>("publication", (!this.publication || this.publication instanceof PublicationFacetImpl? this.publication : new PublicationFacetImpl(this.publication)));
+            writer.writeObjectValue<PublicationFacetImpl>("publication", (this.publication instanceof PublicationFacetImpl? this.publication as PublicationFacetImpl: new PublicationFacetImpl(this.publication)));
         }
     };
 }

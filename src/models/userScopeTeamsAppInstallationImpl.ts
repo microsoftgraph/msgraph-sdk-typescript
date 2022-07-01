@@ -20,7 +20,7 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
      */
     public set chat(value: Chat | undefined) {
         if(value) {
-            this._chat = value instanceof ChatImpl? value : new ChatImpl(value);
+            this._chat = value instanceof ChatImpl? value as ChatImpl: new ChatImpl(value);
         }
     };
     /**
@@ -48,7 +48,7 @@ export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.chat){
-            writer.writeObjectValue<ChatImpl>("chat", (!this.chat || this.chat instanceof ChatImpl? this.chat : new ChatImpl(this.chat)));
+            writer.writeObjectValue<ChatImpl>("chat", (this.chat instanceof ChatImpl? this.chat as ChatImpl: new ChatImpl(this.chat)));
         }
     };
 }

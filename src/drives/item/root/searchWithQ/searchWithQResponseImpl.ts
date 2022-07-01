@@ -51,7 +51,7 @@ export class SearchWithQResponseImpl implements SearchWithQResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: DriveItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            valueArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class SearchWithQResponseImpl implements SearchWithQResponse {
         if(value) {
             const valueArrValue: DriveItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                valueArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._value = valueArrValue;
         }

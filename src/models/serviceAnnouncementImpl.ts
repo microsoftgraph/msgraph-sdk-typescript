@@ -52,7 +52,7 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
         if(value) {
             const healthOverviewsArrValue: ServiceHealthImpl[] = [];
             this.healthOverviews?.forEach(element => {
-                healthOverviewsArrValue.push((element instanceof ServiceHealthImpl? element:new ServiceHealthImpl(element)));
+                healthOverviewsArrValue.push((element instanceof ServiceHealthImpl? element as ServiceHealthImpl:new ServiceHealthImpl(element)));
             });
             this._healthOverviews = healthOverviewsArrValue;
         }
@@ -72,7 +72,7 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
         if(value) {
             const issuesArrValue: ServiceHealthIssueImpl[] = [];
             this.issues?.forEach(element => {
-                issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element:new ServiceHealthIssueImpl(element)));
+                issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element as ServiceHealthIssueImpl:new ServiceHealthIssueImpl(element)));
             });
             this._issues = issuesArrValue;
         }
@@ -92,7 +92,7 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
         if(value) {
             const messagesArrValue: ServiceUpdateMessageImpl[] = [];
             this.messages?.forEach(element => {
-                messagesArrValue.push((element instanceof ServiceUpdateMessageImpl? element:new ServiceUpdateMessageImpl(element)));
+                messagesArrValue.push((element instanceof ServiceUpdateMessageImpl? element as ServiceUpdateMessageImpl:new ServiceUpdateMessageImpl(element)));
             });
             this._messages = messagesArrValue;
         }
@@ -106,19 +106,19 @@ export class ServiceAnnouncementImpl extends EntityImpl implements ServiceAnnoun
         super.serialize(writer);
         if(this.healthOverviews && this.healthOverviews.length != 0){        const healthOverviewsArrValue: ServiceHealthImpl[] = [];
         this.healthOverviews?.forEach(element => {
-            healthOverviewsArrValue.push((element instanceof ServiceHealthImpl? element:new ServiceHealthImpl(element)));
+            healthOverviewsArrValue.push((element instanceof ServiceHealthImpl? element as ServiceHealthImpl:new ServiceHealthImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceHealthImpl>("healthOverviews", healthOverviewsArrValue);
         }
         if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = [];
         this.issues?.forEach(element => {
-            issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element:new ServiceHealthIssueImpl(element)));
+            issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element as ServiceHealthIssueImpl:new ServiceHealthIssueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ServiceUpdateMessageImpl[] = [];
         this.messages?.forEach(element => {
-            messagesArrValue.push((element instanceof ServiceUpdateMessageImpl? element:new ServiceUpdateMessageImpl(element)));
+            messagesArrValue.push((element instanceof ServiceUpdateMessageImpl? element as ServiceUpdateMessageImpl:new ServiceUpdateMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("messages", messagesArrValue);
         }

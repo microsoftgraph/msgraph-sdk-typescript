@@ -87,7 +87,7 @@ export class InvitationParticipantInfoImpl implements InvitationParticipantInfo 
      */
     public set identity(value: IdentitySet | undefined) {
         if(value) {
-            this._identity = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._identity = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -148,7 +148,7 @@ export class InvitationParticipantInfoImpl implements InvitationParticipantInfo 
             writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.identity){
-            writer.writeObjectValue<IdentitySetImpl>("identity", (!this.identity || this.identity instanceof IdentitySetImpl? this.identity : new IdentitySetImpl(this.identity)));
+            writer.writeObjectValue<IdentitySetImpl>("identity", (this.identity instanceof IdentitySetImpl? this.identity as IdentitySetImpl: new IdentitySetImpl(this.identity)));
         }
         if(this.participantId){
             writer.writeStringValue("participantId", this.participantId);

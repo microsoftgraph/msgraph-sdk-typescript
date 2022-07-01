@@ -73,7 +73,7 @@ export class UsedInsightCollectionResponseImpl implements UsedInsightCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UsedInsightImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UsedInsightImpl? element:new UsedInsightImpl(element)));
+            valueArrValue.push((element instanceof UsedInsightImpl? element as UsedInsightImpl:new UsedInsightImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UsedInsightImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UsedInsightCollectionResponseImpl implements UsedInsightCollectionR
         if(value) {
             const valueArrValue: UsedInsightImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UsedInsightImpl? element:new UsedInsightImpl(element)));
+                valueArrValue.push((element instanceof UsedInsightImpl? element as UsedInsightImpl:new UsedInsightImpl(element)));
             });
             this._value = valueArrValue;
         }

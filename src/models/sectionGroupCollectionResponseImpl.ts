@@ -73,7 +73,7 @@ export class SectionGroupCollectionResponseImpl implements SectionGroupCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SectionGroupImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+            valueArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SectionGroupCollectionResponseImpl implements SectionGroupCollectio
         if(value) {
             const valueArrValue: SectionGroupImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+                valueArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -34,7 +34,7 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
      */
     public set format(value: WorkbookChartPointFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartPointFormatImpl? value : new WorkbookChartPointFormatImpl(value);
+            this._format = value instanceof WorkbookChartPointFormatImpl? value as WorkbookChartPointFormatImpl: new WorkbookChartPointFormatImpl(value);
         }
     };
     /**
@@ -55,10 +55,10 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartPointFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartPointFormatImpl? this.format : new WorkbookChartPointFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartPointFormatImpl>("format", (this.format instanceof WorkbookChartPointFormatImpl? this.format as WorkbookChartPointFormatImpl: new WorkbookChartPointFormatImpl(this.format)));
         }
         if(this.value){
-            writer.writeObjectValue<JsonImpl>("value", (!this.value || this.value instanceof JsonImpl? this.value : new JsonImpl(this.value)));
+            writer.writeObjectValue<JsonImpl>("value", (this.value instanceof JsonImpl? this.value as JsonImpl: new JsonImpl(this.value)));
         }
     };
     /**
@@ -74,7 +74,7 @@ export class WorkbookChartPointImpl extends EntityImpl implements WorkbookChartP
      */
     public set value(value: Json | undefined) {
         if(value) {
-            this._value = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._value = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
 }

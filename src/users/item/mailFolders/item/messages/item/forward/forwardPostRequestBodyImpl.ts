@@ -82,7 +82,7 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
      */
     public set message(value: Message | undefined) {
         if(value) {
-            this._message = value instanceof MessageImpl? value : new MessageImpl(value);
+            this._message = value instanceof MessageImpl? value as MessageImpl: new MessageImpl(value);
         }
     };
     /**
@@ -95,11 +95,11 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
             writer.writeStringValue("comment", this.comment);
         }
         if(this.message){
-            writer.writeObjectValue<MessageImpl>("message", (!this.message || this.message instanceof MessageImpl? this.message : new MessageImpl(this.message)));
+            writer.writeObjectValue<MessageImpl>("message", (this.message instanceof MessageImpl? this.message as MessageImpl: new MessageImpl(this.message)));
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = [];
         this.toRecipients?.forEach(element => {
-            toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
@@ -119,8 +119,8 @@ export class ForwardPostRequestBodyImpl implements ForwardPostRequestBody {
     public set toRecipients(value: Recipient[] | undefined) {
         if(value) {
             const toRecipientsArrValue: RecipientImpl[] = [];
-            this.ToRecipients?.forEach(element => {
-                toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            this.toRecipients?.forEach(element => {
+                toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._toRecipients = toRecipientsArrValue;
         }

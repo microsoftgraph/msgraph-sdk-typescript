@@ -52,7 +52,7 @@ export class DocumentSetContentImpl implements DocumentSetContent {
      */
     public set contentType(value: ContentTypeInfo | undefined) {
         if(value) {
-            this._contentType = value instanceof ContentTypeInfoImpl? value : new ContentTypeInfoImpl(value);
+            this._contentType = value instanceof ContentTypeInfoImpl? value as ContentTypeInfoImpl: new ContentTypeInfoImpl(value);
         }
     };
     /**
@@ -105,7 +105,7 @@ export class DocumentSetContentImpl implements DocumentSetContent {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.contentType){
-            writer.writeObjectValue<ContentTypeInfoImpl>("contentType", (!this.contentType || this.contentType instanceof ContentTypeInfoImpl? this.contentType : new ContentTypeInfoImpl(this.contentType)));
+            writer.writeObjectValue<ContentTypeInfoImpl>("contentType", (this.contentType instanceof ContentTypeInfoImpl? this.contentType as ContentTypeInfoImpl: new ContentTypeInfoImpl(this.contentType)));
         }
         if(this.fileName){
             writer.writeStringValue("fileName", this.fileName);

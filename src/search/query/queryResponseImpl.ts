@@ -51,7 +51,7 @@ export class QueryResponseImpl implements QueryResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: SearchResponseImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SearchResponseImpl? element:new SearchResponseImpl(element)));
+            valueArrValue.push((element instanceof SearchResponseImpl? element as SearchResponseImpl:new SearchResponseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SearchResponseImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class QueryResponseImpl implements QueryResponse {
         if(value) {
             const valueArrValue: SearchResponseImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SearchResponseImpl? element:new SearchResponseImpl(element)));
+                valueArrValue.push((element instanceof SearchResponseImpl? element as SearchResponseImpl:new SearchResponseImpl(element)));
             });
             this._value = valueArrValue;
         }

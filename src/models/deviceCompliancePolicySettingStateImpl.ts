@@ -178,7 +178,7 @@ export class DeviceCompliancePolicySettingStateImpl implements DeviceComplianceP
         }
         if(this.sources && this.sources.length != 0){        const sourcesArrValue: SettingSourceImpl[] = [];
         this.sources?.forEach(element => {
-            sourcesArrValue.push((element instanceof SettingSourceImpl? element:new SettingSourceImpl(element)));
+            sourcesArrValue.push((element instanceof SettingSourceImpl? element as SettingSourceImpl:new SettingSourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SettingSourceImpl>("sources", sourcesArrValue);
         }
@@ -246,7 +246,7 @@ export class DeviceCompliancePolicySettingStateImpl implements DeviceComplianceP
         if(value) {
             const sourcesArrValue: SettingSourceImpl[] = [];
             this.sources?.forEach(element => {
-                sourcesArrValue.push((element instanceof SettingSourceImpl? element:new SettingSourceImpl(element)));
+                sourcesArrValue.push((element instanceof SettingSourceImpl? element as SettingSourceImpl:new SettingSourceImpl(element)));
             });
             this._sources = sourcesArrValue;
         }

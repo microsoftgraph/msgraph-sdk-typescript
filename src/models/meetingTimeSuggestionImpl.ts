@@ -57,7 +57,7 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
         if(value) {
             const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = [];
             this.attendeeAvailability?.forEach(element => {
-                attendeeAvailabilityArrValue.push((element instanceof AttendeeAvailabilityImpl? element:new AttendeeAvailabilityImpl(element)));
+                attendeeAvailabilityArrValue.push((element instanceof AttendeeAvailabilityImpl? element as AttendeeAvailabilityImpl:new AttendeeAvailabilityImpl(element)));
             });
             this._attendeeAvailability = attendeeAvailabilityArrValue;
         }
@@ -122,7 +122,7 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
         if(value) {
             const locationsArrValue: LocationImpl[] = [];
             this.locations?.forEach(element => {
-                locationsArrValue.push((element instanceof LocationImpl? element:new LocationImpl(element)));
+                locationsArrValue.push((element instanceof LocationImpl? element as LocationImpl:new LocationImpl(element)));
             });
             this._locations = locationsArrValue;
         }
@@ -140,7 +140,7 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
      */
     public set meetingTimeSlot(value: TimeSlot | undefined) {
         if(value) {
-            this._meetingTimeSlot = value instanceof TimeSlotImpl? value : new TimeSlotImpl(value);
+            this._meetingTimeSlot = value instanceof TimeSlotImpl? value as TimeSlotImpl: new TimeSlotImpl(value);
         }
     };
     /**
@@ -183,7 +183,7 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendeeAvailability && this.attendeeAvailability.length != 0){        const attendeeAvailabilityArrValue: AttendeeAvailabilityImpl[] = [];
         this.attendeeAvailability?.forEach(element => {
-            attendeeAvailabilityArrValue.push((element instanceof AttendeeAvailabilityImpl? element:new AttendeeAvailabilityImpl(element)));
+            attendeeAvailabilityArrValue.push((element instanceof AttendeeAvailabilityImpl? element as AttendeeAvailabilityImpl:new AttendeeAvailabilityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttendeeAvailabilityImpl>("attendeeAvailability", attendeeAvailabilityArrValue);
         }
@@ -192,12 +192,12 @@ export class MeetingTimeSuggestionImpl implements MeetingTimeSuggestion {
         }
         if(this.locations && this.locations.length != 0){        const locationsArrValue: LocationImpl[] = [];
         this.locations?.forEach(element => {
-            locationsArrValue.push((element instanceof LocationImpl? element:new LocationImpl(element)));
+            locationsArrValue.push((element instanceof LocationImpl? element as LocationImpl:new LocationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocationImpl>("locations", locationsArrValue);
         }
         if(this.meetingTimeSlot){
-            writer.writeObjectValue<TimeSlotImpl>("meetingTimeSlot", (!this.meetingTimeSlot || this.meetingTimeSlot instanceof TimeSlotImpl? this.meetingTimeSlot : new TimeSlotImpl(this.meetingTimeSlot)));
+            writer.writeObjectValue<TimeSlotImpl>("meetingTimeSlot", (this.meetingTimeSlot instanceof TimeSlotImpl? this.meetingTimeSlot as TimeSlotImpl: new TimeSlotImpl(this.meetingTimeSlot)));
         }
         if(this.order){
             writer.writeNumberValue("order", this.order);

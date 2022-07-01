@@ -140,7 +140,7 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         }
         if(this.workingHours && this.workingHours.length != 0){        const workingHoursArrValue: BookingWorkHoursImpl[] = [];
         this.workingHours?.forEach(element => {
-            workingHoursArrValue.push((element instanceof BookingWorkHoursImpl? element:new BookingWorkHoursImpl(element)));
+            workingHoursArrValue.push((element instanceof BookingWorkHoursImpl? element as BookingWorkHoursImpl:new BookingWorkHoursImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingWorkHoursImpl>("workingHours", workingHoursArrValue);
         }
@@ -192,7 +192,7 @@ export class BookingStaffMemberImpl extends BookingStaffMemberBaseImpl implement
         if(value) {
             const workingHoursArrValue: BookingWorkHoursImpl[] = [];
             this.workingHours?.forEach(element => {
-                workingHoursArrValue.push((element instanceof BookingWorkHoursImpl? element:new BookingWorkHoursImpl(element)));
+                workingHoursArrValue.push((element instanceof BookingWorkHoursImpl? element as BookingWorkHoursImpl:new BookingWorkHoursImpl(element)));
             });
             this._workingHours = workingHoursArrValue;
         }

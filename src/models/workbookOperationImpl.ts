@@ -36,7 +36,7 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
      */
     public set error_escaped(value: WorkbookOperationError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof WorkbookOperationErrorImpl? value : new WorkbookOperationErrorImpl(value);
+            this._error_escaped = value instanceof WorkbookOperationErrorImpl? value as WorkbookOperationErrorImpl: new WorkbookOperationErrorImpl(value);
         }
     };
     /**
@@ -74,7 +74,7 @@ export class WorkbookOperationImpl extends EntityImpl implements WorkbookOperati
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-            writer.writeObjectValue<WorkbookOperationErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof WorkbookOperationErrorImpl? this.error_escaped : new WorkbookOperationErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<WorkbookOperationErrorImpl>("error", (this.error_escaped instanceof WorkbookOperationErrorImpl? this.error_escaped as WorkbookOperationErrorImpl: new WorkbookOperationErrorImpl(this.error_escaped)));
         }
         if(this.resourceLocation){
             writer.writeStringValue("resourceLocation", this.resourceLocation);

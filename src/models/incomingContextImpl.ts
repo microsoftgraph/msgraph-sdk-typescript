@@ -83,7 +83,7 @@ export class IncomingContextImpl implements IncomingContext {
      */
     public set onBehalfOf(value: IdentitySet | undefined) {
         if(value) {
-            this._onBehalfOf = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._onBehalfOf = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -96,13 +96,13 @@ export class IncomingContextImpl implements IncomingContext {
             writer.writeStringValue("observedParticipantId", this.observedParticipantId);
         }
         if(this.onBehalfOf){
-            writer.writeObjectValue<IdentitySetImpl>("onBehalfOf", (!this.onBehalfOf || this.onBehalfOf instanceof IdentitySetImpl? this.onBehalfOf : new IdentitySetImpl(this.onBehalfOf)));
+            writer.writeObjectValue<IdentitySetImpl>("onBehalfOf", (this.onBehalfOf instanceof IdentitySetImpl? this.onBehalfOf as IdentitySetImpl: new IdentitySetImpl(this.onBehalfOf)));
         }
         if(this.sourceParticipantId){
             writer.writeStringValue("sourceParticipantId", this.sourceParticipantId);
         }
         if(this.transferor){
-            writer.writeObjectValue<IdentitySetImpl>("transferor", (!this.transferor || this.transferor instanceof IdentitySetImpl? this.transferor : new IdentitySetImpl(this.transferor)));
+            writer.writeObjectValue<IdentitySetImpl>("transferor", (this.transferor instanceof IdentitySetImpl? this.transferor as IdentitySetImpl: new IdentitySetImpl(this.transferor)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -135,7 +135,7 @@ export class IncomingContextImpl implements IncomingContext {
      */
     public set transferor(value: IdentitySet | undefined) {
         if(value) {
-            this._transferor = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._transferor = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
 }

@@ -45,7 +45,7 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
      */
     public set configuration(value: Configuration | undefined) {
         if(value) {
-            this._configuration = value instanceof ConfigurationImpl? value : new ConfigurationImpl(value);
+            this._configuration = value instanceof ConfigurationImpl? value as ConfigurationImpl: new ConfigurationImpl(value);
         }
     };
     /**
@@ -110,7 +110,7 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(value) {
             const groupsArrValue: ExternalGroupImpl[] = [];
             this.groups?.forEach(element => {
-                groupsArrValue.push((element instanceof ExternalGroupImpl? element:new ExternalGroupImpl(element)));
+                groupsArrValue.push((element instanceof ExternalGroupImpl? element as ExternalGroupImpl:new ExternalGroupImpl(element)));
             });
             this._groups = groupsArrValue;
         }
@@ -130,7 +130,7 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(value) {
             const itemsArrValue: ExternalItemImpl[] = [];
             this.items?.forEach(element => {
-                itemsArrValue.push((element instanceof ExternalItemImpl? element:new ExternalItemImpl(element)));
+                itemsArrValue.push((element instanceof ExternalItemImpl? element as ExternalItemImpl:new ExternalItemImpl(element)));
             });
             this._items = itemsArrValue;
         }
@@ -166,7 +166,7 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(value) {
             const operationsArrValue: ConnectionOperationImpl[] = [];
             this.operations?.forEach(element => {
-                operationsArrValue.push((element instanceof ConnectionOperationImpl? element:new ConnectionOperationImpl(element)));
+                operationsArrValue.push((element instanceof ConnectionOperationImpl? element as ConnectionOperationImpl:new ConnectionOperationImpl(element)));
             });
             this._operations = operationsArrValue;
         }
@@ -184,7 +184,7 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
      */
     public set schema(value: Schema | undefined) {
         if(value) {
-            this._schema = value instanceof SchemaImpl? value : new SchemaImpl(value);
+            this._schema = value instanceof SchemaImpl? value as SchemaImpl: new SchemaImpl(value);
         }
     };
     /**
@@ -195,20 +195,20 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-            writer.writeObjectValue<ConfigurationImpl>("configuration", (!this.configuration || this.configuration instanceof ConfigurationImpl? this.configuration : new ConfigurationImpl(this.configuration)));
+            writer.writeObjectValue<ConfigurationImpl>("configuration", (this.configuration instanceof ConfigurationImpl? this.configuration as ConfigurationImpl: new ConfigurationImpl(this.configuration)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);
         }
         if(this.groups && this.groups.length != 0){        const groupsArrValue: ExternalGroupImpl[] = [];
         this.groups?.forEach(element => {
-            groupsArrValue.push((element instanceof ExternalGroupImpl? element:new ExternalGroupImpl(element)));
+            groupsArrValue.push((element instanceof ExternalGroupImpl? element as ExternalGroupImpl:new ExternalGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalGroupImpl>("groups", groupsArrValue);
         }
         if(this.items && this.items.length != 0){        const itemsArrValue: ExternalItemImpl[] = [];
         this.items?.forEach(element => {
-            itemsArrValue.push((element instanceof ExternalItemImpl? element:new ExternalItemImpl(element)));
+            itemsArrValue.push((element instanceof ExternalItemImpl? element as ExternalItemImpl:new ExternalItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalItemImpl>("items", itemsArrValue);
         }
@@ -217,12 +217,12 @@ export class ExternalConnectionImpl extends EntityImpl implements ExternalConnec
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: ConnectionOperationImpl[] = [];
         this.operations?.forEach(element => {
-            operationsArrValue.push((element instanceof ConnectionOperationImpl? element:new ConnectionOperationImpl(element)));
+            operationsArrValue.push((element instanceof ConnectionOperationImpl? element as ConnectionOperationImpl:new ConnectionOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("operations", operationsArrValue);
         }
         if(this.schema){
-            writer.writeObjectValue<SchemaImpl>("schema", (!this.schema || this.schema instanceof SchemaImpl? this.schema : new SchemaImpl(this.schema)));
+            writer.writeObjectValue<SchemaImpl>("schema", (this.schema instanceof SchemaImpl? this.schema as SchemaImpl: new SchemaImpl(this.schema)));
         }
         if(this.state){
             writer.writeEnumValue<ConnectionState>("state", this.state);

@@ -45,7 +45,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
      */
     public set application(value: WorkbookApplication | undefined) {
         if(value) {
-            this._application = value instanceof WorkbookApplicationImpl? value : new WorkbookApplicationImpl(value);
+            this._application = value instanceof WorkbookApplicationImpl? value as WorkbookApplicationImpl: new WorkbookApplicationImpl(value);
         }
     };
     /**
@@ -63,7 +63,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(value) {
             const commentsArrValue: WorkbookCommentImpl[] = [];
             this.comments?.forEach(element => {
-                commentsArrValue.push((element instanceof WorkbookCommentImpl? element:new WorkbookCommentImpl(element)));
+                commentsArrValue.push((element instanceof WorkbookCommentImpl? element as WorkbookCommentImpl:new WorkbookCommentImpl(element)));
             });
             this._comments = commentsArrValue;
         }
@@ -95,7 +95,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
      */
     public set functions(value: WorkbookFunctions | undefined) {
         if(value) {
-            this._functions = value instanceof WorkbookFunctionsImpl? value : new WorkbookFunctionsImpl(value);
+            this._functions = value instanceof WorkbookFunctionsImpl? value as WorkbookFunctionsImpl: new WorkbookFunctionsImpl(value);
         }
     };
     /**
@@ -128,7 +128,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(value) {
             const namesArrValue: WorkbookNamedItemImpl[] = [];
             this.names?.forEach(element => {
-                namesArrValue.push((element instanceof WorkbookNamedItemImpl? element:new WorkbookNamedItemImpl(element)));
+                namesArrValue.push((element instanceof WorkbookNamedItemImpl? element as WorkbookNamedItemImpl:new WorkbookNamedItemImpl(element)));
             });
             this._names = namesArrValue;
         }
@@ -148,7 +148,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(value) {
             const operationsArrValue: WorkbookOperationImpl[] = [];
             this.operations?.forEach(element => {
-                operationsArrValue.push((element instanceof WorkbookOperationImpl? element:new WorkbookOperationImpl(element)));
+                operationsArrValue.push((element instanceof WorkbookOperationImpl? element as WorkbookOperationImpl:new WorkbookOperationImpl(element)));
             });
             this._operations = operationsArrValue;
         }
@@ -161,38 +161,38 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.application){
-            writer.writeObjectValue<WorkbookApplicationImpl>("application", (!this.application || this.application instanceof WorkbookApplicationImpl? this.application : new WorkbookApplicationImpl(this.application)));
+            writer.writeObjectValue<WorkbookApplicationImpl>("application", (this.application instanceof WorkbookApplicationImpl? this.application as WorkbookApplicationImpl: new WorkbookApplicationImpl(this.application)));
         }
         if(this.comments && this.comments.length != 0){        const commentsArrValue: WorkbookCommentImpl[] = [];
         this.comments?.forEach(element => {
-            commentsArrValue.push((element instanceof WorkbookCommentImpl? element:new WorkbookCommentImpl(element)));
+            commentsArrValue.push((element instanceof WorkbookCommentImpl? element as WorkbookCommentImpl:new WorkbookCommentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookCommentImpl>("comments", commentsArrValue);
         }
         if(this.functions){
-            writer.writeObjectValue<WorkbookFunctionsImpl>("functions", (!this.functions || this.functions instanceof WorkbookFunctionsImpl? this.functions : new WorkbookFunctionsImpl(this.functions)));
+            writer.writeObjectValue<WorkbookFunctionsImpl>("functions", (this.functions instanceof WorkbookFunctionsImpl? this.functions as WorkbookFunctionsImpl: new WorkbookFunctionsImpl(this.functions)));
         }
         if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = [];
         this.names?.forEach(element => {
-            namesArrValue.push((element instanceof WorkbookNamedItemImpl? element:new WorkbookNamedItemImpl(element)));
+            namesArrValue.push((element instanceof WorkbookNamedItemImpl? element as WorkbookNamedItemImpl:new WorkbookNamedItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: WorkbookOperationImpl[] = [];
         this.operations?.forEach(element => {
-            operationsArrValue.push((element instanceof WorkbookOperationImpl? element:new WorkbookOperationImpl(element)));
+            operationsArrValue.push((element instanceof WorkbookOperationImpl? element as WorkbookOperationImpl:new WorkbookOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookOperationImpl>("operations", operationsArrValue);
         }
         if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = [];
         this.tables?.forEach(element => {
-            tablesArrValue.push((element instanceof WorkbookTableImpl? element:new WorkbookTableImpl(element)));
+            tablesArrValue.push((element instanceof WorkbookTableImpl? element as WorkbookTableImpl:new WorkbookTableImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
         if(this.worksheets && this.worksheets.length != 0){        const worksheetsArrValue: WorkbookWorksheetImpl[] = [];
         this.worksheets?.forEach(element => {
-            worksheetsArrValue.push((element instanceof WorkbookWorksheetImpl? element:new WorkbookWorksheetImpl(element)));
+            worksheetsArrValue.push((element instanceof WorkbookWorksheetImpl? element as WorkbookWorksheetImpl:new WorkbookWorksheetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookWorksheetImpl>("worksheets", worksheetsArrValue);
         }
@@ -212,7 +212,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(value) {
             const tablesArrValue: WorkbookTableImpl[] = [];
             this.tables?.forEach(element => {
-                tablesArrValue.push((element instanceof WorkbookTableImpl? element:new WorkbookTableImpl(element)));
+                tablesArrValue.push((element instanceof WorkbookTableImpl? element as WorkbookTableImpl:new WorkbookTableImpl(element)));
             });
             this._tables = tablesArrValue;
         }
@@ -232,7 +232,7 @@ export class WorkbookImpl extends EntityImpl implements Workbook {
         if(value) {
             const worksheetsArrValue: WorkbookWorksheetImpl[] = [];
             this.worksheets?.forEach(element => {
-                worksheetsArrValue.push((element instanceof WorkbookWorksheetImpl? element:new WorkbookWorksheetImpl(element)));
+                worksheetsArrValue.push((element instanceof WorkbookWorksheetImpl? element as WorkbookWorksheetImpl:new WorkbookWorksheetImpl(element)));
             });
             this._worksheets = worksheetsArrValue;
         }

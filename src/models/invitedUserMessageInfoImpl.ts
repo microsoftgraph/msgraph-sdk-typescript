@@ -44,7 +44,7 @@ export class InvitedUserMessageInfoImpl implements InvitedUserMessageInfo {
         if(value) {
             const ccRecipientsArrValue: RecipientImpl[] = [];
             this.ccRecipients?.forEach(element => {
-                ccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                ccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._ccRecipients = ccRecipientsArrValue;
         }
@@ -110,7 +110,7 @@ export class InvitedUserMessageInfoImpl implements InvitedUserMessageInfo {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = [];
         this.ccRecipients?.forEach(element => {
-            ccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            ccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }

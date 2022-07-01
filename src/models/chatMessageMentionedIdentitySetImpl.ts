@@ -29,7 +29,7 @@ export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl impleme
      */
     public set conversation(value: TeamworkConversationIdentity | undefined) {
         if(value) {
-            this._conversation = value instanceof TeamworkConversationIdentityImpl? value : new TeamworkConversationIdentityImpl(value);
+            this._conversation = value instanceof TeamworkConversationIdentityImpl? value as TeamworkConversationIdentityImpl: new TeamworkConversationIdentityImpl(value);
         }
     };
     /**
@@ -49,7 +49,7 @@ export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl impleme
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conversation){
-            writer.writeObjectValue<TeamworkConversationIdentityImpl>("conversation", (!this.conversation || this.conversation instanceof TeamworkConversationIdentityImpl? this.conversation : new TeamworkConversationIdentityImpl(this.conversation)));
+            writer.writeObjectValue<TeamworkConversationIdentityImpl>("conversation", (this.conversation instanceof TeamworkConversationIdentityImpl? this.conversation as TeamworkConversationIdentityImpl: new TeamworkConversationIdentityImpl(this.conversation)));
         }
     };
 }

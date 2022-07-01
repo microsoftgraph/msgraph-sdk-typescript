@@ -126,7 +126,7 @@ export class TargetResourceImpl implements TargetResource {
         if(value) {
             const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = [];
             this.modifiedProperties?.forEach(element => {
-                modifiedPropertiesArrValue.push((element instanceof ModifiedPropertyImpl? element:new ModifiedPropertyImpl(element)));
+                modifiedPropertiesArrValue.push((element instanceof ModifiedPropertyImpl? element as ModifiedPropertyImpl:new ModifiedPropertyImpl(element)));
             });
             this._modifiedProperties = modifiedPropertiesArrValue;
         }
@@ -148,7 +148,7 @@ export class TargetResourceImpl implements TargetResource {
         }
         if(this.modifiedProperties && this.modifiedProperties.length != 0){        const modifiedPropertiesArrValue: ModifiedPropertyImpl[] = [];
         this.modifiedProperties?.forEach(element => {
-            modifiedPropertiesArrValue.push((element instanceof ModifiedPropertyImpl? element:new ModifiedPropertyImpl(element)));
+            modifiedPropertiesArrValue.push((element instanceof ModifiedPropertyImpl? element as ModifiedPropertyImpl:new ModifiedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ModifiedPropertyImpl>("modifiedProperties", modifiedPropertiesArrValue);
         }

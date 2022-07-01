@@ -79,7 +79,7 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
             writer.writeBooleanValue("contributionToContentDiscoveryDisabled", this.contributionToContentDiscoveryDisabled);
         }
         if(this.shiftPreferences){
-            writer.writeObjectValue<ShiftPreferencesImpl>("shiftPreferences", (!this.shiftPreferences || this.shiftPreferences instanceof ShiftPreferencesImpl? this.shiftPreferences : new ShiftPreferencesImpl(this.shiftPreferences)));
+            writer.writeObjectValue<ShiftPreferencesImpl>("shiftPreferences", (this.shiftPreferences instanceof ShiftPreferencesImpl? this.shiftPreferences as ShiftPreferencesImpl: new ShiftPreferencesImpl(this.shiftPreferences)));
         }
     };
     /**
@@ -95,7 +95,7 @@ export class UserSettingsImpl extends EntityImpl implements UserSettings {
      */
     public set shiftPreferences(value: ShiftPreferences | undefined) {
         if(value) {
-            this._shiftPreferences = value instanceof ShiftPreferencesImpl? value : new ShiftPreferencesImpl(value);
+            this._shiftPreferences = value instanceof ShiftPreferencesImpl? value as ShiftPreferencesImpl: new ShiftPreferencesImpl(value);
         }
     };
 }

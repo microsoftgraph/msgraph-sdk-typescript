@@ -46,7 +46,7 @@ export class RubricCriterionImpl implements RubricCriterion {
      */
     public set description(value: EducationItemBody | undefined) {
         if(value) {
-            this._description = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+            this._description = value instanceof EducationItemBodyImpl? value as EducationItemBodyImpl: new EducationItemBodyImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class RubricCriterionImpl implements RubricCriterion {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-            writer.writeObjectValue<EducationItemBodyImpl>("description", (!this.description || this.description instanceof EducationItemBodyImpl? this.description : new EducationItemBodyImpl(this.description)));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", (this.description instanceof EducationItemBodyImpl? this.description as EducationItemBodyImpl: new EducationItemBodyImpl(this.description)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

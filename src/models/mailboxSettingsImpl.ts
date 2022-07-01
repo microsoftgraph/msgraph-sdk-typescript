@@ -76,7 +76,7 @@ export class MailboxSettingsImpl implements MailboxSettings {
      */
     public set automaticRepliesSetting(value: AutomaticRepliesSetting | undefined) {
         if(value) {
-            this._automaticRepliesSetting = value instanceof AutomaticRepliesSettingImpl? value : new AutomaticRepliesSettingImpl(value);
+            this._automaticRepliesSetting = value instanceof AutomaticRepliesSettingImpl? value as AutomaticRepliesSettingImpl: new AutomaticRepliesSettingImpl(value);
         }
     };
     /**
@@ -157,7 +157,7 @@ export class MailboxSettingsImpl implements MailboxSettings {
      */
     public set language(value: LocaleInfo | undefined) {
         if(value) {
-            this._language = value instanceof LocaleInfoImpl? value : new LocaleInfoImpl(value);
+            this._language = value instanceof LocaleInfoImpl? value as LocaleInfoImpl: new LocaleInfoImpl(value);
         }
     };
     /**
@@ -170,7 +170,7 @@ export class MailboxSettingsImpl implements MailboxSettings {
             writer.writeStringValue("archiveFolder", this.archiveFolder);
         }
         if(this.automaticRepliesSetting){
-            writer.writeObjectValue<AutomaticRepliesSettingImpl>("automaticRepliesSetting", (!this.automaticRepliesSetting || this.automaticRepliesSetting instanceof AutomaticRepliesSettingImpl? this.automaticRepliesSetting : new AutomaticRepliesSettingImpl(this.automaticRepliesSetting)));
+            writer.writeObjectValue<AutomaticRepliesSettingImpl>("automaticRepliesSetting", (this.automaticRepliesSetting instanceof AutomaticRepliesSettingImpl? this.automaticRepliesSetting as AutomaticRepliesSettingImpl: new AutomaticRepliesSettingImpl(this.automaticRepliesSetting)));
         }
         if(this.dateFormat){
             writer.writeStringValue("dateFormat", this.dateFormat);
@@ -179,7 +179,7 @@ export class MailboxSettingsImpl implements MailboxSettings {
             writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
         }
         if(this.language){
-            writer.writeObjectValue<LocaleInfoImpl>("language", (!this.language || this.language instanceof LocaleInfoImpl? this.language : new LocaleInfoImpl(this.language)));
+            writer.writeObjectValue<LocaleInfoImpl>("language", (this.language instanceof LocaleInfoImpl? this.language as LocaleInfoImpl: new LocaleInfoImpl(this.language)));
         }
         if(this.timeFormat){
             writer.writeStringValue("timeFormat", this.timeFormat);
@@ -191,7 +191,7 @@ export class MailboxSettingsImpl implements MailboxSettings {
             writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);
         }
         if(this.workingHours){
-            writer.writeObjectValue<WorkingHoursImpl>("workingHours", (!this.workingHours || this.workingHours instanceof WorkingHoursImpl? this.workingHours : new WorkingHoursImpl(this.workingHours)));
+            writer.writeObjectValue<WorkingHoursImpl>("workingHours", (this.workingHours instanceof WorkingHoursImpl? this.workingHours as WorkingHoursImpl: new WorkingHoursImpl(this.workingHours)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -256,7 +256,7 @@ export class MailboxSettingsImpl implements MailboxSettings {
      */
     public set workingHours(value: WorkingHours | undefined) {
         if(value) {
-            this._workingHours = value instanceof WorkingHoursImpl? value : new WorkingHoursImpl(value);
+            this._workingHours = value instanceof WorkingHoursImpl? value as WorkingHoursImpl: new WorkingHoursImpl(value);
         }
     };
 }

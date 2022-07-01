@@ -73,7 +73,7 @@ export class BookingServiceCollectionResponseImpl implements BookingServiceColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingServiceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingServiceImpl? element:new BookingServiceImpl(element)));
+            valueArrValue.push((element instanceof BookingServiceImpl? element as BookingServiceImpl:new BookingServiceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingServiceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingServiceCollectionResponseImpl implements BookingServiceColle
         if(value) {
             const valueArrValue: BookingServiceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingServiceImpl? element:new BookingServiceImpl(element)));
+                valueArrValue.push((element instanceof BookingServiceImpl? element as BookingServiceImpl:new BookingServiceImpl(element)));
             });
             this._value = valueArrValue;
         }

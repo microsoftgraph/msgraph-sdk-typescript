@@ -42,7 +42,7 @@ export class ApplicationServicePrincipalImpl implements ApplicationServicePrinci
      */
     public set application(value: Application | undefined) {
         if(value) {
-            this._application = value instanceof ApplicationImpl? value : new ApplicationImpl(value);
+            this._application = value instanceof ApplicationImpl? value as ApplicationImpl: new ApplicationImpl(value);
         }
     };
     /**
@@ -71,10 +71,10 @@ export class ApplicationServicePrincipalImpl implements ApplicationServicePrinci
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-            writer.writeObjectValue<ApplicationImpl>("application", (!this.application || this.application instanceof ApplicationImpl? this.application : new ApplicationImpl(this.application)));
+            writer.writeObjectValue<ApplicationImpl>("application", (this.application instanceof ApplicationImpl? this.application as ApplicationImpl: new ApplicationImpl(this.application)));
         }
         if(this.servicePrincipal){
-            writer.writeObjectValue<ServicePrincipalImpl>("servicePrincipal", (!this.servicePrincipal || this.servicePrincipal instanceof ServicePrincipalImpl? this.servicePrincipal : new ServicePrincipalImpl(this.servicePrincipal)));
+            writer.writeObjectValue<ServicePrincipalImpl>("servicePrincipal", (this.servicePrincipal instanceof ServicePrincipalImpl? this.servicePrincipal as ServicePrincipalImpl: new ServicePrincipalImpl(this.servicePrincipal)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -91,7 +91,7 @@ export class ApplicationServicePrincipalImpl implements ApplicationServicePrinci
      */
     public set servicePrincipal(value: ServicePrincipal | undefined) {
         if(value) {
-            this._servicePrincipal = value instanceof ServicePrincipalImpl? value : new ServicePrincipalImpl(value);
+            this._servicePrincipal = value instanceof ServicePrincipalImpl? value as ServicePrincipalImpl: new ServicePrincipalImpl(value);
         }
     };
 }

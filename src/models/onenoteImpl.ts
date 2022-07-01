@@ -70,7 +70,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(value) {
             const notebooksArrValue: NotebookImpl[] = [];
             this.notebooks?.forEach(element => {
-                notebooksArrValue.push((element instanceof NotebookImpl? element:new NotebookImpl(element)));
+                notebooksArrValue.push((element instanceof NotebookImpl? element as NotebookImpl:new NotebookImpl(element)));
             });
             this._notebooks = notebooksArrValue;
         }
@@ -90,7 +90,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(value) {
             const operationsArrValue: OnenoteOperationImpl[] = [];
             this.operations?.forEach(element => {
-                operationsArrValue.push((element instanceof OnenoteOperationImpl? element:new OnenoteOperationImpl(element)));
+                operationsArrValue.push((element instanceof OnenoteOperationImpl? element as OnenoteOperationImpl:new OnenoteOperationImpl(element)));
             });
             this._operations = operationsArrValue;
         }
@@ -110,7 +110,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(value) {
             const pagesArrValue: OnenotePageImpl[] = [];
             this.pages?.forEach(element => {
-                pagesArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+                pagesArrValue.push((element instanceof OnenotePageImpl? element as OnenotePageImpl:new OnenotePageImpl(element)));
             });
             this._pages = pagesArrValue;
         }
@@ -130,7 +130,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(value) {
             const resourcesArrValue: OnenoteResourceImpl[] = [];
             this.resources?.forEach(element => {
-                resourcesArrValue.push((element instanceof OnenoteResourceImpl? element:new OnenoteResourceImpl(element)));
+                resourcesArrValue.push((element instanceof OnenoteResourceImpl? element as OnenoteResourceImpl:new OnenoteResourceImpl(element)));
             });
             this._resources = resourcesArrValue;
         }
@@ -150,7 +150,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(value) {
             const sectionGroupsArrValue: SectionGroupImpl[] = [];
             this.sectionGroups?.forEach(element => {
-                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+                sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
             });
             this._sectionGroups = sectionGroupsArrValue;
         }
@@ -170,7 +170,7 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         if(value) {
             const sectionsArrValue: OnenoteSectionImpl[] = [];
             this.sections?.forEach(element => {
-                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+                sectionsArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
             });
             this._sections = sectionsArrValue;
         }
@@ -184,37 +184,37 @@ export class OnenoteImpl extends EntityImpl implements Onenote {
         super.serialize(writer);
         if(this.notebooks && this.notebooks.length != 0){        const notebooksArrValue: NotebookImpl[] = [];
         this.notebooks?.forEach(element => {
-            notebooksArrValue.push((element instanceof NotebookImpl? element:new NotebookImpl(element)));
+            notebooksArrValue.push((element instanceof NotebookImpl? element as NotebookImpl:new NotebookImpl(element)));
         });
             writer.writeCollectionOfObjectValues<NotebookImpl>("notebooks", notebooksArrValue);
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: OnenoteOperationImpl[] = [];
         this.operations?.forEach(element => {
-            operationsArrValue.push((element instanceof OnenoteOperationImpl? element:new OnenoteOperationImpl(element)));
+            operationsArrValue.push((element instanceof OnenoteOperationImpl? element as OnenoteOperationImpl:new OnenoteOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteOperationImpl>("operations", operationsArrValue);
         }
         if(this.pages && this.pages.length != 0){        const pagesArrValue: OnenotePageImpl[] = [];
         this.pages?.forEach(element => {
-            pagesArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+            pagesArrValue.push((element instanceof OnenotePageImpl? element as OnenotePageImpl:new OnenotePageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenotePageImpl>("pages", pagesArrValue);
         }
         if(this.resources && this.resources.length != 0){        const resourcesArrValue: OnenoteResourceImpl[] = [];
         this.resources?.forEach(element => {
-            resourcesArrValue.push((element instanceof OnenoteResourceImpl? element:new OnenoteResourceImpl(element)));
+            resourcesArrValue.push((element instanceof OnenoteResourceImpl? element as OnenoteResourceImpl:new OnenoteResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteResourceImpl>("resources", resourcesArrValue);
         }
         if(this.sectionGroups && this.sectionGroups.length != 0){        const sectionGroupsArrValue: SectionGroupImpl[] = [];
         this.sectionGroups?.forEach(element => {
-            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element:new SectionGroupImpl(element)));
+            sectionGroupsArrValue.push((element instanceof SectionGroupImpl? element as SectionGroupImpl:new SectionGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SectionGroupImpl>("sectionGroups", sectionGroupsArrValue);
         }
         if(this.sections && this.sections.length != 0){        const sectionsArrValue: OnenoteSectionImpl[] = [];
         this.sections?.forEach(element => {
-            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+            sectionsArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("sections", sectionsArrValue);
         }

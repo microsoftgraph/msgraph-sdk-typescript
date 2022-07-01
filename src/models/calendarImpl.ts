@@ -83,7 +83,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(value) {
             const calendarPermissionsArrValue: CalendarPermissionImpl[] = [];
             this.calendarPermissions?.forEach(element => {
-                calendarPermissionsArrValue.push((element instanceof CalendarPermissionImpl? element:new CalendarPermissionImpl(element)));
+                calendarPermissionsArrValue.push((element instanceof CalendarPermissionImpl? element as CalendarPermissionImpl:new CalendarPermissionImpl(element)));
             });
             this._calendarPermissions = calendarPermissionsArrValue;
         }
@@ -103,7 +103,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(value) {
             const calendarViewArrValue: EventImpl[] = [];
             this.calendarView?.forEach(element => {
-                calendarViewArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+                calendarViewArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
             });
             this._calendarView = calendarViewArrValue;
         }
@@ -244,7 +244,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(value) {
             const eventsArrValue: EventImpl[] = [];
             this.events?.forEach(element => {
-                eventsArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+                eventsArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
             });
             this._events = eventsArrValue;
         }
@@ -354,7 +354,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(value) {
             const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.multiValueExtendedProperties?.forEach(element => {
-                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         }
@@ -388,7 +388,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
      */
     public set owner(value: EmailAddress | undefined) {
         if(value) {
-            this._owner = value instanceof EmailAddressImpl? value : new EmailAddressImpl(value);
+            this._owner = value instanceof EmailAddressImpl? value as EmailAddressImpl: new EmailAddressImpl(value);
         }
     };
     /**
@@ -403,13 +403,13 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         }
         if(this.calendarPermissions && this.calendarPermissions.length != 0){        const calendarPermissionsArrValue: CalendarPermissionImpl[] = [];
         this.calendarPermissions?.forEach(element => {
-            calendarPermissionsArrValue.push((element instanceof CalendarPermissionImpl? element:new CalendarPermissionImpl(element)));
+            calendarPermissionsArrValue.push((element instanceof CalendarPermissionImpl? element as CalendarPermissionImpl:new CalendarPermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("calendarPermissions", calendarPermissionsArrValue);
         }
         if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = [];
         this.calendarView?.forEach(element => {
-            calendarViewArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            calendarViewArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
@@ -433,7 +433,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         }
         if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = [];
         this.events?.forEach(element => {
-            eventsArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            eventsArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
@@ -451,7 +451,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.multiValueExtendedProperties?.forEach(element => {
-            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
@@ -459,11 +459,11 @@ export class CalendarImpl extends EntityImpl implements Calendar {
             writer.writeStringValue("name", this.name);
         }
         if(this.owner){
-            writer.writeObjectValue<EmailAddressImpl>("owner", (!this.owner || this.owner instanceof EmailAddressImpl? this.owner : new EmailAddressImpl(this.owner)));
+            writer.writeObjectValue<EmailAddressImpl>("owner", (this.owner instanceof EmailAddressImpl? this.owner as EmailAddressImpl: new EmailAddressImpl(this.owner)));
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.singleValueExtendedProperties?.forEach(element => {
-            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
@@ -483,7 +483,7 @@ export class CalendarImpl extends EntityImpl implements Calendar {
         if(value) {
             const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.singleValueExtendedProperties?.forEach(element => {
-                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         }

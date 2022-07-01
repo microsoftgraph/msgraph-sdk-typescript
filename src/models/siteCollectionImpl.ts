@@ -95,7 +95,7 @@ export class SiteCollectionImpl implements SiteCollection {
      */
     public set root(value: Root | undefined) {
         if(value) {
-            this._root = value instanceof RootImpl? value : new RootImpl(value);
+            this._root = value instanceof RootImpl? value as RootImpl: new RootImpl(value);
         }
     };
     /**
@@ -111,7 +111,7 @@ export class SiteCollectionImpl implements SiteCollection {
             writer.writeStringValue("hostname", this.hostname);
         }
         if(this.root){
-            writer.writeObjectValue<RootImpl>("root", (!this.root || this.root instanceof RootImpl? this.root : new RootImpl(this.root)));
+            writer.writeObjectValue<RootImpl>("root", (this.root instanceof RootImpl? this.root as RootImpl: new RootImpl(this.root)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -51,7 +51,7 @@ export class RecentResponseImpl implements RecentResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: UserActivityImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UserActivityImpl? element:new UserActivityImpl(element)));
+            valueArrValue.push((element instanceof UserActivityImpl? element as UserActivityImpl:new UserActivityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserActivityImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class RecentResponseImpl implements RecentResponse {
         if(value) {
             const valueArrValue: UserActivityImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UserActivityImpl? element:new UserActivityImpl(element)));
+                valueArrValue.push((element instanceof UserActivityImpl? element as UserActivityImpl:new UserActivityImpl(element)));
             });
             this._value = valueArrValue;
         }

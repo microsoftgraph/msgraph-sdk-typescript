@@ -50,7 +50,7 @@ export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements UpdateWind
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.updateWindowsDeviceAccountActionParameter){
-            writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameterImpl>("updateWindowsDeviceAccountActionParameter", (!this.updateWindowsDeviceAccountActionParameter || this.updateWindowsDeviceAccountActionParameter instanceof UpdateWindowsDeviceAccountActionParameterImpl? this.updateWindowsDeviceAccountActionParameter : new UpdateWindowsDeviceAccountActionParameterImpl(this.updateWindowsDeviceAccountActionParameter)));
+            writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameterImpl>("updateWindowsDeviceAccountActionParameter", (this.updateWindowsDeviceAccountActionParameter instanceof UpdateWindowsDeviceAccountActionParameterImpl? this.updateWindowsDeviceAccountActionParameter as UpdateWindowsDeviceAccountActionParameterImpl: new UpdateWindowsDeviceAccountActionParameterImpl(this.updateWindowsDeviceAccountActionParameter)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -67,7 +67,7 @@ export class UpdateWindowsDeviceAccountPostRequestBodyImpl implements UpdateWind
      */
     public set updateWindowsDeviceAccountActionParameter(value: UpdateWindowsDeviceAccountActionParameter | undefined) {
         if(value) {
-            this._updateWindowsDeviceAccountActionParameter = value instanceof UpdateWindowsDeviceAccountActionParameterImpl? value : new UpdateWindowsDeviceAccountActionParameterImpl(value);
+            this._updateWindowsDeviceAccountActionParameter = value instanceof UpdateWindowsDeviceAccountActionParameterImpl? value as UpdateWindowsDeviceAccountActionParameterImpl: new UpdateWindowsDeviceAccountActionParameterImpl(value);
         }
     };
 }

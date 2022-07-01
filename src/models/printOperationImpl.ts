@@ -56,7 +56,7 @@ export class PrintOperationImpl extends EntityImpl implements PrintOperation {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.status){
-            writer.writeObjectValue<PrintOperationStatusImpl>("status", (!this.status || this.status instanceof PrintOperationStatusImpl? this.status : new PrintOperationStatusImpl(this.status)));
+            writer.writeObjectValue<PrintOperationStatusImpl>("status", (this.status instanceof PrintOperationStatusImpl? this.status as PrintOperationStatusImpl: new PrintOperationStatusImpl(this.status)));
         }
     };
     /**
@@ -72,7 +72,7 @@ export class PrintOperationImpl extends EntityImpl implements PrintOperation {
      */
     public set status(value: PrintOperationStatus | undefined) {
         if(value) {
-            this._status = value instanceof PrintOperationStatusImpl? value : new PrintOperationStatusImpl(value);
+            this._status = value instanceof PrintOperationStatusImpl? value as PrintOperationStatusImpl: new PrintOperationStatusImpl(value);
         }
     };
 }

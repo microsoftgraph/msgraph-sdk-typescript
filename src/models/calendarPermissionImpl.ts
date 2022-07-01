@@ -58,7 +58,7 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
      */
     public set emailAddress(value: EmailAddress | undefined) {
         if(value) {
-            this._emailAddress = value instanceof EmailAddressImpl? value : new EmailAddressImpl(value);
+            this._emailAddress = value instanceof EmailAddressImpl? value as EmailAddressImpl: new EmailAddressImpl(value);
         }
     };
     /**
@@ -133,7 +133,7 @@ export class CalendarPermissionImpl extends EntityImpl implements CalendarPermis
             writer.writeCollectionOfPrimitiveValues<string>("allowedRoles", this.allowedRoles);
         }
         if(this.emailAddress){
-            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (!this.emailAddress || this.emailAddress instanceof EmailAddressImpl? this.emailAddress : new EmailAddressImpl(this.emailAddress)));
+            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (this.emailAddress instanceof EmailAddressImpl? this.emailAddress as EmailAddressImpl: new EmailAddressImpl(this.emailAddress)));
         }
         if(this.isInsideOrganization){
             writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);

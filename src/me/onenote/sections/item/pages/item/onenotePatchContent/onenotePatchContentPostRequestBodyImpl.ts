@@ -41,7 +41,7 @@ export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchConte
         if(value) {
             const commandsArrValue: OnenotePatchContentCommandImpl[] = [];
             this.commands?.forEach(element => {
-                commandsArrValue.push((element instanceof OnenotePatchContentCommandImpl? element:new OnenotePatchContentCommandImpl(element)));
+                commandsArrValue.push((element instanceof OnenotePatchContentCommandImpl? element as OnenotePatchContentCommandImpl:new OnenotePatchContentCommandImpl(element)));
             });
             this._commands = commandsArrValue;
         }
@@ -71,7 +71,7 @@ export class OnenotePatchContentPostRequestBodyImpl implements OnenotePatchConte
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.commands && this.commands.length != 0){        const commandsArrValue: OnenotePatchContentCommandImpl[] = [];
         this.commands?.forEach(element => {
-            commandsArrValue.push((element instanceof OnenotePatchContentCommandImpl? element:new OnenotePatchContentCommandImpl(element)));
+            commandsArrValue.push((element instanceof OnenotePatchContentCommandImpl? element as OnenotePatchContentCommandImpl:new OnenotePatchContentCommandImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenotePatchContentCommandImpl>("commands", commandsArrValue);
         }

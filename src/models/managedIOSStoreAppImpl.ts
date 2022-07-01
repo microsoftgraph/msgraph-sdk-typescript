@@ -28,7 +28,7 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
      */
     public set applicableDeviceType(value: IosDeviceType | undefined) {
         if(value) {
-            this._applicableDeviceType = value instanceof IosDeviceTypeImpl? value : new IosDeviceTypeImpl(value);
+            this._applicableDeviceType = value instanceof IosDeviceTypeImpl? value as IosDeviceTypeImpl: new IosDeviceTypeImpl(value);
         }
     };
     /**
@@ -99,7 +99,7 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
      */
     public set minimumSupportedOperatingSystem(value: IosMinimumOperatingSystem | undefined) {
         if(value) {
-            this._minimumSupportedOperatingSystem = value instanceof IosMinimumOperatingSystemImpl? value : new IosMinimumOperatingSystemImpl(value);
+            this._minimumSupportedOperatingSystem = value instanceof IosMinimumOperatingSystemImpl? value as IosMinimumOperatingSystemImpl: new IosMinimumOperatingSystemImpl(value);
         }
     };
     /**
@@ -110,7 +110,7 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicableDeviceType){
-            writer.writeObjectValue<IosDeviceTypeImpl>("applicableDeviceType", (!this.applicableDeviceType || this.applicableDeviceType instanceof IosDeviceTypeImpl? this.applicableDeviceType : new IosDeviceTypeImpl(this.applicableDeviceType)));
+            writer.writeObjectValue<IosDeviceTypeImpl>("applicableDeviceType", (this.applicableDeviceType instanceof IosDeviceTypeImpl? this.applicableDeviceType as IosDeviceTypeImpl: new IosDeviceTypeImpl(this.applicableDeviceType)));
         }
         if(this.appStoreUrl){
             writer.writeStringValue("appStoreUrl", this.appStoreUrl);
@@ -119,7 +119,7 @@ export class ManagedIOSStoreAppImpl extends ManagedAppImpl implements ManagedIOS
             writer.writeStringValue("bundleId", this.bundleId);
         }
         if(this.minimumSupportedOperatingSystem){
-            writer.writeObjectValue<IosMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (!this.minimumSupportedOperatingSystem || this.minimumSupportedOperatingSystem instanceof IosMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem : new IosMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
+            writer.writeObjectValue<IosMinimumOperatingSystemImpl>("minimumSupportedOperatingSystem", (this.minimumSupportedOperatingSystem instanceof IosMinimumOperatingSystemImpl? this.minimumSupportedOperatingSystem as IosMinimumOperatingSystemImpl: new IosMinimumOperatingSystemImpl(this.minimumSupportedOperatingSystem)));
         }
     };
 }

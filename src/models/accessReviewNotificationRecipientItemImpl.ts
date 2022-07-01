@@ -59,7 +59,7 @@ export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNo
      */
     public set notificationRecipientScope(value: AccessReviewNotificationRecipientScope | undefined) {
         if(value) {
-            this._notificationRecipientScope = value instanceof AccessReviewNotificationRecipientScopeImpl? value : new AccessReviewNotificationRecipientScopeImpl(value);
+            this._notificationRecipientScope = value instanceof AccessReviewNotificationRecipientScopeImpl? value as AccessReviewNotificationRecipientScopeImpl: new AccessReviewNotificationRecipientScopeImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class AccessReviewNotificationRecipientItemImpl implements AccessReviewNo
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.notificationRecipientScope){
-            writer.writeObjectValue<AccessReviewNotificationRecipientScopeImpl>("notificationRecipientScope", (!this.notificationRecipientScope || this.notificationRecipientScope instanceof AccessReviewNotificationRecipientScopeImpl? this.notificationRecipientScope : new AccessReviewNotificationRecipientScopeImpl(this.notificationRecipientScope)));
+            writer.writeObjectValue<AccessReviewNotificationRecipientScopeImpl>("notificationRecipientScope", (this.notificationRecipientScope instanceof AccessReviewNotificationRecipientScopeImpl? this.notificationRecipientScope as AccessReviewNotificationRecipientScopeImpl: new AccessReviewNotificationRecipientScopeImpl(this.notificationRecipientScope)));
         }
         if(this.notificationTemplateType){
             writer.writeStringValue("notificationTemplateType", this.notificationTemplateType);

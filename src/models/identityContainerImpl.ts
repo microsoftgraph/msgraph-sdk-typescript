@@ -39,7 +39,7 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
         if(value) {
             const apiConnectorsArrValue: IdentityApiConnectorImpl[] = [];
             this.apiConnectors?.forEach(element => {
-                apiConnectorsArrValue.push((element instanceof IdentityApiConnectorImpl? element:new IdentityApiConnectorImpl(element)));
+                apiConnectorsArrValue.push((element instanceof IdentityApiConnectorImpl? element as IdentityApiConnectorImpl:new IdentityApiConnectorImpl(element)));
             });
             this._apiConnectors = apiConnectorsArrValue;
         }
@@ -59,7 +59,7 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
         if(value) {
             const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = [];
             this.b2xUserFlows?.forEach(element => {
-                b2xUserFlowsArrValue.push((element instanceof B2xIdentityUserFlowImpl? element:new B2xIdentityUserFlowImpl(element)));
+                b2xUserFlowsArrValue.push((element instanceof B2xIdentityUserFlowImpl? element as B2xIdentityUserFlowImpl:new B2xIdentityUserFlowImpl(element)));
             });
             this._b2xUserFlows = b2xUserFlowsArrValue;
         }
@@ -77,7 +77,7 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
      */
     public set conditionalAccess(value: ConditionalAccessRoot | undefined) {
         if(value) {
-            this._conditionalAccess = value instanceof ConditionalAccessRootImpl? value : new ConditionalAccessRootImpl(value);
+            this._conditionalAccess = value instanceof ConditionalAccessRootImpl? value as ConditionalAccessRootImpl: new ConditionalAccessRootImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
         if(value) {
             const identityProvidersArrValue: IdentityProviderBaseImpl[] = [];
             this.identityProviders?.forEach(element => {
-                identityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+                identityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
             });
             this._identityProviders = identityProvidersArrValue;
         }
@@ -134,28 +134,28 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
         super.serialize(writer);
         if(this.apiConnectors && this.apiConnectors.length != 0){        const apiConnectorsArrValue: IdentityApiConnectorImpl[] = [];
         this.apiConnectors?.forEach(element => {
-            apiConnectorsArrValue.push((element instanceof IdentityApiConnectorImpl? element:new IdentityApiConnectorImpl(element)));
+            apiConnectorsArrValue.push((element instanceof IdentityApiConnectorImpl? element as IdentityApiConnectorImpl:new IdentityApiConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("apiConnectors", apiConnectorsArrValue);
         }
         if(this.b2xUserFlows && this.b2xUserFlows.length != 0){        const b2xUserFlowsArrValue: B2xIdentityUserFlowImpl[] = [];
         this.b2xUserFlows?.forEach(element => {
-            b2xUserFlowsArrValue.push((element instanceof B2xIdentityUserFlowImpl? element:new B2xIdentityUserFlowImpl(element)));
+            b2xUserFlowsArrValue.push((element instanceof B2xIdentityUserFlowImpl? element as B2xIdentityUserFlowImpl:new B2xIdentityUserFlowImpl(element)));
         });
             writer.writeCollectionOfObjectValues<B2xIdentityUserFlowImpl>("b2xUserFlows", b2xUserFlowsArrValue);
         }
         if(this.conditionalAccess){
-            writer.writeObjectValue<ConditionalAccessRootImpl>("conditionalAccess", (!this.conditionalAccess || this.conditionalAccess instanceof ConditionalAccessRootImpl? this.conditionalAccess : new ConditionalAccessRootImpl(this.conditionalAccess)));
+            writer.writeObjectValue<ConditionalAccessRootImpl>("conditionalAccess", (this.conditionalAccess instanceof ConditionalAccessRootImpl? this.conditionalAccess as ConditionalAccessRootImpl: new ConditionalAccessRootImpl(this.conditionalAccess)));
         }
         if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderBaseImpl[] = [];
         this.identityProviders?.forEach(element => {
-            identityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+            identityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("identityProviders", identityProvidersArrValue);
         }
         if(this.userFlowAttributes && this.userFlowAttributes.length != 0){        const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = [];
         this.userFlowAttributes?.forEach(element => {
-            userFlowAttributesArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element:new IdentityUserFlowAttributeImpl(element)));
+            userFlowAttributesArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element as IdentityUserFlowAttributeImpl:new IdentityUserFlowAttributeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeImpl>("userFlowAttributes", userFlowAttributesArrValue);
         }
@@ -175,7 +175,7 @@ export class IdentityContainerImpl extends EntityImpl implements IdentityContain
         if(value) {
             const userFlowAttributesArrValue: IdentityUserFlowAttributeImpl[] = [];
             this.userFlowAttributes?.forEach(element => {
-                userFlowAttributesArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element:new IdentityUserFlowAttributeImpl(element)));
+                userFlowAttributesArrValue.push((element instanceof IdentityUserFlowAttributeImpl? element as IdentityUserFlowAttributeImpl:new IdentityUserFlowAttributeImpl(element)));
             });
             this._userFlowAttributes = userFlowAttributesArrValue;
         }

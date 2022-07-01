@@ -73,7 +73,7 @@ export class SecureScoreCollectionResponseImpl implements SecureScoreCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SecureScoreImpl? element:new SecureScoreImpl(element)));
+            valueArrValue.push((element instanceof SecureScoreImpl? element as SecureScoreImpl:new SecureScoreImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SecureScoreImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SecureScoreCollectionResponseImpl implements SecureScoreCollectionR
         if(value) {
             const valueArrValue: SecureScoreImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SecureScoreImpl? element:new SecureScoreImpl(element)));
+                valueArrValue.push((element instanceof SecureScoreImpl? element as SecureScoreImpl:new SecureScoreImpl(element)));
             });
             this._value = valueArrValue;
         }

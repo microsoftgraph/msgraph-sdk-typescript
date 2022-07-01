@@ -73,7 +73,7 @@ export class EventCollectionResponseImpl implements EventCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EventImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            valueArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EventImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EventCollectionResponseImpl implements EventCollectionResponse {
         if(value) {
             const valueArrValue: EventImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+                valueArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
             });
             this._value = valueArrValue;
         }

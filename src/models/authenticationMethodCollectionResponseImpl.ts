@@ -73,7 +73,7 @@ export class AuthenticationMethodCollectionResponseImpl implements Authenticatio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AuthenticationMethodImpl? element:new AuthenticationMethodImpl(element)));
+            valueArrValue.push((element instanceof AuthenticationMethodImpl? element as AuthenticationMethodImpl:new AuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthenticationMethodImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AuthenticationMethodCollectionResponseImpl implements Authenticatio
         if(value) {
             const valueArrValue: AuthenticationMethodImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AuthenticationMethodImpl? element:new AuthenticationMethodImpl(element)));
+                valueArrValue.push((element instanceof AuthenticationMethodImpl? element as AuthenticationMethodImpl:new AuthenticationMethodImpl(element)));
             });
             this._value = valueArrValue;
         }

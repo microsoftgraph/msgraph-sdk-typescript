@@ -73,7 +73,7 @@ export class PrintServiceEndpointCollectionResponseImpl implements PrintServiceE
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintServiceEndpointImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintServiceEndpointImpl? element:new PrintServiceEndpointImpl(element)));
+            valueArrValue.push((element instanceof PrintServiceEndpointImpl? element as PrintServiceEndpointImpl:new PrintServiceEndpointImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintServiceEndpointImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintServiceEndpointCollectionResponseImpl implements PrintServiceE
         if(value) {
             const valueArrValue: PrintServiceEndpointImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintServiceEndpointImpl? element:new PrintServiceEndpointImpl(element)));
+                valueArrValue.push((element instanceof PrintServiceEndpointImpl? element as PrintServiceEndpointImpl:new PrintServiceEndpointImpl(element)));
             });
             this._value = valueArrValue;
         }

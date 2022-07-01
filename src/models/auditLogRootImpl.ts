@@ -46,7 +46,7 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
         if(value) {
             const directoryAuditsArrValue: DirectoryAuditImpl[] = [];
             this.directoryAudits?.forEach(element => {
-                directoryAuditsArrValue.push((element instanceof DirectoryAuditImpl? element:new DirectoryAuditImpl(element)));
+                directoryAuditsArrValue.push((element instanceof DirectoryAuditImpl? element as DirectoryAuditImpl:new DirectoryAuditImpl(element)));
             });
             this._directoryAudits = directoryAuditsArrValue;
         }
@@ -78,7 +78,7 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
         if(value) {
             const provisioningArrValue: ProvisioningObjectSummaryImpl[] = [];
             this.provisioning?.forEach(element => {
-                provisioningArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element:new ProvisioningObjectSummaryImpl(element)));
+                provisioningArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element as ProvisioningObjectSummaryImpl:new ProvisioningObjectSummaryImpl(element)));
             });
             this._provisioning = provisioningArrValue;
         }
@@ -98,7 +98,7 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
         if(value) {
             const restrictedSignInsArrValue: RestrictedSignInImpl[] = [];
             this.restrictedSignIns?.forEach(element => {
-                restrictedSignInsArrValue.push((element instanceof RestrictedSignInImpl? element:new RestrictedSignInImpl(element)));
+                restrictedSignInsArrValue.push((element instanceof RestrictedSignInImpl? element as RestrictedSignInImpl:new RestrictedSignInImpl(element)));
             });
             this._restrictedSignIns = restrictedSignInsArrValue;
         }
@@ -112,25 +112,25 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
         super.serialize(writer);
         if(this.directoryAudits && this.directoryAudits.length != 0){        const directoryAuditsArrValue: DirectoryAuditImpl[] = [];
         this.directoryAudits?.forEach(element => {
-            directoryAuditsArrValue.push((element instanceof DirectoryAuditImpl? element:new DirectoryAuditImpl(element)));
+            directoryAuditsArrValue.push((element instanceof DirectoryAuditImpl? element as DirectoryAuditImpl:new DirectoryAuditImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryAuditImpl>("directoryAudits", directoryAuditsArrValue);
         }
         if(this.provisioning && this.provisioning.length != 0){        const provisioningArrValue: ProvisioningObjectSummaryImpl[] = [];
         this.provisioning?.forEach(element => {
-            provisioningArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element:new ProvisioningObjectSummaryImpl(element)));
+            provisioningArrValue.push((element instanceof ProvisioningObjectSummaryImpl? element as ProvisioningObjectSummaryImpl:new ProvisioningObjectSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProvisioningObjectSummaryImpl>("provisioning", provisioningArrValue);
         }
         if(this.restrictedSignIns && this.restrictedSignIns.length != 0){        const restrictedSignInsArrValue: RestrictedSignInImpl[] = [];
         this.restrictedSignIns?.forEach(element => {
-            restrictedSignInsArrValue.push((element instanceof RestrictedSignInImpl? element:new RestrictedSignInImpl(element)));
+            restrictedSignInsArrValue.push((element instanceof RestrictedSignInImpl? element as RestrictedSignInImpl:new RestrictedSignInImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RestrictedSignInImpl>("restrictedSignIns", restrictedSignInsArrValue);
         }
         if(this.signIns && this.signIns.length != 0){        const signInsArrValue: SignInImpl[] = [];
         this.signIns?.forEach(element => {
-            signInsArrValue.push((element instanceof SignInImpl? element:new SignInImpl(element)));
+            signInsArrValue.push((element instanceof SignInImpl? element as SignInImpl:new SignInImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SignInImpl>("signIns", signInsArrValue);
         }
@@ -150,7 +150,7 @@ export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot {
         if(value) {
             const signInsArrValue: SignInImpl[] = [];
             this.signIns?.forEach(element => {
-                signInsArrValue.push((element instanceof SignInImpl? element:new SignInImpl(element)));
+                signInsArrValue.push((element instanceof SignInImpl? element as SignInImpl:new SignInImpl(element)));
             });
             this._signIns = signInsArrValue;
         }

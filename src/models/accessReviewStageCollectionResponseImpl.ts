@@ -73,7 +73,7 @@ export class AccessReviewStageCollectionResponseImpl implements AccessReviewStag
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewStageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessReviewStageImpl? element:new AccessReviewStageImpl(element)));
+            valueArrValue.push((element instanceof AccessReviewStageImpl? element as AccessReviewStageImpl:new AccessReviewStageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewStageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AccessReviewStageCollectionResponseImpl implements AccessReviewStag
         if(value) {
             const valueArrValue: AccessReviewStageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessReviewStageImpl? element:new AccessReviewStageImpl(element)));
+                valueArrValue.push((element instanceof AccessReviewStageImpl? element as AccessReviewStageImpl:new AccessReviewStageImpl(element)));
             });
             this._value = valueArrValue;
         }

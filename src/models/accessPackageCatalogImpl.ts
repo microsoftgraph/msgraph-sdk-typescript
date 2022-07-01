@@ -39,7 +39,7 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
         if(value) {
             const accessPackagesArrValue: AccessPackageImpl[] = [];
             this.accessPackages?.forEach(element => {
-                accessPackagesArrValue.push((element instanceof AccessPackageImpl? element:new AccessPackageImpl(element)));
+                accessPackagesArrValue.push((element instanceof AccessPackageImpl? element as AccessPackageImpl:new AccessPackageImpl(element)));
             });
             this._accessPackages = accessPackagesArrValue;
         }
@@ -180,7 +180,7 @@ export class AccessPackageCatalogImpl extends EntityImpl implements AccessPackag
         super.serialize(writer);
         if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = [];
         this.accessPackages?.forEach(element => {
-            accessPackagesArrValue.push((element instanceof AccessPackageImpl? element:new AccessPackageImpl(element)));
+            accessPackagesArrValue.push((element instanceof AccessPackageImpl? element as AccessPackageImpl:new AccessPackageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }

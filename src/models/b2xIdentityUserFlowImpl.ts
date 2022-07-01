@@ -36,7 +36,7 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
      */
     public set apiConnectorConfiguration(value: UserFlowApiConnectorConfiguration | undefined) {
         if(value) {
-            this._apiConnectorConfiguration = value instanceof UserFlowApiConnectorConfigurationImpl? value : new UserFlowApiConnectorConfigurationImpl(value);
+            this._apiConnectorConfiguration = value instanceof UserFlowApiConnectorConfigurationImpl? value as UserFlowApiConnectorConfigurationImpl: new UserFlowApiConnectorConfigurationImpl(value);
         }
     };
     /**
@@ -79,7 +79,7 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(value) {
             const identityProvidersArrValue: IdentityProviderImpl[] = [];
             this.identityProviders?.forEach(element => {
-                identityProvidersArrValue.push((element instanceof IdentityProviderImpl? element:new IdentityProviderImpl(element)));
+                identityProvidersArrValue.push((element instanceof IdentityProviderImpl? element as IdentityProviderImpl:new IdentityProviderImpl(element)));
             });
             this._identityProviders = identityProvidersArrValue;
         }
@@ -99,7 +99,7 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(value) {
             const languagesArrValue: UserFlowLanguageConfigurationImpl[] = [];
             this.languages?.forEach(element => {
-                languagesArrValue.push((element instanceof UserFlowLanguageConfigurationImpl? element:new UserFlowLanguageConfigurationImpl(element)));
+                languagesArrValue.push((element instanceof UserFlowLanguageConfigurationImpl? element as UserFlowLanguageConfigurationImpl:new UserFlowLanguageConfigurationImpl(element)));
             });
             this._languages = languagesArrValue;
         }
@@ -112,29 +112,29 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.apiConnectorConfiguration){
-            writer.writeObjectValue<UserFlowApiConnectorConfigurationImpl>("apiConnectorConfiguration", (!this.apiConnectorConfiguration || this.apiConnectorConfiguration instanceof UserFlowApiConnectorConfigurationImpl? this.apiConnectorConfiguration : new UserFlowApiConnectorConfigurationImpl(this.apiConnectorConfiguration)));
+            writer.writeObjectValue<UserFlowApiConnectorConfigurationImpl>("apiConnectorConfiguration", (this.apiConnectorConfiguration instanceof UserFlowApiConnectorConfigurationImpl? this.apiConnectorConfiguration as UserFlowApiConnectorConfigurationImpl: new UserFlowApiConnectorConfigurationImpl(this.apiConnectorConfiguration)));
         }
         if(this.identityProviders && this.identityProviders.length != 0){        const identityProvidersArrValue: IdentityProviderImpl[] = [];
         this.identityProviders?.forEach(element => {
-            identityProvidersArrValue.push((element instanceof IdentityProviderImpl? element:new IdentityProviderImpl(element)));
+            identityProvidersArrValue.push((element instanceof IdentityProviderImpl? element as IdentityProviderImpl:new IdentityProviderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityProviderImpl>("identityProviders", identityProvidersArrValue);
         }
         if(this.languages && this.languages.length != 0){        const languagesArrValue: UserFlowLanguageConfigurationImpl[] = [];
         this.languages?.forEach(element => {
-            languagesArrValue.push((element instanceof UserFlowLanguageConfigurationImpl? element:new UserFlowLanguageConfigurationImpl(element)));
+            languagesArrValue.push((element instanceof UserFlowLanguageConfigurationImpl? element as UserFlowLanguageConfigurationImpl:new UserFlowLanguageConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserFlowLanguageConfigurationImpl>("languages", languagesArrValue);
         }
         if(this.userAttributeAssignments && this.userAttributeAssignments.length != 0){        const userAttributeAssignmentsArrValue: IdentityUserFlowAttributeAssignmentImpl[] = [];
         this.userAttributeAssignments?.forEach(element => {
-            userAttributeAssignmentsArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element:new IdentityUserFlowAttributeAssignmentImpl(element)));
+            userAttributeAssignmentsArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element as IdentityUserFlowAttributeAssignmentImpl:new IdentityUserFlowAttributeAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignmentImpl>("userAttributeAssignments", userAttributeAssignmentsArrValue);
         }
         if(this.userFlowIdentityProviders && this.userFlowIdentityProviders.length != 0){        const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = [];
         this.userFlowIdentityProviders?.forEach(element => {
-            userFlowIdentityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+            userFlowIdentityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("userFlowIdentityProviders", userFlowIdentityProvidersArrValue);
         }
@@ -154,7 +154,7 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(value) {
             const userAttributeAssignmentsArrValue: IdentityUserFlowAttributeAssignmentImpl[] = [];
             this.userAttributeAssignments?.forEach(element => {
-                userAttributeAssignmentsArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element:new IdentityUserFlowAttributeAssignmentImpl(element)));
+                userAttributeAssignmentsArrValue.push((element instanceof IdentityUserFlowAttributeAssignmentImpl? element as IdentityUserFlowAttributeAssignmentImpl:new IdentityUserFlowAttributeAssignmentImpl(element)));
             });
             this._userAttributeAssignments = userAttributeAssignmentsArrValue;
         }
@@ -174,7 +174,7 @@ export class B2xIdentityUserFlowImpl extends IdentityUserFlowImpl implements B2x
         if(value) {
             const userFlowIdentityProvidersArrValue: IdentityProviderBaseImpl[] = [];
             this.userFlowIdentityProviders?.forEach(element => {
-                userFlowIdentityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+                userFlowIdentityProvidersArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
             });
             this._userFlowIdentityProviders = userFlowIdentityProvidersArrValue;
         }

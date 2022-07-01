@@ -92,7 +92,7 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
      */
     public set previousEndDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._previousEndDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._previousEndDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -108,7 +108,7 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
      */
     public set previousLocation(value: Location | undefined) {
         if(value) {
-            this._previousLocation = value instanceof LocationImpl? value : new LocationImpl(value);
+            this._previousLocation = value instanceof LocationImpl? value as LocationImpl: new LocationImpl(value);
         }
     };
     /**
@@ -124,7 +124,7 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
      */
     public set previousStartDateTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._previousStartDateTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._previousStartDateTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -157,13 +157,13 @@ export class EventMessageRequestImpl extends EventMessageImpl implements EventMe
             writer.writeEnumValue<MeetingRequestType>("meetingRequestType", this.meetingRequestType);
         }
         if(this.previousEndDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("previousEndDateTime", (!this.previousEndDateTime || this.previousEndDateTime instanceof DateTimeTimeZoneImpl? this.previousEndDateTime : new DateTimeTimeZoneImpl(this.previousEndDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("previousEndDateTime", (this.previousEndDateTime instanceof DateTimeTimeZoneImpl? this.previousEndDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.previousEndDateTime)));
         }
         if(this.previousLocation){
-            writer.writeObjectValue<LocationImpl>("previousLocation", (!this.previousLocation || this.previousLocation instanceof LocationImpl? this.previousLocation : new LocationImpl(this.previousLocation)));
+            writer.writeObjectValue<LocationImpl>("previousLocation", (this.previousLocation instanceof LocationImpl? this.previousLocation as LocationImpl: new LocationImpl(this.previousLocation)));
         }
         if(this.previousStartDateTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("previousStartDateTime", (!this.previousStartDateTime || this.previousStartDateTime instanceof DateTimeTimeZoneImpl? this.previousStartDateTime : new DateTimeTimeZoneImpl(this.previousStartDateTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("previousStartDateTime", (this.previousStartDateTime instanceof DateTimeTimeZoneImpl? this.previousStartDateTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.previousStartDateTime)));
         }
         if(this.responseRequested){
             writer.writeBooleanValue("responseRequested", this.responseRequested);

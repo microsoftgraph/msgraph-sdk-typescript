@@ -80,7 +80,7 @@ export class TentativelyAcceptPostRequestBodyImpl implements TentativelyAcceptPo
      */
     public set proposedNewTime(value: TimeSlot | undefined) {
         if(value) {
-            this._proposedNewTime = value instanceof TimeSlotImpl? value : new TimeSlotImpl(value);
+            this._proposedNewTime = value instanceof TimeSlotImpl? value as TimeSlotImpl: new TimeSlotImpl(value);
         }
     };
     /**
@@ -109,7 +109,7 @@ export class TentativelyAcceptPostRequestBodyImpl implements TentativelyAcceptPo
             writer.writeStringValue("comment", this.comment);
         }
         if(this.proposedNewTime){
-            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (!this.proposedNewTime || this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime : new TimeSlotImpl(this.proposedNewTime)));
+            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime as TimeSlotImpl: new TimeSlotImpl(this.proposedNewTime)));
         }
         if(this.sendResponse){
             writer.writeBooleanValue("sendResponse", this.sendResponse);

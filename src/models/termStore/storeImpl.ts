@@ -71,7 +71,7 @@ export class StoreImpl extends EntityImpl implements Store {
         if(value) {
             const groupsArrValue: GroupImpl[] = [];
             this.groups?.forEach(element => {
-                groupsArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+                groupsArrValue.push((element instanceof GroupImpl? element as GroupImpl:new GroupImpl(element)));
             });
             this._groups = groupsArrValue;
         }
@@ -104,7 +104,7 @@ export class StoreImpl extends EntityImpl implements Store {
         }
         if(this.groups && this.groups.length != 0){        const groupsArrValue: GroupImpl[] = [];
         this.groups?.forEach(element => {
-            groupsArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+            groupsArrValue.push((element instanceof GroupImpl? element as GroupImpl:new GroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupImpl>("groups", groupsArrValue);
         }
@@ -113,7 +113,7 @@ export class StoreImpl extends EntityImpl implements Store {
         }
         if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = [];
         this.sets?.forEach(element => {
-            setsArrValue.push((element instanceof SetImpl? element:new SetImpl(element)));
+            setsArrValue.push((element instanceof SetImpl? element as SetImpl:new SetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
@@ -133,7 +133,7 @@ export class StoreImpl extends EntityImpl implements Store {
         if(value) {
             const setsArrValue: SetImpl[] = [];
             this.sets?.forEach(element => {
-                setsArrValue.push((element instanceof SetImpl? element:new SetImpl(element)));
+                setsArrValue.push((element instanceof SetImpl? element as SetImpl:new SetImpl(element)));
             });
             this._sets = setsArrValue;
         }

@@ -111,7 +111,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         if(value) {
             const complianceInformationArrValue: ComplianceInformationImpl[] = [];
             this.complianceInformation?.forEach(element => {
-                complianceInformationArrValue.push((element instanceof ComplianceInformationImpl? element:new ComplianceInformationImpl(element)));
+                complianceInformationArrValue.push((element instanceof ComplianceInformationImpl? element as ComplianceInformationImpl:new ComplianceInformationImpl(element)));
             });
             this._complianceInformation = complianceInformationArrValue;
         }
@@ -173,7 +173,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         if(value) {
             const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = [];
             this.controlStateUpdates?.forEach(element => {
-                controlStateUpdatesArrValue.push((element instanceof SecureScoreControlStateUpdateImpl? element:new SecureScoreControlStateUpdateImpl(element)));
+                controlStateUpdatesArrValue.push((element instanceof SecureScoreControlStateUpdateImpl? element as SecureScoreControlStateUpdateImpl:new SecureScoreControlStateUpdateImpl(element)));
             });
             this._controlStateUpdates = controlStateUpdatesArrValue;
         }
@@ -335,7 +335,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         }
         if(this.complianceInformation && this.complianceInformation.length != 0){        const complianceInformationArrValue: ComplianceInformationImpl[] = [];
         this.complianceInformation?.forEach(element => {
-            complianceInformationArrValue.push((element instanceof ComplianceInformationImpl? element:new ComplianceInformationImpl(element)));
+            complianceInformationArrValue.push((element instanceof ComplianceInformationImpl? element as ComplianceInformationImpl:new ComplianceInformationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ComplianceInformationImpl>("complianceInformation", complianceInformationArrValue);
         }
@@ -344,7 +344,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
         }
         if(this.controlStateUpdates && this.controlStateUpdates.length != 0){        const controlStateUpdatesArrValue: SecureScoreControlStateUpdateImpl[] = [];
         this.controlStateUpdates?.forEach(element => {
-            controlStateUpdatesArrValue.push((element instanceof SecureScoreControlStateUpdateImpl? element:new SecureScoreControlStateUpdateImpl(element)));
+            controlStateUpdatesArrValue.push((element instanceof SecureScoreControlStateUpdateImpl? element as SecureScoreControlStateUpdateImpl:new SecureScoreControlStateUpdateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdateImpl>("controlStateUpdates", controlStateUpdatesArrValue);
         }
@@ -385,7 +385,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
             writer.writeStringValue("userImpact", this.userImpact);
         }
         if(this.vendorInformation){
-            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", (!this.vendorInformation || this.vendorInformation instanceof SecurityVendorInformationImpl? this.vendorInformation : new SecurityVendorInformationImpl(this.vendorInformation)));
+            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", (this.vendorInformation instanceof SecurityVendorInformationImpl? this.vendorInformation as SecurityVendorInformationImpl: new SecurityVendorInformationImpl(this.vendorInformation)));
         }
     };
     /**
@@ -481,7 +481,7 @@ export class SecureScoreControlProfileImpl extends EntityImpl implements SecureS
      */
     public set vendorInformation(value: SecurityVendorInformation | undefined) {
         if(value) {
-            this._vendorInformation = value instanceof SecurityVendorInformationImpl? value : new SecurityVendorInformationImpl(value);
+            this._vendorInformation = value instanceof SecurityVendorInformationImpl? value as SecurityVendorInformationImpl: new SecurityVendorInformationImpl(value);
         }
     };
 }

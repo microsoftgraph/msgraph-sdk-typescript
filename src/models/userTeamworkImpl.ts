@@ -27,7 +27,7 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
         if(value) {
             const associatedTeamsArrValue: AssociatedTeamInfoImpl[] = [];
             this.associatedTeams?.forEach(element => {
-                associatedTeamsArrValue.push((element instanceof AssociatedTeamInfoImpl? element:new AssociatedTeamInfoImpl(element)));
+                associatedTeamsArrValue.push((element instanceof AssociatedTeamInfoImpl? element as AssociatedTeamInfoImpl:new AssociatedTeamInfoImpl(element)));
             });
             this._associatedTeams = associatedTeamsArrValue;
         }
@@ -66,7 +66,7 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
         if(value) {
             const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = [];
             this.installedApps?.forEach(element => {
-                installedAppsArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element:new UserScopeTeamsAppInstallationImpl(element)));
+                installedAppsArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element as UserScopeTeamsAppInstallationImpl:new UserScopeTeamsAppInstallationImpl(element)));
             });
             this._installedApps = installedAppsArrValue;
         }
@@ -80,13 +80,13 @@ export class UserTeamworkImpl extends EntityImpl implements UserTeamwork {
         super.serialize(writer);
         if(this.associatedTeams && this.associatedTeams.length != 0){        const associatedTeamsArrValue: AssociatedTeamInfoImpl[] = [];
         this.associatedTeams?.forEach(element => {
-            associatedTeamsArrValue.push((element instanceof AssociatedTeamInfoImpl? element:new AssociatedTeamInfoImpl(element)));
+            associatedTeamsArrValue.push((element instanceof AssociatedTeamInfoImpl? element as AssociatedTeamInfoImpl:new AssociatedTeamInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AssociatedTeamInfoImpl>("associatedTeams", associatedTeamsArrValue);
         }
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: UserScopeTeamsAppInstallationImpl[] = [];
         this.installedApps?.forEach(element => {
-            installedAppsArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element:new UserScopeTeamsAppInstallationImpl(element)));
+            installedAppsArrValue.push((element instanceof UserScopeTeamsAppInstallationImpl? element as UserScopeTeamsAppInstallationImpl:new UserScopeTeamsAppInstallationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }

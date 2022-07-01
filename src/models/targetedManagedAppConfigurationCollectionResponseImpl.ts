@@ -73,7 +73,7 @@ export class TargetedManagedAppConfigurationCollectionResponseImpl implements Ta
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppConfigurationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element:new TargetedManagedAppConfigurationImpl(element)));
+            valueArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element as TargetedManagedAppConfigurationImpl:new TargetedManagedAppConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetedManagedAppConfigurationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TargetedManagedAppConfigurationCollectionResponseImpl implements Ta
         if(value) {
             const valueArrValue: TargetedManagedAppConfigurationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element:new TargetedManagedAppConfigurationImpl(element)));
+                valueArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element as TargetedManagedAppConfigurationImpl:new TargetedManagedAppConfigurationImpl(element)));
             });
             this._value = valueArrValue;
         }

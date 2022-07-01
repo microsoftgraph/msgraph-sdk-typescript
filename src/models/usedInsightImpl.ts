@@ -56,7 +56,7 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public set lastUsed(value: UsageDetails | undefined) {
         if(value) {
-            this._lastUsed = value instanceof UsageDetailsImpl? value : new UsageDetailsImpl(value);
+            this._lastUsed = value instanceof UsageDetailsImpl? value as UsageDetailsImpl: new UsageDetailsImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public set resource(value: Entity | undefined) {
         if(value) {
-            this._resource = value instanceof EntityImpl? value : new EntityImpl(value);
+            this._resource = value instanceof EntityImpl? value as EntityImpl: new EntityImpl(value);
         }
     };
     /**
@@ -88,7 +88,7 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public set resourceReference(value: ResourceReference | undefined) {
         if(value) {
-            this._resourceReference = value instanceof ResourceReferenceImpl? value : new ResourceReferenceImpl(value);
+            this._resourceReference = value instanceof ResourceReferenceImpl? value as ResourceReferenceImpl: new ResourceReferenceImpl(value);
         }
     };
     /**
@@ -104,7 +104,7 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
      */
     public set resourceVisualization(value: ResourceVisualization | undefined) {
         if(value) {
-            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value : new ResourceVisualizationImpl(value);
+            this._resourceVisualization = value instanceof ResourceVisualizationImpl? value as ResourceVisualizationImpl: new ResourceVisualizationImpl(value);
         }
     };
     /**
@@ -115,16 +115,16 @@ export class UsedInsightImpl extends EntityImpl implements UsedInsight {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.lastUsed){
-            writer.writeObjectValue<UsageDetailsImpl>("lastUsed", (!this.lastUsed || this.lastUsed instanceof UsageDetailsImpl? this.lastUsed : new UsageDetailsImpl(this.lastUsed)));
+            writer.writeObjectValue<UsageDetailsImpl>("lastUsed", (this.lastUsed instanceof UsageDetailsImpl? this.lastUsed as UsageDetailsImpl: new UsageDetailsImpl(this.lastUsed)));
         }
         if(this.resource){
-            writer.writeObjectValue<EntityImpl>("resource", (!this.resource || this.resource instanceof EntityImpl? this.resource : new EntityImpl(this.resource)));
+            writer.writeObjectValue<EntityImpl>("resource", (this.resource instanceof EntityImpl? this.resource as EntityImpl: new EntityImpl(this.resource)));
         }
         if(this.resourceReference){
-            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (!this.resourceReference || this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference : new ResourceReferenceImpl(this.resourceReference)));
+            writer.writeObjectValue<ResourceReferenceImpl>("resourceReference", (this.resourceReference instanceof ResourceReferenceImpl? this.resourceReference as ResourceReferenceImpl: new ResourceReferenceImpl(this.resourceReference)));
         }
         if(this.resourceVisualization){
-            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (!this.resourceVisualization || this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization : new ResourceVisualizationImpl(this.resourceVisualization)));
+            writer.writeObjectValue<ResourceVisualizationImpl>("resourceVisualization", (this.resourceVisualization instanceof ResourceVisualizationImpl? this.resourceVisualization as ResourceVisualizationImpl: new ResourceVisualizationImpl(this.resourceVisualization)));
         }
     };
 }

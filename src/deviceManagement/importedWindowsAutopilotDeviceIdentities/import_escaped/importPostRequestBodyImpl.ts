@@ -58,7 +58,7 @@ export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
         if(value) {
             const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
             this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
-                importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+                importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element as ImportedWindowsAutopilotDeviceIdentityImpl:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
             });
             this._importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
         }
@@ -71,7 +71,7 @@ export class ImportPostRequestBodyImpl implements ImportPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
         this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
-            importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+            importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element as ImportedWindowsAutopilotDeviceIdentityImpl:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }

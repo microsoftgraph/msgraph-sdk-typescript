@@ -73,7 +73,7 @@ export class ResourceOperationCollectionResponseImpl implements ResourceOperatio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ResourceOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ResourceOperationImpl? element:new ResourceOperationImpl(element)));
+            valueArrValue.push((element instanceof ResourceOperationImpl? element as ResourceOperationImpl:new ResourceOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ResourceOperationCollectionResponseImpl implements ResourceOperatio
         if(value) {
             const valueArrValue: ResourceOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ResourceOperationImpl? element:new ResourceOperationImpl(element)));
+                valueArrValue.push((element instanceof ResourceOperationImpl? element as ResourceOperationImpl:new ResourceOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

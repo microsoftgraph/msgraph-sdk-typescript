@@ -73,7 +73,7 @@ export class SignInCollectionResponseImpl implements SignInCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SignInImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SignInImpl? element:new SignInImpl(element)));
+            valueArrValue.push((element instanceof SignInImpl? element as SignInImpl:new SignInImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SignInImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SignInCollectionResponseImpl implements SignInCollectionResponse {
         if(value) {
             const valueArrValue: SignInImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SignInImpl? element:new SignInImpl(element)));
+                valueArrValue.push((element instanceof SignInImpl? element as SignInImpl:new SignInImpl(element)));
             });
             this._value = valueArrValue;
         }

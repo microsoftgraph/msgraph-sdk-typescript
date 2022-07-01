@@ -80,7 +80,7 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
         if(value) {
             const repliesArrValue: WorkbookCommentReplyImpl[] = [];
             this.replies?.forEach(element => {
-                repliesArrValue.push((element instanceof WorkbookCommentReplyImpl? element:new WorkbookCommentReplyImpl(element)));
+                repliesArrValue.push((element instanceof WorkbookCommentReplyImpl? element as WorkbookCommentReplyImpl:new WorkbookCommentReplyImpl(element)));
             });
             this._replies = repliesArrValue;
         }
@@ -100,7 +100,7 @@ export class WorkbookCommentImpl extends EntityImpl implements WorkbookComment {
         }
         if(this.replies && this.replies.length != 0){        const repliesArrValue: WorkbookCommentReplyImpl[] = [];
         this.replies?.forEach(element => {
-            repliesArrValue.push((element instanceof WorkbookCommentReplyImpl? element:new WorkbookCommentReplyImpl(element)));
+            repliesArrValue.push((element instanceof WorkbookCommentReplyImpl? element as WorkbookCommentReplyImpl:new WorkbookCommentReplyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookCommentReplyImpl>("replies", repliesArrValue);
         }

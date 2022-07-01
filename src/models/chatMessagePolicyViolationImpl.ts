@@ -106,7 +106,7 @@ export class ChatMessagePolicyViolationImpl implements ChatMessagePolicyViolatio
      */
     public set policyTip(value: ChatMessagePolicyViolationPolicyTip | undefined) {
         if(value) {
-            this._policyTip = value instanceof ChatMessagePolicyViolationPolicyTipImpl? value : new ChatMessagePolicyViolationPolicyTipImpl(value);
+            this._policyTip = value instanceof ChatMessagePolicyViolationPolicyTipImpl? value as ChatMessagePolicyViolationPolicyTipImpl: new ChatMessagePolicyViolationPolicyTipImpl(value);
         }
     };
     /**
@@ -122,7 +122,7 @@ export class ChatMessagePolicyViolationImpl implements ChatMessagePolicyViolatio
             writer.writeStringValue("justificationText", this.justificationText);
         }
         if(this.policyTip){
-            writer.writeObjectValue<ChatMessagePolicyViolationPolicyTipImpl>("policyTip", (!this.policyTip || this.policyTip instanceof ChatMessagePolicyViolationPolicyTipImpl? this.policyTip : new ChatMessagePolicyViolationPolicyTipImpl(this.policyTip)));
+            writer.writeObjectValue<ChatMessagePolicyViolationPolicyTipImpl>("policyTip", (this.policyTip instanceof ChatMessagePolicyViolationPolicyTipImpl? this.policyTip as ChatMessagePolicyViolationPolicyTipImpl: new ChatMessagePolicyViolationPolicyTipImpl(this.policyTip)));
         }
         if(this.userAction){
             writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);

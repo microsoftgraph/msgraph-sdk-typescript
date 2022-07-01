@@ -73,7 +73,7 @@ export class WorkforceIntegrationCollectionResponseImpl implements WorkforceInte
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WorkforceIntegrationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof WorkforceIntegrationImpl? element:new WorkforceIntegrationImpl(element)));
+            valueArrValue.push((element instanceof WorkforceIntegrationImpl? element as WorkforceIntegrationImpl:new WorkforceIntegrationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkforceIntegrationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class WorkforceIntegrationCollectionResponseImpl implements WorkforceInte
         if(value) {
             const valueArrValue: WorkforceIntegrationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof WorkforceIntegrationImpl? element:new WorkforceIntegrationImpl(element)));
+                valueArrValue.push((element instanceof WorkforceIntegrationImpl? element as WorkforceIntegrationImpl:new WorkforceIntegrationImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class DriveItemVersionCollectionResponseImpl implements DriveItemVersionC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DriveItemVersionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DriveItemVersionImpl? element:new DriveItemVersionImpl(element)));
+            valueArrValue.push((element instanceof DriveItemVersionImpl? element as DriveItemVersionImpl:new DriveItemVersionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DriveItemVersionCollectionResponseImpl implements DriveItemVersionC
         if(value) {
             const valueArrValue: DriveItemVersionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DriveItemVersionImpl? element:new DriveItemVersionImpl(element)));
+                valueArrValue.push((element instanceof DriveItemVersionImpl? element as DriveItemVersionImpl:new DriveItemVersionImpl(element)));
             });
             this._value = valueArrValue;
         }

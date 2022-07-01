@@ -114,7 +114,7 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
      */
     public set previewText(value: ItemBody | undefined) {
         if(value) {
-            this._previewText = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._previewText = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -130,7 +130,7 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
      */
     public set recipient(value: TeamworkNotificationRecipient | undefined) {
         if(value) {
-            this._recipient = value instanceof TeamworkNotificationRecipientImpl? value : new TeamworkNotificationRecipientImpl(value);
+            this._recipient = value instanceof TeamworkNotificationRecipientImpl? value as TeamworkNotificationRecipientImpl: new TeamworkNotificationRecipientImpl(value);
         }
     };
     /**
@@ -146,19 +146,19 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
             writer.writeNumberValue("chainId", this.chainId);
         }
         if(this.previewText){
-            writer.writeObjectValue<ItemBodyImpl>("previewText", (!this.previewText || this.previewText instanceof ItemBodyImpl? this.previewText : new ItemBodyImpl(this.previewText)));
+            writer.writeObjectValue<ItemBodyImpl>("previewText", (this.previewText instanceof ItemBodyImpl? this.previewText as ItemBodyImpl: new ItemBodyImpl(this.previewText)));
         }
         if(this.recipient){
-            writer.writeObjectValue<TeamworkNotificationRecipientImpl>("recipient", (!this.recipient || this.recipient instanceof TeamworkNotificationRecipientImpl? this.recipient : new TeamworkNotificationRecipientImpl(this.recipient)));
+            writer.writeObjectValue<TeamworkNotificationRecipientImpl>("recipient", (this.recipient instanceof TeamworkNotificationRecipientImpl? this.recipient as TeamworkNotificationRecipientImpl: new TeamworkNotificationRecipientImpl(this.recipient)));
         }
         if(this.templateParameters && this.templateParameters.length != 0){        const templateParametersArrValue: KeyValuePairImpl[] = [];
         this.templateParameters?.forEach(element => {
-            templateParametersArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+            templateParametersArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("templateParameters", templateParametersArrValue);
         }
         if(this.topic){
-            writer.writeObjectValue<TeamworkActivityTopicImpl>("topic", (!this.topic || this.topic instanceof TeamworkActivityTopicImpl? this.topic : new TeamworkActivityTopicImpl(this.topic)));
+            writer.writeObjectValue<TeamworkActivityTopicImpl>("topic", (this.topic instanceof TeamworkActivityTopicImpl? this.topic as TeamworkActivityTopicImpl: new TeamworkActivityTopicImpl(this.topic)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -177,7 +177,7 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
         if(value) {
             const templateParametersArrValue: KeyValuePairImpl[] = [];
             this.templateParameters?.forEach(element => {
-                templateParametersArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+                templateParametersArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
             });
             this._templateParameters = templateParametersArrValue;
         }
@@ -195,7 +195,7 @@ export class SendActivityNotificationPostRequestBodyImpl implements SendActivity
      */
     public set topic(value: TeamworkActivityTopic | undefined) {
         if(value) {
-            this._topic = value instanceof TeamworkActivityTopicImpl? value : new TeamworkActivityTopicImpl(value);
+            this._topic = value instanceof TeamworkActivityTopicImpl? value as TeamworkActivityTopicImpl: new TeamworkActivityTopicImpl(value);
         }
     };
 }

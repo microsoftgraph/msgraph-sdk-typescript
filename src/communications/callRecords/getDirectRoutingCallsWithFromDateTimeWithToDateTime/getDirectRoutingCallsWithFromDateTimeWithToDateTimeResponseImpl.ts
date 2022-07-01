@@ -51,7 +51,7 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl imp
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: DirectRoutingLogRowImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DirectRoutingLogRowImpl? element:new DirectRoutingLogRowImpl(element)));
+            valueArrValue.push((element instanceof DirectRoutingLogRowImpl? element as DirectRoutingLogRowImpl:new DirectRoutingLogRowImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectRoutingLogRowImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl imp
         if(value) {
             const valueArrValue: DirectRoutingLogRowImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DirectRoutingLogRowImpl? element:new DirectRoutingLogRowImpl(element)));
+                valueArrValue.push((element instanceof DirectRoutingLogRowImpl? element as DirectRoutingLogRowImpl:new DirectRoutingLogRowImpl(element)));
             });
             this._value = valueArrValue;
         }

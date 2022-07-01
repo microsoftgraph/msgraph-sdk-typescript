@@ -73,7 +73,7 @@ export class RoleDefinitionCollectionResponseImpl implements RoleDefinitionColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RoleDefinitionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RoleDefinitionImpl? element:new RoleDefinitionImpl(element)));
+            valueArrValue.push((element instanceof RoleDefinitionImpl? element as RoleDefinitionImpl:new RoleDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RoleDefinitionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RoleDefinitionCollectionResponseImpl implements RoleDefinitionColle
         if(value) {
             const valueArrValue: RoleDefinitionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RoleDefinitionImpl? element:new RoleDefinitionImpl(element)));
+                valueArrValue.push((element instanceof RoleDefinitionImpl? element as RoleDefinitionImpl:new RoleDefinitionImpl(element)));
             });
             this._value = valueArrValue;
         }

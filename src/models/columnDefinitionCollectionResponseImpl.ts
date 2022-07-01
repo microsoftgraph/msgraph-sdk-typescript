@@ -73,7 +73,7 @@ export class ColumnDefinitionCollectionResponseImpl implements ColumnDefinitionC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ColumnDefinitionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+            valueArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ColumnDefinitionCollectionResponseImpl implements ColumnDefinitionC
         if(value) {
             const valueArrValue: ColumnDefinitionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+                valueArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
             });
             this._value = valueArrValue;
         }

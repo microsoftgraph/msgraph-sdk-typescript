@@ -75,7 +75,7 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
         if(value) {
             const historyArrValue: RiskyUserHistoryItemImpl[] = [];
             this.history?.forEach(element => {
-                historyArrValue.push((element instanceof RiskyUserHistoryItemImpl? element:new RiskyUserHistoryItemImpl(element)));
+                historyArrValue.push((element instanceof RiskyUserHistoryItemImpl? element as RiskyUserHistoryItemImpl:new RiskyUserHistoryItemImpl(element)));
             });
             this._history = historyArrValue;
         }
@@ -185,7 +185,7 @@ export class RiskyUserImpl extends EntityImpl implements RiskyUser {
         super.serialize(writer);
         if(this.history && this.history.length != 0){        const historyArrValue: RiskyUserHistoryItemImpl[] = [];
         this.history?.forEach(element => {
-            historyArrValue.push((element instanceof RiskyUserHistoryItemImpl? element:new RiskyUserHistoryItemImpl(element)));
+            historyArrValue.push((element instanceof RiskyUserHistoryItemImpl? element as RiskyUserHistoryItemImpl:new RiskyUserHistoryItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RiskyUserHistoryItemImpl>("history", historyArrValue);
         }

@@ -124,7 +124,7 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         if(value) {
             const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.reviewers?.forEach(element => {
-                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._reviewers = reviewersArrValue;
         }
@@ -150,7 +150,7 @@ export class AdminConsentRequestPolicyImpl extends EntityImpl implements AdminCo
         }
         if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.reviewers?.forEach(element => {
-            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }

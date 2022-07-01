@@ -103,7 +103,7 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         if(value) {
             const externalSponsorsArrValue: DirectoryObjectImpl[] = [];
             this.externalSponsors?.forEach(element => {
-                externalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                externalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._externalSponsors = externalSponsorsArrValue;
         }
@@ -139,7 +139,7 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         if(value) {
             const identitySourcesArrValue: IdentitySourceImpl[] = [];
             this.identitySources?.forEach(element => {
-                identitySourcesArrValue.push((element instanceof IdentitySourceImpl? element:new IdentitySourceImpl(element)));
+                identitySourcesArrValue.push((element instanceof IdentitySourceImpl? element as IdentitySourceImpl:new IdentitySourceImpl(element)));
             });
             this._identitySources = identitySourcesArrValue;
         }
@@ -159,7 +159,7 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         if(value) {
             const internalSponsorsArrValue: DirectoryObjectImpl[] = [];
             this.internalSponsors?.forEach(element => {
-                internalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                internalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._internalSponsors = internalSponsorsArrValue;
         }
@@ -198,19 +198,19 @@ export class ConnectedOrganizationImpl extends EntityImpl implements ConnectedOr
         }
         if(this.externalSponsors && this.externalSponsors.length != 0){        const externalSponsorsArrValue: DirectoryObjectImpl[] = [];
         this.externalSponsors?.forEach(element => {
-            externalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            externalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("externalSponsors", externalSponsorsArrValue);
         }
         if(this.identitySources && this.identitySources.length != 0){        const identitySourcesArrValue: IdentitySourceImpl[] = [];
         this.identitySources?.forEach(element => {
-            identitySourcesArrValue.push((element instanceof IdentitySourceImpl? element:new IdentitySourceImpl(element)));
+            identitySourcesArrValue.push((element instanceof IdentitySourceImpl? element as IdentitySourceImpl:new IdentitySourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentitySourceImpl>("identitySources", identitySourcesArrValue);
         }
         if(this.internalSponsors && this.internalSponsors.length != 0){        const internalSponsorsArrValue: DirectoryObjectImpl[] = [];
         this.internalSponsors?.forEach(element => {
-            internalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            internalSponsorsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("internalSponsors", internalSponsorsArrValue);
         }

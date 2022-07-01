@@ -73,7 +73,7 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+            valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element as ResourceSpecificPermissionGrantImpl:new ResourceSpecificPermissionGrantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ResourceSpecificPermissionGrantCollectionResponseImpl implements Re
         if(value) {
             const valueArrValue: ResourceSpecificPermissionGrantImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+                valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element as ResourceSpecificPermissionGrantImpl:new ResourceSpecificPermissionGrantImpl(element)));
             });
             this._value = valueArrValue;
         }

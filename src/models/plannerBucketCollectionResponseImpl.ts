@@ -73,7 +73,7 @@ export class PlannerBucketCollectionResponseImpl implements PlannerBucketCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PlannerBucketImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PlannerBucketImpl? element:new PlannerBucketImpl(element)));
+            valueArrValue.push((element instanceof PlannerBucketImpl? element as PlannerBucketImpl:new PlannerBucketImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerBucketImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PlannerBucketCollectionResponseImpl implements PlannerBucketCollect
         if(value) {
             const valueArrValue: PlannerBucketImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PlannerBucketImpl? element:new PlannerBucketImpl(element)));
+                valueArrValue.push((element instanceof PlannerBucketImpl? element as PlannerBucketImpl:new PlannerBucketImpl(element)));
             });
             this._value = valueArrValue;
         }

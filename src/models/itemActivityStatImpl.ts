@@ -43,7 +43,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public set access(value: ItemActionStat | undefined) {
         if(value) {
-            this._access = value instanceof ItemActionStatImpl? value : new ItemActionStatImpl(value);
+            this._access = value instanceof ItemActionStatImpl? value as ItemActionStatImpl: new ItemActionStatImpl(value);
         }
     };
     /**
@@ -61,7 +61,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         if(value) {
             const activitiesArrValue: ItemActivityImpl[] = [];
             this.activities?.forEach(element => {
-                activitiesArrValue.push((element instanceof ItemActivityImpl? element:new ItemActivityImpl(element)));
+                activitiesArrValue.push((element instanceof ItemActivityImpl? element as ItemActivityImpl:new ItemActivityImpl(element)));
             });
             this._activities = activitiesArrValue;
         }
@@ -96,7 +96,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public set create(value: ItemActionStat | undefined) {
         if(value) {
-            this._create = value instanceof ItemActionStatImpl? value : new ItemActionStatImpl(value);
+            this._create = value instanceof ItemActionStatImpl? value as ItemActionStatImpl: new ItemActionStatImpl(value);
         }
     };
     /**
@@ -112,7 +112,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public set delete(value: ItemActionStat | undefined) {
         if(value) {
-            this._delete = value instanceof ItemActionStatImpl? value : new ItemActionStatImpl(value);
+            this._delete = value instanceof ItemActionStatImpl? value as ItemActionStatImpl: new ItemActionStatImpl(value);
         }
     };
     /**
@@ -128,7 +128,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public set edit(value: ItemActionStat | undefined) {
         if(value) {
-            this._edit = value instanceof ItemActionStatImpl? value : new ItemActionStatImpl(value);
+            this._edit = value instanceof ItemActionStatImpl? value as ItemActionStatImpl: new ItemActionStatImpl(value);
         }
     };
     /**
@@ -178,7 +178,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public set incompleteData(value: IncompleteData | undefined) {
         if(value) {
-            this._incompleteData = value instanceof IncompleteDataImpl? value : new IncompleteDataImpl(value);
+            this._incompleteData = value instanceof IncompleteDataImpl? value as IncompleteDataImpl: new IncompleteDataImpl(value);
         }
     };
     /**
@@ -210,7 +210,7 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
      */
     public set move(value: ItemActionStat | undefined) {
         if(value) {
-            this._move = value instanceof ItemActionStatImpl? value : new ItemActionStatImpl(value);
+            this._move = value instanceof ItemActionStatImpl? value as ItemActionStatImpl: new ItemActionStatImpl(value);
         }
     };
     /**
@@ -221,34 +221,34 @@ export class ItemActivityStatImpl extends EntityImpl implements ItemActivityStat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.access){
-            writer.writeObjectValue<ItemActionStatImpl>("access", (!this.access || this.access instanceof ItemActionStatImpl? this.access : new ItemActionStatImpl(this.access)));
+            writer.writeObjectValue<ItemActionStatImpl>("access", (this.access instanceof ItemActionStatImpl? this.access as ItemActionStatImpl: new ItemActionStatImpl(this.access)));
         }
         if(this.activities && this.activities.length != 0){        const activitiesArrValue: ItemActivityImpl[] = [];
         this.activities?.forEach(element => {
-            activitiesArrValue.push((element instanceof ItemActivityImpl? element:new ItemActivityImpl(element)));
+            activitiesArrValue.push((element instanceof ItemActivityImpl? element as ItemActivityImpl:new ItemActivityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ItemActivityImpl>("activities", activitiesArrValue);
         }
         if(this.create){
-            writer.writeObjectValue<ItemActionStatImpl>("create", (!this.create || this.create instanceof ItemActionStatImpl? this.create : new ItemActionStatImpl(this.create)));
+            writer.writeObjectValue<ItemActionStatImpl>("create", (this.create instanceof ItemActionStatImpl? this.create as ItemActionStatImpl: new ItemActionStatImpl(this.create)));
         }
         if(this.delete){
-            writer.writeObjectValue<ItemActionStatImpl>("delete", (!this.delete || this.delete instanceof ItemActionStatImpl? this.delete : new ItemActionStatImpl(this.delete)));
+            writer.writeObjectValue<ItemActionStatImpl>("delete", (this.delete instanceof ItemActionStatImpl? this.delete as ItemActionStatImpl: new ItemActionStatImpl(this.delete)));
         }
         if(this.edit){
-            writer.writeObjectValue<ItemActionStatImpl>("edit", (!this.edit || this.edit instanceof ItemActionStatImpl? this.edit : new ItemActionStatImpl(this.edit)));
+            writer.writeObjectValue<ItemActionStatImpl>("edit", (this.edit instanceof ItemActionStatImpl? this.edit as ItemActionStatImpl: new ItemActionStatImpl(this.edit)));
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.incompleteData){
-            writer.writeObjectValue<IncompleteDataImpl>("incompleteData", (!this.incompleteData || this.incompleteData instanceof IncompleteDataImpl? this.incompleteData : new IncompleteDataImpl(this.incompleteData)));
+            writer.writeObjectValue<IncompleteDataImpl>("incompleteData", (this.incompleteData instanceof IncompleteDataImpl? this.incompleteData as IncompleteDataImpl: new IncompleteDataImpl(this.incompleteData)));
         }
         if(this.isTrending){
             writer.writeBooleanValue("isTrending", this.isTrending);
         }
         if(this.move){
-            writer.writeObjectValue<ItemActionStatImpl>("move", (!this.move || this.move instanceof ItemActionStatImpl? this.move : new ItemActionStatImpl(this.move)));
+            writer.writeObjectValue<ItemActionStatImpl>("move", (this.move instanceof ItemActionStatImpl? this.move as ItemActionStatImpl: new ItemActionStatImpl(this.move)));
         }
         if(this.startDateTime){
             writer.writeDateValue("startDateTime", this.startDateTime);

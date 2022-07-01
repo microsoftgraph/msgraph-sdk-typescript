@@ -73,7 +73,7 @@ export class AccessReviewHistoryDefinitionCollectionResponseImpl implements Acce
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewHistoryDefinitionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessReviewHistoryDefinitionImpl? element:new AccessReviewHistoryDefinitionImpl(element)));
+            valueArrValue.push((element instanceof AccessReviewHistoryDefinitionImpl? element as AccessReviewHistoryDefinitionImpl:new AccessReviewHistoryDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinitionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AccessReviewHistoryDefinitionCollectionResponseImpl implements Acce
         if(value) {
             const valueArrValue: AccessReviewHistoryDefinitionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessReviewHistoryDefinitionImpl? element:new AccessReviewHistoryDefinitionImpl(element)));
+                valueArrValue.push((element instanceof AccessReviewHistoryDefinitionImpl? element as AccessReviewHistoryDefinitionImpl:new AccessReviewHistoryDefinitionImpl(element)));
             });
             this._value = valueArrValue;
         }

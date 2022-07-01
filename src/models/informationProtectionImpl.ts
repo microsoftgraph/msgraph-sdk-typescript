@@ -25,7 +25,7 @@ export class InformationProtectionImpl extends EntityImpl implements Information
      */
     public set bitlocker(value: Bitlocker | undefined) {
         if(value) {
-            this._bitlocker = value instanceof BitlockerImpl? value : new BitlockerImpl(value);
+            this._bitlocker = value instanceof BitlockerImpl? value as BitlockerImpl: new BitlockerImpl(value);
         }
     };
     /**
@@ -55,11 +55,11 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.bitlocker){
-            writer.writeObjectValue<BitlockerImpl>("bitlocker", (!this.bitlocker || this.bitlocker instanceof BitlockerImpl? this.bitlocker : new BitlockerImpl(this.bitlocker)));
+            writer.writeObjectValue<BitlockerImpl>("bitlocker", (this.bitlocker instanceof BitlockerImpl? this.bitlocker as BitlockerImpl: new BitlockerImpl(this.bitlocker)));
         }
         if(this.threatAssessmentRequests && this.threatAssessmentRequests.length != 0){        const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = [];
         this.threatAssessmentRequests?.forEach(element => {
-            threatAssessmentRequestsArrValue.push((element instanceof ThreatAssessmentRequestImpl? element:new ThreatAssessmentRequestImpl(element)));
+            threatAssessmentRequestsArrValue.push((element instanceof ThreatAssessmentRequestImpl? element as ThreatAssessmentRequestImpl:new ThreatAssessmentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ThreatAssessmentRequestImpl>("threatAssessmentRequests", threatAssessmentRequestsArrValue);
         }
@@ -79,7 +79,7 @@ export class InformationProtectionImpl extends EntityImpl implements Information
         if(value) {
             const threatAssessmentRequestsArrValue: ThreatAssessmentRequestImpl[] = [];
             this.threatAssessmentRequests?.forEach(element => {
-                threatAssessmentRequestsArrValue.push((element instanceof ThreatAssessmentRequestImpl? element:new ThreatAssessmentRequestImpl(element)));
+                threatAssessmentRequestsArrValue.push((element instanceof ThreatAssessmentRequestImpl? element as ThreatAssessmentRequestImpl:new ThreatAssessmentRequestImpl(element)));
             });
             this._threatAssessmentRequests = threatAssessmentRequestsArrValue;
         }

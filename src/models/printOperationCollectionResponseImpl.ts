@@ -73,7 +73,7 @@ export class PrintOperationCollectionResponseImpl implements PrintOperationColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintOperationImpl? element:new PrintOperationImpl(element)));
+            valueArrValue.push((element instanceof PrintOperationImpl? element as PrintOperationImpl:new PrintOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintOperationCollectionResponseImpl implements PrintOperationColle
         if(value) {
             const valueArrValue: PrintOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintOperationImpl? element:new PrintOperationImpl(element)));
+                valueArrValue.push((element instanceof PrintOperationImpl? element as PrintOperationImpl:new PrintOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

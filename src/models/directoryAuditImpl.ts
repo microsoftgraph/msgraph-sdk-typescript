@@ -80,7 +80,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(value) {
             const additionalDetailsArrValue: KeyValueImpl[] = [];
             this.additionalDetails?.forEach(element => {
-                additionalDetailsArrValue.push((element instanceof KeyValueImpl? element:new KeyValueImpl(element)));
+                additionalDetailsArrValue.push((element instanceof KeyValueImpl? element as KeyValueImpl:new KeyValueImpl(element)));
             });
             this._additionalDetails = additionalDetailsArrValue;
         }
@@ -167,7 +167,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
      */
     public set initiatedBy(value: AuditActivityInitiator | undefined) {
         if(value) {
-            this._initiatedBy = value instanceof AuditActivityInitiatorImpl? value : new AuditActivityInitiatorImpl(value);
+            this._initiatedBy = value instanceof AuditActivityInitiatorImpl? value as AuditActivityInitiatorImpl: new AuditActivityInitiatorImpl(value);
         }
     };
     /**
@@ -249,7 +249,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         }
         if(this.additionalDetails && this.additionalDetails.length != 0){        const additionalDetailsArrValue: KeyValueImpl[] = [];
         this.additionalDetails?.forEach(element => {
-            additionalDetailsArrValue.push((element instanceof KeyValueImpl? element:new KeyValueImpl(element)));
+            additionalDetailsArrValue.push((element instanceof KeyValueImpl? element as KeyValueImpl:new KeyValueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValueImpl>("additionalDetails", additionalDetailsArrValue);
         }
@@ -260,7 +260,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
             writer.writeStringValue("correlationId", this.correlationId);
         }
         if(this.initiatedBy){
-            writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", (!this.initiatedBy || this.initiatedBy instanceof AuditActivityInitiatorImpl? this.initiatedBy : new AuditActivityInitiatorImpl(this.initiatedBy)));
+            writer.writeObjectValue<AuditActivityInitiatorImpl>("initiatedBy", (this.initiatedBy instanceof AuditActivityInitiatorImpl? this.initiatedBy as AuditActivityInitiatorImpl: new AuditActivityInitiatorImpl(this.initiatedBy)));
         }
         if(this.loggedByService){
             writer.writeStringValue("loggedByService", this.loggedByService);
@@ -276,7 +276,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         }
         if(this.targetResources && this.targetResources.length != 0){        const targetResourcesArrValue: TargetResourceImpl[] = [];
         this.targetResources?.forEach(element => {
-            targetResourcesArrValue.push((element instanceof TargetResourceImpl? element:new TargetResourceImpl(element)));
+            targetResourcesArrValue.push((element instanceof TargetResourceImpl? element as TargetResourceImpl:new TargetResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetResourceImpl>("targetResources", targetResourcesArrValue);
         }
@@ -296,7 +296,7 @@ export class DirectoryAuditImpl extends EntityImpl implements DirectoryAudit {
         if(value) {
             const targetResourcesArrValue: TargetResourceImpl[] = [];
             this.targetResources?.forEach(element => {
-                targetResourcesArrValue.push((element instanceof TargetResourceImpl? element:new TargetResourceImpl(element)));
+                targetResourcesArrValue.push((element instanceof TargetResourceImpl? element as TargetResourceImpl:new TargetResourceImpl(element)));
             });
             this._targetResources = targetResourcesArrValue;
         }

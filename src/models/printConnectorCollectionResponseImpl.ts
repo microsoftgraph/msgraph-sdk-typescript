@@ -73,7 +73,7 @@ export class PrintConnectorCollectionResponseImpl implements PrintConnectorColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintConnectorImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintConnectorImpl? element:new PrintConnectorImpl(element)));
+            valueArrValue.push((element instanceof PrintConnectorImpl? element as PrintConnectorImpl:new PrintConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintConnectorImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintConnectorCollectionResponseImpl implements PrintConnectorColle
         if(value) {
             const valueArrValue: PrintConnectorImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintConnectorImpl? element:new PrintConnectorImpl(element)));
+                valueArrValue.push((element instanceof PrintConnectorImpl? element as PrintConnectorImpl:new PrintConnectorImpl(element)));
             });
             this._value = valueArrValue;
         }

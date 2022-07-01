@@ -73,7 +73,7 @@ export class LicenseDetailsCollectionResponseImpl implements LicenseDetailsColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: LicenseDetailsImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof LicenseDetailsImpl? element:new LicenseDetailsImpl(element)));
+            valueArrValue.push((element instanceof LicenseDetailsImpl? element as LicenseDetailsImpl:new LicenseDetailsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LicenseDetailsImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class LicenseDetailsCollectionResponseImpl implements LicenseDetailsColle
         if(value) {
             const valueArrValue: LicenseDetailsImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof LicenseDetailsImpl? element:new LicenseDetailsImpl(element)));
+                valueArrValue.push((element instanceof LicenseDetailsImpl? element as LicenseDetailsImpl:new LicenseDetailsImpl(element)));
             });
             this._value = valueArrValue;
         }

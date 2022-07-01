@@ -40,7 +40,7 @@ export class ExternalImpl implements External {
         if(value) {
             const connectionsArrValue: ExternalConnectionImpl[] = [];
             this.connections?.forEach(element => {
-                connectionsArrValue.push((element instanceof ExternalConnectionImpl? element:new ExternalConnectionImpl(element)));
+                connectionsArrValue.push((element instanceof ExternalConnectionImpl? element as ExternalConnectionImpl:new ExternalConnectionImpl(element)));
             });
             this._connections = connectionsArrValue;
         }
@@ -70,7 +70,7 @@ export class ExternalImpl implements External {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.connections && this.connections.length != 0){        const connectionsArrValue: ExternalConnectionImpl[] = [];
         this.connections?.forEach(element => {
-            connectionsArrValue.push((element instanceof ExternalConnectionImpl? element:new ExternalConnectionImpl(element)));
+            connectionsArrValue.push((element instanceof ExternalConnectionImpl? element as ExternalConnectionImpl:new ExternalConnectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("connections", connectionsArrValue);
         }

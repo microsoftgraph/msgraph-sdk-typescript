@@ -73,7 +73,7 @@ export class DeviceConfigurationAssignmentCollectionResponseImpl implements Devi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element:new DeviceConfigurationAssignmentImpl(element)));
+            valueArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element as DeviceConfigurationAssignmentImpl:new DeviceConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceConfigurationAssignmentCollectionResponseImpl implements Devi
         if(value) {
             const valueArrValue: DeviceConfigurationAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element:new DeviceConfigurationAssignmentImpl(element)));
+                valueArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element as DeviceConfigurationAssignmentImpl:new DeviceConfigurationAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

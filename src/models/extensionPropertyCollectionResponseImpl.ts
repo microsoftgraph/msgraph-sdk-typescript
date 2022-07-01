@@ -73,7 +73,7 @@ export class ExtensionPropertyCollectionResponseImpl implements ExtensionPropert
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExtensionPropertyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ExtensionPropertyImpl? element:new ExtensionPropertyImpl(element)));
+            valueArrValue.push((element instanceof ExtensionPropertyImpl? element as ExtensionPropertyImpl:new ExtensionPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ExtensionPropertyCollectionResponseImpl implements ExtensionPropert
         if(value) {
             const valueArrValue: ExtensionPropertyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ExtensionPropertyImpl? element:new ExtensionPropertyImpl(element)));
+                valueArrValue.push((element instanceof ExtensionPropertyImpl? element as ExtensionPropertyImpl:new ExtensionPropertyImpl(element)));
             });
             this._value = valueArrValue;
         }

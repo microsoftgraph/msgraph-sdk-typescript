@@ -73,7 +73,7 @@ export class BookingCustomerBaseCollectionResponseImpl implements BookingCustome
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomerBaseImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingCustomerBaseImpl? element:new BookingCustomerBaseImpl(element)));
+            valueArrValue.push((element instanceof BookingCustomerBaseImpl? element as BookingCustomerBaseImpl:new BookingCustomerBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCustomerBaseImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingCustomerBaseCollectionResponseImpl implements BookingCustome
         if(value) {
             const valueArrValue: BookingCustomerBaseImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingCustomerBaseImpl? element:new BookingCustomerBaseImpl(element)));
+                valueArrValue.push((element instanceof BookingCustomerBaseImpl? element as BookingCustomerBaseImpl:new BookingCustomerBaseImpl(element)));
             });
             this._value = valueArrValue;
         }

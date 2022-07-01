@@ -73,7 +73,7 @@ export class UnifiedRoleManagementPolicyRuleCollectionResponseImpl implements Un
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleManagementPolicyRuleImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element:new UnifiedRoleManagementPolicyRuleImpl(element)));
+            valueArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element as UnifiedRoleManagementPolicyRuleImpl:new UnifiedRoleManagementPolicyRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UnifiedRoleManagementPolicyRuleCollectionResponseImpl implements Un
         if(value) {
             const valueArrValue: UnifiedRoleManagementPolicyRuleImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element:new UnifiedRoleManagementPolicyRuleImpl(element)));
+                valueArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element as UnifiedRoleManagementPolicyRuleImpl:new UnifiedRoleManagementPolicyRuleImpl(element)));
             });
             this._value = valueArrValue;
         }

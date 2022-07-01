@@ -25,7 +25,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
      */
     public set allTime(value: ItemActivityStat | undefined) {
         if(value) {
-            this._allTime = value instanceof ItemActivityStatImpl? value : new ItemActivityStatImpl(value);
+            this._allTime = value instanceof ItemActivityStatImpl? value as ItemActivityStatImpl: new ItemActivityStatImpl(value);
         }
     };
     /**
@@ -64,7 +64,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
         if(value) {
             const itemActivityStatsArrValue: ItemActivityStatImpl[] = [];
             this.itemActivityStats?.forEach(element => {
-                itemActivityStatsArrValue.push((element instanceof ItemActivityStatImpl? element:new ItemActivityStatImpl(element)));
+                itemActivityStatsArrValue.push((element instanceof ItemActivityStatImpl? element as ItemActivityStatImpl:new ItemActivityStatImpl(element)));
             });
             this._itemActivityStats = itemActivityStatsArrValue;
         }
@@ -82,7 +82,7 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
      */
     public set lastSevenDays(value: ItemActivityStat | undefined) {
         if(value) {
-            this._lastSevenDays = value instanceof ItemActivityStatImpl? value : new ItemActivityStatImpl(value);
+            this._lastSevenDays = value instanceof ItemActivityStatImpl? value as ItemActivityStatImpl: new ItemActivityStatImpl(value);
         }
     };
     /**
@@ -93,16 +93,16 @@ export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.allTime){
-            writer.writeObjectValue<ItemActivityStatImpl>("allTime", (!this.allTime || this.allTime instanceof ItemActivityStatImpl? this.allTime : new ItemActivityStatImpl(this.allTime)));
+            writer.writeObjectValue<ItemActivityStatImpl>("allTime", (this.allTime instanceof ItemActivityStatImpl? this.allTime as ItemActivityStatImpl: new ItemActivityStatImpl(this.allTime)));
         }
         if(this.itemActivityStats && this.itemActivityStats.length != 0){        const itemActivityStatsArrValue: ItemActivityStatImpl[] = [];
         this.itemActivityStats?.forEach(element => {
-            itemActivityStatsArrValue.push((element instanceof ItemActivityStatImpl? element:new ItemActivityStatImpl(element)));
+            itemActivityStatsArrValue.push((element instanceof ItemActivityStatImpl? element as ItemActivityStatImpl:new ItemActivityStatImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ItemActivityStatImpl>("itemActivityStats", itemActivityStatsArrValue);
         }
         if(this.lastSevenDays){
-            writer.writeObjectValue<ItemActivityStatImpl>("lastSevenDays", (!this.lastSevenDays || this.lastSevenDays instanceof ItemActivityStatImpl? this.lastSevenDays : new ItemActivityStatImpl(this.lastSevenDays)));
+            writer.writeObjectValue<ItemActivityStatImpl>("lastSevenDays", (this.lastSevenDays instanceof ItemActivityStatImpl? this.lastSevenDays as ItemActivityStatImpl: new ItemActivityStatImpl(this.lastSevenDays)));
         }
     };
 }

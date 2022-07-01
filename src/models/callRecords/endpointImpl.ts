@@ -49,7 +49,7 @@ export class EndpointImpl implements Endpoint {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.userAgent){
-            writer.writeObjectValue<UserAgentImpl>("userAgent", (!this.userAgent || this.userAgent instanceof UserAgentImpl? this.userAgent : new UserAgentImpl(this.userAgent)));
+            writer.writeObjectValue<UserAgentImpl>("userAgent", (this.userAgent instanceof UserAgentImpl? this.userAgent as UserAgentImpl: new UserAgentImpl(this.userAgent)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -66,7 +66,7 @@ export class EndpointImpl implements Endpoint {
      */
     public set userAgent(value: UserAgent | undefined) {
         if(value) {
-            this._userAgent = value instanceof UserAgentImpl? value : new UserAgentImpl(value);
+            this._userAgent = value instanceof UserAgentImpl? value as UserAgentImpl: new UserAgentImpl(value);
         }
     };
 }

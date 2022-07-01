@@ -54,7 +54,7 @@ export class EducationFeedbackImpl implements EducationFeedback {
      */
     public set feedbackBy(value: IdentitySet | undefined) {
         if(value) {
-            this._feedbackBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._feedbackBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -91,13 +91,13 @@ export class EducationFeedbackImpl implements EducationFeedback {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.feedbackBy){
-            writer.writeObjectValue<IdentitySetImpl>("feedbackBy", (!this.feedbackBy || this.feedbackBy instanceof IdentitySetImpl? this.feedbackBy : new IdentitySetImpl(this.feedbackBy)));
+            writer.writeObjectValue<IdentitySetImpl>("feedbackBy", (this.feedbackBy instanceof IdentitySetImpl? this.feedbackBy as IdentitySetImpl: new IdentitySetImpl(this.feedbackBy)));
         }
         if(this.feedbackDateTime){
             writer.writeDateValue("feedbackDateTime", this.feedbackDateTime);
         }
         if(this.text){
-            writer.writeObjectValue<EducationItemBodyImpl>("text", (!this.text || this.text instanceof EducationItemBodyImpl? this.text : new EducationItemBodyImpl(this.text)));
+            writer.writeObjectValue<EducationItemBodyImpl>("text", (this.text instanceof EducationItemBodyImpl? this.text as EducationItemBodyImpl: new EducationItemBodyImpl(this.text)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -114,7 +114,7 @@ export class EducationFeedbackImpl implements EducationFeedback {
      */
     public set text(value: EducationItemBody | undefined) {
         if(value) {
-            this._text = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+            this._text = value instanceof EducationItemBodyImpl? value as EducationItemBodyImpl: new EducationItemBodyImpl(value);
         }
     };
 }

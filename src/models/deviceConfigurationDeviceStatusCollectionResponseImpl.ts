@@ -73,7 +73,7 @@ export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements De
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element:new DeviceConfigurationDeviceStatusImpl(element)));
+            valueArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element as DeviceConfigurationDeviceStatusImpl:new DeviceConfigurationDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceConfigurationDeviceStatusCollectionResponseImpl implements De
         if(value) {
             const valueArrValue: DeviceConfigurationDeviceStatusImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element:new DeviceConfigurationDeviceStatusImpl(element)));
+                valueArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element as DeviceConfigurationDeviceStatusImpl:new DeviceConfigurationDeviceStatusImpl(element)));
             });
             this._value = valueArrValue;
         }

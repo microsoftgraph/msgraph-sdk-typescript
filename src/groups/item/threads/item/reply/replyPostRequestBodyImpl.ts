@@ -56,7 +56,7 @@ export class ReplyPostRequestBodyImpl implements ReplyPostRequestBody {
      */
     public set post(value: Post | undefined) {
         if(value) {
-            this._post = value instanceof PostImpl? value : new PostImpl(value);
+            this._post = value instanceof PostImpl? value as PostImpl: new PostImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class ReplyPostRequestBodyImpl implements ReplyPostRequestBody {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.post){
-            writer.writeObjectValue<PostImpl>("post", (!this.post || this.post instanceof PostImpl? this.post : new PostImpl(this.post)));
+            writer.writeObjectValue<PostImpl>("post", (this.post instanceof PostImpl? this.post as PostImpl: new PostImpl(this.post)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

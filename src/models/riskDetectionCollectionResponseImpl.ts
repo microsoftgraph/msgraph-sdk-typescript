@@ -73,7 +73,7 @@ export class RiskDetectionCollectionResponseImpl implements RiskDetectionCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RiskDetectionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RiskDetectionImpl? element:new RiskDetectionImpl(element)));
+            valueArrValue.push((element instanceof RiskDetectionImpl? element as RiskDetectionImpl:new RiskDetectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RiskDetectionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RiskDetectionCollectionResponseImpl implements RiskDetectionCollect
         if(value) {
             const valueArrValue: RiskDetectionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RiskDetectionImpl? element:new RiskDetectionImpl(element)));
+                valueArrValue.push((element instanceof RiskDetectionImpl? element as RiskDetectionImpl:new RiskDetectionImpl(element)));
             });
             this._value = valueArrValue;
         }

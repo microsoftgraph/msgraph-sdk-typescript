@@ -51,7 +51,7 @@ export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdRes
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: PresenceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PresenceImpl? element:new PresenceImpl(element)));
+            valueArrValue.push((element instanceof PresenceImpl? element as PresenceImpl:new PresenceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PresenceImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetPresencesByUserIdResponseImpl implements GetPresencesByUserIdRes
         if(value) {
             const valueArrValue: PresenceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PresenceImpl? element:new PresenceImpl(element)));
+                valueArrValue.push((element instanceof PresenceImpl? element as PresenceImpl:new PresenceImpl(element)));
             });
             this._value = valueArrValue;
         }

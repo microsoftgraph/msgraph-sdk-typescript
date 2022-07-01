@@ -37,7 +37,7 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
         if(value) {
             const fieldsArrValue: WorkbookSortFieldImpl[] = [];
             this.fields?.forEach(element => {
-                fieldsArrValue.push((element instanceof WorkbookSortFieldImpl? element:new WorkbookSortFieldImpl(element)));
+                fieldsArrValue.push((element instanceof WorkbookSortFieldImpl? element as WorkbookSortFieldImpl:new WorkbookSortFieldImpl(element)));
             });
             this._fields = fieldsArrValue;
         }
@@ -94,7 +94,7 @@ export class WorkbookTableSortImpl extends EntityImpl implements WorkbookTableSo
         super.serialize(writer);
         if(this.fields && this.fields.length != 0){        const fieldsArrValue: WorkbookSortFieldImpl[] = [];
         this.fields?.forEach(element => {
-            fieldsArrValue.push((element instanceof WorkbookSortFieldImpl? element:new WorkbookSortFieldImpl(element)));
+            fieldsArrValue.push((element instanceof WorkbookSortFieldImpl? element as WorkbookSortFieldImpl:new WorkbookSortFieldImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookSortFieldImpl>("fields", fieldsArrValue);
         }

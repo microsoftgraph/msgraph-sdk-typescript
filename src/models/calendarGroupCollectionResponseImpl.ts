@@ -73,7 +73,7 @@ export class CalendarGroupCollectionResponseImpl implements CalendarGroupCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CalendarGroupImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof CalendarGroupImpl? element:new CalendarGroupImpl(element)));
+            valueArrValue.push((element instanceof CalendarGroupImpl? element as CalendarGroupImpl:new CalendarGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CalendarGroupImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class CalendarGroupCollectionResponseImpl implements CalendarGroupCollect
         if(value) {
             const valueArrValue: CalendarGroupImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof CalendarGroupImpl? element:new CalendarGroupImpl(element)));
+                valueArrValue.push((element instanceof CalendarGroupImpl? element as CalendarGroupImpl:new CalendarGroupImpl(element)));
             });
             this._value = valueArrValue;
         }

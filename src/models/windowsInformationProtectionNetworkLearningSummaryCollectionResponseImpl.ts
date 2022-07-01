@@ -73,7 +73,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
+            valueArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element as WindowsInformationProtectionNetworkLearningSummaryImpl:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummaryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryCollectionRespons
         if(value) {
             const valueArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
+                valueArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element as WindowsInformationProtectionNetworkLearningSummaryImpl:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
             });
             this._value = valueArrValue;
         }

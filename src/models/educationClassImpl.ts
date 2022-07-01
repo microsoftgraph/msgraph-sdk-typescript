@@ -80,7 +80,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         if(value) {
             const assignmentCategoriesArrValue: EducationCategoryImpl[] = [];
             this.assignmentCategories?.forEach(element => {
-                assignmentCategoriesArrValue.push((element instanceof EducationCategoryImpl? element:new EducationCategoryImpl(element)));
+                assignmentCategoriesArrValue.push((element instanceof EducationCategoryImpl? element as EducationCategoryImpl:new EducationCategoryImpl(element)));
             });
             this._assignmentCategories = assignmentCategoriesArrValue;
         }
@@ -98,7 +98,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public set assignmentDefaults(value: EducationAssignmentDefaults | undefined) {
         if(value) {
-            this._assignmentDefaults = value instanceof EducationAssignmentDefaultsImpl? value : new EducationAssignmentDefaultsImpl(value);
+            this._assignmentDefaults = value instanceof EducationAssignmentDefaultsImpl? value as EducationAssignmentDefaultsImpl: new EducationAssignmentDefaultsImpl(value);
         }
     };
     /**
@@ -116,7 +116,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         if(value) {
             const assignmentsArrValue: EducationAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof EducationAssignmentImpl? element:new EducationAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof EducationAssignmentImpl? element as EducationAssignmentImpl:new EducationAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -134,7 +134,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public set assignmentSettings(value: EducationAssignmentSettings | undefined) {
         if(value) {
-            this._assignmentSettings = value instanceof EducationAssignmentSettingsImpl? value : new EducationAssignmentSettingsImpl(value);
+            this._assignmentSettings = value instanceof EducationAssignmentSettingsImpl? value as EducationAssignmentSettingsImpl: new EducationAssignmentSettingsImpl(value);
         }
     };
     /**
@@ -193,7 +193,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public set course(value: EducationCourse | undefined) {
         if(value) {
-            this._course = value instanceof EducationCourseImpl? value : new EducationCourseImpl(value);
+            this._course = value instanceof EducationCourseImpl? value as EducationCourseImpl: new EducationCourseImpl(value);
         }
     };
     /**
@@ -209,7 +209,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -365,7 +365,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public set group(value: Group | undefined) {
         if(value) {
-            this._group = value instanceof GroupImpl? value : new GroupImpl(value);
+            this._group = value instanceof GroupImpl? value as GroupImpl: new GroupImpl(value);
         }
     };
     /**
@@ -399,7 +399,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         if(value) {
             const membersArrValue: EducationUserImpl[] = [];
             this.members?.forEach(element => {
-                membersArrValue.push((element instanceof EducationUserImpl? element:new EducationUserImpl(element)));
+                membersArrValue.push((element instanceof EducationUserImpl? element as EducationUserImpl:new EducationUserImpl(element)));
             });
             this._members = membersArrValue;
         }
@@ -419,7 +419,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         if(value) {
             const schoolsArrValue: EducationSchoolImpl[] = [];
             this.schools?.forEach(element => {
-                schoolsArrValue.push((element instanceof EducationSchoolImpl? element:new EducationSchoolImpl(element)));
+                schoolsArrValue.push((element instanceof EducationSchoolImpl? element as EducationSchoolImpl:new EducationSchoolImpl(element)));
             });
             this._schools = schoolsArrValue;
         }
@@ -433,30 +433,30 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         super.serialize(writer);
         if(this.assignmentCategories && this.assignmentCategories.length != 0){        const assignmentCategoriesArrValue: EducationCategoryImpl[] = [];
         this.assignmentCategories?.forEach(element => {
-            assignmentCategoriesArrValue.push((element instanceof EducationCategoryImpl? element:new EducationCategoryImpl(element)));
+            assignmentCategoriesArrValue.push((element instanceof EducationCategoryImpl? element as EducationCategoryImpl:new EducationCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationCategoryImpl>("assignmentCategories", assignmentCategoriesArrValue);
         }
         if(this.assignmentDefaults){
-            writer.writeObjectValue<EducationAssignmentDefaultsImpl>("assignmentDefaults", (!this.assignmentDefaults || this.assignmentDefaults instanceof EducationAssignmentDefaultsImpl? this.assignmentDefaults : new EducationAssignmentDefaultsImpl(this.assignmentDefaults)));
+            writer.writeObjectValue<EducationAssignmentDefaultsImpl>("assignmentDefaults", (this.assignmentDefaults instanceof EducationAssignmentDefaultsImpl? this.assignmentDefaults as EducationAssignmentDefaultsImpl: new EducationAssignmentDefaultsImpl(this.assignmentDefaults)));
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EducationAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof EducationAssignmentImpl? element:new EducationAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof EducationAssignmentImpl? element as EducationAssignmentImpl:new EducationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.assignmentSettings){
-            writer.writeObjectValue<EducationAssignmentSettingsImpl>("assignmentSettings", (!this.assignmentSettings || this.assignmentSettings instanceof EducationAssignmentSettingsImpl? this.assignmentSettings : new EducationAssignmentSettingsImpl(this.assignmentSettings)));
+            writer.writeObjectValue<EducationAssignmentSettingsImpl>("assignmentSettings", (this.assignmentSettings instanceof EducationAssignmentSettingsImpl? this.assignmentSettings as EducationAssignmentSettingsImpl: new EducationAssignmentSettingsImpl(this.assignmentSettings)));
         }
         if(this.classCode){
             writer.writeStringValue("classCode", this.classCode);
         }
         if(this.course){
-            writer.writeObjectValue<EducationCourseImpl>("course", (!this.course || this.course instanceof EducationCourseImpl? this.course : new EducationCourseImpl(this.course)));
+            writer.writeObjectValue<EducationCourseImpl>("course", (this.course instanceof EducationCourseImpl? this.course as EducationCourseImpl: new EducationCourseImpl(this.course)));
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);
@@ -480,31 +480,31 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
             writer.writeStringValue("grade", this.grade);
         }
         if(this.group){
-            writer.writeObjectValue<GroupImpl>("group", (!this.group || this.group instanceof GroupImpl? this.group : new GroupImpl(this.group)));
+            writer.writeObjectValue<GroupImpl>("group", (this.group instanceof GroupImpl? this.group as GroupImpl: new GroupImpl(this.group)));
         }
         if(this.mailNickname){
             writer.writeStringValue("mailNickname", this.mailNickname);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: EducationUserImpl[] = [];
         this.members?.forEach(element => {
-            membersArrValue.push((element instanceof EducationUserImpl? element:new EducationUserImpl(element)));
+            membersArrValue.push((element instanceof EducationUserImpl? element as EducationUserImpl:new EducationUserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationUserImpl>("members", membersArrValue);
         }
         if(this.schools && this.schools.length != 0){        const schoolsArrValue: EducationSchoolImpl[] = [];
         this.schools?.forEach(element => {
-            schoolsArrValue.push((element instanceof EducationSchoolImpl? element:new EducationSchoolImpl(element)));
+            schoolsArrValue.push((element instanceof EducationSchoolImpl? element as EducationSchoolImpl:new EducationSchoolImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationSchoolImpl>("schools", schoolsArrValue);
         }
         if(this.teachers && this.teachers.length != 0){        const teachersArrValue: EducationUserImpl[] = [];
         this.teachers?.forEach(element => {
-            teachersArrValue.push((element instanceof EducationUserImpl? element:new EducationUserImpl(element)));
+            teachersArrValue.push((element instanceof EducationUserImpl? element as EducationUserImpl:new EducationUserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationUserImpl>("teachers", teachersArrValue);
         }
         if(this.term){
-            writer.writeObjectValue<EducationTermImpl>("term", (!this.term || this.term instanceof EducationTermImpl? this.term : new EducationTermImpl(this.term)));
+            writer.writeObjectValue<EducationTermImpl>("term", (this.term instanceof EducationTermImpl? this.term as EducationTermImpl: new EducationTermImpl(this.term)));
         }
     };
     /**
@@ -522,7 +522,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
         if(value) {
             const teachersArrValue: EducationUserImpl[] = [];
             this.teachers?.forEach(element => {
-                teachersArrValue.push((element instanceof EducationUserImpl? element:new EducationUserImpl(element)));
+                teachersArrValue.push((element instanceof EducationUserImpl? element as EducationUserImpl:new EducationUserImpl(element)));
             });
             this._teachers = teachersArrValue;
         }
@@ -540,7 +540,7 @@ export class EducationClassImpl extends EntityImpl implements EducationClass {
      */
     public set term(value: EducationTerm | undefined) {
         if(value) {
-            this._term = value instanceof EducationTermImpl? value : new EducationTermImpl(value);
+            this._term = value instanceof EducationTermImpl? value as EducationTermImpl: new EducationTermImpl(value);
         }
     };
 }

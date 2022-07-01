@@ -37,7 +37,7 @@ export class ItemAttachmentImpl extends AttachmentImpl implements ItemAttachment
      */
     public set item(value: OutlookItem | undefined) {
         if(value) {
-            this._item = value instanceof OutlookItemImpl? value : new OutlookItemImpl(value);
+            this._item = value instanceof OutlookItemImpl? value as OutlookItemImpl: new OutlookItemImpl(value);
         }
     };
     /**
@@ -48,7 +48,7 @@ export class ItemAttachmentImpl extends AttachmentImpl implements ItemAttachment
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.item){
-            writer.writeObjectValue<OutlookItemImpl>("item", (!this.item || this.item instanceof OutlookItemImpl? this.item : new OutlookItemImpl(this.item)));
+            writer.writeObjectValue<OutlookItemImpl>("item", (this.item instanceof OutlookItemImpl? this.item as OutlookItemImpl: new OutlookItemImpl(this.item)));
         }
     };
 }

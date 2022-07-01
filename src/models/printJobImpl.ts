@@ -45,7 +45,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
      */
     public set configuration(value: PrintJobConfiguration | undefined) {
         if(value) {
-            this._configuration = value instanceof PrintJobConfigurationImpl? value : new PrintJobConfigurationImpl(value);
+            this._configuration = value instanceof PrintJobConfigurationImpl? value as PrintJobConfigurationImpl: new PrintJobConfigurationImpl(value);
         }
     };
     /**
@@ -77,7 +77,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
      */
     public set createdBy(value: UserIdentity | undefined) {
         if(value) {
-            this._createdBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+            this._createdBy = value instanceof UserIdentityImpl? value as UserIdentityImpl: new UserIdentityImpl(value);
         }
     };
     /**
@@ -111,7 +111,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(value) {
             const documentsArrValue: PrintDocumentImpl[] = [];
             this.documents?.forEach(element => {
-                documentsArrValue.push((element instanceof PrintDocumentImpl? element:new PrintDocumentImpl(element)));
+                documentsArrValue.push((element instanceof PrintDocumentImpl? element as PrintDocumentImpl:new PrintDocumentImpl(element)));
             });
             this._documents = documentsArrValue;
         }
@@ -189,17 +189,17 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.configuration){
-            writer.writeObjectValue<PrintJobConfigurationImpl>("configuration", (!this.configuration || this.configuration instanceof PrintJobConfigurationImpl? this.configuration : new PrintJobConfigurationImpl(this.configuration)));
+            writer.writeObjectValue<PrintJobConfigurationImpl>("configuration", (this.configuration instanceof PrintJobConfigurationImpl? this.configuration as PrintJobConfigurationImpl: new PrintJobConfigurationImpl(this.configuration)));
         }
         if(this.createdBy){
-            writer.writeObjectValue<UserIdentityImpl>("createdBy", (!this.createdBy || this.createdBy instanceof UserIdentityImpl? this.createdBy : new UserIdentityImpl(this.createdBy)));
+            writer.writeObjectValue<UserIdentityImpl>("createdBy", (this.createdBy instanceof UserIdentityImpl? this.createdBy as UserIdentityImpl: new UserIdentityImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.documents && this.documents.length != 0){        const documentsArrValue: PrintDocumentImpl[] = [];
         this.documents?.forEach(element => {
-            documentsArrValue.push((element instanceof PrintDocumentImpl? element:new PrintDocumentImpl(element)));
+            documentsArrValue.push((element instanceof PrintDocumentImpl? element as PrintDocumentImpl:new PrintDocumentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintDocumentImpl>("documents", documentsArrValue);
         }
@@ -213,11 +213,11 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
             writer.writeStringValue("redirectedTo", this.redirectedTo);
         }
         if(this.status){
-            writer.writeObjectValue<PrintJobStatusImpl>("status", (!this.status || this.status instanceof PrintJobStatusImpl? this.status : new PrintJobStatusImpl(this.status)));
+            writer.writeObjectValue<PrintJobStatusImpl>("status", (this.status instanceof PrintJobStatusImpl? this.status as PrintJobStatusImpl: new PrintJobStatusImpl(this.status)));
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PrintTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+            tasksArrValue.push((element instanceof PrintTaskImpl? element as PrintTaskImpl:new PrintTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintTaskImpl>("tasks", tasksArrValue);
         }
@@ -235,7 +235,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
      */
     public set status(value: PrintJobStatus | undefined) {
         if(value) {
-            this._status = value instanceof PrintJobStatusImpl? value : new PrintJobStatusImpl(value);
+            this._status = value instanceof PrintJobStatusImpl? value as PrintJobStatusImpl: new PrintJobStatusImpl(value);
         }
     };
     /**
@@ -253,7 +253,7 @@ export class PrintJobImpl extends EntityImpl implements PrintJob {
         if(value) {
             const tasksArrValue: PrintTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof PrintTaskImpl? element:new PrintTaskImpl(element)));
+                tasksArrValue.push((element instanceof PrintTaskImpl? element as PrintTaskImpl:new PrintTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

@@ -49,7 +49,7 @@ export class RoleManagementImpl implements RoleManagement {
      */
     public set directory(value: RbacApplication | undefined) {
         if(value) {
-            this._directory = value instanceof RbacApplicationImpl? value : new RbacApplicationImpl(value);
+            this._directory = value instanceof RbacApplicationImpl? value as RbacApplicationImpl: new RbacApplicationImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class RoleManagementImpl implements RoleManagement {
      */
     public set entitlementManagement(value: RbacApplication | undefined) {
         if(value) {
-            this._entitlementManagement = value instanceof RbacApplicationImpl? value : new RbacApplicationImpl(value);
+            this._entitlementManagement = value instanceof RbacApplicationImpl? value as RbacApplicationImpl: new RbacApplicationImpl(value);
         }
     };
     /**
@@ -85,10 +85,10 @@ export class RoleManagementImpl implements RoleManagement {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.directory){
-            writer.writeObjectValue<RbacApplicationImpl>("directory", (!this.directory || this.directory instanceof RbacApplicationImpl? this.directory : new RbacApplicationImpl(this.directory)));
+            writer.writeObjectValue<RbacApplicationImpl>("directory", (this.directory instanceof RbacApplicationImpl? this.directory as RbacApplicationImpl: new RbacApplicationImpl(this.directory)));
         }
         if(this.entitlementManagement){
-            writer.writeObjectValue<RbacApplicationImpl>("entitlementManagement", (!this.entitlementManagement || this.entitlementManagement instanceof RbacApplicationImpl? this.entitlementManagement : new RbacApplicationImpl(this.entitlementManagement)));
+            writer.writeObjectValue<RbacApplicationImpl>("entitlementManagement", (this.entitlementManagement instanceof RbacApplicationImpl? this.entitlementManagement as RbacApplicationImpl: new RbacApplicationImpl(this.entitlementManagement)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

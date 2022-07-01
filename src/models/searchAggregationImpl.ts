@@ -42,7 +42,7 @@ export class SearchAggregationImpl implements SearchAggregation {
         if(value) {
             const bucketsArrValue: SearchBucketImpl[] = [];
             this.buckets?.forEach(element => {
-                bucketsArrValue.push((element instanceof SearchBucketImpl? element:new SearchBucketImpl(element)));
+                bucketsArrValue.push((element instanceof SearchBucketImpl? element as SearchBucketImpl:new SearchBucketImpl(element)));
             });
             this._buckets = bucketsArrValue;
         }
@@ -90,7 +90,7 @@ export class SearchAggregationImpl implements SearchAggregation {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: SearchBucketImpl[] = [];
         this.buckets?.forEach(element => {
-            bucketsArrValue.push((element instanceof SearchBucketImpl? element:new SearchBucketImpl(element)));
+            bucketsArrValue.push((element instanceof SearchBucketImpl? element as SearchBucketImpl:new SearchBucketImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SearchBucketImpl>("buckets", bucketsArrValue);
         }

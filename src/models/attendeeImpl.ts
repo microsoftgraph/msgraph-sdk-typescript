@@ -44,7 +44,7 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
      */
     public set proposedNewTime(value: TimeSlot | undefined) {
         if(value) {
-            this._proposedNewTime = value instanceof TimeSlotImpl? value : new TimeSlotImpl(value);
+            this._proposedNewTime = value instanceof TimeSlotImpl? value as TimeSlotImpl: new TimeSlotImpl(value);
         }
     };
     /**
@@ -55,10 +55,10 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.proposedNewTime){
-            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (!this.proposedNewTime || this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime : new TimeSlotImpl(this.proposedNewTime)));
+            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime as TimeSlotImpl: new TimeSlotImpl(this.proposedNewTime)));
         }
         if(this.status){
-            writer.writeObjectValue<ResponseStatusImpl>("status", (!this.status || this.status instanceof ResponseStatusImpl? this.status : new ResponseStatusImpl(this.status)));
+            writer.writeObjectValue<ResponseStatusImpl>("status", (this.status instanceof ResponseStatusImpl? this.status as ResponseStatusImpl: new ResponseStatusImpl(this.status)));
         }
     };
     /**
@@ -74,7 +74,7 @@ export class AttendeeImpl extends AttendeeBaseImpl implements Attendee {
      */
     public set status(value: ResponseStatus | undefined) {
         if(value) {
-            this._status = value instanceof ResponseStatusImpl? value : new ResponseStatusImpl(value);
+            this._status = value instanceof ResponseStatusImpl? value as ResponseStatusImpl: new ResponseStatusImpl(value);
         }
     };
 }

@@ -34,7 +34,7 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
      */
     public set draftOpenShift(value: OpenShiftItem | undefined) {
         if(value) {
-            this._draftOpenShift = value instanceof OpenShiftItemImpl? value : new OpenShiftItemImpl(value);
+            this._draftOpenShift = value instanceof OpenShiftItemImpl? value as OpenShiftItemImpl: new OpenShiftItemImpl(value);
         }
     };
     /**
@@ -72,13 +72,13 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftOpenShift){
-            writer.writeObjectValue<OpenShiftItemImpl>("draftOpenShift", (!this.draftOpenShift || this.draftOpenShift instanceof OpenShiftItemImpl? this.draftOpenShift : new OpenShiftItemImpl(this.draftOpenShift)));
+            writer.writeObjectValue<OpenShiftItemImpl>("draftOpenShift", (this.draftOpenShift instanceof OpenShiftItemImpl? this.draftOpenShift as OpenShiftItemImpl: new OpenShiftItemImpl(this.draftOpenShift)));
         }
         if(this.schedulingGroupId){
             writer.writeStringValue("schedulingGroupId", this.schedulingGroupId);
         }
         if(this.sharedOpenShift){
-            writer.writeObjectValue<OpenShiftItemImpl>("sharedOpenShift", (!this.sharedOpenShift || this.sharedOpenShift instanceof OpenShiftItemImpl? this.sharedOpenShift : new OpenShiftItemImpl(this.sharedOpenShift)));
+            writer.writeObjectValue<OpenShiftItemImpl>("sharedOpenShift", (this.sharedOpenShift instanceof OpenShiftItemImpl? this.sharedOpenShift as OpenShiftItemImpl: new OpenShiftItemImpl(this.sharedOpenShift)));
         }
     };
     /**
@@ -94,7 +94,7 @@ export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift 
      */
     public set sharedOpenShift(value: OpenShiftItem | undefined) {
         if(value) {
-            this._sharedOpenShift = value instanceof OpenShiftItemImpl? value : new OpenShiftItemImpl(value);
+            this._sharedOpenShift = value instanceof OpenShiftItemImpl? value as OpenShiftItemImpl: new OpenShiftItemImpl(value);
         }
     };
 }

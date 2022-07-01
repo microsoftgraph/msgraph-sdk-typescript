@@ -25,7 +25,7 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
      */
     public set categoryAxis(value: WorkbookChartAxis | undefined) {
         if(value) {
-            this._categoryAxis = value instanceof WorkbookChartAxisImpl? value : new WorkbookChartAxisImpl(value);
+            this._categoryAxis = value instanceof WorkbookChartAxisImpl? value as WorkbookChartAxisImpl: new WorkbookChartAxisImpl(value);
         }
     };
     /**
@@ -57,13 +57,13 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categoryAxis){
-            writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", (!this.categoryAxis || this.categoryAxis instanceof WorkbookChartAxisImpl? this.categoryAxis : new WorkbookChartAxisImpl(this.categoryAxis)));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("categoryAxis", (this.categoryAxis instanceof WorkbookChartAxisImpl? this.categoryAxis as WorkbookChartAxisImpl: new WorkbookChartAxisImpl(this.categoryAxis)));
         }
         if(this.seriesAxis){
-            writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", (!this.seriesAxis || this.seriesAxis instanceof WorkbookChartAxisImpl? this.seriesAxis : new WorkbookChartAxisImpl(this.seriesAxis)));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("seriesAxis", (this.seriesAxis instanceof WorkbookChartAxisImpl? this.seriesAxis as WorkbookChartAxisImpl: new WorkbookChartAxisImpl(this.seriesAxis)));
         }
         if(this.valueAxis){
-            writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", (!this.valueAxis || this.valueAxis instanceof WorkbookChartAxisImpl? this.valueAxis : new WorkbookChartAxisImpl(this.valueAxis)));
+            writer.writeObjectValue<WorkbookChartAxisImpl>("valueAxis", (this.valueAxis instanceof WorkbookChartAxisImpl? this.valueAxis as WorkbookChartAxisImpl: new WorkbookChartAxisImpl(this.valueAxis)));
         }
     };
     /**
@@ -79,7 +79,7 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
      */
     public set seriesAxis(value: WorkbookChartAxis | undefined) {
         if(value) {
-            this._seriesAxis = value instanceof WorkbookChartAxisImpl? value : new WorkbookChartAxisImpl(value);
+            this._seriesAxis = value instanceof WorkbookChartAxisImpl? value as WorkbookChartAxisImpl: new WorkbookChartAxisImpl(value);
         }
     };
     /**
@@ -95,7 +95,7 @@ export class WorkbookChartAxesImpl extends EntityImpl implements WorkbookChartAx
      */
     public set valueAxis(value: WorkbookChartAxis | undefined) {
         if(value) {
-            this._valueAxis = value instanceof WorkbookChartAxisImpl? value : new WorkbookChartAxisImpl(value);
+            this._valueAxis = value instanceof WorkbookChartAxisImpl? value as WorkbookChartAxisImpl: new WorkbookChartAxisImpl(value);
         }
     };
 }

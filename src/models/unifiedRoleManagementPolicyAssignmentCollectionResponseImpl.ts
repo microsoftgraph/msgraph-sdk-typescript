@@ -73,7 +73,7 @@ export class UnifiedRoleManagementPolicyAssignmentCollectionResponseImpl impleme
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
+            valueArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element as UnifiedRoleManagementPolicyAssignmentImpl:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UnifiedRoleManagementPolicyAssignmentCollectionResponseImpl impleme
         if(value) {
             const valueArrValue: UnifiedRoleManagementPolicyAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
+                valueArrValue.push((element instanceof UnifiedRoleManagementPolicyAssignmentImpl? element as UnifiedRoleManagementPolicyAssignmentImpl:new UnifiedRoleManagementPolicyAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

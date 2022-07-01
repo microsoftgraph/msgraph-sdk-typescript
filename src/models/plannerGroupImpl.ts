@@ -40,7 +40,7 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
         if(value) {
             const plansArrValue: PlannerPlanImpl[] = [];
             this.plans?.forEach(element => {
-                plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+                plansArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
             });
             this._plans = plansArrValue;
         }
@@ -54,7 +54,7 @@ export class PlannerGroupImpl extends EntityImpl implements PlannerGroup {
         super.serialize(writer);
         if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = [];
         this.plans?.forEach(element => {
-            plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+            plansArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }

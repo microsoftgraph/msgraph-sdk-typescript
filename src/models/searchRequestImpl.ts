@@ -86,7 +86,7 @@ export class SearchRequestImpl implements SearchRequest {
         if(value) {
             const aggregationsArrValue: AggregationOptionImpl[] = [];
             this.aggregations?.forEach(element => {
-                aggregationsArrValue.push((element instanceof AggregationOptionImpl? element:new AggregationOptionImpl(element)));
+                aggregationsArrValue.push((element instanceof AggregationOptionImpl? element as AggregationOptionImpl:new AggregationOptionImpl(element)));
             });
             this._aggregations = aggregationsArrValue;
         }
@@ -223,7 +223,7 @@ export class SearchRequestImpl implements SearchRequest {
      */
     public set query(value: SearchQuery | undefined) {
         if(value) {
-            this._query = value instanceof SearchQueryImpl? value : new SearchQueryImpl(value);
+            this._query = value instanceof SearchQueryImpl? value as SearchQueryImpl: new SearchQueryImpl(value);
         }
     };
     /**
@@ -239,7 +239,7 @@ export class SearchRequestImpl implements SearchRequest {
      */
     public set queryAlterationOptions(value: SearchAlterationOptions | undefined) {
         if(value) {
-            this._queryAlterationOptions = value instanceof SearchAlterationOptionsImpl? value : new SearchAlterationOptionsImpl(value);
+            this._queryAlterationOptions = value instanceof SearchAlterationOptionsImpl? value as SearchAlterationOptionsImpl: new SearchAlterationOptionsImpl(value);
         }
     };
     /**
@@ -255,7 +255,7 @@ export class SearchRequestImpl implements SearchRequest {
      */
     public set resultTemplateOptions(value: ResultTemplateOption | undefined) {
         if(value) {
-            this._resultTemplateOptions = value instanceof ResultTemplateOptionImpl? value : new ResultTemplateOptionImpl(value);
+            this._resultTemplateOptions = value instanceof ResultTemplateOptionImpl? value as ResultTemplateOptionImpl: new ResultTemplateOptionImpl(value);
         }
     };
     /**
@@ -269,7 +269,7 @@ export class SearchRequestImpl implements SearchRequest {
         }
         if(this.aggregations && this.aggregations.length != 0){        const aggregationsArrValue: AggregationOptionImpl[] = [];
         this.aggregations?.forEach(element => {
-            aggregationsArrValue.push((element instanceof AggregationOptionImpl? element:new AggregationOptionImpl(element)));
+            aggregationsArrValue.push((element instanceof AggregationOptionImpl? element as AggregationOptionImpl:new AggregationOptionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AggregationOptionImpl>("aggregations", aggregationsArrValue);
         }
@@ -289,20 +289,20 @@ export class SearchRequestImpl implements SearchRequest {
             writer.writeNumberValue("from", this.from);
         }
         if(this.query){
-            writer.writeObjectValue<SearchQueryImpl>("query", (!this.query || this.query instanceof SearchQueryImpl? this.query : new SearchQueryImpl(this.query)));
+            writer.writeObjectValue<SearchQueryImpl>("query", (this.query instanceof SearchQueryImpl? this.query as SearchQueryImpl: new SearchQueryImpl(this.query)));
         }
         if(this.queryAlterationOptions){
-            writer.writeObjectValue<SearchAlterationOptionsImpl>("queryAlterationOptions", (!this.queryAlterationOptions || this.queryAlterationOptions instanceof SearchAlterationOptionsImpl? this.queryAlterationOptions : new SearchAlterationOptionsImpl(this.queryAlterationOptions)));
+            writer.writeObjectValue<SearchAlterationOptionsImpl>("queryAlterationOptions", (this.queryAlterationOptions instanceof SearchAlterationOptionsImpl? this.queryAlterationOptions as SearchAlterationOptionsImpl: new SearchAlterationOptionsImpl(this.queryAlterationOptions)));
         }
         if(this.resultTemplateOptions){
-            writer.writeObjectValue<ResultTemplateOptionImpl>("resultTemplateOptions", (!this.resultTemplateOptions || this.resultTemplateOptions instanceof ResultTemplateOptionImpl? this.resultTemplateOptions : new ResultTemplateOptionImpl(this.resultTemplateOptions)));
+            writer.writeObjectValue<ResultTemplateOptionImpl>("resultTemplateOptions", (this.resultTemplateOptions instanceof ResultTemplateOptionImpl? this.resultTemplateOptions as ResultTemplateOptionImpl: new ResultTemplateOptionImpl(this.resultTemplateOptions)));
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
         if(this.sortProperties && this.sortProperties.length != 0){        const sortPropertiesArrValue: SortPropertyImpl[] = [];
         this.sortProperties?.forEach(element => {
-            sortPropertiesArrValue.push((element instanceof SortPropertyImpl? element:new SortPropertyImpl(element)));
+            sortPropertiesArrValue.push((element instanceof SortPropertyImpl? element as SortPropertyImpl:new SortPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SortPropertyImpl>("sortProperties", sortPropertiesArrValue);
         }
@@ -339,7 +339,7 @@ export class SearchRequestImpl implements SearchRequest {
         if(value) {
             const sortPropertiesArrValue: SortPropertyImpl[] = [];
             this.sortProperties?.forEach(element => {
-                sortPropertiesArrValue.push((element instanceof SortPropertyImpl? element:new SortPropertyImpl(element)));
+                sortPropertiesArrValue.push((element instanceof SortPropertyImpl? element as SortPropertyImpl:new SortPropertyImpl(element)));
             });
             this._sortProperties = sortPropertiesArrValue;
         }

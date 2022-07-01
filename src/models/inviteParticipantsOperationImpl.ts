@@ -39,7 +39,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
         if(value) {
             const participantsArrValue: InvitationParticipantInfoImpl[] = [];
             this.participants?.forEach(element => {
-                participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+                participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
             });
             this._participants = participantsArrValue;
         }
@@ -53,7 +53,7 @@ export class InviteParticipantsOperationImpl extends CommsOperationImpl implemen
         super.serialize(writer);
         if(this.participants && this.participants.length != 0){        const participantsArrValue: InvitationParticipantInfoImpl[] = [];
         this.participants?.forEach(element => {
-            participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+            participantsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("participants", participantsArrValue);
         }

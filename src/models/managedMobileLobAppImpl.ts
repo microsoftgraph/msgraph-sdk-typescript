@@ -55,7 +55,7 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
         if(value) {
             const contentVersionsArrValue: MobileAppContentImpl[] = [];
             this.contentVersions?.forEach(element => {
-                contentVersionsArrValue.push((element instanceof MobileAppContentImpl? element:new MobileAppContentImpl(element)));
+                contentVersionsArrValue.push((element instanceof MobileAppContentImpl? element as MobileAppContentImpl:new MobileAppContentImpl(element)));
             });
             this._contentVersions = contentVersionsArrValue;
         }
@@ -100,7 +100,7 @@ export class ManagedMobileLobAppImpl extends ManagedAppImpl implements ManagedMo
         }
         if(this.contentVersions && this.contentVersions.length != 0){        const contentVersionsArrValue: MobileAppContentImpl[] = [];
         this.contentVersions?.forEach(element => {
-            contentVersionsArrValue.push((element instanceof MobileAppContentImpl? element:new MobileAppContentImpl(element)));
+            contentVersionsArrValue.push((element instanceof MobileAppContentImpl? element as MobileAppContentImpl:new MobileAppContentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppContentImpl>("contentVersions", contentVersionsArrValue);
         }

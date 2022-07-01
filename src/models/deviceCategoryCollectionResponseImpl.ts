@@ -73,7 +73,7 @@ export class DeviceCategoryCollectionResponseImpl implements DeviceCategoryColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCategoryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceCategoryImpl? element:new DeviceCategoryImpl(element)));
+            valueArrValue.push((element instanceof DeviceCategoryImpl? element as DeviceCategoryImpl:new DeviceCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceCategoryCollectionResponseImpl implements DeviceCategoryColle
         if(value) {
             const valueArrValue: DeviceCategoryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceCategoryImpl? element:new DeviceCategoryImpl(element)));
+                valueArrValue.push((element instanceof DeviceCategoryImpl? element as DeviceCategoryImpl:new DeviceCategoryImpl(element)));
             });
             this._value = valueArrValue;
         }

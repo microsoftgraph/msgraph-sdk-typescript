@@ -41,7 +41,7 @@ export class AttendeeAvailabilityImpl implements AttendeeAvailability {
      */
     public set attendee(value: AttendeeBase | undefined) {
         if(value) {
-            this._attendee = value instanceof AttendeeBaseImpl? value : new AttendeeBaseImpl(value);
+            this._attendee = value instanceof AttendeeBaseImpl? value as AttendeeBaseImpl: new AttendeeBaseImpl(value);
         }
     };
     /**
@@ -86,7 +86,7 @@ export class AttendeeAvailabilityImpl implements AttendeeAvailability {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendee){
-            writer.writeObjectValue<AttendeeBaseImpl>("attendee", (!this.attendee || this.attendee instanceof AttendeeBaseImpl? this.attendee : new AttendeeBaseImpl(this.attendee)));
+            writer.writeObjectValue<AttendeeBaseImpl>("attendee", (this.attendee instanceof AttendeeBaseImpl? this.attendee as AttendeeBaseImpl: new AttendeeBaseImpl(this.attendee)));
         }
         if(this.availability){
             writer.writeEnumValue<FreeBusyStatus>("availability", this.availability);

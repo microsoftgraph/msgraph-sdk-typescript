@@ -46,7 +46,7 @@ export class RecipientImpl implements Recipient {
      */
     public set emailAddress(value: EmailAddress | undefined) {
         if(value) {
-            this._emailAddress = value instanceof EmailAddressImpl? value : new EmailAddressImpl(value);
+            this._emailAddress = value instanceof EmailAddressImpl? value as EmailAddressImpl: new EmailAddressImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class RecipientImpl implements Recipient {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.emailAddress){
-            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (!this.emailAddress || this.emailAddress instanceof EmailAddressImpl? this.emailAddress : new EmailAddressImpl(this.emailAddress)));
+            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (this.emailAddress instanceof EmailAddressImpl? this.emailAddress as EmailAddressImpl: new EmailAddressImpl(this.emailAddress)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

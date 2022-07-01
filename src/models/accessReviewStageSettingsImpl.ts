@@ -114,7 +114,7 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         if(value) {
             const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.fallbackReviewers?.forEach(element => {
-                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._fallbackReviewers = fallbackReviewersArrValue;
         }
@@ -165,7 +165,7 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         if(value) {
             const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.reviewers?.forEach(element => {
-                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._reviewers = reviewersArrValue;
         }
@@ -187,7 +187,7 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         }
         if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.fallbackReviewers?.forEach(element => {
-            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
@@ -196,7 +196,7 @@ export class AccessReviewStageSettingsImpl implements AccessReviewStageSettings 
         }
         if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.reviewers?.forEach(element => {
-            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }

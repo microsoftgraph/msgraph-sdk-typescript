@@ -55,7 +55,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         if(value) {
             const assignmentsArrValue: ManagedEBookAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element:new ManagedEBookAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element as ManagedEBookAssignmentImpl:new ManagedEBookAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -127,7 +127,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         if(value) {
             const deviceStatesArrValue: DeviceInstallStateImpl[] = [];
             this.deviceStates?.forEach(element => {
-                deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element:new DeviceInstallStateImpl(element)));
+                deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element as DeviceInstallStateImpl:new DeviceInstallStateImpl(element)));
             });
             this._deviceStates = deviceStatesArrValue;
         }
@@ -198,7 +198,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
      */
     public set installSummary(value: EBookInstallSummary | undefined) {
         if(value) {
-            this._installSummary = value instanceof EBookInstallSummaryImpl? value : new EBookInstallSummaryImpl(value);
+            this._installSummary = value instanceof EBookInstallSummaryImpl? value as EBookInstallSummaryImpl: new EBookInstallSummaryImpl(value);
         }
     };
     /**
@@ -214,7 +214,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
      */
     public set largeCover(value: MimeContent | undefined) {
         if(value) {
-            this._largeCover = value instanceof MimeContentImpl? value : new MimeContentImpl(value);
+            this._largeCover = value instanceof MimeContentImpl? value as MimeContentImpl: new MimeContentImpl(value);
         }
     };
     /**
@@ -290,7 +290,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedEBookAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element:new ManagedEBookAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof ManagedEBookAssignmentImpl? element as ManagedEBookAssignmentImpl:new ManagedEBookAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedEBookAssignmentImpl>("assignments", assignmentsArrValue);
         }
@@ -302,7 +302,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         }
         if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = [];
         this.deviceStates?.forEach(element => {
-            deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element:new DeviceInstallStateImpl(element)));
+            deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element as DeviceInstallStateImpl:new DeviceInstallStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }
@@ -313,10 +313,10 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
             writer.writeStringValue("informationUrl", this.informationUrl);
         }
         if(this.installSummary){
-            writer.writeObjectValue<EBookInstallSummaryImpl>("installSummary", (!this.installSummary || this.installSummary instanceof EBookInstallSummaryImpl? this.installSummary : new EBookInstallSummaryImpl(this.installSummary)));
+            writer.writeObjectValue<EBookInstallSummaryImpl>("installSummary", (this.installSummary instanceof EBookInstallSummaryImpl? this.installSummary as EBookInstallSummaryImpl: new EBookInstallSummaryImpl(this.installSummary)));
         }
         if(this.largeCover){
-            writer.writeObjectValue<MimeContentImpl>("largeCover", (!this.largeCover || this.largeCover instanceof MimeContentImpl? this.largeCover : new MimeContentImpl(this.largeCover)));
+            writer.writeObjectValue<MimeContentImpl>("largeCover", (this.largeCover instanceof MimeContentImpl? this.largeCover as MimeContentImpl: new MimeContentImpl(this.largeCover)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
@@ -332,7 +332,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         }
         if(this.userStateSummary && this.userStateSummary.length != 0){        const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = [];
         this.userStateSummary?.forEach(element => {
-            userStateSummaryArrValue.push((element instanceof UserInstallStateSummaryImpl? element:new UserInstallStateSummaryImpl(element)));
+            userStateSummaryArrValue.push((element instanceof UserInstallStateSummaryImpl? element as UserInstallStateSummaryImpl:new UserInstallStateSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("userStateSummary", userStateSummaryArrValue);
         }
@@ -352,7 +352,7 @@ export class ManagedEBookImpl extends EntityImpl implements ManagedEBook {
         if(value) {
             const userStateSummaryArrValue: UserInstallStateSummaryImpl[] = [];
             this.userStateSummary?.forEach(element => {
-                userStateSummaryArrValue.push((element instanceof UserInstallStateSummaryImpl? element:new UserInstallStateSummaryImpl(element)));
+                userStateSummaryArrValue.push((element instanceof UserInstallStateSummaryImpl? element as UserInstallStateSummaryImpl:new UserInstallStateSummaryImpl(element)));
             });
             this._userStateSummary = userStateSummaryArrValue;
         }

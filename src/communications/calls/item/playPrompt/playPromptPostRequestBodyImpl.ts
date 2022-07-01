@@ -78,7 +78,7 @@ export class PlayPromptPostRequestBodyImpl implements PlayPromptPostRequestBody 
         if(value) {
             const promptsArrValue: PromptImpl[] = [];
             this.prompts?.forEach(element => {
-                promptsArrValue.push((element instanceof PromptImpl? element:new PromptImpl(element)));
+                promptsArrValue.push((element instanceof PromptImpl? element as PromptImpl:new PromptImpl(element)));
             });
             this._prompts = promptsArrValue;
         }
@@ -94,7 +94,7 @@ export class PlayPromptPostRequestBodyImpl implements PlayPromptPostRequestBody 
         }
         if(this.prompts && this.prompts.length != 0){        const promptsArrValue: PromptImpl[] = [];
         this.prompts?.forEach(element => {
-            promptsArrValue.push((element instanceof PromptImpl? element:new PromptImpl(element)));
+            promptsArrValue.push((element instanceof PromptImpl? element as PromptImpl:new PromptImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PromptImpl>("prompts", promptsArrValue);
         }

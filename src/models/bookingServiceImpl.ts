@@ -108,7 +108,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         if(value) {
             const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = [];
             this.customQuestions?.forEach(element => {
-                customQuestionsArrValue.push((element instanceof BookingQuestionAssignmentImpl? element:new BookingQuestionAssignmentImpl(element)));
+                customQuestionsArrValue.push((element instanceof BookingQuestionAssignmentImpl? element as BookingQuestionAssignmentImpl:new BookingQuestionAssignmentImpl(element)));
             });
             this._customQuestions = customQuestionsArrValue;
         }
@@ -142,7 +142,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
      */
     public set defaultLocation(value: Location | undefined) {
         if(value) {
-            this._defaultLocation = value instanceof LocationImpl? value : new LocationImpl(value);
+            this._defaultLocation = value instanceof LocationImpl? value as LocationImpl: new LocationImpl(value);
         }
     };
     /**
@@ -192,7 +192,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         if(value) {
             const defaultRemindersArrValue: BookingReminderImpl[] = [];
             this.defaultReminders?.forEach(element => {
-                defaultRemindersArrValue.push((element instanceof BookingReminderImpl? element:new BookingReminderImpl(element)));
+                defaultRemindersArrValue.push((element instanceof BookingReminderImpl? element as BookingReminderImpl:new BookingReminderImpl(element)));
             });
             this._defaultReminders = defaultRemindersArrValue;
         }
@@ -365,7 +365,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
      */
     public set schedulingPolicy(value: BookingSchedulingPolicy | undefined) {
         if(value) {
-            this._schedulingPolicy = value instanceof BookingSchedulingPolicyImpl? value : new BookingSchedulingPolicyImpl(value);
+            this._schedulingPolicy = value instanceof BookingSchedulingPolicyImpl? value as BookingSchedulingPolicyImpl: new BookingSchedulingPolicyImpl(value);
         }
     };
     /**
@@ -380,7 +380,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         }
         if(this.customQuestions && this.customQuestions.length != 0){        const customQuestionsArrValue: BookingQuestionAssignmentImpl[] = [];
         this.customQuestions?.forEach(element => {
-            customQuestionsArrValue.push((element instanceof BookingQuestionAssignmentImpl? element:new BookingQuestionAssignmentImpl(element)));
+            customQuestionsArrValue.push((element instanceof BookingQuestionAssignmentImpl? element as BookingQuestionAssignmentImpl:new BookingQuestionAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingQuestionAssignmentImpl>("customQuestions", customQuestionsArrValue);
         }
@@ -388,7 +388,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
             writer.writeDurationValue("defaultDuration", this.defaultDuration);
         }
         if(this.defaultLocation){
-            writer.writeObjectValue<LocationImpl>("defaultLocation", (!this.defaultLocation || this.defaultLocation instanceof LocationImpl? this.defaultLocation : new LocationImpl(this.defaultLocation)));
+            writer.writeObjectValue<LocationImpl>("defaultLocation", (this.defaultLocation instanceof LocationImpl? this.defaultLocation as LocationImpl: new LocationImpl(this.defaultLocation)));
         }
         if(this.defaultPrice){
             writer.writeNumberValue("defaultPrice", this.defaultPrice);
@@ -398,7 +398,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
         }
         if(this.defaultReminders && this.defaultReminders.length != 0){        const defaultRemindersArrValue: BookingReminderImpl[] = [];
         this.defaultReminders?.forEach(element => {
-            defaultRemindersArrValue.push((element instanceof BookingReminderImpl? element:new BookingReminderImpl(element)));
+            defaultRemindersArrValue.push((element instanceof BookingReminderImpl? element as BookingReminderImpl:new BookingReminderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingReminderImpl>("defaultReminders", defaultRemindersArrValue);
         }
@@ -427,7 +427,7 @@ export class BookingServiceImpl extends EntityImpl implements BookingService {
             writer.writeDurationValue("preBuffer", this.preBuffer);
         }
         if(this.schedulingPolicy){
-            writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", (!this.schedulingPolicy || this.schedulingPolicy instanceof BookingSchedulingPolicyImpl? this.schedulingPolicy : new BookingSchedulingPolicyImpl(this.schedulingPolicy)));
+            writer.writeObjectValue<BookingSchedulingPolicyImpl>("schedulingPolicy", (this.schedulingPolicy instanceof BookingSchedulingPolicyImpl? this.schedulingPolicy as BookingSchedulingPolicyImpl: new BookingSchedulingPolicyImpl(this.schedulingPolicy)));
         }
         if(this.smsNotificationsEnabled){
             writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);

@@ -87,7 +87,7 @@ export class SignInLocationImpl implements SignInLocation {
      */
     public set geoCoordinates(value: GeoCoordinates | undefined) {
         if(value) {
-            this._geoCoordinates = value instanceof GeoCoordinatesImpl? value : new GeoCoordinatesImpl(value);
+            this._geoCoordinates = value instanceof GeoCoordinatesImpl? value as GeoCoordinatesImpl: new GeoCoordinatesImpl(value);
         }
     };
     /**
@@ -115,7 +115,7 @@ export class SignInLocationImpl implements SignInLocation {
             writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         }
         if(this.geoCoordinates){
-            writer.writeObjectValue<GeoCoordinatesImpl>("geoCoordinates", (!this.geoCoordinates || this.geoCoordinates instanceof GeoCoordinatesImpl? this.geoCoordinates : new GeoCoordinatesImpl(this.geoCoordinates)));
+            writer.writeObjectValue<GeoCoordinatesImpl>("geoCoordinates", (this.geoCoordinates instanceof GeoCoordinatesImpl? this.geoCoordinates as GeoCoordinatesImpl: new GeoCoordinatesImpl(this.geoCoordinates)));
         }
         if(this.state){
             writer.writeStringValue("state", this.state);

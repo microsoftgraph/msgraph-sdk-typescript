@@ -35,7 +35,7 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
         if(value) {
             const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element:new EnrollmentConfigurationAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element as EnrollmentConfigurationAssignmentImpl:new EnrollmentConfigurationAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -158,7 +158,7 @@ export class DeviceEnrollmentConfigurationImpl extends EntityImpl implements Dev
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element:new EnrollmentConfigurationAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element as EnrollmentConfigurationAssignmentImpl:new EnrollmentConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }

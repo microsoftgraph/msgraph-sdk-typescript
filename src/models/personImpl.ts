@@ -278,7 +278,7 @@ export class PersonImpl extends EntityImpl implements Person {
      */
     public set personType(value: PersonType | undefined) {
         if(value) {
-            this._personType = value instanceof PersonTypeImpl? value : new PersonTypeImpl(value);
+            this._personType = value instanceof PersonTypeImpl? value as PersonTypeImpl: new PersonTypeImpl(value);
         }
     };
     /**
@@ -296,7 +296,7 @@ export class PersonImpl extends EntityImpl implements Person {
         if(value) {
             const phonesArrValue: PhoneImpl[] = [];
             this.phones?.forEach(element => {
-                phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+                phonesArrValue.push((element instanceof PhoneImpl? element as PhoneImpl:new PhoneImpl(element)));
             });
             this._phones = phonesArrValue;
         }
@@ -316,7 +316,7 @@ export class PersonImpl extends EntityImpl implements Person {
         if(value) {
             const postalAddressesArrValue: LocationImpl[] = [];
             this.postalAddresses?.forEach(element => {
-                postalAddressesArrValue.push((element instanceof LocationImpl? element:new LocationImpl(element)));
+                postalAddressesArrValue.push((element instanceof LocationImpl? element as LocationImpl:new LocationImpl(element)));
             });
             this._postalAddresses = postalAddressesArrValue;
         }
@@ -352,7 +352,7 @@ export class PersonImpl extends EntityImpl implements Person {
         if(value) {
             const scoredEmailAddressesArrValue: ScoredEmailAddressImpl[] = [];
             this.scoredEmailAddresses?.forEach(element => {
-                scoredEmailAddressesArrValue.push((element instanceof ScoredEmailAddressImpl? element:new ScoredEmailAddressImpl(element)));
+                scoredEmailAddressesArrValue.push((element instanceof ScoredEmailAddressImpl? element as ScoredEmailAddressImpl:new ScoredEmailAddressImpl(element)));
             });
             this._scoredEmailAddresses = scoredEmailAddressesArrValue;
         }
@@ -395,17 +395,17 @@ export class PersonImpl extends EntityImpl implements Person {
             writer.writeStringValue("personNotes", this.personNotes);
         }
         if(this.personType){
-            writer.writeObjectValue<PersonTypeImpl>("personType", (!this.personType || this.personType instanceof PersonTypeImpl? this.personType : new PersonTypeImpl(this.personType)));
+            writer.writeObjectValue<PersonTypeImpl>("personType", (this.personType instanceof PersonTypeImpl? this.personType as PersonTypeImpl: new PersonTypeImpl(this.personType)));
         }
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = [];
         this.phones?.forEach(element => {
-            phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+            phonesArrValue.push((element instanceof PhoneImpl? element as PhoneImpl:new PhoneImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }
         if(this.postalAddresses && this.postalAddresses.length != 0){        const postalAddressesArrValue: LocationImpl[] = [];
         this.postalAddresses?.forEach(element => {
-            postalAddressesArrValue.push((element instanceof LocationImpl? element:new LocationImpl(element)));
+            postalAddressesArrValue.push((element instanceof LocationImpl? element as LocationImpl:new LocationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocationImpl>("postalAddresses", postalAddressesArrValue);
         }
@@ -414,7 +414,7 @@ export class PersonImpl extends EntityImpl implements Person {
         }
         if(this.scoredEmailAddresses && this.scoredEmailAddresses.length != 0){        const scoredEmailAddressesArrValue: ScoredEmailAddressImpl[] = [];
         this.scoredEmailAddresses?.forEach(element => {
-            scoredEmailAddressesArrValue.push((element instanceof ScoredEmailAddressImpl? element:new ScoredEmailAddressImpl(element)));
+            scoredEmailAddressesArrValue.push((element instanceof ScoredEmailAddressImpl? element as ScoredEmailAddressImpl:new ScoredEmailAddressImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ScoredEmailAddressImpl>("scoredEmailAddresses", scoredEmailAddressesArrValue);
         }
@@ -426,7 +426,7 @@ export class PersonImpl extends EntityImpl implements Person {
         }
         if(this.websites && this.websites.length != 0){        const websitesArrValue: WebsiteImpl[] = [];
         this.websites?.forEach(element => {
-            websitesArrValue.push((element instanceof WebsiteImpl? element:new WebsiteImpl(element)));
+            websitesArrValue.push((element instanceof WebsiteImpl? element as WebsiteImpl:new WebsiteImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WebsiteImpl>("websites", websitesArrValue);
         }
@@ -481,7 +481,7 @@ export class PersonImpl extends EntityImpl implements Person {
         if(value) {
             const websitesArrValue: WebsiteImpl[] = [];
             this.websites?.forEach(element => {
-                websitesArrValue.push((element instanceof WebsiteImpl? element:new WebsiteImpl(element)));
+                websitesArrValue.push((element instanceof WebsiteImpl? element as WebsiteImpl:new WebsiteImpl(element)));
             });
             this._websites = websitesArrValue;
         }

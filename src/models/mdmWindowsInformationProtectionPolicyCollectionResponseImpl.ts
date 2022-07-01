@@ -73,7 +73,7 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element:new MdmWindowsInformationProtectionPolicyImpl(element)));
+            valueArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element as MdmWindowsInformationProtectionPolicyImpl:new MdmWindowsInformationProtectionPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MdmWindowsInformationProtectionPolicyCollectionResponseImpl impleme
         if(value) {
             const valueArrValue: MdmWindowsInformationProtectionPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element:new MdmWindowsInformationProtectionPolicyImpl(element)));
+                valueArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element as MdmWindowsInformationProtectionPolicyImpl:new MdmWindowsInformationProtectionPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

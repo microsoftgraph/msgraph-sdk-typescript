@@ -53,7 +53,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(value) {
             const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element:new DeviceConfigurationAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element as DeviceConfigurationAssignmentImpl:new DeviceConfigurationAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -123,7 +123,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(value) {
             const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = [];
             this.deviceSettingStateSummaries?.forEach(element => {
-                deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element:new SettingStateDeviceSummaryImpl(element)));
+                deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element as SettingStateDeviceSummaryImpl:new SettingStateDeviceSummaryImpl(element)));
             });
             this._deviceSettingStateSummaries = deviceSettingStateSummariesArrValue;
         }
@@ -143,7 +143,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(value) {
             const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = [];
             this.deviceStatuses?.forEach(element => {
-                deviceStatusesArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element:new DeviceConfigurationDeviceStatusImpl(element)));
+                deviceStatusesArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element as DeviceConfigurationDeviceStatusImpl:new DeviceConfigurationDeviceStatusImpl(element)));
             });
             this._deviceStatuses = deviceStatusesArrValue;
         }
@@ -161,7 +161,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
      */
     public set deviceStatusOverview(value: DeviceConfigurationDeviceOverview | undefined) {
         if(value) {
-            this._deviceStatusOverview = value instanceof DeviceConfigurationDeviceOverviewImpl? value : new DeviceConfigurationDeviceOverviewImpl(value);
+            this._deviceStatusOverview = value instanceof DeviceConfigurationDeviceOverviewImpl? value as DeviceConfigurationDeviceOverviewImpl: new DeviceConfigurationDeviceOverviewImpl(value);
         }
     };
     /**
@@ -224,7 +224,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element:new DeviceConfigurationAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element as DeviceConfigurationAssignmentImpl:new DeviceConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
@@ -236,18 +236,18 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         }
         if(this.deviceSettingStateSummaries && this.deviceSettingStateSummaries.length != 0){        const deviceSettingStateSummariesArrValue: SettingStateDeviceSummaryImpl[] = [];
         this.deviceSettingStateSummaries?.forEach(element => {
-            deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element:new SettingStateDeviceSummaryImpl(element)));
+            deviceSettingStateSummariesArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element as SettingStateDeviceSummaryImpl:new SettingStateDeviceSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("deviceSettingStateSummaries", deviceSettingStateSummariesArrValue);
         }
         if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: DeviceConfigurationDeviceStatusImpl[] = [];
         this.deviceStatuses?.forEach(element => {
-            deviceStatusesArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element:new DeviceConfigurationDeviceStatusImpl(element)));
+            deviceStatusesArrValue.push((element instanceof DeviceConfigurationDeviceStatusImpl? element as DeviceConfigurationDeviceStatusImpl:new DeviceConfigurationDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusOverview){
-            writer.writeObjectValue<DeviceConfigurationDeviceOverviewImpl>("deviceStatusOverview", (!this.deviceStatusOverview || this.deviceStatusOverview instanceof DeviceConfigurationDeviceOverviewImpl? this.deviceStatusOverview : new DeviceConfigurationDeviceOverviewImpl(this.deviceStatusOverview)));
+            writer.writeObjectValue<DeviceConfigurationDeviceOverviewImpl>("deviceStatusOverview", (this.deviceStatusOverview instanceof DeviceConfigurationDeviceOverviewImpl? this.deviceStatusOverview as DeviceConfigurationDeviceOverviewImpl: new DeviceConfigurationDeviceOverviewImpl(this.deviceStatusOverview)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
@@ -257,12 +257,12 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         }
         if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = [];
         this.userStatuses?.forEach(element => {
-            userStatusesArrValue.push((element instanceof DeviceConfigurationUserStatusImpl? element:new DeviceConfigurationUserStatusImpl(element)));
+            userStatusesArrValue.push((element instanceof DeviceConfigurationUserStatusImpl? element as DeviceConfigurationUserStatusImpl:new DeviceConfigurationUserStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusOverview){
-            writer.writeObjectValue<DeviceConfigurationUserOverviewImpl>("userStatusOverview", (!this.userStatusOverview || this.userStatusOverview instanceof DeviceConfigurationUserOverviewImpl? this.userStatusOverview : new DeviceConfigurationUserOverviewImpl(this.userStatusOverview)));
+            writer.writeObjectValue<DeviceConfigurationUserOverviewImpl>("userStatusOverview", (this.userStatusOverview instanceof DeviceConfigurationUserOverviewImpl? this.userStatusOverview as DeviceConfigurationUserOverviewImpl: new DeviceConfigurationUserOverviewImpl(this.userStatusOverview)));
         }
         if(this.version){
             writer.writeNumberValue("version", this.version);
@@ -283,7 +283,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
         if(value) {
             const userStatusesArrValue: DeviceConfigurationUserStatusImpl[] = [];
             this.userStatuses?.forEach(element => {
-                userStatusesArrValue.push((element instanceof DeviceConfigurationUserStatusImpl? element:new DeviceConfigurationUserStatusImpl(element)));
+                userStatusesArrValue.push((element instanceof DeviceConfigurationUserStatusImpl? element as DeviceConfigurationUserStatusImpl:new DeviceConfigurationUserStatusImpl(element)));
             });
             this._userStatuses = userStatusesArrValue;
         }
@@ -301,7 +301,7 @@ export class DeviceConfigurationImpl extends EntityImpl implements DeviceConfigu
      */
     public set userStatusOverview(value: DeviceConfigurationUserOverview | undefined) {
         if(value) {
-            this._userStatusOverview = value instanceof DeviceConfigurationUserOverviewImpl? value : new DeviceConfigurationUserOverviewImpl(value);
+            this._userStatusOverview = value instanceof DeviceConfigurationUserOverviewImpl? value as DeviceConfigurationUserOverviewImpl: new DeviceConfigurationUserOverviewImpl(value);
         }
     };
     /**

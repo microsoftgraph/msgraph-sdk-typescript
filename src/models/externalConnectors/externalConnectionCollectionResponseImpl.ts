@@ -73,7 +73,7 @@ export class ExternalConnectionCollectionResponseImpl implements ExternalConnect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ExternalConnectionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ExternalConnectionImpl? element:new ExternalConnectionImpl(element)));
+            valueArrValue.push((element instanceof ExternalConnectionImpl? element as ExternalConnectionImpl:new ExternalConnectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExternalConnectionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ExternalConnectionCollectionResponseImpl implements ExternalConnect
         if(value) {
             const valueArrValue: ExternalConnectionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ExternalConnectionImpl? element:new ExternalConnectionImpl(element)));
+                valueArrValue.push((element instanceof ExternalConnectionImpl? element as ExternalConnectionImpl:new ExternalConnectionImpl(element)));
             });
             this._value = valueArrValue;
         }

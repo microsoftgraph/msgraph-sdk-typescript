@@ -85,7 +85,7 @@ export class ReminderImpl implements Reminder {
      */
     public set eventEndTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._eventEndTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._eventEndTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -117,7 +117,7 @@ export class ReminderImpl implements Reminder {
      */
     public set eventLocation(value: Location | undefined) {
         if(value) {
-            this._eventLocation = value instanceof LocationImpl? value : new LocationImpl(value);
+            this._eventLocation = value instanceof LocationImpl? value as LocationImpl: new LocationImpl(value);
         }
     };
     /**
@@ -133,7 +133,7 @@ export class ReminderImpl implements Reminder {
      */
     public set eventStartTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._eventStartTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._eventStartTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -197,7 +197,7 @@ export class ReminderImpl implements Reminder {
      */
     public set reminderFireTime(value: DateTimeTimeZone | undefined) {
         if(value) {
-            this._reminderFireTime = value instanceof DateTimeTimeZoneImpl? value : new DateTimeTimeZoneImpl(value);
+            this._reminderFireTime = value instanceof DateTimeTimeZoneImpl? value as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(value);
         }
     };
     /**
@@ -210,16 +210,16 @@ export class ReminderImpl implements Reminder {
             writer.writeStringValue("changeKey", this.changeKey);
         }
         if(this.eventEndTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("eventEndTime", (!this.eventEndTime || this.eventEndTime instanceof DateTimeTimeZoneImpl? this.eventEndTime : new DateTimeTimeZoneImpl(this.eventEndTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("eventEndTime", (this.eventEndTime instanceof DateTimeTimeZoneImpl? this.eventEndTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.eventEndTime)));
         }
         if(this.eventId){
             writer.writeStringValue("eventId", this.eventId);
         }
         if(this.eventLocation){
-            writer.writeObjectValue<LocationImpl>("eventLocation", (!this.eventLocation || this.eventLocation instanceof LocationImpl? this.eventLocation : new LocationImpl(this.eventLocation)));
+            writer.writeObjectValue<LocationImpl>("eventLocation", (this.eventLocation instanceof LocationImpl? this.eventLocation as LocationImpl: new LocationImpl(this.eventLocation)));
         }
         if(this.eventStartTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("eventStartTime", (!this.eventStartTime || this.eventStartTime instanceof DateTimeTimeZoneImpl? this.eventStartTime : new DateTimeTimeZoneImpl(this.eventStartTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("eventStartTime", (this.eventStartTime instanceof DateTimeTimeZoneImpl? this.eventStartTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.eventStartTime)));
         }
         if(this.eventSubject){
             writer.writeStringValue("eventSubject", this.eventSubject);
@@ -228,7 +228,7 @@ export class ReminderImpl implements Reminder {
             writer.writeStringValue("eventWebLink", this.eventWebLink);
         }
         if(this.reminderFireTime){
-            writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderFireTime", (!this.reminderFireTime || this.reminderFireTime instanceof DateTimeTimeZoneImpl? this.reminderFireTime : new DateTimeTimeZoneImpl(this.reminderFireTime)));
+            writer.writeObjectValue<DateTimeTimeZoneImpl>("reminderFireTime", (this.reminderFireTime instanceof DateTimeTimeZoneImpl? this.reminderFireTime as DateTimeTimeZoneImpl: new DateTimeTimeZoneImpl(this.reminderFireTime)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

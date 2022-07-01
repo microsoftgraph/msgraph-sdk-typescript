@@ -73,7 +73,7 @@ export class DeviceAndAppManagementRoleAssignmentCollectionResponseImpl implemen
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element:new DeviceAndAppManagementRoleAssignmentImpl(element)));
+            valueArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element as DeviceAndAppManagementRoleAssignmentImpl:new DeviceAndAppManagementRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceAndAppManagementRoleAssignmentCollectionResponseImpl implemen
         if(value) {
             const valueArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element:new DeviceAndAppManagementRoleAssignmentImpl(element)));
+                valueArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element as DeviceAndAppManagementRoleAssignmentImpl:new DeviceAndAppManagementRoleAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

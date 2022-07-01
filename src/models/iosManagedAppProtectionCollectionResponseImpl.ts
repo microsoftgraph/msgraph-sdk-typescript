@@ -73,7 +73,7 @@ export class IosManagedAppProtectionCollectionResponseImpl implements IosManaged
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IosManagedAppProtectionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IosManagedAppProtectionImpl? element:new IosManagedAppProtectionImpl(element)));
+            valueArrValue.push((element instanceof IosManagedAppProtectionImpl? element as IosManagedAppProtectionImpl:new IosManagedAppProtectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosManagedAppProtectionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IosManagedAppProtectionCollectionResponseImpl implements IosManaged
         if(value) {
             const valueArrValue: IosManagedAppProtectionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IosManagedAppProtectionImpl? element:new IosManagedAppProtectionImpl(element)));
+                valueArrValue.push((element instanceof IosManagedAppProtectionImpl? element as IosManagedAppProtectionImpl:new IosManagedAppProtectionImpl(element)));
             });
             this._value = valueArrValue;
         }

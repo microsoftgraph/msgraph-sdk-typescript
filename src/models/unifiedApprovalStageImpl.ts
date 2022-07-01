@@ -79,7 +79,7 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         if(value) {
             const escalationApproversArrValue: SubjectSetImpl[] = [];
             this.escalationApprovers?.forEach(element => {
-                escalationApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+                escalationApproversArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
             });
             this._escalationApprovers = escalationApproversArrValue;
         }
@@ -161,7 +161,7 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         if(value) {
             const primaryApproversArrValue: SubjectSetImpl[] = [];
             this.primaryApprovers?.forEach(element => {
-                primaryApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+                primaryApproversArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
             });
             this._primaryApprovers = primaryApproversArrValue;
         }
@@ -177,7 +177,7 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         }
         if(this.escalationApprovers && this.escalationApprovers.length != 0){        const escalationApproversArrValue: SubjectSetImpl[] = [];
         this.escalationApprovers?.forEach(element => {
-            escalationApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            escalationApproversArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("escalationApprovers", escalationApproversArrValue);
         }
@@ -192,7 +192,7 @@ export class UnifiedApprovalStageImpl implements UnifiedApprovalStage {
         }
         if(this.primaryApprovers && this.primaryApprovers.length != 0){        const primaryApproversArrValue: SubjectSetImpl[] = [];
         this.primaryApprovers?.forEach(element => {
-            primaryApproversArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            primaryApproversArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryApprovers", primaryApproversArrValue);
         }

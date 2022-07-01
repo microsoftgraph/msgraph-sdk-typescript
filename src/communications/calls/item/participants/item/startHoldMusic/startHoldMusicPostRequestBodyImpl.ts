@@ -66,7 +66,7 @@ export class StartHoldMusicPostRequestBodyImpl implements StartHoldMusicPostRequ
      */
     public set customPrompt(value: Prompt | undefined) {
         if(value) {
-            this._customPrompt = value instanceof PromptImpl? value : new PromptImpl(value);
+            this._customPrompt = value instanceof PromptImpl? value as PromptImpl: new PromptImpl(value);
         }
     };
     /**
@@ -89,7 +89,7 @@ export class StartHoldMusicPostRequestBodyImpl implements StartHoldMusicPostRequ
             writer.writeStringValue("clientContext", this.clientContext);
         }
         if(this.customPrompt){
-            writer.writeObjectValue<PromptImpl>("customPrompt", (!this.customPrompt || this.customPrompt instanceof PromptImpl? this.customPrompt : new PromptImpl(this.customPrompt)));
+            writer.writeObjectValue<PromptImpl>("customPrompt", (this.customPrompt instanceof PromptImpl? this.customPrompt as PromptImpl: new PromptImpl(this.customPrompt)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

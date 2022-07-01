@@ -73,7 +73,7 @@ export class MailFolderCollectionResponseImpl implements MailFolderCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MailFolderImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MailFolderImpl? element:new MailFolderImpl(element)));
+            valueArrValue.push((element instanceof MailFolderImpl? element as MailFolderImpl:new MailFolderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MailFolderImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MailFolderCollectionResponseImpl implements MailFolderCollectionRes
         if(value) {
             const valueArrValue: MailFolderImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MailFolderImpl? element:new MailFolderImpl(element)));
+                valueArrValue.push((element instanceof MailFolderImpl? element as MailFolderImpl:new MailFolderImpl(element)));
             });
             this._value = valueArrValue;
         }

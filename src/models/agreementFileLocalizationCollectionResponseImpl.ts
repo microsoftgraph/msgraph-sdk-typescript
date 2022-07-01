@@ -73,7 +73,7 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Agreemen
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileLocalizationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+            valueArrValue.push((element instanceof AgreementFileLocalizationImpl? element as AgreementFileLocalizationImpl:new AgreementFileLocalizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementFileLocalizationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AgreementFileLocalizationCollectionResponseImpl implements Agreemen
         if(value) {
             const valueArrValue: AgreementFileLocalizationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AgreementFileLocalizationImpl? element:new AgreementFileLocalizationImpl(element)));
+                valueArrValue.push((element instanceof AgreementFileLocalizationImpl? element as AgreementFileLocalizationImpl:new AgreementFileLocalizationImpl(element)));
             });
             this._value = valueArrValue;
         }

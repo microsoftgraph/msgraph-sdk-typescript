@@ -51,7 +51,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ApprovalImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ApprovalImpl? element:new ApprovalImpl(element)));
+            valueArrValue.push((element instanceof ApprovalImpl? element as ApprovalImpl:new ApprovalImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ApprovalImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(value) {
             const valueArrValue: ApprovalImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ApprovalImpl? element:new ApprovalImpl(element)));
+                valueArrValue.push((element instanceof ApprovalImpl? element as ApprovalImpl:new ApprovalImpl(element)));
             });
             this._value = valueArrValue;
         }

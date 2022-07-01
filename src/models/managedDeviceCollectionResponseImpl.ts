@@ -73,7 +73,7 @@ export class ManagedDeviceCollectionResponseImpl implements ManagedDeviceCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedDeviceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+            valueArrValue.push((element instanceof ManagedDeviceImpl? element as ManagedDeviceImpl:new ManagedDeviceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedDeviceCollectionResponseImpl implements ManagedDeviceCollect
         if(value) {
             const valueArrValue: ManagedDeviceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+                valueArrValue.push((element instanceof ManagedDeviceImpl? element as ManagedDeviceImpl:new ManagedDeviceImpl(element)));
             });
             this._value = valueArrValue;
         }

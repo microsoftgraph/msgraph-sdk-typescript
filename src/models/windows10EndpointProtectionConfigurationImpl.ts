@@ -322,7 +322,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
      */
     public set bitLockerRemovableDrivePolicy(value: BitLockerRemovableDrivePolicy | undefined) {
         if(value) {
-            this._bitLockerRemovableDrivePolicy = value instanceof BitLockerRemovableDrivePolicyImpl? value : new BitLockerRemovableDrivePolicyImpl(value);
+            this._bitLockerRemovableDrivePolicy = value instanceof BitLockerRemovableDrivePolicyImpl? value as BitLockerRemovableDrivePolicyImpl: new BitLockerRemovableDrivePolicyImpl(value);
         }
     };
     /**
@@ -637,7 +637,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
      */
     public set firewallProfileDomain(value: WindowsFirewallNetworkProfile | undefined) {
         if(value) {
-            this._firewallProfileDomain = value instanceof WindowsFirewallNetworkProfileImpl? value : new WindowsFirewallNetworkProfileImpl(value);
+            this._firewallProfileDomain = value instanceof WindowsFirewallNetworkProfileImpl? value as WindowsFirewallNetworkProfileImpl: new WindowsFirewallNetworkProfileImpl(value);
         }
     };
     /**
@@ -653,7 +653,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
      */
     public set firewallProfilePrivate(value: WindowsFirewallNetworkProfile | undefined) {
         if(value) {
-            this._firewallProfilePrivate = value instanceof WindowsFirewallNetworkProfileImpl? value : new WindowsFirewallNetworkProfileImpl(value);
+            this._firewallProfilePrivate = value instanceof WindowsFirewallNetworkProfileImpl? value as WindowsFirewallNetworkProfileImpl: new WindowsFirewallNetworkProfileImpl(value);
         }
     };
     /**
@@ -669,7 +669,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
      */
     public set firewallProfilePublic(value: WindowsFirewallNetworkProfile | undefined) {
         if(value) {
-            this._firewallProfilePublic = value instanceof WindowsFirewallNetworkProfileImpl? value : new WindowsFirewallNetworkProfileImpl(value);
+            this._firewallProfilePublic = value instanceof WindowsFirewallNetworkProfileImpl? value as WindowsFirewallNetworkProfileImpl: new WindowsFirewallNetworkProfileImpl(value);
         }
     };
     /**
@@ -766,7 +766,7 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
             writer.writeBooleanValue("bitLockerEncryptDevice", this.bitLockerEncryptDevice);
         }
         if(this.bitLockerRemovableDrivePolicy){
-            writer.writeObjectValue<BitLockerRemovableDrivePolicyImpl>("bitLockerRemovableDrivePolicy", (!this.bitLockerRemovableDrivePolicy || this.bitLockerRemovableDrivePolicy instanceof BitLockerRemovableDrivePolicyImpl? this.bitLockerRemovableDrivePolicy : new BitLockerRemovableDrivePolicyImpl(this.bitLockerRemovableDrivePolicy)));
+            writer.writeObjectValue<BitLockerRemovableDrivePolicyImpl>("bitLockerRemovableDrivePolicy", (this.bitLockerRemovableDrivePolicy instanceof BitLockerRemovableDrivePolicyImpl? this.bitLockerRemovableDrivePolicy as BitLockerRemovableDrivePolicyImpl: new BitLockerRemovableDrivePolicyImpl(this.bitLockerRemovableDrivePolicy)));
         }
         if(this.defenderAdditionalGuardedFolders){
             writer.writeCollectionOfPrimitiveValues<string>("defenderAdditionalGuardedFolders", this.defenderAdditionalGuardedFolders);
@@ -817,13 +817,13 @@ export class Windows10EndpointProtectionConfigurationImpl extends DeviceConfigur
             writer.writeEnumValue<FirewallPreSharedKeyEncodingMethodType>("firewallPreSharedKeyEncodingMethod", this.firewallPreSharedKeyEncodingMethod);
         }
         if(this.firewallProfileDomain){
-            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfileDomain", (!this.firewallProfileDomain || this.firewallProfileDomain instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfileDomain : new WindowsFirewallNetworkProfileImpl(this.firewallProfileDomain)));
+            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfileDomain", (this.firewallProfileDomain instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfileDomain as WindowsFirewallNetworkProfileImpl: new WindowsFirewallNetworkProfileImpl(this.firewallProfileDomain)));
         }
         if(this.firewallProfilePrivate){
-            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePrivate", (!this.firewallProfilePrivate || this.firewallProfilePrivate instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfilePrivate : new WindowsFirewallNetworkProfileImpl(this.firewallProfilePrivate)));
+            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePrivate", (this.firewallProfilePrivate instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfilePrivate as WindowsFirewallNetworkProfileImpl: new WindowsFirewallNetworkProfileImpl(this.firewallProfilePrivate)));
         }
         if(this.firewallProfilePublic){
-            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePublic", (!this.firewallProfilePublic || this.firewallProfilePublic instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfilePublic : new WindowsFirewallNetworkProfileImpl(this.firewallProfilePublic)));
+            writer.writeObjectValue<WindowsFirewallNetworkProfileImpl>("firewallProfilePublic", (this.firewallProfilePublic instanceof WindowsFirewallNetworkProfileImpl? this.firewallProfilePublic as WindowsFirewallNetworkProfileImpl: new WindowsFirewallNetworkProfileImpl(this.firewallProfilePublic)));
         }
         if(this.smartScreenBlockOverrideForFiles){
             writer.writeBooleanValue("smartScreenBlockOverrideForFiles", this.smartScreenBlockOverrideForFiles);

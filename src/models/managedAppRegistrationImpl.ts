@@ -53,7 +53,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
      */
     public set appIdentifier(value: MobileAppIdentifier | undefined) {
         if(value) {
-            this._appIdentifier = value instanceof MobileAppIdentifierImpl? value : new MobileAppIdentifierImpl(value);
+            this._appIdentifier = value instanceof MobileAppIdentifierImpl? value as MobileAppIdentifierImpl: new MobileAppIdentifierImpl(value);
         }
     };
     /**
@@ -87,7 +87,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(value) {
             const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = [];
             this.appliedPolicies?.forEach(element => {
-                appliedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+                appliedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
             });
             this._appliedPolicies = appliedPoliciesArrValue;
         }
@@ -232,7 +232,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(value) {
             const intendedPoliciesArrValue: ManagedAppPolicyImpl[] = [];
             this.intendedPolicies?.forEach(element => {
-                intendedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+                intendedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
             });
             this._intendedPolicies = intendedPoliciesArrValue;
         }
@@ -284,7 +284,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(value) {
             const operationsArrValue: ManagedAppOperationImpl[] = [];
             this.operations?.forEach(element => {
-                operationsArrValue.push((element instanceof ManagedAppOperationImpl? element:new ManagedAppOperationImpl(element)));
+                operationsArrValue.push((element instanceof ManagedAppOperationImpl? element as ManagedAppOperationImpl:new ManagedAppOperationImpl(element)));
             });
             this._operations = operationsArrValue;
         }
@@ -313,14 +313,14 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.appIdentifier){
-            writer.writeObjectValue<MobileAppIdentifierImpl>("appIdentifier", (!this.appIdentifier || this.appIdentifier instanceof MobileAppIdentifierImpl? this.appIdentifier : new MobileAppIdentifierImpl(this.appIdentifier)));
+            writer.writeObjectValue<MobileAppIdentifierImpl>("appIdentifier", (this.appIdentifier instanceof MobileAppIdentifierImpl? this.appIdentifier as MobileAppIdentifierImpl: new MobileAppIdentifierImpl(this.appIdentifier)));
         }
         if(this.applicationVersion){
             writer.writeStringValue("applicationVersion", this.applicationVersion);
         }
         if(this.appliedPolicies && this.appliedPolicies.length != 0){        const appliedPoliciesArrValue: ManagedAppPolicyImpl[] = [];
         this.appliedPolicies?.forEach(element => {
-            appliedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+            appliedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("appliedPolicies", appliedPoliciesArrValue);
         }
@@ -341,7 +341,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         }
         if(this.intendedPolicies && this.intendedPolicies.length != 0){        const intendedPoliciesArrValue: ManagedAppPolicyImpl[] = [];
         this.intendedPolicies?.forEach(element => {
-            intendedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+            intendedPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("intendedPolicies", intendedPoliciesArrValue);
         }
@@ -353,7 +353,7 @@ export class ManagedAppRegistrationImpl extends EntityImpl implements ManagedApp
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: ManagedAppOperationImpl[] = [];
         this.operations?.forEach(element => {
-            operationsArrValue.push((element instanceof ManagedAppOperationImpl? element:new ManagedAppOperationImpl(element)));
+            operationsArrValue.push((element instanceof ManagedAppOperationImpl? element as ManagedAppOperationImpl:new ManagedAppOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("operations", operationsArrValue);
         }

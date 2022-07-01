@@ -73,7 +73,7 @@ export class ListCollectionResponseImpl implements ListCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ListImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ListImpl? element:new ListImpl(element)));
+            valueArrValue.push((element instanceof ListImpl? element as ListImpl:new ListImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ListImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ListCollectionResponseImpl implements ListCollectionResponse {
         if(value) {
             const valueArrValue: ListImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ListImpl? element:new ListImpl(element)));
+                valueArrValue.push((element instanceof ListImpl? element as ListImpl:new ListImpl(element)));
             });
             this._value = valueArrValue;
         }

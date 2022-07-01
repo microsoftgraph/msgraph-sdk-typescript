@@ -48,7 +48,7 @@ export class VisualInfoImpl implements VisualInfo {
      */
     public set attribution(value: ImageInfo | undefined) {
         if(value) {
-            this._attribution = value instanceof ImageInfoImpl? value : new ImageInfoImpl(value);
+            this._attribution = value instanceof ImageInfoImpl? value as ImageInfoImpl: new ImageInfoImpl(value);
         }
     };
     /**
@@ -92,7 +92,7 @@ export class VisualInfoImpl implements VisualInfo {
      */
     public set content(value: Json | undefined) {
         if(value) {
-            this._content = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._content = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -147,13 +147,13 @@ export class VisualInfoImpl implements VisualInfo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attribution){
-            writer.writeObjectValue<ImageInfoImpl>("attribution", (!this.attribution || this.attribution instanceof ImageInfoImpl? this.attribution : new ImageInfoImpl(this.attribution)));
+            writer.writeObjectValue<ImageInfoImpl>("attribution", (this.attribution instanceof ImageInfoImpl? this.attribution as ImageInfoImpl: new ImageInfoImpl(this.attribution)));
         }
         if(this.backgroundColor){
             writer.writeStringValue("backgroundColor", this.backgroundColor);
         }
         if(this.content){
-            writer.writeObjectValue<JsonImpl>("content", (!this.content || this.content instanceof JsonImpl? this.content : new JsonImpl(this.content)));
+            writer.writeObjectValue<JsonImpl>("content", (this.content instanceof JsonImpl? this.content as JsonImpl: new JsonImpl(this.content)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);

@@ -73,7 +73,7 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: NotificationMessageTemplateImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+            valueArrValue.push((element instanceof NotificationMessageTemplateImpl? element as NotificationMessageTemplateImpl:new NotificationMessageTemplateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class NotificationMessageTemplateCollectionResponseImpl implements Notifi
         if(value) {
             const valueArrValue: NotificationMessageTemplateImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+                valueArrValue.push((element instanceof NotificationMessageTemplateImpl? element as NotificationMessageTemplateImpl:new NotificationMessageTemplateImpl(element)));
             });
             this._value = valueArrValue;
         }

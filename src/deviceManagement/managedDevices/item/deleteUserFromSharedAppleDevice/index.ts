@@ -1,3 +1,3 @@
 export * from './deleteUserFromSharedAppleDevicePostRequestBodyImpl'
-export * from './deleteUserFromSharedAppleDevicePostRequestBody'
 export * from './deleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration'
+export * from './deleteUserFromSharedAppleDevicePostRequestBody'

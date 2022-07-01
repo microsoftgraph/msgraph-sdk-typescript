@@ -78,7 +78,7 @@ export class MainErrorImpl implements MainError {
         if(value) {
             const detailsArrValue: ErrorDetailsImpl[] = [];
             this.details?.forEach(element => {
-                detailsArrValue.push((element instanceof ErrorDetailsImpl? element:new ErrorDetailsImpl(element)));
+                detailsArrValue.push((element instanceof ErrorDetailsImpl? element as ErrorDetailsImpl:new ErrorDetailsImpl(element)));
             });
             this._details = detailsArrValue;
         }
@@ -109,7 +109,7 @@ export class MainErrorImpl implements MainError {
      */
     public set innererror(value: InnerError | undefined) {
         if(value) {
-            this._innererror = value instanceof InnerErrorImpl? value : new InnerErrorImpl(value);
+            this._innererror = value instanceof InnerErrorImpl? value as InnerErrorImpl: new InnerErrorImpl(value);
         }
     };
     /**
@@ -139,12 +139,12 @@ export class MainErrorImpl implements MainError {
         }
         if(this.details && this.details.length != 0){        const detailsArrValue: ErrorDetailsImpl[] = [];
         this.details?.forEach(element => {
-            detailsArrValue.push((element instanceof ErrorDetailsImpl? element:new ErrorDetailsImpl(element)));
+            detailsArrValue.push((element instanceof ErrorDetailsImpl? element as ErrorDetailsImpl:new ErrorDetailsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ErrorDetailsImpl>("details", detailsArrValue);
         }
         if(this.innererror){
-            writer.writeObjectValue<InnerErrorImpl>("innererror", (!this.innererror || this.innererror instanceof InnerErrorImpl? this.innererror : new InnerErrorImpl(this.innererror)));
+            writer.writeObjectValue<InnerErrorImpl>("innererror", (this.innererror instanceof InnerErrorImpl? this.innererror as InnerErrorImpl: new InnerErrorImpl(this.innererror)));
         }
         if(this.message){
             writer.writeStringValue("message", this.message);

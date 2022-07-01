@@ -41,7 +41,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public set analytics(value: ItemAnalytics | undefined) {
         if(value) {
-            this._analytics = value instanceof ItemAnalyticsImpl? value : new ItemAnalyticsImpl(value);
+            this._analytics = value instanceof ItemAnalyticsImpl? value as ItemAnalyticsImpl: new ItemAnalyticsImpl(value);
         }
     };
     /**
@@ -70,7 +70,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public set contentType(value: ContentTypeInfo | undefined) {
         if(value) {
-            this._contentType = value instanceof ContentTypeInfoImpl? value : new ContentTypeInfoImpl(value);
+            this._contentType = value instanceof ContentTypeInfoImpl? value as ContentTypeInfoImpl: new ContentTypeInfoImpl(value);
         }
     };
     /**
@@ -86,7 +86,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public set driveItem(value: DriveItem | undefined) {
         if(value) {
-            this._driveItem = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+            this._driveItem = value instanceof DriveItemImpl? value as DriveItemImpl: new DriveItemImpl(value);
         }
     };
     /**
@@ -102,7 +102,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public set fields(value: FieldValueSet | undefined) {
         if(value) {
-            this._fields = value instanceof FieldValueSetImpl? value : new FieldValueSetImpl(value);
+            this._fields = value instanceof FieldValueSetImpl? value as FieldValueSetImpl: new FieldValueSetImpl(value);
         }
     };
     /**
@@ -127,23 +127,23 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", (!this.analytics || this.analytics instanceof ItemAnalyticsImpl? this.analytics : new ItemAnalyticsImpl(this.analytics)));
+            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", (this.analytics instanceof ItemAnalyticsImpl? this.analytics as ItemAnalyticsImpl: new ItemAnalyticsImpl(this.analytics)));
         }
         if(this.contentType){
-            writer.writeObjectValue<ContentTypeInfoImpl>("contentType", (!this.contentType || this.contentType instanceof ContentTypeInfoImpl? this.contentType : new ContentTypeInfoImpl(this.contentType)));
+            writer.writeObjectValue<ContentTypeInfoImpl>("contentType", (this.contentType instanceof ContentTypeInfoImpl? this.contentType as ContentTypeInfoImpl: new ContentTypeInfoImpl(this.contentType)));
         }
         if(this.driveItem){
-            writer.writeObjectValue<DriveItemImpl>("driveItem", (!this.driveItem || this.driveItem instanceof DriveItemImpl? this.driveItem : new DriveItemImpl(this.driveItem)));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", (this.driveItem instanceof DriveItemImpl? this.driveItem as DriveItemImpl: new DriveItemImpl(this.driveItem)));
         }
         if(this.fields){
-            writer.writeObjectValue<FieldValueSetImpl>("fields", (!this.fields || this.fields instanceof FieldValueSetImpl? this.fields : new FieldValueSetImpl(this.fields)));
+            writer.writeObjectValue<FieldValueSetImpl>("fields", (this.fields instanceof FieldValueSetImpl? this.fields as FieldValueSetImpl: new FieldValueSetImpl(this.fields)));
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds as SharepointIdsImpl: new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.versions && this.versions.length != 0){        const versionsArrValue: ListItemVersionImpl[] = [];
         this.versions?.forEach(element => {
-            versionsArrValue.push((element instanceof ListItemVersionImpl? element:new ListItemVersionImpl(element)));
+            versionsArrValue.push((element instanceof ListItemVersionImpl? element as ListItemVersionImpl:new ListItemVersionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ListItemVersionImpl>("versions", versionsArrValue);
         }
@@ -161,7 +161,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
      */
     public set sharepointIds(value: SharepointIds | undefined) {
         if(value) {
-            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+            this._sharepointIds = value instanceof SharepointIdsImpl? value as SharepointIdsImpl: new SharepointIdsImpl(value);
         }
     };
     /**
@@ -179,7 +179,7 @@ export class ListItemImpl extends BaseItemImpl implements ListItem {
         if(value) {
             const versionsArrValue: ListItemVersionImpl[] = [];
             this.versions?.forEach(element => {
-                versionsArrValue.push((element instanceof ListItemVersionImpl? element:new ListItemVersionImpl(element)));
+                versionsArrValue.push((element instanceof ListItemVersionImpl? element as ListItemVersionImpl:new ListItemVersionImpl(element)));
             });
             this._versions = versionsArrValue;
         }

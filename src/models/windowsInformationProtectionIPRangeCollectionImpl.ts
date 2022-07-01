@@ -78,7 +78,7 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Window
         if(value) {
             const rangesArrValue: IpRangeImpl[] = [];
             this.ranges?.forEach(element => {
-                rangesArrValue.push((element instanceof IpRangeImpl? element:new IpRangeImpl(element)));
+                rangesArrValue.push((element instanceof IpRangeImpl? element as IpRangeImpl:new IpRangeImpl(element)));
             });
             this._ranges = rangesArrValue;
         }
@@ -94,7 +94,7 @@ export class WindowsInformationProtectionIPRangeCollectionImpl implements Window
         }
         if(this.ranges && this.ranges.length != 0){        const rangesArrValue: IpRangeImpl[] = [];
         this.ranges?.forEach(element => {
-            rangesArrValue.push((element instanceof IpRangeImpl? element:new IpRangeImpl(element)));
+            rangesArrValue.push((element instanceof IpRangeImpl? element as IpRangeImpl:new IpRangeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IpRangeImpl>("ranges", rangesArrValue);
         }

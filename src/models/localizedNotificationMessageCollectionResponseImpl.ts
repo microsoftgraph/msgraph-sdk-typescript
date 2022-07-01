@@ -73,7 +73,7 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Local
         }
         if(this.value && this.value.length != 0){        const valueArrValue: LocalizedNotificationMessageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof LocalizedNotificationMessageImpl? element:new LocalizedNotificationMessageImpl(element)));
+            valueArrValue.push((element instanceof LocalizedNotificationMessageImpl? element as LocalizedNotificationMessageImpl:new LocalizedNotificationMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class LocalizedNotificationMessageCollectionResponseImpl implements Local
         if(value) {
             const valueArrValue: LocalizedNotificationMessageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof LocalizedNotificationMessageImpl? element:new LocalizedNotificationMessageImpl(element)));
+                valueArrValue.push((element instanceof LocalizedNotificationMessageImpl? element as LocalizedNotificationMessageImpl:new LocalizedNotificationMessageImpl(element)));
             });
             this._value = valueArrValue;
         }

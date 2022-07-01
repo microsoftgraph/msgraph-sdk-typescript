@@ -73,7 +73,7 @@ export class ParticipantCollectionResponseImpl implements ParticipantCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ParticipantImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ParticipantImpl? element:new ParticipantImpl(element)));
+            valueArrValue.push((element instanceof ParticipantImpl? element as ParticipantImpl:new ParticipantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ParticipantImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ParticipantCollectionResponseImpl implements ParticipantCollectionR
         if(value) {
             const valueArrValue: ParticipantImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ParticipantImpl? element:new ParticipantImpl(element)));
+                valueArrValue.push((element instanceof ParticipantImpl? element as ParticipantImpl:new ParticipantImpl(element)));
             });
             this._value = valueArrValue;
         }

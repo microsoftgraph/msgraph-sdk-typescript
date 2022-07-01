@@ -51,7 +51,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element:new UnifiedRoleAssignmentScheduleImpl(element)));
+            valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element as UnifiedRoleAssignmentScheduleImpl:new UnifiedRoleAssignmentScheduleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class FilterByCurrentUserWithOnResponseImpl implements FilterByCurrentUse
         if(value) {
             const valueArrValue: UnifiedRoleAssignmentScheduleImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element:new UnifiedRoleAssignmentScheduleImpl(element)));
+                valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element as UnifiedRoleAssignmentScheduleImpl:new UnifiedRoleAssignmentScheduleImpl(element)));
             });
             this._value = valueArrValue;
         }

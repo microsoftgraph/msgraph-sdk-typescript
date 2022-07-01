@@ -29,7 +29,7 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
         if(value) {
             const attendanceRecordsArrValue: AttendanceRecordImpl[] = [];
             this.attendanceRecords?.forEach(element => {
-                attendanceRecordsArrValue.push((element instanceof AttendanceRecordImpl? element:new AttendanceRecordImpl(element)));
+                attendanceRecordsArrValue.push((element instanceof AttendanceRecordImpl? element as AttendanceRecordImpl:new AttendanceRecordImpl(element)));
             });
             this._attendanceRecords = attendanceRecordsArrValue;
         }
@@ -98,7 +98,7 @@ export class MeetingAttendanceReportImpl extends EntityImpl implements MeetingAt
         super.serialize(writer);
         if(this.attendanceRecords && this.attendanceRecords.length != 0){        const attendanceRecordsArrValue: AttendanceRecordImpl[] = [];
         this.attendanceRecords?.forEach(element => {
-            attendanceRecordsArrValue.push((element instanceof AttendanceRecordImpl? element:new AttendanceRecordImpl(element)));
+            attendanceRecordsArrValue.push((element instanceof AttendanceRecordImpl? element as AttendanceRecordImpl:new AttendanceRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttendanceRecordImpl>("attendanceRecords", attendanceRecordsArrValue);
         }

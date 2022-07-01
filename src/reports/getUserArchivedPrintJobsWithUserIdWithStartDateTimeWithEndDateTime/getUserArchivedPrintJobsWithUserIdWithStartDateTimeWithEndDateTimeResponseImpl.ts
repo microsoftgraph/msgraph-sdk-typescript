@@ -51,7 +51,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ArchivedPrintJobImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ArchivedPrintJobImpl? element:new ArchivedPrintJobImpl(element)));
+            valueArrValue.push((element instanceof ArchivedPrintJobImpl? element as ArchivedPrintJobImpl:new ArchivedPrintJobImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ArchivedPrintJobImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         if(value) {
             const valueArrValue: ArchivedPrintJobImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ArchivedPrintJobImpl? element:new ArchivedPrintJobImpl(element)));
+                valueArrValue.push((element instanceof ArchivedPrintJobImpl? element as ArchivedPrintJobImpl:new ArchivedPrintJobImpl(element)));
             });
             this._value = valueArrValue;
         }

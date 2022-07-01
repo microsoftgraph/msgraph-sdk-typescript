@@ -28,7 +28,7 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
      */
     public set activatedUsing(value: UnifiedRoleEligibilitySchedule | undefined) {
         if(value) {
-            this._activatedUsing = value instanceof UnifiedRoleEligibilityScheduleImpl? value : new UnifiedRoleEligibilityScheduleImpl(value);
+            this._activatedUsing = value instanceof UnifiedRoleEligibilityScheduleImpl? value as UnifiedRoleEligibilityScheduleImpl: new UnifiedRoleEligibilityScheduleImpl(value);
         }
     };
     /**
@@ -99,7 +99,7 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
      */
     public set scheduleInfo(value: RequestSchedule | undefined) {
         if(value) {
-            this._scheduleInfo = value instanceof RequestScheduleImpl? value : new RequestScheduleImpl(value);
+            this._scheduleInfo = value instanceof RequestScheduleImpl? value as RequestScheduleImpl: new RequestScheduleImpl(value);
         }
     };
     /**
@@ -110,7 +110,7 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.activatedUsing){
-            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", (!this.activatedUsing || this.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? this.activatedUsing : new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing)));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("activatedUsing", (this.activatedUsing instanceof UnifiedRoleEligibilityScheduleImpl? this.activatedUsing as UnifiedRoleEligibilityScheduleImpl: new UnifiedRoleEligibilityScheduleImpl(this.activatedUsing)));
         }
         if(this.assignmentType){
             writer.writeStringValue("assignmentType", this.assignmentType);
@@ -119,7 +119,7 @@ export class UnifiedRoleAssignmentScheduleImpl extends UnifiedRoleScheduleBaseIm
             writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (!this.scheduleInfo || this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo : new RequestScheduleImpl(this.scheduleInfo)));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo as RequestScheduleImpl: new RequestScheduleImpl(this.scheduleInfo)));
         }
     };
 }

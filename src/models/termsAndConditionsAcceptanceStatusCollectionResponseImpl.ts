@@ -73,7 +73,7 @@ export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TermsAndConditionsAcceptanceStatusImpl? element:new TermsAndConditionsAcceptanceStatusImpl(element)));
+            valueArrValue.push((element instanceof TermsAndConditionsAcceptanceStatusImpl? element as TermsAndConditionsAcceptanceStatusImpl:new TermsAndConditionsAcceptanceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TermsAndConditionsAcceptanceStatusImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements
         if(value) {
             const valueArrValue: TermsAndConditionsAcceptanceStatusImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TermsAndConditionsAcceptanceStatusImpl? element:new TermsAndConditionsAcceptanceStatusImpl(element)));
+                valueArrValue.push((element instanceof TermsAndConditionsAcceptanceStatusImpl? element as TermsAndConditionsAcceptanceStatusImpl:new TermsAndConditionsAcceptanceStatusImpl(element)));
             });
             this._value = valueArrValue;
         }

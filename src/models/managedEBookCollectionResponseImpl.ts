@@ -73,7 +73,7 @@ export class ManagedEBookCollectionResponseImpl implements ManagedEBookCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedEBookImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedEBookImpl? element:new ManagedEBookImpl(element)));
+            valueArrValue.push((element instanceof ManagedEBookImpl? element as ManagedEBookImpl:new ManagedEBookImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedEBookImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedEBookCollectionResponseImpl implements ManagedEBookCollectio
         if(value) {
             const valueArrValue: ManagedEBookImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedEBookImpl? element:new ManagedEBookImpl(element)));
+                valueArrValue.push((element instanceof ManagedEBookImpl? element as ManagedEBookImpl:new ManagedEBookImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -60,7 +60,7 @@ export class SendMailPostRequestBodyImpl implements SendMailPostRequestBody {
      */
     public set message(value: Message | undefined) {
         if(value) {
-            this._message = value instanceof MessageImpl? value : new MessageImpl(value);
+            this._message = value instanceof MessageImpl? value as MessageImpl: new MessageImpl(value);
         }
     };
     /**
@@ -86,7 +86,7 @@ export class SendMailPostRequestBodyImpl implements SendMailPostRequestBody {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.message){
-            writer.writeObjectValue<MessageImpl>("message", (!this.message || this.message instanceof MessageImpl? this.message : new MessageImpl(this.message)));
+            writer.writeObjectValue<MessageImpl>("message", (this.message instanceof MessageImpl? this.message as MessageImpl: new MessageImpl(this.message)));
         }
         if(this.saveToSentItems){
             writer.writeBooleanValue("saveToSentItems", this.saveToSentItems);

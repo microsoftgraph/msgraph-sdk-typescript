@@ -33,7 +33,7 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
         if(value) {
             const excludesArrValue: PermissionGrantConditionSetImpl[] = [];
             this.excludes?.forEach(element => {
-                excludesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element:new PermissionGrantConditionSetImpl(element)));
+                excludesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element as PermissionGrantConditionSetImpl:new PermissionGrantConditionSetImpl(element)));
             });
             this._excludes = excludesArrValue;
         }
@@ -63,7 +63,7 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
         if(value) {
             const includesArrValue: PermissionGrantConditionSetImpl[] = [];
             this.includes?.forEach(element => {
-                includesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element:new PermissionGrantConditionSetImpl(element)));
+                includesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element as PermissionGrantConditionSetImpl:new PermissionGrantConditionSetImpl(element)));
             });
             this._includes = includesArrValue;
         }
@@ -77,13 +77,13 @@ export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Permiss
         super.serialize(writer);
         if(this.excludes && this.excludes.length != 0){        const excludesArrValue: PermissionGrantConditionSetImpl[] = [];
         this.excludes?.forEach(element => {
-            excludesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element:new PermissionGrantConditionSetImpl(element)));
+            excludesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element as PermissionGrantConditionSetImpl:new PermissionGrantConditionSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("excludes", excludesArrValue);
         }
         if(this.includes && this.includes.length != 0){        const includesArrValue: PermissionGrantConditionSetImpl[] = [];
         this.includes?.forEach(element => {
-            includesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element:new PermissionGrantConditionSetImpl(element)));
+            includesArrValue.push((element instanceof PermissionGrantConditionSetImpl? element as PermissionGrantConditionSetImpl:new PermissionGrantConditionSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionGrantConditionSetImpl>("includes", includesArrValue);
         }

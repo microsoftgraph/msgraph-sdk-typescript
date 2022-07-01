@@ -79,7 +79,7 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         }
         if(this.values && this.values.length != 0){        const valuesArrValue: SettingTemplateValueImpl[] = [];
         this.values?.forEach(element => {
-            valuesArrValue.push((element instanceof SettingTemplateValueImpl? element:new SettingTemplateValueImpl(element)));
+            valuesArrValue.push((element instanceof SettingTemplateValueImpl? element as SettingTemplateValueImpl:new SettingTemplateValueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SettingTemplateValueImpl>("values", valuesArrValue);
         }
@@ -99,7 +99,7 @@ export class GroupSettingTemplateImpl extends DirectoryObjectImpl implements Gro
         if(value) {
             const valuesArrValue: SettingTemplateValueImpl[] = [];
             this.values?.forEach(element => {
-                valuesArrValue.push((element instanceof SettingTemplateValueImpl? element:new SettingTemplateValueImpl(element)));
+                valuesArrValue.push((element instanceof SettingTemplateValueImpl? element as SettingTemplateValueImpl:new SettingTemplateValueImpl(element)));
             });
             this._values = valuesArrValue;
         }

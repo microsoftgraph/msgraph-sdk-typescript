@@ -51,7 +51,7 @@ export class CheckGrantedPermissionsForAppResponseImpl implements CheckGrantedPe
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ResourceSpecificPermissionGrantImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+            valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element as ResourceSpecificPermissionGrantImpl:new ResourceSpecificPermissionGrantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class CheckGrantedPermissionsForAppResponseImpl implements CheckGrantedPe
         if(value) {
             const valueArrValue: ResourceSpecificPermissionGrantImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+                valueArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element as ResourceSpecificPermissionGrantImpl:new ResourceSpecificPermissionGrantImpl(element)));
             });
             this._value = valueArrValue;
         }

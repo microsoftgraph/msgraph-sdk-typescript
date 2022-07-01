@@ -73,7 +73,7 @@ export class CopyToDefaultContentLocationPostRequestBodyImpl implements CopyToDe
             writer.writeStringValue("destinationFileName", this.destinationFileName);
         }
         if(this.sourceFile){
-            writer.writeObjectValue<ItemReferenceImpl>("sourceFile", (!this.sourceFile || this.sourceFile instanceof ItemReferenceImpl? this.sourceFile : new ItemReferenceImpl(this.sourceFile)));
+            writer.writeObjectValue<ItemReferenceImpl>("sourceFile", (this.sourceFile instanceof ItemReferenceImpl? this.sourceFile as ItemReferenceImpl: new ItemReferenceImpl(this.sourceFile)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -90,7 +90,7 @@ export class CopyToDefaultContentLocationPostRequestBodyImpl implements CopyToDe
      */
     public set sourceFile(value: ItemReference | undefined) {
         if(value) {
-            this._sourceFile = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+            this._sourceFile = value instanceof ItemReferenceImpl? value as ItemReferenceImpl: new ItemReferenceImpl(value);
         }
     };
 }

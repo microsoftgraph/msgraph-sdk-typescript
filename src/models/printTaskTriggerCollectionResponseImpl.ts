@@ -73,7 +73,7 @@ export class PrintTaskTriggerCollectionResponseImpl implements PrintTaskTriggerC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintTaskTriggerImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintTaskTriggerImpl? element:new PrintTaskTriggerImpl(element)));
+            valueArrValue.push((element instanceof PrintTaskTriggerImpl? element as PrintTaskTriggerImpl:new PrintTaskTriggerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintTaskTriggerImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintTaskTriggerCollectionResponseImpl implements PrintTaskTriggerC
         if(value) {
             const valueArrValue: PrintTaskTriggerImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintTaskTriggerImpl? element:new PrintTaskTriggerImpl(element)));
+                valueArrValue.push((element instanceof PrintTaskTriggerImpl? element as PrintTaskTriggerImpl:new PrintTaskTriggerImpl(element)));
             });
             this._value = valueArrValue;
         }

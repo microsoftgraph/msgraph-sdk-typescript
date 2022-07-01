@@ -73,7 +73,7 @@ export class OrganizationCollectionResponseImpl implements OrganizationCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OrganizationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OrganizationImpl? element:new OrganizationImpl(element)));
+            valueArrValue.push((element instanceof OrganizationImpl? element as OrganizationImpl:new OrganizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OrganizationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OrganizationCollectionResponseImpl implements OrganizationCollectio
         if(value) {
             const valueArrValue: OrganizationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OrganizationImpl? element:new OrganizationImpl(element)));
+                valueArrValue.push((element instanceof OrganizationImpl? element as OrganizationImpl:new OrganizationImpl(element)));
             });
             this._value = valueArrValue;
         }

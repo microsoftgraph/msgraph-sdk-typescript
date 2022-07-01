@@ -73,7 +73,7 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements UnifiedRoleD
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleDefinitionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element:new UnifiedRoleDefinitionImpl(element)));
+            valueArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element as UnifiedRoleDefinitionImpl:new UnifiedRoleDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UnifiedRoleDefinitionCollectionResponseImpl implements UnifiedRoleD
         if(value) {
             const valueArrValue: UnifiedRoleDefinitionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element:new UnifiedRoleDefinitionImpl(element)));
+                valueArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element as UnifiedRoleDefinitionImpl:new UnifiedRoleDefinitionImpl(element)));
             });
             this._value = valueArrValue;
         }

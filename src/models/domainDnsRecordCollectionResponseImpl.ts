@@ -73,7 +73,7 @@ export class DomainDnsRecordCollectionResponseImpl implements DomainDnsRecordCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DomainDnsRecordImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+            valueArrValue.push((element instanceof DomainDnsRecordImpl? element as DomainDnsRecordImpl:new DomainDnsRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DomainDnsRecordCollectionResponseImpl implements DomainDnsRecordCol
         if(value) {
             const valueArrValue: DomainDnsRecordImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+                valueArrValue.push((element instanceof DomainDnsRecordImpl? element as DomainDnsRecordImpl:new DomainDnsRecordImpl(element)));
             });
             this._value = valueArrValue;
         }

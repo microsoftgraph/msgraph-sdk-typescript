@@ -73,7 +73,7 @@ export class TimeOffReasonCollectionResponseImpl implements TimeOffReasonCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TimeOffReasonImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TimeOffReasonImpl? element:new TimeOffReasonImpl(element)));
+            valueArrValue.push((element instanceof TimeOffReasonImpl? element as TimeOffReasonImpl:new TimeOffReasonImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TimeOffReasonCollectionResponseImpl implements TimeOffReasonCollect
         if(value) {
             const valueArrValue: TimeOffReasonImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TimeOffReasonImpl? element:new TimeOffReasonImpl(element)));
+                valueArrValue.push((element instanceof TimeOffReasonImpl? element as TimeOffReasonImpl:new TimeOffReasonImpl(element)));
             });
             this._value = valueArrValue;
         }

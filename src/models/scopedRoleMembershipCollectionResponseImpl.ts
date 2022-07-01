@@ -73,7 +73,7 @@ export class ScopedRoleMembershipCollectionResponseImpl implements ScopedRoleMem
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ScopedRoleMembershipImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ScopedRoleMembershipImpl? element:new ScopedRoleMembershipImpl(element)));
+            valueArrValue.push((element instanceof ScopedRoleMembershipImpl? element as ScopedRoleMembershipImpl:new ScopedRoleMembershipImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ScopedRoleMembershipCollectionResponseImpl implements ScopedRoleMem
         if(value) {
             const valueArrValue: ScopedRoleMembershipImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ScopedRoleMembershipImpl? element:new ScopedRoleMembershipImpl(element)));
+                valueArrValue.push((element instanceof ScopedRoleMembershipImpl? element as ScopedRoleMembershipImpl:new ScopedRoleMembershipImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class SharedInsightCollectionResponseImpl implements SharedInsightCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SharedInsightImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SharedInsightImpl? element:new SharedInsightImpl(element)));
+            valueArrValue.push((element instanceof SharedInsightImpl? element as SharedInsightImpl:new SharedInsightImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharedInsightImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SharedInsightCollectionResponseImpl implements SharedInsightCollect
         if(value) {
             const valueArrValue: SharedInsightImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SharedInsightImpl? element:new SharedInsightImpl(element)));
+                valueArrValue.push((element instanceof SharedInsightImpl? element as SharedInsightImpl:new SharedInsightImpl(element)));
             });
             this._value = valueArrValue;
         }

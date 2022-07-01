@@ -56,7 +56,7 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
             writer.writeStringValue("name", this.name);
         }
         if(this.worksheet){
-            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (!this.worksheet || this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet : new WorkbookWorksheetImpl(this.worksheet)));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(this.worksheet)));
         }
     };
     /**
@@ -72,7 +72,7 @@ export class WorkbookPivotTableImpl extends EntityImpl implements WorkbookPivotT
      */
     public set worksheet(value: WorkbookWorksheet | undefined) {
         if(value) {
-            this._worksheet = value instanceof WorkbookWorksheetImpl? value : new WorkbookWorksheetImpl(value);
+            this._worksheet = value instanceof WorkbookWorksheetImpl? value as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(value);
         }
     };
 }

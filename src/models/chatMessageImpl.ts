@@ -86,7 +86,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(value) {
             const attachmentsArrValue: ChatMessageAttachmentImpl[] = [];
             this.attachments?.forEach(element => {
-                attachmentsArrValue.push((element instanceof ChatMessageAttachmentImpl? element:new ChatMessageAttachmentImpl(element)));
+                attachmentsArrValue.push((element instanceof ChatMessageAttachmentImpl? element as ChatMessageAttachmentImpl:new ChatMessageAttachmentImpl(element)));
             });
             this._attachments = attachmentsArrValue;
         }
@@ -104,7 +104,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public set body(value: ItemBody | undefined) {
         if(value) {
-            this._body = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._body = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public set channelIdentity(value: ChannelIdentity | undefined) {
         if(value) {
-            this._channelIdentity = value instanceof ChannelIdentityImpl? value : new ChannelIdentityImpl(value);
+            this._channelIdentity = value instanceof ChannelIdentityImpl? value as ChannelIdentityImpl: new ChannelIdentityImpl(value);
         }
     };
     /**
@@ -230,7 +230,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public set eventDetail(value: EventMessageDetail | undefined) {
         if(value) {
-            this._eventDetail = value instanceof EventMessageDetailImpl? value : new EventMessageDetailImpl(value);
+            this._eventDetail = value instanceof EventMessageDetailImpl? value as EventMessageDetailImpl: new EventMessageDetailImpl(value);
         }
     };
     /**
@@ -246,7 +246,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public set from(value: ChatMessageFromIdentitySet | undefined) {
         if(value) {
-            this._from = value instanceof ChatMessageFromIdentitySetImpl? value : new ChatMessageFromIdentitySetImpl(value);
+            this._from = value instanceof ChatMessageFromIdentitySetImpl? value as ChatMessageFromIdentitySetImpl: new ChatMessageFromIdentitySetImpl(value);
         }
     };
     /**
@@ -295,7 +295,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(value) {
             const hostedContentsArrValue: ChatMessageHostedContentImpl[] = [];
             this.hostedContents?.forEach(element => {
-                hostedContentsArrValue.push((element instanceof ChatMessageHostedContentImpl? element:new ChatMessageHostedContentImpl(element)));
+                hostedContentsArrValue.push((element instanceof ChatMessageHostedContentImpl? element as ChatMessageHostedContentImpl:new ChatMessageHostedContentImpl(element)));
             });
             this._hostedContents = hostedContentsArrValue;
         }
@@ -379,7 +379,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(value) {
             const mentionsArrValue: ChatMessageMentionImpl[] = [];
             this.mentions?.forEach(element => {
-                mentionsArrValue.push((element instanceof ChatMessageMentionImpl? element:new ChatMessageMentionImpl(element)));
+                mentionsArrValue.push((element instanceof ChatMessageMentionImpl? element as ChatMessageMentionImpl:new ChatMessageMentionImpl(element)));
             });
             this._mentions = mentionsArrValue;
         }
@@ -413,7 +413,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
      */
     public set policyViolation(value: ChatMessagePolicyViolation | undefined) {
         if(value) {
-            this._policyViolation = value instanceof ChatMessagePolicyViolationImpl? value : new ChatMessagePolicyViolationImpl(value);
+            this._policyViolation = value instanceof ChatMessagePolicyViolationImpl? value as ChatMessagePolicyViolationImpl: new ChatMessagePolicyViolationImpl(value);
         }
     };
     /**
@@ -431,7 +431,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(value) {
             const reactionsArrValue: ChatMessageReactionImpl[] = [];
             this.reactions?.forEach(element => {
-                reactionsArrValue.push((element instanceof ChatMessageReactionImpl? element:new ChatMessageReactionImpl(element)));
+                reactionsArrValue.push((element instanceof ChatMessageReactionImpl? element as ChatMessageReactionImpl:new ChatMessageReactionImpl(element)));
             });
             this._reactions = reactionsArrValue;
         }
@@ -451,7 +451,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         if(value) {
             const repliesArrValue: ChatMessageImpl[] = [];
             this.replies?.forEach(element => {
-                repliesArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+                repliesArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
             });
             this._replies = repliesArrValue;
         }
@@ -481,15 +481,15 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         super.serialize(writer);
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: ChatMessageAttachmentImpl[] = [];
         this.attachments?.forEach(element => {
-            attachmentsArrValue.push((element instanceof ChatMessageAttachmentImpl? element:new ChatMessageAttachmentImpl(element)));
+            attachmentsArrValue.push((element instanceof ChatMessageAttachmentImpl? element as ChatMessageAttachmentImpl:new ChatMessageAttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageAttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
-            writer.writeObjectValue<ItemBodyImpl>("body", (!this.body || this.body instanceof ItemBodyImpl? this.body : new ItemBodyImpl(this.body)));
+            writer.writeObjectValue<ItemBodyImpl>("body", (this.body instanceof ItemBodyImpl? this.body as ItemBodyImpl: new ItemBodyImpl(this.body)));
         }
         if(this.channelIdentity){
-            writer.writeObjectValue<ChannelIdentityImpl>("channelIdentity", (!this.channelIdentity || this.channelIdentity instanceof ChannelIdentityImpl? this.channelIdentity : new ChannelIdentityImpl(this.channelIdentity)));
+            writer.writeObjectValue<ChannelIdentityImpl>("channelIdentity", (this.channelIdentity instanceof ChannelIdentityImpl? this.channelIdentity as ChannelIdentityImpl: new ChannelIdentityImpl(this.channelIdentity)));
         }
         if(this.chatId){
             writer.writeStringValue("chatId", this.chatId);
@@ -504,14 +504,14 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
             writer.writeStringValue("etag", this.etag);
         }
         if(this.eventDetail){
-            writer.writeObjectValue<EventMessageDetailImpl>("eventDetail", (!this.eventDetail || this.eventDetail instanceof EventMessageDetailImpl? this.eventDetail : new EventMessageDetailImpl(this.eventDetail)));
+            writer.writeObjectValue<EventMessageDetailImpl>("eventDetail", (this.eventDetail instanceof EventMessageDetailImpl? this.eventDetail as EventMessageDetailImpl: new EventMessageDetailImpl(this.eventDetail)));
         }
         if(this.from){
-            writer.writeObjectValue<ChatMessageFromIdentitySetImpl>("from", (!this.from || this.from instanceof ChatMessageFromIdentitySetImpl? this.from : new ChatMessageFromIdentitySetImpl(this.from)));
+            writer.writeObjectValue<ChatMessageFromIdentitySetImpl>("from", (this.from instanceof ChatMessageFromIdentitySetImpl? this.from as ChatMessageFromIdentitySetImpl: new ChatMessageFromIdentitySetImpl(this.from)));
         }
         if(this.hostedContents && this.hostedContents.length != 0){        const hostedContentsArrValue: ChatMessageHostedContentImpl[] = [];
         this.hostedContents?.forEach(element => {
-            hostedContentsArrValue.push((element instanceof ChatMessageHostedContentImpl? element:new ChatMessageHostedContentImpl(element)));
+            hostedContentsArrValue.push((element instanceof ChatMessageHostedContentImpl? element as ChatMessageHostedContentImpl:new ChatMessageHostedContentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageHostedContentImpl>("hostedContents", hostedContentsArrValue);
         }
@@ -529,7 +529,7 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
         }
         if(this.mentions && this.mentions.length != 0){        const mentionsArrValue: ChatMessageMentionImpl[] = [];
         this.mentions?.forEach(element => {
-            mentionsArrValue.push((element instanceof ChatMessageMentionImpl? element:new ChatMessageMentionImpl(element)));
+            mentionsArrValue.push((element instanceof ChatMessageMentionImpl? element as ChatMessageMentionImpl:new ChatMessageMentionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageMentionImpl>("mentions", mentionsArrValue);
         }
@@ -537,17 +537,17 @@ export class ChatMessageImpl extends EntityImpl implements ChatMessage {
             writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
         }
         if(this.policyViolation){
-            writer.writeObjectValue<ChatMessagePolicyViolationImpl>("policyViolation", (!this.policyViolation || this.policyViolation instanceof ChatMessagePolicyViolationImpl? this.policyViolation : new ChatMessagePolicyViolationImpl(this.policyViolation)));
+            writer.writeObjectValue<ChatMessagePolicyViolationImpl>("policyViolation", (this.policyViolation instanceof ChatMessagePolicyViolationImpl? this.policyViolation as ChatMessagePolicyViolationImpl: new ChatMessagePolicyViolationImpl(this.policyViolation)));
         }
         if(this.reactions && this.reactions.length != 0){        const reactionsArrValue: ChatMessageReactionImpl[] = [];
         this.reactions?.forEach(element => {
-            reactionsArrValue.push((element instanceof ChatMessageReactionImpl? element:new ChatMessageReactionImpl(element)));
+            reactionsArrValue.push((element instanceof ChatMessageReactionImpl? element as ChatMessageReactionImpl:new ChatMessageReactionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageReactionImpl>("reactions", reactionsArrValue);
         }
         if(this.replies && this.replies.length != 0){        const repliesArrValue: ChatMessageImpl[] = [];
         this.replies?.forEach(element => {
-            repliesArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+            repliesArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("replies", repliesArrValue);
         }

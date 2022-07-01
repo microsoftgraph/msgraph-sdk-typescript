@@ -73,7 +73,7 @@ export class GroupSettingTemplateCollectionResponseImpl implements GroupSettingT
         }
         if(this.value && this.value.length != 0){        const valueArrValue: GroupSettingTemplateImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof GroupSettingTemplateImpl? element:new GroupSettingTemplateImpl(element)));
+            valueArrValue.push((element instanceof GroupSettingTemplateImpl? element as GroupSettingTemplateImpl:new GroupSettingTemplateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupSettingTemplateImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class GroupSettingTemplateCollectionResponseImpl implements GroupSettingT
         if(value) {
             const valueArrValue: GroupSettingTemplateImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof GroupSettingTemplateImpl? element:new GroupSettingTemplateImpl(element)));
+                valueArrValue.push((element instanceof GroupSettingTemplateImpl? element as GroupSettingTemplateImpl:new GroupSettingTemplateImpl(element)));
             });
             this._value = valueArrValue;
         }

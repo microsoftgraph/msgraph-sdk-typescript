@@ -73,7 +73,7 @@ export class PlannerTaskCollectionResponseImpl implements PlannerTaskCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PlannerTaskImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+            valueArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PlannerTaskCollectionResponseImpl implements PlannerTaskCollectionR
         if(value) {
             const valueArrValue: PlannerTaskImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+                valueArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
             });
             this._value = valueArrValue;
         }

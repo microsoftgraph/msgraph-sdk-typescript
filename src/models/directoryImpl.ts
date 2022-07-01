@@ -31,7 +31,7 @@ export class DirectoryImpl extends EntityImpl implements Directory {
         if(value) {
             const administrativeUnitsArrValue: AdministrativeUnitImpl[] = [];
             this.administrativeUnits?.forEach(element => {
-                administrativeUnitsArrValue.push((element instanceof AdministrativeUnitImpl? element:new AdministrativeUnitImpl(element)));
+                administrativeUnitsArrValue.push((element instanceof AdministrativeUnitImpl? element as AdministrativeUnitImpl:new AdministrativeUnitImpl(element)));
             });
             this._administrativeUnits = administrativeUnitsArrValue;
         }
@@ -61,7 +61,7 @@ export class DirectoryImpl extends EntityImpl implements Directory {
         if(value) {
             const deletedItemsArrValue: DirectoryObjectImpl[] = [];
             this.deletedItems?.forEach(element => {
-                deletedItemsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                deletedItemsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._deletedItems = deletedItemsArrValue;
         }
@@ -81,7 +81,7 @@ export class DirectoryImpl extends EntityImpl implements Directory {
         if(value) {
             const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = [];
             this.federationConfigurations?.forEach(element => {
-                federationConfigurationsArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+                federationConfigurationsArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
             });
             this._federationConfigurations = federationConfigurationsArrValue;
         }
@@ -106,19 +106,19 @@ export class DirectoryImpl extends EntityImpl implements Directory {
         super.serialize(writer);
         if(this.administrativeUnits && this.administrativeUnits.length != 0){        const administrativeUnitsArrValue: AdministrativeUnitImpl[] = [];
         this.administrativeUnits?.forEach(element => {
-            administrativeUnitsArrValue.push((element instanceof AdministrativeUnitImpl? element:new AdministrativeUnitImpl(element)));
+            administrativeUnitsArrValue.push((element instanceof AdministrativeUnitImpl? element as AdministrativeUnitImpl:new AdministrativeUnitImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AdministrativeUnitImpl>("administrativeUnits", administrativeUnitsArrValue);
         }
         if(this.deletedItems && this.deletedItems.length != 0){        const deletedItemsArrValue: DirectoryObjectImpl[] = [];
         this.deletedItems?.forEach(element => {
-            deletedItemsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            deletedItemsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("deletedItems", deletedItemsArrValue);
         }
         if(this.federationConfigurations && this.federationConfigurations.length != 0){        const federationConfigurationsArrValue: IdentityProviderBaseImpl[] = [];
         this.federationConfigurations?.forEach(element => {
-            federationConfigurationsArrValue.push((element instanceof IdentityProviderBaseImpl? element:new IdentityProviderBaseImpl(element)));
+            federationConfigurationsArrValue.push((element instanceof IdentityProviderBaseImpl? element as IdentityProviderBaseImpl:new IdentityProviderBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityProviderBaseImpl>("federationConfigurations", federationConfigurationsArrValue);
         }

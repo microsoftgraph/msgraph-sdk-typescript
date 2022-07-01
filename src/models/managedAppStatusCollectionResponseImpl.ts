@@ -73,7 +73,7 @@ export class ManagedAppStatusCollectionResponseImpl implements ManagedAppStatusC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppStatusImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedAppStatusImpl? element:new ManagedAppStatusImpl(element)));
+            valueArrValue.push((element instanceof ManagedAppStatusImpl? element as ManagedAppStatusImpl:new ManagedAppStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppStatusImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedAppStatusCollectionResponseImpl implements ManagedAppStatusC
         if(value) {
             const valueArrValue: ManagedAppStatusImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedAppStatusImpl? element:new ManagedAppStatusImpl(element)));
+                valueArrValue.push((element instanceof ManagedAppStatusImpl? element as ManagedAppStatusImpl:new ManagedAppStatusImpl(element)));
             });
             this._value = valueArrValue;
         }

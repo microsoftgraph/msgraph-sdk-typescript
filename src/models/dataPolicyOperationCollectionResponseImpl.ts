@@ -73,7 +73,7 @@ export class DataPolicyOperationCollectionResponseImpl implements DataPolicyOper
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DataPolicyOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DataPolicyOperationImpl? element:new DataPolicyOperationImpl(element)));
+            valueArrValue.push((element instanceof DataPolicyOperationImpl? element as DataPolicyOperationImpl:new DataPolicyOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DataPolicyOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DataPolicyOperationCollectionResponseImpl implements DataPolicyOper
         if(value) {
             const valueArrValue: DataPolicyOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DataPolicyOperationImpl? element:new DataPolicyOperationImpl(element)));
+                valueArrValue.push((element instanceof DataPolicyOperationImpl? element as DataPolicyOperationImpl:new DataPolicyOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -88,7 +88,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
         if(value) {
             const fallbackReviewersArrValue: SubjectSetImpl[] = [];
             this.fallbackReviewers?.forEach(element => {
-                fallbackReviewersArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+                fallbackReviewersArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
             });
             this._fallbackReviewers = fallbackReviewersArrValue;
         }
@@ -188,7 +188,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
         if(value) {
             const primaryReviewersArrValue: SubjectSetImpl[] = [];
             this.primaryReviewers?.forEach(element => {
-                primaryReviewersArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+                primaryReviewersArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
             });
             this._primaryReviewers = primaryReviewersArrValue;
         }
@@ -206,7 +206,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
      */
     public set schedule(value: EntitlementManagementSchedule | undefined) {
         if(value) {
-            this._schedule = value instanceof EntitlementManagementScheduleImpl? value : new EntitlementManagementScheduleImpl(value);
+            this._schedule = value instanceof EntitlementManagementScheduleImpl? value as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(value);
         }
     };
     /**
@@ -220,7 +220,7 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
         }
         if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: SubjectSetImpl[] = [];
         this.fallbackReviewers?.forEach(element => {
-            fallbackReviewersArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            fallbackReviewersArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
@@ -238,12 +238,12 @@ export class AccessPackageAssignmentReviewSettingsImpl implements AccessPackageA
         }
         if(this.primaryReviewers && this.primaryReviewers.length != 0){        const primaryReviewersArrValue: SubjectSetImpl[] = [];
         this.primaryReviewers?.forEach(element => {
-            primaryReviewersArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            primaryReviewersArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("primaryReviewers", primaryReviewersArrValue);
         }
         if(this.schedule){
-            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (!this.schedule || this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule : new EntitlementManagementScheduleImpl(this.schedule)));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(this.schedule)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -73,7 +73,7 @@ export class ApprovalStageCollectionResponseImpl implements ApprovalStageCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ApprovalStageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ApprovalStageImpl? element:new ApprovalStageImpl(element)));
+            valueArrValue.push((element instanceof ApprovalStageImpl? element as ApprovalStageImpl:new ApprovalStageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ApprovalStageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ApprovalStageCollectionResponseImpl implements ApprovalStageCollect
         if(value) {
             const valueArrValue: ApprovalStageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ApprovalStageImpl? element:new ApprovalStageImpl(element)));
+                valueArrValue.push((element instanceof ApprovalStageImpl? element as ApprovalStageImpl:new ApprovalStageImpl(element)));
             });
             this._value = valueArrValue;
         }

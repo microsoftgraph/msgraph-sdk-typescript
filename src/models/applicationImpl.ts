@@ -133,7 +133,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const addInsArrValue: AddInImpl[] = [];
             this.addIns?.forEach(element => {
-                addInsArrValue.push((element instanceof AddInImpl? element:new AddInImpl(element)));
+                addInsArrValue.push((element instanceof AddInImpl? element as AddInImpl:new AddInImpl(element)));
             });
             this._addIns = addInsArrValue;
         }
@@ -151,7 +151,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set api(value: ApiApplication | undefined) {
         if(value) {
-            this._api = value instanceof ApiApplicationImpl? value : new ApiApplicationImpl(value);
+            this._api = value instanceof ApiApplicationImpl? value as ApiApplicationImpl: new ApiApplicationImpl(value);
         }
     };
     /**
@@ -201,7 +201,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const appRolesArrValue: AppRoleImpl[] = [];
             this.appRoles?.forEach(element => {
-                appRolesArrValue.push((element instanceof AppRoleImpl? element:new AppRoleImpl(element)));
+                appRolesArrValue.push((element instanceof AppRoleImpl? element as AppRoleImpl:new AppRoleImpl(element)));
             });
             this._appRoles = appRolesArrValue;
         }
@@ -219,7 +219,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set certification(value: Certification | undefined) {
         if(value) {
-            this._certification = value instanceof CertificationImpl? value : new CertificationImpl(value);
+            this._certification = value instanceof CertificationImpl? value as CertificationImpl: new CertificationImpl(value);
         }
     };
     /**
@@ -296,7 +296,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
         if(value) {
-            this._createdOnBehalfOf = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+            this._createdOnBehalfOf = value instanceof DirectoryObjectImpl? value as DirectoryObjectImpl: new DirectoryObjectImpl(value);
         }
     };
     /**
@@ -362,7 +362,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const extensionPropertiesArrValue: ExtensionPropertyImpl[] = [];
             this.extensionProperties?.forEach(element => {
-                extensionPropertiesArrValue.push((element instanceof ExtensionPropertyImpl? element:new ExtensionPropertyImpl(element)));
+                extensionPropertiesArrValue.push((element instanceof ExtensionPropertyImpl? element as ExtensionPropertyImpl:new ExtensionPropertyImpl(element)));
             });
             this._extensionProperties = extensionPropertiesArrValue;
         }
@@ -444,7 +444,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
             this.homeRealmDiscoveryPolicies?.forEach(element => {
-                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
             });
             this._homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesArrValue;
         }
@@ -478,7 +478,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set info(value: InformationalUrl | undefined) {
         if(value) {
-            this._info = value instanceof InformationalUrlImpl? value : new InformationalUrlImpl(value);
+            this._info = value instanceof InformationalUrlImpl? value as InformationalUrlImpl: new InformationalUrlImpl(value);
         }
     };
     /**
@@ -528,7 +528,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const keyCredentialsArrValue: KeyCredentialImpl[] = [];
             this.keyCredentials?.forEach(element => {
-                keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element:new KeyCredentialImpl(element)));
+                keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element as KeyCredentialImpl:new KeyCredentialImpl(element)));
             });
             this._keyCredentials = keyCredentialsArrValue;
         }
@@ -594,7 +594,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set optionalClaims(value: OptionalClaims | undefined) {
         if(value) {
-            this._optionalClaims = value instanceof OptionalClaimsImpl? value : new OptionalClaimsImpl(value);
+            this._optionalClaims = value instanceof OptionalClaimsImpl? value as OptionalClaimsImpl: new OptionalClaimsImpl(value);
         }
     };
     /**
@@ -612,7 +612,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const ownersArrValue: DirectoryObjectImpl[] = [];
             this.owners?.forEach(element => {
-                ownersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                ownersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._owners = ownersArrValue;
         }
@@ -630,7 +630,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set parentalControlSettings(value: ParentalControlSettings | undefined) {
         if(value) {
-            this._parentalControlSettings = value instanceof ParentalControlSettingsImpl? value : new ParentalControlSettingsImpl(value);
+            this._parentalControlSettings = value instanceof ParentalControlSettingsImpl? value as ParentalControlSettingsImpl: new ParentalControlSettingsImpl(value);
         }
     };
     /**
@@ -648,7 +648,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const passwordCredentialsArrValue: PasswordCredentialImpl[] = [];
             this.passwordCredentials?.forEach(element => {
-                passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element:new PasswordCredentialImpl(element)));
+                passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element as PasswordCredentialImpl:new PasswordCredentialImpl(element)));
             });
             this._passwordCredentials = passwordCredentialsArrValue;
         }
@@ -666,7 +666,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set publicClient(value: PublicClientApplication | undefined) {
         if(value) {
-            this._publicClient = value instanceof PublicClientApplicationImpl? value : new PublicClientApplicationImpl(value);
+            this._publicClient = value instanceof PublicClientApplicationImpl? value as PublicClientApplicationImpl: new PublicClientApplicationImpl(value);
         }
     };
     /**
@@ -700,7 +700,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const requiredResourceAccessArrValue: RequiredResourceAccessImpl[] = [];
             this.requiredResourceAccess?.forEach(element => {
-                requiredResourceAccessArrValue.push((element instanceof RequiredResourceAccessImpl? element:new RequiredResourceAccessImpl(element)));
+                requiredResourceAccessArrValue.push((element instanceof RequiredResourceAccessImpl? element as RequiredResourceAccessImpl:new RequiredResourceAccessImpl(element)));
             });
             this._requiredResourceAccess = requiredResourceAccessArrValue;
         }
@@ -714,12 +714,12 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         super.serialize(writer);
         if(this.addIns && this.addIns.length != 0){        const addInsArrValue: AddInImpl[] = [];
         this.addIns?.forEach(element => {
-            addInsArrValue.push((element instanceof AddInImpl? element:new AddInImpl(element)));
+            addInsArrValue.push((element instanceof AddInImpl? element as AddInImpl:new AddInImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
         }
         if(this.api){
-            writer.writeObjectValue<ApiApplicationImpl>("api", (!this.api || this.api instanceof ApiApplicationImpl? this.api : new ApiApplicationImpl(this.api)));
+            writer.writeObjectValue<ApiApplicationImpl>("api", (this.api instanceof ApiApplicationImpl? this.api as ApiApplicationImpl: new ApiApplicationImpl(this.api)));
         }
         if(this.appId){
             writer.writeStringValue("appId", this.appId);
@@ -729,18 +729,18 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         }
         if(this.appRoles && this.appRoles.length != 0){        const appRolesArrValue: AppRoleImpl[] = [];
         this.appRoles?.forEach(element => {
-            appRolesArrValue.push((element instanceof AppRoleImpl? element:new AppRoleImpl(element)));
+            appRolesArrValue.push((element instanceof AppRoleImpl? element as AppRoleImpl:new AppRoleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
         }
         if(this.certification){
-            writer.writeObjectValue<CertificationImpl>("certification", (!this.certification || this.certification instanceof CertificationImpl? this.certification : new CertificationImpl(this.certification)));
+            writer.writeObjectValue<CertificationImpl>("certification", (this.certification instanceof CertificationImpl? this.certification as CertificationImpl: new CertificationImpl(this.certification)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.createdOnBehalfOf){
-            writer.writeObjectValue<DirectoryObjectImpl>("createdOnBehalfOf", (!this.createdOnBehalfOf || this.createdOnBehalfOf instanceof DirectoryObjectImpl? this.createdOnBehalfOf : new DirectoryObjectImpl(this.createdOnBehalfOf)));
+            writer.writeObjectValue<DirectoryObjectImpl>("createdOnBehalfOf", (this.createdOnBehalfOf instanceof DirectoryObjectImpl? this.createdOnBehalfOf as DirectoryObjectImpl: new DirectoryObjectImpl(this.createdOnBehalfOf)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);
@@ -753,7 +753,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         }
         if(this.extensionProperties && this.extensionProperties.length != 0){        const extensionPropertiesArrValue: ExtensionPropertyImpl[] = [];
         this.extensionProperties?.forEach(element => {
-            extensionPropertiesArrValue.push((element instanceof ExtensionPropertyImpl? element:new ExtensionPropertyImpl(element)));
+            extensionPropertiesArrValue.push((element instanceof ExtensionPropertyImpl? element as ExtensionPropertyImpl:new ExtensionPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionPropertyImpl>("extensionProperties", extensionPropertiesArrValue);
         }
@@ -762,7 +762,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         }
         if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
         this.homeRealmDiscoveryPolicies?.forEach(element => {
-            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
@@ -770,7 +770,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
             writer.writeCollectionOfPrimitiveValues<string>("identifierUris", this.identifierUris);
         }
         if(this.info){
-            writer.writeObjectValue<InformationalUrlImpl>("info", (!this.info || this.info instanceof InformationalUrlImpl? this.info : new InformationalUrlImpl(this.info)));
+            writer.writeObjectValue<InformationalUrlImpl>("info", (this.info instanceof InformationalUrlImpl? this.info as InformationalUrlImpl: new InformationalUrlImpl(this.info)));
         }
         if(this.isDeviceOnlyAuthSupported){
             writer.writeBooleanValue("isDeviceOnlyAuthSupported", this.isDeviceOnlyAuthSupported);
@@ -780,7 +780,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         }
         if(this.keyCredentials && this.keyCredentials.length != 0){        const keyCredentialsArrValue: KeyCredentialImpl[] = [];
         this.keyCredentials?.forEach(element => {
-            keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element:new KeyCredentialImpl(element)));
+            keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element as KeyCredentialImpl:new KeyCredentialImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
         }
@@ -794,32 +794,32 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
             writer.writeBooleanValue("oauth2RequirePostResponse", this.oauth2RequirePostResponse);
         }
         if(this.optionalClaims){
-            writer.writeObjectValue<OptionalClaimsImpl>("optionalClaims", (!this.optionalClaims || this.optionalClaims instanceof OptionalClaimsImpl? this.optionalClaims : new OptionalClaimsImpl(this.optionalClaims)));
+            writer.writeObjectValue<OptionalClaimsImpl>("optionalClaims", (this.optionalClaims instanceof OptionalClaimsImpl? this.optionalClaims as OptionalClaimsImpl: new OptionalClaimsImpl(this.optionalClaims)));
         }
         if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = [];
         this.owners?.forEach(element => {
-            ownersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            ownersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
         if(this.parentalControlSettings){
-            writer.writeObjectValue<ParentalControlSettingsImpl>("parentalControlSettings", (!this.parentalControlSettings || this.parentalControlSettings instanceof ParentalControlSettingsImpl? this.parentalControlSettings : new ParentalControlSettingsImpl(this.parentalControlSettings)));
+            writer.writeObjectValue<ParentalControlSettingsImpl>("parentalControlSettings", (this.parentalControlSettings instanceof ParentalControlSettingsImpl? this.parentalControlSettings as ParentalControlSettingsImpl: new ParentalControlSettingsImpl(this.parentalControlSettings)));
         }
         if(this.passwordCredentials && this.passwordCredentials.length != 0){        const passwordCredentialsArrValue: PasswordCredentialImpl[] = [];
         this.passwordCredentials?.forEach(element => {
-            passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element:new PasswordCredentialImpl(element)));
+            passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element as PasswordCredentialImpl:new PasswordCredentialImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
         }
         if(this.publicClient){
-            writer.writeObjectValue<PublicClientApplicationImpl>("publicClient", (!this.publicClient || this.publicClient instanceof PublicClientApplicationImpl? this.publicClient : new PublicClientApplicationImpl(this.publicClient)));
+            writer.writeObjectValue<PublicClientApplicationImpl>("publicClient", (this.publicClient instanceof PublicClientApplicationImpl? this.publicClient as PublicClientApplicationImpl: new PublicClientApplicationImpl(this.publicClient)));
         }
         if(this.publisherDomain){
             writer.writeStringValue("publisherDomain", this.publisherDomain);
         }
         if(this.requiredResourceAccess && this.requiredResourceAccess.length != 0){        const requiredResourceAccessArrValue: RequiredResourceAccessImpl[] = [];
         this.requiredResourceAccess?.forEach(element => {
-            requiredResourceAccessArrValue.push((element instanceof RequiredResourceAccessImpl? element:new RequiredResourceAccessImpl(element)));
+            requiredResourceAccessArrValue.push((element instanceof RequiredResourceAccessImpl? element as RequiredResourceAccessImpl:new RequiredResourceAccessImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RequiredResourceAccessImpl>("requiredResourceAccess", requiredResourceAccessArrValue);
         }
@@ -830,7 +830,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
             writer.writeStringValue("signInAudience", this.signInAudience);
         }
         if(this.spa){
-            writer.writeObjectValue<SpaApplicationImpl>("spa", (!this.spa || this.spa instanceof SpaApplicationImpl? this.spa : new SpaApplicationImpl(this.spa)));
+            writer.writeObjectValue<SpaApplicationImpl>("spa", (this.spa instanceof SpaApplicationImpl? this.spa as SpaApplicationImpl: new SpaApplicationImpl(this.spa)));
         }
         if(this.tags){
             writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
@@ -840,21 +840,21 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         }
         if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
         this.tokenIssuancePolicies?.forEach(element => {
-            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
         if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
         this.tokenLifetimePolicies?.forEach(element => {
-            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
         if(this.verifiedPublisher){
-            writer.writeObjectValue<VerifiedPublisherImpl>("verifiedPublisher", (!this.verifiedPublisher || this.verifiedPublisher instanceof VerifiedPublisherImpl? this.verifiedPublisher : new VerifiedPublisherImpl(this.verifiedPublisher)));
+            writer.writeObjectValue<VerifiedPublisherImpl>("verifiedPublisher", (this.verifiedPublisher instanceof VerifiedPublisherImpl? this.verifiedPublisher as VerifiedPublisherImpl: new VerifiedPublisherImpl(this.verifiedPublisher)));
         }
         if(this.web){
-            writer.writeObjectValue<WebApplicationImpl>("web", (!this.web || this.web instanceof WebApplicationImpl? this.web : new WebApplicationImpl(this.web)));
+            writer.writeObjectValue<WebApplicationImpl>("web", (this.web instanceof WebApplicationImpl? this.web as WebApplicationImpl: new WebApplicationImpl(this.web)));
         }
     };
     /**
@@ -902,7 +902,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set spa(value: SpaApplication | undefined) {
         if(value) {
-            this._spa = value instanceof SpaApplicationImpl? value : new SpaApplicationImpl(value);
+            this._spa = value instanceof SpaApplicationImpl? value as SpaApplicationImpl: new SpaApplicationImpl(value);
         }
     };
     /**
@@ -952,7 +952,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
             this.tokenIssuancePolicies?.forEach(element => {
-                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
             });
             this._tokenIssuancePolicies = tokenIssuancePoliciesArrValue;
         }
@@ -972,7 +972,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
         if(value) {
             const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
             this.tokenLifetimePolicies?.forEach(element => {
-                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
             });
             this._tokenLifetimePolicies = tokenLifetimePoliciesArrValue;
         }
@@ -990,7 +990,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set verifiedPublisher(value: VerifiedPublisher | undefined) {
         if(value) {
-            this._verifiedPublisher = value instanceof VerifiedPublisherImpl? value : new VerifiedPublisherImpl(value);
+            this._verifiedPublisher = value instanceof VerifiedPublisherImpl? value as VerifiedPublisherImpl: new VerifiedPublisherImpl(value);
         }
     };
     /**
@@ -1006,7 +1006,7 @@ export class ApplicationImpl extends DirectoryObjectImpl implements Application 
      */
     public set web(value: WebApplication | undefined) {
         if(value) {
-            this._web = value instanceof WebApplicationImpl? value : new WebApplicationImpl(value);
+            this._web = value instanceof WebApplicationImpl? value as WebApplicationImpl: new WebApplicationImpl(value);
         }
     };
 }

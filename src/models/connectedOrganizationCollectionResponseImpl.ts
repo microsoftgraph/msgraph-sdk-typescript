@@ -73,7 +73,7 @@ export class ConnectedOrganizationCollectionResponseImpl implements ConnectedOrg
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConnectedOrganizationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ConnectedOrganizationImpl? element:new ConnectedOrganizationImpl(element)));
+            valueArrValue.push((element instanceof ConnectedOrganizationImpl? element as ConnectedOrganizationImpl:new ConnectedOrganizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ConnectedOrganizationCollectionResponseImpl implements ConnectedOrg
         if(value) {
             const valueArrValue: ConnectedOrganizationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ConnectedOrganizationImpl? element:new ConnectedOrganizationImpl(element)));
+                valueArrValue.push((element instanceof ConnectedOrganizationImpl? element as ConnectedOrganizationImpl:new ConnectedOrganizationImpl(element)));
             });
             this._value = valueArrValue;
         }

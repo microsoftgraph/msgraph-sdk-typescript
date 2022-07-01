@@ -6,7 +6,7 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerUserIds} from './plannerUserIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDetails {
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
     private _categoryDescriptions?: PlannerCategoryDescriptions | undefined;
@@ -25,7 +25,7 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
      */
     public set categoryDescriptions(value: PlannerCategoryDescriptions | undefined) {
         if(value) {
-            this._categoryDescriptions = value instanceof PlannerCategoryDescriptionsImpl? value : new PlannerCategoryDescriptionsImpl(value);
+            this._categoryDescriptions = value instanceof PlannerCategoryDescriptionsImpl? value as PlannerCategoryDescriptionsImpl: new PlannerCategoryDescriptionsImpl(value);
         }
     };
     /**
@@ -55,10 +55,10 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.categoryDescriptions){
-            writer.writeObjectValue<PlannerCategoryDescriptionsImpl>("categoryDescriptions", (!this.categoryDescriptions || this.categoryDescriptions instanceof PlannerCategoryDescriptionsImpl? this.categoryDescriptions : new PlannerCategoryDescriptionsImpl(this.categoryDescriptions)));
+            writer.writeObjectValue<PlannerCategoryDescriptionsImpl>("categoryDescriptions", (this.categoryDescriptions instanceof PlannerCategoryDescriptionsImpl? this.categoryDescriptions as PlannerCategoryDescriptionsImpl: new PlannerCategoryDescriptionsImpl(this.categoryDescriptions)));
         }
         if(this.sharedWith){
-            writer.writeObjectValue<PlannerUserIdsImpl>("sharedWith", (!this.sharedWith || this.sharedWith instanceof PlannerUserIdsImpl? this.sharedWith : new PlannerUserIdsImpl(this.sharedWith)));
+            writer.writeObjectValue<PlannerUserIdsImpl>("sharedWith", (this.sharedWith instanceof PlannerUserIdsImpl? this.sharedWith as PlannerUserIdsImpl: new PlannerUserIdsImpl(this.sharedWith)));
         }
     };
     /**
@@ -74,7 +74,7 @@ export class PlannerPlanDetailsImpl extends EntityImpl implements PlannerPlanDet
      */
     public set sharedWith(value: PlannerUserIds | undefined) {
         if(value) {
-            this._sharedWith = value instanceof PlannerUserIdsImpl? value : new PlannerUserIdsImpl(value);
+            this._sharedWith = value instanceof PlannerUserIdsImpl? value as PlannerUserIdsImpl: new PlannerUserIdsImpl(value);
         }
     };
 }

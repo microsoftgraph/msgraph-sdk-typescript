@@ -45,7 +45,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         if(value) {
             const chartsArrValue: WorkbookChartImpl[] = [];
             this.charts?.forEach(element => {
-                chartsArrValue.push((element instanceof WorkbookChartImpl? element:new WorkbookChartImpl(element)));
+                chartsArrValue.push((element instanceof WorkbookChartImpl? element as WorkbookChartImpl:new WorkbookChartImpl(element)));
             });
             this._charts = chartsArrValue;
         }
@@ -112,7 +112,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         if(value) {
             const namesArrValue: WorkbookNamedItemImpl[] = [];
             this.names?.forEach(element => {
-                namesArrValue.push((element instanceof WorkbookNamedItemImpl? element:new WorkbookNamedItemImpl(element)));
+                namesArrValue.push((element instanceof WorkbookNamedItemImpl? element as WorkbookNamedItemImpl:new WorkbookNamedItemImpl(element)));
             });
             this._names = namesArrValue;
         }
@@ -132,7 +132,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         if(value) {
             const pivotTablesArrValue: WorkbookPivotTableImpl[] = [];
             this.pivotTables?.forEach(element => {
-                pivotTablesArrValue.push((element instanceof WorkbookPivotTableImpl? element:new WorkbookPivotTableImpl(element)));
+                pivotTablesArrValue.push((element instanceof WorkbookPivotTableImpl? element as WorkbookPivotTableImpl:new WorkbookPivotTableImpl(element)));
             });
             this._pivotTables = pivotTablesArrValue;
         }
@@ -166,7 +166,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
      */
     public set protection(value: WorkbookWorksheetProtection | undefined) {
         if(value) {
-            this._protection = value instanceof WorkbookWorksheetProtectionImpl? value : new WorkbookWorksheetProtectionImpl(value);
+            this._protection = value instanceof WorkbookWorksheetProtectionImpl? value as WorkbookWorksheetProtectionImpl: new WorkbookWorksheetProtectionImpl(value);
         }
     };
     /**
@@ -178,7 +178,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         super.serialize(writer);
         if(this.charts && this.charts.length != 0){        const chartsArrValue: WorkbookChartImpl[] = [];
         this.charts?.forEach(element => {
-            chartsArrValue.push((element instanceof WorkbookChartImpl? element:new WorkbookChartImpl(element)));
+            chartsArrValue.push((element instanceof WorkbookChartImpl? element as WorkbookChartImpl:new WorkbookChartImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookChartImpl>("charts", chartsArrValue);
         }
@@ -187,13 +187,13 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         }
         if(this.names && this.names.length != 0){        const namesArrValue: WorkbookNamedItemImpl[] = [];
         this.names?.forEach(element => {
-            namesArrValue.push((element instanceof WorkbookNamedItemImpl? element:new WorkbookNamedItemImpl(element)));
+            namesArrValue.push((element instanceof WorkbookNamedItemImpl? element as WorkbookNamedItemImpl:new WorkbookNamedItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookNamedItemImpl>("names", namesArrValue);
         }
         if(this.pivotTables && this.pivotTables.length != 0){        const pivotTablesArrValue: WorkbookPivotTableImpl[] = [];
         this.pivotTables?.forEach(element => {
-            pivotTablesArrValue.push((element instanceof WorkbookPivotTableImpl? element:new WorkbookPivotTableImpl(element)));
+            pivotTablesArrValue.push((element instanceof WorkbookPivotTableImpl? element as WorkbookPivotTableImpl:new WorkbookPivotTableImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookPivotTableImpl>("pivotTables", pivotTablesArrValue);
         }
@@ -201,11 +201,11 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
             writer.writeNumberValue("position", this.position);
         }
         if(this.protection){
-            writer.writeObjectValue<WorkbookWorksheetProtectionImpl>("protection", (!this.protection || this.protection instanceof WorkbookWorksheetProtectionImpl? this.protection : new WorkbookWorksheetProtectionImpl(this.protection)));
+            writer.writeObjectValue<WorkbookWorksheetProtectionImpl>("protection", (this.protection instanceof WorkbookWorksheetProtectionImpl? this.protection as WorkbookWorksheetProtectionImpl: new WorkbookWorksheetProtectionImpl(this.protection)));
         }
         if(this.tables && this.tables.length != 0){        const tablesArrValue: WorkbookTableImpl[] = [];
         this.tables?.forEach(element => {
-            tablesArrValue.push((element instanceof WorkbookTableImpl? element:new WorkbookTableImpl(element)));
+            tablesArrValue.push((element instanceof WorkbookTableImpl? element as WorkbookTableImpl:new WorkbookTableImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WorkbookTableImpl>("tables", tablesArrValue);
         }
@@ -228,7 +228,7 @@ export class WorkbookWorksheetImpl extends EntityImpl implements WorkbookWorkshe
         if(value) {
             const tablesArrValue: WorkbookTableImpl[] = [];
             this.tables?.forEach(element => {
-                tablesArrValue.push((element instanceof WorkbookTableImpl? element:new WorkbookTableImpl(element)));
+                tablesArrValue.push((element instanceof WorkbookTableImpl? element as WorkbookTableImpl:new WorkbookTableImpl(element)));
             });
             this._tables = tablesArrValue;
         }

@@ -15,7 +15,7 @@ import {ColumnDefinitionImpl, ColumnLinkImpl, ContentTypeOrderImpl, DocumentSetC
 import {ItemReference} from './itemReference';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class ContentTypeImpl extends EntityImpl implements ContentType {
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     private _associatedHubsUrls?: string[] | undefined;
@@ -84,7 +84,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
      */
     public set base(value: ContentType | undefined) {
         if(value) {
-            this._base = value instanceof ContentTypeImpl? value : new ContentTypeImpl(value);
+            this._base = value instanceof ContentTypeImpl? value as ContentTypeImpl: new ContentTypeImpl(value);
         }
     };
     /**
@@ -102,7 +102,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         if(value) {
             const baseTypesArrValue: ContentTypeImpl[] = [];
             this.baseTypes?.forEach(element => {
-                baseTypesArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+                baseTypesArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
             });
             this._baseTypes = baseTypesArrValue;
         }
@@ -122,7 +122,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         if(value) {
             const columnLinksArrValue: ColumnLinkImpl[] = [];
             this.columnLinks?.forEach(element => {
-                columnLinksArrValue.push((element instanceof ColumnLinkImpl? element:new ColumnLinkImpl(element)));
+                columnLinksArrValue.push((element instanceof ColumnLinkImpl? element as ColumnLinkImpl:new ColumnLinkImpl(element)));
             });
             this._columnLinks = columnLinksArrValue;
         }
@@ -142,7 +142,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         if(value) {
             const columnPositionsArrValue: ColumnDefinitionImpl[] = [];
             this.columnPositions?.forEach(element => {
-                columnPositionsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+                columnPositionsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
             });
             this._columnPositions = columnPositionsArrValue;
         }
@@ -162,7 +162,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
         if(value) {
             const columnsArrValue: ColumnDefinitionImpl[] = [];
             this.columns?.forEach(element => {
-                columnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+                columnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
             });
             this._columns = columnsArrValue;
         }
@@ -222,7 +222,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
      */
     public set documentSet(value: DocumentSet | undefined) {
         if(value) {
-            this._documentSet = value instanceof DocumentSetImpl? value : new DocumentSetImpl(value);
+            this._documentSet = value instanceof DocumentSetImpl? value as DocumentSetImpl: new DocumentSetImpl(value);
         }
     };
     /**
@@ -238,7 +238,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
      */
     public set documentTemplate(value: DocumentSetContent | undefined) {
         if(value) {
-            this._documentTemplate = value instanceof DocumentSetContentImpl? value : new DocumentSetContentImpl(value);
+            this._documentTemplate = value instanceof DocumentSetContentImpl? value as DocumentSetContentImpl: new DocumentSetContentImpl(value);
         }
     };
     /**
@@ -313,7 +313,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
      */
     public set inheritedFrom(value: ItemReference | undefined) {
         if(value) {
-            this._inheritedFrom = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+            this._inheritedFrom = value instanceof ItemReferenceImpl? value as ItemReferenceImpl: new ItemReferenceImpl(value);
         }
     };
     /**
@@ -361,7 +361,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
      */
     public set order(value: ContentTypeOrder | undefined) {
         if(value) {
-            this._order = value instanceof ContentTypeOrderImpl? value : new ContentTypeOrderImpl(value);
+            this._order = value instanceof ContentTypeOrderImpl? value as ContentTypeOrderImpl: new ContentTypeOrderImpl(value);
         }
     };
     /**
@@ -439,29 +439,29 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
             writer.writeCollectionOfPrimitiveValues<string>("associatedHubsUrls", this.associatedHubsUrls);
         }
         if(this.base){
-            writer.writeObjectValue<ContentTypeImpl>("base", (!this.base || this.base instanceof ContentTypeImpl? this.base : new ContentTypeImpl(this.base)));
+            writer.writeObjectValue<ContentTypeImpl>("base", (this.base instanceof ContentTypeImpl? this.base as ContentTypeImpl: new ContentTypeImpl(this.base)));
         }
         if(this.baseTypes && this.baseTypes.length != 0){        const baseTypesArrValue: ContentTypeImpl[] = [];
         this.baseTypes?.forEach(element => {
-            baseTypesArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+            baseTypesArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("baseTypes", baseTypesArrValue);
         }
         if(this.columnLinks && this.columnLinks.length != 0){        const columnLinksArrValue: ColumnLinkImpl[] = [];
         this.columnLinks?.forEach(element => {
-            columnLinksArrValue.push((element instanceof ColumnLinkImpl? element:new ColumnLinkImpl(element)));
+            columnLinksArrValue.push((element instanceof ColumnLinkImpl? element as ColumnLinkImpl:new ColumnLinkImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnLinkImpl>("columnLinks", columnLinksArrValue);
         }
         if(this.columnPositions && this.columnPositions.length != 0){        const columnPositionsArrValue: ColumnDefinitionImpl[] = [];
         this.columnPositions?.forEach(element => {
-            columnPositionsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+            columnPositionsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columnPositions", columnPositionsArrValue);
         }
         if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = [];
         this.columns?.forEach(element => {
-            columnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+            columnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
@@ -469,10 +469,10 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
             writer.writeStringValue("description", this.description);
         }
         if(this.documentSet){
-            writer.writeObjectValue<DocumentSetImpl>("documentSet", (!this.documentSet || this.documentSet instanceof DocumentSetImpl? this.documentSet : new DocumentSetImpl(this.documentSet)));
+            writer.writeObjectValue<DocumentSetImpl>("documentSet", (this.documentSet instanceof DocumentSetImpl? this.documentSet as DocumentSetImpl: new DocumentSetImpl(this.documentSet)));
         }
         if(this.documentTemplate){
-            writer.writeObjectValue<DocumentSetContentImpl>("documentTemplate", (!this.documentTemplate || this.documentTemplate instanceof DocumentSetContentImpl? this.documentTemplate : new DocumentSetContentImpl(this.documentTemplate)));
+            writer.writeObjectValue<DocumentSetContentImpl>("documentTemplate", (this.documentTemplate instanceof DocumentSetContentImpl? this.documentTemplate as DocumentSetContentImpl: new DocumentSetContentImpl(this.documentTemplate)));
         }
         if(this.group){
             writer.writeStringValue("group", this.group);
@@ -481,7 +481,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
             writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.inheritedFrom){
-            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", (!this.inheritedFrom || this.inheritedFrom instanceof ItemReferenceImpl? this.inheritedFrom : new ItemReferenceImpl(this.inheritedFrom)));
+            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", (this.inheritedFrom instanceof ItemReferenceImpl? this.inheritedFrom as ItemReferenceImpl: new ItemReferenceImpl(this.inheritedFrom)));
         }
         if(this.isBuiltIn){
             writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
@@ -490,7 +490,7 @@ export class ContentTypeImpl extends EntityImpl implements ContentType {
             writer.writeStringValue("name", this.name);
         }
         if(this.order){
-            writer.writeObjectValue<ContentTypeOrderImpl>("order", (!this.order || this.order instanceof ContentTypeOrderImpl? this.order : new ContentTypeOrderImpl(this.order)));
+            writer.writeObjectValue<ContentTypeOrderImpl>("order", (this.order instanceof ContentTypeOrderImpl? this.order as ContentTypeOrderImpl: new ContentTypeOrderImpl(this.order)));
         }
         if(this.parentId){
             writer.writeStringValue("parentId", this.parentId);

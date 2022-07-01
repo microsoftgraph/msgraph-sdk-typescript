@@ -73,7 +73,7 @@ export class PermissionGrantPolicyCollectionResponseImpl implements PermissionGr
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PermissionGrantPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PermissionGrantPolicyImpl? element:new PermissionGrantPolicyImpl(element)));
+            valueArrValue.push((element instanceof PermissionGrantPolicyImpl? element as PermissionGrantPolicyImpl:new PermissionGrantPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionGrantPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PermissionGrantPolicyCollectionResponseImpl implements PermissionGr
         if(value) {
             const valueArrValue: PermissionGrantPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PermissionGrantPolicyImpl? element:new PermissionGrantPolicyImpl(element)));
+                valueArrValue.push((element instanceof PermissionGrantPolicyImpl? element as PermissionGrantPolicyImpl:new PermissionGrantPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

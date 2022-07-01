@@ -22,7 +22,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
         if(value) {
             const availabilityArrValue: ShiftAvailabilityImpl[] = [];
             this.availability?.forEach(element => {
-                availabilityArrValue.push((element instanceof ShiftAvailabilityImpl? element:new ShiftAvailabilityImpl(element)));
+                availabilityArrValue.push((element instanceof ShiftAvailabilityImpl? element as ShiftAvailabilityImpl:new ShiftAvailabilityImpl(element)));
             });
             this._availability = availabilityArrValue;
         }
@@ -53,7 +53,7 @@ export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Shi
         super.serialize(writer);
         if(this.availability && this.availability.length != 0){        const availabilityArrValue: ShiftAvailabilityImpl[] = [];
         this.availability?.forEach(element => {
-            availabilityArrValue.push((element instanceof ShiftAvailabilityImpl? element:new ShiftAvailabilityImpl(element)));
+            availabilityArrValue.push((element instanceof ShiftAvailabilityImpl? element as ShiftAvailabilityImpl:new ShiftAvailabilityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ShiftAvailabilityImpl>("availability", availabilityArrValue);
         }

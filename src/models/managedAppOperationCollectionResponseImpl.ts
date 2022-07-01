@@ -73,7 +73,7 @@ export class ManagedAppOperationCollectionResponseImpl implements ManagedAppOper
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedAppOperationImpl? element:new ManagedAppOperationImpl(element)));
+            valueArrValue.push((element instanceof ManagedAppOperationImpl? element as ManagedAppOperationImpl:new ManagedAppOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ManagedAppOperationCollectionResponseImpl implements ManagedAppOper
         if(value) {
             const valueArrValue: ManagedAppOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedAppOperationImpl? element:new ManagedAppOperationImpl(element)));
+                valueArrValue.push((element instanceof ManagedAppOperationImpl? element as ManagedAppOperationImpl:new ManagedAppOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

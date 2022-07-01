@@ -61,7 +61,7 @@ export class PatternedRecurrenceImpl implements PatternedRecurrence {
      */
     public set pattern(value: RecurrencePattern | undefined) {
         if(value) {
-            this._pattern = value instanceof RecurrencePatternImpl? value : new RecurrencePatternImpl(value);
+            this._pattern = value instanceof RecurrencePatternImpl? value as RecurrencePatternImpl: new RecurrencePatternImpl(value);
         }
     };
     /**
@@ -77,7 +77,7 @@ export class PatternedRecurrenceImpl implements PatternedRecurrence {
      */
     public set range(value: RecurrenceRange | undefined) {
         if(value) {
-            this._range = value instanceof RecurrenceRangeImpl? value : new RecurrenceRangeImpl(value);
+            this._range = value instanceof RecurrenceRangeImpl? value as RecurrenceRangeImpl: new RecurrenceRangeImpl(value);
         }
     };
     /**
@@ -87,10 +87,10 @@ export class PatternedRecurrenceImpl implements PatternedRecurrence {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.pattern){
-            writer.writeObjectValue<RecurrencePatternImpl>("pattern", (!this.pattern || this.pattern instanceof RecurrencePatternImpl? this.pattern : new RecurrencePatternImpl(this.pattern)));
+            writer.writeObjectValue<RecurrencePatternImpl>("pattern", (this.pattern instanceof RecurrencePatternImpl? this.pattern as RecurrencePatternImpl: new RecurrencePatternImpl(this.pattern)));
         }
         if(this.range){
-            writer.writeObjectValue<RecurrenceRangeImpl>("range", (!this.range || this.range instanceof RecurrenceRangeImpl? this.range : new RecurrenceRangeImpl(this.range)));
+            writer.writeObjectValue<RecurrenceRangeImpl>("range", (this.range instanceof RecurrenceRangeImpl? this.range as RecurrenceRangeImpl: new RecurrenceRangeImpl(this.range)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

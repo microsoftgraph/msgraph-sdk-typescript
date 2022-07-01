@@ -6,7 +6,7 @@ import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class GroupImpl extends EntityImpl implements Group {
     /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -151,7 +151,7 @@ export class GroupImpl extends EntityImpl implements Group {
         }
         if(this.sets && this.sets.length != 0){        const setsArrValue: SetImpl[] = [];
         this.sets?.forEach(element => {
-            setsArrValue.push((element instanceof SetImpl? element:new SetImpl(element)));
+            setsArrValue.push((element instanceof SetImpl? element as SetImpl:new SetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SetImpl>("sets", setsArrValue);
         }
@@ -171,7 +171,7 @@ export class GroupImpl extends EntityImpl implements Group {
         if(value) {
             const setsArrValue: SetImpl[] = [];
             this.sets?.forEach(element => {
-                setsArrValue.push((element instanceof SetImpl? element:new SetImpl(element)));
+                setsArrValue.push((element instanceof SetImpl? element as SetImpl:new SetImpl(element)));
             });
             this._sets = setsArrValue;
         }

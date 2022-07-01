@@ -80,7 +80,7 @@ export class AlterationResponseImpl implements AlterationResponse {
      */
     public set queryAlteration(value: SearchAlteration | undefined) {
         if(value) {
-            this._queryAlteration = value instanceof SearchAlterationImpl? value : new SearchAlterationImpl(value);
+            this._queryAlteration = value instanceof SearchAlterationImpl? value as SearchAlterationImpl: new SearchAlterationImpl(value);
         }
     };
     /**
@@ -109,7 +109,7 @@ export class AlterationResponseImpl implements AlterationResponse {
             writer.writeStringValue("originalQueryString", this.originalQueryString);
         }
         if(this.queryAlteration){
-            writer.writeObjectValue<SearchAlterationImpl>("queryAlteration", (!this.queryAlteration || this.queryAlteration instanceof SearchAlterationImpl? this.queryAlteration : new SearchAlterationImpl(this.queryAlteration)));
+            writer.writeObjectValue<SearchAlterationImpl>("queryAlteration", (this.queryAlteration instanceof SearchAlterationImpl? this.queryAlteration as SearchAlterationImpl: new SearchAlterationImpl(this.queryAlteration)));
         }
         if(this.queryAlterationType){
             writer.writeEnumValue<SearchAlterationType>("queryAlterationType", this.queryAlterationType);

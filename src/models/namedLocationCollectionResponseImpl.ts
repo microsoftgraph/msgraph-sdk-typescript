@@ -73,7 +73,7 @@ export class NamedLocationCollectionResponseImpl implements NamedLocationCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: NamedLocationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof NamedLocationImpl? element:new NamedLocationImpl(element)));
+            valueArrValue.push((element instanceof NamedLocationImpl? element as NamedLocationImpl:new NamedLocationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<NamedLocationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class NamedLocationCollectionResponseImpl implements NamedLocationCollect
         if(value) {
             const valueArrValue: NamedLocationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof NamedLocationImpl? element:new NamedLocationImpl(element)));
+                valueArrValue.push((element instanceof NamedLocationImpl? element as NamedLocationImpl:new NamedLocationImpl(element)));
             });
             this._value = valueArrValue;
         }

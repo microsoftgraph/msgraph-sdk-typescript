@@ -73,7 +73,7 @@ export class DeviceEnrollmentConfigurationCollectionResponseImpl implements Devi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceEnrollmentConfigurationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element:new DeviceEnrollmentConfigurationImpl(element)));
+            valueArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element as DeviceEnrollmentConfigurationImpl:new DeviceEnrollmentConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceEnrollmentConfigurationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceEnrollmentConfigurationCollectionResponseImpl implements Devi
         if(value) {
             const valueArrValue: DeviceEnrollmentConfigurationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element:new DeviceEnrollmentConfigurationImpl(element)));
+                valueArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element as DeviceEnrollmentConfigurationImpl:new DeviceEnrollmentConfigurationImpl(element)));
             });
             this._value = valueArrValue;
         }

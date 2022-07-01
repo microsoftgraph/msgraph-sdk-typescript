@@ -221,7 +221,7 @@ export class TeleconferenceDeviceQualityImpl implements TeleconferenceDeviceQual
         if(value) {
             const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = [];
             this.mediaQualityList?.forEach(element => {
-                mediaQualityListArrValue.push((element instanceof TeleconferenceDeviceMediaQualityImpl? element:new TeleconferenceDeviceMediaQualityImpl(element)));
+                mediaQualityListArrValue.push((element instanceof TeleconferenceDeviceMediaQualityImpl? element as TeleconferenceDeviceMediaQualityImpl:new TeleconferenceDeviceMediaQualityImpl(element)));
             });
             this._mediaQualityList = mediaQualityListArrValue;
         }
@@ -274,7 +274,7 @@ export class TeleconferenceDeviceQualityImpl implements TeleconferenceDeviceQual
         }
         if(this.mediaQualityList && this.mediaQualityList.length != 0){        const mediaQualityListArrValue: TeleconferenceDeviceMediaQualityImpl[] = [];
         this.mediaQualityList?.forEach(element => {
-            mediaQualityListArrValue.push((element instanceof TeleconferenceDeviceMediaQualityImpl? element:new TeleconferenceDeviceMediaQualityImpl(element)));
+            mediaQualityListArrValue.push((element instanceof TeleconferenceDeviceMediaQualityImpl? element as TeleconferenceDeviceMediaQualityImpl:new TeleconferenceDeviceMediaQualityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQualityImpl>("mediaQualityList", mediaQualityListArrValue);
         }

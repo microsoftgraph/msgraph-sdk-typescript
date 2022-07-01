@@ -90,7 +90,7 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         if(value) {
             const membersArrValue: DirectoryObjectImpl[] = [];
             this.members?.forEach(element => {
-                membersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                membersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._members = membersArrValue;
         }
@@ -126,7 +126,7 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         if(value) {
             const scopedMembersArrValue: ScopedRoleMembershipImpl[] = [];
             this.scopedMembers?.forEach(element => {
-                scopedMembersArrValue.push((element instanceof ScopedRoleMembershipImpl? element:new ScopedRoleMembershipImpl(element)));
+                scopedMembersArrValue.push((element instanceof ScopedRoleMembershipImpl? element as ScopedRoleMembershipImpl:new ScopedRoleMembershipImpl(element)));
             });
             this._scopedMembers = scopedMembersArrValue;
         }
@@ -146,7 +146,7 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         }
         if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = [];
         this.members?.forEach(element => {
-            membersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            membersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
@@ -155,7 +155,7 @@ export class DirectoryRoleImpl extends DirectoryObjectImpl implements DirectoryR
         }
         if(this.scopedMembers && this.scopedMembers.length != 0){        const scopedMembersArrValue: ScopedRoleMembershipImpl[] = [];
         this.scopedMembers?.forEach(element => {
-            scopedMembersArrValue.push((element instanceof ScopedRoleMembershipImpl? element:new ScopedRoleMembershipImpl(element)));
+            scopedMembersArrValue.push((element instanceof ScopedRoleMembershipImpl? element as ScopedRoleMembershipImpl:new ScopedRoleMembershipImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ScopedRoleMembershipImpl>("scopedMembers", scopedMembersArrValue);
         }

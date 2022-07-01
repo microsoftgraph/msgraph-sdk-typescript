@@ -59,7 +59,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
         if(value) {
             const attendeesArrValue: AttendeeBaseImpl[] = [];
             this.attendees?.forEach(element => {
-                attendeesArrValue.push((element instanceof AttendeeBaseImpl? element:new AttendeeBaseImpl(element)));
+                attendeesArrValue.push((element instanceof AttendeeBaseImpl? element as AttendeeBaseImpl:new AttendeeBaseImpl(element)));
             });
             this._attendees = attendeesArrValue;
         }
@@ -124,7 +124,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
      */
     public set locationConstraint(value: LocationConstraint | undefined) {
         if(value) {
-            this._locationConstraint = value instanceof LocationConstraintImpl? value : new LocationConstraintImpl(value);
+            this._locationConstraint = value instanceof LocationConstraintImpl? value as LocationConstraintImpl: new LocationConstraintImpl(value);
         }
     };
     /**
@@ -199,7 +199,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: AttendeeBaseImpl[] = [];
         this.attendees?.forEach(element => {
-            attendeesArrValue.push((element instanceof AttendeeBaseImpl? element:new AttendeeBaseImpl(element)));
+            attendeesArrValue.push((element instanceof AttendeeBaseImpl? element as AttendeeBaseImpl:new AttendeeBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttendeeBaseImpl>("attendees", attendeesArrValue);
         }
@@ -207,7 +207,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
             writer.writeBooleanValue("isOrganizerOptional", this.isOrganizerOptional);
         }
         if(this.locationConstraint){
-            writer.writeObjectValue<LocationConstraintImpl>("locationConstraint", (!this.locationConstraint || this.locationConstraint instanceof LocationConstraintImpl? this.locationConstraint : new LocationConstraintImpl(this.locationConstraint)));
+            writer.writeObjectValue<LocationConstraintImpl>("locationConstraint", (this.locationConstraint instanceof LocationConstraintImpl? this.locationConstraint as LocationConstraintImpl: new LocationConstraintImpl(this.locationConstraint)));
         }
         if(this.maxCandidates){
             writer.writeNumberValue("maxCandidates", this.maxCandidates);
@@ -222,7 +222,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
             writer.writeBooleanValue("returnSuggestionReasons", this.returnSuggestionReasons);
         }
         if(this.timeConstraint){
-            writer.writeObjectValue<TimeConstraintImpl>("timeConstraint", (!this.timeConstraint || this.timeConstraint instanceof TimeConstraintImpl? this.timeConstraint : new TimeConstraintImpl(this.timeConstraint)));
+            writer.writeObjectValue<TimeConstraintImpl>("timeConstraint", (this.timeConstraint instanceof TimeConstraintImpl? this.timeConstraint as TimeConstraintImpl: new TimeConstraintImpl(this.timeConstraint)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -239,7 +239,7 @@ export class FindMeetingTimesPostRequestBodyImpl implements FindMeetingTimesPost
      */
     public set timeConstraint(value: TimeConstraint | undefined) {
         if(value) {
-            this._timeConstraint = value instanceof TimeConstraintImpl? value : new TimeConstraintImpl(value);
+            this._timeConstraint = value instanceof TimeConstraintImpl? value as TimeConstraintImpl: new TimeConstraintImpl(value);
         }
     };
 }

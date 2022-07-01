@@ -51,7 +51,7 @@ export class TranslateExchangeIdsResponseImpl implements TranslateExchangeIdsRes
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ConvertIdResultImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ConvertIdResultImpl? element:new ConvertIdResultImpl(element)));
+            valueArrValue.push((element instanceof ConvertIdResultImpl? element as ConvertIdResultImpl:new ConvertIdResultImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConvertIdResultImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class TranslateExchangeIdsResponseImpl implements TranslateExchangeIdsRes
         if(value) {
             const valueArrValue: ConvertIdResultImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ConvertIdResultImpl? element:new ConvertIdResultImpl(element)));
+                valueArrValue.push((element instanceof ConvertIdResultImpl? element as ConvertIdResultImpl:new ConvertIdResultImpl(element)));
             });
             this._value = valueArrValue;
         }

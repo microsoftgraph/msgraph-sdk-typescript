@@ -34,7 +34,7 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
      */
     public set draftTimeOff(value: TimeOffItem | undefined) {
         if(value) {
-            this._draftTimeOff = value instanceof TimeOffItemImpl? value : new TimeOffItemImpl(value);
+            this._draftTimeOff = value instanceof TimeOffItemImpl? value as TimeOffItemImpl: new TimeOffItemImpl(value);
         }
     };
     /**
@@ -56,10 +56,10 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.draftTimeOff){
-            writer.writeObjectValue<TimeOffItemImpl>("draftTimeOff", (!this.draftTimeOff || this.draftTimeOff instanceof TimeOffItemImpl? this.draftTimeOff : new TimeOffItemImpl(this.draftTimeOff)));
+            writer.writeObjectValue<TimeOffItemImpl>("draftTimeOff", (this.draftTimeOff instanceof TimeOffItemImpl? this.draftTimeOff as TimeOffItemImpl: new TimeOffItemImpl(this.draftTimeOff)));
         }
         if(this.sharedTimeOff){
-            writer.writeObjectValue<TimeOffItemImpl>("sharedTimeOff", (!this.sharedTimeOff || this.sharedTimeOff instanceof TimeOffItemImpl? this.sharedTimeOff : new TimeOffItemImpl(this.sharedTimeOff)));
+            writer.writeObjectValue<TimeOffItemImpl>("sharedTimeOff", (this.sharedTimeOff instanceof TimeOffItemImpl? this.sharedTimeOff as TimeOffItemImpl: new TimeOffItemImpl(this.sharedTimeOff)));
         }
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
@@ -78,7 +78,7 @@ export class TimeOffImpl extends ChangeTrackedEntityImpl implements TimeOff {
      */
     public set sharedTimeOff(value: TimeOffItem | undefined) {
         if(value) {
-            this._sharedTimeOff = value instanceof TimeOffItemImpl? value : new TimeOffItemImpl(value);
+            this._sharedTimeOff = value instanceof TimeOffItemImpl? value as TimeOffItemImpl: new TimeOffItemImpl(value);
         }
     };
     /**

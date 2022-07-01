@@ -89,7 +89,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -171,7 +171,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         if(value) {
             const resultsArrValue: ThreatAssessmentResultImpl[] = [];
             this.results?.forEach(element => {
-                resultsArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+                resultsArrValue.push((element instanceof ThreatAssessmentResultImpl? element as ThreatAssessmentResultImpl:new ThreatAssessmentResultImpl(element)));
             });
             this._results = resultsArrValue;
         }
@@ -190,7 +190,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
             writer.writeEnumValue<ThreatAssessmentContentType>("contentType", this.contentType);
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -203,7 +203,7 @@ export class ThreatAssessmentRequestImpl extends EntityImpl implements ThreatAss
         }
         if(this.results && this.results.length != 0){        const resultsArrValue: ThreatAssessmentResultImpl[] = [];
         this.results?.forEach(element => {
-            resultsArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+            resultsArrValue.push((element instanceof ThreatAssessmentResultImpl? element as ThreatAssessmentResultImpl:new ThreatAssessmentResultImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("results", resultsArrValue);
         }

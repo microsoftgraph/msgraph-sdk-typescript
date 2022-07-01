@@ -98,7 +98,7 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
      */
     public set roleDefinition(value: RoleDefinition | undefined) {
         if(value) {
-            this._roleDefinition = value instanceof RoleDefinitionImpl? value : new RoleDefinitionImpl(value);
+            this._roleDefinition = value instanceof RoleDefinitionImpl? value as RoleDefinitionImpl: new RoleDefinitionImpl(value);
         }
     };
     /**
@@ -118,7 +118,7 @@ export class RoleAssignmentImpl extends EntityImpl implements RoleAssignment {
             writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         }
         if(this.roleDefinition){
-            writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", (!this.roleDefinition || this.roleDefinition instanceof RoleDefinitionImpl? this.roleDefinition : new RoleDefinitionImpl(this.roleDefinition)));
+            writer.writeObjectValue<RoleDefinitionImpl>("roleDefinition", (this.roleDefinition instanceof RoleDefinitionImpl? this.roleDefinition as RoleDefinitionImpl: new RoleDefinitionImpl(this.roleDefinition)));
         }
     };
 }

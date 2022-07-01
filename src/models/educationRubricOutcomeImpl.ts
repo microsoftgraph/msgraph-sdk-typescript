@@ -53,7 +53,7 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
         if(value) {
             const publishedRubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = [];
             this.publishedRubricQualityFeedback?.forEach(element => {
-                publishedRubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element:new RubricQualityFeedbackModelImpl(element)));
+                publishedRubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element as RubricQualityFeedbackModelImpl:new RubricQualityFeedbackModelImpl(element)));
             });
             this._publishedRubricQualityFeedback = publishedRubricQualityFeedbackArrValue;
         }
@@ -73,7 +73,7 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
         if(value) {
             const publishedRubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = [];
             this.publishedRubricQualitySelectedLevels?.forEach(element => {
-                publishedRubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element:new RubricQualitySelectedColumnModelImpl(element)));
+                publishedRubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element as RubricQualitySelectedColumnModelImpl:new RubricQualitySelectedColumnModelImpl(element)));
             });
             this._publishedRubricQualitySelectedLevels = publishedRubricQualitySelectedLevelsArrValue;
         }
@@ -93,7 +93,7 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
         if(value) {
             const rubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = [];
             this.rubricQualityFeedback?.forEach(element => {
-                rubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element:new RubricQualityFeedbackModelImpl(element)));
+                rubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element as RubricQualityFeedbackModelImpl:new RubricQualityFeedbackModelImpl(element)));
             });
             this._rubricQualityFeedback = rubricQualityFeedbackArrValue;
         }
@@ -113,7 +113,7 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
         if(value) {
             const rubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = [];
             this.rubricQualitySelectedLevels?.forEach(element => {
-                rubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element:new RubricQualitySelectedColumnModelImpl(element)));
+                rubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element as RubricQualitySelectedColumnModelImpl:new RubricQualitySelectedColumnModelImpl(element)));
             });
             this._rubricQualitySelectedLevels = rubricQualitySelectedLevelsArrValue;
         }
@@ -127,25 +127,25 @@ export class EducationRubricOutcomeImpl extends EducationOutcomeImpl implements 
         super.serialize(writer);
         if(this.publishedRubricQualityFeedback && this.publishedRubricQualityFeedback.length != 0){        const publishedRubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = [];
         this.publishedRubricQualityFeedback?.forEach(element => {
-            publishedRubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element:new RubricQualityFeedbackModelImpl(element)));
+            publishedRubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element as RubricQualityFeedbackModelImpl:new RubricQualityFeedbackModelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricQualityFeedbackModelImpl>("publishedRubricQualityFeedback", publishedRubricQualityFeedbackArrValue);
         }
         if(this.publishedRubricQualitySelectedLevels && this.publishedRubricQualitySelectedLevels.length != 0){        const publishedRubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = [];
         this.publishedRubricQualitySelectedLevels?.forEach(element => {
-            publishedRubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element:new RubricQualitySelectedColumnModelImpl(element)));
+            publishedRubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element as RubricQualitySelectedColumnModelImpl:new RubricQualitySelectedColumnModelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModelImpl>("publishedRubricQualitySelectedLevels", publishedRubricQualitySelectedLevelsArrValue);
         }
         if(this.rubricQualityFeedback && this.rubricQualityFeedback.length != 0){        const rubricQualityFeedbackArrValue: RubricQualityFeedbackModelImpl[] = [];
         this.rubricQualityFeedback?.forEach(element => {
-            rubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element:new RubricQualityFeedbackModelImpl(element)));
+            rubricQualityFeedbackArrValue.push((element instanceof RubricQualityFeedbackModelImpl? element as RubricQualityFeedbackModelImpl:new RubricQualityFeedbackModelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricQualityFeedbackModelImpl>("rubricQualityFeedback", rubricQualityFeedbackArrValue);
         }
         if(this.rubricQualitySelectedLevels && this.rubricQualitySelectedLevels.length != 0){        const rubricQualitySelectedLevelsArrValue: RubricQualitySelectedColumnModelImpl[] = [];
         this.rubricQualitySelectedLevels?.forEach(element => {
-            rubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element:new RubricQualitySelectedColumnModelImpl(element)));
+            rubricQualitySelectedLevelsArrValue.push((element instanceof RubricQualitySelectedColumnModelImpl? element as RubricQualitySelectedColumnModelImpl:new RubricQualitySelectedColumnModelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModelImpl>("rubricQualitySelectedLevels", rubricQualitySelectedLevelsArrValue);
         }

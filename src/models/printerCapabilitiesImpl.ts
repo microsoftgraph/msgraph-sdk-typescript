@@ -182,7 +182,7 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
      */
     public set copiesPerJob(value: IntegerRange | undefined) {
         if(value) {
-            this._copiesPerJob = value instanceof IntegerRangeImpl? value : new IntegerRangeImpl(value);
+            this._copiesPerJob = value instanceof IntegerRangeImpl? value as IntegerRangeImpl: new IntegerRangeImpl(value);
         }
     };
     /**
@@ -525,7 +525,7 @@ export class PrinterCapabilitiesImpl implements PrinterCapabilities {
             writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
         }
         if(this.copiesPerJob){
-            writer.writeObjectValue<IntegerRangeImpl>("copiesPerJob", (!this.copiesPerJob || this.copiesPerJob instanceof IntegerRangeImpl? this.copiesPerJob : new IntegerRangeImpl(this.copiesPerJob)));
+            writer.writeObjectValue<IntegerRangeImpl>("copiesPerJob", (this.copiesPerJob instanceof IntegerRangeImpl? this.copiesPerJob as IntegerRangeImpl: new IntegerRangeImpl(this.copiesPerJob)));
         }
         if(this.dpis){
             writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);

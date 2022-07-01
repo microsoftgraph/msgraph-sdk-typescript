@@ -78,7 +78,7 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
      */
     public set selfServiceSignUp(value: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
         if(value) {
-            this._selfServiceSignUp = value instanceof SelfServiceSignUpAuthenticationFlowConfigurationImpl? value : new SelfServiceSignUpAuthenticationFlowConfigurationImpl(value);
+            this._selfServiceSignUp = value instanceof SelfServiceSignUpAuthenticationFlowConfigurationImpl? value as SelfServiceSignUpAuthenticationFlowConfigurationImpl: new SelfServiceSignUpAuthenticationFlowConfigurationImpl(value);
         }
     };
     /**
@@ -95,7 +95,7 @@ export class AuthenticationFlowsPolicyImpl extends EntityImpl implements Authent
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.selfServiceSignUp){
-            writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfigurationImpl>("selfServiceSignUp", (!this.selfServiceSignUp || this.selfServiceSignUp instanceof SelfServiceSignUpAuthenticationFlowConfigurationImpl? this.selfServiceSignUp : new SelfServiceSignUpAuthenticationFlowConfigurationImpl(this.selfServiceSignUp)));
+            writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfigurationImpl>("selfServiceSignUp", (this.selfServiceSignUp instanceof SelfServiceSignUpAuthenticationFlowConfigurationImpl? this.selfServiceSignUp as SelfServiceSignUpAuthenticationFlowConfigurationImpl: new SelfServiceSignUpAuthenticationFlowConfigurationImpl(this.selfServiceSignUp)));
         }
     };
 }

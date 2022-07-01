@@ -44,7 +44,7 @@ export class SolutionsRootImpl implements SolutionsRoot {
         if(value) {
             const bookingBusinessesArrValue: BookingBusinessImpl[] = [];
             this.bookingBusinesses?.forEach(element => {
-                bookingBusinessesArrValue.push((element instanceof BookingBusinessImpl? element:new BookingBusinessImpl(element)));
+                bookingBusinessesArrValue.push((element instanceof BookingBusinessImpl? element as BookingBusinessImpl:new BookingBusinessImpl(element)));
             });
             this._bookingBusinesses = bookingBusinessesArrValue;
         }
@@ -64,7 +64,7 @@ export class SolutionsRootImpl implements SolutionsRoot {
         if(value) {
             const bookingCurrenciesArrValue: BookingCurrencyImpl[] = [];
             this.bookingCurrencies?.forEach(element => {
-                bookingCurrenciesArrValue.push((element instanceof BookingCurrencyImpl? element:new BookingCurrencyImpl(element)));
+                bookingCurrenciesArrValue.push((element instanceof BookingCurrencyImpl? element as BookingCurrencyImpl:new BookingCurrencyImpl(element)));
             });
             this._bookingCurrencies = bookingCurrenciesArrValue;
         }
@@ -96,13 +96,13 @@ export class SolutionsRootImpl implements SolutionsRoot {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bookingBusinesses && this.bookingBusinesses.length != 0){        const bookingBusinessesArrValue: BookingBusinessImpl[] = [];
         this.bookingBusinesses?.forEach(element => {
-            bookingBusinessesArrValue.push((element instanceof BookingBusinessImpl? element:new BookingBusinessImpl(element)));
+            bookingBusinessesArrValue.push((element instanceof BookingBusinessImpl? element as BookingBusinessImpl:new BookingBusinessImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingBusinessImpl>("bookingBusinesses", bookingBusinessesArrValue);
         }
         if(this.bookingCurrencies && this.bookingCurrencies.length != 0){        const bookingCurrenciesArrValue: BookingCurrencyImpl[] = [];
         this.bookingCurrencies?.forEach(element => {
-            bookingCurrenciesArrValue.push((element instanceof BookingCurrencyImpl? element:new BookingCurrencyImpl(element)));
+            bookingCurrenciesArrValue.push((element instanceof BookingCurrencyImpl? element as BookingCurrencyImpl:new BookingCurrencyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCurrencyImpl>("bookingCurrencies", bookingCurrenciesArrValue);
         }

@@ -51,7 +51,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = [];
             this.accessPackageAssignmentApprovals?.forEach(element => {
-                accessPackageAssignmentApprovalsArrValue.push((element instanceof ApprovalImpl? element:new ApprovalImpl(element)));
+                accessPackageAssignmentApprovalsArrValue.push((element instanceof ApprovalImpl? element as ApprovalImpl:new ApprovalImpl(element)));
             });
             this._accessPackageAssignmentApprovals = accessPackageAssignmentApprovalsArrValue;
         }
@@ -71,7 +71,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const accessPackagesArrValue: AccessPackageImpl[] = [];
             this.accessPackages?.forEach(element => {
-                accessPackagesArrValue.push((element instanceof AccessPackageImpl? element:new AccessPackageImpl(element)));
+                accessPackagesArrValue.push((element instanceof AccessPackageImpl? element as AccessPackageImpl:new AccessPackageImpl(element)));
             });
             this._accessPackages = accessPackagesArrValue;
         }
@@ -91,7 +91,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = [];
             this.assignmentPolicies?.forEach(element => {
-                assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element:new AccessPackageAssignmentPolicyImpl(element)));
+                assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element as AccessPackageAssignmentPolicyImpl:new AccessPackageAssignmentPolicyImpl(element)));
             });
             this._assignmentPolicies = assignmentPoliciesArrValue;
         }
@@ -111,7 +111,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = [];
             this.assignmentRequests?.forEach(element => {
-                assignmentRequestsArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element:new AccessPackageAssignmentRequestImpl(element)));
+                assignmentRequestsArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element as AccessPackageAssignmentRequestImpl:new AccessPackageAssignmentRequestImpl(element)));
             });
             this._assignmentRequests = assignmentRequestsArrValue;
         }
@@ -131,7 +131,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const assignmentsArrValue: AccessPackageAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof AccessPackageAssignmentImpl? element:new AccessPackageAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof AccessPackageAssignmentImpl? element as AccessPackageAssignmentImpl:new AccessPackageAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -151,7 +151,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const catalogsArrValue: AccessPackageCatalogImpl[] = [];
             this.catalogs?.forEach(element => {
-                catalogsArrValue.push((element instanceof AccessPackageCatalogImpl? element:new AccessPackageCatalogImpl(element)));
+                catalogsArrValue.push((element instanceof AccessPackageCatalogImpl? element as AccessPackageCatalogImpl:new AccessPackageCatalogImpl(element)));
             });
             this._catalogs = catalogsArrValue;
         }
@@ -171,7 +171,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         if(value) {
             const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = [];
             this.connectedOrganizations?.forEach(element => {
-                connectedOrganizationsArrValue.push((element instanceof ConnectedOrganizationImpl? element:new ConnectedOrganizationImpl(element)));
+                connectedOrganizationsArrValue.push((element instanceof ConnectedOrganizationImpl? element as ConnectedOrganizationImpl:new ConnectedOrganizationImpl(element)));
             });
             this._connectedOrganizations = connectedOrganizationsArrValue;
         }
@@ -216,48 +216,48 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
         super.serialize(writer);
         if(this.accessPackageAssignmentApprovals && this.accessPackageAssignmentApprovals.length != 0){        const accessPackageAssignmentApprovalsArrValue: ApprovalImpl[] = [];
         this.accessPackageAssignmentApprovals?.forEach(element => {
-            accessPackageAssignmentApprovalsArrValue.push((element instanceof ApprovalImpl? element:new ApprovalImpl(element)));
+            accessPackageAssignmentApprovalsArrValue.push((element instanceof ApprovalImpl? element as ApprovalImpl:new ApprovalImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ApprovalImpl>("accessPackageAssignmentApprovals", accessPackageAssignmentApprovalsArrValue);
         }
         if(this.accessPackages && this.accessPackages.length != 0){        const accessPackagesArrValue: AccessPackageImpl[] = [];
         this.accessPackages?.forEach(element => {
-            accessPackagesArrValue.push((element instanceof AccessPackageImpl? element:new AccessPackageImpl(element)));
+            accessPackagesArrValue.push((element instanceof AccessPackageImpl? element as AccessPackageImpl:new AccessPackageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageImpl>("accessPackages", accessPackagesArrValue);
         }
         if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = [];
         this.assignmentPolicies?.forEach(element => {
-            assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element:new AccessPackageAssignmentPolicyImpl(element)));
+            assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element as AccessPackageAssignmentPolicyImpl:new AccessPackageAssignmentPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.assignmentRequests && this.assignmentRequests.length != 0){        const assignmentRequestsArrValue: AccessPackageAssignmentRequestImpl[] = [];
         this.assignmentRequests?.forEach(element => {
-            assignmentRequestsArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element:new AccessPackageAssignmentRequestImpl(element)));
+            assignmentRequestsArrValue.push((element instanceof AccessPackageAssignmentRequestImpl? element as AccessPackageAssignmentRequestImpl:new AccessPackageAssignmentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestImpl>("assignmentRequests", assignmentRequestsArrValue);
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: AccessPackageAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof AccessPackageAssignmentImpl? element:new AccessPackageAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof AccessPackageAssignmentImpl? element as AccessPackageAssignmentImpl:new AccessPackageAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.catalogs && this.catalogs.length != 0){        const catalogsArrValue: AccessPackageCatalogImpl[] = [];
         this.catalogs?.forEach(element => {
-            catalogsArrValue.push((element instanceof AccessPackageCatalogImpl? element:new AccessPackageCatalogImpl(element)));
+            catalogsArrValue.push((element instanceof AccessPackageCatalogImpl? element as AccessPackageCatalogImpl:new AccessPackageCatalogImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("catalogs", catalogsArrValue);
         }
         if(this.connectedOrganizations && this.connectedOrganizations.length != 0){        const connectedOrganizationsArrValue: ConnectedOrganizationImpl[] = [];
         this.connectedOrganizations?.forEach(element => {
-            connectedOrganizationsArrValue.push((element instanceof ConnectedOrganizationImpl? element:new ConnectedOrganizationImpl(element)));
+            connectedOrganizationsArrValue.push((element instanceof ConnectedOrganizationImpl? element as ConnectedOrganizationImpl:new ConnectedOrganizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConnectedOrganizationImpl>("connectedOrganizations", connectedOrganizationsArrValue);
         }
         if(this.settings){
-            writer.writeObjectValue<EntitlementManagementSettingsImpl>("settings", (!this.settings || this.settings instanceof EntitlementManagementSettingsImpl? this.settings : new EntitlementManagementSettingsImpl(this.settings)));
+            writer.writeObjectValue<EntitlementManagementSettingsImpl>("settings", (this.settings instanceof EntitlementManagementSettingsImpl? this.settings as EntitlementManagementSettingsImpl: new EntitlementManagementSettingsImpl(this.settings)));
         }
     };
     /**
@@ -273,7 +273,7 @@ export class EntitlementManagementImpl extends EntityImpl implements Entitlement
      */
     public set settings(value: EntitlementManagementSettings | undefined) {
         if(value) {
-            this._settings = value instanceof EntitlementManagementSettingsImpl? value : new EntitlementManagementSettingsImpl(value);
+            this._settings = value instanceof EntitlementManagementSettingsImpl? value as EntitlementManagementSettingsImpl: new EntitlementManagementSettingsImpl(value);
         }
     };
 }

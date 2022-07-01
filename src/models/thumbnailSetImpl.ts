@@ -50,7 +50,7 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public set large(value: Thumbnail | undefined) {
         if(value) {
-            this._large = value instanceof ThumbnailImpl? value : new ThumbnailImpl(value);
+            this._large = value instanceof ThumbnailImpl? value as ThumbnailImpl: new ThumbnailImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public set medium(value: Thumbnail | undefined) {
         if(value) {
-            this._medium = value instanceof ThumbnailImpl? value : new ThumbnailImpl(value);
+            this._medium = value instanceof ThumbnailImpl? value as ThumbnailImpl: new ThumbnailImpl(value);
         }
     };
     /**
@@ -77,16 +77,16 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.large){
-            writer.writeObjectValue<ThumbnailImpl>("large", (!this.large || this.large instanceof ThumbnailImpl? this.large : new ThumbnailImpl(this.large)));
+            writer.writeObjectValue<ThumbnailImpl>("large", (this.large instanceof ThumbnailImpl? this.large as ThumbnailImpl: new ThumbnailImpl(this.large)));
         }
         if(this.medium){
-            writer.writeObjectValue<ThumbnailImpl>("medium", (!this.medium || this.medium instanceof ThumbnailImpl? this.medium : new ThumbnailImpl(this.medium)));
+            writer.writeObjectValue<ThumbnailImpl>("medium", (this.medium instanceof ThumbnailImpl? this.medium as ThumbnailImpl: new ThumbnailImpl(this.medium)));
         }
         if(this.small){
-            writer.writeObjectValue<ThumbnailImpl>("small", (!this.small || this.small instanceof ThumbnailImpl? this.small : new ThumbnailImpl(this.small)));
+            writer.writeObjectValue<ThumbnailImpl>("small", (this.small instanceof ThumbnailImpl? this.small as ThumbnailImpl: new ThumbnailImpl(this.small)));
         }
         if(this.source){
-            writer.writeObjectValue<ThumbnailImpl>("source", (!this.source || this.source instanceof ThumbnailImpl? this.source : new ThumbnailImpl(this.source)));
+            writer.writeObjectValue<ThumbnailImpl>("source", (this.source instanceof ThumbnailImpl? this.source as ThumbnailImpl: new ThumbnailImpl(this.source)));
         }
     };
     /**
@@ -102,7 +102,7 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public set small(value: Thumbnail | undefined) {
         if(value) {
-            this._small = value instanceof ThumbnailImpl? value : new ThumbnailImpl(value);
+            this._small = value instanceof ThumbnailImpl? value as ThumbnailImpl: new ThumbnailImpl(value);
         }
     };
     /**
@@ -118,7 +118,7 @@ export class ThumbnailSetImpl extends EntityImpl implements ThumbnailSet {
      */
     public set source(value: Thumbnail | undefined) {
         if(value) {
-            this._source = value instanceof ThumbnailImpl? value : new ThumbnailImpl(value);
+            this._source = value instanceof ThumbnailImpl? value as ThumbnailImpl: new ThumbnailImpl(value);
         }
     };
 }

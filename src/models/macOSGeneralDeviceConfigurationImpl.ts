@@ -62,7 +62,7 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
         if(value) {
             const compliantAppsListArrValue: AppListItemImpl[] = [];
             this.compliantAppsList?.forEach(element => {
-                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+                compliantAppsListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
             });
             this._compliantAppsList = compliantAppsListArrValue;
         }
@@ -278,7 +278,7 @@ export class MacOSGeneralDeviceConfigurationImpl extends DeviceConfigurationImpl
         }
         if(this.compliantAppsList && this.compliantAppsList.length != 0){        const compliantAppsListArrValue: AppListItemImpl[] = [];
         this.compliantAppsList?.forEach(element => {
-            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element:new AppListItemImpl(element)));
+            compliantAppsListArrValue.push((element instanceof AppListItemImpl? element as AppListItemImpl:new AppListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppListItemImpl>("compliantAppsList", compliantAppsListArrValue);
         }

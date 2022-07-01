@@ -42,7 +42,7 @@ export class IdentitySetImpl implements IdentitySet {
      */
     public set application(value: Identity | undefined) {
         if(value) {
-            this._application = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._application = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -68,7 +68,7 @@ export class IdentitySetImpl implements IdentitySet {
      */
     public set device(value: Identity | undefined) {
         if(value) {
-            this._device = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._device = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -89,13 +89,13 @@ export class IdentitySetImpl implements IdentitySet {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.application){
-            writer.writeObjectValue<IdentityImpl>("application", (!this.application || this.application instanceof IdentityImpl? this.application : new IdentityImpl(this.application)));
+            writer.writeObjectValue<IdentityImpl>("application", (this.application instanceof IdentityImpl? this.application as IdentityImpl: new IdentityImpl(this.application)));
         }
         if(this.device){
-            writer.writeObjectValue<IdentityImpl>("device", (!this.device || this.device instanceof IdentityImpl? this.device : new IdentityImpl(this.device)));
+            writer.writeObjectValue<IdentityImpl>("device", (this.device instanceof IdentityImpl? this.device as IdentityImpl: new IdentityImpl(this.device)));
         }
         if(this.user){
-            writer.writeObjectValue<IdentityImpl>("user", (!this.user || this.user instanceof IdentityImpl? this.user : new IdentityImpl(this.user)));
+            writer.writeObjectValue<IdentityImpl>("user", (this.user instanceof IdentityImpl? this.user as IdentityImpl: new IdentityImpl(this.user)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -112,7 +112,7 @@ export class IdentitySetImpl implements IdentitySet {
      */
     public set user(value: Identity | undefined) {
         if(value) {
-            this._user = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._user = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
 }

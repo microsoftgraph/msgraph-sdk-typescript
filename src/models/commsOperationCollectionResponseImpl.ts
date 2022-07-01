@@ -73,7 +73,7 @@ export class CommsOperationCollectionResponseImpl implements CommsOperationColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CommsOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof CommsOperationImpl? element:new CommsOperationImpl(element)));
+            valueArrValue.push((element instanceof CommsOperationImpl? element as CommsOperationImpl:new CommsOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CommsOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class CommsOperationCollectionResponseImpl implements CommsOperationColle
         if(value) {
             const valueArrValue: CommsOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof CommsOperationImpl? element:new CommsOperationImpl(element)));
+                valueArrValue.push((element instanceof CommsOperationImpl? element as CommsOperationImpl:new CommsOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -22,7 +22,7 @@ export class UserConsentRequestImpl extends RequestImpl implements UserConsentRe
      */
     public set approval(value: Approval | undefined) {
         if(value) {
-            this._approval = value instanceof ApprovalImpl? value : new ApprovalImpl(value);
+            this._approval = value instanceof ApprovalImpl? value as ApprovalImpl: new ApprovalImpl(value);
         }
     };
     /**
@@ -68,7 +68,7 @@ export class UserConsentRequestImpl extends RequestImpl implements UserConsentRe
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.approval){
-            writer.writeObjectValue<ApprovalImpl>("approval", (!this.approval || this.approval instanceof ApprovalImpl? this.approval : new ApprovalImpl(this.approval)));
+            writer.writeObjectValue<ApprovalImpl>("approval", (this.approval instanceof ApprovalImpl? this.approval as ApprovalImpl: new ApprovalImpl(this.approval)));
         }
         if(this.reason){
             writer.writeStringValue("reason", this.reason);

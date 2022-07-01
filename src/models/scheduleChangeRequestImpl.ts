@@ -4,7 +4,6 @@ import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
 export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implements ScheduleChangeRequest {
     /** The assignedTo property */
     private _assignedTo?: ScheduleChangeRequestActor | undefined;
@@ -39,7 +38,7 @@ export class ScheduleChangeRequestImpl extends ChangeTrackedEntityImpl implement
         }
     };
     /**
-     * Instantiates a new scheduleChangeRequest and sets the default values.
+     * Instantiates a new ScheduleChangeRequest and sets the default values.
      * @param scheduleChangeRequestParameterValue 
      */
     public constructor(scheduleChangeRequestParameterValue?: ScheduleChangeRequest | undefined) {

@@ -29,7 +29,7 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Work
      */
     public set font(value: WorkbookChartFont | undefined) {
         if(value) {
-            this._font = value instanceof WorkbookChartFontImpl? value : new WorkbookChartFontImpl(value);
+            this._font = value instanceof WorkbookChartFontImpl? value as WorkbookChartFontImpl: new WorkbookChartFontImpl(value);
         }
     };
     /**
@@ -49,7 +49,7 @@ export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.font){
-            writer.writeObjectValue<WorkbookChartFontImpl>("font", (!this.font || this.font instanceof WorkbookChartFontImpl? this.font : new WorkbookChartFontImpl(this.font)));
+            writer.writeObjectValue<WorkbookChartFontImpl>("font", (this.font instanceof WorkbookChartFontImpl? this.font as WorkbookChartFontImpl: new WorkbookChartFontImpl(this.font)));
         }
     };
 }

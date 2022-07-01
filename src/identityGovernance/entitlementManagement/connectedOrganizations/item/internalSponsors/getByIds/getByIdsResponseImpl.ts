@@ -51,7 +51,7 @@ export class GetByIdsResponseImpl implements GetByIdsResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: DirectoryObjectImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            valueArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetByIdsResponseImpl implements GetByIdsResponse {
         if(value) {
             const valueArrValue: DirectoryObjectImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                valueArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._value = valueArrValue;
         }

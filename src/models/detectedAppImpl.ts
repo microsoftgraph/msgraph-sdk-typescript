@@ -88,7 +88,7 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp {
         if(value) {
             const managedDevicesArrValue: ManagedDeviceImpl[] = [];
             this.managedDevices?.forEach(element => {
-                managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+                managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element as ManagedDeviceImpl:new ManagedDeviceImpl(element)));
             });
             this._managedDevices = managedDevicesArrValue;
         }
@@ -108,7 +108,7 @@ export class DetectedAppImpl extends EntityImpl implements DetectedApp {
         }
         if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = [];
         this.managedDevices?.forEach(element => {
-            managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+            managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element as ManagedDeviceImpl:new ManagedDeviceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }

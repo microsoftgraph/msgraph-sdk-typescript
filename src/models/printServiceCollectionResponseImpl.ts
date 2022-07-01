@@ -73,7 +73,7 @@ export class PrintServiceCollectionResponseImpl implements PrintServiceCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintServiceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintServiceImpl? element:new PrintServiceImpl(element)));
+            valueArrValue.push((element instanceof PrintServiceImpl? element as PrintServiceImpl:new PrintServiceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintServiceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintServiceCollectionResponseImpl implements PrintServiceCollectio
         if(value) {
             const valueArrValue: PrintServiceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintServiceImpl? element:new PrintServiceImpl(element)));
+                valueArrValue.push((element instanceof PrintServiceImpl? element as PrintServiceImpl:new PrintServiceImpl(element)));
             });
             this._value = valueArrValue;
         }

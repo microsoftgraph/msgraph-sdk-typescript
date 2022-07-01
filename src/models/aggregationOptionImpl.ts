@@ -42,7 +42,7 @@ export class AggregationOptionImpl implements AggregationOption {
      */
     public set bucketDefinition(value: BucketAggregationDefinition | undefined) {
         if(value) {
-            this._bucketDefinition = value instanceof BucketAggregationDefinitionImpl? value : new BucketAggregationDefinitionImpl(value);
+            this._bucketDefinition = value instanceof BucketAggregationDefinitionImpl? value as BucketAggregationDefinitionImpl: new BucketAggregationDefinitionImpl(value);
         }
     };
     /**
@@ -89,7 +89,7 @@ export class AggregationOptionImpl implements AggregationOption {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.bucketDefinition){
-            writer.writeObjectValue<BucketAggregationDefinitionImpl>("bucketDefinition", (!this.bucketDefinition || this.bucketDefinition instanceof BucketAggregationDefinitionImpl? this.bucketDefinition : new BucketAggregationDefinitionImpl(this.bucketDefinition)));
+            writer.writeObjectValue<BucketAggregationDefinitionImpl>("bucketDefinition", (this.bucketDefinition instanceof BucketAggregationDefinitionImpl? this.bucketDefinition as BucketAggregationDefinitionImpl: new BucketAggregationDefinitionImpl(this.bucketDefinition)));
         }
         if(this.field){
             writer.writeStringValue("field", this.field);

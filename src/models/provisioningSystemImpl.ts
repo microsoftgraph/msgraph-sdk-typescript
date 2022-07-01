@@ -29,7 +29,7 @@ export class ProvisioningSystemImpl extends IdentityImpl implements Provisioning
      */
     public set details(value: DetailsInfo | undefined) {
         if(value) {
-            this._details = value instanceof DetailsInfoImpl? value : new DetailsInfoImpl(value);
+            this._details = value instanceof DetailsInfoImpl? value as DetailsInfoImpl: new DetailsInfoImpl(value);
         }
     };
     /**
@@ -49,7 +49,7 @@ export class ProvisioningSystemImpl extends IdentityImpl implements Provisioning
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.details){
-            writer.writeObjectValue<DetailsInfoImpl>("details", (!this.details || this.details instanceof DetailsInfoImpl? this.details : new DetailsInfoImpl(this.details)));
+            writer.writeObjectValue<DetailsInfoImpl>("details", (this.details instanceof DetailsInfoImpl? this.details as DetailsInfoImpl: new DetailsInfoImpl(this.details)));
         }
     };
 }

@@ -49,7 +49,7 @@ export class AdminImpl implements Admin {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.serviceAnnouncement){
-            writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", (!this.serviceAnnouncement || this.serviceAnnouncement instanceof ServiceAnnouncementImpl? this.serviceAnnouncement : new ServiceAnnouncementImpl(this.serviceAnnouncement)));
+            writer.writeObjectValue<ServiceAnnouncementImpl>("serviceAnnouncement", (this.serviceAnnouncement instanceof ServiceAnnouncementImpl? this.serviceAnnouncement as ServiceAnnouncementImpl: new ServiceAnnouncementImpl(this.serviceAnnouncement)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -66,7 +66,7 @@ export class AdminImpl implements Admin {
      */
     public set serviceAnnouncement(value: ServiceAnnouncement | undefined) {
         if(value) {
-            this._serviceAnnouncement = value instanceof ServiceAnnouncementImpl? value : new ServiceAnnouncementImpl(value);
+            this._serviceAnnouncement = value instanceof ServiceAnnouncementImpl? value as ServiceAnnouncementImpl: new ServiceAnnouncementImpl(value);
         }
     };
 }

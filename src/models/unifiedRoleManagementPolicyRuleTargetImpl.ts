@@ -165,7 +165,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         }
         if(this.targetObjects && this.targetObjects.length != 0){        const targetObjectsArrValue: DirectoryObjectImpl[] = [];
         this.targetObjects?.forEach(element => {
-            targetObjectsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            targetObjectsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("targetObjects", targetObjectsArrValue);
         }
@@ -186,7 +186,7 @@ export class UnifiedRoleManagementPolicyRuleTargetImpl implements UnifiedRoleMan
         if(value) {
             const targetObjectsArrValue: DirectoryObjectImpl[] = [];
             this.targetObjects?.forEach(element => {
-                targetObjectsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                targetObjectsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._targetObjects = targetObjectsArrValue;
         }

@@ -64,7 +64,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public set applications(value: ConditionalAccessApplications | undefined) {
         if(value) {
-            this._applications = value instanceof ConditionalAccessApplicationsImpl? value : new ConditionalAccessApplicationsImpl(value);
+            this._applications = value instanceof ConditionalAccessApplicationsImpl? value as ConditionalAccessApplicationsImpl: new ConditionalAccessApplicationsImpl(value);
         }
     };
     /**
@@ -80,7 +80,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public set clientApplications(value: ConditionalAccessClientApplications | undefined) {
         if(value) {
-            this._clientApplications = value instanceof ConditionalAccessClientApplicationsImpl? value : new ConditionalAccessClientApplicationsImpl(value);
+            this._clientApplications = value instanceof ConditionalAccessClientApplicationsImpl? value as ConditionalAccessClientApplicationsImpl: new ConditionalAccessClientApplicationsImpl(value);
         }
     };
     /**
@@ -128,7 +128,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public set devices(value: ConditionalAccessDevices | undefined) {
         if(value) {
-            this._devices = value instanceof ConditionalAccessDevicesImpl? value : new ConditionalAccessDevicesImpl(value);
+            this._devices = value instanceof ConditionalAccessDevicesImpl? value as ConditionalAccessDevicesImpl: new ConditionalAccessDevicesImpl(value);
         }
     };
     /**
@@ -161,7 +161,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public set locations(value: ConditionalAccessLocations | undefined) {
         if(value) {
-            this._locations = value instanceof ConditionalAccessLocationsImpl? value : new ConditionalAccessLocationsImpl(value);
+            this._locations = value instanceof ConditionalAccessLocationsImpl? value as ConditionalAccessLocationsImpl: new ConditionalAccessLocationsImpl(value);
         }
     };
     /**
@@ -177,7 +177,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public set platforms(value: ConditionalAccessPlatforms | undefined) {
         if(value) {
-            this._platforms = value instanceof ConditionalAccessPlatformsImpl? value : new ConditionalAccessPlatformsImpl(value);
+            this._platforms = value instanceof ConditionalAccessPlatformsImpl? value as ConditionalAccessPlatformsImpl: new ConditionalAccessPlatformsImpl(value);
         }
     };
     /**
@@ -187,22 +187,22 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applications){
-            writer.writeObjectValue<ConditionalAccessApplicationsImpl>("applications", (!this.applications || this.applications instanceof ConditionalAccessApplicationsImpl? this.applications : new ConditionalAccessApplicationsImpl(this.applications)));
+            writer.writeObjectValue<ConditionalAccessApplicationsImpl>("applications", (this.applications instanceof ConditionalAccessApplicationsImpl? this.applications as ConditionalAccessApplicationsImpl: new ConditionalAccessApplicationsImpl(this.applications)));
         }
         if(this.clientApplications){
-            writer.writeObjectValue<ConditionalAccessClientApplicationsImpl>("clientApplications", (!this.clientApplications || this.clientApplications instanceof ConditionalAccessClientApplicationsImpl? this.clientApplications : new ConditionalAccessClientApplicationsImpl(this.clientApplications)));
+            writer.writeObjectValue<ConditionalAccessClientApplicationsImpl>("clientApplications", (this.clientApplications instanceof ConditionalAccessClientApplicationsImpl? this.clientApplications as ConditionalAccessClientApplicationsImpl: new ConditionalAccessClientApplicationsImpl(this.clientApplications)));
         }
         if(this.clientAppTypes){
             writer.writeCollectionOfPrimitiveValues<string>("clientAppTypes", this.clientAppTypes);
         }
         if(this.devices){
-            writer.writeObjectValue<ConditionalAccessDevicesImpl>("devices", (!this.devices || this.devices instanceof ConditionalAccessDevicesImpl? this.devices : new ConditionalAccessDevicesImpl(this.devices)));
+            writer.writeObjectValue<ConditionalAccessDevicesImpl>("devices", (this.devices instanceof ConditionalAccessDevicesImpl? this.devices as ConditionalAccessDevicesImpl: new ConditionalAccessDevicesImpl(this.devices)));
         }
         if(this.locations){
-            writer.writeObjectValue<ConditionalAccessLocationsImpl>("locations", (!this.locations || this.locations instanceof ConditionalAccessLocationsImpl? this.locations : new ConditionalAccessLocationsImpl(this.locations)));
+            writer.writeObjectValue<ConditionalAccessLocationsImpl>("locations", (this.locations instanceof ConditionalAccessLocationsImpl? this.locations as ConditionalAccessLocationsImpl: new ConditionalAccessLocationsImpl(this.locations)));
         }
         if(this.platforms){
-            writer.writeObjectValue<ConditionalAccessPlatformsImpl>("platforms", (!this.platforms || this.platforms instanceof ConditionalAccessPlatformsImpl? this.platforms : new ConditionalAccessPlatformsImpl(this.platforms)));
+            writer.writeObjectValue<ConditionalAccessPlatformsImpl>("platforms", (this.platforms instanceof ConditionalAccessPlatformsImpl? this.platforms as ConditionalAccessPlatformsImpl: new ConditionalAccessPlatformsImpl(this.platforms)));
         }
         if(this.signInRiskLevels){
             writer.writeCollectionOfPrimitiveValues<string>("signInRiskLevels", this.signInRiskLevels);
@@ -211,7 +211,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
             writer.writeCollectionOfPrimitiveValues<string>("userRiskLevels", this.userRiskLevels);
         }
         if(this.users){
-            writer.writeObjectValue<ConditionalAccessUsersImpl>("users", (!this.users || this.users instanceof ConditionalAccessUsersImpl? this.users : new ConditionalAccessUsersImpl(this.users)));
+            writer.writeObjectValue<ConditionalAccessUsersImpl>("users", (this.users instanceof ConditionalAccessUsersImpl? this.users as ConditionalAccessUsersImpl: new ConditionalAccessUsersImpl(this.users)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -260,7 +260,7 @@ export class ConditionalAccessConditionSetImpl implements ConditionalAccessCondi
      */
     public set users(value: ConditionalAccessUsers | undefined) {
         if(value) {
-            this._users = value instanceof ConditionalAccessUsersImpl? value : new ConditionalAccessUsersImpl(value);
+            this._users = value instanceof ConditionalAccessUsersImpl? value as ConditionalAccessUsersImpl: new ConditionalAccessUsersImpl(value);
         }
     };
 }

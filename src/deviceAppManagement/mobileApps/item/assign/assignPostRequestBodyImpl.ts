@@ -58,7 +58,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(value) {
             const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = [];
             this.mobileAppAssignments?.forEach(element => {
-                mobileAppAssignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+                mobileAppAssignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element as MobileAppAssignmentImpl:new MobileAppAssignmentImpl(element)));
             });
             this._mobileAppAssignments = mobileAppAssignmentsArrValue;
         }
@@ -71,7 +71,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.mobileAppAssignments && this.mobileAppAssignments.length != 0){        const mobileAppAssignmentsArrValue: MobileAppAssignmentImpl[] = [];
         this.mobileAppAssignments?.forEach(element => {
-            mobileAppAssignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+            mobileAppAssignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element as MobileAppAssignmentImpl:new MobileAppAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("mobileAppAssignments", mobileAppAssignmentsArrValue);
         }

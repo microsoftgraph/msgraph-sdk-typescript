@@ -63,7 +63,7 @@ export class FileImpl implements File {
      */
     public set hashes(value: Hashes | undefined) {
         if(value) {
-            this._hashes = value instanceof HashesImpl? value : new HashesImpl(value);
+            this._hashes = value instanceof HashesImpl? value as HashesImpl: new HashesImpl(value);
         }
     };
     /**
@@ -105,7 +105,7 @@ export class FileImpl implements File {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.hashes){
-            writer.writeObjectValue<HashesImpl>("hashes", (!this.hashes || this.hashes instanceof HashesImpl? this.hashes : new HashesImpl(this.hashes)));
+            writer.writeObjectValue<HashesImpl>("hashes", (this.hashes instanceof HashesImpl? this.hashes as HashesImpl: new HashesImpl(this.hashes)));
         }
         if(this.mimeType){
             writer.writeStringValue("mimeType", this.mimeType);

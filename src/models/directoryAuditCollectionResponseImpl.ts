@@ -73,7 +73,7 @@ export class DirectoryAuditCollectionResponseImpl implements DirectoryAuditColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DirectoryAuditImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DirectoryAuditImpl? element:new DirectoryAuditImpl(element)));
+            valueArrValue.push((element instanceof DirectoryAuditImpl? element as DirectoryAuditImpl:new DirectoryAuditImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryAuditImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DirectoryAuditCollectionResponseImpl implements DirectoryAuditColle
         if(value) {
             const valueArrValue: DirectoryAuditImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DirectoryAuditImpl? element:new DirectoryAuditImpl(element)));
+                valueArrValue.push((element instanceof DirectoryAuditImpl? element as DirectoryAuditImpl:new DirectoryAuditImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -78,7 +78,7 @@ export class PublicErrorImpl implements PublicError {
         if(value) {
             const detailsArrValue: PublicErrorDetailImpl[] = [];
             this.details?.forEach(element => {
-                detailsArrValue.push((element instanceof PublicErrorDetailImpl? element:new PublicErrorDetailImpl(element)));
+                detailsArrValue.push((element instanceof PublicErrorDetailImpl? element as PublicErrorDetailImpl:new PublicErrorDetailImpl(element)));
             });
             this._details = detailsArrValue;
         }
@@ -109,7 +109,7 @@ export class PublicErrorImpl implements PublicError {
      */
     public set innerError(value: PublicInnerError | undefined) {
         if(value) {
-            this._innerError = value instanceof PublicInnerErrorImpl? value : new PublicInnerErrorImpl(value);
+            this._innerError = value instanceof PublicInnerErrorImpl? value as PublicInnerErrorImpl: new PublicInnerErrorImpl(value);
         }
     };
     /**
@@ -139,12 +139,12 @@ export class PublicErrorImpl implements PublicError {
         }
         if(this.details && this.details.length != 0){        const detailsArrValue: PublicErrorDetailImpl[] = [];
         this.details?.forEach(element => {
-            detailsArrValue.push((element instanceof PublicErrorDetailImpl? element:new PublicErrorDetailImpl(element)));
+            detailsArrValue.push((element instanceof PublicErrorDetailImpl? element as PublicErrorDetailImpl:new PublicErrorDetailImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PublicErrorDetailImpl>("details", detailsArrValue);
         }
         if(this.innerError){
-            writer.writeObjectValue<PublicInnerErrorImpl>("innerError", (!this.innerError || this.innerError instanceof PublicInnerErrorImpl? this.innerError : new PublicInnerErrorImpl(this.innerError)));
+            writer.writeObjectValue<PublicInnerErrorImpl>("innerError", (this.innerError instanceof PublicInnerErrorImpl? this.innerError as PublicInnerErrorImpl: new PublicInnerErrorImpl(this.innerError)));
         }
         if(this.message){
             writer.writeStringValue("message", this.message);

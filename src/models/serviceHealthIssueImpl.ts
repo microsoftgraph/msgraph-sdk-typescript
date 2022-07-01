@@ -170,7 +170,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         if(value) {
             const postsArrValue: ServiceHealthIssuePostImpl[] = [];
             this.posts?.forEach(element => {
-                postsArrValue.push((element instanceof ServiceHealthIssuePostImpl? element:new ServiceHealthIssuePostImpl(element)));
+                postsArrValue.push((element instanceof ServiceHealthIssuePostImpl? element as ServiceHealthIssuePostImpl:new ServiceHealthIssuePostImpl(element)));
             });
             this._posts = postsArrValue;
         }
@@ -202,7 +202,7 @@ export class ServiceHealthIssueImpl extends ServiceAnnouncementBaseImpl implemen
         }
         if(this.posts && this.posts.length != 0){        const postsArrValue: ServiceHealthIssuePostImpl[] = [];
         this.posts?.forEach(element => {
-            postsArrValue.push((element instanceof ServiceHealthIssuePostImpl? element:new ServiceHealthIssuePostImpl(element)));
+            postsArrValue.push((element instanceof ServiceHealthIssuePostImpl? element as ServiceHealthIssuePostImpl:new ServiceHealthIssuePostImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceHealthIssuePostImpl>("posts", postsArrValue);
         }

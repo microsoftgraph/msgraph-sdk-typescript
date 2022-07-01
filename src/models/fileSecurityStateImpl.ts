@@ -55,7 +55,7 @@ export class FileSecurityStateImpl implements FileSecurityState {
      */
     public set fileHash(value: FileHash | undefined) {
         if(value) {
-            this._fileHash = value instanceof FileHashImpl? value : new FileHashImpl(value);
+            this._fileHash = value instanceof FileHashImpl? value as FileHashImpl: new FileHashImpl(value);
         }
     };
     /**
@@ -125,7 +125,7 @@ export class FileSecurityStateImpl implements FileSecurityState {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.fileHash){
-            writer.writeObjectValue<FileHashImpl>("fileHash", (!this.fileHash || this.fileHash instanceof FileHashImpl? this.fileHash : new FileHashImpl(this.fileHash)));
+            writer.writeObjectValue<FileHashImpl>("fileHash", (this.fileHash instanceof FileHashImpl? this.fileHash as FileHashImpl: new FileHashImpl(this.fileHash)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);

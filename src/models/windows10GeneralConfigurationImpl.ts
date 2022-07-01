@@ -966,7 +966,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set defenderDetectedMalwareActions(value: DefenderDetectedMalwareActions | undefined) {
         if(value) {
-            this._defenderDetectedMalwareActions = value instanceof DefenderDetectedMalwareActionsImpl? value : new DefenderDetectedMalwareActionsImpl(value);
+            this._defenderDetectedMalwareActions = value instanceof DefenderDetectedMalwareActionsImpl? value as DefenderDetectedMalwareActionsImpl: new DefenderDetectedMalwareActionsImpl(value);
         }
     };
     /**
@@ -1766,7 +1766,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set edgeSearchEngine(value: EdgeSearchEngineBase | undefined) {
         if(value) {
-            this._edgeSearchEngine = value instanceof EdgeSearchEngineBaseImpl? value : new EdgeSearchEngineBaseImpl(value);
+            this._edgeSearchEngine = value instanceof EdgeSearchEngineBaseImpl? value as EdgeSearchEngineBaseImpl: new EdgeSearchEngineBaseImpl(value);
         }
     };
     /**
@@ -2391,7 +2391,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
      */
     public set networkProxyServer(value: Windows10NetworkProxyServer | undefined) {
         if(value) {
-            this._networkProxyServer = value instanceof Windows10NetworkProxyServerImpl? value : new Windows10NetworkProxyServerImpl(value);
+            this._networkProxyServer = value instanceof Windows10NetworkProxyServerImpl? value as Windows10NetworkProxyServerImpl: new Windows10NetworkProxyServerImpl(value);
         }
     };
     /**
@@ -2894,7 +2894,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeNumberValue("defenderDaysBeforeDeletingQuarantinedMalware", this.defenderDaysBeforeDeletingQuarantinedMalware);
         }
         if(this.defenderDetectedMalwareActions){
-            writer.writeObjectValue<DefenderDetectedMalwareActionsImpl>("defenderDetectedMalwareActions", (!this.defenderDetectedMalwareActions || this.defenderDetectedMalwareActions instanceof DefenderDetectedMalwareActionsImpl? this.defenderDetectedMalwareActions : new DefenderDetectedMalwareActionsImpl(this.defenderDetectedMalwareActions)));
+            writer.writeObjectValue<DefenderDetectedMalwareActionsImpl>("defenderDetectedMalwareActions", (this.defenderDetectedMalwareActions instanceof DefenderDetectedMalwareActionsImpl? this.defenderDetectedMalwareActions as DefenderDetectedMalwareActionsImpl: new DefenderDetectedMalwareActionsImpl(this.defenderDetectedMalwareActions)));
         }
         if(this.defenderFileExtensionsToExclude){
             writer.writeCollectionOfPrimitiveValues<string>("defenderFileExtensionsToExclude", this.defenderFileExtensionsToExclude);
@@ -3044,7 +3044,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeBooleanValue("edgeRequireSmartScreen", this.edgeRequireSmartScreen);
         }
         if(this.edgeSearchEngine){
-            writer.writeObjectValue<EdgeSearchEngineBaseImpl>("edgeSearchEngine", (!this.edgeSearchEngine || this.edgeSearchEngine instanceof EdgeSearchEngineBaseImpl? this.edgeSearchEngine : new EdgeSearchEngineBaseImpl(this.edgeSearchEngine)));
+            writer.writeObjectValue<EdgeSearchEngineBaseImpl>("edgeSearchEngine", (this.edgeSearchEngine instanceof EdgeSearchEngineBaseImpl? this.edgeSearchEngine as EdgeSearchEngineBaseImpl: new EdgeSearchEngineBaseImpl(this.edgeSearchEngine)));
         }
         if(this.edgeSendIntranetTrafficToInternetExplorer){
             writer.writeBooleanValue("edgeSendIntranetTrafficToInternetExplorer", this.edgeSendIntranetTrafficToInternetExplorer);
@@ -3122,7 +3122,7 @@ export class Windows10GeneralConfigurationImpl extends DeviceConfigurationImpl i
             writer.writeBooleanValue("networkProxyDisableAutoDetect", this.networkProxyDisableAutoDetect);
         }
         if(this.networkProxyServer){
-            writer.writeObjectValue<Windows10NetworkProxyServerImpl>("networkProxyServer", (!this.networkProxyServer || this.networkProxyServer instanceof Windows10NetworkProxyServerImpl? this.networkProxyServer : new Windows10NetworkProxyServerImpl(this.networkProxyServer)));
+            writer.writeObjectValue<Windows10NetworkProxyServerImpl>("networkProxyServer", (this.networkProxyServer instanceof Windows10NetworkProxyServerImpl? this.networkProxyServer as Windows10NetworkProxyServerImpl: new Windows10NetworkProxyServerImpl(this.networkProxyServer)));
         }
         if(this.nfcBlocked){
             writer.writeBooleanValue("nfcBlocked", this.nfcBlocked);

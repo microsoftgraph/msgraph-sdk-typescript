@@ -73,7 +73,7 @@ export class VppTokenCollectionResponseImpl implements VppTokenCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: VppTokenImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof VppTokenImpl? element:new VppTokenImpl(element)));
+            valueArrValue.push((element instanceof VppTokenImpl? element as VppTokenImpl:new VppTokenImpl(element)));
         });
             writer.writeCollectionOfObjectValues<VppTokenImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class VppTokenCollectionResponseImpl implements VppTokenCollectionRespons
         if(value) {
             const valueArrValue: VppTokenImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof VppTokenImpl? element:new VppTokenImpl(element)));
+                valueArrValue.push((element instanceof VppTokenImpl? element as VppTokenImpl:new VppTokenImpl(element)));
             });
             this._value = valueArrValue;
         }

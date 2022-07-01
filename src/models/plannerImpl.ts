@@ -31,7 +31,7 @@ export class PlannerImpl extends EntityImpl implements Planner {
         if(value) {
             const bucketsArrValue: PlannerBucketImpl[] = [];
             this.buckets?.forEach(element => {
-                bucketsArrValue.push((element instanceof PlannerBucketImpl? element:new PlannerBucketImpl(element)));
+                bucketsArrValue.push((element instanceof PlannerBucketImpl? element as PlannerBucketImpl:new PlannerBucketImpl(element)));
             });
             this._buckets = bucketsArrValue;
         }
@@ -72,7 +72,7 @@ export class PlannerImpl extends EntityImpl implements Planner {
         if(value) {
             const plansArrValue: PlannerPlanImpl[] = [];
             this.plans?.forEach(element => {
-                plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+                plansArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
             });
             this._plans = plansArrValue;
         }
@@ -86,19 +86,19 @@ export class PlannerImpl extends EntityImpl implements Planner {
         super.serialize(writer);
         if(this.buckets && this.buckets.length != 0){        const bucketsArrValue: PlannerBucketImpl[] = [];
         this.buckets?.forEach(element => {
-            bucketsArrValue.push((element instanceof PlannerBucketImpl? element:new PlannerBucketImpl(element)));
+            bucketsArrValue.push((element instanceof PlannerBucketImpl? element as PlannerBucketImpl:new PlannerBucketImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerBucketImpl>("buckets", bucketsArrValue);
         }
         if(this.plans && this.plans.length != 0){        const plansArrValue: PlannerPlanImpl[] = [];
         this.plans?.forEach(element => {
-            plansArrValue.push((element instanceof PlannerPlanImpl? element:new PlannerPlanImpl(element)));
+            plansArrValue.push((element instanceof PlannerPlanImpl? element as PlannerPlanImpl:new PlannerPlanImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerPlanImpl>("plans", plansArrValue);
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+            tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
@@ -118,7 +118,7 @@ export class PlannerImpl extends EntityImpl implements Planner {
         if(value) {
             const tasksArrValue: PlannerTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+                tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

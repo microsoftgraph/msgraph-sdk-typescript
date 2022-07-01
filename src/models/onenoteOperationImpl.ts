@@ -37,7 +37,7 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
      */
     public set error_escaped(value: OnenoteOperationError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof OnenoteOperationErrorImpl? value : new OnenoteOperationErrorImpl(value);
+            this._error_escaped = value instanceof OnenoteOperationErrorImpl? value as OnenoteOperationErrorImpl: new OnenoteOperationErrorImpl(value);
         }
     };
     /**
@@ -108,7 +108,7 @@ export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperat
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.error_escaped){
-            writer.writeObjectValue<OnenoteOperationErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof OnenoteOperationErrorImpl? this.error_escaped : new OnenoteOperationErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<OnenoteOperationErrorImpl>("error", (this.error_escaped instanceof OnenoteOperationErrorImpl? this.error_escaped as OnenoteOperationErrorImpl: new OnenoteOperationErrorImpl(this.error_escaped)));
         }
         if(this.percentComplete){
             writer.writeStringValue("percentComplete", this.percentComplete);

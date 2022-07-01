@@ -43,7 +43,7 @@ export class SharedPCConfigurationImpl extends DeviceConfigurationImpl implement
      */
     public set accountManagerPolicy(value: SharedPCAccountManagerPolicy | undefined) {
         if(value) {
-            this._accountManagerPolicy = value instanceof SharedPCAccountManagerPolicyImpl? value : new SharedPCAccountManagerPolicyImpl(value);
+            this._accountManagerPolicy = value instanceof SharedPCAccountManagerPolicyImpl? value as SharedPCAccountManagerPolicyImpl: new SharedPCAccountManagerPolicyImpl(value);
         }
     };
     /**
@@ -269,7 +269,7 @@ export class SharedPCConfigurationImpl extends DeviceConfigurationImpl implement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accountManagerPolicy){
-            writer.writeObjectValue<SharedPCAccountManagerPolicyImpl>("accountManagerPolicy", (!this.accountManagerPolicy || this.accountManagerPolicy instanceof SharedPCAccountManagerPolicyImpl? this.accountManagerPolicy : new SharedPCAccountManagerPolicyImpl(this.accountManagerPolicy)));
+            writer.writeObjectValue<SharedPCAccountManagerPolicyImpl>("accountManagerPolicy", (this.accountManagerPolicy instanceof SharedPCAccountManagerPolicyImpl? this.accountManagerPolicy as SharedPCAccountManagerPolicyImpl: new SharedPCAccountManagerPolicyImpl(this.accountManagerPolicy)));
         }
         if(this.allowedAccounts){
             writer.writeEnumValue<SharedPCAllowedAccountType>("allowedAccounts", this.allowedAccounts);

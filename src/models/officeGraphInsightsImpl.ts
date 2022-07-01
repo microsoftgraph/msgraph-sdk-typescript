@@ -46,19 +46,19 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
         super.serialize(writer);
         if(this.shared && this.shared.length != 0){        const sharedArrValue: SharedInsightImpl[] = [];
         this.shared?.forEach(element => {
-            sharedArrValue.push((element instanceof SharedInsightImpl? element:new SharedInsightImpl(element)));
+            sharedArrValue.push((element instanceof SharedInsightImpl? element as SharedInsightImpl:new SharedInsightImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharedInsightImpl>("shared", sharedArrValue);
         }
         if(this.trending && this.trending.length != 0){        const trendingArrValue: TrendingImpl[] = [];
         this.trending?.forEach(element => {
-            trendingArrValue.push((element instanceof TrendingImpl? element:new TrendingImpl(element)));
+            trendingArrValue.push((element instanceof TrendingImpl? element as TrendingImpl:new TrendingImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TrendingImpl>("trending", trendingArrValue);
         }
         if(this.used && this.used.length != 0){        const usedArrValue: UsedInsightImpl[] = [];
         this.used?.forEach(element => {
-            usedArrValue.push((element instanceof UsedInsightImpl? element:new UsedInsightImpl(element)));
+            usedArrValue.push((element instanceof UsedInsightImpl? element as UsedInsightImpl:new UsedInsightImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UsedInsightImpl>("used", usedArrValue);
         }
@@ -78,7 +78,7 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
         if(value) {
             const sharedArrValue: SharedInsightImpl[] = [];
             this.shared?.forEach(element => {
-                sharedArrValue.push((element instanceof SharedInsightImpl? element:new SharedInsightImpl(element)));
+                sharedArrValue.push((element instanceof SharedInsightImpl? element as SharedInsightImpl:new SharedInsightImpl(element)));
             });
             this._shared = sharedArrValue;
         }
@@ -98,7 +98,7 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
         if(value) {
             const trendingArrValue: TrendingImpl[] = [];
             this.trending?.forEach(element => {
-                trendingArrValue.push((element instanceof TrendingImpl? element:new TrendingImpl(element)));
+                trendingArrValue.push((element instanceof TrendingImpl? element as TrendingImpl:new TrendingImpl(element)));
             });
             this._trending = trendingArrValue;
         }
@@ -118,7 +118,7 @@ export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphIn
         if(value) {
             const usedArrValue: UsedInsightImpl[] = [];
             this.used?.forEach(element => {
-                usedArrValue.push((element instanceof UsedInsightImpl? element:new UsedInsightImpl(element)));
+                usedArrValue.push((element instanceof UsedInsightImpl? element as UsedInsightImpl:new UsedInsightImpl(element)));
             });
             this._used = usedArrValue;
         }

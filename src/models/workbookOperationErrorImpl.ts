@@ -77,7 +77,7 @@ export class WorkbookOperationErrorImpl implements WorkbookOperationError {
      */
     public set innerError(value: WorkbookOperationError | undefined) {
         if(value) {
-            this._innerError = value instanceof WorkbookOperationErrorImpl? value : new WorkbookOperationErrorImpl(value);
+            this._innerError = value instanceof WorkbookOperationErrorImpl? value as WorkbookOperationErrorImpl: new WorkbookOperationErrorImpl(value);
         }
     };
     /**
@@ -106,7 +106,7 @@ export class WorkbookOperationErrorImpl implements WorkbookOperationError {
             writer.writeStringValue("code", this.code);
         }
         if(this.innerError){
-            writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", (!this.innerError || this.innerError instanceof WorkbookOperationErrorImpl? this.innerError : new WorkbookOperationErrorImpl(this.innerError)));
+            writer.writeObjectValue<WorkbookOperationErrorImpl>("innerError", (this.innerError instanceof WorkbookOperationErrorImpl? this.innerError as WorkbookOperationErrorImpl: new WorkbookOperationErrorImpl(this.innerError)));
         }
         if(this.message){
             writer.writeStringValue("message", this.message);

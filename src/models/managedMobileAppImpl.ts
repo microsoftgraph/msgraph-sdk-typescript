@@ -42,7 +42,7 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
      */
     public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
         if(value) {
-            this._mobileAppIdentifier = value instanceof MobileAppIdentifierImpl? value : new MobileAppIdentifierImpl(value);
+            this._mobileAppIdentifier = value instanceof MobileAppIdentifierImpl? value as MobileAppIdentifierImpl: new MobileAppIdentifierImpl(value);
         }
     };
     /**
@@ -53,7 +53,7 @@ export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.mobileAppIdentifier){
-            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", (!this.mobileAppIdentifier || this.mobileAppIdentifier instanceof MobileAppIdentifierImpl? this.mobileAppIdentifier : new MobileAppIdentifierImpl(this.mobileAppIdentifier)));
+            writer.writeObjectValue<MobileAppIdentifierImpl>("mobileAppIdentifier", (this.mobileAppIdentifier instanceof MobileAppIdentifierImpl? this.mobileAppIdentifier as MobileAppIdentifierImpl: new MobileAppIdentifierImpl(this.mobileAppIdentifier)));
         }
         if(this.version){
             writer.writeStringValue("version", this.version);

@@ -29,7 +29,7 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
      */
     public set criteria(value: WorkbookFilterCriteria | undefined) {
         if(value) {
-            this._criteria = value instanceof WorkbookFilterCriteriaImpl? value : new WorkbookFilterCriteriaImpl(value);
+            this._criteria = value instanceof WorkbookFilterCriteriaImpl? value as WorkbookFilterCriteriaImpl: new WorkbookFilterCriteriaImpl(value);
         }
     };
     /**
@@ -49,7 +49,7 @@ export class WorkbookFilterImpl extends EntityImpl implements WorkbookFilter {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.criteria){
-            writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", (!this.criteria || this.criteria instanceof WorkbookFilterCriteriaImpl? this.criteria : new WorkbookFilterCriteriaImpl(this.criteria)));
+            writer.writeObjectValue<WorkbookFilterCriteriaImpl>("criteria", (this.criteria instanceof WorkbookFilterCriteriaImpl? this.criteria as WorkbookFilterCriteriaImpl: new WorkbookFilterCriteriaImpl(this.criteria)));
         }
     };
 }

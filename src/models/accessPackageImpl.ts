@@ -37,7 +37,7 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
         if(value) {
             const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = [];
             this.assignmentPolicies?.forEach(element => {
-                assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element:new AccessPackageAssignmentPolicyImpl(element)));
+                assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element as AccessPackageAssignmentPolicyImpl:new AccessPackageAssignmentPolicyImpl(element)));
             });
             this._assignmentPolicies = assignmentPoliciesArrValue;
         }
@@ -55,7 +55,7 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
      */
     public set catalog(value: AccessPackageCatalog | undefined) {
         if(value) {
-            this._catalog = value instanceof AccessPackageCatalogImpl? value : new AccessPackageCatalogImpl(value);
+            this._catalog = value instanceof AccessPackageCatalogImpl? value as AccessPackageCatalogImpl: new AccessPackageCatalogImpl(value);
         }
     };
     /**
@@ -176,12 +176,12 @@ export class AccessPackageImpl extends EntityImpl implements AccessPackage {
         super.serialize(writer);
         if(this.assignmentPolicies && this.assignmentPolicies.length != 0){        const assignmentPoliciesArrValue: AccessPackageAssignmentPolicyImpl[] = [];
         this.assignmentPolicies?.forEach(element => {
-            assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element:new AccessPackageAssignmentPolicyImpl(element)));
+            assignmentPoliciesArrValue.push((element instanceof AccessPackageAssignmentPolicyImpl? element as AccessPackageAssignmentPolicyImpl:new AccessPackageAssignmentPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicyImpl>("assignmentPolicies", assignmentPoliciesArrValue);
         }
         if(this.catalog){
-            writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", (!this.catalog || this.catalog instanceof AccessPackageCatalogImpl? this.catalog : new AccessPackageCatalogImpl(this.catalog)));
+            writer.writeObjectValue<AccessPackageCatalogImpl>("catalog", (this.catalog instanceof AccessPackageCatalogImpl? this.catalog as AccessPackageCatalogImpl: new AccessPackageCatalogImpl(this.catalog)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);

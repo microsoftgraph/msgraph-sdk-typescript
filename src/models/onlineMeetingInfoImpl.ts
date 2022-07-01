@@ -109,7 +109,7 @@ export class OnlineMeetingInfoImpl implements OnlineMeetingInfo {
         if(value) {
             const phonesArrValue: PhoneImpl[] = [];
             this.phones?.forEach(element => {
-                phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+                phonesArrValue.push((element instanceof PhoneImpl? element as PhoneImpl:new PhoneImpl(element)));
             });
             this._phones = phonesArrValue;
         }
@@ -144,7 +144,7 @@ export class OnlineMeetingInfoImpl implements OnlineMeetingInfo {
         }
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = [];
         this.phones?.forEach(element => {
-            phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+            phonesArrValue.push((element instanceof PhoneImpl? element as PhoneImpl:new PhoneImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }

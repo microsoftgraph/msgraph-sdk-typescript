@@ -73,7 +73,7 @@ export class PrintUsageByPrinterCollectionResponseImpl implements PrintUsageByPr
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PrintUsageByPrinterImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PrintUsageByPrinterImpl? element:new PrintUsageByPrinterImpl(element)));
+            valueArrValue.push((element instanceof PrintUsageByPrinterImpl? element as PrintUsageByPrinterImpl:new PrintUsageByPrinterImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PrintUsageByPrinterImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PrintUsageByPrinterCollectionResponseImpl implements PrintUsageByPr
         if(value) {
             const valueArrValue: PrintUsageByPrinterImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PrintUsageByPrinterImpl? element:new PrintUsageByPrinterImpl(element)));
+                valueArrValue.push((element instanceof PrintUsageByPrinterImpl? element as PrintUsageByPrinterImpl:new PrintUsageByPrinterImpl(element)));
             });
             this._value = valueArrValue;
         }

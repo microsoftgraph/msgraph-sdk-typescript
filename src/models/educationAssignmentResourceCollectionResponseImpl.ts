@@ -73,7 +73,7 @@ export class EducationAssignmentResourceCollectionResponseImpl implements Educat
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EducationAssignmentResourceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EducationAssignmentResourceImpl? element:new EducationAssignmentResourceImpl(element)));
+            valueArrValue.push((element instanceof EducationAssignmentResourceImpl? element as EducationAssignmentResourceImpl:new EducationAssignmentResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationAssignmentResourceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EducationAssignmentResourceCollectionResponseImpl implements Educat
         if(value) {
             const valueArrValue: EducationAssignmentResourceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EducationAssignmentResourceImpl? element:new EducationAssignmentResourceImpl(element)));
+                valueArrValue.push((element instanceof EducationAssignmentResourceImpl? element as EducationAssignmentResourceImpl:new EducationAssignmentResourceImpl(element)));
             });
             this._value = valueArrValue;
         }

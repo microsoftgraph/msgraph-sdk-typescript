@@ -73,7 +73,7 @@ export class DeviceCollectionResponseImpl implements DeviceCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceImpl? element:new DeviceImpl(element)));
+            valueArrValue.push((element instanceof DeviceImpl? element as DeviceImpl:new DeviceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceCollectionResponseImpl implements DeviceCollectionResponse {
         if(value) {
             const valueArrValue: DeviceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceImpl? element:new DeviceImpl(element)));
+                valueArrValue.push((element instanceof DeviceImpl? element as DeviceImpl:new DeviceImpl(element)));
             });
             this._value = valueArrValue;
         }

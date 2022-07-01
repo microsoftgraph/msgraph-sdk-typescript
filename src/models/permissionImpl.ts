@@ -102,7 +102,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
      */
     public set grantedTo(value: IdentitySet | undefined) {
         if(value) {
-            this._grantedTo = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._grantedTo = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
         if(value) {
             const grantedToIdentitiesArrValue: IdentitySetImpl[] = [];
             this.grantedToIdentities?.forEach(element => {
-                grantedToIdentitiesArrValue.push((element instanceof IdentitySetImpl? element:new IdentitySetImpl(element)));
+                grantedToIdentitiesArrValue.push((element instanceof IdentitySetImpl? element as IdentitySetImpl:new IdentitySetImpl(element)));
             });
             this._grantedToIdentities = grantedToIdentitiesArrValue;
         }
@@ -140,7 +140,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
         if(value) {
             const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = [];
             this.grantedToIdentitiesV2?.forEach(element => {
-                grantedToIdentitiesV2ArrValue.push((element instanceof SharePointIdentitySetImpl? element:new SharePointIdentitySetImpl(element)));
+                grantedToIdentitiesV2ArrValue.push((element instanceof SharePointIdentitySetImpl? element as SharePointIdentitySetImpl:new SharePointIdentitySetImpl(element)));
             });
             this._grantedToIdentitiesV2 = grantedToIdentitiesV2ArrValue;
         }
@@ -158,7 +158,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
      */
     public set grantedToV2(value: SharePointIdentitySet | undefined) {
         if(value) {
-            this._grantedToV2 = value instanceof SharePointIdentitySetImpl? value : new SharePointIdentitySetImpl(value);
+            this._grantedToV2 = value instanceof SharePointIdentitySetImpl? value as SharePointIdentitySetImpl: new SharePointIdentitySetImpl(value);
         }
     };
     /**
@@ -190,7 +190,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
      */
     public set inheritedFrom(value: ItemReference | undefined) {
         if(value) {
-            this._inheritedFrom = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+            this._inheritedFrom = value instanceof ItemReferenceImpl? value as ItemReferenceImpl: new ItemReferenceImpl(value);
         }
     };
     /**
@@ -206,7 +206,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
      */
     public set invitation(value: SharingInvitation | undefined) {
         if(value) {
-            this._invitation = value instanceof SharingInvitationImpl? value : new SharingInvitationImpl(value);
+            this._invitation = value instanceof SharingInvitationImpl? value as SharingInvitationImpl: new SharingInvitationImpl(value);
         }
     };
     /**
@@ -222,7 +222,7 @@ export class PermissionImpl extends EntityImpl implements Permission {
      */
     public set link(value: SharingLink | undefined) {
         if(value) {
-            this._link = value instanceof SharingLinkImpl? value : new SharingLinkImpl(value);
+            this._link = value instanceof SharingLinkImpl? value as SharingLinkImpl: new SharingLinkImpl(value);
         }
     };
     /**
@@ -252,34 +252,34 @@ export class PermissionImpl extends EntityImpl implements Permission {
             writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         }
         if(this.grantedTo){
-            writer.writeObjectValue<IdentitySetImpl>("grantedTo", (!this.grantedTo || this.grantedTo instanceof IdentitySetImpl? this.grantedTo : new IdentitySetImpl(this.grantedTo)));
+            writer.writeObjectValue<IdentitySetImpl>("grantedTo", (this.grantedTo instanceof IdentitySetImpl? this.grantedTo as IdentitySetImpl: new IdentitySetImpl(this.grantedTo)));
         }
         if(this.grantedToIdentities && this.grantedToIdentities.length != 0){        const grantedToIdentitiesArrValue: IdentitySetImpl[] = [];
         this.grantedToIdentities?.forEach(element => {
-            grantedToIdentitiesArrValue.push((element instanceof IdentitySetImpl? element:new IdentitySetImpl(element)));
+            grantedToIdentitiesArrValue.push((element instanceof IdentitySetImpl? element as IdentitySetImpl:new IdentitySetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentitySetImpl>("grantedToIdentities", grantedToIdentitiesArrValue);
         }
         if(this.grantedToIdentitiesV2 && this.grantedToIdentitiesV2.length != 0){        const grantedToIdentitiesV2ArrValue: SharePointIdentitySetImpl[] = [];
         this.grantedToIdentitiesV2?.forEach(element => {
-            grantedToIdentitiesV2ArrValue.push((element instanceof SharePointIdentitySetImpl? element:new SharePointIdentitySetImpl(element)));
+            grantedToIdentitiesV2ArrValue.push((element instanceof SharePointIdentitySetImpl? element as SharePointIdentitySetImpl:new SharePointIdentitySetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharePointIdentitySetImpl>("grantedToIdentitiesV2", grantedToIdentitiesV2ArrValue);
         }
         if(this.grantedToV2){
-            writer.writeObjectValue<SharePointIdentitySetImpl>("grantedToV2", (!this.grantedToV2 || this.grantedToV2 instanceof SharePointIdentitySetImpl? this.grantedToV2 : new SharePointIdentitySetImpl(this.grantedToV2)));
+            writer.writeObjectValue<SharePointIdentitySetImpl>("grantedToV2", (this.grantedToV2 instanceof SharePointIdentitySetImpl? this.grantedToV2 as SharePointIdentitySetImpl: new SharePointIdentitySetImpl(this.grantedToV2)));
         }
         if(this.hasPassword){
             writer.writeBooleanValue("hasPassword", this.hasPassword);
         }
         if(this.inheritedFrom){
-            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", (!this.inheritedFrom || this.inheritedFrom instanceof ItemReferenceImpl? this.inheritedFrom : new ItemReferenceImpl(this.inheritedFrom)));
+            writer.writeObjectValue<ItemReferenceImpl>("inheritedFrom", (this.inheritedFrom instanceof ItemReferenceImpl? this.inheritedFrom as ItemReferenceImpl: new ItemReferenceImpl(this.inheritedFrom)));
         }
         if(this.invitation){
-            writer.writeObjectValue<SharingInvitationImpl>("invitation", (!this.invitation || this.invitation instanceof SharingInvitationImpl? this.invitation : new SharingInvitationImpl(this.invitation)));
+            writer.writeObjectValue<SharingInvitationImpl>("invitation", (this.invitation instanceof SharingInvitationImpl? this.invitation as SharingInvitationImpl: new SharingInvitationImpl(this.invitation)));
         }
         if(this.link){
-            writer.writeObjectValue<SharingLinkImpl>("link", (!this.link || this.link instanceof SharingLinkImpl? this.link : new SharingLinkImpl(this.link)));
+            writer.writeObjectValue<SharingLinkImpl>("link", (this.link instanceof SharingLinkImpl? this.link as SharingLinkImpl: new SharingLinkImpl(this.link)));
         }
         if(this.roles){
             writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);

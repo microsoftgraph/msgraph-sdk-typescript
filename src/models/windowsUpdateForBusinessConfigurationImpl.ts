@@ -201,7 +201,7 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
      */
     public set installationSchedule(value: WindowsUpdateInstallScheduleType | undefined) {
         if(value) {
-            this._installationSchedule = value instanceof WindowsUpdateInstallScheduleTypeImpl? value : new WindowsUpdateInstallScheduleTypeImpl(value);
+            this._installationSchedule = value instanceof WindowsUpdateInstallScheduleTypeImpl? value as WindowsUpdateInstallScheduleTypeImpl: new WindowsUpdateInstallScheduleTypeImpl(value);
         }
     };
     /**
@@ -313,7 +313,7 @@ export class WindowsUpdateForBusinessConfigurationImpl extends DeviceConfigurati
             writer.writeDateValue("featureUpdatesPauseExpiryDateTime", this.featureUpdatesPauseExpiryDateTime);
         }
         if(this.installationSchedule){
-            writer.writeObjectValue<WindowsUpdateInstallScheduleTypeImpl>("installationSchedule", (!this.installationSchedule || this.installationSchedule instanceof WindowsUpdateInstallScheduleTypeImpl? this.installationSchedule : new WindowsUpdateInstallScheduleTypeImpl(this.installationSchedule)));
+            writer.writeObjectValue<WindowsUpdateInstallScheduleTypeImpl>("installationSchedule", (this.installationSchedule instanceof WindowsUpdateInstallScheduleTypeImpl? this.installationSchedule as WindowsUpdateInstallScheduleTypeImpl: new WindowsUpdateInstallScheduleTypeImpl(this.installationSchedule)));
         }
         if(this.microsoftUpdateServiceAllowed){
             writer.writeBooleanValue("microsoftUpdateServiceAllowed", this.microsoftUpdateServiceAllowed);

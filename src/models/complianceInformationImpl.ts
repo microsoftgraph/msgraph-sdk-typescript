@@ -42,7 +42,7 @@ export class ComplianceInformationImpl implements ComplianceInformation {
         if(value) {
             const certificationControlsArrValue: CertificationControlImpl[] = [];
             this.certificationControls?.forEach(element => {
-                certificationControlsArrValue.push((element instanceof CertificationControlImpl? element:new CertificationControlImpl(element)));
+                certificationControlsArrValue.push((element instanceof CertificationControlImpl? element as CertificationControlImpl:new CertificationControlImpl(element)));
             });
             this._certificationControls = certificationControlsArrValue;
         }
@@ -90,7 +90,7 @@ export class ComplianceInformationImpl implements ComplianceInformation {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificationControls && this.certificationControls.length != 0){        const certificationControlsArrValue: CertificationControlImpl[] = [];
         this.certificationControls?.forEach(element => {
-            certificationControlsArrValue.push((element instanceof CertificationControlImpl? element:new CertificationControlImpl(element)));
+            certificationControlsArrValue.push((element instanceof CertificationControlImpl? element as CertificationControlImpl:new CertificationControlImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CertificationControlImpl>("certificationControls", certificationControlsArrValue);
         }

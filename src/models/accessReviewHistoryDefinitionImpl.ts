@@ -63,7 +63,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
      */
     public set createdBy(value: UserIdentity | undefined) {
         if(value) {
-            this._createdBy = value instanceof UserIdentityImpl? value : new UserIdentityImpl(value);
+            this._createdBy = value instanceof UserIdentityImpl? value as UserIdentityImpl: new UserIdentityImpl(value);
         }
     };
     /**
@@ -147,7 +147,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(value) {
             const instancesArrValue: AccessReviewHistoryInstanceImpl[] = [];
             this.instances?.forEach(element => {
-                instancesArrValue.push((element instanceof AccessReviewHistoryInstanceImpl? element:new AccessReviewHistoryInstanceImpl(element)));
+                instancesArrValue.push((element instanceof AccessReviewHistoryInstanceImpl? element as AccessReviewHistoryInstanceImpl:new AccessReviewHistoryInstanceImpl(element)));
             });
             this._instances = instancesArrValue;
         }
@@ -197,7 +197,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
      */
     public set scheduleSettings(value: AccessReviewHistoryScheduleSettings | undefined) {
         if(value) {
-            this._scheduleSettings = value instanceof AccessReviewHistoryScheduleSettingsImpl? value : new AccessReviewHistoryScheduleSettingsImpl(value);
+            this._scheduleSettings = value instanceof AccessReviewHistoryScheduleSettingsImpl? value as AccessReviewHistoryScheduleSettingsImpl: new AccessReviewHistoryScheduleSettingsImpl(value);
         }
     };
     /**
@@ -215,7 +215,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(value) {
             const scopesArrValue: AccessReviewScopeImpl[] = [];
             this.scopes?.forEach(element => {
-                scopesArrValue.push((element instanceof AccessReviewScopeImpl? element:new AccessReviewScopeImpl(element)));
+                scopesArrValue.push((element instanceof AccessReviewScopeImpl? element as AccessReviewScopeImpl:new AccessReviewScopeImpl(element)));
             });
             this._scopes = scopesArrValue;
         }
@@ -228,7 +228,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-            writer.writeObjectValue<UserIdentityImpl>("createdBy", (!this.createdBy || this.createdBy instanceof UserIdentityImpl? this.createdBy : new UserIdentityImpl(this.createdBy)));
+            writer.writeObjectValue<UserIdentityImpl>("createdBy", (this.createdBy instanceof UserIdentityImpl? this.createdBy as UserIdentityImpl: new UserIdentityImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -241,7 +241,7 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
         }
         if(this.instances && this.instances.length != 0){        const instancesArrValue: AccessReviewHistoryInstanceImpl[] = [];
         this.instances?.forEach(element => {
-            instancesArrValue.push((element instanceof AccessReviewHistoryInstanceImpl? element:new AccessReviewHistoryInstanceImpl(element)));
+            instancesArrValue.push((element instanceof AccessReviewHistoryInstanceImpl? element as AccessReviewHistoryInstanceImpl:new AccessReviewHistoryInstanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewHistoryInstanceImpl>("instances", instancesArrValue);
         }
@@ -252,11 +252,11 @@ export class AccessReviewHistoryDefinitionImpl extends EntityImpl implements Acc
             writer.writeDateValue("reviewHistoryPeriodStartDateTime", this.reviewHistoryPeriodStartDateTime);
         }
         if(this.scheduleSettings){
-            writer.writeObjectValue<AccessReviewHistoryScheduleSettingsImpl>("scheduleSettings", (!this.scheduleSettings || this.scheduleSettings instanceof AccessReviewHistoryScheduleSettingsImpl? this.scheduleSettings : new AccessReviewHistoryScheduleSettingsImpl(this.scheduleSettings)));
+            writer.writeObjectValue<AccessReviewHistoryScheduleSettingsImpl>("scheduleSettings", (this.scheduleSettings instanceof AccessReviewHistoryScheduleSettingsImpl? this.scheduleSettings as AccessReviewHistoryScheduleSettingsImpl: new AccessReviewHistoryScheduleSettingsImpl(this.scheduleSettings)));
         }
         if(this.scopes && this.scopes.length != 0){        const scopesArrValue: AccessReviewScopeImpl[] = [];
         this.scopes?.forEach(element => {
-            scopesArrValue.push((element instanceof AccessReviewScopeImpl? element:new AccessReviewScopeImpl(element)));
+            scopesArrValue.push((element instanceof AccessReviewScopeImpl? element as AccessReviewScopeImpl:new AccessReviewScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewScopeImpl>("scopes", scopesArrValue);
         }

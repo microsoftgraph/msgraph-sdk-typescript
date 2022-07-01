@@ -81,7 +81,7 @@ export class AnswerPostRequestBodyImpl implements AnswerPostRequestBody {
      */
     public set callOptions(value: IncomingCallOptions | undefined) {
         if(value) {
-            this._callOptions = value instanceof IncomingCallOptionsImpl? value : new IncomingCallOptionsImpl(value);
+            this._callOptions = value instanceof IncomingCallOptionsImpl? value as IncomingCallOptionsImpl: new IncomingCallOptionsImpl(value);
         }
     };
     /**
@@ -122,7 +122,7 @@ export class AnswerPostRequestBodyImpl implements AnswerPostRequestBody {
      */
     public set mediaConfig(value: MediaConfig | undefined) {
         if(value) {
-            this._mediaConfig = value instanceof MediaConfigImpl? value : new MediaConfigImpl(value);
+            this._mediaConfig = value instanceof MediaConfigImpl? value as MediaConfigImpl: new MediaConfigImpl(value);
         }
     };
     /**
@@ -154,10 +154,10 @@ export class AnswerPostRequestBodyImpl implements AnswerPostRequestBody {
             writer.writeStringValue("callbackUri", this.callbackUri);
         }
         if(this.callOptions){
-            writer.writeObjectValue<IncomingCallOptionsImpl>("callOptions", (!this.callOptions || this.callOptions instanceof IncomingCallOptionsImpl? this.callOptions : new IncomingCallOptionsImpl(this.callOptions)));
+            writer.writeObjectValue<IncomingCallOptionsImpl>("callOptions", (this.callOptions instanceof IncomingCallOptionsImpl? this.callOptions as IncomingCallOptionsImpl: new IncomingCallOptionsImpl(this.callOptions)));
         }
         if(this.mediaConfig){
-            writer.writeObjectValue<MediaConfigImpl>("mediaConfig", (!this.mediaConfig || this.mediaConfig instanceof MediaConfigImpl? this.mediaConfig : new MediaConfigImpl(this.mediaConfig)));
+            writer.writeObjectValue<MediaConfigImpl>("mediaConfig", (this.mediaConfig instanceof MediaConfigImpl? this.mediaConfig as MediaConfigImpl: new MediaConfigImpl(this.mediaConfig)));
         }
         if(this.participantCapacity){
             writer.writeNumberValue("participantCapacity", this.participantCapacity);

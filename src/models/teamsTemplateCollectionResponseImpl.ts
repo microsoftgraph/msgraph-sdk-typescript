@@ -73,7 +73,7 @@ export class TeamsTemplateCollectionResponseImpl implements TeamsTemplateCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsTemplateImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamsTemplateImpl? element:new TeamsTemplateImpl(element)));
+            valueArrValue.push((element instanceof TeamsTemplateImpl? element as TeamsTemplateImpl:new TeamsTemplateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsTemplateImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamsTemplateCollectionResponseImpl implements TeamsTemplateCollect
         if(value) {
             const valueArrValue: TeamsTemplateImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamsTemplateImpl? element:new TeamsTemplateImpl(element)));
+                valueArrValue.push((element instanceof TeamsTemplateImpl? element as TeamsTemplateImpl:new TeamsTemplateImpl(element)));
             });
             this._value = valueArrValue;
         }

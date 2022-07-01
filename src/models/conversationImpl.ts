@@ -111,7 +111,7 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         }
         if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = [];
         this.threads?.forEach(element => {
-            threadsArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+            threadsArrValue.push((element instanceof ConversationThreadImpl? element as ConversationThreadImpl:new ConversationThreadImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
@@ -137,7 +137,7 @@ export class ConversationImpl extends EntityImpl implements Conversation {
         if(value) {
             const threadsArrValue: ConversationThreadImpl[] = [];
             this.threads?.forEach(element => {
-                threadsArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+                threadsArrValue.push((element instanceof ConversationThreadImpl? element as ConversationThreadImpl:new ConversationThreadImpl(element)));
             });
             this._threads = threadsArrValue;
         }

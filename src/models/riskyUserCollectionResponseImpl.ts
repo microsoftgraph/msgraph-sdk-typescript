@@ -73,7 +73,7 @@ export class RiskyUserCollectionResponseImpl implements RiskyUserCollectionRespo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RiskyUserImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RiskyUserImpl? element:new RiskyUserImpl(element)));
+            valueArrValue.push((element instanceof RiskyUserImpl? element as RiskyUserImpl:new RiskyUserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RiskyUserImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RiskyUserCollectionResponseImpl implements RiskyUserCollectionRespo
         if(value) {
             const valueArrValue: RiskyUserImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RiskyUserImpl? element:new RiskyUserImpl(element)));
+                valueArrValue.push((element instanceof RiskyUserImpl? element as RiskyUserImpl:new RiskyUserImpl(element)));
             });
             this._value = valueArrValue;
         }

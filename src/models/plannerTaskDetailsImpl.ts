@@ -7,7 +7,7 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDetails {
     /** The collection of checklist items on the task. */
     private _checklist?: PlannerChecklistItems | undefined;
@@ -30,7 +30,7 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
      */
     public set checklist(value: PlannerChecklistItems | undefined) {
         if(value) {
-            this._checklist = value instanceof PlannerChecklistItemsImpl? value : new PlannerChecklistItemsImpl(value);
+            this._checklist = value instanceof PlannerChecklistItemsImpl? value as PlannerChecklistItemsImpl: new PlannerChecklistItemsImpl(value);
         }
     };
     /**
@@ -101,7 +101,7 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
      */
     public set references(value: PlannerExternalReferences | undefined) {
         if(value) {
-            this._references = value instanceof PlannerExternalReferencesImpl? value : new PlannerExternalReferencesImpl(value);
+            this._references = value instanceof PlannerExternalReferencesImpl? value as PlannerExternalReferencesImpl: new PlannerExternalReferencesImpl(value);
         }
     };
     /**
@@ -112,7 +112,7 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.checklist){
-            writer.writeObjectValue<PlannerChecklistItemsImpl>("checklist", (!this.checklist || this.checklist instanceof PlannerChecklistItemsImpl? this.checklist : new PlannerChecklistItemsImpl(this.checklist)));
+            writer.writeObjectValue<PlannerChecklistItemsImpl>("checklist", (this.checklist instanceof PlannerChecklistItemsImpl? this.checklist as PlannerChecklistItemsImpl: new PlannerChecklistItemsImpl(this.checklist)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);
@@ -121,7 +121,7 @@ export class PlannerTaskDetailsImpl extends EntityImpl implements PlannerTaskDet
             writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         }
         if(this.references){
-            writer.writeObjectValue<PlannerExternalReferencesImpl>("references", (!this.references || this.references instanceof PlannerExternalReferencesImpl? this.references : new PlannerExternalReferencesImpl(this.references)));
+            writer.writeObjectValue<PlannerExternalReferencesImpl>("references", (this.references instanceof PlannerExternalReferencesImpl? this.references as PlannerExternalReferencesImpl: new PlannerExternalReferencesImpl(this.references)));
         }
     };
 }

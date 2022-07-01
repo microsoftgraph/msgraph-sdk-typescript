@@ -73,7 +73,7 @@ export class OnenoteOperationCollectionResponseImpl implements OnenoteOperationC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenoteOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OnenoteOperationImpl? element:new OnenoteOperationImpl(element)));
+            valueArrValue.push((element instanceof OnenoteOperationImpl? element as OnenoteOperationImpl:new OnenoteOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OnenoteOperationCollectionResponseImpl implements OnenoteOperationC
         if(value) {
             const valueArrValue: OnenoteOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OnenoteOperationImpl? element:new OnenoteOperationImpl(element)));
+                valueArrValue.push((element instanceof OnenoteOperationImpl? element as OnenoteOperationImpl:new OnenoteOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

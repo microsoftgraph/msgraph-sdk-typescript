@@ -58,7 +58,7 @@ export class QueryPostRequestBodyImpl implements QueryPostRequestBody {
         if(value) {
             const requestsArrValue: SearchRequestImpl[] = [];
             this.requests?.forEach(element => {
-                requestsArrValue.push((element instanceof SearchRequestImpl? element:new SearchRequestImpl(element)));
+                requestsArrValue.push((element instanceof SearchRequestImpl? element as SearchRequestImpl:new SearchRequestImpl(element)));
             });
             this._requests = requestsArrValue;
         }
@@ -71,7 +71,7 @@ export class QueryPostRequestBodyImpl implements QueryPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.requests && this.requests.length != 0){        const requestsArrValue: SearchRequestImpl[] = [];
         this.requests?.forEach(element => {
-            requestsArrValue.push((element instanceof SearchRequestImpl? element:new SearchRequestImpl(element)));
+            requestsArrValue.push((element instanceof SearchRequestImpl? element as SearchRequestImpl:new SearchRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SearchRequestImpl>("requests", requestsArrValue);
         }

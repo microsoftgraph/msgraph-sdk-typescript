@@ -73,7 +73,7 @@ export class TermsAndConditionsCollectionResponseImpl implements TermsAndConditi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TermsAndConditionsImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TermsAndConditionsImpl? element:new TermsAndConditionsImpl(element)));
+            valueArrValue.push((element instanceof TermsAndConditionsImpl? element as TermsAndConditionsImpl:new TermsAndConditionsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TermsAndConditionsImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TermsAndConditionsCollectionResponseImpl implements TermsAndConditi
         if(value) {
             const valueArrValue: TermsAndConditionsImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TermsAndConditionsImpl? element:new TermsAndConditionsImpl(element)));
+                valueArrValue.push((element instanceof TermsAndConditionsImpl? element as TermsAndConditionsImpl:new TermsAndConditionsImpl(element)));
             });
             this._value = valueArrValue;
         }

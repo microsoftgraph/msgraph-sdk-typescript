@@ -34,7 +34,7 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
      */
     public set fill(value: WorkbookChartFill | undefined) {
         if(value) {
-            this._fill = value instanceof WorkbookChartFillImpl? value : new WorkbookChartFillImpl(value);
+            this._fill = value instanceof WorkbookChartFillImpl? value as WorkbookChartFillImpl: new WorkbookChartFillImpl(value);
         }
     };
     /**
@@ -60,7 +60,7 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
      */
     public set line(value: WorkbookChartLineFormat | undefined) {
         if(value) {
-            this._line = value instanceof WorkbookChartLineFormatImpl? value : new WorkbookChartLineFormatImpl(value);
+            this._line = value instanceof WorkbookChartLineFormatImpl? value as WorkbookChartLineFormatImpl: new WorkbookChartLineFormatImpl(value);
         }
     };
     /**
@@ -71,10 +71,10 @@ export class WorkbookChartSeriesFormatImpl extends EntityImpl implements Workboo
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fill){
-            writer.writeObjectValue<WorkbookChartFillImpl>("fill", (!this.fill || this.fill instanceof WorkbookChartFillImpl? this.fill : new WorkbookChartFillImpl(this.fill)));
+            writer.writeObjectValue<WorkbookChartFillImpl>("fill", (this.fill instanceof WorkbookChartFillImpl? this.fill as WorkbookChartFillImpl: new WorkbookChartFillImpl(this.fill)));
         }
         if(this.line){
-            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (!this.line || this.line instanceof WorkbookChartLineFormatImpl? this.line : new WorkbookChartLineFormatImpl(this.line)));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (this.line instanceof WorkbookChartLineFormatImpl? this.line as WorkbookChartLineFormatImpl: new WorkbookChartLineFormatImpl(this.line)));
         }
     };
 }

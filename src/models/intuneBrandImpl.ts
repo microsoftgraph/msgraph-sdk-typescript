@@ -152,7 +152,7 @@ export class IntuneBrandImpl implements IntuneBrand {
      */
     public set darkBackgroundLogo(value: MimeContent | undefined) {
         if(value) {
-            this._darkBackgroundLogo = value instanceof MimeContentImpl? value : new MimeContentImpl(value);
+            this._darkBackgroundLogo = value instanceof MimeContentImpl? value as MimeContentImpl: new MimeContentImpl(value);
         }
     };
     /**
@@ -206,7 +206,7 @@ export class IntuneBrandImpl implements IntuneBrand {
      */
     public set lightBackgroundLogo(value: MimeContent | undefined) {
         if(value) {
-            this._lightBackgroundLogo = value instanceof MimeContentImpl? value : new MimeContentImpl(value);
+            this._lightBackgroundLogo = value instanceof MimeContentImpl? value as MimeContentImpl: new MimeContentImpl(value);
         }
     };
     /**
@@ -276,13 +276,13 @@ export class IntuneBrandImpl implements IntuneBrand {
             writer.writeStringValue("contactITPhoneNumber", this.contactITPhoneNumber);
         }
         if(this.darkBackgroundLogo){
-            writer.writeObjectValue<MimeContentImpl>("darkBackgroundLogo", (!this.darkBackgroundLogo || this.darkBackgroundLogo instanceof MimeContentImpl? this.darkBackgroundLogo : new MimeContentImpl(this.darkBackgroundLogo)));
+            writer.writeObjectValue<MimeContentImpl>("darkBackgroundLogo", (this.darkBackgroundLogo instanceof MimeContentImpl? this.darkBackgroundLogo as MimeContentImpl: new MimeContentImpl(this.darkBackgroundLogo)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.lightBackgroundLogo){
-            writer.writeObjectValue<MimeContentImpl>("lightBackgroundLogo", (!this.lightBackgroundLogo || this.lightBackgroundLogo instanceof MimeContentImpl? this.lightBackgroundLogo : new MimeContentImpl(this.lightBackgroundLogo)));
+            writer.writeObjectValue<MimeContentImpl>("lightBackgroundLogo", (this.lightBackgroundLogo instanceof MimeContentImpl? this.lightBackgroundLogo as MimeContentImpl: new MimeContentImpl(this.lightBackgroundLogo)));
         }
         if(this.onlineSupportSiteName){
             writer.writeStringValue("onlineSupportSiteName", this.onlineSupportSiteName);
@@ -303,7 +303,7 @@ export class IntuneBrandImpl implements IntuneBrand {
             writer.writeBooleanValue("showNameNextToLogo", this.showNameNextToLogo);
         }
         if(this.themeColor){
-            writer.writeObjectValue<RgbColorImpl>("themeColor", (!this.themeColor || this.themeColor instanceof RgbColorImpl? this.themeColor : new RgbColorImpl(this.themeColor)));
+            writer.writeObjectValue<RgbColorImpl>("themeColor", (this.themeColor instanceof RgbColorImpl? this.themeColor as RgbColorImpl: new RgbColorImpl(this.themeColor)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -368,7 +368,7 @@ export class IntuneBrandImpl implements IntuneBrand {
      */
     public set themeColor(value: RgbColor | undefined) {
         if(value) {
-            this._themeColor = value instanceof RgbColorImpl? value : new RgbColorImpl(value);
+            this._themeColor = value instanceof RgbColorImpl? value as RgbColorImpl: new RgbColorImpl(value);
         }
     };
 }

@@ -28,7 +28,7 @@ export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements Man
      */
     public set content(value: Json | undefined) {
         if(value) {
-            this._content = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._content = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -48,7 +48,7 @@ export class ManagedAppStatusRawImpl extends ManagedAppStatusImpl implements Man
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.content){
-            writer.writeObjectValue<JsonImpl>("content", (!this.content || this.content instanceof JsonImpl? this.content : new JsonImpl(this.content)));
+            writer.writeObjectValue<JsonImpl>("content", (this.content instanceof JsonImpl? this.content as JsonImpl: new JsonImpl(this.content)));
         }
     };
 }

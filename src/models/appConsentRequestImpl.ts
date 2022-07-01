@@ -86,7 +86,7 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         if(value) {
             const pendingScopesArrValue: AppConsentRequestScopeImpl[] = [];
             this.pendingScopes?.forEach(element => {
-                pendingScopesArrValue.push((element instanceof AppConsentRequestScopeImpl? element:new AppConsentRequestScopeImpl(element)));
+                pendingScopesArrValue.push((element instanceof AppConsentRequestScopeImpl? element as AppConsentRequestScopeImpl:new AppConsentRequestScopeImpl(element)));
             });
             this._pendingScopes = pendingScopesArrValue;
         }
@@ -106,13 +106,13 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         }
         if(this.pendingScopes && this.pendingScopes.length != 0){        const pendingScopesArrValue: AppConsentRequestScopeImpl[] = [];
         this.pendingScopes?.forEach(element => {
-            pendingScopesArrValue.push((element instanceof AppConsentRequestScopeImpl? element:new AppConsentRequestScopeImpl(element)));
+            pendingScopesArrValue.push((element instanceof AppConsentRequestScopeImpl? element as AppConsentRequestScopeImpl:new AppConsentRequestScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppConsentRequestScopeImpl>("pendingScopes", pendingScopesArrValue);
         }
         if(this.userConsentRequests && this.userConsentRequests.length != 0){        const userConsentRequestsArrValue: UserConsentRequestImpl[] = [];
         this.userConsentRequests?.forEach(element => {
-            userConsentRequestsArrValue.push((element instanceof UserConsentRequestImpl? element:new UserConsentRequestImpl(element)));
+            userConsentRequestsArrValue.push((element instanceof UserConsentRequestImpl? element as UserConsentRequestImpl:new UserConsentRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserConsentRequestImpl>("userConsentRequests", userConsentRequestsArrValue);
         }
@@ -132,7 +132,7 @@ export class AppConsentRequestImpl extends EntityImpl implements AppConsentReque
         if(value) {
             const userConsentRequestsArrValue: UserConsentRequestImpl[] = [];
             this.userConsentRequests?.forEach(element => {
-                userConsentRequestsArrValue.push((element instanceof UserConsentRequestImpl? element:new UserConsentRequestImpl(element)));
+                userConsentRequestsArrValue.push((element instanceof UserConsentRequestImpl? element as UserConsentRequestImpl:new UserConsentRequestImpl(element)));
             });
             this._userConsentRequests = userConsentRequestsArrValue;
         }

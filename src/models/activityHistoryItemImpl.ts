@@ -54,7 +54,7 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
      */
     public set activity(value: UserActivity | undefined) {
         if(value) {
-            this._activity = value instanceof UserActivityImpl? value : new UserActivityImpl(value);
+            this._activity = value instanceof UserActivityImpl? value as UserActivityImpl: new UserActivityImpl(value);
         }
     };
     /**
@@ -165,7 +165,7 @@ export class ActivityHistoryItemImpl extends EntityImpl implements ActivityHisto
             writer.writeNumberValue("activeDurationSeconds", this.activeDurationSeconds);
         }
         if(this.activity){
-            writer.writeObjectValue<UserActivityImpl>("activity", (!this.activity || this.activity instanceof UserActivityImpl? this.activity : new UserActivityImpl(this.activity)));
+            writer.writeObjectValue<UserActivityImpl>("activity", (this.activity instanceof UserActivityImpl? this.activity as UserActivityImpl: new UserActivityImpl(this.activity)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);

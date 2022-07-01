@@ -121,7 +121,7 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         if(value) {
             const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = [];
             this.localizedNotificationMessages?.forEach(element => {
-                localizedNotificationMessagesArrValue.push((element instanceof LocalizedNotificationMessageImpl? element:new LocalizedNotificationMessageImpl(element)));
+                localizedNotificationMessagesArrValue.push((element instanceof LocalizedNotificationMessageImpl? element as LocalizedNotificationMessageImpl:new LocalizedNotificationMessageImpl(element)));
             });
             this._localizedNotificationMessages = localizedNotificationMessagesArrValue;
         }
@@ -147,7 +147,7 @@ export class NotificationMessageTemplateImpl extends EntityImpl implements Notif
         }
         if(this.localizedNotificationMessages && this.localizedNotificationMessages.length != 0){        const localizedNotificationMessagesArrValue: LocalizedNotificationMessageImpl[] = [];
         this.localizedNotificationMessages?.forEach(element => {
-            localizedNotificationMessagesArrValue.push((element instanceof LocalizedNotificationMessageImpl? element:new LocalizedNotificationMessageImpl(element)));
+            localizedNotificationMessagesArrValue.push((element instanceof LocalizedNotificationMessageImpl? element as LocalizedNotificationMessageImpl:new LocalizedNotificationMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<LocalizedNotificationMessageImpl>("localizedNotificationMessages", localizedNotificationMessagesArrValue);
         }

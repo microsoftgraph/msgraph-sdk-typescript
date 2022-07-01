@@ -78,7 +78,7 @@ export class IosHomeScreenPageImpl implements IosHomeScreenPage {
         if(value) {
             const iconsArrValue: IosHomeScreenItemImpl[] = [];
             this.icons?.forEach(element => {
-                iconsArrValue.push((element instanceof IosHomeScreenItemImpl? element:new IosHomeScreenItemImpl(element)));
+                iconsArrValue.push((element instanceof IosHomeScreenItemImpl? element as IosHomeScreenItemImpl:new IosHomeScreenItemImpl(element)));
             });
             this._icons = iconsArrValue;
         }
@@ -94,7 +94,7 @@ export class IosHomeScreenPageImpl implements IosHomeScreenPage {
         }
         if(this.icons && this.icons.length != 0){        const iconsArrValue: IosHomeScreenItemImpl[] = [];
         this.icons?.forEach(element => {
-            iconsArrValue.push((element instanceof IosHomeScreenItemImpl? element:new IosHomeScreenItemImpl(element)));
+            iconsArrValue.push((element instanceof IosHomeScreenItemImpl? element as IosHomeScreenItemImpl:new IosHomeScreenItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosHomeScreenItemImpl>("icons", iconsArrValue);
         }

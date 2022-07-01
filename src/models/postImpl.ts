@@ -57,7 +57,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
         if(value) {
             const attachmentsArrValue: AttachmentImpl[] = [];
             this.attachments?.forEach(element => {
-                attachmentsArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+                attachmentsArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
             });
             this._attachments = attachmentsArrValue;
         }
@@ -75,7 +75,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
      */
     public set body(value: ItemBody | undefined) {
         if(value) {
-            this._body = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._body = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -145,7 +145,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -163,7 +163,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
      */
     public set from(value: Recipient | undefined) {
         if(value) {
-            this._from = value instanceof RecipientImpl? value : new RecipientImpl(value);
+            this._from = value instanceof RecipientImpl? value as RecipientImpl: new RecipientImpl(value);
         }
     };
     /**
@@ -216,7 +216,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
      */
     public set inReplyTo(value: Post | undefined) {
         if(value) {
-            this._inReplyTo = value instanceof PostImpl? value : new PostImpl(value);
+            this._inReplyTo = value instanceof PostImpl? value as PostImpl: new PostImpl(value);
         }
     };
     /**
@@ -234,7 +234,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
         if(value) {
             const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.multiValueExtendedProperties?.forEach(element => {
-                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         }
@@ -254,7 +254,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
         if(value) {
             const newParticipantsArrValue: RecipientImpl[] = [];
             this.newParticipants?.forEach(element => {
-                newParticipantsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                newParticipantsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._newParticipants = newParticipantsArrValue;
         }
@@ -288,7 +288,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
      */
     public set sender(value: Recipient | undefined) {
         if(value) {
-            this._sender = value instanceof RecipientImpl? value : new RecipientImpl(value);
+            this._sender = value instanceof RecipientImpl? value as RecipientImpl: new RecipientImpl(value);
         }
     };
     /**
@@ -300,12 +300,12 @@ export class PostImpl extends OutlookItemImpl implements Post {
         super.serialize(writer);
         if(this.attachments && this.attachments.length != 0){        const attachmentsArrValue: AttachmentImpl[] = [];
         this.attachments?.forEach(element => {
-            attachmentsArrValue.push((element instanceof AttachmentImpl? element:new AttachmentImpl(element)));
+            attachmentsArrValue.push((element instanceof AttachmentImpl? element as AttachmentImpl:new AttachmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttachmentImpl>("attachments", attachmentsArrValue);
         }
         if(this.body){
-            writer.writeObjectValue<ItemBodyImpl>("body", (!this.body || this.body instanceof ItemBodyImpl? this.body : new ItemBodyImpl(this.body)));
+            writer.writeObjectValue<ItemBodyImpl>("body", (this.body instanceof ItemBodyImpl? this.body as ItemBodyImpl: new ItemBodyImpl(this.body)));
         }
         if(this.conversationId){
             writer.writeStringValue("conversationId", this.conversationId);
@@ -315,28 +315,28 @@ export class PostImpl extends OutlookItemImpl implements Post {
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.from){
-            writer.writeObjectValue<RecipientImpl>("from", (!this.from || this.from instanceof RecipientImpl? this.from : new RecipientImpl(this.from)));
+            writer.writeObjectValue<RecipientImpl>("from", (this.from instanceof RecipientImpl? this.from as RecipientImpl: new RecipientImpl(this.from)));
         }
         if(this.hasAttachments){
             writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         }
         if(this.inReplyTo){
-            writer.writeObjectValue<PostImpl>("inReplyTo", (!this.inReplyTo || this.inReplyTo instanceof PostImpl? this.inReplyTo : new PostImpl(this.inReplyTo)));
+            writer.writeObjectValue<PostImpl>("inReplyTo", (this.inReplyTo instanceof PostImpl? this.inReplyTo as PostImpl: new PostImpl(this.inReplyTo)));
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.multiValueExtendedProperties?.forEach(element => {
-            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
         if(this.newParticipants && this.newParticipants.length != 0){        const newParticipantsArrValue: RecipientImpl[] = [];
         this.newParticipants?.forEach(element => {
-            newParticipantsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            newParticipantsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("newParticipants", newParticipantsArrValue);
         }
@@ -344,11 +344,11 @@ export class PostImpl extends OutlookItemImpl implements Post {
             writer.writeDateValue("receivedDateTime", this.receivedDateTime);
         }
         if(this.sender){
-            writer.writeObjectValue<RecipientImpl>("sender", (!this.sender || this.sender instanceof RecipientImpl? this.sender : new RecipientImpl(this.sender)));
+            writer.writeObjectValue<RecipientImpl>("sender", (this.sender instanceof RecipientImpl? this.sender as RecipientImpl: new RecipientImpl(this.sender)));
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.singleValueExtendedProperties?.forEach(element => {
-            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
@@ -368,7 +368,7 @@ export class PostImpl extends OutlookItemImpl implements Post {
         if(value) {
             const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.singleValueExtendedProperties?.forEach(element => {
-                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         }

@@ -34,7 +34,7 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
         if(value) {
             const appsArrValue: ManagedMobileAppImpl[] = [];
             this.apps?.forEach(element => {
-                appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+                appsArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
             });
             this._apps = appsArrValue;
         }
@@ -54,7 +54,7 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
         if(value) {
             const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -100,7 +100,7 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
      */
     public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | undefined) {
         if(value) {
-            this._deploymentSummary = value instanceof ManagedAppPolicyDeploymentSummaryImpl? value : new ManagedAppPolicyDeploymentSummaryImpl(value);
+            this._deploymentSummary = value instanceof ManagedAppPolicyDeploymentSummaryImpl? value as ManagedAppPolicyDeploymentSummaryImpl: new ManagedAppPolicyDeploymentSummaryImpl(value);
         }
     };
     /**
@@ -141,13 +141,13 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
         super.serialize(writer);
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = [];
         this.apps?.forEach(element => {
-            appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+            appsArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }
@@ -155,7 +155,7 @@ export class TargetedManagedAppConfigurationImpl extends ManagedAppConfiguration
             writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", (!this.deploymentSummary || this.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? this.deploymentSummary : new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary)));
+            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", (this.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? this.deploymentSummary as ManagedAppPolicyDeploymentSummaryImpl: new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary)));
         }
         if(this.isAssigned){
             writer.writeBooleanValue("isAssigned", this.isAssigned);

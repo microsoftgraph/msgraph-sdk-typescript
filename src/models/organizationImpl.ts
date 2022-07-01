@@ -83,7 +83,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(value) {
             const assignedPlansArrValue: AssignedPlanImpl[] = [];
             this.assignedPlans?.forEach(element => {
-                assignedPlansArrValue.push((element instanceof AssignedPlanImpl? element:new AssignedPlanImpl(element)));
+                assignedPlansArrValue.push((element instanceof AssignedPlanImpl? element as AssignedPlanImpl:new AssignedPlanImpl(element)));
             });
             this._assignedPlans = assignedPlansArrValue;
         }
@@ -101,7 +101,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
      */
     public set branding(value: OrganizationalBranding | undefined) {
         if(value) {
-            this._branding = value instanceof OrganizationalBrandingImpl? value : new OrganizationalBrandingImpl(value);
+            this._branding = value instanceof OrganizationalBrandingImpl? value as OrganizationalBrandingImpl: new OrganizationalBrandingImpl(value);
         }
     };
     /**
@@ -135,7 +135,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(value) {
             const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = [];
             this.certificateBasedAuthConfiguration?.forEach(element => {
-                certificateBasedAuthConfigurationArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element:new CertificateBasedAuthConfigurationImpl(element)));
+                certificateBasedAuthConfigurationArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element as CertificateBasedAuthConfigurationImpl:new CertificateBasedAuthConfigurationImpl(element)));
             });
             this._certificateBasedAuthConfiguration = certificateBasedAuthConfigurationArrValue;
         }
@@ -267,7 +267,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -414,7 +414,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
      */
     public set privacyProfile(value: PrivacyProfile | undefined) {
         if(value) {
-            this._privacyProfile = value instanceof PrivacyProfileImpl? value : new PrivacyProfileImpl(value);
+            this._privacyProfile = value instanceof PrivacyProfileImpl? value as PrivacyProfileImpl: new PrivacyProfileImpl(value);
         }
     };
     /**
@@ -432,7 +432,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(value) {
             const provisionedPlansArrValue: ProvisionedPlanImpl[] = [];
             this.provisionedPlans?.forEach(element => {
-                provisionedPlansArrValue.push((element instanceof ProvisionedPlanImpl? element:new ProvisionedPlanImpl(element)));
+                provisionedPlansArrValue.push((element instanceof ProvisionedPlanImpl? element as ProvisionedPlanImpl:new ProvisionedPlanImpl(element)));
             });
             this._provisionedPlans = provisionedPlansArrValue;
         }
@@ -478,19 +478,19 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         super.serialize(writer);
         if(this.assignedPlans && this.assignedPlans.length != 0){        const assignedPlansArrValue: AssignedPlanImpl[] = [];
         this.assignedPlans?.forEach(element => {
-            assignedPlansArrValue.push((element instanceof AssignedPlanImpl? element:new AssignedPlanImpl(element)));
+            assignedPlansArrValue.push((element instanceof AssignedPlanImpl? element as AssignedPlanImpl:new AssignedPlanImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AssignedPlanImpl>("assignedPlans", assignedPlansArrValue);
         }
         if(this.branding){
-            writer.writeObjectValue<OrganizationalBrandingImpl>("branding", (!this.branding || this.branding instanceof OrganizationalBrandingImpl? this.branding : new OrganizationalBrandingImpl(this.branding)));
+            writer.writeObjectValue<OrganizationalBrandingImpl>("branding", (this.branding instanceof OrganizationalBrandingImpl? this.branding as OrganizationalBrandingImpl: new OrganizationalBrandingImpl(this.branding)));
         }
         if(this.businessPhones){
             writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         }
         if(this.certificateBasedAuthConfiguration && this.certificateBasedAuthConfiguration.length != 0){        const certificateBasedAuthConfigurationArrValue: CertificateBasedAuthConfigurationImpl[] = [];
         this.certificateBasedAuthConfiguration?.forEach(element => {
-            certificateBasedAuthConfigurationArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element:new CertificateBasedAuthConfigurationImpl(element)));
+            certificateBasedAuthConfigurationArrValue.push((element instanceof CertificateBasedAuthConfigurationImpl? element as CertificateBasedAuthConfigurationImpl:new CertificateBasedAuthConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CertificateBasedAuthConfigurationImpl>("certificateBasedAuthConfiguration", certificateBasedAuthConfigurationArrValue);
         }
@@ -511,7 +511,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
@@ -534,11 +534,11 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
             writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         }
         if(this.privacyProfile){
-            writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", (!this.privacyProfile || this.privacyProfile instanceof PrivacyProfileImpl? this.privacyProfile : new PrivacyProfileImpl(this.privacyProfile)));
+            writer.writeObjectValue<PrivacyProfileImpl>("privacyProfile", (this.privacyProfile instanceof PrivacyProfileImpl? this.privacyProfile as PrivacyProfileImpl: new PrivacyProfileImpl(this.privacyProfile)));
         }
         if(this.provisionedPlans && this.provisionedPlans.length != 0){        const provisionedPlansArrValue: ProvisionedPlanImpl[] = [];
         this.provisionedPlans?.forEach(element => {
-            provisionedPlansArrValue.push((element instanceof ProvisionedPlanImpl? element:new ProvisionedPlanImpl(element)));
+            provisionedPlansArrValue.push((element instanceof ProvisionedPlanImpl? element as ProvisionedPlanImpl:new ProvisionedPlanImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProvisionedPlanImpl>("provisionedPlans", provisionedPlansArrValue);
         }
@@ -562,7 +562,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         }
         if(this.verifiedDomains && this.verifiedDomains.length != 0){        const verifiedDomainsArrValue: VerifiedDomainImpl[] = [];
         this.verifiedDomains?.forEach(element => {
-            verifiedDomainsArrValue.push((element instanceof VerifiedDomainImpl? element:new VerifiedDomainImpl(element)));
+            verifiedDomainsArrValue.push((element instanceof VerifiedDomainImpl? element as VerifiedDomainImpl:new VerifiedDomainImpl(element)));
         });
             writer.writeCollectionOfObjectValues<VerifiedDomainImpl>("verifiedDomains", verifiedDomainsArrValue);
         }
@@ -646,7 +646,7 @@ export class OrganizationImpl extends DirectoryObjectImpl implements Organizatio
         if(value) {
             const verifiedDomainsArrValue: VerifiedDomainImpl[] = [];
             this.verifiedDomains?.forEach(element => {
-                verifiedDomainsArrValue.push((element instanceof VerifiedDomainImpl? element:new VerifiedDomainImpl(element)));
+                verifiedDomainsArrValue.push((element instanceof VerifiedDomainImpl? element as VerifiedDomainImpl:new VerifiedDomainImpl(element)));
             });
             this._verifiedDomains = verifiedDomainsArrValue;
         }

@@ -62,7 +62,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
         if(value) {
             const applyActionsArrValue: AccessReviewApplyActionImpl[] = [];
             this.applyActions?.forEach(element => {
-                applyActionsArrValue.push((element instanceof AccessReviewApplyActionImpl? element:new AccessReviewApplyActionImpl(element)));
+                applyActionsArrValue.push((element instanceof AccessReviewApplyActionImpl? element as AccessReviewApplyActionImpl:new AccessReviewApplyActionImpl(element)));
             });
             this._applyActions = applyActionsArrValue;
         }
@@ -245,7 +245,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         if(value) {
-            this._recurrence = value instanceof PatternedRecurrenceImpl? value : new PatternedRecurrenceImpl(value);
+            this._recurrence = value instanceof PatternedRecurrenceImpl? value as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(value);
         }
     };
     /**
@@ -272,7 +272,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applyActions && this.applyActions.length != 0){        const applyActionsArrValue: AccessReviewApplyActionImpl[] = [];
         this.applyActions?.forEach(element => {
-            applyActionsArrValue.push((element instanceof AccessReviewApplyActionImpl? element:new AccessReviewApplyActionImpl(element)));
+            applyActionsArrValue.push((element instanceof AccessReviewApplyActionImpl? element as AccessReviewApplyActionImpl:new AccessReviewApplyActionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewApplyActionImpl>("applyActions", applyActionsArrValue);
         }
@@ -301,7 +301,7 @@ export class AccessReviewScheduleSettingsImpl implements AccessReviewScheduleSet
             writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
         }
         if(this.recurrence){
-            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (!this.recurrence || this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence : new PatternedRecurrenceImpl(this.recurrence)));
+            writer.writeObjectValue<PatternedRecurrenceImpl>("recurrence", (this.recurrence instanceof PatternedRecurrenceImpl? this.recurrence as PatternedRecurrenceImpl: new PatternedRecurrenceImpl(this.recurrence)));
         }
         if(this.reminderNotificationsEnabled){
             writer.writeBooleanValue("reminderNotificationsEnabled", this.reminderNotificationsEnabled);

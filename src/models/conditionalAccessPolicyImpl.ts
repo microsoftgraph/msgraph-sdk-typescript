@@ -40,7 +40,7 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
      */
     public set conditions(value: ConditionalAccessConditionSet | undefined) {
         if(value) {
-            this._conditions = value instanceof ConditionalAccessConditionSetImpl? value : new ConditionalAccessConditionSetImpl(value);
+            this._conditions = value instanceof ConditionalAccessConditionSetImpl? value as ConditionalAccessConditionSetImpl: new ConditionalAccessConditionSetImpl(value);
         }
     };
     /**
@@ -135,7 +135,7 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
      */
     public set grantControls(value: ConditionalAccessGrantControls | undefined) {
         if(value) {
-            this._grantControls = value instanceof ConditionalAccessGrantControlsImpl? value : new ConditionalAccessGrantControlsImpl(value);
+            this._grantControls = value instanceof ConditionalAccessGrantControlsImpl? value as ConditionalAccessGrantControlsImpl: new ConditionalAccessGrantControlsImpl(value);
         }
     };
     /**
@@ -162,7 +162,7 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.conditions){
-            writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", (!this.conditions || this.conditions instanceof ConditionalAccessConditionSetImpl? this.conditions : new ConditionalAccessConditionSetImpl(this.conditions)));
+            writer.writeObjectValue<ConditionalAccessConditionSetImpl>("conditions", (this.conditions instanceof ConditionalAccessConditionSetImpl? this.conditions as ConditionalAccessConditionSetImpl: new ConditionalAccessConditionSetImpl(this.conditions)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -174,13 +174,13 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grantControls){
-            writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", (!this.grantControls || this.grantControls instanceof ConditionalAccessGrantControlsImpl? this.grantControls : new ConditionalAccessGrantControlsImpl(this.grantControls)));
+            writer.writeObjectValue<ConditionalAccessGrantControlsImpl>("grantControls", (this.grantControls instanceof ConditionalAccessGrantControlsImpl? this.grantControls as ConditionalAccessGrantControlsImpl: new ConditionalAccessGrantControlsImpl(this.grantControls)));
         }
         if(this.modifiedDateTime){
             writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         }
         if(this.sessionControls){
-            writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", (!this.sessionControls || this.sessionControls instanceof ConditionalAccessSessionControlsImpl? this.sessionControls : new ConditionalAccessSessionControlsImpl(this.sessionControls)));
+            writer.writeObjectValue<ConditionalAccessSessionControlsImpl>("sessionControls", (this.sessionControls instanceof ConditionalAccessSessionControlsImpl? this.sessionControls as ConditionalAccessSessionControlsImpl: new ConditionalAccessSessionControlsImpl(this.sessionControls)));
         }
         if(this.state){
             writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
@@ -199,7 +199,7 @@ export class ConditionalAccessPolicyImpl extends EntityImpl implements Condition
      */
     public set sessionControls(value: ConditionalAccessSessionControls | undefined) {
         if(value) {
-            this._sessionControls = value instanceof ConditionalAccessSessionControlsImpl? value : new ConditionalAccessSessionControlsImpl(value);
+            this._sessionControls = value instanceof ConditionalAccessSessionControlsImpl? value as ConditionalAccessSessionControlsImpl: new ConditionalAccessSessionControlsImpl(value);
         }
     };
     /**

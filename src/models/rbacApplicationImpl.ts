@@ -82,7 +82,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleAssignmentsArrValue: UnifiedRoleAssignmentImpl[] = [];
             this.roleAssignments?.forEach(element => {
-                roleAssignmentsArrValue.push((element instanceof UnifiedRoleAssignmentImpl? element:new UnifiedRoleAssignmentImpl(element)));
+                roleAssignmentsArrValue.push((element instanceof UnifiedRoleAssignmentImpl? element as UnifiedRoleAssignmentImpl:new UnifiedRoleAssignmentImpl(element)));
             });
             this._roleAssignments = roleAssignmentsArrValue;
         }
@@ -102,7 +102,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleAssignmentScheduleInstancesArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = [];
             this.roleAssignmentScheduleInstances?.forEach(element => {
-                roleAssignmentScheduleInstancesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
+                roleAssignmentScheduleInstancesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element as UnifiedRoleAssignmentScheduleInstanceImpl:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
             });
             this._roleAssignmentScheduleInstances = roleAssignmentScheduleInstancesArrValue;
         }
@@ -122,7 +122,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleAssignmentScheduleRequestsArrValue: UnifiedRoleAssignmentScheduleRequestImpl[] = [];
             this.roleAssignmentScheduleRequests?.forEach(element => {
-                roleAssignmentScheduleRequestsArrValue.push((element instanceof UnifiedRoleAssignmentScheduleRequestImpl? element:new UnifiedRoleAssignmentScheduleRequestImpl(element)));
+                roleAssignmentScheduleRequestsArrValue.push((element instanceof UnifiedRoleAssignmentScheduleRequestImpl? element as UnifiedRoleAssignmentScheduleRequestImpl:new UnifiedRoleAssignmentScheduleRequestImpl(element)));
             });
             this._roleAssignmentScheduleRequests = roleAssignmentScheduleRequestsArrValue;
         }
@@ -142,7 +142,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleAssignmentSchedulesArrValue: UnifiedRoleAssignmentScheduleImpl[] = [];
             this.roleAssignmentSchedules?.forEach(element => {
-                roleAssignmentSchedulesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element:new UnifiedRoleAssignmentScheduleImpl(element)));
+                roleAssignmentSchedulesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element as UnifiedRoleAssignmentScheduleImpl:new UnifiedRoleAssignmentScheduleImpl(element)));
             });
             this._roleAssignmentSchedules = roleAssignmentSchedulesArrValue;
         }
@@ -162,7 +162,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleDefinitionsArrValue: UnifiedRoleDefinitionImpl[] = [];
             this.roleDefinitions?.forEach(element => {
-                roleDefinitionsArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element:new UnifiedRoleDefinitionImpl(element)));
+                roleDefinitionsArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element as UnifiedRoleDefinitionImpl:new UnifiedRoleDefinitionImpl(element)));
             });
             this._roleDefinitions = roleDefinitionsArrValue;
         }
@@ -182,7 +182,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleEligibilityScheduleInstancesArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = [];
             this.roleEligibilityScheduleInstances?.forEach(element => {
-                roleEligibilityScheduleInstancesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element:new UnifiedRoleEligibilityScheduleInstanceImpl(element)));
+                roleEligibilityScheduleInstancesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element as UnifiedRoleEligibilityScheduleInstanceImpl:new UnifiedRoleEligibilityScheduleInstanceImpl(element)));
             });
             this._roleEligibilityScheduleInstances = roleEligibilityScheduleInstancesArrValue;
         }
@@ -202,7 +202,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleEligibilityScheduleRequestsArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = [];
             this.roleEligibilityScheduleRequests?.forEach(element => {
-                roleEligibilityScheduleRequestsArrValue.push((element instanceof UnifiedRoleEligibilityScheduleRequestImpl? element:new UnifiedRoleEligibilityScheduleRequestImpl(element)));
+                roleEligibilityScheduleRequestsArrValue.push((element instanceof UnifiedRoleEligibilityScheduleRequestImpl? element as UnifiedRoleEligibilityScheduleRequestImpl:new UnifiedRoleEligibilityScheduleRequestImpl(element)));
             });
             this._roleEligibilityScheduleRequests = roleEligibilityScheduleRequestsArrValue;
         }
@@ -222,7 +222,7 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         if(value) {
             const roleEligibilitySchedulesArrValue: UnifiedRoleEligibilityScheduleImpl[] = [];
             this.roleEligibilitySchedules?.forEach(element => {
-                roleEligibilitySchedulesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleImpl? element:new UnifiedRoleEligibilityScheduleImpl(element)));
+                roleEligibilitySchedulesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleImpl? element as UnifiedRoleEligibilityScheduleImpl:new UnifiedRoleEligibilityScheduleImpl(element)));
             });
             this._roleEligibilitySchedules = roleEligibilitySchedulesArrValue;
         }
@@ -236,49 +236,49 @@ export class RbacApplicationImpl extends EntityImpl implements RbacApplication {
         super.serialize(writer);
         if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: UnifiedRoleAssignmentImpl[] = [];
         this.roleAssignments?.forEach(element => {
-            roleAssignmentsArrValue.push((element instanceof UnifiedRoleAssignmentImpl? element:new UnifiedRoleAssignmentImpl(element)));
+            roleAssignmentsArrValue.push((element instanceof UnifiedRoleAssignmentImpl? element as UnifiedRoleAssignmentImpl:new UnifiedRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
         if(this.roleAssignmentScheduleInstances && this.roleAssignmentScheduleInstances.length != 0){        const roleAssignmentScheduleInstancesArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = [];
         this.roleAssignmentScheduleInstances?.forEach(element => {
-            roleAssignmentScheduleInstancesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
+            roleAssignmentScheduleInstancesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element as UnifiedRoleAssignmentScheduleInstanceImpl:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("roleAssignmentScheduleInstances", roleAssignmentScheduleInstancesArrValue);
         }
         if(this.roleAssignmentScheduleRequests && this.roleAssignmentScheduleRequests.length != 0){        const roleAssignmentScheduleRequestsArrValue: UnifiedRoleAssignmentScheduleRequestImpl[] = [];
         this.roleAssignmentScheduleRequests?.forEach(element => {
-            roleAssignmentScheduleRequestsArrValue.push((element instanceof UnifiedRoleAssignmentScheduleRequestImpl? element:new UnifiedRoleAssignmentScheduleRequestImpl(element)));
+            roleAssignmentScheduleRequestsArrValue.push((element instanceof UnifiedRoleAssignmentScheduleRequestImpl? element as UnifiedRoleAssignmentScheduleRequestImpl:new UnifiedRoleAssignmentScheduleRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequestImpl>("roleAssignmentScheduleRequests", roleAssignmentScheduleRequestsArrValue);
         }
         if(this.roleAssignmentSchedules && this.roleAssignmentSchedules.length != 0){        const roleAssignmentSchedulesArrValue: UnifiedRoleAssignmentScheduleImpl[] = [];
         this.roleAssignmentSchedules?.forEach(element => {
-            roleAssignmentSchedulesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element:new UnifiedRoleAssignmentScheduleImpl(element)));
+            roleAssignmentSchedulesArrValue.push((element instanceof UnifiedRoleAssignmentScheduleImpl? element as UnifiedRoleAssignmentScheduleImpl:new UnifiedRoleAssignmentScheduleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleImpl>("roleAssignmentSchedules", roleAssignmentSchedulesArrValue);
         }
         if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: UnifiedRoleDefinitionImpl[] = [];
         this.roleDefinitions?.forEach(element => {
-            roleDefinitionsArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element:new UnifiedRoleDefinitionImpl(element)));
+            roleDefinitionsArrValue.push((element instanceof UnifiedRoleDefinitionImpl? element as UnifiedRoleDefinitionImpl:new UnifiedRoleDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleDefinitionImpl>("roleDefinitions", roleDefinitionsArrValue);
         }
         if(this.roleEligibilityScheduleInstances && this.roleEligibilityScheduleInstances.length != 0){        const roleEligibilityScheduleInstancesArrValue: UnifiedRoleEligibilityScheduleInstanceImpl[] = [];
         this.roleEligibilityScheduleInstances?.forEach(element => {
-            roleEligibilityScheduleInstancesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element:new UnifiedRoleEligibilityScheduleInstanceImpl(element)));
+            roleEligibilityScheduleInstancesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleInstanceImpl? element as UnifiedRoleEligibilityScheduleInstanceImpl:new UnifiedRoleEligibilityScheduleInstanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstanceImpl>("roleEligibilityScheduleInstances", roleEligibilityScheduleInstancesArrValue);
         }
         if(this.roleEligibilityScheduleRequests && this.roleEligibilityScheduleRequests.length != 0){        const roleEligibilityScheduleRequestsArrValue: UnifiedRoleEligibilityScheduleRequestImpl[] = [];
         this.roleEligibilityScheduleRequests?.forEach(element => {
-            roleEligibilityScheduleRequestsArrValue.push((element instanceof UnifiedRoleEligibilityScheduleRequestImpl? element:new UnifiedRoleEligibilityScheduleRequestImpl(element)));
+            roleEligibilityScheduleRequestsArrValue.push((element instanceof UnifiedRoleEligibilityScheduleRequestImpl? element as UnifiedRoleEligibilityScheduleRequestImpl:new UnifiedRoleEligibilityScheduleRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequestImpl>("roleEligibilityScheduleRequests", roleEligibilityScheduleRequestsArrValue);
         }
         if(this.roleEligibilitySchedules && this.roleEligibilitySchedules.length != 0){        const roleEligibilitySchedulesArrValue: UnifiedRoleEligibilityScheduleImpl[] = [];
         this.roleEligibilitySchedules?.forEach(element => {
-            roleEligibilitySchedulesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleImpl? element:new UnifiedRoleEligibilityScheduleImpl(element)));
+            roleEligibilitySchedulesArrValue.push((element instanceof UnifiedRoleEligibilityScheduleImpl? element as UnifiedRoleEligibilityScheduleImpl:new UnifiedRoleEligibilityScheduleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleImpl>("roleEligibilitySchedules", roleEligibilitySchedulesArrValue);
         }

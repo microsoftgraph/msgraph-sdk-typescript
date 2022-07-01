@@ -73,7 +73,7 @@ export class ContentTypeCollectionResponseImpl implements ContentTypeCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+            valueArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ContentTypeCollectionResponseImpl implements ContentTypeCollectionR
         if(value) {
             const valueArrValue: ContentTypeImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+                valueArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
             });
             this._value = valueArrValue;
         }

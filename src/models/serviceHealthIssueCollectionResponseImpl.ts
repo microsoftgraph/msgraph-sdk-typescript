@@ -73,7 +73,7 @@ export class ServiceHealthIssueCollectionResponseImpl implements ServiceHealthIs
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServiceHealthIssueImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ServiceHealthIssueImpl? element:new ServiceHealthIssueImpl(element)));
+            valueArrValue.push((element instanceof ServiceHealthIssueImpl? element as ServiceHealthIssueImpl:new ServiceHealthIssueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ServiceHealthIssueCollectionResponseImpl implements ServiceHealthIs
         if(value) {
             const valueArrValue: ServiceHealthIssueImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ServiceHealthIssueImpl? element:new ServiceHealthIssueImpl(element)));
+                valueArrValue.push((element instanceof ServiceHealthIssueImpl? element as ServiceHealthIssueImpl:new ServiceHealthIssueImpl(element)));
             });
             this._value = valueArrValue;
         }

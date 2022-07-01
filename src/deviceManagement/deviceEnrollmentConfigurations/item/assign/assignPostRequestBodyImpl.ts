@@ -49,7 +49,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(value) {
             const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = [];
             this.enrollmentConfigurationAssignments?.forEach(element => {
-                enrollmentConfigurationAssignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element:new EnrollmentConfigurationAssignmentImpl(element)));
+                enrollmentConfigurationAssignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element as EnrollmentConfigurationAssignmentImpl:new EnrollmentConfigurationAssignmentImpl(element)));
             });
             this._enrollmentConfigurationAssignments = enrollmentConfigurationAssignmentsArrValue;
         }
@@ -71,7 +71,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.enrollmentConfigurationAssignments && this.enrollmentConfigurationAssignments.length != 0){        const enrollmentConfigurationAssignmentsArrValue: EnrollmentConfigurationAssignmentImpl[] = [];
         this.enrollmentConfigurationAssignments?.forEach(element => {
-            enrollmentConfigurationAssignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element:new EnrollmentConfigurationAssignmentImpl(element)));
+            enrollmentConfigurationAssignmentsArrValue.push((element instanceof EnrollmentConfigurationAssignmentImpl? element as EnrollmentConfigurationAssignmentImpl:new EnrollmentConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignmentImpl>("enrollmentConfigurationAssignments", enrollmentConfigurationAssignmentsArrValue);
         }

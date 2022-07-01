@@ -75,7 +75,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set appScope(value: AppScope | undefined) {
         if(value) {
-            this._appScope = value instanceof AppScopeImpl? value : new AppScopeImpl(value);
+            this._appScope = value instanceof AppScopeImpl? value as AppScopeImpl: new AppScopeImpl(value);
         }
     };
     /**
@@ -129,7 +129,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set directoryScope(value: DirectoryObject | undefined) {
         if(value) {
-            this._directoryScope = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+            this._directoryScope = value instanceof DirectoryObjectImpl? value as DirectoryObjectImpl: new DirectoryObjectImpl(value);
         }
     };
     /**
@@ -216,7 +216,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set principal(value: DirectoryObject | undefined) {
         if(value) {
-            this._principal = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+            this._principal = value instanceof DirectoryObjectImpl? value as DirectoryObjectImpl: new DirectoryObjectImpl(value);
         }
     };
     /**
@@ -248,7 +248,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set roleDefinition(value: UnifiedRoleDefinition | undefined) {
         if(value) {
-            this._roleDefinition = value instanceof UnifiedRoleDefinitionImpl? value : new UnifiedRoleDefinitionImpl(value);
+            this._roleDefinition = value instanceof UnifiedRoleDefinitionImpl? value as UnifiedRoleDefinitionImpl: new UnifiedRoleDefinitionImpl(value);
         }
     };
     /**
@@ -280,7 +280,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set scheduleInfo(value: RequestSchedule | undefined) {
         if(value) {
-            this._scheduleInfo = value instanceof RequestScheduleImpl? value : new RequestScheduleImpl(value);
+            this._scheduleInfo = value instanceof RequestScheduleImpl? value as RequestScheduleImpl: new RequestScheduleImpl(value);
         }
     };
     /**
@@ -294,13 +294,13 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
             writer.writeEnumValue<UnifiedRoleScheduleRequestActions>("action", this.action);
         }
         if(this.appScope){
-            writer.writeObjectValue<AppScopeImpl>("appScope", (!this.appScope || this.appScope instanceof AppScopeImpl? this.appScope : new AppScopeImpl(this.appScope)));
+            writer.writeObjectValue<AppScopeImpl>("appScope", (this.appScope instanceof AppScopeImpl? this.appScope as AppScopeImpl: new AppScopeImpl(this.appScope)));
         }
         if(this.appScopeId){
             writer.writeStringValue("appScopeId", this.appScopeId);
         }
         if(this.directoryScope){
-            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", (!this.directoryScope || this.directoryScope instanceof DirectoryObjectImpl? this.directoryScope : new DirectoryObjectImpl(this.directoryScope)));
+            writer.writeObjectValue<DirectoryObjectImpl>("directoryScope", (this.directoryScope instanceof DirectoryObjectImpl? this.directoryScope as DirectoryObjectImpl: new DirectoryObjectImpl(this.directoryScope)));
         }
         if(this.directoryScopeId){
             writer.writeStringValue("directoryScopeId", this.directoryScopeId);
@@ -312,28 +312,28 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
             writer.writeStringValue("justification", this.justification);
         }
         if(this.principal){
-            writer.writeObjectValue<DirectoryObjectImpl>("principal", (!this.principal || this.principal instanceof DirectoryObjectImpl? this.principal : new DirectoryObjectImpl(this.principal)));
+            writer.writeObjectValue<DirectoryObjectImpl>("principal", (this.principal instanceof DirectoryObjectImpl? this.principal as DirectoryObjectImpl: new DirectoryObjectImpl(this.principal)));
         }
         if(this.principalId){
             writer.writeStringValue("principalId", this.principalId);
         }
         if(this.roleDefinition){
-            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", (!this.roleDefinition || this.roleDefinition instanceof UnifiedRoleDefinitionImpl? this.roleDefinition : new UnifiedRoleDefinitionImpl(this.roleDefinition)));
+            writer.writeObjectValue<UnifiedRoleDefinitionImpl>("roleDefinition", (this.roleDefinition instanceof UnifiedRoleDefinitionImpl? this.roleDefinition as UnifiedRoleDefinitionImpl: new UnifiedRoleDefinitionImpl(this.roleDefinition)));
         }
         if(this.roleDefinitionId){
             writer.writeStringValue("roleDefinitionId", this.roleDefinitionId);
         }
         if(this.scheduleInfo){
-            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (!this.scheduleInfo || this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo : new RequestScheduleImpl(this.scheduleInfo)));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo as RequestScheduleImpl: new RequestScheduleImpl(this.scheduleInfo)));
         }
         if(this.targetSchedule){
-            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("targetSchedule", (!this.targetSchedule || this.targetSchedule instanceof UnifiedRoleEligibilityScheduleImpl? this.targetSchedule : new UnifiedRoleEligibilityScheduleImpl(this.targetSchedule)));
+            writer.writeObjectValue<UnifiedRoleEligibilityScheduleImpl>("targetSchedule", (this.targetSchedule instanceof UnifiedRoleEligibilityScheduleImpl? this.targetSchedule as UnifiedRoleEligibilityScheduleImpl: new UnifiedRoleEligibilityScheduleImpl(this.targetSchedule)));
         }
         if(this.targetScheduleId){
             writer.writeStringValue("targetScheduleId", this.targetScheduleId);
         }
         if(this.ticketInfo){
-            writer.writeObjectValue<TicketInfoImpl>("ticketInfo", (!this.ticketInfo || this.ticketInfo instanceof TicketInfoImpl? this.ticketInfo : new TicketInfoImpl(this.ticketInfo)));
+            writer.writeObjectValue<TicketInfoImpl>("ticketInfo", (this.ticketInfo instanceof TicketInfoImpl? this.ticketInfo as TicketInfoImpl: new TicketInfoImpl(this.ticketInfo)));
         }
     };
     /**
@@ -349,7 +349,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set targetSchedule(value: UnifiedRoleEligibilitySchedule | undefined) {
         if(value) {
-            this._targetSchedule = value instanceof UnifiedRoleEligibilityScheduleImpl? value : new UnifiedRoleEligibilityScheduleImpl(value);
+            this._targetSchedule = value instanceof UnifiedRoleEligibilityScheduleImpl? value as UnifiedRoleEligibilityScheduleImpl: new UnifiedRoleEligibilityScheduleImpl(value);
         }
     };
     /**
@@ -381,7 +381,7 @@ export class UnifiedRoleEligibilityScheduleRequestImpl extends RequestImpl imple
      */
     public set ticketInfo(value: TicketInfo | undefined) {
         if(value) {
-            this._ticketInfo = value instanceof TicketInfoImpl? value : new TicketInfoImpl(value);
+            this._ticketInfo = value instanceof TicketInfoImpl? value as TicketInfoImpl: new TicketInfoImpl(value);
         }
     };
 }

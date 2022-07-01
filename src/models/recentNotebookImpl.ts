@@ -100,7 +100,7 @@ export class RecentNotebookImpl implements RecentNotebook {
      */
     public set links(value: RecentNotebookLinks | undefined) {
         if(value) {
-            this._links = value instanceof RecentNotebookLinksImpl? value : new RecentNotebookLinksImpl(value);
+            this._links = value instanceof RecentNotebookLinksImpl? value as RecentNotebookLinksImpl: new RecentNotebookLinksImpl(value);
         }
     };
     /**
@@ -116,7 +116,7 @@ export class RecentNotebookImpl implements RecentNotebook {
             writer.writeDateValue("lastAccessedTime", this.lastAccessedTime);
         }
         if(this.links){
-            writer.writeObjectValue<RecentNotebookLinksImpl>("links", (!this.links || this.links instanceof RecentNotebookLinksImpl? this.links : new RecentNotebookLinksImpl(this.links)));
+            writer.writeObjectValue<RecentNotebookLinksImpl>("links", (this.links instanceof RecentNotebookLinksImpl? this.links as RecentNotebookLinksImpl: new RecentNotebookLinksImpl(this.links)));
         }
         if(this.sourceService){
             writer.writeEnumValue<OnenoteSourceService>("sourceService", this.sourceService);

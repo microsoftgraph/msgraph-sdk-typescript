@@ -73,7 +73,7 @@ export class StoreCollectionResponseImpl implements StoreCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: StoreImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof StoreImpl? element:new StoreImpl(element)));
+            valueArrValue.push((element instanceof StoreImpl? element as StoreImpl:new StoreImpl(element)));
         });
             writer.writeCollectionOfObjectValues<StoreImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class StoreCollectionResponseImpl implements StoreCollectionResponse {
         if(value) {
             const valueArrValue: StoreImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof StoreImpl? element:new StoreImpl(element)));
+                valueArrValue.push((element instanceof StoreImpl? element as StoreImpl:new StoreImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -1,3 +1,3 @@
 export * from './getApplicableContentTypesForListWithListIdResponseImpl'
-export * from './getApplicableContentTypesForListWithListIdResponse'
 export * from './getApplicableContentTypesForListWithListIdRequestBuilderGetRequestConfiguration'
+export * from './getApplicableContentTypesForListWithListIdResponse'

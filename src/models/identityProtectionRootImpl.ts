@@ -63,7 +63,7 @@ export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
         if(value) {
             const riskDetectionsArrValue: RiskDetectionImpl[] = [];
             this.riskDetections?.forEach(element => {
-                riskDetectionsArrValue.push((element instanceof RiskDetectionImpl? element:new RiskDetectionImpl(element)));
+                riskDetectionsArrValue.push((element instanceof RiskDetectionImpl? element as RiskDetectionImpl:new RiskDetectionImpl(element)));
             });
             this._riskDetections = riskDetectionsArrValue;
         }
@@ -83,7 +83,7 @@ export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
         if(value) {
             const riskyUsersArrValue: RiskyUserImpl[] = [];
             this.riskyUsers?.forEach(element => {
-                riskyUsersArrValue.push((element instanceof RiskyUserImpl? element:new RiskyUserImpl(element)));
+                riskyUsersArrValue.push((element instanceof RiskyUserImpl? element as RiskyUserImpl:new RiskyUserImpl(element)));
             });
             this._riskyUsers = riskyUsersArrValue;
         }
@@ -96,13 +96,13 @@ export class IdentityProtectionRootImpl implements IdentityProtectionRoot {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.riskDetections && this.riskDetections.length != 0){        const riskDetectionsArrValue: RiskDetectionImpl[] = [];
         this.riskDetections?.forEach(element => {
-            riskDetectionsArrValue.push((element instanceof RiskDetectionImpl? element:new RiskDetectionImpl(element)));
+            riskDetectionsArrValue.push((element instanceof RiskDetectionImpl? element as RiskDetectionImpl:new RiskDetectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RiskDetectionImpl>("riskDetections", riskDetectionsArrValue);
         }
         if(this.riskyUsers && this.riskyUsers.length != 0){        const riskyUsersArrValue: RiskyUserImpl[] = [];
         this.riskyUsers?.forEach(element => {
-            riskyUsersArrValue.push((element instanceof RiskyUserImpl? element:new RiskyUserImpl(element)));
+            riskyUsersArrValue.push((element instanceof RiskyUserImpl? element as RiskyUserImpl:new RiskyUserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RiskyUserImpl>("riskyUsers", riskyUsersArrValue);
         }

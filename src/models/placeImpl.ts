@@ -29,7 +29,7 @@ export class PlaceImpl extends EntityImpl implements Place {
      */
     public set address(value: PhysicalAddress | undefined) {
         if(value) {
-            this._address = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._address = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class PlaceImpl extends EntityImpl implements Place {
      */
     public set geoCoordinates(value: OutlookGeoCoordinates | undefined) {
         if(value) {
-            this._geoCoordinates = value instanceof OutlookGeoCoordinatesImpl? value : new OutlookGeoCoordinatesImpl(value);
+            this._geoCoordinates = value instanceof OutlookGeoCoordinatesImpl? value as OutlookGeoCoordinatesImpl: new OutlookGeoCoordinatesImpl(value);
         }
     };
     /**
@@ -111,13 +111,13 @@ export class PlaceImpl extends EntityImpl implements Place {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.address){
-            writer.writeObjectValue<PhysicalAddressImpl>("address", (!this.address || this.address instanceof PhysicalAddressImpl? this.address : new PhysicalAddressImpl(this.address)));
+            writer.writeObjectValue<PhysicalAddressImpl>("address", (this.address instanceof PhysicalAddressImpl? this.address as PhysicalAddressImpl: new PhysicalAddressImpl(this.address)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.geoCoordinates){
-            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", (!this.geoCoordinates || this.geoCoordinates instanceof OutlookGeoCoordinatesImpl? this.geoCoordinates : new OutlookGeoCoordinatesImpl(this.geoCoordinates)));
+            writer.writeObjectValue<OutlookGeoCoordinatesImpl>("geoCoordinates", (this.geoCoordinates instanceof OutlookGeoCoordinatesImpl? this.geoCoordinates as OutlookGeoCoordinatesImpl: new OutlookGeoCoordinatesImpl(this.geoCoordinates)));
         }
         if(this.phone){
             writer.writeStringValue("phone", this.phone);

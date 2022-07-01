@@ -55,7 +55,7 @@ export class OnenotePagePreviewLinksImpl implements OnenotePagePreviewLinks {
      */
     public set previewImageUrl(value: ExternalLink | undefined) {
         if(value) {
-            this._previewImageUrl = value instanceof ExternalLinkImpl? value : new ExternalLinkImpl(value);
+            this._previewImageUrl = value instanceof ExternalLinkImpl? value as ExternalLinkImpl: new ExternalLinkImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class OnenotePagePreviewLinksImpl implements OnenotePagePreviewLinks {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.previewImageUrl){
-            writer.writeObjectValue<ExternalLinkImpl>("previewImageUrl", (!this.previewImageUrl || this.previewImageUrl instanceof ExternalLinkImpl? this.previewImageUrl : new ExternalLinkImpl(this.previewImageUrl)));
+            writer.writeObjectValue<ExternalLinkImpl>("previewImageUrl", (this.previewImageUrl instanceof ExternalLinkImpl? this.previewImageUrl as ExternalLinkImpl: new ExternalLinkImpl(this.previewImageUrl)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

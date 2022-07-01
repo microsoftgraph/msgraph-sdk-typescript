@@ -134,7 +134,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
      */
     public set businessAddress(value: PhysicalAddress | undefined) {
         if(value) {
-            this._businessAddress = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._businessAddress = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -292,7 +292,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(value) {
             const emailAddressesArrValue: EmailAddressImpl[] = [];
             this.emailAddresses?.forEach(element => {
-                emailAddressesArrValue.push((element instanceof EmailAddressImpl? element:new EmailAddressImpl(element)));
+                emailAddressesArrValue.push((element instanceof EmailAddressImpl? element as EmailAddressImpl:new EmailAddressImpl(element)));
             });
             this._emailAddresses = emailAddressesArrValue;
         }
@@ -312,7 +312,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -423,7 +423,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
      */
     public set homeAddress(value: PhysicalAddress | undefined) {
         if(value) {
-            this._homeAddress = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._homeAddress = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -553,7 +553,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(value) {
             const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.multiValueExtendedProperties?.forEach(element => {
-                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._multiValueExtendedProperties = multiValueExtendedPropertiesArrValue;
         }
@@ -603,7 +603,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
      */
     public set otherAddress(value: PhysicalAddress | undefined) {
         if(value) {
-            this._otherAddress = value instanceof PhysicalAddressImpl? value : new PhysicalAddressImpl(value);
+            this._otherAddress = value instanceof PhysicalAddressImpl? value as PhysicalAddressImpl: new PhysicalAddressImpl(value);
         }
     };
     /**
@@ -651,7 +651,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
      */
     public set photo(value: ProfilePhoto | undefined) {
         if(value) {
-            this._photo = value instanceof ProfilePhotoImpl? value : new ProfilePhotoImpl(value);
+            this._photo = value instanceof ProfilePhotoImpl? value as ProfilePhotoImpl: new ProfilePhotoImpl(value);
         }
     };
     /**
@@ -684,7 +684,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeDateValue("birthday", this.birthday);
         }
         if(this.businessAddress){
-            writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", (!this.businessAddress || this.businessAddress instanceof PhysicalAddressImpl? this.businessAddress : new PhysicalAddressImpl(this.businessAddress)));
+            writer.writeObjectValue<PhysicalAddressImpl>("businessAddress", (this.businessAddress instanceof PhysicalAddressImpl? this.businessAddress as PhysicalAddressImpl: new PhysicalAddressImpl(this.businessAddress)));
         }
         if(this.businessHomePage){
             writer.writeStringValue("businessHomePage", this.businessHomePage);
@@ -706,13 +706,13 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         }
         if(this.emailAddresses && this.emailAddresses.length != 0){        const emailAddressesArrValue: EmailAddressImpl[] = [];
         this.emailAddresses?.forEach(element => {
-            emailAddressesArrValue.push((element instanceof EmailAddressImpl? element:new EmailAddressImpl(element)));
+            emailAddressesArrValue.push((element instanceof EmailAddressImpl? element as EmailAddressImpl:new EmailAddressImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EmailAddressImpl>("emailAddresses", emailAddressesArrValue);
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
@@ -726,7 +726,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeStringValue("givenName", this.givenName);
         }
         if(this.homeAddress){
-            writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", (!this.homeAddress || this.homeAddress instanceof PhysicalAddressImpl? this.homeAddress : new PhysicalAddressImpl(this.homeAddress)));
+            writer.writeObjectValue<PhysicalAddressImpl>("homeAddress", (this.homeAddress instanceof PhysicalAddressImpl? this.homeAddress as PhysicalAddressImpl: new PhysicalAddressImpl(this.homeAddress)));
         }
         if(this.homePhones){
             writer.writeCollectionOfPrimitiveValues<string>("homePhones", this.homePhones);
@@ -751,7 +751,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         }
         if(this.multiValueExtendedProperties && this.multiValueExtendedProperties.length != 0){        const multiValueExtendedPropertiesArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.multiValueExtendedProperties?.forEach(element => {
-            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            multiValueExtendedPropertiesArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("multiValueExtendedProperties", multiValueExtendedPropertiesArrValue);
         }
@@ -762,7 +762,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeStringValue("officeLocation", this.officeLocation);
         }
         if(this.otherAddress){
-            writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", (!this.otherAddress || this.otherAddress instanceof PhysicalAddressImpl? this.otherAddress : new PhysicalAddressImpl(this.otherAddress)));
+            writer.writeObjectValue<PhysicalAddressImpl>("otherAddress", (this.otherAddress instanceof PhysicalAddressImpl? this.otherAddress as PhysicalAddressImpl: new PhysicalAddressImpl(this.otherAddress)));
         }
         if(this.parentFolderId){
             writer.writeStringValue("parentFolderId", this.parentFolderId);
@@ -771,14 +771,14 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
             writer.writeStringValue("personalNotes", this.personalNotes);
         }
         if(this.photo){
-            writer.writeObjectValue<ProfilePhotoImpl>("photo", (!this.photo || this.photo instanceof ProfilePhotoImpl? this.photo : new ProfilePhotoImpl(this.photo)));
+            writer.writeObjectValue<ProfilePhotoImpl>("photo", (this.photo instanceof ProfilePhotoImpl? this.photo as ProfilePhotoImpl: new ProfilePhotoImpl(this.photo)));
         }
         if(this.profession){
             writer.writeStringValue("profession", this.profession);
         }
         if(this.singleValueExtendedProperties && this.singleValueExtendedProperties.length != 0){        const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
         this.singleValueExtendedProperties?.forEach(element => {
-            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+            singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedPropertyImpl>("singleValueExtendedProperties", singleValueExtendedPropertiesArrValue);
         }
@@ -816,7 +816,7 @@ export class ContactImpl extends OutlookItemImpl implements Contact {
         if(value) {
             const singleValueExtendedPropertiesArrValue: SingleValueLegacyExtendedPropertyImpl[] = [];
             this.singleValueExtendedProperties?.forEach(element => {
-                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element:new SingleValueLegacyExtendedPropertyImpl(element)));
+                singleValueExtendedPropertiesArrValue.push((element instanceof SingleValueLegacyExtendedPropertyImpl? element as SingleValueLegacyExtendedPropertyImpl:new SingleValueLegacyExtendedPropertyImpl(element)));
             });
             this._singleValueExtendedProperties = singleValueExtendedPropertiesArrValue;
         }

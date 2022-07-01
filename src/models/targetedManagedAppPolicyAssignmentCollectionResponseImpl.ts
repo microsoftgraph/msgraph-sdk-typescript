@@ -73,7 +73,7 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+            valueArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements
         if(value) {
             const valueArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+                valueArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

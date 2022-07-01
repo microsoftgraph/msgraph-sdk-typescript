@@ -64,7 +64,7 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         }
         if(this.values && this.values.length != 0){        const valuesArrValue: SettingValueImpl[] = [];
         this.values?.forEach(element => {
-            valuesArrValue.push((element instanceof SettingValueImpl? element:new SettingValueImpl(element)));
+            valuesArrValue.push((element instanceof SettingValueImpl? element as SettingValueImpl:new SettingValueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SettingValueImpl>("values", valuesArrValue);
         }
@@ -100,7 +100,7 @@ export class GroupSettingImpl extends EntityImpl implements GroupSetting {
         if(value) {
             const valuesArrValue: SettingValueImpl[] = [];
             this.values?.forEach(element => {
-                valuesArrValue.push((element instanceof SettingValueImpl? element:new SettingValueImpl(element)));
+                valuesArrValue.push((element instanceof SettingValueImpl? element as SettingValueImpl:new SettingValueImpl(element)));
             });
             this._values = valuesArrValue;
         }

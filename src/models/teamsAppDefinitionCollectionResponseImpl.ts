@@ -73,7 +73,7 @@ export class TeamsAppDefinitionCollectionResponseImpl implements TeamsAppDefinit
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppDefinitionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamsAppDefinitionImpl? element:new TeamsAppDefinitionImpl(element)));
+            valueArrValue.push((element instanceof TeamsAppDefinitionImpl? element as TeamsAppDefinitionImpl:new TeamsAppDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAppDefinitionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamsAppDefinitionCollectionResponseImpl implements TeamsAppDefinit
         if(value) {
             const valueArrValue: TeamsAppDefinitionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamsAppDefinitionImpl? element:new TeamsAppDefinitionImpl(element)));
+                valueArrValue.push((element instanceof TeamsAppDefinitionImpl? element as TeamsAppDefinitionImpl:new TeamsAppDefinitionImpl(element)));
             });
             this._value = valueArrValue;
         }

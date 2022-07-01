@@ -73,7 +73,7 @@ export class AgreementFileVersionCollectionResponseImpl implements AgreementFile
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AgreementFileVersionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AgreementFileVersionImpl? element:new AgreementFileVersionImpl(element)));
+            valueArrValue.push((element instanceof AgreementFileVersionImpl? element as AgreementFileVersionImpl:new AgreementFileVersionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AgreementFileVersionCollectionResponseImpl implements AgreementFile
         if(value) {
             const valueArrValue: AgreementFileVersionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AgreementFileVersionImpl? element:new AgreementFileVersionImpl(element)));
+                valueArrValue.push((element instanceof AgreementFileVersionImpl? element as AgreementFileVersionImpl:new AgreementFileVersionImpl(element)));
             });
             this._value = valueArrValue;
         }

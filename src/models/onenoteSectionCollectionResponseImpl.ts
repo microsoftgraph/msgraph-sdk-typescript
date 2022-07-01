@@ -73,7 +73,7 @@ export class OnenoteSectionCollectionResponseImpl implements OnenoteSectionColle
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenoteSectionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+            valueArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenoteSectionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OnenoteSectionCollectionResponseImpl implements OnenoteSectionColle
         if(value) {
             const valueArrValue: OnenoteSectionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OnenoteSectionImpl? element:new OnenoteSectionImpl(element)));
+                valueArrValue.push((element instanceof OnenoteSectionImpl? element as OnenoteSectionImpl:new OnenoteSectionImpl(element)));
             });
             this._value = valueArrValue;
         }

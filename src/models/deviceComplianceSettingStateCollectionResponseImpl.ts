@@ -73,7 +73,7 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Devic
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceComplianceSettingStateImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element:new DeviceComplianceSettingStateImpl(element)));
+            valueArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element as DeviceComplianceSettingStateImpl:new DeviceComplianceSettingStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceSettingStateImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceComplianceSettingStateCollectionResponseImpl implements Devic
         if(value) {
             const valueArrValue: DeviceComplianceSettingStateImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element:new DeviceComplianceSettingStateImpl(element)));
+                valueArrValue.push((element instanceof DeviceComplianceSettingStateImpl? element as DeviceComplianceSettingStateImpl:new DeviceComplianceSettingStateImpl(element)));
             });
             this._value = valueArrValue;
         }

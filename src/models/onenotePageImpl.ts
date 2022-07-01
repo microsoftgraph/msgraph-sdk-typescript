@@ -162,7 +162,7 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
      */
     public set links(value: PageLinks | undefined) {
         if(value) {
-            this._links = value instanceof PageLinksImpl? value : new PageLinksImpl(value);
+            this._links = value instanceof PageLinksImpl? value as PageLinksImpl: new PageLinksImpl(value);
         }
     };
     /**
@@ -194,7 +194,7 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
      */
     public set parentNotebook(value: Notebook | undefined) {
         if(value) {
-            this._parentNotebook = value instanceof NotebookImpl? value : new NotebookImpl(value);
+            this._parentNotebook = value instanceof NotebookImpl? value as NotebookImpl: new NotebookImpl(value);
         }
     };
     /**
@@ -210,7 +210,7 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
      */
     public set parentSection(value: OnenoteSection | undefined) {
         if(value) {
-            this._parentSection = value instanceof OnenoteSectionImpl? value : new OnenoteSectionImpl(value);
+            this._parentSection = value instanceof OnenoteSectionImpl? value as OnenoteSectionImpl: new OnenoteSectionImpl(value);
         }
     };
     /**
@@ -236,16 +236,16 @@ export class OnenotePageImpl extends OnenoteEntitySchemaObjectModelImpl implemen
             writer.writeNumberValue("level", this.level);
         }
         if(this.links){
-            writer.writeObjectValue<PageLinksImpl>("links", (!this.links || this.links instanceof PageLinksImpl? this.links : new PageLinksImpl(this.links)));
+            writer.writeObjectValue<PageLinksImpl>("links", (this.links instanceof PageLinksImpl? this.links as PageLinksImpl: new PageLinksImpl(this.links)));
         }
         if(this.order){
             writer.writeNumberValue("order", this.order);
         }
         if(this.parentNotebook){
-            writer.writeObjectValue<NotebookImpl>("parentNotebook", (!this.parentNotebook || this.parentNotebook instanceof NotebookImpl? this.parentNotebook : new NotebookImpl(this.parentNotebook)));
+            writer.writeObjectValue<NotebookImpl>("parentNotebook", (this.parentNotebook instanceof NotebookImpl? this.parentNotebook as NotebookImpl: new NotebookImpl(this.parentNotebook)));
         }
         if(this.parentSection){
-            writer.writeObjectValue<OnenoteSectionImpl>("parentSection", (!this.parentSection || this.parentSection instanceof OnenoteSectionImpl? this.parentSection : new OnenoteSectionImpl(this.parentSection)));
+            writer.writeObjectValue<OnenoteSectionImpl>("parentSection", (this.parentSection instanceof OnenoteSectionImpl? this.parentSection as OnenoteSectionImpl: new OnenoteSectionImpl(this.parentSection)));
         }
         if(this.title){
             writer.writeStringValue("title", this.title);

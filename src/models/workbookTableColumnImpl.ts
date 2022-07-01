@@ -40,7 +40,7 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
      */
     public set filter(value: WorkbookFilter | undefined) {
         if(value) {
-            this._filter = value instanceof WorkbookFilterImpl? value : new WorkbookFilterImpl(value);
+            this._filter = value instanceof WorkbookFilterImpl? value as WorkbookFilterImpl: new WorkbookFilterImpl(value);
         }
     };
     /**
@@ -95,7 +95,7 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.filter){
-            writer.writeObjectValue<WorkbookFilterImpl>("filter", (!this.filter || this.filter instanceof WorkbookFilterImpl? this.filter : new WorkbookFilterImpl(this.filter)));
+            writer.writeObjectValue<WorkbookFilterImpl>("filter", (this.filter instanceof WorkbookFilterImpl? this.filter as WorkbookFilterImpl: new WorkbookFilterImpl(this.filter)));
         }
         if(this.index){
             writer.writeNumberValue("index", this.index);
@@ -104,7 +104,7 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
             writer.writeStringValue("name", this.name);
         }
         if(this.values){
-            writer.writeObjectValue<JsonImpl>("values", (!this.values || this.values instanceof JsonImpl? this.values : new JsonImpl(this.values)));
+            writer.writeObjectValue<JsonImpl>("values", (this.values instanceof JsonImpl? this.values as JsonImpl: new JsonImpl(this.values)));
         }
     };
     /**
@@ -120,7 +120,7 @@ export class WorkbookTableColumnImpl extends EntityImpl implements WorkbookTable
      */
     public set values(value: Json | undefined) {
         if(value) {
-            this._values = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._values = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
 }

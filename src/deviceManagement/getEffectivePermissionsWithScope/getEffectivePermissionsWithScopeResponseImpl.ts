@@ -51,7 +51,7 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectiv
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: RolePermissionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RolePermissionImpl? element:new RolePermissionImpl(element)));
+            valueArrValue.push((element instanceof RolePermissionImpl? element as RolePermissionImpl:new RolePermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RolePermissionImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetEffectivePermissionsWithScopeResponseImpl implements GetEffectiv
         if(value) {
             const valueArrValue: RolePermissionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RolePermissionImpl? element:new RolePermissionImpl(element)));
+                valueArrValue.push((element instanceof RolePermissionImpl? element as RolePermissionImpl:new RolePermissionImpl(element)));
             });
             this._value = valueArrValue;
         }

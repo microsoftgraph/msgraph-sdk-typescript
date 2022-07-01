@@ -58,7 +58,7 @@ export class RolePermissionImpl implements RolePermission {
         if(value) {
             const resourceActionsArrValue: ResourceActionImpl[] = [];
             this.resourceActions?.forEach(element => {
-                resourceActionsArrValue.push((element instanceof ResourceActionImpl? element:new ResourceActionImpl(element)));
+                resourceActionsArrValue.push((element instanceof ResourceActionImpl? element as ResourceActionImpl:new ResourceActionImpl(element)));
             });
             this._resourceActions = resourceActionsArrValue;
         }
@@ -71,7 +71,7 @@ export class RolePermissionImpl implements RolePermission {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.resourceActions && this.resourceActions.length != 0){        const resourceActionsArrValue: ResourceActionImpl[] = [];
         this.resourceActions?.forEach(element => {
-            resourceActionsArrValue.push((element instanceof ResourceActionImpl? element:new ResourceActionImpl(element)));
+            resourceActionsArrValue.push((element instanceof ResourceActionImpl? element as ResourceActionImpl:new ResourceActionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceActionImpl>("resourceActions", resourceActionsArrValue);
         }

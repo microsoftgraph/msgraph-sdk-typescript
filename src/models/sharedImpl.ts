@@ -67,7 +67,7 @@ export class SharedImpl implements Shared {
      */
     public set owner(value: IdentitySet | undefined) {
         if(value) {
-            this._owner = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._owner = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -93,13 +93,13 @@ export class SharedImpl implements Shared {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.owner){
-            writer.writeObjectValue<IdentitySetImpl>("owner", (!this.owner || this.owner instanceof IdentitySetImpl? this.owner : new IdentitySetImpl(this.owner)));
+            writer.writeObjectValue<IdentitySetImpl>("owner", (this.owner instanceof IdentitySetImpl? this.owner as IdentitySetImpl: new IdentitySetImpl(this.owner)));
         }
         if(this.scope){
             writer.writeStringValue("scope", this.scope);
         }
         if(this.sharedBy){
-            writer.writeObjectValue<IdentitySetImpl>("sharedBy", (!this.sharedBy || this.sharedBy instanceof IdentitySetImpl? this.sharedBy : new IdentitySetImpl(this.sharedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("sharedBy", (this.sharedBy instanceof IdentitySetImpl? this.sharedBy as IdentitySetImpl: new IdentitySetImpl(this.sharedBy)));
         }
         if(this.sharedDateTime){
             writer.writeDateValue("sharedDateTime", this.sharedDateTime);
@@ -119,7 +119,7 @@ export class SharedImpl implements Shared {
      */
     public set sharedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._sharedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._sharedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**

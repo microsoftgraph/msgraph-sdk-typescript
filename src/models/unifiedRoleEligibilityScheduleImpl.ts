@@ -58,7 +58,7 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
      */
     public set scheduleInfo(value: RequestSchedule | undefined) {
         if(value) {
-            this._scheduleInfo = value instanceof RequestScheduleImpl? value : new RequestScheduleImpl(value);
+            this._scheduleInfo = value instanceof RequestScheduleImpl? value as RequestScheduleImpl: new RequestScheduleImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseI
             writer.writeStringValue("memberType", this.memberType);
         }
         if(this.scheduleInfo){
-            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (!this.scheduleInfo || this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo : new RequestScheduleImpl(this.scheduleInfo)));
+            writer.writeObjectValue<RequestScheduleImpl>("scheduleInfo", (this.scheduleInfo instanceof RequestScheduleImpl? this.scheduleInfo as RequestScheduleImpl: new RequestScheduleImpl(this.scheduleInfo)));
         }
     };
 }

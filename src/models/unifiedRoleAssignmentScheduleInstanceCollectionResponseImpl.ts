@@ -73,7 +73,7 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl impleme
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
+            valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element as UnifiedRoleAssignmentScheduleInstanceImpl:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstanceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponseImpl impleme
         if(value) {
             const valueArrValue: UnifiedRoleAssignmentScheduleInstanceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
+                valueArrValue.push((element instanceof UnifiedRoleAssignmentScheduleInstanceImpl? element as UnifiedRoleAssignmentScheduleInstanceImpl:new UnifiedRoleAssignmentScheduleInstanceImpl(element)));
             });
             this._value = valueArrValue;
         }

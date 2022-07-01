@@ -41,7 +41,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(value) {
             const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element:new DeviceConfigurationAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element as DeviceConfigurationAssignmentImpl:new DeviceConfigurationAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -71,7 +71,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: DeviceConfigurationAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element:new DeviceConfigurationAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof DeviceConfigurationAssignmentImpl? element as DeviceConfigurationAssignmentImpl:new DeviceConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }

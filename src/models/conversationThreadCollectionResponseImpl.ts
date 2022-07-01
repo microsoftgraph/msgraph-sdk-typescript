@@ -73,7 +73,7 @@ export class ConversationThreadCollectionResponseImpl implements ConversationThr
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConversationThreadImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+            valueArrValue.push((element instanceof ConversationThreadImpl? element as ConversationThreadImpl:new ConversationThreadImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ConversationThreadCollectionResponseImpl implements ConversationThr
         if(value) {
             const valueArrValue: ConversationThreadImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+                valueArrValue.push((element instanceof ConversationThreadImpl? element as ConversationThreadImpl:new ConversationThreadImpl(element)));
             });
             this._value = valueArrValue;
         }

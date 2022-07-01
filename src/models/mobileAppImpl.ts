@@ -56,7 +56,7 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
         if(value) {
             const assignmentsArrValue: MobileAppAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element as MobileAppAssignmentImpl:new MobileAppAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -76,7 +76,7 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
         if(value) {
             const categoriesArrValue: MobileAppCategoryImpl[] = [];
             this.categories?.forEach(element => {
-                categoriesArrValue.push((element instanceof MobileAppCategoryImpl? element:new MobileAppCategoryImpl(element)));
+                categoriesArrValue.push((element instanceof MobileAppCategoryImpl? element as MobileAppCategoryImpl:new MobileAppCategoryImpl(element)));
             });
             this._categories = categoriesArrValue;
         }
@@ -235,7 +235,7 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
      */
     public set largeIcon(value: MimeContent | undefined) {
         if(value) {
-            this._largeIcon = value instanceof MimeContentImpl? value : new MimeContentImpl(value);
+            this._largeIcon = value instanceof MimeContentImpl? value as MimeContentImpl: new MimeContentImpl(value);
         }
     };
     /**
@@ -343,13 +343,13 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: MobileAppAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element:new MobileAppAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof MobileAppAssignmentImpl? element as MobileAppAssignmentImpl:new MobileAppAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppAssignmentImpl>("assignments", assignmentsArrValue);
         }
         if(this.categories && this.categories.length != 0){        const categoriesArrValue: MobileAppCategoryImpl[] = [];
         this.categories?.forEach(element => {
-            categoriesArrValue.push((element instanceof MobileAppCategoryImpl? element:new MobileAppCategoryImpl(element)));
+            categoriesArrValue.push((element instanceof MobileAppCategoryImpl? element as MobileAppCategoryImpl:new MobileAppCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("categories", categoriesArrValue);
         }
@@ -372,7 +372,7 @@ export class MobileAppImpl extends EntityImpl implements MobileApp {
             writer.writeBooleanValue("isFeatured", this.isFeatured);
         }
         if(this.largeIcon){
-            writer.writeObjectValue<MimeContentImpl>("largeIcon", (!this.largeIcon || this.largeIcon instanceof MimeContentImpl? this.largeIcon : new MimeContentImpl(this.largeIcon)));
+            writer.writeObjectValue<MimeContentImpl>("largeIcon", (this.largeIcon instanceof MimeContentImpl? this.largeIcon as MimeContentImpl: new MimeContentImpl(this.largeIcon)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);

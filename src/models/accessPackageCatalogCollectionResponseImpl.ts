@@ -73,7 +73,7 @@ export class AccessPackageCatalogCollectionResponseImpl implements AccessPackage
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessPackageCatalogImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessPackageCatalogImpl? element:new AccessPackageCatalogImpl(element)));
+            valueArrValue.push((element instanceof AccessPackageCatalogImpl? element as AccessPackageCatalogImpl:new AccessPackageCatalogImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessPackageCatalogImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AccessPackageCatalogCollectionResponseImpl implements AccessPackage
         if(value) {
             const valueArrValue: AccessPackageCatalogImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessPackageCatalogImpl? element:new AccessPackageCatalogImpl(element)));
+                valueArrValue.push((element instanceof AccessPackageCatalogImpl? element as AccessPackageCatalogImpl:new AccessPackageCatalogImpl(element)));
             });
             this._value = valueArrValue;
         }

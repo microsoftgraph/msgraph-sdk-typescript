@@ -59,7 +59,7 @@ export class SectionLinksImpl implements SectionLinks {
      */
     public set oneNoteClientUrl(value: ExternalLink | undefined) {
         if(value) {
-            this._oneNoteClientUrl = value instanceof ExternalLinkImpl? value : new ExternalLinkImpl(value);
+            this._oneNoteClientUrl = value instanceof ExternalLinkImpl? value as ExternalLinkImpl: new ExternalLinkImpl(value);
         }
     };
     /**
@@ -75,7 +75,7 @@ export class SectionLinksImpl implements SectionLinks {
      */
     public set oneNoteWebUrl(value: ExternalLink | undefined) {
         if(value) {
-            this._oneNoteWebUrl = value instanceof ExternalLinkImpl? value : new ExternalLinkImpl(value);
+            this._oneNoteWebUrl = value instanceof ExternalLinkImpl? value as ExternalLinkImpl: new ExternalLinkImpl(value);
         }
     };
     /**
@@ -85,10 +85,10 @@ export class SectionLinksImpl implements SectionLinks {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.oneNoteClientUrl){
-            writer.writeObjectValue<ExternalLinkImpl>("oneNoteClientUrl", (!this.oneNoteClientUrl || this.oneNoteClientUrl instanceof ExternalLinkImpl? this.oneNoteClientUrl : new ExternalLinkImpl(this.oneNoteClientUrl)));
+            writer.writeObjectValue<ExternalLinkImpl>("oneNoteClientUrl", (this.oneNoteClientUrl instanceof ExternalLinkImpl? this.oneNoteClientUrl as ExternalLinkImpl: new ExternalLinkImpl(this.oneNoteClientUrl)));
         }
         if(this.oneNoteWebUrl){
-            writer.writeObjectValue<ExternalLinkImpl>("oneNoteWebUrl", (!this.oneNoteWebUrl || this.oneNoteWebUrl instanceof ExternalLinkImpl? this.oneNoteWebUrl : new ExternalLinkImpl(this.oneNoteWebUrl)));
+            writer.writeObjectValue<ExternalLinkImpl>("oneNoteWebUrl", (this.oneNoteWebUrl instanceof ExternalLinkImpl? this.oneNoteWebUrl as ExternalLinkImpl: new ExternalLinkImpl(this.oneNoteWebUrl)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

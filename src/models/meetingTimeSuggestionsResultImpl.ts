@@ -77,7 +77,7 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
         if(value) {
             const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = [];
             this.meetingTimeSuggestions?.forEach(element => {
-                meetingTimeSuggestionsArrValue.push((element instanceof MeetingTimeSuggestionImpl? element:new MeetingTimeSuggestionImpl(element)));
+                meetingTimeSuggestionsArrValue.push((element instanceof MeetingTimeSuggestionImpl? element as MeetingTimeSuggestionImpl:new MeetingTimeSuggestionImpl(element)));
             });
             this._meetingTimeSuggestions = meetingTimeSuggestionsArrValue;
         }
@@ -93,7 +93,7 @@ export class MeetingTimeSuggestionsResultImpl implements MeetingTimeSuggestionsR
         }
         if(this.meetingTimeSuggestions && this.meetingTimeSuggestions.length != 0){        const meetingTimeSuggestionsArrValue: MeetingTimeSuggestionImpl[] = [];
         this.meetingTimeSuggestions?.forEach(element => {
-            meetingTimeSuggestionsArrValue.push((element instanceof MeetingTimeSuggestionImpl? element:new MeetingTimeSuggestionImpl(element)));
+            meetingTimeSuggestionsArrValue.push((element instanceof MeetingTimeSuggestionImpl? element as MeetingTimeSuggestionImpl:new MeetingTimeSuggestionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MeetingTimeSuggestionImpl>("meetingTimeSuggestions", meetingTimeSuggestionsArrValue);
         }

@@ -66,7 +66,7 @@ export class KeyCredentialPostRequestBodyImpl implements KeyCredentialPostReques
      */
     public set keyCredential(value: KeyCredential | undefined) {
         if(value) {
-            this._keyCredential = value instanceof KeyCredentialImpl? value : new KeyCredentialImpl(value);
+            this._keyCredential = value instanceof KeyCredentialImpl? value as KeyCredentialImpl: new KeyCredentialImpl(value);
         }
     };
     /**
@@ -82,7 +82,7 @@ export class KeyCredentialPostRequestBodyImpl implements KeyCredentialPostReques
      */
     public set passwordCredential(value: PasswordCredential | undefined) {
         if(value) {
-            this._passwordCredential = value instanceof PasswordCredentialImpl? value : new PasswordCredentialImpl(value);
+            this._passwordCredential = value instanceof PasswordCredentialImpl? value as PasswordCredentialImpl: new PasswordCredentialImpl(value);
         }
     };
     /**
@@ -108,10 +108,10 @@ export class KeyCredentialPostRequestBodyImpl implements KeyCredentialPostReques
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.keyCredential){
-            writer.writeObjectValue<KeyCredentialImpl>("keyCredential", (!this.keyCredential || this.keyCredential instanceof KeyCredentialImpl? this.keyCredential : new KeyCredentialImpl(this.keyCredential)));
+            writer.writeObjectValue<KeyCredentialImpl>("keyCredential", (this.keyCredential instanceof KeyCredentialImpl? this.keyCredential as KeyCredentialImpl: new KeyCredentialImpl(this.keyCredential)));
         }
         if(this.passwordCredential){
-            writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", (!this.passwordCredential || this.passwordCredential instanceof PasswordCredentialImpl? this.passwordCredential : new PasswordCredentialImpl(this.passwordCredential)));
+            writer.writeObjectValue<PasswordCredentialImpl>("passwordCredential", (this.passwordCredential instanceof PasswordCredentialImpl? this.passwordCredential as PasswordCredentialImpl: new PasswordCredentialImpl(this.passwordCredential)));
         }
         if(this.proof){
             writer.writeStringValue("proof", this.proof);

@@ -51,7 +51,7 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements GetManagedAp
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ManagedAppDiagnosticStatusImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ManagedAppDiagnosticStatusImpl? element:new ManagedAppDiagnosticStatusImpl(element)));
+            valueArrValue.push((element instanceof ManagedAppDiagnosticStatusImpl? element as ManagedAppDiagnosticStatusImpl:new ManagedAppDiagnosticStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatusImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetManagedAppDiagnosticStatusesResponseImpl implements GetManagedAp
         if(value) {
             const valueArrValue: ManagedAppDiagnosticStatusImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ManagedAppDiagnosticStatusImpl? element:new ManagedAppDiagnosticStatusImpl(element)));
+                valueArrValue.push((element instanceof ManagedAppDiagnosticStatusImpl? element as ManagedAppDiagnosticStatusImpl:new ManagedAppDiagnosticStatusImpl(element)));
             });
             this._value = valueArrValue;
         }

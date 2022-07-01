@@ -73,7 +73,7 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements In
         }
         if(this.value && this.value.length != 0){        const valueArrValue: InferenceClassificationOverrideImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof InferenceClassificationOverrideImpl? element:new InferenceClassificationOverrideImpl(element)));
+            valueArrValue.push((element instanceof InferenceClassificationOverrideImpl? element as InferenceClassificationOverrideImpl:new InferenceClassificationOverrideImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class InferenceClassificationOverrideCollectionResponseImpl implements In
         if(value) {
             const valueArrValue: InferenceClassificationOverrideImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof InferenceClassificationOverrideImpl? element:new InferenceClassificationOverrideImpl(element)));
+                valueArrValue.push((element instanceof InferenceClassificationOverrideImpl? element as InferenceClassificationOverrideImpl:new InferenceClassificationOverrideImpl(element)));
             });
             this._value = valueArrValue;
         }

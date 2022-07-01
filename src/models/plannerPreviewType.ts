@@ -1,4 +1,4 @@
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export enum PlannerPreviewType {
     Automatic = "automatic",
     NoPreview = "noPreview",

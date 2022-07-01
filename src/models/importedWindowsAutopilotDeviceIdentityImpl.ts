@@ -155,7 +155,7 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
             writer.writeStringValue("serialNumber", this.serialNumber);
         }
         if(this.state){
-            writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", (!this.state || this.state instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? this.state : new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state)));
+            writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityStateImpl>("state", (this.state instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? this.state as ImportedWindowsAutopilotDeviceIdentityStateImpl: new ImportedWindowsAutopilotDeviceIdentityStateImpl(this.state)));
         }
     };
     /**
@@ -187,7 +187,7 @@ export class ImportedWindowsAutopilotDeviceIdentityImpl extends EntityImpl imple
      */
     public set state(value: ImportedWindowsAutopilotDeviceIdentityState | undefined) {
         if(value) {
-            this._state = value instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? value : new ImportedWindowsAutopilotDeviceIdentityStateImpl(value);
+            this._state = value instanceof ImportedWindowsAutopilotDeviceIdentityStateImpl? value as ImportedWindowsAutopilotDeviceIdentityStateImpl: new ImportedWindowsAutopilotDeviceIdentityStateImpl(value);
         }
     };
 }

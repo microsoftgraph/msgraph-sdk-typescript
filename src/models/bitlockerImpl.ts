@@ -40,7 +40,7 @@ export class BitlockerImpl extends EntityImpl implements Bitlocker {
         if(value) {
             const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = [];
             this.recoveryKeys?.forEach(element => {
-                recoveryKeysArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element:new BitlockerRecoveryKeyImpl(element)));
+                recoveryKeysArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element as BitlockerRecoveryKeyImpl:new BitlockerRecoveryKeyImpl(element)));
             });
             this._recoveryKeys = recoveryKeysArrValue;
         }
@@ -54,7 +54,7 @@ export class BitlockerImpl extends EntityImpl implements Bitlocker {
         super.serialize(writer);
         if(this.recoveryKeys && this.recoveryKeys.length != 0){        const recoveryKeysArrValue: BitlockerRecoveryKeyImpl[] = [];
         this.recoveryKeys?.forEach(element => {
-            recoveryKeysArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element:new BitlockerRecoveryKeyImpl(element)));
+            recoveryKeysArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element as BitlockerRecoveryKeyImpl:new BitlockerRecoveryKeyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("recoveryKeys", recoveryKeysArrValue);
         }

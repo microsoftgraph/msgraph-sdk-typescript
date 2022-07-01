@@ -48,7 +48,7 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
      */
     public set group(value: Identity | undefined) {
         if(value) {
-            this._group = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._group = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -59,13 +59,13 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.group){
-            writer.writeObjectValue<IdentityImpl>("group", (!this.group || this.group instanceof IdentityImpl? this.group : new IdentityImpl(this.group)));
+            writer.writeObjectValue<IdentityImpl>("group", (this.group instanceof IdentityImpl? this.group as IdentityImpl: new IdentityImpl(this.group)));
         }
         if(this.siteGroup){
-            writer.writeObjectValue<SharePointIdentityImpl>("siteGroup", (!this.siteGroup || this.siteGroup instanceof SharePointIdentityImpl? this.siteGroup : new SharePointIdentityImpl(this.siteGroup)));
+            writer.writeObjectValue<SharePointIdentityImpl>("siteGroup", (this.siteGroup instanceof SharePointIdentityImpl? this.siteGroup as SharePointIdentityImpl: new SharePointIdentityImpl(this.siteGroup)));
         }
         if(this.siteUser){
-            writer.writeObjectValue<SharePointIdentityImpl>("siteUser", (!this.siteUser || this.siteUser instanceof SharePointIdentityImpl? this.siteUser : new SharePointIdentityImpl(this.siteUser)));
+            writer.writeObjectValue<SharePointIdentityImpl>("siteUser", (this.siteUser instanceof SharePointIdentityImpl? this.siteUser as SharePointIdentityImpl: new SharePointIdentityImpl(this.siteUser)));
         }
     };
     /**
@@ -81,7 +81,7 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
      */
     public set siteGroup(value: SharePointIdentity | undefined) {
         if(value) {
-            this._siteGroup = value instanceof SharePointIdentityImpl? value : new SharePointIdentityImpl(value);
+            this._siteGroup = value instanceof SharePointIdentityImpl? value as SharePointIdentityImpl: new SharePointIdentityImpl(value);
         }
     };
     /**
@@ -97,7 +97,7 @@ export class SharePointIdentitySetImpl extends IdentitySetImpl implements ShareP
      */
     public set siteUser(value: SharePointIdentity | undefined) {
         if(value) {
-            this._siteUser = value instanceof SharePointIdentityImpl? value : new SharePointIdentityImpl(value);
+            this._siteUser = value instanceof SharePointIdentityImpl? value as SharePointIdentityImpl: new SharePointIdentityImpl(value);
         }
     };
 }

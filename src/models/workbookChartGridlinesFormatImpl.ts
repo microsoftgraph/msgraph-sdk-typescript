@@ -38,7 +38,7 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
      */
     public set line(value: WorkbookChartLineFormat | undefined) {
         if(value) {
-            this._line = value instanceof WorkbookChartLineFormatImpl? value : new WorkbookChartLineFormatImpl(value);
+            this._line = value instanceof WorkbookChartLineFormatImpl? value as WorkbookChartLineFormatImpl: new WorkbookChartLineFormatImpl(value);
         }
     };
     /**
@@ -49,7 +49,7 @@ export class WorkbookChartGridlinesFormatImpl extends EntityImpl implements Work
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.line){
-            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (!this.line || this.line instanceof WorkbookChartLineFormatImpl? this.line : new WorkbookChartLineFormatImpl(this.line)));
+            writer.writeObjectValue<WorkbookChartLineFormatImpl>("line", (this.line instanceof WorkbookChartLineFormatImpl? this.line as WorkbookChartLineFormatImpl: new WorkbookChartLineFormatImpl(this.line)));
         }
     };
 }

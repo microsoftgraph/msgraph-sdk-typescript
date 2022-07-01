@@ -127,7 +127,7 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         if(value) {
             const forwardAsAttachmentToArrValue: RecipientImpl[] = [];
             this.forwardAsAttachmentTo?.forEach(element => {
-                forwardAsAttachmentToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                forwardAsAttachmentToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._forwardAsAttachmentTo = forwardAsAttachmentToArrValue;
         }
@@ -147,7 +147,7 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         if(value) {
             const forwardToArrValue: RecipientImpl[] = [];
             this.forwardTo?.forEach(element => {
-                forwardToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                forwardToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._forwardTo = forwardToArrValue;
         }
@@ -250,7 +250,7 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         if(value) {
             const redirectToArrValue: RecipientImpl[] = [];
             this.redirectTo?.forEach(element => {
-                redirectToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                redirectToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._redirectTo = redirectToArrValue;
         }
@@ -272,13 +272,13 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         }
         if(this.forwardAsAttachmentTo && this.forwardAsAttachmentTo.length != 0){        const forwardAsAttachmentToArrValue: RecipientImpl[] = [];
         this.forwardAsAttachmentTo?.forEach(element => {
-            forwardAsAttachmentToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            forwardAsAttachmentToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("forwardAsAttachmentTo", forwardAsAttachmentToArrValue);
         }
         if(this.forwardTo && this.forwardTo.length != 0){        const forwardToArrValue: RecipientImpl[] = [];
         this.forwardTo?.forEach(element => {
-            forwardToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            forwardToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("forwardTo", forwardToArrValue);
         }
@@ -296,7 +296,7 @@ export class MessageRuleActionsImpl implements MessageRuleActions {
         }
         if(this.redirectTo && this.redirectTo.length != 0){        const redirectToArrValue: RecipientImpl[] = [];
         this.redirectTo?.forEach(element => {
-            redirectToArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            redirectToArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("redirectTo", redirectToArrValue);
         }

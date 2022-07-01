@@ -38,7 +38,7 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
      */
     public set format(value: WorkbookChartTitleFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartTitleFormatImpl? value : new WorkbookChartTitleFormatImpl(value);
+            this._format = value instanceof WorkbookChartTitleFormatImpl? value as WorkbookChartTitleFormatImpl: new WorkbookChartTitleFormatImpl(value);
         }
     };
     /**
@@ -77,7 +77,7 @@ export class WorkbookChartTitleImpl extends EntityImpl implements WorkbookChartT
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartTitleFormatImpl? this.format : new WorkbookChartTitleFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartTitleFormatImpl>("format", (this.format instanceof WorkbookChartTitleFormatImpl? this.format as WorkbookChartTitleFormatImpl: new WorkbookChartTitleFormatImpl(this.format)));
         }
         if(this.overlay){
             writer.writeBooleanValue("overlay", this.overlay);

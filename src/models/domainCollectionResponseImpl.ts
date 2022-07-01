@@ -73,7 +73,7 @@ export class DomainCollectionResponseImpl implements DomainCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DomainImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DomainImpl? element:new DomainImpl(element)));
+            valueArrValue.push((element instanceof DomainImpl? element as DomainImpl:new DomainImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DomainImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DomainCollectionResponseImpl implements DomainCollectionResponse {
         if(value) {
             const valueArrValue: DomainImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DomainImpl? element:new DomainImpl(element)));
+                valueArrValue.push((element instanceof DomainImpl? element as DomainImpl:new DomainImpl(element)));
             });
             this._value = valueArrValue;
         }

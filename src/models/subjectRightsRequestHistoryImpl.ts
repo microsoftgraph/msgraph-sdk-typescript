@@ -48,7 +48,7 @@ export class SubjectRightsRequestHistoryImpl implements SubjectRightsRequestHist
      */
     public set changedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._changedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._changedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -99,7 +99,7 @@ export class SubjectRightsRequestHistoryImpl implements SubjectRightsRequestHist
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.changedBy){
-            writer.writeObjectValue<IdentitySetImpl>("changedBy", (!this.changedBy || this.changedBy instanceof IdentitySetImpl? this.changedBy : new IdentitySetImpl(this.changedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("changedBy", (this.changedBy instanceof IdentitySetImpl? this.changedBy as IdentitySetImpl: new IdentitySetImpl(this.changedBy)));
         }
         if(this.eventDateTime){
             writer.writeDateValue("eventDateTime", this.eventDateTime);

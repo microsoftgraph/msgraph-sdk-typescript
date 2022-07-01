@@ -42,7 +42,7 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
      */
     public set definition(value: PrintTaskDefinition | undefined) {
         if(value) {
-            this._definition = value instanceof PrintTaskDefinitionImpl? value : new PrintTaskDefinitionImpl(value);
+            this._definition = value instanceof PrintTaskDefinitionImpl? value as PrintTaskDefinitionImpl: new PrintTaskDefinitionImpl(value);
         }
     };
     /**
@@ -81,16 +81,16 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.definition){
-            writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", (!this.definition || this.definition instanceof PrintTaskDefinitionImpl? this.definition : new PrintTaskDefinitionImpl(this.definition)));
+            writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", (this.definition instanceof PrintTaskDefinitionImpl? this.definition as PrintTaskDefinitionImpl: new PrintTaskDefinitionImpl(this.definition)));
         }
         if(this.parentUrl){
             writer.writeStringValue("parentUrl", this.parentUrl);
         }
         if(this.status){
-            writer.writeObjectValue<PrintTaskStatusImpl>("status", (!this.status || this.status instanceof PrintTaskStatusImpl? this.status : new PrintTaskStatusImpl(this.status)));
+            writer.writeObjectValue<PrintTaskStatusImpl>("status", (this.status instanceof PrintTaskStatusImpl? this.status as PrintTaskStatusImpl: new PrintTaskStatusImpl(this.status)));
         }
         if(this.trigger){
-            writer.writeObjectValue<PrintTaskTriggerImpl>("trigger", (!this.trigger || this.trigger instanceof PrintTaskTriggerImpl? this.trigger : new PrintTaskTriggerImpl(this.trigger)));
+            writer.writeObjectValue<PrintTaskTriggerImpl>("trigger", (this.trigger instanceof PrintTaskTriggerImpl? this.trigger as PrintTaskTriggerImpl: new PrintTaskTriggerImpl(this.trigger)));
         }
     };
     /**
@@ -106,7 +106,7 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
      */
     public set status(value: PrintTaskStatus | undefined) {
         if(value) {
-            this._status = value instanceof PrintTaskStatusImpl? value : new PrintTaskStatusImpl(value);
+            this._status = value instanceof PrintTaskStatusImpl? value as PrintTaskStatusImpl: new PrintTaskStatusImpl(value);
         }
     };
     /**
@@ -122,7 +122,7 @@ export class PrintTaskImpl extends EntityImpl implements PrintTask {
      */
     public set trigger(value: PrintTaskTrigger | undefined) {
         if(value) {
-            this._trigger = value instanceof PrintTaskTriggerImpl? value : new PrintTaskTriggerImpl(value);
+            this._trigger = value instanceof PrintTaskTriggerImpl? value as PrintTaskTriggerImpl: new PrintTaskTriggerImpl(value);
         }
     };
 }

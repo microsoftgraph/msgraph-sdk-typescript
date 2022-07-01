@@ -42,7 +42,7 @@ export class MeetingParticipantsImpl implements MeetingParticipants {
         if(value) {
             const attendeesArrValue: MeetingParticipantInfoImpl[] = [];
             this.attendees?.forEach(element => {
-                attendeesArrValue.push((element instanceof MeetingParticipantInfoImpl? element:new MeetingParticipantInfoImpl(element)));
+                attendeesArrValue.push((element instanceof MeetingParticipantInfoImpl? element as MeetingParticipantInfoImpl:new MeetingParticipantInfoImpl(element)));
             });
             this._attendees = attendeesArrValue;
         }
@@ -79,7 +79,7 @@ export class MeetingParticipantsImpl implements MeetingParticipants {
      */
     public set organizer(value: MeetingParticipantInfo | undefined) {
         if(value) {
-            this._organizer = value instanceof MeetingParticipantInfoImpl? value : new MeetingParticipantInfoImpl(value);
+            this._organizer = value instanceof MeetingParticipantInfoImpl? value as MeetingParticipantInfoImpl: new MeetingParticipantInfoImpl(value);
         }
     };
     /**
@@ -90,12 +90,12 @@ export class MeetingParticipantsImpl implements MeetingParticipants {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attendees && this.attendees.length != 0){        const attendeesArrValue: MeetingParticipantInfoImpl[] = [];
         this.attendees?.forEach(element => {
-            attendeesArrValue.push((element instanceof MeetingParticipantInfoImpl? element:new MeetingParticipantInfoImpl(element)));
+            attendeesArrValue.push((element instanceof MeetingParticipantInfoImpl? element as MeetingParticipantInfoImpl:new MeetingParticipantInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MeetingParticipantInfoImpl>("attendees", attendeesArrValue);
         }
         if(this.organizer){
-            writer.writeObjectValue<MeetingParticipantInfoImpl>("organizer", (!this.organizer || this.organizer instanceof MeetingParticipantInfoImpl? this.organizer : new MeetingParticipantInfoImpl(this.organizer)));
+            writer.writeObjectValue<MeetingParticipantInfoImpl>("organizer", (this.organizer instanceof MeetingParticipantInfoImpl? this.organizer as MeetingParticipantInfoImpl: new MeetingParticipantInfoImpl(this.organizer)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -73,7 +73,7 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+            valueArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element as AccessReviewInstanceDecisionItemImpl:new AccessReviewInstanceDecisionItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AccessReviewInstanceDecisionItemCollectionResponseImpl implements A
         if(value) {
             const valueArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+                valueArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element as AccessReviewInstanceDecisionItemImpl:new AccessReviewInstanceDecisionItemImpl(element)));
             });
             this._value = valueArrValue;
         }

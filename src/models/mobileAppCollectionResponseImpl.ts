@@ -73,7 +73,7 @@ export class MobileAppCollectionResponseImpl implements MobileAppCollectionRespo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileAppImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MobileAppImpl? element:new MobileAppImpl(element)));
+            valueArrValue.push((element instanceof MobileAppImpl? element as MobileAppImpl:new MobileAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MobileAppCollectionResponseImpl implements MobileAppCollectionRespo
         if(value) {
             const valueArrValue: MobileAppImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MobileAppImpl? element:new MobileAppImpl(element)));
+                valueArrValue.push((element instanceof MobileAppImpl? element as MobileAppImpl:new MobileAppImpl(element)));
             });
             this._value = valueArrValue;
         }

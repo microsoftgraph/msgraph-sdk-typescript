@@ -52,7 +52,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         if(value) {
             const bundlesArrValue: DriveItemImpl[] = [];
             this.bundles?.forEach(element => {
-                bundlesArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                bundlesArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._bundles = bundlesArrValue;
         }
@@ -106,7 +106,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         if(value) {
             const followingArrValue: DriveItemImpl[] = [];
             this.following?.forEach(element => {
-                followingArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                followingArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._following = followingArrValue;
         }
@@ -145,7 +145,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         if(value) {
             const itemsArrValue: DriveItemImpl[] = [];
             this.items?.forEach(element => {
-                itemsArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                itemsArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._items = itemsArrValue;
         }
@@ -163,7 +163,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public set list(value: List | undefined) {
         if(value) {
-            this._list = value instanceof ListImpl? value : new ListImpl(value);
+            this._list = value instanceof ListImpl? value as ListImpl: new ListImpl(value);
         }
     };
     /**
@@ -179,7 +179,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public set owner(value: IdentitySet | undefined) {
         if(value) {
-            this._owner = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._owner = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -195,7 +195,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public set quota(value: Quota | undefined) {
         if(value) {
-            this._quota = value instanceof QuotaImpl? value : new QuotaImpl(value);
+            this._quota = value instanceof QuotaImpl? value as QuotaImpl: new QuotaImpl(value);
         }
     };
     /**
@@ -211,7 +211,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public set root(value: DriveItem | undefined) {
         if(value) {
-            this._root = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+            this._root = value instanceof DriveItemImpl? value as DriveItemImpl: new DriveItemImpl(value);
         }
     };
     /**
@@ -223,7 +223,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         super.serialize(writer);
         if(this.bundles && this.bundles.length != 0){        const bundlesArrValue: DriveItemImpl[] = [];
         this.bundles?.forEach(element => {
-            bundlesArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            bundlesArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("bundles", bundlesArrValue);
         }
@@ -232,39 +232,39 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         }
         if(this.following && this.following.length != 0){        const followingArrValue: DriveItemImpl[] = [];
         this.following?.forEach(element => {
-            followingArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            followingArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("following", followingArrValue);
         }
         if(this.items && this.items.length != 0){        const itemsArrValue: DriveItemImpl[] = [];
         this.items?.forEach(element => {
-            itemsArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            itemsArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-            writer.writeObjectValue<ListImpl>("list", (!this.list || this.list instanceof ListImpl? this.list : new ListImpl(this.list)));
+            writer.writeObjectValue<ListImpl>("list", (this.list instanceof ListImpl? this.list as ListImpl: new ListImpl(this.list)));
         }
         if(this.owner){
-            writer.writeObjectValue<IdentitySetImpl>("owner", (!this.owner || this.owner instanceof IdentitySetImpl? this.owner : new IdentitySetImpl(this.owner)));
+            writer.writeObjectValue<IdentitySetImpl>("owner", (this.owner instanceof IdentitySetImpl? this.owner as IdentitySetImpl: new IdentitySetImpl(this.owner)));
         }
         if(this.quota){
-            writer.writeObjectValue<QuotaImpl>("quota", (!this.quota || this.quota instanceof QuotaImpl? this.quota : new QuotaImpl(this.quota)));
+            writer.writeObjectValue<QuotaImpl>("quota", (this.quota instanceof QuotaImpl? this.quota as QuotaImpl: new QuotaImpl(this.quota)));
         }
         if(this.root){
-            writer.writeObjectValue<DriveItemImpl>("root", (!this.root || this.root instanceof DriveItemImpl? this.root : new DriveItemImpl(this.root)));
+            writer.writeObjectValue<DriveItemImpl>("root", (this.root instanceof DriveItemImpl? this.root as DriveItemImpl: new DriveItemImpl(this.root)));
         }
         if(this.sharePointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharePointIds", (!this.sharePointIds || this.sharePointIds instanceof SharepointIdsImpl? this.sharePointIds : new SharepointIdsImpl(this.sharePointIds)));
+            writer.writeObjectValue<SharepointIdsImpl>("sharePointIds", (this.sharePointIds instanceof SharepointIdsImpl? this.sharePointIds as SharepointIdsImpl: new SharepointIdsImpl(this.sharePointIds)));
         }
         if(this.special && this.special.length != 0){        const specialArrValue: DriveItemImpl[] = [];
         this.special?.forEach(element => {
-            specialArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            specialArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("special", specialArrValue);
         }
         if(this.system){
-            writer.writeObjectValue<SystemFacetImpl>("system", (!this.system || this.system instanceof SystemFacetImpl? this.system : new SystemFacetImpl(this.system)));
+            writer.writeObjectValue<SystemFacetImpl>("system", (this.system instanceof SystemFacetImpl? this.system as SystemFacetImpl: new SystemFacetImpl(this.system)));
         }
     };
     /**
@@ -280,7 +280,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public set sharePointIds(value: SharepointIds | undefined) {
         if(value) {
-            this._sharePointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+            this._sharePointIds = value instanceof SharepointIdsImpl? value as SharepointIdsImpl: new SharepointIdsImpl(value);
         }
     };
     /**
@@ -298,7 +298,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
         if(value) {
             const specialArrValue: DriveItemImpl[] = [];
             this.special?.forEach(element => {
-                specialArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                specialArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._special = specialArrValue;
         }
@@ -316,7 +316,7 @@ export class DriveImpl extends BaseItemImpl implements Drive {
      */
     public set system(value: SystemFacet | undefined) {
         if(value) {
-            this._system = value instanceof SystemFacetImpl? value : new SystemFacetImpl(value);
+            this._system = value instanceof SystemFacetImpl? value as SystemFacetImpl: new SystemFacetImpl(value);
         }
     };
 }

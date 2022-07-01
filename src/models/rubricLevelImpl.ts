@@ -57,7 +57,7 @@ export class RubricLevelImpl implements RubricLevel {
      */
     public set description(value: EducationItemBody | undefined) {
         if(value) {
-            this._description = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+            this._description = value instanceof EducationItemBodyImpl? value as EducationItemBodyImpl: new EducationItemBodyImpl(value);
         }
     };
     /**
@@ -101,7 +101,7 @@ export class RubricLevelImpl implements RubricLevel {
      */
     public set grading(value: EducationAssignmentGradeType | undefined) {
         if(value) {
-            this._grading = value instanceof EducationAssignmentGradeTypeImpl? value : new EducationAssignmentGradeTypeImpl(value);
+            this._grading = value instanceof EducationAssignmentGradeTypeImpl? value as EducationAssignmentGradeTypeImpl: new EducationAssignmentGradeTypeImpl(value);
         }
     };
     /**
@@ -127,13 +127,13 @@ export class RubricLevelImpl implements RubricLevel {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.description){
-            writer.writeObjectValue<EducationItemBodyImpl>("description", (!this.description || this.description instanceof EducationItemBodyImpl? this.description : new EducationItemBodyImpl(this.description)));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", (this.description instanceof EducationItemBodyImpl? this.description as EducationItemBodyImpl: new EducationItemBodyImpl(this.description)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", (!this.grading || this.grading instanceof EducationAssignmentGradeTypeImpl? this.grading : new EducationAssignmentGradeTypeImpl(this.grading)));
+            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", (this.grading instanceof EducationAssignmentGradeTypeImpl? this.grading as EducationAssignmentGradeTypeImpl: new EducationAssignmentGradeTypeImpl(this.grading)));
         }
         if(this.levelId){
             writer.writeStringValue("levelId", this.levelId);

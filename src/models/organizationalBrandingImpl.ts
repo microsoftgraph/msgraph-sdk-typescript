@@ -39,7 +39,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
         if(value) {
             const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = [];
             this.localizations?.forEach(element => {
-                localizationsArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element:new OrganizationalBrandingLocalizationImpl(element)));
+                localizationsArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element as OrganizationalBrandingLocalizationImpl:new OrganizationalBrandingLocalizationImpl(element)));
             });
             this._localizations = localizationsArrValue;
         }
@@ -53,7 +53,7 @@ export class OrganizationalBrandingImpl extends OrganizationalBrandingProperties
         super.serialize(writer);
         if(this.localizations && this.localizations.length != 0){        const localizationsArrValue: OrganizationalBrandingLocalizationImpl[] = [];
         this.localizations?.forEach(element => {
-            localizationsArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element:new OrganizationalBrandingLocalizationImpl(element)));
+            localizationsArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element as OrganizationalBrandingLocalizationImpl:new OrganizationalBrandingLocalizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("localizations", localizationsArrValue);
         }

@@ -73,7 +73,7 @@ export class SecureScoreControlProfileCollectionResponseImpl implements SecureSc
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SecureScoreControlProfileImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SecureScoreControlProfileImpl? element:new SecureScoreControlProfileImpl(element)));
+            valueArrValue.push((element instanceof SecureScoreControlProfileImpl? element as SecureScoreControlProfileImpl:new SecureScoreControlProfileImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SecureScoreControlProfileImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SecureScoreControlProfileCollectionResponseImpl implements SecureSc
         if(value) {
             const valueArrValue: SecureScoreControlProfileImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SecureScoreControlProfileImpl? element:new SecureScoreControlProfileImpl(element)));
+                valueArrValue.push((element instanceof SecureScoreControlProfileImpl? element as SecureScoreControlProfileImpl:new SecureScoreControlProfileImpl(element)));
             });
             this._value = valueArrValue;
         }

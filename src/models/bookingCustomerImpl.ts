@@ -30,7 +30,7 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
         if(value) {
             const addressesArrValue: PhysicalAddressImpl[] = [];
             this.addresses?.forEach(element => {
-                addressesArrValue.push((element instanceof PhysicalAddressImpl? element:new PhysicalAddressImpl(element)));
+                addressesArrValue.push((element instanceof PhysicalAddressImpl? element as PhysicalAddressImpl:new PhysicalAddressImpl(element)));
             });
             this._addresses = addressesArrValue;
         }
@@ -105,7 +105,7 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
         if(value) {
             const phonesArrValue: PhoneImpl[] = [];
             this.phones?.forEach(element => {
-                phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+                phonesArrValue.push((element instanceof PhoneImpl? element as PhoneImpl:new PhoneImpl(element)));
             });
             this._phones = phonesArrValue;
         }
@@ -119,7 +119,7 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
         super.serialize(writer);
         if(this.addresses && this.addresses.length != 0){        const addressesArrValue: PhysicalAddressImpl[] = [];
         this.addresses?.forEach(element => {
-            addressesArrValue.push((element instanceof PhysicalAddressImpl? element:new PhysicalAddressImpl(element)));
+            addressesArrValue.push((element instanceof PhysicalAddressImpl? element as PhysicalAddressImpl:new PhysicalAddressImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PhysicalAddressImpl>("addresses", addressesArrValue);
         }
@@ -131,7 +131,7 @@ export class BookingCustomerImpl extends BookingCustomerBaseImpl implements Book
         }
         if(this.phones && this.phones.length != 0){        const phonesArrValue: PhoneImpl[] = [];
         this.phones?.forEach(element => {
-            phonesArrValue.push((element instanceof PhoneImpl? element:new PhoneImpl(element)));
+            phonesArrValue.push((element instanceof PhoneImpl? element as PhoneImpl:new PhoneImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PhoneImpl>("phones", phonesArrValue);
         }

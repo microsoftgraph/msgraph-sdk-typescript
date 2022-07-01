@@ -59,7 +59,7 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
         if(value) {
             const roomsArrValue: RoomImpl[] = [];
             this.rooms?.forEach(element => {
-                roomsArrValue.push((element instanceof RoomImpl? element:new RoomImpl(element)));
+                roomsArrValue.push((element instanceof RoomImpl? element as RoomImpl:new RoomImpl(element)));
             });
             this._rooms = roomsArrValue;
         }
@@ -76,7 +76,7 @@ export class RoomListImpl extends PlaceImpl implements RoomList {
         }
         if(this.rooms && this.rooms.length != 0){        const roomsArrValue: RoomImpl[] = [];
         this.rooms?.forEach(element => {
-            roomsArrValue.push((element instanceof RoomImpl? element:new RoomImpl(element)));
+            roomsArrValue.push((element instanceof RoomImpl? element as RoomImpl:new RoomImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RoomImpl>("rooms", roomsArrValue);
         }

@@ -33,7 +33,7 @@ export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger
      */
     public set definition(value: PrintTaskDefinition | undefined) {
         if(value) {
-            this._definition = value instanceof PrintTaskDefinitionImpl? value : new PrintTaskDefinitionImpl(value);
+            this._definition = value instanceof PrintTaskDefinitionImpl? value as PrintTaskDefinitionImpl: new PrintTaskDefinitionImpl(value);
         }
     };
     /**
@@ -70,7 +70,7 @@ export class PrintTaskTriggerImpl extends EntityImpl implements PrintTaskTrigger
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.definition){
-            writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", (!this.definition || this.definition instanceof PrintTaskDefinitionImpl? this.definition : new PrintTaskDefinitionImpl(this.definition)));
+            writer.writeObjectValue<PrintTaskDefinitionImpl>("definition", (this.definition instanceof PrintTaskDefinitionImpl? this.definition as PrintTaskDefinitionImpl: new PrintTaskDefinitionImpl(this.definition)));
         }
         if(this.event){
             writer.writeEnumValue<PrintEvent>("event", this.event);

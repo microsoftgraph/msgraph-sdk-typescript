@@ -56,7 +56,7 @@ export class SetOrderPostRequestBodyImpl implements SetOrderPostRequestBody {
      */
     public set newAssignmentOrder(value: AssignmentOrder | undefined) {
         if(value) {
-            this._newAssignmentOrder = value instanceof AssignmentOrderImpl? value : new AssignmentOrderImpl(value);
+            this._newAssignmentOrder = value instanceof AssignmentOrderImpl? value as AssignmentOrderImpl: new AssignmentOrderImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class SetOrderPostRequestBodyImpl implements SetOrderPostRequestBody {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.newAssignmentOrder){
-            writer.writeObjectValue<AssignmentOrderImpl>("newAssignmentOrder", (!this.newAssignmentOrder || this.newAssignmentOrder instanceof AssignmentOrderImpl? this.newAssignmentOrder : new AssignmentOrderImpl(this.newAssignmentOrder)));
+            writer.writeObjectValue<AssignmentOrderImpl>("newAssignmentOrder", (this.newAssignmentOrder instanceof AssignmentOrderImpl? this.newAssignmentOrder as AssignmentOrderImpl: new AssignmentOrderImpl(this.newAssignmentOrder)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

@@ -87,7 +87,7 @@ export class DriveItemUploadablePropertiesImpl implements DriveItemUploadablePro
      */
     public set fileSystemInfo(value: FileSystemInfo | undefined) {
         if(value) {
-            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value : new FileSystemInfoImpl(value);
+            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value as FileSystemInfoImpl: new FileSystemInfoImpl(value);
         }
     };
     /**
@@ -131,7 +131,7 @@ export class DriveItemUploadablePropertiesImpl implements DriveItemUploadablePro
             writer.writeNumberValue("fileSize", this.fileSize);
         }
         if(this.fileSystemInfo){
-            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (!this.fileSystemInfo || this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo : new FileSystemInfoImpl(this.fileSystemInfo)));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo as FileSystemInfoImpl: new FileSystemInfoImpl(this.fileSystemInfo)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);

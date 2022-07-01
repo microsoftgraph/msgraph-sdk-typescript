@@ -112,7 +112,7 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
      */
     public set prepaidUnits(value: LicenseUnitsDetail | undefined) {
         if(value) {
-            this._prepaidUnits = value instanceof LicenseUnitsDetailImpl? value : new LicenseUnitsDetailImpl(value);
+            this._prepaidUnits = value instanceof LicenseUnitsDetailImpl? value as LicenseUnitsDetailImpl: new LicenseUnitsDetailImpl(value);
         }
     };
     /**
@@ -132,11 +132,11 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
             writer.writeNumberValue("consumedUnits", this.consumedUnits);
         }
         if(this.prepaidUnits){
-            writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", (!this.prepaidUnits || this.prepaidUnits instanceof LicenseUnitsDetailImpl? this.prepaidUnits : new LicenseUnitsDetailImpl(this.prepaidUnits)));
+            writer.writeObjectValue<LicenseUnitsDetailImpl>("prepaidUnits", (this.prepaidUnits instanceof LicenseUnitsDetailImpl? this.prepaidUnits as LicenseUnitsDetailImpl: new LicenseUnitsDetailImpl(this.prepaidUnits)));
         }
         if(this.servicePlans && this.servicePlans.length != 0){        const servicePlansArrValue: ServicePlanInfoImpl[] = [];
         this.servicePlans?.forEach(element => {
-            servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element:new ServicePlanInfoImpl(element)));
+            servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element as ServicePlanInfoImpl:new ServicePlanInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServicePlanInfoImpl>("servicePlans", servicePlansArrValue);
         }
@@ -162,7 +162,7 @@ export class SubscribedSkuImpl extends EntityImpl implements SubscribedSku {
         if(value) {
             const servicePlansArrValue: ServicePlanInfoImpl[] = [];
             this.servicePlans?.forEach(element => {
-                servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element:new ServicePlanInfoImpl(element)));
+                servicePlansArrValue.push((element instanceof ServicePlanInfoImpl? element as ServicePlanInfoImpl:new ServicePlanInfoImpl(element)));
             });
             this._servicePlans = servicePlansArrValue;
         }

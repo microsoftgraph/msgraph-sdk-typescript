@@ -51,7 +51,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponseImpl implemen
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: RecentNotebookImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RecentNotebookImpl? element:new RecentNotebookImpl(element)));
+            valueArrValue.push((element instanceof RecentNotebookImpl? element as RecentNotebookImpl:new RecentNotebookImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecentNotebookImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponseImpl implemen
         if(value) {
             const valueArrValue: RecentNotebookImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RecentNotebookImpl? element:new RecentNotebookImpl(element)));
+                valueArrValue.push((element instanceof RecentNotebookImpl? element as RecentNotebookImpl:new RecentNotebookImpl(element)));
             });
             this._value = valueArrValue;
         }

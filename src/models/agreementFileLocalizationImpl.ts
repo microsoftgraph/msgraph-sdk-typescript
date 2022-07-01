@@ -34,7 +34,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
         super.serialize(writer);
         if(this.versions && this.versions.length != 0){        const versionsArrValue: AgreementFileVersionImpl[] = [];
         this.versions?.forEach(element => {
-            versionsArrValue.push((element instanceof AgreementFileVersionImpl? element:new AgreementFileVersionImpl(element)));
+            versionsArrValue.push((element instanceof AgreementFileVersionImpl? element as AgreementFileVersionImpl:new AgreementFileVersionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementFileVersionImpl>("versions", versionsArrValue);
         }
@@ -54,7 +54,7 @@ export class AgreementFileLocalizationImpl extends AgreementFilePropertiesImpl i
         if(value) {
             const versionsArrValue: AgreementFileVersionImpl[] = [];
             this.versions?.forEach(element => {
-                versionsArrValue.push((element instanceof AgreementFileVersionImpl? element:new AgreementFileVersionImpl(element)));
+                versionsArrValue.push((element instanceof AgreementFileVersionImpl? element as AgreementFileVersionImpl:new AgreementFileVersionImpl(element)));
             });
             this._versions = versionsArrValue;
         }

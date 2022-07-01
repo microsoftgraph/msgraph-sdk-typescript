@@ -52,7 +52,7 @@ export class ConvertIdResultImpl implements ConvertIdResult {
      */
     public set errorDetails(value: GenericError | undefined) {
         if(value) {
-            this._errorDetails = value instanceof GenericErrorImpl? value : new GenericErrorImpl(value);
+            this._errorDetails = value instanceof GenericErrorImpl? value as GenericErrorImpl: new GenericErrorImpl(value);
         }
     };
     /**
@@ -73,7 +73,7 @@ export class ConvertIdResultImpl implements ConvertIdResult {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.errorDetails){
-            writer.writeObjectValue<GenericErrorImpl>("errorDetails", (!this.errorDetails || this.errorDetails instanceof GenericErrorImpl? this.errorDetails : new GenericErrorImpl(this.errorDetails)));
+            writer.writeObjectValue<GenericErrorImpl>("errorDetails", (this.errorDetails instanceof GenericErrorImpl? this.errorDetails as GenericErrorImpl: new GenericErrorImpl(this.errorDetails)));
         }
         if(this.sourceId){
             writer.writeStringValue("sourceId", this.sourceId);

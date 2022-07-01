@@ -51,7 +51,7 @@ export class DeltaResponseImpl implements DeltaResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: OrgContactImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OrgContactImpl? element:new OrgContactImpl(element)));
+            valueArrValue.push((element instanceof OrgContactImpl? element as OrgContactImpl:new OrgContactImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OrgContactImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class DeltaResponseImpl implements DeltaResponse {
         if(value) {
             const valueArrValue: OrgContactImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OrgContactImpl? element:new OrgContactImpl(element)));
+                valueArrValue.push((element instanceof OrgContactImpl? element as OrgContactImpl:new OrgContactImpl(element)));
             });
             this._value = valueArrValue;
         }

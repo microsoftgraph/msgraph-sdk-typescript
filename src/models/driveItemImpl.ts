@@ -136,7 +136,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set analytics(value: ItemAnalytics | undefined) {
         if(value) {
-            this._analytics = value instanceof ItemAnalyticsImpl? value : new ItemAnalyticsImpl(value);
+            this._analytics = value instanceof ItemAnalyticsImpl? value as ItemAnalyticsImpl: new ItemAnalyticsImpl(value);
         }
     };
     /**
@@ -152,7 +152,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set audio(value: Audio | undefined) {
         if(value) {
-            this._audio = value instanceof AudioImpl? value : new AudioImpl(value);
+            this._audio = value instanceof AudioImpl? value as AudioImpl: new AudioImpl(value);
         }
     };
     /**
@@ -168,7 +168,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set bundle(value: Bundle | undefined) {
         if(value) {
-            this._bundle = value instanceof BundleImpl? value : new BundleImpl(value);
+            this._bundle = value instanceof BundleImpl? value as BundleImpl: new BundleImpl(value);
         }
     };
     /**
@@ -186,7 +186,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(value) {
             const childrenArrValue: DriveItemImpl[] = [];
             this.children?.forEach(element => {
-                childrenArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+                childrenArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
             });
             this._children = childrenArrValue;
         }
@@ -275,7 +275,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set deleted(value: Deleted | undefined) {
         if(value) {
-            this._deleted = value instanceof DeletedImpl? value : new DeletedImpl(value);
+            this._deleted = value instanceof DeletedImpl? value as DeletedImpl: new DeletedImpl(value);
         }
     };
     /**
@@ -291,7 +291,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set file(value: File | undefined) {
         if(value) {
-            this._file = value instanceof FileImpl? value : new FileImpl(value);
+            this._file = value instanceof FileImpl? value as FileImpl: new FileImpl(value);
         }
     };
     /**
@@ -307,7 +307,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set fileSystemInfo(value: FileSystemInfo | undefined) {
         if(value) {
-            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value : new FileSystemInfoImpl(value);
+            this._fileSystemInfo = value instanceof FileSystemInfoImpl? value as FileSystemInfoImpl: new FileSystemInfoImpl(value);
         }
     };
     /**
@@ -323,7 +323,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set folder(value: Folder | undefined) {
         if(value) {
-            this._folder = value instanceof FolderImpl? value : new FolderImpl(value);
+            this._folder = value instanceof FolderImpl? value as FolderImpl: new FolderImpl(value);
         }
     };
     /**
@@ -379,7 +379,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set image(value: Image | undefined) {
         if(value) {
-            this._image = value instanceof ImageImpl? value : new ImageImpl(value);
+            this._image = value instanceof ImageImpl? value as ImageImpl: new ImageImpl(value);
         }
     };
     /**
@@ -395,7 +395,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set listItem(value: ListItem | undefined) {
         if(value) {
-            this._listItem = value instanceof ListItemImpl? value : new ListItemImpl(value);
+            this._listItem = value instanceof ListItemImpl? value as ListItemImpl: new ListItemImpl(value);
         }
     };
     /**
@@ -411,7 +411,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set location(value: GeoCoordinates | undefined) {
         if(value) {
-            this._location = value instanceof GeoCoordinatesImpl? value : new GeoCoordinatesImpl(value);
+            this._location = value instanceof GeoCoordinatesImpl? value as GeoCoordinatesImpl: new GeoCoordinatesImpl(value);
         }
     };
     /**
@@ -427,7 +427,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set malware(value: Malware | undefined) {
         if(value) {
-            this._malware = value instanceof MalwareImpl? value : new MalwareImpl(value);
+            this._malware = value instanceof MalwareImpl? value as MalwareImpl: new MalwareImpl(value);
         }
     };
     /**
@@ -443,7 +443,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set package(value: Package | undefined) {
         if(value) {
-            this._package = value instanceof PackageImpl? value : new PackageImpl(value);
+            this._package = value instanceof PackageImpl? value as PackageImpl: new PackageImpl(value);
         }
     };
     /**
@@ -459,7 +459,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set pendingOperations(value: PendingOperations | undefined) {
         if(value) {
-            this._pendingOperations = value instanceof PendingOperationsImpl? value : new PendingOperationsImpl(value);
+            this._pendingOperations = value instanceof PendingOperationsImpl? value as PendingOperationsImpl: new PendingOperationsImpl(value);
         }
     };
     /**
@@ -477,7 +477,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(value) {
             const permissionsArrValue: PermissionImpl[] = [];
             this.permissions?.forEach(element => {
-                permissionsArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+                permissionsArrValue.push((element instanceof PermissionImpl? element as PermissionImpl:new PermissionImpl(element)));
             });
             this._permissions = permissionsArrValue;
         }
@@ -495,7 +495,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set photo(value: Photo | undefined) {
         if(value) {
-            this._photo = value instanceof PhotoImpl? value : new PhotoImpl(value);
+            this._photo = value instanceof PhotoImpl? value as PhotoImpl: new PhotoImpl(value);
         }
     };
     /**
@@ -511,7 +511,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set publication(value: PublicationFacet | undefined) {
         if(value) {
-            this._publication = value instanceof PublicationFacetImpl? value : new PublicationFacetImpl(value);
+            this._publication = value instanceof PublicationFacetImpl? value as PublicationFacetImpl: new PublicationFacetImpl(value);
         }
     };
     /**
@@ -527,7 +527,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set remoteItem(value: RemoteItem | undefined) {
         if(value) {
-            this._remoteItem = value instanceof RemoteItemImpl? value : new RemoteItemImpl(value);
+            this._remoteItem = value instanceof RemoteItemImpl? value as RemoteItemImpl: new RemoteItemImpl(value);
         }
     };
     /**
@@ -543,7 +543,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set root(value: Root | undefined) {
         if(value) {
-            this._root = value instanceof RootImpl? value : new RootImpl(value);
+            this._root = value instanceof RootImpl? value as RootImpl: new RootImpl(value);
         }
     };
     /**
@@ -559,7 +559,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set searchResult(value: SearchResult | undefined) {
         if(value) {
-            this._searchResult = value instanceof SearchResultImpl? value : new SearchResultImpl(value);
+            this._searchResult = value instanceof SearchResultImpl? value as SearchResultImpl: new SearchResultImpl(value);
         }
     };
     /**
@@ -570,17 +570,17 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.analytics){
-            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", (!this.analytics || this.analytics instanceof ItemAnalyticsImpl? this.analytics : new ItemAnalyticsImpl(this.analytics)));
+            writer.writeObjectValue<ItemAnalyticsImpl>("analytics", (this.analytics instanceof ItemAnalyticsImpl? this.analytics as ItemAnalyticsImpl: new ItemAnalyticsImpl(this.analytics)));
         }
         if(this.audio){
-            writer.writeObjectValue<AudioImpl>("audio", (!this.audio || this.audio instanceof AudioImpl? this.audio : new AudioImpl(this.audio)));
+            writer.writeObjectValue<AudioImpl>("audio", (this.audio instanceof AudioImpl? this.audio as AudioImpl: new AudioImpl(this.audio)));
         }
         if(this.bundle){
-            writer.writeObjectValue<BundleImpl>("bundle", (!this.bundle || this.bundle instanceof BundleImpl? this.bundle : new BundleImpl(this.bundle)));
+            writer.writeObjectValue<BundleImpl>("bundle", (this.bundle instanceof BundleImpl? this.bundle as BundleImpl: new BundleImpl(this.bundle)));
         }
         if(this.children && this.children.length != 0){        const childrenArrValue: DriveItemImpl[] = [];
         this.children?.forEach(element => {
-            childrenArrValue.push((element instanceof DriveItemImpl? element:new DriveItemImpl(element)));
+            childrenArrValue.push((element instanceof DriveItemImpl? element as DriveItemImpl:new DriveItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemImpl>("children", childrenArrValue);
         }
@@ -591,94 +591,94 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
             writer.writeStringValue("cTag", this.cTag);
         }
         if(this.deleted){
-            writer.writeObjectValue<DeletedImpl>("deleted", (!this.deleted || this.deleted instanceof DeletedImpl? this.deleted : new DeletedImpl(this.deleted)));
+            writer.writeObjectValue<DeletedImpl>("deleted", (this.deleted instanceof DeletedImpl? this.deleted as DeletedImpl: new DeletedImpl(this.deleted)));
         }
         if(this.file){
-            writer.writeObjectValue<FileImpl>("file", (!this.file || this.file instanceof FileImpl? this.file : new FileImpl(this.file)));
+            writer.writeObjectValue<FileImpl>("file", (this.file instanceof FileImpl? this.file as FileImpl: new FileImpl(this.file)));
         }
         if(this.fileSystemInfo){
-            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (!this.fileSystemInfo || this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo : new FileSystemInfoImpl(this.fileSystemInfo)));
+            writer.writeObjectValue<FileSystemInfoImpl>("fileSystemInfo", (this.fileSystemInfo instanceof FileSystemInfoImpl? this.fileSystemInfo as FileSystemInfoImpl: new FileSystemInfoImpl(this.fileSystemInfo)));
         }
         if(this.folder){
-            writer.writeObjectValue<FolderImpl>("folder", (!this.folder || this.folder instanceof FolderImpl? this.folder : new FolderImpl(this.folder)));
+            writer.writeObjectValue<FolderImpl>("folder", (this.folder instanceof FolderImpl? this.folder as FolderImpl: new FolderImpl(this.folder)));
         }
         if(this.image){
-            writer.writeObjectValue<ImageImpl>("image", (!this.image || this.image instanceof ImageImpl? this.image : new ImageImpl(this.image)));
+            writer.writeObjectValue<ImageImpl>("image", (this.image instanceof ImageImpl? this.image as ImageImpl: new ImageImpl(this.image)));
         }
         if(this.listItem){
-            writer.writeObjectValue<ListItemImpl>("listItem", (!this.listItem || this.listItem instanceof ListItemImpl? this.listItem : new ListItemImpl(this.listItem)));
+            writer.writeObjectValue<ListItemImpl>("listItem", (this.listItem instanceof ListItemImpl? this.listItem as ListItemImpl: new ListItemImpl(this.listItem)));
         }
         if(this.location){
-            writer.writeObjectValue<GeoCoordinatesImpl>("location", (!this.location || this.location instanceof GeoCoordinatesImpl? this.location : new GeoCoordinatesImpl(this.location)));
+            writer.writeObjectValue<GeoCoordinatesImpl>("location", (this.location instanceof GeoCoordinatesImpl? this.location as GeoCoordinatesImpl: new GeoCoordinatesImpl(this.location)));
         }
         if(this.malware){
-            writer.writeObjectValue<MalwareImpl>("malware", (!this.malware || this.malware instanceof MalwareImpl? this.malware : new MalwareImpl(this.malware)));
+            writer.writeObjectValue<MalwareImpl>("malware", (this.malware instanceof MalwareImpl? this.malware as MalwareImpl: new MalwareImpl(this.malware)));
         }
         if(this.package){
-            writer.writeObjectValue<PackageImpl>("package", (!this.package || this.package instanceof PackageImpl? this.package : new PackageImpl(this.package)));
+            writer.writeObjectValue<PackageImpl>("package", (this.package instanceof PackageImpl? this.package as PackageImpl: new PackageImpl(this.package)));
         }
         if(this.pendingOperations){
-            writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", (!this.pendingOperations || this.pendingOperations instanceof PendingOperationsImpl? this.pendingOperations : new PendingOperationsImpl(this.pendingOperations)));
+            writer.writeObjectValue<PendingOperationsImpl>("pendingOperations", (this.pendingOperations instanceof PendingOperationsImpl? this.pendingOperations as PendingOperationsImpl: new PendingOperationsImpl(this.pendingOperations)));
         }
         if(this.permissions && this.permissions.length != 0){        const permissionsArrValue: PermissionImpl[] = [];
         this.permissions?.forEach(element => {
-            permissionsArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+            permissionsArrValue.push((element instanceof PermissionImpl? element as PermissionImpl:new PermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionImpl>("permissions", permissionsArrValue);
         }
         if(this.photo){
-            writer.writeObjectValue<PhotoImpl>("photo", (!this.photo || this.photo instanceof PhotoImpl? this.photo : new PhotoImpl(this.photo)));
+            writer.writeObjectValue<PhotoImpl>("photo", (this.photo instanceof PhotoImpl? this.photo as PhotoImpl: new PhotoImpl(this.photo)));
         }
         if(this.publication){
-            writer.writeObjectValue<PublicationFacetImpl>("publication", (!this.publication || this.publication instanceof PublicationFacetImpl? this.publication : new PublicationFacetImpl(this.publication)));
+            writer.writeObjectValue<PublicationFacetImpl>("publication", (this.publication instanceof PublicationFacetImpl? this.publication as PublicationFacetImpl: new PublicationFacetImpl(this.publication)));
         }
         if(this.remoteItem){
-            writer.writeObjectValue<RemoteItemImpl>("remoteItem", (!this.remoteItem || this.remoteItem instanceof RemoteItemImpl? this.remoteItem : new RemoteItemImpl(this.remoteItem)));
+            writer.writeObjectValue<RemoteItemImpl>("remoteItem", (this.remoteItem instanceof RemoteItemImpl? this.remoteItem as RemoteItemImpl: new RemoteItemImpl(this.remoteItem)));
         }
         if(this.root){
-            writer.writeObjectValue<RootImpl>("root", (!this.root || this.root instanceof RootImpl? this.root : new RootImpl(this.root)));
+            writer.writeObjectValue<RootImpl>("root", (this.root instanceof RootImpl? this.root as RootImpl: new RootImpl(this.root)));
         }
         if(this.searchResult){
-            writer.writeObjectValue<SearchResultImpl>("searchResult", (!this.searchResult || this.searchResult instanceof SearchResultImpl? this.searchResult : new SearchResultImpl(this.searchResult)));
+            writer.writeObjectValue<SearchResultImpl>("searchResult", (this.searchResult instanceof SearchResultImpl? this.searchResult as SearchResultImpl: new SearchResultImpl(this.searchResult)));
         }
         if(this.shared){
-            writer.writeObjectValue<SharedImpl>("shared", (!this.shared || this.shared instanceof SharedImpl? this.shared : new SharedImpl(this.shared)));
+            writer.writeObjectValue<SharedImpl>("shared", (this.shared instanceof SharedImpl? this.shared as SharedImpl: new SharedImpl(this.shared)));
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds as SharepointIdsImpl: new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.size){
             writer.writeNumberValue("size", this.size);
         }
         if(this.specialFolder){
-            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", (!this.specialFolder || this.specialFolder instanceof SpecialFolderImpl? this.specialFolder : new SpecialFolderImpl(this.specialFolder)));
+            writer.writeObjectValue<SpecialFolderImpl>("specialFolder", (this.specialFolder instanceof SpecialFolderImpl? this.specialFolder as SpecialFolderImpl: new SpecialFolderImpl(this.specialFolder)));
         }
         if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = [];
         this.subscriptions?.forEach(element => {
-            subscriptionsArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+            subscriptionsArrValue.push((element instanceof SubscriptionImpl? element as SubscriptionImpl:new SubscriptionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
         if(this.thumbnails && this.thumbnails.length != 0){        const thumbnailsArrValue: ThumbnailSetImpl[] = [];
         this.thumbnails?.forEach(element => {
-            thumbnailsArrValue.push((element instanceof ThumbnailSetImpl? element:new ThumbnailSetImpl(element)));
+            thumbnailsArrValue.push((element instanceof ThumbnailSetImpl? element as ThumbnailSetImpl:new ThumbnailSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ThumbnailSetImpl>("thumbnails", thumbnailsArrValue);
         }
         if(this.versions && this.versions.length != 0){        const versionsArrValue: DriveItemVersionImpl[] = [];
         this.versions?.forEach(element => {
-            versionsArrValue.push((element instanceof DriveItemVersionImpl? element:new DriveItemVersionImpl(element)));
+            versionsArrValue.push((element instanceof DriveItemVersionImpl? element as DriveItemVersionImpl:new DriveItemVersionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveItemVersionImpl>("versions", versionsArrValue);
         }
         if(this.video){
-            writer.writeObjectValue<VideoImpl>("video", (!this.video || this.video instanceof VideoImpl? this.video : new VideoImpl(this.video)));
+            writer.writeObjectValue<VideoImpl>("video", (this.video instanceof VideoImpl? this.video as VideoImpl: new VideoImpl(this.video)));
         }
         if(this.webDavUrl){
             writer.writeStringValue("webDavUrl", this.webDavUrl);
         }
         if(this.workbook){
-            writer.writeObjectValue<WorkbookImpl>("workbook", (!this.workbook || this.workbook instanceof WorkbookImpl? this.workbook : new WorkbookImpl(this.workbook)));
+            writer.writeObjectValue<WorkbookImpl>("workbook", (this.workbook instanceof WorkbookImpl? this.workbook as WorkbookImpl: new WorkbookImpl(this.workbook)));
         }
     };
     /**
@@ -694,7 +694,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set shared(value: Shared | undefined) {
         if(value) {
-            this._shared = value instanceof SharedImpl? value : new SharedImpl(value);
+            this._shared = value instanceof SharedImpl? value as SharedImpl: new SharedImpl(value);
         }
     };
     /**
@@ -710,7 +710,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set sharepointIds(value: SharepointIds | undefined) {
         if(value) {
-            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+            this._sharepointIds = value instanceof SharepointIdsImpl? value as SharepointIdsImpl: new SharepointIdsImpl(value);
         }
     };
     /**
@@ -742,7 +742,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set specialFolder(value: SpecialFolder | undefined) {
         if(value) {
-            this._specialFolder = value instanceof SpecialFolderImpl? value : new SpecialFolderImpl(value);
+            this._specialFolder = value instanceof SpecialFolderImpl? value as SpecialFolderImpl: new SpecialFolderImpl(value);
         }
     };
     /**
@@ -760,7 +760,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(value) {
             const subscriptionsArrValue: SubscriptionImpl[] = [];
             this.subscriptions?.forEach(element => {
-                subscriptionsArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+                subscriptionsArrValue.push((element instanceof SubscriptionImpl? element as SubscriptionImpl:new SubscriptionImpl(element)));
             });
             this._subscriptions = subscriptionsArrValue;
         }
@@ -780,7 +780,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(value) {
             const thumbnailsArrValue: ThumbnailSetImpl[] = [];
             this.thumbnails?.forEach(element => {
-                thumbnailsArrValue.push((element instanceof ThumbnailSetImpl? element:new ThumbnailSetImpl(element)));
+                thumbnailsArrValue.push((element instanceof ThumbnailSetImpl? element as ThumbnailSetImpl:new ThumbnailSetImpl(element)));
             });
             this._thumbnails = thumbnailsArrValue;
         }
@@ -800,7 +800,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
         if(value) {
             const versionsArrValue: DriveItemVersionImpl[] = [];
             this.versions?.forEach(element => {
-                versionsArrValue.push((element instanceof DriveItemVersionImpl? element:new DriveItemVersionImpl(element)));
+                versionsArrValue.push((element instanceof DriveItemVersionImpl? element as DriveItemVersionImpl:new DriveItemVersionImpl(element)));
             });
             this._versions = versionsArrValue;
         }
@@ -818,7 +818,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set video(value: Video | undefined) {
         if(value) {
-            this._video = value instanceof VideoImpl? value : new VideoImpl(value);
+            this._video = value instanceof VideoImpl? value as VideoImpl: new VideoImpl(value);
         }
     };
     /**
@@ -850,7 +850,7 @@ export class DriveItemImpl extends BaseItemImpl implements DriveItem {
      */
     public set workbook(value: Workbook | undefined) {
         if(value) {
-            this._workbook = value instanceof WorkbookImpl? value : new WorkbookImpl(value);
+            this._workbook = value instanceof WorkbookImpl? value as WorkbookImpl: new WorkbookImpl(value);
         }
     };
 }

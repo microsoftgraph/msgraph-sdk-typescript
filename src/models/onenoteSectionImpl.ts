@@ -80,7 +80,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
      */
     public set links(value: SectionLinks | undefined) {
         if(value) {
-            this._links = value instanceof SectionLinksImpl? value : new SectionLinksImpl(value);
+            this._links = value instanceof SectionLinksImpl? value as SectionLinksImpl: new SectionLinksImpl(value);
         }
     };
     /**
@@ -98,7 +98,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
         if(value) {
             const pagesArrValue: OnenotePageImpl[] = [];
             this.pages?.forEach(element => {
-                pagesArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+                pagesArrValue.push((element instanceof OnenotePageImpl? element as OnenotePageImpl:new OnenotePageImpl(element)));
             });
             this._pages = pagesArrValue;
         }
@@ -132,7 +132,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
      */
     public set parentNotebook(value: Notebook | undefined) {
         if(value) {
-            this._parentNotebook = value instanceof NotebookImpl? value : new NotebookImpl(value);
+            this._parentNotebook = value instanceof NotebookImpl? value as NotebookImpl: new NotebookImpl(value);
         }
     };
     /**
@@ -148,7 +148,7 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
      */
     public set parentSectionGroup(value: SectionGroup | undefined) {
         if(value) {
-            this._parentSectionGroup = value instanceof SectionGroupImpl? value : new SectionGroupImpl(value);
+            this._parentSectionGroup = value instanceof SectionGroupImpl? value as SectionGroupImpl: new SectionGroupImpl(value);
         }
     };
     /**
@@ -162,11 +162,11 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
             writer.writeBooleanValue("isDefault", this.isDefault);
         }
         if(this.links){
-            writer.writeObjectValue<SectionLinksImpl>("links", (!this.links || this.links instanceof SectionLinksImpl? this.links : new SectionLinksImpl(this.links)));
+            writer.writeObjectValue<SectionLinksImpl>("links", (this.links instanceof SectionLinksImpl? this.links as SectionLinksImpl: new SectionLinksImpl(this.links)));
         }
         if(this.pages && this.pages.length != 0){        const pagesArrValue: OnenotePageImpl[] = [];
         this.pages?.forEach(element => {
-            pagesArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+            pagesArrValue.push((element instanceof OnenotePageImpl? element as OnenotePageImpl:new OnenotePageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenotePageImpl>("pages", pagesArrValue);
         }
@@ -174,10 +174,10 @@ export class OnenoteSectionImpl extends OnenoteEntityHierarchyModelImpl implemen
             writer.writeStringValue("pagesUrl", this.pagesUrl);
         }
         if(this.parentNotebook){
-            writer.writeObjectValue<NotebookImpl>("parentNotebook", (!this.parentNotebook || this.parentNotebook instanceof NotebookImpl? this.parentNotebook : new NotebookImpl(this.parentNotebook)));
+            writer.writeObjectValue<NotebookImpl>("parentNotebook", (this.parentNotebook instanceof NotebookImpl? this.parentNotebook as NotebookImpl: new NotebookImpl(this.parentNotebook)));
         }
         if(this.parentSectionGroup){
-            writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", (!this.parentSectionGroup || this.parentSectionGroup instanceof SectionGroupImpl? this.parentSectionGroup : new SectionGroupImpl(this.parentSectionGroup)));
+            writer.writeObjectValue<SectionGroupImpl>("parentSectionGroup", (this.parentSectionGroup instanceof SectionGroupImpl? this.parentSectionGroup as SectionGroupImpl: new SectionGroupImpl(this.parentSectionGroup)));
         }
     };
 }

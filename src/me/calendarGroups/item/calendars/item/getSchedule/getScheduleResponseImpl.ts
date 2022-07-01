@@ -51,7 +51,7 @@ export class GetScheduleResponseImpl implements GetScheduleResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ScheduleInformationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ScheduleInformationImpl? element:new ScheduleInformationImpl(element)));
+            valueArrValue.push((element instanceof ScheduleInformationImpl? element as ScheduleInformationImpl:new ScheduleInformationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ScheduleInformationImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetScheduleResponseImpl implements GetScheduleResponse {
         if(value) {
             const valueArrValue: ScheduleInformationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ScheduleInformationImpl? element:new ScheduleInformationImpl(element)));
+                valueArrValue.push((element instanceof ScheduleInformationImpl? element as ScheduleInformationImpl:new ScheduleInformationImpl(element)));
             });
             this._value = valueArrValue;
         }

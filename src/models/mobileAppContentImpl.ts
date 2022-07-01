@@ -31,7 +31,7 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
         if(value) {
             const filesArrValue: MobileAppContentFileImpl[] = [];
             this.files?.forEach(element => {
-                filesArrValue.push((element instanceof MobileAppContentFileImpl? element:new MobileAppContentFileImpl(element)));
+                filesArrValue.push((element instanceof MobileAppContentFileImpl? element as MobileAppContentFileImpl:new MobileAppContentFileImpl(element)));
             });
             this._files = filesArrValue;
         }
@@ -54,7 +54,7 @@ export class MobileAppContentImpl extends EntityImpl implements MobileAppContent
         super.serialize(writer);
         if(this.files && this.files.length != 0){        const filesArrValue: MobileAppContentFileImpl[] = [];
         this.files?.forEach(element => {
-            filesArrValue.push((element instanceof MobileAppContentFileImpl? element:new MobileAppContentFileImpl(element)));
+            filesArrValue.push((element instanceof MobileAppContentFileImpl? element as MobileAppContentFileImpl:new MobileAppContentFileImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppContentFileImpl>("files", filesArrValue);
         }

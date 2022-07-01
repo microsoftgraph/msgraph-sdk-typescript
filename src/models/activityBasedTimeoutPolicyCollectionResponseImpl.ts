@@ -73,7 +73,7 @@ export class ActivityBasedTimeoutPolicyCollectionResponseImpl implements Activit
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element:new ActivityBasedTimeoutPolicyImpl(element)));
+            valueArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element as ActivityBasedTimeoutPolicyImpl:new ActivityBasedTimeoutPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ActivityBasedTimeoutPolicyCollectionResponseImpl implements Activit
         if(value) {
             const valueArrValue: ActivityBasedTimeoutPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element:new ActivityBasedTimeoutPolicyImpl(element)));
+                valueArrValue.push((element instanceof ActivityBasedTimeoutPolicyImpl? element as ActivityBasedTimeoutPolicyImpl:new ActivityBasedTimeoutPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

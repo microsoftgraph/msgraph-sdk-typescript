@@ -73,7 +73,7 @@ export class EducationRubricCollectionResponseImpl implements EducationRubricCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EducationRubricImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EducationRubricImpl? element:new EducationRubricImpl(element)));
+            valueArrValue.push((element instanceof EducationRubricImpl? element as EducationRubricImpl:new EducationRubricImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationRubricImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EducationRubricCollectionResponseImpl implements EducationRubricCol
         if(value) {
             const valueArrValue: EducationRubricImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EducationRubricImpl? element:new EducationRubricImpl(element)));
+                valueArrValue.push((element instanceof EducationRubricImpl? element as EducationRubricImpl:new EducationRubricImpl(element)));
             });
             this._value = valueArrValue;
         }

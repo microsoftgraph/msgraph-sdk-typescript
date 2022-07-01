@@ -51,7 +51,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(value) {
             const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element as ManagedDeviceMobileAppConfigurationAssignmentImpl:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -121,7 +121,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(value) {
             const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = [];
             this.deviceStatuses?.forEach(element => {
-                deviceStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
+                deviceStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element as ManagedDeviceMobileAppConfigurationDeviceStatusImpl:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
             });
             this._deviceStatuses = deviceStatusesArrValue;
         }
@@ -139,7 +139,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
      */
     public set deviceStatusSummary(value: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined) {
         if(value) {
-            this._deviceStatusSummary = value instanceof ManagedDeviceMobileAppConfigurationDeviceSummaryImpl? value : new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(value);
+            this._deviceStatusSummary = value instanceof ManagedDeviceMobileAppConfigurationDeviceSummaryImpl? value as ManagedDeviceMobileAppConfigurationDeviceSummaryImpl: new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(value);
         }
     };
     /**
@@ -202,7 +202,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element as ManagedDeviceMobileAppConfigurationAssignmentImpl:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }
@@ -214,12 +214,12 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         }
         if(this.deviceStatuses && this.deviceStatuses.length != 0){        const deviceStatusesArrValue: ManagedDeviceMobileAppConfigurationDeviceStatusImpl[] = [];
         this.deviceStatuses?.forEach(element => {
-            deviceStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
+            deviceStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationDeviceStatusImpl? element as ManagedDeviceMobileAppConfigurationDeviceStatusImpl:new ManagedDeviceMobileAppConfigurationDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatusImpl>("deviceStatuses", deviceStatusesArrValue);
         }
         if(this.deviceStatusSummary){
-            writer.writeObjectValue<ManagedDeviceMobileAppConfigurationDeviceSummaryImpl>("deviceStatusSummary", (!this.deviceStatusSummary || this.deviceStatusSummary instanceof ManagedDeviceMobileAppConfigurationDeviceSummaryImpl? this.deviceStatusSummary : new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(this.deviceStatusSummary)));
+            writer.writeObjectValue<ManagedDeviceMobileAppConfigurationDeviceSummaryImpl>("deviceStatusSummary", (this.deviceStatusSummary instanceof ManagedDeviceMobileAppConfigurationDeviceSummaryImpl? this.deviceStatusSummary as ManagedDeviceMobileAppConfigurationDeviceSummaryImpl: new ManagedDeviceMobileAppConfigurationDeviceSummaryImpl(this.deviceStatusSummary)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
@@ -232,12 +232,12 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         }
         if(this.userStatuses && this.userStatuses.length != 0){        const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = [];
         this.userStatuses?.forEach(element => {
-            userStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element:new ManagedDeviceMobileAppConfigurationUserStatusImpl(element)));
+            userStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element as ManagedDeviceMobileAppConfigurationUserStatusImpl:new ManagedDeviceMobileAppConfigurationUserStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatusImpl>("userStatuses", userStatusesArrValue);
         }
         if(this.userStatusSummary){
-            writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummaryImpl>("userStatusSummary", (!this.userStatusSummary || this.userStatusSummary instanceof ManagedDeviceMobileAppConfigurationUserSummaryImpl? this.userStatusSummary : new ManagedDeviceMobileAppConfigurationUserSummaryImpl(this.userStatusSummary)));
+            writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummaryImpl>("userStatusSummary", (this.userStatusSummary instanceof ManagedDeviceMobileAppConfigurationUserSummaryImpl? this.userStatusSummary as ManagedDeviceMobileAppConfigurationUserSummaryImpl: new ManagedDeviceMobileAppConfigurationUserSummaryImpl(this.userStatusSummary)));
         }
         if(this.version){
             writer.writeNumberValue("version", this.version);
@@ -274,7 +274,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
         if(value) {
             const userStatusesArrValue: ManagedDeviceMobileAppConfigurationUserStatusImpl[] = [];
             this.userStatuses?.forEach(element => {
-                userStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element:new ManagedDeviceMobileAppConfigurationUserStatusImpl(element)));
+                userStatusesArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationUserStatusImpl? element as ManagedDeviceMobileAppConfigurationUserStatusImpl:new ManagedDeviceMobileAppConfigurationUserStatusImpl(element)));
             });
             this._userStatuses = userStatusesArrValue;
         }
@@ -292,7 +292,7 @@ export class ManagedDeviceMobileAppConfigurationImpl extends EntityImpl implemen
      */
     public set userStatusSummary(value: ManagedDeviceMobileAppConfigurationUserSummary | undefined) {
         if(value) {
-            this._userStatusSummary = value instanceof ManagedDeviceMobileAppConfigurationUserSummaryImpl? value : new ManagedDeviceMobileAppConfigurationUserSummaryImpl(value);
+            this._userStatusSummary = value instanceof ManagedDeviceMobileAppConfigurationUserSummaryImpl? value as ManagedDeviceMobileAppConfigurationUserSummaryImpl: new ManagedDeviceMobileAppConfigurationUserSummaryImpl(value);
         }
     };
     /**

@@ -61,7 +61,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -93,7 +93,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
      */
     public set description(value: EducationItemBody | undefined) {
         if(value) {
-            this._description = value instanceof EducationItemBodyImpl? value : new EducationItemBodyImpl(value);
+            this._description = value instanceof EducationItemBodyImpl? value as EducationItemBodyImpl: new EducationItemBodyImpl(value);
         }
     };
     /**
@@ -142,7 +142,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
      */
     public set grading(value: EducationAssignmentGradeType | undefined) {
         if(value) {
-            this._grading = value instanceof EducationAssignmentGradeTypeImpl? value : new EducationAssignmentGradeTypeImpl(value);
+            this._grading = value instanceof EducationAssignmentGradeTypeImpl? value as EducationAssignmentGradeTypeImpl: new EducationAssignmentGradeTypeImpl(value);
         }
     };
     /**
@@ -158,7 +158,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._lastModifiedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._lastModifiedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -192,7 +192,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
         if(value) {
             const levelsArrValue: RubricLevelImpl[] = [];
             this.levels?.forEach(element => {
-                levelsArrValue.push((element instanceof RubricLevelImpl? element:new RubricLevelImpl(element)));
+                levelsArrValue.push((element instanceof RubricLevelImpl? element as RubricLevelImpl:new RubricLevelImpl(element)));
             });
             this._levels = levelsArrValue;
         }
@@ -212,7 +212,7 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
         if(value) {
             const qualitiesArrValue: RubricQualityImpl[] = [];
             this.qualities?.forEach(element => {
-                qualitiesArrValue.push((element instanceof RubricQualityImpl? element:new RubricQualityImpl(element)));
+                qualitiesArrValue.push((element instanceof RubricQualityImpl? element as RubricQualityImpl:new RubricQualityImpl(element)));
             });
             this._qualities = qualitiesArrValue;
         }
@@ -225,35 +225,35 @@ export class EducationRubricImpl extends EntityImpl implements EducationRubric {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-            writer.writeObjectValue<EducationItemBodyImpl>("description", (!this.description || this.description instanceof EducationItemBodyImpl? this.description : new EducationItemBodyImpl(this.description)));
+            writer.writeObjectValue<EducationItemBodyImpl>("description", (this.description instanceof EducationItemBodyImpl? this.description as EducationItemBodyImpl: new EducationItemBodyImpl(this.description)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.grading){
-            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", (!this.grading || this.grading instanceof EducationAssignmentGradeTypeImpl? this.grading : new EducationAssignmentGradeTypeImpl(this.grading)));
+            writer.writeObjectValue<EducationAssignmentGradeTypeImpl>("grading", (this.grading instanceof EducationAssignmentGradeTypeImpl? this.grading as EducationAssignmentGradeTypeImpl: new EducationAssignmentGradeTypeImpl(this.grading)));
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy : new IdentitySetImpl(this.lastModifiedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedBy", (this.lastModifiedBy instanceof IdentitySetImpl? this.lastModifiedBy as IdentitySetImpl: new IdentitySetImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.levels && this.levels.length != 0){        const levelsArrValue: RubricLevelImpl[] = [];
         this.levels?.forEach(element => {
-            levelsArrValue.push((element instanceof RubricLevelImpl? element:new RubricLevelImpl(element)));
+            levelsArrValue.push((element instanceof RubricLevelImpl? element as RubricLevelImpl:new RubricLevelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricLevelImpl>("levels", levelsArrValue);
         }
         if(this.qualities && this.qualities.length != 0){        const qualitiesArrValue: RubricQualityImpl[] = [];
         this.qualities?.forEach(element => {
-            qualitiesArrValue.push((element instanceof RubricQualityImpl? element:new RubricQualityImpl(element)));
+            qualitiesArrValue.push((element instanceof RubricQualityImpl? element as RubricQualityImpl:new RubricQualityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RubricQualityImpl>("qualities", qualitiesArrValue);
         }

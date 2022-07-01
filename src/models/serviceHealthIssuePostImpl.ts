@@ -69,7 +69,7 @@ export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
      */
     public set description(value: ItemBody | undefined) {
         if(value) {
-            this._description = value instanceof ItemBodyImpl? value : new ItemBodyImpl(value);
+            this._description = value instanceof ItemBodyImpl? value as ItemBodyImpl: new ItemBodyImpl(value);
         }
     };
     /**
@@ -109,7 +109,7 @@ export class ServiceHealthIssuePostImpl implements ServiceHealthIssuePost {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.description){
-            writer.writeObjectValue<ItemBodyImpl>("description", (!this.description || this.description instanceof ItemBodyImpl? this.description : new ItemBodyImpl(this.description)));
+            writer.writeObjectValue<ItemBodyImpl>("description", (this.description instanceof ItemBodyImpl? this.description as ItemBodyImpl: new ItemBodyImpl(this.description)));
         }
         if(this.postType){
             writer.writeEnumValue<PostType>("postType", this.postType);

@@ -35,7 +35,7 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookCh
      */
     public set format(value: WorkbookChartAxisTitleFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartAxisTitleFormatImpl? value : new WorkbookChartAxisTitleFormatImpl(value);
+            this._format = value instanceof WorkbookChartAxisTitleFormatImpl? value as WorkbookChartAxisTitleFormatImpl: new WorkbookChartAxisTitleFormatImpl(value);
         }
     };
     /**
@@ -57,7 +57,7 @@ export class WorkbookChartAxisTitleImpl extends EntityImpl implements WorkbookCh
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartAxisTitleFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartAxisTitleFormatImpl? this.format : new WorkbookChartAxisTitleFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartAxisTitleFormatImpl>("format", (this.format instanceof WorkbookChartAxisTitleFormatImpl? this.format as WorkbookChartAxisTitleFormatImpl: new WorkbookChartAxisTitleFormatImpl(this.format)));
         }
         if(this.text){
             writer.writeStringValue("text", this.text);

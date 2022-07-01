@@ -54,7 +54,7 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
      */
     public set device(value: Device | undefined) {
         if(value) {
-            this._device = value instanceof DeviceImpl? value : new DeviceImpl(value);
+            this._device = value instanceof DeviceImpl? value as DeviceImpl: new DeviceImpl(value);
         }
     };
     /**
@@ -112,7 +112,7 @@ export class WindowsHelloForBusinessAuthenticationMethodImpl extends Authenticat
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.device){
-            writer.writeObjectValue<DeviceImpl>("device", (!this.device || this.device instanceof DeviceImpl? this.device : new DeviceImpl(this.device)));
+            writer.writeObjectValue<DeviceImpl>("device", (this.device instanceof DeviceImpl? this.device as DeviceImpl: new DeviceImpl(this.device)));
         }
         if(this.displayName){
             writer.writeStringValue("displayName", this.displayName);

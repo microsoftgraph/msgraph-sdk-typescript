@@ -73,7 +73,7 @@ export class CallRecordCollectionResponseImpl implements CallRecordCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CallRecordImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof CallRecordImpl? element:new CallRecordImpl(element)));
+            valueArrValue.push((element instanceof CallRecordImpl? element as CallRecordImpl:new CallRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CallRecordImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class CallRecordCollectionResponseImpl implements CallRecordCollectionRes
         if(value) {
             const valueArrValue: CallRecordImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof CallRecordImpl? element:new CallRecordImpl(element)));
+                valueArrValue.push((element instanceof CallRecordImpl? element as CallRecordImpl:new CallRecordImpl(element)));
             });
             this._value = valueArrValue;
         }

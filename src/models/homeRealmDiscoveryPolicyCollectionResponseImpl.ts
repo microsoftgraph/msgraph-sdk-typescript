@@ -73,7 +73,7 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements HomeRealm
         }
         if(this.value && this.value.length != 0){        const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+            valueArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class HomeRealmDiscoveryPolicyCollectionResponseImpl implements HomeRealm
         if(value) {
             const valueArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+                valueArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -33,7 +33,7 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
         if(value) {
             const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = [];
             this.attendanceIntervals?.forEach(element => {
-                attendanceIntervalsArrValue.push((element instanceof AttendanceIntervalImpl? element:new AttendanceIntervalImpl(element)));
+                attendanceIntervalsArrValue.push((element instanceof AttendanceIntervalImpl? element as AttendanceIntervalImpl:new AttendanceIntervalImpl(element)));
             });
             this._attendanceIntervals = attendanceIntervalsArrValue;
         }
@@ -92,7 +92,7 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
      */
     public set identity(value: Identity | undefined) {
         if(value) {
-            this._identity = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._identity = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -120,7 +120,7 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
         super.serialize(writer);
         if(this.attendanceIntervals && this.attendanceIntervals.length != 0){        const attendanceIntervalsArrValue: AttendanceIntervalImpl[] = [];
         this.attendanceIntervals?.forEach(element => {
-            attendanceIntervalsArrValue.push((element instanceof AttendanceIntervalImpl? element:new AttendanceIntervalImpl(element)));
+            attendanceIntervalsArrValue.push((element instanceof AttendanceIntervalImpl? element as AttendanceIntervalImpl:new AttendanceIntervalImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AttendanceIntervalImpl>("attendanceIntervals", attendanceIntervalsArrValue);
         }
@@ -128,7 +128,7 @@ export class AttendanceRecordImpl extends EntityImpl implements AttendanceRecord
             writer.writeStringValue("emailAddress", this.emailAddress);
         }
         if(this.identity){
-            writer.writeObjectValue<IdentityImpl>("identity", (!this.identity || this.identity instanceof IdentityImpl? this.identity : new IdentityImpl(this.identity)));
+            writer.writeObjectValue<IdentityImpl>("identity", (this.identity instanceof IdentityImpl? this.identity as IdentityImpl: new IdentityImpl(this.identity)));
         }
         if(this.role){
             writer.writeStringValue("role", this.role);

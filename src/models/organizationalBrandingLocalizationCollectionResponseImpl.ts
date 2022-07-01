@@ -73,7 +73,7 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OrganizationalBrandingLocalizationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element:new OrganizationalBrandingLocalizationImpl(element)));
+            valueArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element as OrganizationalBrandingLocalizationImpl:new OrganizationalBrandingLocalizationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalizationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OrganizationalBrandingLocalizationCollectionResponseImpl implements
         if(value) {
             const valueArrValue: OrganizationalBrandingLocalizationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element:new OrganizationalBrandingLocalizationImpl(element)));
+                valueArrValue.push((element instanceof OrganizationalBrandingLocalizationImpl? element as OrganizationalBrandingLocalizationImpl:new OrganizationalBrandingLocalizationImpl(element)));
             });
             this._value = valueArrValue;
         }

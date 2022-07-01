@@ -73,7 +73,7 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements SettingS
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SettingStateDeviceSummaryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element:new SettingStateDeviceSummaryImpl(element)));
+            valueArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element as SettingStateDeviceSummaryImpl:new SettingStateDeviceSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SettingStateDeviceSummaryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SettingStateDeviceSummaryCollectionResponseImpl implements SettingS
         if(value) {
             const valueArrValue: SettingStateDeviceSummaryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element:new SettingStateDeviceSummaryImpl(element)));
+                valueArrValue.push((element instanceof SettingStateDeviceSummaryImpl? element as SettingStateDeviceSummaryImpl:new SettingStateDeviceSummaryImpl(element)));
             });
             this._value = valueArrValue;
         }

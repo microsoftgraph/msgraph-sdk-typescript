@@ -73,7 +73,7 @@ export class TeamsAppInstallationCollectionResponseImpl implements TeamsAppInsta
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsAppInstallationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamsAppInstallationImpl? element:new TeamsAppInstallationImpl(element)));
+            valueArrValue.push((element instanceof TeamsAppInstallationImpl? element as TeamsAppInstallationImpl:new TeamsAppInstallationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamsAppInstallationCollectionResponseImpl implements TeamsAppInsta
         if(value) {
             const valueArrValue: TeamsAppInstallationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamsAppInstallationImpl? element:new TeamsAppInstallationImpl(element)));
+                valueArrValue.push((element instanceof TeamsAppInstallationImpl? element as TeamsAppInstallationImpl:new TeamsAppInstallationImpl(element)));
             });
             this._value = valueArrValue;
         }

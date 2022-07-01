@@ -197,7 +197,7 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
         if(value) {
             const onBehalfRequestorsArrValue: SubjectSetImpl[] = [];
             this.onBehalfRequestors?.forEach(element => {
-                onBehalfRequestorsArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+                onBehalfRequestorsArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
             });
             this._onBehalfRequestors = onBehalfRequestorsArrValue;
         }
@@ -231,7 +231,7 @@ export class AccessPackageAssignmentRequestorSettingsImpl implements AccessPacka
         }
         if(this.onBehalfRequestors && this.onBehalfRequestors.length != 0){        const onBehalfRequestorsArrValue: SubjectSetImpl[] = [];
         this.onBehalfRequestors?.forEach(element => {
-            onBehalfRequestorsArrValue.push((element instanceof SubjectSetImpl? element:new SubjectSetImpl(element)));
+            onBehalfRequestorsArrValue.push((element instanceof SubjectSetImpl? element as SubjectSetImpl:new SubjectSetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectSetImpl>("onBehalfRequestors", onBehalfRequestorsArrValue);
         }

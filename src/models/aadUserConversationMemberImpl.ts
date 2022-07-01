@@ -66,7 +66,7 @@ export class AadUserConversationMemberImpl extends ConversationMemberImpl implem
             writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.user){
-            writer.writeObjectValue<UserImpl>("user", (!this.user || this.user instanceof UserImpl? this.user : new UserImpl(this.user)));
+            writer.writeObjectValue<UserImpl>("user", (this.user instanceof UserImpl? this.user as UserImpl: new UserImpl(this.user)));
         }
         if(this.userId){
             writer.writeStringValue("userId", this.userId);
@@ -101,7 +101,7 @@ export class AadUserConversationMemberImpl extends ConversationMemberImpl implem
      */
     public set user(value: User | undefined) {
         if(value) {
-            this._user = value instanceof UserImpl? value : new UserImpl(value);
+            this._user = value instanceof UserImpl? value as UserImpl: new UserImpl(value);
         }
     };
     /**

@@ -241,7 +241,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
      */
     public set configurationManagerClientEnabledFeatures(value: ConfigurationManagerClientEnabledFeatures | undefined) {
         if(value) {
-            this._configurationManagerClientEnabledFeatures = value instanceof ConfigurationManagerClientEnabledFeaturesImpl? value : new ConfigurationManagerClientEnabledFeaturesImpl(value);
+            this._configurationManagerClientEnabledFeatures = value instanceof ConfigurationManagerClientEnabledFeaturesImpl? value as ConfigurationManagerClientEnabledFeaturesImpl: new ConfigurationManagerClientEnabledFeaturesImpl(value);
         }
     };
     /**
@@ -320,7 +320,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         if(value) {
             const deviceActionResultsArrValue: DeviceActionResultImpl[] = [];
             this.deviceActionResults?.forEach(element => {
-                deviceActionResultsArrValue.push((element instanceof DeviceActionResultImpl? element:new DeviceActionResultImpl(element)));
+                deviceActionResultsArrValue.push((element instanceof DeviceActionResultImpl? element as DeviceActionResultImpl:new DeviceActionResultImpl(element)));
             });
             this._deviceActionResults = deviceActionResultsArrValue;
         }
@@ -338,7 +338,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
      */
     public set deviceCategory(value: DeviceCategory | undefined) {
         if(value) {
-            this._deviceCategory = value instanceof DeviceCategoryImpl? value : new DeviceCategoryImpl(value);
+            this._deviceCategory = value instanceof DeviceCategoryImpl? value as DeviceCategoryImpl: new DeviceCategoryImpl(value);
         }
     };
     /**
@@ -372,7 +372,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         if(value) {
             const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = [];
             this.deviceCompliancePolicyStates?.forEach(element => {
-                deviceCompliancePolicyStatesArrValue.push((element instanceof DeviceCompliancePolicyStateImpl? element:new DeviceCompliancePolicyStateImpl(element)));
+                deviceCompliancePolicyStatesArrValue.push((element instanceof DeviceCompliancePolicyStateImpl? element as DeviceCompliancePolicyStateImpl:new DeviceCompliancePolicyStateImpl(element)));
             });
             this._deviceCompliancePolicyStates = deviceCompliancePolicyStatesArrValue;
         }
@@ -392,7 +392,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
         if(value) {
             const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = [];
             this.deviceConfigurationStates?.forEach(element => {
-                deviceConfigurationStatesArrValue.push((element instanceof DeviceConfigurationStateImpl? element:new DeviceConfigurationStateImpl(element)));
+                deviceConfigurationStatesArrValue.push((element instanceof DeviceConfigurationStateImpl? element as DeviceConfigurationStateImpl:new DeviceConfigurationStateImpl(element)));
             });
             this._deviceConfigurationStates = deviceConfigurationStatesArrValue;
         }
@@ -426,7 +426,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
      */
     public set deviceHealthAttestationState(value: DeviceHealthAttestationState | undefined) {
         if(value) {
-            this._deviceHealthAttestationState = value instanceof DeviceHealthAttestationStateImpl? value : new DeviceHealthAttestationStateImpl(value);
+            this._deviceHealthAttestationState = value instanceof DeviceHealthAttestationStateImpl? value as DeviceHealthAttestationStateImpl: new DeviceHealthAttestationStateImpl(value);
         }
     };
     /**
@@ -1029,29 +1029,29 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
             writer.writeEnumValue<ComplianceState>("complianceState", this.complianceState);
         }
         if(this.configurationManagerClientEnabledFeatures){
-            writer.writeObjectValue<ConfigurationManagerClientEnabledFeaturesImpl>("configurationManagerClientEnabledFeatures", (!this.configurationManagerClientEnabledFeatures || this.configurationManagerClientEnabledFeatures instanceof ConfigurationManagerClientEnabledFeaturesImpl? this.configurationManagerClientEnabledFeatures : new ConfigurationManagerClientEnabledFeaturesImpl(this.configurationManagerClientEnabledFeatures)));
+            writer.writeObjectValue<ConfigurationManagerClientEnabledFeaturesImpl>("configurationManagerClientEnabledFeatures", (this.configurationManagerClientEnabledFeatures instanceof ConfigurationManagerClientEnabledFeaturesImpl? this.configurationManagerClientEnabledFeatures as ConfigurationManagerClientEnabledFeaturesImpl: new ConfigurationManagerClientEnabledFeaturesImpl(this.configurationManagerClientEnabledFeatures)));
         }
         if(this.deviceActionResults && this.deviceActionResults.length != 0){        const deviceActionResultsArrValue: DeviceActionResultImpl[] = [];
         this.deviceActionResults?.forEach(element => {
-            deviceActionResultsArrValue.push((element instanceof DeviceActionResultImpl? element:new DeviceActionResultImpl(element)));
+            deviceActionResultsArrValue.push((element instanceof DeviceActionResultImpl? element as DeviceActionResultImpl:new DeviceActionResultImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceActionResultImpl>("deviceActionResults", deviceActionResultsArrValue);
         }
         if(this.deviceCategory){
-            writer.writeObjectValue<DeviceCategoryImpl>("deviceCategory", (!this.deviceCategory || this.deviceCategory instanceof DeviceCategoryImpl? this.deviceCategory : new DeviceCategoryImpl(this.deviceCategory)));
+            writer.writeObjectValue<DeviceCategoryImpl>("deviceCategory", (this.deviceCategory instanceof DeviceCategoryImpl? this.deviceCategory as DeviceCategoryImpl: new DeviceCategoryImpl(this.deviceCategory)));
         }
         if(this.deviceCategoryDisplayName){
             writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
         }
         if(this.deviceCompliancePolicyStates && this.deviceCompliancePolicyStates.length != 0){        const deviceCompliancePolicyStatesArrValue: DeviceCompliancePolicyStateImpl[] = [];
         this.deviceCompliancePolicyStates?.forEach(element => {
-            deviceCompliancePolicyStatesArrValue.push((element instanceof DeviceCompliancePolicyStateImpl? element:new DeviceCompliancePolicyStateImpl(element)));
+            deviceCompliancePolicyStatesArrValue.push((element instanceof DeviceCompliancePolicyStateImpl? element as DeviceCompliancePolicyStateImpl:new DeviceCompliancePolicyStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyStateImpl>("deviceCompliancePolicyStates", deviceCompliancePolicyStatesArrValue);
         }
         if(this.deviceConfigurationStates && this.deviceConfigurationStates.length != 0){        const deviceConfigurationStatesArrValue: DeviceConfigurationStateImpl[] = [];
         this.deviceConfigurationStates?.forEach(element => {
-            deviceConfigurationStatesArrValue.push((element instanceof DeviceConfigurationStateImpl? element:new DeviceConfigurationStateImpl(element)));
+            deviceConfigurationStatesArrValue.push((element instanceof DeviceConfigurationStateImpl? element as DeviceConfigurationStateImpl:new DeviceConfigurationStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationStateImpl>("deviceConfigurationStates", deviceConfigurationStatesArrValue);
         }
@@ -1059,7 +1059,7 @@ export class ManagedDeviceImpl extends EntityImpl implements ManagedDevice {
             writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
         }
         if(this.deviceHealthAttestationState){
-            writer.writeObjectValue<DeviceHealthAttestationStateImpl>("deviceHealthAttestationState", (!this.deviceHealthAttestationState || this.deviceHealthAttestationState instanceof DeviceHealthAttestationStateImpl? this.deviceHealthAttestationState : new DeviceHealthAttestationStateImpl(this.deviceHealthAttestationState)));
+            writer.writeObjectValue<DeviceHealthAttestationStateImpl>("deviceHealthAttestationState", (this.deviceHealthAttestationState instanceof DeviceHealthAttestationStateImpl? this.deviceHealthAttestationState as DeviceHealthAttestationStateImpl: new DeviceHealthAttestationStateImpl(this.deviceHealthAttestationState)));
         }
         if(this.deviceName){
             writer.writeStringValue("deviceName", this.deviceName);

@@ -73,7 +73,7 @@ export class WindowsHelloForBusinessAuthenticationMethodCollectionResponseImpl i
         }
         if(this.value && this.value.length != 0){        const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
+            valueArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element as WindowsHelloForBusinessAuthenticationMethodImpl:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethodImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class WindowsHelloForBusinessAuthenticationMethodCollectionResponseImpl i
         if(value) {
             const valueArrValue: WindowsHelloForBusinessAuthenticationMethodImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
+                valueArrValue.push((element instanceof WindowsHelloForBusinessAuthenticationMethodImpl? element as WindowsHelloForBusinessAuthenticationMethodImpl:new WindowsHelloForBusinessAuthenticationMethodImpl(element)));
             });
             this._value = valueArrValue;
         }

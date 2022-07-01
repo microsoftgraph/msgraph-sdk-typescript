@@ -59,7 +59,7 @@ export class OnenotePagePreviewImpl implements OnenotePagePreview {
      */
     public set links(value: OnenotePagePreviewLinks | undefined) {
         if(value) {
-            this._links = value instanceof OnenotePagePreviewLinksImpl? value : new OnenotePagePreviewLinksImpl(value);
+            this._links = value instanceof OnenotePagePreviewLinksImpl? value as OnenotePagePreviewLinksImpl: new OnenotePagePreviewLinksImpl(value);
         }
     };
     /**
@@ -85,7 +85,7 @@ export class OnenotePagePreviewImpl implements OnenotePagePreview {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.links){
-            writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", (!this.links || this.links instanceof OnenotePagePreviewLinksImpl? this.links : new OnenotePagePreviewLinksImpl(this.links)));
+            writer.writeObjectValue<OnenotePagePreviewLinksImpl>("links", (this.links instanceof OnenotePagePreviewLinksImpl? this.links as OnenotePagePreviewLinksImpl: new OnenotePagePreviewLinksImpl(this.links)));
         }
         if(this.previewText){
             writer.writeStringValue("previewText", this.previewText);

@@ -31,7 +31,7 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
      */
     public set access(value: AccessAction | undefined) {
         if(value) {
-            this._access = value instanceof AccessActionImpl? value : new AccessActionImpl(value);
+            this._access = value instanceof AccessActionImpl? value as AccessActionImpl: new AccessActionImpl(value);
         }
     };
     /**
@@ -63,7 +63,7 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
      */
     public set actor(value: IdentitySet | undefined) {
         if(value) {
-            this._actor = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._actor = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -90,7 +90,7 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
      */
     public set driveItem(value: DriveItem | undefined) {
         if(value) {
-            this._driveItem = value instanceof DriveItemImpl? value : new DriveItemImpl(value);
+            this._driveItem = value instanceof DriveItemImpl? value as DriveItemImpl: new DriveItemImpl(value);
         }
     };
     /**
@@ -113,16 +113,16 @@ export class ItemActivityImpl extends EntityImpl implements ItemActivity {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.access){
-            writer.writeObjectValue<AccessActionImpl>("access", (!this.access || this.access instanceof AccessActionImpl? this.access : new AccessActionImpl(this.access)));
+            writer.writeObjectValue<AccessActionImpl>("access", (this.access instanceof AccessActionImpl? this.access as AccessActionImpl: new AccessActionImpl(this.access)));
         }
         if(this.activityDateTime){
             writer.writeDateValue("activityDateTime", this.activityDateTime);
         }
         if(this.actor){
-            writer.writeObjectValue<IdentitySetImpl>("actor", (!this.actor || this.actor instanceof IdentitySetImpl? this.actor : new IdentitySetImpl(this.actor)));
+            writer.writeObjectValue<IdentitySetImpl>("actor", (this.actor instanceof IdentitySetImpl? this.actor as IdentitySetImpl: new IdentitySetImpl(this.actor)));
         }
         if(this.driveItem){
-            writer.writeObjectValue<DriveItemImpl>("driveItem", (!this.driveItem || this.driveItem instanceof DriveItemImpl? this.driveItem : new DriveItemImpl(this.driveItem)));
+            writer.writeObjectValue<DriveItemImpl>("driveItem", (this.driveItem instanceof DriveItemImpl? this.driveItem as DriveItemImpl: new DriveItemImpl(this.driveItem)));
         }
     };
 }

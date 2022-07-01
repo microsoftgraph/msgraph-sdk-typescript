@@ -40,7 +40,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
         if(value) {
             const masterCategoriesArrValue: OutlookCategoryImpl[] = [];
             this.masterCategories?.forEach(element => {
-                masterCategoriesArrValue.push((element instanceof OutlookCategoryImpl? element:new OutlookCategoryImpl(element)));
+                masterCategoriesArrValue.push((element instanceof OutlookCategoryImpl? element as OutlookCategoryImpl:new OutlookCategoryImpl(element)));
             });
             this._masterCategories = masterCategoriesArrValue;
         }
@@ -54,7 +54,7 @@ export class OutlookUserImpl extends EntityImpl implements OutlookUser {
         super.serialize(writer);
         if(this.masterCategories && this.masterCategories.length != 0){        const masterCategoriesArrValue: OutlookCategoryImpl[] = [];
         this.masterCategories?.forEach(element => {
-            masterCategoriesArrValue.push((element instanceof OutlookCategoryImpl? element:new OutlookCategoryImpl(element)));
+            masterCategoriesArrValue.push((element instanceof OutlookCategoryImpl? element as OutlookCategoryImpl:new OutlookCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OutlookCategoryImpl>("masterCategories", masterCategoriesArrValue);
         }

@@ -97,7 +97,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(value) {
             const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = [];
             this.audioRoutingGroups?.forEach(element => {
-                audioRoutingGroupsArrValue.push((element instanceof AudioRoutingGroupImpl? element:new AudioRoutingGroupImpl(element)));
+                audioRoutingGroupsArrValue.push((element instanceof AudioRoutingGroupImpl? element as AudioRoutingGroupImpl:new AudioRoutingGroupImpl(element)));
             });
             this._audioRoutingGroups = audioRoutingGroupsArrValue;
         }
@@ -147,7 +147,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set callOptions(value: CallOptions | undefined) {
         if(value) {
-            this._callOptions = value instanceof CallOptionsImpl? value : new CallOptionsImpl(value);
+            this._callOptions = value instanceof CallOptionsImpl? value as CallOptionsImpl: new CallOptionsImpl(value);
         }
     };
     /**
@@ -165,7 +165,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(value) {
             const callRoutesArrValue: CallRouteImpl[] = [];
             this.callRoutes?.forEach(element => {
-                callRoutesArrValue.push((element instanceof CallRouteImpl? element:new CallRouteImpl(element)));
+                callRoutesArrValue.push((element instanceof CallRouteImpl? element as CallRouteImpl:new CallRouteImpl(element)));
             });
             this._callRoutes = callRoutesArrValue;
         }
@@ -183,7 +183,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set chatInfo(value: ChatInfo | undefined) {
         if(value) {
-            this._chatInfo = value instanceof ChatInfoImpl? value : new ChatInfoImpl(value);
+            this._chatInfo = value instanceof ChatInfoImpl? value as ChatInfoImpl: new ChatInfoImpl(value);
         }
     };
     /**
@@ -276,7 +276,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set incomingContext(value: IncomingContext | undefined) {
         if(value) {
-            this._incomingContext = value instanceof IncomingContextImpl? value : new IncomingContextImpl(value);
+            this._incomingContext = value instanceof IncomingContextImpl? value as IncomingContextImpl: new IncomingContextImpl(value);
         }
     };
     /**
@@ -292,7 +292,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set mediaConfig(value: MediaConfig | undefined) {
         if(value) {
-            this._mediaConfig = value instanceof MediaConfigImpl? value : new MediaConfigImpl(value);
+            this._mediaConfig = value instanceof MediaConfigImpl? value as MediaConfigImpl: new MediaConfigImpl(value);
         }
     };
     /**
@@ -308,7 +308,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set mediaState(value: CallMediaState | undefined) {
         if(value) {
-            this._mediaState = value instanceof CallMediaStateImpl? value : new CallMediaStateImpl(value);
+            this._mediaState = value instanceof CallMediaStateImpl? value as CallMediaStateImpl: new CallMediaStateImpl(value);
         }
     };
     /**
@@ -324,7 +324,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set meetingInfo(value: MeetingInfo | undefined) {
         if(value) {
-            this._meetingInfo = value instanceof MeetingInfoImpl? value : new MeetingInfoImpl(value);
+            this._meetingInfo = value instanceof MeetingInfoImpl? value as MeetingInfoImpl: new MeetingInfoImpl(value);
         }
     };
     /**
@@ -358,7 +358,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(value) {
             const operationsArrValue: CommsOperationImpl[] = [];
             this.operations?.forEach(element => {
-                operationsArrValue.push((element instanceof CommsOperationImpl? element:new CommsOperationImpl(element)));
+                operationsArrValue.push((element instanceof CommsOperationImpl? element as CommsOperationImpl:new CommsOperationImpl(element)));
             });
             this._operations = operationsArrValue;
         }
@@ -378,7 +378,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(value) {
             const participantsArrValue: ParticipantImpl[] = [];
             this.participants?.forEach(element => {
-                participantsArrValue.push((element instanceof ParticipantImpl? element:new ParticipantImpl(element)));
+                participantsArrValue.push((element instanceof ParticipantImpl? element as ParticipantImpl:new ParticipantImpl(element)));
             });
             this._participants = participantsArrValue;
         }
@@ -412,7 +412,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set resultInfo(value: ResultInfo | undefined) {
         if(value) {
-            this._resultInfo = value instanceof ResultInfoImpl? value : new ResultInfoImpl(value);
+            this._resultInfo = value instanceof ResultInfoImpl? value as ResultInfoImpl: new ResultInfoImpl(value);
         }
     };
     /**
@@ -424,7 +424,7 @@ export class CallImpl extends EntityImpl implements Call {
         super.serialize(writer);
         if(this.audioRoutingGroups && this.audioRoutingGroups.length != 0){        const audioRoutingGroupsArrValue: AudioRoutingGroupImpl[] = [];
         this.audioRoutingGroups?.forEach(element => {
-            audioRoutingGroupsArrValue.push((element instanceof AudioRoutingGroupImpl? element:new AudioRoutingGroupImpl(element)));
+            audioRoutingGroupsArrValue.push((element instanceof AudioRoutingGroupImpl? element as AudioRoutingGroupImpl:new AudioRoutingGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AudioRoutingGroupImpl>("audioRoutingGroups", audioRoutingGroupsArrValue);
         }
@@ -435,44 +435,44 @@ export class CallImpl extends EntityImpl implements Call {
             writer.writeStringValue("callChainId", this.callChainId);
         }
         if(this.callOptions){
-            writer.writeObjectValue<CallOptionsImpl>("callOptions", (!this.callOptions || this.callOptions instanceof CallOptionsImpl? this.callOptions : new CallOptionsImpl(this.callOptions)));
+            writer.writeObjectValue<CallOptionsImpl>("callOptions", (this.callOptions instanceof CallOptionsImpl? this.callOptions as CallOptionsImpl: new CallOptionsImpl(this.callOptions)));
         }
         if(this.callRoutes && this.callRoutes.length != 0){        const callRoutesArrValue: CallRouteImpl[] = [];
         this.callRoutes?.forEach(element => {
-            callRoutesArrValue.push((element instanceof CallRouteImpl? element:new CallRouteImpl(element)));
+            callRoutesArrValue.push((element instanceof CallRouteImpl? element as CallRouteImpl:new CallRouteImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CallRouteImpl>("callRoutes", callRoutesArrValue);
         }
         if(this.chatInfo){
-            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (!this.chatInfo || this.chatInfo instanceof ChatInfoImpl? this.chatInfo : new ChatInfoImpl(this.chatInfo)));
+            writer.writeObjectValue<ChatInfoImpl>("chatInfo", (this.chatInfo instanceof ChatInfoImpl? this.chatInfo as ChatInfoImpl: new ChatInfoImpl(this.chatInfo)));
         }
         if(this.direction){
             writer.writeEnumValue<CallDirection>("direction", this.direction);
         }
         if(this.incomingContext){
-            writer.writeObjectValue<IncomingContextImpl>("incomingContext", (!this.incomingContext || this.incomingContext instanceof IncomingContextImpl? this.incomingContext : new IncomingContextImpl(this.incomingContext)));
+            writer.writeObjectValue<IncomingContextImpl>("incomingContext", (this.incomingContext instanceof IncomingContextImpl? this.incomingContext as IncomingContextImpl: new IncomingContextImpl(this.incomingContext)));
         }
         if(this.mediaConfig){
-            writer.writeObjectValue<MediaConfigImpl>("mediaConfig", (!this.mediaConfig || this.mediaConfig instanceof MediaConfigImpl? this.mediaConfig : new MediaConfigImpl(this.mediaConfig)));
+            writer.writeObjectValue<MediaConfigImpl>("mediaConfig", (this.mediaConfig instanceof MediaConfigImpl? this.mediaConfig as MediaConfigImpl: new MediaConfigImpl(this.mediaConfig)));
         }
         if(this.mediaState){
-            writer.writeObjectValue<CallMediaStateImpl>("mediaState", (!this.mediaState || this.mediaState instanceof CallMediaStateImpl? this.mediaState : new CallMediaStateImpl(this.mediaState)));
+            writer.writeObjectValue<CallMediaStateImpl>("mediaState", (this.mediaState instanceof CallMediaStateImpl? this.mediaState as CallMediaStateImpl: new CallMediaStateImpl(this.mediaState)));
         }
         if(this.meetingInfo){
-            writer.writeObjectValue<MeetingInfoImpl>("meetingInfo", (!this.meetingInfo || this.meetingInfo instanceof MeetingInfoImpl? this.meetingInfo : new MeetingInfoImpl(this.meetingInfo)));
+            writer.writeObjectValue<MeetingInfoImpl>("meetingInfo", (this.meetingInfo instanceof MeetingInfoImpl? this.meetingInfo as MeetingInfoImpl: new MeetingInfoImpl(this.meetingInfo)));
         }
         if(this.myParticipantId){
             writer.writeStringValue("myParticipantId", this.myParticipantId);
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: CommsOperationImpl[] = [];
         this.operations?.forEach(element => {
-            operationsArrValue.push((element instanceof CommsOperationImpl? element:new CommsOperationImpl(element)));
+            operationsArrValue.push((element instanceof CommsOperationImpl? element as CommsOperationImpl:new CommsOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CommsOperationImpl>("operations", operationsArrValue);
         }
         if(this.participants && this.participants.length != 0){        const participantsArrValue: ParticipantImpl[] = [];
         this.participants?.forEach(element => {
-            participantsArrValue.push((element instanceof ParticipantImpl? element:new ParticipantImpl(element)));
+            participantsArrValue.push((element instanceof ParticipantImpl? element as ParticipantImpl:new ParticipantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ParticipantImpl>("participants", participantsArrValue);
         }
@@ -480,10 +480,10 @@ export class CallImpl extends EntityImpl implements Call {
             writer.writeCollectionOfPrimitiveValues<string>("requestedModalities", this.requestedModalities);
         }
         if(this.resultInfo){
-            writer.writeObjectValue<ResultInfoImpl>("resultInfo", (!this.resultInfo || this.resultInfo instanceof ResultInfoImpl? this.resultInfo : new ResultInfoImpl(this.resultInfo)));
+            writer.writeObjectValue<ResultInfoImpl>("resultInfo", (this.resultInfo instanceof ResultInfoImpl? this.resultInfo as ResultInfoImpl: new ResultInfoImpl(this.resultInfo)));
         }
         if(this.source){
-            writer.writeObjectValue<ParticipantInfoImpl>("source", (!this.source || this.source instanceof ParticipantInfoImpl? this.source : new ParticipantInfoImpl(this.source)));
+            writer.writeObjectValue<ParticipantInfoImpl>("source", (this.source instanceof ParticipantInfoImpl? this.source as ParticipantInfoImpl: new ParticipantInfoImpl(this.source)));
         }
         if(this.state){
             writer.writeEnumValue<CallState>("state", this.state);
@@ -493,7 +493,7 @@ export class CallImpl extends EntityImpl implements Call {
         }
         if(this.targets && this.targets.length != 0){        const targetsArrValue: InvitationParticipantInfoImpl[] = [];
         this.targets?.forEach(element => {
-            targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+            targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InvitationParticipantInfoImpl>("targets", targetsArrValue);
         }
@@ -501,10 +501,10 @@ export class CallImpl extends EntityImpl implements Call {
             writer.writeStringValue("tenantId", this.tenantId);
         }
         if(this.toneInfo){
-            writer.writeObjectValue<ToneInfoImpl>("toneInfo", (!this.toneInfo || this.toneInfo instanceof ToneInfoImpl? this.toneInfo : new ToneInfoImpl(this.toneInfo)));
+            writer.writeObjectValue<ToneInfoImpl>("toneInfo", (this.toneInfo instanceof ToneInfoImpl? this.toneInfo as ToneInfoImpl: new ToneInfoImpl(this.toneInfo)));
         }
         if(this.transcription){
-            writer.writeObjectValue<CallTranscriptionInfoImpl>("transcription", (!this.transcription || this.transcription instanceof CallTranscriptionInfoImpl? this.transcription : new CallTranscriptionInfoImpl(this.transcription)));
+            writer.writeObjectValue<CallTranscriptionInfoImpl>("transcription", (this.transcription instanceof CallTranscriptionInfoImpl? this.transcription as CallTranscriptionInfoImpl: new CallTranscriptionInfoImpl(this.transcription)));
         }
     };
     /**
@@ -520,7 +520,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set source(value: ParticipantInfo | undefined) {
         if(value) {
-            this._source = value instanceof ParticipantInfoImpl? value : new ParticipantInfoImpl(value);
+            this._source = value instanceof ParticipantInfoImpl? value as ParticipantInfoImpl: new ParticipantInfoImpl(value);
         }
     };
     /**
@@ -570,7 +570,7 @@ export class CallImpl extends EntityImpl implements Call {
         if(value) {
             const targetsArrValue: InvitationParticipantInfoImpl[] = [];
             this.targets?.forEach(element => {
-                targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element:new InvitationParticipantInfoImpl(element)));
+                targetsArrValue.push((element instanceof InvitationParticipantInfoImpl? element as InvitationParticipantInfoImpl:new InvitationParticipantInfoImpl(element)));
             });
             this._targets = targetsArrValue;
         }
@@ -604,7 +604,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set toneInfo(value: ToneInfo | undefined) {
         if(value) {
-            this._toneInfo = value instanceof ToneInfoImpl? value : new ToneInfoImpl(value);
+            this._toneInfo = value instanceof ToneInfoImpl? value as ToneInfoImpl: new ToneInfoImpl(value);
         }
     };
     /**
@@ -620,7 +620,7 @@ export class CallImpl extends EntityImpl implements Call {
      */
     public set transcription(value: CallTranscriptionInfo | undefined) {
         if(value) {
-            this._transcription = value instanceof CallTranscriptionInfoImpl? value : new CallTranscriptionInfoImpl(value);
+            this._transcription = value instanceof CallTranscriptionInfoImpl? value as CallTranscriptionInfoImpl: new CallTranscriptionInfoImpl(value);
         }
     };
 }

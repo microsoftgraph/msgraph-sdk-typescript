@@ -77,7 +77,7 @@ export class UpdateWindowsDeviceAccountActionParameterImpl implements UpdateWind
      */
     public set deviceAccount(value: WindowsDeviceAccount | undefined) {
         if(value) {
-            this._deviceAccount = value instanceof WindowsDeviceAccountImpl? value : new WindowsDeviceAccountImpl(value);
+            this._deviceAccount = value instanceof WindowsDeviceAccountImpl? value as WindowsDeviceAccountImpl: new WindowsDeviceAccountImpl(value);
         }
     };
     /**
@@ -152,7 +152,7 @@ export class UpdateWindowsDeviceAccountActionParameterImpl implements UpdateWind
             writer.writeBooleanValue("calendarSyncEnabled", this.calendarSyncEnabled);
         }
         if(this.deviceAccount){
-            writer.writeObjectValue<WindowsDeviceAccountImpl>("deviceAccount", (!this.deviceAccount || this.deviceAccount instanceof WindowsDeviceAccountImpl? this.deviceAccount : new WindowsDeviceAccountImpl(this.deviceAccount)));
+            writer.writeObjectValue<WindowsDeviceAccountImpl>("deviceAccount", (this.deviceAccount instanceof WindowsDeviceAccountImpl? this.deviceAccount as WindowsDeviceAccountImpl: new WindowsDeviceAccountImpl(this.deviceAccount)));
         }
         if(this.deviceAccountEmail){
             writer.writeStringValue("deviceAccountEmail", this.deviceAccountEmail);

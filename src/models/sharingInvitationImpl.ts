@@ -83,7 +83,7 @@ export class SharingInvitationImpl implements SharingInvitation {
      */
     public set invitedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._invitedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._invitedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -112,7 +112,7 @@ export class SharingInvitationImpl implements SharingInvitation {
             writer.writeStringValue("email", this.email);
         }
         if(this.invitedBy){
-            writer.writeObjectValue<IdentitySetImpl>("invitedBy", (!this.invitedBy || this.invitedBy instanceof IdentitySetImpl? this.invitedBy : new IdentitySetImpl(this.invitedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("invitedBy", (this.invitedBy instanceof IdentitySetImpl? this.invitedBy as IdentitySetImpl: new IdentitySetImpl(this.invitedBy)));
         }
         if(this.redeemedBy){
             writer.writeStringValue("redeemedBy", this.redeemedBy);

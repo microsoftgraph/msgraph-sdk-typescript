@@ -117,7 +117,7 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(value) {
             const domainNameReferencesArrValue: DirectoryObjectImpl[] = [];
             this.domainNameReferences?.forEach(element => {
-                domainNameReferencesArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                domainNameReferencesArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._domainNameReferences = domainNameReferencesArrValue;
         }
@@ -137,7 +137,7 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(value) {
             const federationConfigurationArrValue: InternalDomainFederationImpl[] = [];
             this.federationConfiguration?.forEach(element => {
-                federationConfigurationArrValue.push((element instanceof InternalDomainFederationImpl? element:new InternalDomainFederationImpl(element)));
+                federationConfigurationArrValue.push((element instanceof InternalDomainFederationImpl? element as InternalDomainFederationImpl:new InternalDomainFederationImpl(element)));
             });
             this._federationConfiguration = federationConfigurationArrValue;
         }
@@ -326,13 +326,13 @@ export class DomainImpl extends EntityImpl implements Domain {
         }
         if(this.domainNameReferences && this.domainNameReferences.length != 0){        const domainNameReferencesArrValue: DirectoryObjectImpl[] = [];
         this.domainNameReferences?.forEach(element => {
-            domainNameReferencesArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            domainNameReferencesArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("domainNameReferences", domainNameReferencesArrValue);
         }
         if(this.federationConfiguration && this.federationConfiguration.length != 0){        const federationConfigurationArrValue: InternalDomainFederationImpl[] = [];
         this.federationConfiguration?.forEach(element => {
-            federationConfigurationArrValue.push((element instanceof InternalDomainFederationImpl? element:new InternalDomainFederationImpl(element)));
+            federationConfigurationArrValue.push((element instanceof InternalDomainFederationImpl? element as InternalDomainFederationImpl:new InternalDomainFederationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("federationConfiguration", federationConfigurationArrValue);
         }
@@ -365,19 +365,19 @@ export class DomainImpl extends EntityImpl implements Domain {
         }
         if(this.serviceConfigurationRecords && this.serviceConfigurationRecords.length != 0){        const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = [];
         this.serviceConfigurationRecords?.forEach(element => {
-            serviceConfigurationRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+            serviceConfigurationRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element as DomainDnsRecordImpl:new DomainDnsRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("serviceConfigurationRecords", serviceConfigurationRecordsArrValue);
         }
         if(this.state){
-            writer.writeObjectValue<DomainStateImpl>("state", (!this.state || this.state instanceof DomainStateImpl? this.state : new DomainStateImpl(this.state)));
+            writer.writeObjectValue<DomainStateImpl>("state", (this.state instanceof DomainStateImpl? this.state as DomainStateImpl: new DomainStateImpl(this.state)));
         }
         if(this.supportedServices){
             writer.writeCollectionOfPrimitiveValues<string>("supportedServices", this.supportedServices);
         }
         if(this.verificationDnsRecords && this.verificationDnsRecords.length != 0){        const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = [];
         this.verificationDnsRecords?.forEach(element => {
-            verificationDnsRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+            verificationDnsRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element as DomainDnsRecordImpl:new DomainDnsRecordImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DomainDnsRecordImpl>("verificationDnsRecords", verificationDnsRecordsArrValue);
         }
@@ -397,7 +397,7 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(value) {
             const serviceConfigurationRecordsArrValue: DomainDnsRecordImpl[] = [];
             this.serviceConfigurationRecords?.forEach(element => {
-                serviceConfigurationRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+                serviceConfigurationRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element as DomainDnsRecordImpl:new DomainDnsRecordImpl(element)));
             });
             this._serviceConfigurationRecords = serviceConfigurationRecordsArrValue;
         }
@@ -415,7 +415,7 @@ export class DomainImpl extends EntityImpl implements Domain {
      */
     public set state(value: DomainState | undefined) {
         if(value) {
-            this._state = value instanceof DomainStateImpl? value : new DomainStateImpl(value);
+            this._state = value instanceof DomainStateImpl? value as DomainStateImpl: new DomainStateImpl(value);
         }
     };
     /**
@@ -449,7 +449,7 @@ export class DomainImpl extends EntityImpl implements Domain {
         if(value) {
             const verificationDnsRecordsArrValue: DomainDnsRecordImpl[] = [];
             this.verificationDnsRecords?.forEach(element => {
-                verificationDnsRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element:new DomainDnsRecordImpl(element)));
+                verificationDnsRecordsArrValue.push((element instanceof DomainDnsRecordImpl? element as DomainDnsRecordImpl:new DomainDnsRecordImpl(element)));
             });
             this._verificationDnsRecords = verificationDnsRecordsArrValue;
         }

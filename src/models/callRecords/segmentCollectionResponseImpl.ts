@@ -73,7 +73,7 @@ export class SegmentCollectionResponseImpl implements SegmentCollectionResponse 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SegmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SegmentImpl? element:new SegmentImpl(element)));
+            valueArrValue.push((element instanceof SegmentImpl? element as SegmentImpl:new SegmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SegmentImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SegmentCollectionResponseImpl implements SegmentCollectionResponse 
         if(value) {
             const valueArrValue: SegmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SegmentImpl? element:new SegmentImpl(element)));
+                valueArrValue.push((element instanceof SegmentImpl? element as SegmentImpl:new SegmentImpl(element)));
             });
             this._value = valueArrValue;
         }

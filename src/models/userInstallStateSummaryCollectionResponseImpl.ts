@@ -73,7 +73,7 @@ export class UserInstallStateSummaryCollectionResponseImpl implements UserInstal
         }
         if(this.value && this.value.length != 0){        const valueArrValue: UserInstallStateSummaryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof UserInstallStateSummaryImpl? element:new UserInstallStateSummaryImpl(element)));
+            valueArrValue.push((element instanceof UserInstallStateSummaryImpl? element as UserInstallStateSummaryImpl:new UserInstallStateSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserInstallStateSummaryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class UserInstallStateSummaryCollectionResponseImpl implements UserInstal
         if(value) {
             const valueArrValue: UserInstallStateSummaryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof UserInstallStateSummaryImpl? element:new UserInstallStateSummaryImpl(element)));
+                valueArrValue.push((element instanceof UserInstallStateSummaryImpl? element as UserInstallStateSummaryImpl:new UserInstallStateSummaryImpl(element)));
             });
             this._value = valueArrValue;
         }

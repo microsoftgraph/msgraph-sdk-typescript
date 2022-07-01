@@ -73,7 +73,7 @@ export class EndpointCollectionResponseImpl implements EndpointCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EndpointImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EndpointImpl? element:new EndpointImpl(element)));
+            valueArrValue.push((element instanceof EndpointImpl? element as EndpointImpl:new EndpointImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EndpointImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EndpointCollectionResponseImpl implements EndpointCollectionRespons
         if(value) {
             const valueArrValue: EndpointImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EndpointImpl? element:new EndpointImpl(element)));
+                valueArrValue.push((element instanceof EndpointImpl? element as EndpointImpl:new EndpointImpl(element)));
             });
             this._value = valueArrValue;
         }

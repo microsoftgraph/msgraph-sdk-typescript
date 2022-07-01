@@ -73,7 +73,7 @@ export class RestrictedSignInCollectionResponseImpl implements RestrictedSignInC
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RestrictedSignInImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RestrictedSignInImpl? element:new RestrictedSignInImpl(element)));
+            valueArrValue.push((element instanceof RestrictedSignInImpl? element as RestrictedSignInImpl:new RestrictedSignInImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RestrictedSignInImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RestrictedSignInCollectionResponseImpl implements RestrictedSignInC
         if(value) {
             const valueArrValue: RestrictedSignInImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RestrictedSignInImpl? element:new RestrictedSignInImpl(element)));
+                valueArrValue.push((element instanceof RestrictedSignInImpl? element as RestrictedSignInImpl:new RestrictedSignInImpl(element)));
             });
             this._value = valueArrValue;
         }

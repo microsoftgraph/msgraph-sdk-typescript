@@ -97,7 +97,7 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         }
         if(this.settingStates && this.settingStates.length != 0){        const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = [];
         this.settingStates?.forEach(element => {
-            settingStatesArrValue.push((element instanceof DeviceConfigurationSettingStateImpl? element:new DeviceConfigurationSettingStateImpl(element)));
+            settingStatesArrValue.push((element instanceof DeviceConfigurationSettingStateImpl? element as DeviceConfigurationSettingStateImpl:new DeviceConfigurationSettingStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationSettingStateImpl>("settingStates", settingStatesArrValue);
         }
@@ -139,7 +139,7 @@ export class DeviceConfigurationStateImpl extends EntityImpl implements DeviceCo
         if(value) {
             const settingStatesArrValue: DeviceConfigurationSettingStateImpl[] = [];
             this.settingStates?.forEach(element => {
-                settingStatesArrValue.push((element instanceof DeviceConfigurationSettingStateImpl? element:new DeviceConfigurationSettingStateImpl(element)));
+                settingStatesArrValue.push((element instanceof DeviceConfigurationSettingStateImpl? element as DeviceConfigurationSettingStateImpl:new DeviceConfigurationSettingStateImpl(element)));
             });
             this._settingStates = settingStatesArrValue;
         }

@@ -41,7 +41,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(value) {
             const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element as ManagedDeviceMobileAppConfigurationAssignmentImpl:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -71,7 +71,7 @@ export class AssignPostRequestBodyImpl implements AssignPostRequestBody {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: ManagedDeviceMobileAppConfigurationAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationAssignmentImpl? element as ManagedDeviceMobileAppConfigurationAssignmentImpl:new ManagedDeviceMobileAppConfigurationAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignmentImpl>("assignments", assignmentsArrValue);
         }

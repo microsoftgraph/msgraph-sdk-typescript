@@ -73,7 +73,7 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Androi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AndroidManagedAppProtectionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element:new AndroidManagedAppProtectionImpl(element)));
+            valueArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element as AndroidManagedAppProtectionImpl:new AndroidManagedAppProtectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AndroidManagedAppProtectionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AndroidManagedAppProtectionCollectionResponseImpl implements Androi
         if(value) {
             const valueArrValue: AndroidManagedAppProtectionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element:new AndroidManagedAppProtectionImpl(element)));
+                valueArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element as AndroidManagedAppProtectionImpl:new AndroidManagedAppProtectionImpl(element)));
             });
             this._value = valueArrValue;
         }

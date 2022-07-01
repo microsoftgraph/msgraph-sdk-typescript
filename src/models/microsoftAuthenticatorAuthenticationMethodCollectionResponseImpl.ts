@@ -73,7 +73,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl im
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
+            valueArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element as MicrosoftAuthenticatorAuthenticationMethodImpl:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodCollectionResponseImpl im
         if(value) {
             const valueArrValue: MicrosoftAuthenticatorAuthenticationMethodImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
+                valueArrValue.push((element instanceof MicrosoftAuthenticatorAuthenticationMethodImpl? element as MicrosoftAuthenticatorAuthenticationMethodImpl:new MicrosoftAuthenticatorAuthenticationMethodImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -56,7 +56,7 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
         }
         if(this.settings && this.settings.length != 0){        const settingsArrValue: AppConfigurationSettingItemImpl[] = [];
         this.settings?.forEach(element => {
-            settingsArrValue.push((element instanceof AppConfigurationSettingItemImpl? element:new AppConfigurationSettingItemImpl(element)));
+            settingsArrValue.push((element instanceof AppConfigurationSettingItemImpl? element as AppConfigurationSettingItemImpl:new AppConfigurationSettingItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppConfigurationSettingItemImpl>("settings", settingsArrValue);
         }
@@ -76,7 +76,7 @@ export class IosMobileAppConfigurationImpl extends ManagedDeviceMobileAppConfigu
         if(value) {
             const settingsArrValue: AppConfigurationSettingItemImpl[] = [];
             this.settings?.forEach(element => {
-                settingsArrValue.push((element instanceof AppConfigurationSettingItemImpl? element:new AppConfigurationSettingItemImpl(element)));
+                settingsArrValue.push((element instanceof AppConfigurationSettingItemImpl? element as AppConfigurationSettingItemImpl:new AppConfigurationSettingItemImpl(element)));
             });
             this._settings = settingsArrValue;
         }

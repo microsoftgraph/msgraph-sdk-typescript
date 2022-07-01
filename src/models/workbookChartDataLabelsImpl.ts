@@ -53,7 +53,7 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookC
      */
     public set format(value: WorkbookChartDataLabelFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartDataLabelFormatImpl? value : new WorkbookChartDataLabelFormatImpl(value);
+            this._format = value instanceof WorkbookChartDataLabelFormatImpl? value as WorkbookChartDataLabelFormatImpl: new WorkbookChartDataLabelFormatImpl(value);
         }
     };
     /**
@@ -113,7 +113,7 @@ export class WorkbookChartDataLabelsImpl extends EntityImpl implements WorkbookC
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartDataLabelFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartDataLabelFormatImpl? this.format : new WorkbookChartDataLabelFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartDataLabelFormatImpl>("format", (this.format instanceof WorkbookChartDataLabelFormatImpl? this.format as WorkbookChartDataLabelFormatImpl: new WorkbookChartDataLabelFormatImpl(this.format)));
         }
         if(this.position){
             writer.writeStringValue("position", this.position);

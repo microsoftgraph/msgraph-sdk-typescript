@@ -73,7 +73,7 @@ export class SessionCollectionResponseImpl implements SessionCollectionResponse 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SessionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SessionImpl? element:new SessionImpl(element)));
+            valueArrValue.push((element instanceof SessionImpl? element as SessionImpl:new SessionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SessionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SessionCollectionResponseImpl implements SessionCollectionResponse 
         if(value) {
             const valueArrValue: SessionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SessionImpl? element:new SessionImpl(element)));
+                valueArrValue.push((element instanceof SessionImpl? element as SessionImpl:new SessionImpl(element)));
             });
             this._value = valueArrValue;
         }

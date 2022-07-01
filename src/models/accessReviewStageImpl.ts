@@ -48,7 +48,7 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         if(value) {
             const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
             this.decisions?.forEach(element => {
-                decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+                decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element as AccessReviewInstanceDecisionItemImpl:new AccessReviewInstanceDecisionItemImpl(element)));
             });
             this._decisions = decisionsArrValue;
         }
@@ -84,7 +84,7 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         if(value) {
             const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.fallbackReviewers?.forEach(element => {
-                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._fallbackReviewers = fallbackReviewersArrValue;
         }
@@ -118,7 +118,7 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         if(value) {
             const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
             this.reviewers?.forEach(element => {
-                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+                reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
             });
             this._reviewers = reviewersArrValue;
         }
@@ -132,7 +132,7 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         super.serialize(writer);
         if(this.decisions && this.decisions.length != 0){        const decisionsArrValue: AccessReviewInstanceDecisionItemImpl[] = [];
         this.decisions?.forEach(element => {
-            decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element:new AccessReviewInstanceDecisionItemImpl(element)));
+            decisionsArrValue.push((element instanceof AccessReviewInstanceDecisionItemImpl? element as AccessReviewInstanceDecisionItemImpl:new AccessReviewInstanceDecisionItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItemImpl>("decisions", decisionsArrValue);
         }
@@ -141,13 +141,13 @@ export class AccessReviewStageImpl extends EntityImpl implements AccessReviewSta
         }
         if(this.fallbackReviewers && this.fallbackReviewers.length != 0){        const fallbackReviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.fallbackReviewers?.forEach(element => {
-            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            fallbackReviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("fallbackReviewers", fallbackReviewersArrValue);
         }
         if(this.reviewers && this.reviewers.length != 0){        const reviewersArrValue: AccessReviewReviewerScopeImpl[] = [];
         this.reviewers?.forEach(element => {
-            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element:new AccessReviewReviewerScopeImpl(element)));
+            reviewersArrValue.push((element instanceof AccessReviewReviewerScopeImpl? element as AccessReviewReviewerScopeImpl:new AccessReviewReviewerScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AccessReviewReviewerScopeImpl>("reviewers", reviewersArrValue);
         }

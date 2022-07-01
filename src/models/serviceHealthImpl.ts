@@ -49,7 +49,7 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
         if(value) {
             const issuesArrValue: ServiceHealthIssueImpl[] = [];
             this.issues?.forEach(element => {
-                issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element:new ServiceHealthIssueImpl(element)));
+                issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element as ServiceHealthIssueImpl:new ServiceHealthIssueImpl(element)));
             });
             this._issues = issuesArrValue;
         }
@@ -63,7 +63,7 @@ export class ServiceHealthImpl extends EntityImpl implements ServiceHealth {
         super.serialize(writer);
         if(this.issues && this.issues.length != 0){        const issuesArrValue: ServiceHealthIssueImpl[] = [];
         this.issues?.forEach(element => {
-            issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element:new ServiceHealthIssueImpl(element)));
+            issuesArrValue.push((element instanceof ServiceHealthIssueImpl? element as ServiceHealthIssueImpl:new ServiceHealthIssueImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceHealthIssueImpl>("issues", issuesArrValue);
         }

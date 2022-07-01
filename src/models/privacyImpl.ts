@@ -50,7 +50,7 @@ export class PrivacyImpl implements Privacy {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.subjectRightsRequests && this.subjectRightsRequests.length != 0){        const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = [];
         this.subjectRightsRequests?.forEach(element => {
-            subjectRightsRequestsArrValue.push((element instanceof SubjectRightsRequestImpl? element:new SubjectRightsRequestImpl(element)));
+            subjectRightsRequestsArrValue.push((element instanceof SubjectRightsRequestImpl? element as SubjectRightsRequestImpl:new SubjectRightsRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubjectRightsRequestImpl>("subjectRightsRequests", subjectRightsRequestsArrValue);
         }
@@ -71,7 +71,7 @@ export class PrivacyImpl implements Privacy {
         if(value) {
             const subjectRightsRequestsArrValue: SubjectRightsRequestImpl[] = [];
             this.subjectRightsRequests?.forEach(element => {
-                subjectRightsRequestsArrValue.push((element instanceof SubjectRightsRequestImpl? element:new SubjectRightsRequestImpl(element)));
+                subjectRightsRequestsArrValue.push((element instanceof SubjectRightsRequestImpl? element as SubjectRightsRequestImpl:new SubjectRightsRequestImpl(element)));
             });
             this._subjectRightsRequests = subjectRightsRequestsArrValue;
         }

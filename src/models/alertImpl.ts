@@ -150,7 +150,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const alertDetectionsArrValue: AlertDetectionImpl[] = [];
             this.alertDetections?.forEach(element => {
-                alertDetectionsArrValue.push((element instanceof AlertDetectionImpl? element:new AlertDetectionImpl(element)));
+                alertDetectionsArrValue.push((element instanceof AlertDetectionImpl? element as AlertDetectionImpl:new AlertDetectionImpl(element)));
             });
             this._alertDetections = alertDetectionsArrValue;
         }
@@ -250,7 +250,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const cloudAppStatesArrValue: CloudAppSecurityStateImpl[] = [];
             this.cloudAppStates?.forEach(element => {
-                cloudAppStatesArrValue.push((element instanceof CloudAppSecurityStateImpl? element:new CloudAppSecurityStateImpl(element)));
+                cloudAppStatesArrValue.push((element instanceof CloudAppSecurityStateImpl? element as CloudAppSecurityStateImpl:new CloudAppSecurityStateImpl(element)));
             });
             this._cloudAppStates = cloudAppStatesArrValue;
         }
@@ -428,7 +428,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const fileStatesArrValue: FileSecurityStateImpl[] = [];
             this.fileStates?.forEach(element => {
-                fileStatesArrValue.push((element instanceof FileSecurityStateImpl? element:new FileSecurityStateImpl(element)));
+                fileStatesArrValue.push((element instanceof FileSecurityStateImpl? element as FileSecurityStateImpl:new FileSecurityStateImpl(element)));
             });
             this._fileStates = fileStatesArrValue;
         }
@@ -495,7 +495,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const historyStatesArrValue: AlertHistoryStateImpl[] = [];
             this.historyStates?.forEach(element => {
-                historyStatesArrValue.push((element instanceof AlertHistoryStateImpl? element:new AlertHistoryStateImpl(element)));
+                historyStatesArrValue.push((element instanceof AlertHistoryStateImpl? element as AlertHistoryStateImpl:new AlertHistoryStateImpl(element)));
             });
             this._historyStates = historyStatesArrValue;
         }
@@ -515,7 +515,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const hostStatesArrValue: HostSecurityStateImpl[] = [];
             this.hostStates?.forEach(element => {
-                hostStatesArrValue.push((element instanceof HostSecurityStateImpl? element:new HostSecurityStateImpl(element)));
+                hostStatesArrValue.push((element instanceof HostSecurityStateImpl? element as HostSecurityStateImpl:new HostSecurityStateImpl(element)));
             });
             this._hostStates = hostStatesArrValue;
         }
@@ -551,7 +551,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const investigationSecurityStatesArrValue: InvestigationSecurityStateImpl[] = [];
             this.investigationSecurityStates?.forEach(element => {
-                investigationSecurityStatesArrValue.push((element instanceof InvestigationSecurityStateImpl? element:new InvestigationSecurityStateImpl(element)));
+                investigationSecurityStatesArrValue.push((element instanceof InvestigationSecurityStateImpl? element as InvestigationSecurityStateImpl:new InvestigationSecurityStateImpl(element)));
             });
             this._investigationSecurityStates = investigationSecurityStatesArrValue;
         }
@@ -603,7 +603,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const malwareStatesArrValue: MalwareStateImpl[] = [];
             this.malwareStates?.forEach(element => {
-                malwareStatesArrValue.push((element instanceof MalwareStateImpl? element:new MalwareStateImpl(element)));
+                malwareStatesArrValue.push((element instanceof MalwareStateImpl? element as MalwareStateImpl:new MalwareStateImpl(element)));
             });
             this._malwareStates = malwareStatesArrValue;
         }
@@ -623,7 +623,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const messageSecurityStatesArrValue: MessageSecurityStateImpl[] = [];
             this.messageSecurityStates?.forEach(element => {
-                messageSecurityStatesArrValue.push((element instanceof MessageSecurityStateImpl? element:new MessageSecurityStateImpl(element)));
+                messageSecurityStatesArrValue.push((element instanceof MessageSecurityStateImpl? element as MessageSecurityStateImpl:new MessageSecurityStateImpl(element)));
             });
             this._messageSecurityStates = messageSecurityStatesArrValue;
         }
@@ -643,7 +643,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const networkConnectionsArrValue: NetworkConnectionImpl[] = [];
             this.networkConnections?.forEach(element => {
-                networkConnectionsArrValue.push((element instanceof NetworkConnectionImpl? element:new NetworkConnectionImpl(element)));
+                networkConnectionsArrValue.push((element instanceof NetworkConnectionImpl? element as NetworkConnectionImpl:new NetworkConnectionImpl(element)));
             });
             this._networkConnections = networkConnectionsArrValue;
         }
@@ -663,7 +663,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const processesArrValue: ProcessImpl[] = [];
             this.processes?.forEach(element => {
-                processesArrValue.push((element instanceof ProcessImpl? element:new ProcessImpl(element)));
+                processesArrValue.push((element instanceof ProcessImpl? element as ProcessImpl:new ProcessImpl(element)));
             });
             this._processes = processesArrValue;
         }
@@ -699,7 +699,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const registryKeyStatesArrValue: RegistryKeyStateImpl[] = [];
             this.registryKeyStates?.forEach(element => {
-                registryKeyStatesArrValue.push((element instanceof RegistryKeyStateImpl? element:new RegistryKeyStateImpl(element)));
+                registryKeyStatesArrValue.push((element instanceof RegistryKeyStateImpl? element as RegistryKeyStateImpl:new RegistryKeyStateImpl(element)));
             });
             this._registryKeyStates = registryKeyStatesArrValue;
         }
@@ -719,7 +719,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const securityResourcesArrValue: SecurityResourceImpl[] = [];
             this.securityResources?.forEach(element => {
-                securityResourcesArrValue.push((element instanceof SecurityResourceImpl? element:new SecurityResourceImpl(element)));
+                securityResourcesArrValue.push((element instanceof SecurityResourceImpl? element as SecurityResourceImpl:new SecurityResourceImpl(element)));
             });
             this._securityResources = securityResourcesArrValue;
         }
@@ -736,7 +736,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.alertDetections && this.alertDetections.length != 0){        const alertDetectionsArrValue: AlertDetectionImpl[] = [];
         this.alertDetections?.forEach(element => {
-            alertDetectionsArrValue.push((element instanceof AlertDetectionImpl? element:new AlertDetectionImpl(element)));
+            alertDetectionsArrValue.push((element instanceof AlertDetectionImpl? element as AlertDetectionImpl:new AlertDetectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AlertDetectionImpl>("alertDetections", alertDetectionsArrValue);
         }
@@ -757,7 +757,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.cloudAppStates && this.cloudAppStates.length != 0){        const cloudAppStatesArrValue: CloudAppSecurityStateImpl[] = [];
         this.cloudAppStates?.forEach(element => {
-            cloudAppStatesArrValue.push((element instanceof CloudAppSecurityStateImpl? element:new CloudAppSecurityStateImpl(element)));
+            cloudAppStatesArrValue.push((element instanceof CloudAppSecurityStateImpl? element as CloudAppSecurityStateImpl:new CloudAppSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CloudAppSecurityStateImpl>("cloudAppStates", cloudAppStatesArrValue);
         }
@@ -784,19 +784,19 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.fileStates && this.fileStates.length != 0){        const fileStatesArrValue: FileSecurityStateImpl[] = [];
         this.fileStates?.forEach(element => {
-            fileStatesArrValue.push((element instanceof FileSecurityStateImpl? element:new FileSecurityStateImpl(element)));
+            fileStatesArrValue.push((element instanceof FileSecurityStateImpl? element as FileSecurityStateImpl:new FileSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<FileSecurityStateImpl>("fileStates", fileStatesArrValue);
         }
         if(this.historyStates && this.historyStates.length != 0){        const historyStatesArrValue: AlertHistoryStateImpl[] = [];
         this.historyStates?.forEach(element => {
-            historyStatesArrValue.push((element instanceof AlertHistoryStateImpl? element:new AlertHistoryStateImpl(element)));
+            historyStatesArrValue.push((element instanceof AlertHistoryStateImpl? element as AlertHistoryStateImpl:new AlertHistoryStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AlertHistoryStateImpl>("historyStates", historyStatesArrValue);
         }
         if(this.hostStates && this.hostStates.length != 0){        const hostStatesArrValue: HostSecurityStateImpl[] = [];
         this.hostStates?.forEach(element => {
-            hostStatesArrValue.push((element instanceof HostSecurityStateImpl? element:new HostSecurityStateImpl(element)));
+            hostStatesArrValue.push((element instanceof HostSecurityStateImpl? element as HostSecurityStateImpl:new HostSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<HostSecurityStateImpl>("hostStates", hostStatesArrValue);
         }
@@ -805,7 +805,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.investigationSecurityStates && this.investigationSecurityStates.length != 0){        const investigationSecurityStatesArrValue: InvestigationSecurityStateImpl[] = [];
         this.investigationSecurityStates?.forEach(element => {
-            investigationSecurityStatesArrValue.push((element instanceof InvestigationSecurityStateImpl? element:new InvestigationSecurityStateImpl(element)));
+            investigationSecurityStatesArrValue.push((element instanceof InvestigationSecurityStateImpl? element as InvestigationSecurityStateImpl:new InvestigationSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InvestigationSecurityStateImpl>("investigationSecurityStates", investigationSecurityStatesArrValue);
         }
@@ -817,25 +817,25 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.malwareStates && this.malwareStates.length != 0){        const malwareStatesArrValue: MalwareStateImpl[] = [];
         this.malwareStates?.forEach(element => {
-            malwareStatesArrValue.push((element instanceof MalwareStateImpl? element:new MalwareStateImpl(element)));
+            malwareStatesArrValue.push((element instanceof MalwareStateImpl? element as MalwareStateImpl:new MalwareStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MalwareStateImpl>("malwareStates", malwareStatesArrValue);
         }
         if(this.messageSecurityStates && this.messageSecurityStates.length != 0){        const messageSecurityStatesArrValue: MessageSecurityStateImpl[] = [];
         this.messageSecurityStates?.forEach(element => {
-            messageSecurityStatesArrValue.push((element instanceof MessageSecurityStateImpl? element:new MessageSecurityStateImpl(element)));
+            messageSecurityStatesArrValue.push((element instanceof MessageSecurityStateImpl? element as MessageSecurityStateImpl:new MessageSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MessageSecurityStateImpl>("messageSecurityStates", messageSecurityStatesArrValue);
         }
         if(this.networkConnections && this.networkConnections.length != 0){        const networkConnectionsArrValue: NetworkConnectionImpl[] = [];
         this.networkConnections?.forEach(element => {
-            networkConnectionsArrValue.push((element instanceof NetworkConnectionImpl? element:new NetworkConnectionImpl(element)));
+            networkConnectionsArrValue.push((element instanceof NetworkConnectionImpl? element as NetworkConnectionImpl:new NetworkConnectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<NetworkConnectionImpl>("networkConnections", networkConnectionsArrValue);
         }
         if(this.processes && this.processes.length != 0){        const processesArrValue: ProcessImpl[] = [];
         this.processes?.forEach(element => {
-            processesArrValue.push((element instanceof ProcessImpl? element:new ProcessImpl(element)));
+            processesArrValue.push((element instanceof ProcessImpl? element as ProcessImpl:new ProcessImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProcessImpl>("processes", processesArrValue);
         }
@@ -844,13 +844,13 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.registryKeyStates && this.registryKeyStates.length != 0){        const registryKeyStatesArrValue: RegistryKeyStateImpl[] = [];
         this.registryKeyStates?.forEach(element => {
-            registryKeyStatesArrValue.push((element instanceof RegistryKeyStateImpl? element:new RegistryKeyStateImpl(element)));
+            registryKeyStatesArrValue.push((element instanceof RegistryKeyStateImpl? element as RegistryKeyStateImpl:new RegistryKeyStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RegistryKeyStateImpl>("registryKeyStates", registryKeyStatesArrValue);
         }
         if(this.securityResources && this.securityResources.length != 0){        const securityResourcesArrValue: SecurityResourceImpl[] = [];
         this.securityResources?.forEach(element => {
-            securityResourcesArrValue.push((element instanceof SecurityResourceImpl? element:new SecurityResourceImpl(element)));
+            securityResourcesArrValue.push((element instanceof SecurityResourceImpl? element as SecurityResourceImpl:new SecurityResourceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SecurityResourceImpl>("securityResources", securityResourcesArrValue);
         }
@@ -871,28 +871,28 @@ export class AlertImpl extends EntityImpl implements Alert {
         }
         if(this.triggers && this.triggers.length != 0){        const triggersArrValue: AlertTriggerImpl[] = [];
         this.triggers?.forEach(element => {
-            triggersArrValue.push((element instanceof AlertTriggerImpl? element:new AlertTriggerImpl(element)));
+            triggersArrValue.push((element instanceof AlertTriggerImpl? element as AlertTriggerImpl:new AlertTriggerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AlertTriggerImpl>("triggers", triggersArrValue);
         }
         if(this.uriClickSecurityStates && this.uriClickSecurityStates.length != 0){        const uriClickSecurityStatesArrValue: UriClickSecurityStateImpl[] = [];
         this.uriClickSecurityStates?.forEach(element => {
-            uriClickSecurityStatesArrValue.push((element instanceof UriClickSecurityStateImpl? element:new UriClickSecurityStateImpl(element)));
+            uriClickSecurityStatesArrValue.push((element instanceof UriClickSecurityStateImpl? element as UriClickSecurityStateImpl:new UriClickSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UriClickSecurityStateImpl>("uriClickSecurityStates", uriClickSecurityStatesArrValue);
         }
         if(this.userStates && this.userStates.length != 0){        const userStatesArrValue: UserSecurityStateImpl[] = [];
         this.userStates?.forEach(element => {
-            userStatesArrValue.push((element instanceof UserSecurityStateImpl? element:new UserSecurityStateImpl(element)));
+            userStatesArrValue.push((element instanceof UserSecurityStateImpl? element as UserSecurityStateImpl:new UserSecurityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserSecurityStateImpl>("userStates", userStatesArrValue);
         }
         if(this.vendorInformation){
-            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", (!this.vendorInformation || this.vendorInformation instanceof SecurityVendorInformationImpl? this.vendorInformation : new SecurityVendorInformationImpl(this.vendorInformation)));
+            writer.writeObjectValue<SecurityVendorInformationImpl>("vendorInformation", (this.vendorInformation instanceof SecurityVendorInformationImpl? this.vendorInformation as SecurityVendorInformationImpl: new SecurityVendorInformationImpl(this.vendorInformation)));
         }
         if(this.vulnerabilityStates && this.vulnerabilityStates.length != 0){        const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = [];
         this.vulnerabilityStates?.forEach(element => {
-            vulnerabilityStatesArrValue.push((element instanceof VulnerabilityStateImpl? element:new VulnerabilityStateImpl(element)));
+            vulnerabilityStatesArrValue.push((element instanceof VulnerabilityStateImpl? element as VulnerabilityStateImpl:new VulnerabilityStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<VulnerabilityStateImpl>("vulnerabilityStates", vulnerabilityStatesArrValue);
         }
@@ -992,7 +992,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const triggersArrValue: AlertTriggerImpl[] = [];
             this.triggers?.forEach(element => {
-                triggersArrValue.push((element instanceof AlertTriggerImpl? element:new AlertTriggerImpl(element)));
+                triggersArrValue.push((element instanceof AlertTriggerImpl? element as AlertTriggerImpl:new AlertTriggerImpl(element)));
             });
             this._triggers = triggersArrValue;
         }
@@ -1012,7 +1012,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const uriClickSecurityStatesArrValue: UriClickSecurityStateImpl[] = [];
             this.uriClickSecurityStates?.forEach(element => {
-                uriClickSecurityStatesArrValue.push((element instanceof UriClickSecurityStateImpl? element:new UriClickSecurityStateImpl(element)));
+                uriClickSecurityStatesArrValue.push((element instanceof UriClickSecurityStateImpl? element as UriClickSecurityStateImpl:new UriClickSecurityStateImpl(element)));
             });
             this._uriClickSecurityStates = uriClickSecurityStatesArrValue;
         }
@@ -1032,7 +1032,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const userStatesArrValue: UserSecurityStateImpl[] = [];
             this.userStates?.forEach(element => {
-                userStatesArrValue.push((element instanceof UserSecurityStateImpl? element:new UserSecurityStateImpl(element)));
+                userStatesArrValue.push((element instanceof UserSecurityStateImpl? element as UserSecurityStateImpl:new UserSecurityStateImpl(element)));
             });
             this._userStates = userStatesArrValue;
         }
@@ -1050,7 +1050,7 @@ export class AlertImpl extends EntityImpl implements Alert {
      */
     public set vendorInformation(value: SecurityVendorInformation | undefined) {
         if(value) {
-            this._vendorInformation = value instanceof SecurityVendorInformationImpl? value : new SecurityVendorInformationImpl(value);
+            this._vendorInformation = value instanceof SecurityVendorInformationImpl? value as SecurityVendorInformationImpl: new SecurityVendorInformationImpl(value);
         }
     };
     /**
@@ -1068,7 +1068,7 @@ export class AlertImpl extends EntityImpl implements Alert {
         if(value) {
             const vulnerabilityStatesArrValue: VulnerabilityStateImpl[] = [];
             this.vulnerabilityStates?.forEach(element => {
-                vulnerabilityStatesArrValue.push((element instanceof VulnerabilityStateImpl? element:new VulnerabilityStateImpl(element)));
+                vulnerabilityStatesArrValue.push((element instanceof VulnerabilityStateImpl? element as VulnerabilityStateImpl:new VulnerabilityStateImpl(element)));
             });
             this._vulnerabilityStates = vulnerabilityStatesArrValue;
         }

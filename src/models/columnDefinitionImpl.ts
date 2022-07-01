@@ -38,7 +38,7 @@ import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition {
     /** This column stores boolean values. */
     private _boolean?: BooleanColumn | undefined;
@@ -117,7 +117,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set boolean(value: BooleanColumn | undefined) {
         if(value) {
-            this._boolean = value instanceof BooleanColumnImpl? value : new BooleanColumnImpl(value);
+            this._boolean = value instanceof BooleanColumnImpl? value as BooleanColumnImpl: new BooleanColumnImpl(value);
         }
     };
     /**
@@ -133,7 +133,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set calculated(value: CalculatedColumn | undefined) {
         if(value) {
-            this._calculated = value instanceof CalculatedColumnImpl? value : new CalculatedColumnImpl(value);
+            this._calculated = value instanceof CalculatedColumnImpl? value as CalculatedColumnImpl: new CalculatedColumnImpl(value);
         }
     };
     /**
@@ -149,7 +149,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set choice(value: ChoiceColumn | undefined) {
         if(value) {
-            this._choice = value instanceof ChoiceColumnImpl? value : new ChoiceColumnImpl(value);
+            this._choice = value instanceof ChoiceColumnImpl? value as ChoiceColumnImpl: new ChoiceColumnImpl(value);
         }
     };
     /**
@@ -220,7 +220,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set contentApprovalStatus(value: ContentApprovalStatusColumn | undefined) {
         if(value) {
-            this._contentApprovalStatus = value instanceof ContentApprovalStatusColumnImpl? value : new ContentApprovalStatusColumnImpl(value);
+            this._contentApprovalStatus = value instanceof ContentApprovalStatusColumnImpl? value as ContentApprovalStatusColumnImpl: new ContentApprovalStatusColumnImpl(value);
         }
     };
     /**
@@ -236,7 +236,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set currency(value: CurrencyColumn | undefined) {
         if(value) {
-            this._currency = value instanceof CurrencyColumnImpl? value : new CurrencyColumnImpl(value);
+            this._currency = value instanceof CurrencyColumnImpl? value as CurrencyColumnImpl: new CurrencyColumnImpl(value);
         }
     };
     /**
@@ -252,7 +252,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set dateTime(value: DateTimeColumn | undefined) {
         if(value) {
-            this._dateTime = value instanceof DateTimeColumnImpl? value : new DateTimeColumnImpl(value);
+            this._dateTime = value instanceof DateTimeColumnImpl? value as DateTimeColumnImpl: new DateTimeColumnImpl(value);
         }
     };
     /**
@@ -268,7 +268,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set defaultValue(value: DefaultColumnValue | undefined) {
         if(value) {
-            this._defaultValue = value instanceof DefaultColumnValueImpl? value : new DefaultColumnValueImpl(value);
+            this._defaultValue = value instanceof DefaultColumnValueImpl? value as DefaultColumnValueImpl: new DefaultColumnValueImpl(value);
         }
     };
     /**
@@ -332,7 +332,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set geolocation(value: GeolocationColumn | undefined) {
         if(value) {
-            this._geolocation = value instanceof GeolocationColumnImpl? value : new GeolocationColumnImpl(value);
+            this._geolocation = value instanceof GeolocationColumnImpl? value as GeolocationColumnImpl: new GeolocationColumnImpl(value);
         }
     };
     /**
@@ -404,7 +404,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set hyperlinkOrPicture(value: HyperlinkOrPictureColumn | undefined) {
         if(value) {
-            this._hyperlinkOrPicture = value instanceof HyperlinkOrPictureColumnImpl? value : new HyperlinkOrPictureColumnImpl(value);
+            this._hyperlinkOrPicture = value instanceof HyperlinkOrPictureColumnImpl? value as HyperlinkOrPictureColumnImpl: new HyperlinkOrPictureColumnImpl(value);
         }
     };
     /**
@@ -484,7 +484,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set lookup(value: LookupColumn | undefined) {
         if(value) {
-            this._lookup = value instanceof LookupColumnImpl? value : new LookupColumnImpl(value);
+            this._lookup = value instanceof LookupColumnImpl? value as LookupColumnImpl: new LookupColumnImpl(value);
         }
     };
     /**
@@ -516,7 +516,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set number(value: NumberColumn | undefined) {
         if(value) {
-            this._number = value instanceof NumberColumnImpl? value : new NumberColumnImpl(value);
+            this._number = value instanceof NumberColumnImpl? value as NumberColumnImpl: new NumberColumnImpl(value);
         }
     };
     /**
@@ -532,7 +532,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set personOrGroup(value: PersonOrGroupColumn | undefined) {
         if(value) {
-            this._personOrGroup = value instanceof PersonOrGroupColumnImpl? value : new PersonOrGroupColumnImpl(value);
+            this._personOrGroup = value instanceof PersonOrGroupColumnImpl? value as PersonOrGroupColumnImpl: new PersonOrGroupColumnImpl(value);
         }
     };
     /**
@@ -591,28 +591,28 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.boolean){
-            writer.writeObjectValue<BooleanColumnImpl>("boolean", (!this.boolean || this.boolean instanceof BooleanColumnImpl? this.boolean : new BooleanColumnImpl(this.boolean)));
+            writer.writeObjectValue<BooleanColumnImpl>("boolean", (this.boolean instanceof BooleanColumnImpl? this.boolean as BooleanColumnImpl: new BooleanColumnImpl(this.boolean)));
         }
         if(this.calculated){
-            writer.writeObjectValue<CalculatedColumnImpl>("calculated", (!this.calculated || this.calculated instanceof CalculatedColumnImpl? this.calculated : new CalculatedColumnImpl(this.calculated)));
+            writer.writeObjectValue<CalculatedColumnImpl>("calculated", (this.calculated instanceof CalculatedColumnImpl? this.calculated as CalculatedColumnImpl: new CalculatedColumnImpl(this.calculated)));
         }
         if(this.choice){
-            writer.writeObjectValue<ChoiceColumnImpl>("choice", (!this.choice || this.choice instanceof ChoiceColumnImpl? this.choice : new ChoiceColumnImpl(this.choice)));
+            writer.writeObjectValue<ChoiceColumnImpl>("choice", (this.choice instanceof ChoiceColumnImpl? this.choice as ChoiceColumnImpl: new ChoiceColumnImpl(this.choice)));
         }
         if(this.columnGroup){
             writer.writeStringValue("columnGroup", this.columnGroup);
         }
         if(this.contentApprovalStatus){
-            writer.writeObjectValue<ContentApprovalStatusColumnImpl>("contentApprovalStatus", (!this.contentApprovalStatus || this.contentApprovalStatus instanceof ContentApprovalStatusColumnImpl? this.contentApprovalStatus : new ContentApprovalStatusColumnImpl(this.contentApprovalStatus)));
+            writer.writeObjectValue<ContentApprovalStatusColumnImpl>("contentApprovalStatus", (this.contentApprovalStatus instanceof ContentApprovalStatusColumnImpl? this.contentApprovalStatus as ContentApprovalStatusColumnImpl: new ContentApprovalStatusColumnImpl(this.contentApprovalStatus)));
         }
         if(this.currency){
-            writer.writeObjectValue<CurrencyColumnImpl>("currency", (!this.currency || this.currency instanceof CurrencyColumnImpl? this.currency : new CurrencyColumnImpl(this.currency)));
+            writer.writeObjectValue<CurrencyColumnImpl>("currency", (this.currency instanceof CurrencyColumnImpl? this.currency as CurrencyColumnImpl: new CurrencyColumnImpl(this.currency)));
         }
         if(this.dateTime){
-            writer.writeObjectValue<DateTimeColumnImpl>("dateTime", (!this.dateTime || this.dateTime instanceof DateTimeColumnImpl? this.dateTime : new DateTimeColumnImpl(this.dateTime)));
+            writer.writeObjectValue<DateTimeColumnImpl>("dateTime", (this.dateTime instanceof DateTimeColumnImpl? this.dateTime as DateTimeColumnImpl: new DateTimeColumnImpl(this.dateTime)));
         }
         if(this.defaultValue){
-            writer.writeObjectValue<DefaultColumnValueImpl>("defaultValue", (!this.defaultValue || this.defaultValue instanceof DefaultColumnValueImpl? this.defaultValue : new DefaultColumnValueImpl(this.defaultValue)));
+            writer.writeObjectValue<DefaultColumnValueImpl>("defaultValue", (this.defaultValue instanceof DefaultColumnValueImpl? this.defaultValue as DefaultColumnValueImpl: new DefaultColumnValueImpl(this.defaultValue)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);
@@ -624,13 +624,13 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
             writer.writeBooleanValue("enforceUniqueValues", this.enforceUniqueValues);
         }
         if(this.geolocation){
-            writer.writeObjectValue<GeolocationColumnImpl>("geolocation", (!this.geolocation || this.geolocation instanceof GeolocationColumnImpl? this.geolocation : new GeolocationColumnImpl(this.geolocation)));
+            writer.writeObjectValue<GeolocationColumnImpl>("geolocation", (this.geolocation instanceof GeolocationColumnImpl? this.geolocation as GeolocationColumnImpl: new GeolocationColumnImpl(this.geolocation)));
         }
         if(this.hidden){
             writer.writeBooleanValue("hidden", this.hidden);
         }
         if(this.hyperlinkOrPicture){
-            writer.writeObjectValue<HyperlinkOrPictureColumnImpl>("hyperlinkOrPicture", (!this.hyperlinkOrPicture || this.hyperlinkOrPicture instanceof HyperlinkOrPictureColumnImpl? this.hyperlinkOrPicture : new HyperlinkOrPictureColumnImpl(this.hyperlinkOrPicture)));
+            writer.writeObjectValue<HyperlinkOrPictureColumnImpl>("hyperlinkOrPicture", (this.hyperlinkOrPicture instanceof HyperlinkOrPictureColumnImpl? this.hyperlinkOrPicture as HyperlinkOrPictureColumnImpl: new HyperlinkOrPictureColumnImpl(this.hyperlinkOrPicture)));
         }
         if(this.indexed){
             writer.writeBooleanValue("indexed", this.indexed);
@@ -645,16 +645,16 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
             writer.writeBooleanValue("isSealed", this.isSealed);
         }
         if(this.lookup){
-            writer.writeObjectValue<LookupColumnImpl>("lookup", (!this.lookup || this.lookup instanceof LookupColumnImpl? this.lookup : new LookupColumnImpl(this.lookup)));
+            writer.writeObjectValue<LookupColumnImpl>("lookup", (this.lookup instanceof LookupColumnImpl? this.lookup as LookupColumnImpl: new LookupColumnImpl(this.lookup)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);
         }
         if(this.number){
-            writer.writeObjectValue<NumberColumnImpl>("number", (!this.number || this.number instanceof NumberColumnImpl? this.number : new NumberColumnImpl(this.number)));
+            writer.writeObjectValue<NumberColumnImpl>("number", (this.number instanceof NumberColumnImpl? this.number as NumberColumnImpl: new NumberColumnImpl(this.number)));
         }
         if(this.personOrGroup){
-            writer.writeObjectValue<PersonOrGroupColumnImpl>("personOrGroup", (!this.personOrGroup || this.personOrGroup instanceof PersonOrGroupColumnImpl? this.personOrGroup : new PersonOrGroupColumnImpl(this.personOrGroup)));
+            writer.writeObjectValue<PersonOrGroupColumnImpl>("personOrGroup", (this.personOrGroup instanceof PersonOrGroupColumnImpl? this.personOrGroup as PersonOrGroupColumnImpl: new PersonOrGroupColumnImpl(this.personOrGroup)));
         }
         if(this.propagateChanges){
             writer.writeBooleanValue("propagateChanges", this.propagateChanges);
@@ -666,25 +666,25 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
             writer.writeBooleanValue("required", this.required);
         }
         if(this.sourceColumn){
-            writer.writeObjectValue<ColumnDefinitionImpl>("sourceColumn", (!this.sourceColumn || this.sourceColumn instanceof ColumnDefinitionImpl? this.sourceColumn : new ColumnDefinitionImpl(this.sourceColumn)));
+            writer.writeObjectValue<ColumnDefinitionImpl>("sourceColumn", (this.sourceColumn instanceof ColumnDefinitionImpl? this.sourceColumn as ColumnDefinitionImpl: new ColumnDefinitionImpl(this.sourceColumn)));
         }
         if(this.sourceContentType){
-            writer.writeObjectValue<ContentTypeInfoImpl>("sourceContentType", (!this.sourceContentType || this.sourceContentType instanceof ContentTypeInfoImpl? this.sourceContentType : new ContentTypeInfoImpl(this.sourceContentType)));
+            writer.writeObjectValue<ContentTypeInfoImpl>("sourceContentType", (this.sourceContentType instanceof ContentTypeInfoImpl? this.sourceContentType as ContentTypeInfoImpl: new ContentTypeInfoImpl(this.sourceContentType)));
         }
         if(this.term){
-            writer.writeObjectValue<TermColumnImpl>("term", (!this.term || this.term instanceof TermColumnImpl? this.term : new TermColumnImpl(this.term)));
+            writer.writeObjectValue<TermColumnImpl>("term", (this.term instanceof TermColumnImpl? this.term as TermColumnImpl: new TermColumnImpl(this.term)));
         }
         if(this.text){
-            writer.writeObjectValue<TextColumnImpl>("text", (!this.text || this.text instanceof TextColumnImpl? this.text : new TextColumnImpl(this.text)));
+            writer.writeObjectValue<TextColumnImpl>("text", (this.text instanceof TextColumnImpl? this.text as TextColumnImpl: new TextColumnImpl(this.text)));
         }
         if(this.thumbnail){
-            writer.writeObjectValue<ThumbnailColumnImpl>("thumbnail", (!this.thumbnail || this.thumbnail instanceof ThumbnailColumnImpl? this.thumbnail : new ThumbnailColumnImpl(this.thumbnail)));
+            writer.writeObjectValue<ThumbnailColumnImpl>("thumbnail", (this.thumbnail instanceof ThumbnailColumnImpl? this.thumbnail as ThumbnailColumnImpl: new ThumbnailColumnImpl(this.thumbnail)));
         }
         if(this.type){
             writer.writeEnumValue<ColumnTypes>("type", this.type);
         }
         if(this.validation){
-            writer.writeObjectValue<ColumnValidationImpl>("validation", (!this.validation || this.validation instanceof ColumnValidationImpl? this.validation : new ColumnValidationImpl(this.validation)));
+            writer.writeObjectValue<ColumnValidationImpl>("validation", (this.validation instanceof ColumnValidationImpl? this.validation as ColumnValidationImpl: new ColumnValidationImpl(this.validation)));
         }
     };
     /**
@@ -700,7 +700,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set sourceColumn(value: ColumnDefinition | undefined) {
         if(value) {
-            this._sourceColumn = value instanceof ColumnDefinitionImpl? value : new ColumnDefinitionImpl(value);
+            this._sourceColumn = value instanceof ColumnDefinitionImpl? value as ColumnDefinitionImpl: new ColumnDefinitionImpl(value);
         }
     };
     /**
@@ -716,7 +716,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set sourceContentType(value: ContentTypeInfo | undefined) {
         if(value) {
-            this._sourceContentType = value instanceof ContentTypeInfoImpl? value : new ContentTypeInfoImpl(value);
+            this._sourceContentType = value instanceof ContentTypeInfoImpl? value as ContentTypeInfoImpl: new ContentTypeInfoImpl(value);
         }
     };
     /**
@@ -732,7 +732,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set term(value: TermColumn | undefined) {
         if(value) {
-            this._term = value instanceof TermColumnImpl? value : new TermColumnImpl(value);
+            this._term = value instanceof TermColumnImpl? value as TermColumnImpl: new TermColumnImpl(value);
         }
     };
     /**
@@ -748,7 +748,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set text(value: TextColumn | undefined) {
         if(value) {
-            this._text = value instanceof TextColumnImpl? value : new TextColumnImpl(value);
+            this._text = value instanceof TextColumnImpl? value as TextColumnImpl: new TextColumnImpl(value);
         }
     };
     /**
@@ -764,7 +764,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set thumbnail(value: ThumbnailColumn | undefined) {
         if(value) {
-            this._thumbnail = value instanceof ThumbnailColumnImpl? value : new ThumbnailColumnImpl(value);
+            this._thumbnail = value instanceof ThumbnailColumnImpl? value as ThumbnailColumnImpl: new ThumbnailColumnImpl(value);
         }
     };
     /**
@@ -796,7 +796,7 @@ export class ColumnDefinitionImpl extends EntityImpl implements ColumnDefinition
      */
     public set validation(value: ColumnValidation | undefined) {
         if(value) {
-            this._validation = value instanceof ColumnValidationImpl? value : new ColumnValidationImpl(value);
+            this._validation = value instanceof ColumnValidationImpl? value as ColumnValidationImpl: new ColumnValidationImpl(value);
         }
     };
 }

@@ -110,7 +110,7 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
      */
     public set reviewedBy(value: Identity | undefined) {
         if(value) {
-            this._reviewedBy = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._reviewedBy = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -162,7 +162,7 @@ export class ApprovalStageImpl extends EntityImpl implements ApprovalStage {
             writer.writeStringValue("justification", this.justification);
         }
         if(this.reviewedBy){
-            writer.writeObjectValue<IdentityImpl>("reviewedBy", (!this.reviewedBy || this.reviewedBy instanceof IdentityImpl? this.reviewedBy : new IdentityImpl(this.reviewedBy)));
+            writer.writeObjectValue<IdentityImpl>("reviewedBy", (this.reviewedBy instanceof IdentityImpl? this.reviewedBy as IdentityImpl: new IdentityImpl(this.reviewedBy)));
         }
         if(this.reviewedDateTime){
             writer.writeDateValue("reviewedDateTime", this.reviewedDateTime);

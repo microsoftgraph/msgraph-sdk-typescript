@@ -119,13 +119,13 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
             writer.writeStringValue("type", this.type);
         }
         if(this.value){
-            writer.writeObjectValue<JsonImpl>("value", (!this.value || this.value instanceof JsonImpl? this.value : new JsonImpl(this.value)));
+            writer.writeObjectValue<JsonImpl>("value", (this.value instanceof JsonImpl? this.value as JsonImpl: new JsonImpl(this.value)));
         }
         if(this.visible){
             writer.writeBooleanValue("visible", this.visible);
         }
         if(this.worksheet){
-            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (!this.worksheet || this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet : new WorkbookWorksheetImpl(this.worksheet)));
+            writer.writeObjectValue<WorkbookWorksheetImpl>("worksheet", (this.worksheet instanceof WorkbookWorksheetImpl? this.worksheet as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(this.worksheet)));
         }
     };
     /**
@@ -157,7 +157,7 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
      */
     public set value(value: Json | undefined) {
         if(value) {
-            this._value = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._value = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -189,7 +189,7 @@ export class WorkbookNamedItemImpl extends EntityImpl implements WorkbookNamedIt
      */
     public set worksheet(value: WorkbookWorksheet | undefined) {
         if(value) {
-            this._worksheet = value instanceof WorkbookWorksheetImpl? value : new WorkbookWorksheetImpl(value);
+            this._worksheet = value instanceof WorkbookWorksheetImpl? value as WorkbookWorksheetImpl: new WorkbookWorksheetImpl(value);
         }
     };
 }

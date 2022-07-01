@@ -51,7 +51,7 @@ export class GetApplicableContentTypesForListWithListIdResponseImpl implements G
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ContentTypeImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+            valueArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class GetApplicableContentTypesForListWithListIdResponseImpl implements G
         if(value) {
             const valueArrValue: ContentTypeImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+                valueArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
             });
             this._value = valueArrValue;
         }

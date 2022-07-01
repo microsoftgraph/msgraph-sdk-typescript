@@ -76,7 +76,7 @@ export class CreateReplyAllPostRequestBodyImpl implements CreateReplyAllPostRequ
      */
     public set message(value: Message | undefined) {
         if(value) {
-            this._message = value instanceof MessageImpl? value : new MessageImpl(value);
+            this._message = value instanceof MessageImpl? value as MessageImpl: new MessageImpl(value);
         }
     };
     /**
@@ -89,7 +89,7 @@ export class CreateReplyAllPostRequestBodyImpl implements CreateReplyAllPostRequ
             writer.writeStringValue("comment", this.comment);
         }
         if(this.message){
-            writer.writeObjectValue<MessageImpl>("message", (!this.message || this.message instanceof MessageImpl? this.message : new MessageImpl(this.message)));
+            writer.writeObjectValue<MessageImpl>("message", (this.message instanceof MessageImpl? this.message as MessageImpl: new MessageImpl(this.message)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

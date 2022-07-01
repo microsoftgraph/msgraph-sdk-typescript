@@ -73,7 +73,7 @@ export class InternalDomainFederationCollectionResponseImpl implements InternalD
         }
         if(this.value && this.value.length != 0){        const valueArrValue: InternalDomainFederationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof InternalDomainFederationImpl? element:new InternalDomainFederationImpl(element)));
+            valueArrValue.push((element instanceof InternalDomainFederationImpl? element as InternalDomainFederationImpl:new InternalDomainFederationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InternalDomainFederationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class InternalDomainFederationCollectionResponseImpl implements InternalD
         if(value) {
             const valueArrValue: InternalDomainFederationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof InternalDomainFederationImpl? element:new InternalDomainFederationImpl(element)));
+                valueArrValue.push((element instanceof InternalDomainFederationImpl? element as InternalDomainFederationImpl:new InternalDomainFederationImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -76,7 +76,7 @@ export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
      */
     public set parentReference(value: ItemReference | undefined) {
         if(value) {
-            this._parentReference = value instanceof ItemReferenceImpl? value : new ItemReferenceImpl(value);
+            this._parentReference = value instanceof ItemReferenceImpl? value as ItemReferenceImpl: new ItemReferenceImpl(value);
         }
     };
     /**
@@ -89,7 +89,7 @@ export class RestorePostRequestBodyImpl implements RestorePostRequestBody {
             writer.writeStringValue("name", this.name);
         }
         if(this.parentReference){
-            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (!this.parentReference || this.parentReference instanceof ItemReferenceImpl? this.parentReference : new ItemReferenceImpl(this.parentReference)));
+            writer.writeObjectValue<ItemReferenceImpl>("parentReference", (this.parentReference instanceof ItemReferenceImpl? this.parentReference as ItemReferenceImpl: new ItemReferenceImpl(this.parentReference)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

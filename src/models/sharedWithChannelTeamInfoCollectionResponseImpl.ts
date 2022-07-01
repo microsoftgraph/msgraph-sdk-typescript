@@ -73,7 +73,7 @@ export class SharedWithChannelTeamInfoCollectionResponseImpl implements SharedWi
         }
         if(this.value && this.value.length != 0){        const valueArrValue: SharedWithChannelTeamInfoImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element:new SharedWithChannelTeamInfoImpl(element)));
+            valueArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element as SharedWithChannelTeamInfoImpl:new SharedWithChannelTeamInfoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfoImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class SharedWithChannelTeamInfoCollectionResponseImpl implements SharedWi
         if(value) {
             const valueArrValue: SharedWithChannelTeamInfoImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element:new SharedWithChannelTeamInfoImpl(element)));
+                valueArrValue.push((element instanceof SharedWithChannelTeamInfoImpl? element as SharedWithChannelTeamInfoImpl:new SharedWithChannelTeamInfoImpl(element)));
             });
             this._value = valueArrValue;
         }

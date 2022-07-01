@@ -73,7 +73,7 @@ export class MultiValueLegacyExtendedPropertyCollectionResponseImpl implements M
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+            valueArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedPropertyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MultiValueLegacyExtendedPropertyCollectionResponseImpl implements M
         if(value) {
             const valueArrValue: MultiValueLegacyExtendedPropertyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element:new MultiValueLegacyExtendedPropertyImpl(element)));
+                valueArrValue.push((element instanceof MultiValueLegacyExtendedPropertyImpl? element as MultiValueLegacyExtendedPropertyImpl:new MultiValueLegacyExtendedPropertyImpl(element)));
             });
             this._value = valueArrValue;
         }

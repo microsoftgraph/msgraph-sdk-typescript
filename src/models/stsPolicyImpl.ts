@@ -26,7 +26,7 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
         if(value) {
             const appliesToArrValue: DirectoryObjectImpl[] = [];
             this.appliesTo?.forEach(element => {
-                appliesToArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                appliesToArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._appliesTo = appliesToArrValue;
         }
@@ -93,7 +93,7 @@ export class StsPolicyImpl extends PolicyBaseImpl implements StsPolicy {
         super.serialize(writer);
         if(this.appliesTo && this.appliesTo.length != 0){        const appliesToArrValue: DirectoryObjectImpl[] = [];
         this.appliesTo?.forEach(element => {
-            appliesToArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            appliesToArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("appliesTo", appliesToArrValue);
         }

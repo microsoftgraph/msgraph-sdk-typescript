@@ -8,7 +8,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Casts the previous resource to group. */
 export class RelationImpl extends EntityImpl implements Relation {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     private _fromTerm?: Term | undefined;
@@ -42,7 +42,7 @@ export class RelationImpl extends EntityImpl implements Relation {
      */
     public set fromTerm(value: Term | undefined) {
         if(value) {
-            this._fromTerm = value instanceof TermImpl? value : new TermImpl(value);
+            this._fromTerm = value instanceof TermImpl? value as TermImpl: new TermImpl(value);
         }
     };
     /**
@@ -81,16 +81,16 @@ export class RelationImpl extends EntityImpl implements Relation {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.fromTerm){
-            writer.writeObjectValue<TermImpl>("fromTerm", (!this.fromTerm || this.fromTerm instanceof TermImpl? this.fromTerm : new TermImpl(this.fromTerm)));
+            writer.writeObjectValue<TermImpl>("fromTerm", (this.fromTerm instanceof TermImpl? this.fromTerm as TermImpl: new TermImpl(this.fromTerm)));
         }
         if(this.relationship){
             writer.writeEnumValue<RelationType>("relationship", this.relationship);
         }
         if(this.set){
-            writer.writeObjectValue<SetImpl>("set", (!this.set || this.set instanceof SetImpl? this.set : new SetImpl(this.set)));
+            writer.writeObjectValue<SetImpl>("set", (this.set instanceof SetImpl? this.set as SetImpl: new SetImpl(this.set)));
         }
         if(this.toTerm){
-            writer.writeObjectValue<TermImpl>("toTerm", (!this.toTerm || this.toTerm instanceof TermImpl? this.toTerm : new TermImpl(this.toTerm)));
+            writer.writeObjectValue<TermImpl>("toTerm", (this.toTerm instanceof TermImpl? this.toTerm as TermImpl: new TermImpl(this.toTerm)));
         }
     };
     /**
@@ -106,7 +106,7 @@ export class RelationImpl extends EntityImpl implements Relation {
      */
     public set set(value: Set | undefined) {
         if(value) {
-            this._set = value instanceof SetImpl? value : new SetImpl(value);
+            this._set = value instanceof SetImpl? value as SetImpl: new SetImpl(value);
         }
     };
     /**
@@ -122,7 +122,7 @@ export class RelationImpl extends EntityImpl implements Relation {
      */
     public set toTerm(value: Term | undefined) {
         if(value) {
-            this._toTerm = value instanceof TermImpl? value : new TermImpl(value);
+            this._toTerm = value instanceof TermImpl? value as TermImpl: new TermImpl(value);
         }
     };
 }

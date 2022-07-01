@@ -73,7 +73,7 @@ export class PermissionCollectionResponseImpl implements PermissionCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PermissionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+            valueArrValue.push((element instanceof PermissionImpl? element as PermissionImpl:new PermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PermissionCollectionResponseImpl implements PermissionCollectionRes
         if(value) {
             const valueArrValue: PermissionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PermissionImpl? element:new PermissionImpl(element)));
+                valueArrValue.push((element instanceof PermissionImpl? element as PermissionImpl:new PermissionImpl(element)));
             });
             this._value = valueArrValue;
         }

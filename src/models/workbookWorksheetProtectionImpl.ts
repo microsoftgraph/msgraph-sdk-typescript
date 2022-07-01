@@ -42,7 +42,7 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
      */
     public set options(value: WorkbookWorksheetProtectionOptions | undefined) {
         if(value) {
-            this._options = value instanceof WorkbookWorksheetProtectionOptionsImpl? value : new WorkbookWorksheetProtectionOptionsImpl(value);
+            this._options = value instanceof WorkbookWorksheetProtectionOptionsImpl? value as WorkbookWorksheetProtectionOptionsImpl: new WorkbookWorksheetProtectionOptionsImpl(value);
         }
     };
     /**
@@ -69,7 +69,7 @@ export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Workb
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.options){
-            writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", (!this.options || this.options instanceof WorkbookWorksheetProtectionOptionsImpl? this.options : new WorkbookWorksheetProtectionOptionsImpl(this.options)));
+            writer.writeObjectValue<WorkbookWorksheetProtectionOptionsImpl>("options", (this.options instanceof WorkbookWorksheetProtectionOptionsImpl? this.options as WorkbookWorksheetProtectionOptionsImpl: new WorkbookWorksheetProtectionOptionsImpl(this.options)));
         }
         if(this.protected){
             writer.writeBooleanValue("protected", this.protected);

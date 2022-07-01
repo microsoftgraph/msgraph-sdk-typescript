@@ -51,7 +51,7 @@ export class AssignResponseImpl implements AssignResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element:new DeviceCompliancePolicyAssignmentImpl(element)));
+            valueArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element as DeviceCompliancePolicyAssignmentImpl:new DeviceCompliancePolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignmentImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class AssignResponseImpl implements AssignResponse {
         if(value) {
             const valueArrValue: DeviceCompliancePolicyAssignmentImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element:new DeviceCompliancePolicyAssignmentImpl(element)));
+                valueArrValue.push((element instanceof DeviceCompliancePolicyAssignmentImpl? element as DeviceCompliancePolicyAssignmentImpl:new DeviceCompliancePolicyAssignmentImpl(element)));
             });
             this._value = valueArrValue;
         }

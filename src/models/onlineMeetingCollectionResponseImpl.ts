@@ -73,7 +73,7 @@ export class OnlineMeetingCollectionResponseImpl implements OnlineMeetingCollect
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnlineMeetingImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OnlineMeetingImpl? element:new OnlineMeetingImpl(element)));
+            valueArrValue.push((element instanceof OnlineMeetingImpl? element as OnlineMeetingImpl:new OnlineMeetingImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnlineMeetingImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OnlineMeetingCollectionResponseImpl implements OnlineMeetingCollect
         if(value) {
             const valueArrValue: OnlineMeetingImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OnlineMeetingImpl? element:new OnlineMeetingImpl(element)));
+                valueArrValue.push((element instanceof OnlineMeetingImpl? element as OnlineMeetingImpl:new OnlineMeetingImpl(element)));
             });
             this._value = valueArrValue;
         }

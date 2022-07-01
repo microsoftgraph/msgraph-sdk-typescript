@@ -73,7 +73,7 @@ export class ChatCollectionResponseImpl implements ChatCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChatImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ChatImpl? element:new ChatImpl(element)));
+            valueArrValue.push((element instanceof ChatImpl? element as ChatImpl:new ChatImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ChatCollectionResponseImpl implements ChatCollectionResponse {
         if(value) {
             const valueArrValue: ChatImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ChatImpl? element:new ChatImpl(element)));
+                valueArrValue.push((element instanceof ChatImpl? element as ChatImpl:new ChatImpl(element)));
             });
             this._value = valueArrValue;
         }

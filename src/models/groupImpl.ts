@@ -189,7 +189,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const acceptedSendersArrValue: DirectoryObjectImpl[] = [];
             this.acceptedSenders?.forEach(element => {
-                acceptedSendersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                acceptedSendersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._acceptedSenders = acceptedSendersArrValue;
         }
@@ -225,7 +225,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = [];
             this.appRoleAssignments?.forEach(element => {
-                appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+                appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
             });
             this._appRoleAssignments = appRoleAssignmentsArrValue;
         }
@@ -245,7 +245,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const assignedLabelsArrValue: AssignedLabelImpl[] = [];
             this.assignedLabels?.forEach(element => {
-                assignedLabelsArrValue.push((element instanceof AssignedLabelImpl? element:new AssignedLabelImpl(element)));
+                assignedLabelsArrValue.push((element instanceof AssignedLabelImpl? element as AssignedLabelImpl:new AssignedLabelImpl(element)));
             });
             this._assignedLabels = assignedLabelsArrValue;
         }
@@ -265,7 +265,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const assignedLicensesArrValue: AssignedLicenseImpl[] = [];
             this.assignedLicenses?.forEach(element => {
-                assignedLicensesArrValue.push((element instanceof AssignedLicenseImpl? element:new AssignedLicenseImpl(element)));
+                assignedLicensesArrValue.push((element instanceof AssignedLicenseImpl? element as AssignedLicenseImpl:new AssignedLicenseImpl(element)));
             });
             this._assignedLicenses = assignedLicensesArrValue;
         }
@@ -299,7 +299,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set calendar(value: Calendar | undefined) {
         if(value) {
-            this._calendar = value instanceof CalendarImpl? value : new CalendarImpl(value);
+            this._calendar = value instanceof CalendarImpl? value as CalendarImpl: new CalendarImpl(value);
         }
     };
     /**
@@ -317,7 +317,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const calendarViewArrValue: EventImpl[] = [];
             this.calendarView?.forEach(element => {
-                calendarViewArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+                calendarViewArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
             });
             this._calendarView = calendarViewArrValue;
         }
@@ -425,7 +425,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const conversationsArrValue: ConversationImpl[] = [];
             this.conversations?.forEach(element => {
-                conversationsArrValue.push((element instanceof ConversationImpl? element:new ConversationImpl(element)));
+                conversationsArrValue.push((element instanceof ConversationImpl? element as ConversationImpl:new ConversationImpl(element)));
             });
             this._conversations = conversationsArrValue;
         }
@@ -459,7 +459,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
         if(value) {
-            this._createdOnBehalfOf = value instanceof DirectoryObjectImpl? value : new DirectoryObjectImpl(value);
+            this._createdOnBehalfOf = value instanceof DirectoryObjectImpl? value as DirectoryObjectImpl: new DirectoryObjectImpl(value);
         }
     };
     /**
@@ -507,7 +507,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set drive(value: Drive | undefined) {
         if(value) {
-            this._drive = value instanceof DriveImpl? value : new DriveImpl(value);
+            this._drive = value instanceof DriveImpl? value as DriveImpl: new DriveImpl(value);
         }
     };
     /**
@@ -525,7 +525,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const drivesArrValue: DriveImpl[] = [];
             this.drives?.forEach(element => {
-                drivesArrValue.push((element instanceof DriveImpl? element:new DriveImpl(element)));
+                drivesArrValue.push((element instanceof DriveImpl? element as DriveImpl:new DriveImpl(element)));
             });
             this._drives = drivesArrValue;
         }
@@ -545,7 +545,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const eventsArrValue: EventImpl[] = [];
             this.events?.forEach(element => {
-                eventsArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+                eventsArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
             });
             this._events = eventsArrValue;
         }
@@ -581,7 +581,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const extensionsArrValue: ExtensionImpl[] = [];
             this.extensions?.forEach(element => {
-                extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+                extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
             });
             this._extensions = extensionsArrValue;
         }
@@ -674,7 +674,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const groupLifecyclePoliciesArrValue: GroupLifecyclePolicyImpl[] = [];
             this.groupLifecyclePolicies?.forEach(element => {
-                groupLifecyclePoliciesArrValue.push((element instanceof GroupLifecyclePolicyImpl? element:new GroupLifecyclePolicyImpl(element)));
+                groupLifecyclePoliciesArrValue.push((element instanceof GroupLifecyclePolicyImpl? element as GroupLifecyclePolicyImpl:new GroupLifecyclePolicyImpl(element)));
             });
             this._groupLifecyclePolicies = groupLifecyclePoliciesArrValue;
         }
@@ -804,7 +804,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set licenseProcessingState(value: LicenseProcessingState | undefined) {
         if(value) {
-            this._licenseProcessingState = value instanceof LicenseProcessingStateImpl? value : new LicenseProcessingStateImpl(value);
+            this._licenseProcessingState = value instanceof LicenseProcessingStateImpl? value as LicenseProcessingStateImpl: new LicenseProcessingStateImpl(value);
         }
     };
     /**
@@ -870,7 +870,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const memberOfArrValue: DirectoryObjectImpl[] = [];
             this.memberOf?.forEach(element => {
-                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._memberOf = memberOfArrValue;
         }
@@ -890,7 +890,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const membersArrValue: DirectoryObjectImpl[] = [];
             this.members?.forEach(element => {
-                membersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                membersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._members = membersArrValue;
         }
@@ -942,7 +942,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const membersWithLicenseErrorsArrValue: DirectoryObjectImpl[] = [];
             this.membersWithLicenseErrors?.forEach(element => {
-                membersWithLicenseErrorsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                membersWithLicenseErrorsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._membersWithLicenseErrors = membersWithLicenseErrorsArrValue;
         }
@@ -960,7 +960,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set onenote(value: Onenote | undefined) {
         if(value) {
-            this._onenote = value instanceof OnenoteImpl? value : new OnenoteImpl(value);
+            this._onenote = value instanceof OnenoteImpl? value as OnenoteImpl: new OnenoteImpl(value);
         }
     };
     /**
@@ -1026,7 +1026,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = [];
             this.onPremisesProvisioningErrors?.forEach(element => {
-                onPremisesProvisioningErrorsArrValue.push((element instanceof OnPremisesProvisioningErrorImpl? element:new OnPremisesProvisioningErrorImpl(element)));
+                onPremisesProvisioningErrorsArrValue.push((element instanceof OnPremisesProvisioningErrorImpl? element as OnPremisesProvisioningErrorImpl:new OnPremisesProvisioningErrorImpl(element)));
             });
             this._onPremisesProvisioningErrors = onPremisesProvisioningErrorsArrValue;
         }
@@ -1094,7 +1094,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const ownersArrValue: DirectoryObjectImpl[] = [];
             this.owners?.forEach(element => {
-                ownersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                ownersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._owners = ownersArrValue;
         }
@@ -1114,7 +1114,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const permissionGrantsArrValue: ResourceSpecificPermissionGrantImpl[] = [];
             this.permissionGrants?.forEach(element => {
-                permissionGrantsArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+                permissionGrantsArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element as ResourceSpecificPermissionGrantImpl:new ResourceSpecificPermissionGrantImpl(element)));
             });
             this._permissionGrants = permissionGrantsArrValue;
         }
@@ -1132,7 +1132,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set photo(value: ProfilePhoto | undefined) {
         if(value) {
-            this._photo = value instanceof ProfilePhotoImpl? value : new ProfilePhotoImpl(value);
+            this._photo = value instanceof ProfilePhotoImpl? value as ProfilePhotoImpl: new ProfilePhotoImpl(value);
         }
     };
     /**
@@ -1150,7 +1150,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const photosArrValue: ProfilePhotoImpl[] = [];
             this.photos?.forEach(element => {
-                photosArrValue.push((element instanceof ProfilePhotoImpl? element:new ProfilePhotoImpl(element)));
+                photosArrValue.push((element instanceof ProfilePhotoImpl? element as ProfilePhotoImpl:new ProfilePhotoImpl(element)));
             });
             this._photos = photosArrValue;
         }
@@ -1168,7 +1168,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set planner(value: PlannerGroup | undefined) {
         if(value) {
-            this._planner = value instanceof PlannerGroupImpl? value : new PlannerGroupImpl(value);
+            this._planner = value instanceof PlannerGroupImpl? value as PlannerGroupImpl: new PlannerGroupImpl(value);
         }
     };
     /**
@@ -1234,7 +1234,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const rejectedSendersArrValue: DirectoryObjectImpl[] = [];
             this.rejectedSenders?.forEach(element => {
-                rejectedSendersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                rejectedSendersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._rejectedSenders = rejectedSendersArrValue;
         }
@@ -1296,7 +1296,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         super.serialize(writer);
         if(this.acceptedSenders && this.acceptedSenders.length != 0){        const acceptedSendersArrValue: DirectoryObjectImpl[] = [];
         this.acceptedSenders?.forEach(element => {
-            acceptedSendersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            acceptedSendersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("acceptedSenders", acceptedSendersArrValue);
         }
@@ -1305,19 +1305,19 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = [];
         this.appRoleAssignments?.forEach(element => {
-            appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+            appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
         }
         if(this.assignedLabels && this.assignedLabels.length != 0){        const assignedLabelsArrValue: AssignedLabelImpl[] = [];
         this.assignedLabels?.forEach(element => {
-            assignedLabelsArrValue.push((element instanceof AssignedLabelImpl? element:new AssignedLabelImpl(element)));
+            assignedLabelsArrValue.push((element instanceof AssignedLabelImpl? element as AssignedLabelImpl:new AssignedLabelImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AssignedLabelImpl>("assignedLabels", assignedLabelsArrValue);
         }
         if(this.assignedLicenses && this.assignedLicenses.length != 0){        const assignedLicensesArrValue: AssignedLicenseImpl[] = [];
         this.assignedLicenses?.forEach(element => {
-            assignedLicensesArrValue.push((element instanceof AssignedLicenseImpl? element:new AssignedLicenseImpl(element)));
+            assignedLicensesArrValue.push((element instanceof AssignedLicenseImpl? element as AssignedLicenseImpl:new AssignedLicenseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AssignedLicenseImpl>("assignedLicenses", assignedLicensesArrValue);
         }
@@ -1325,11 +1325,11 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
             writer.writeBooleanValue("autoSubscribeNewMembers", this.autoSubscribeNewMembers);
         }
         if(this.calendar){
-            writer.writeObjectValue<CalendarImpl>("calendar", (!this.calendar || this.calendar instanceof CalendarImpl? this.calendar : new CalendarImpl(this.calendar)));
+            writer.writeObjectValue<CalendarImpl>("calendar", (this.calendar instanceof CalendarImpl? this.calendar as CalendarImpl: new CalendarImpl(this.calendar)));
         }
         if(this.calendarView && this.calendarView.length != 0){        const calendarViewArrValue: EventImpl[] = [];
         this.calendarView?.forEach(element => {
-            calendarViewArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            calendarViewArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EventImpl>("calendarView", calendarViewArrValue);
         }
@@ -1338,7 +1338,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.conversations && this.conversations.length != 0){        const conversationsArrValue: ConversationImpl[] = [];
         this.conversations?.forEach(element => {
-            conversationsArrValue.push((element instanceof ConversationImpl? element:new ConversationImpl(element)));
+            conversationsArrValue.push((element instanceof ConversationImpl? element as ConversationImpl:new ConversationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationImpl>("conversations", conversationsArrValue);
         }
@@ -1346,7 +1346,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.createdOnBehalfOf){
-            writer.writeObjectValue<DirectoryObjectImpl>("createdOnBehalfOf", (!this.createdOnBehalfOf || this.createdOnBehalfOf instanceof DirectoryObjectImpl? this.createdOnBehalfOf : new DirectoryObjectImpl(this.createdOnBehalfOf)));
+            writer.writeObjectValue<DirectoryObjectImpl>("createdOnBehalfOf", (this.createdOnBehalfOf instanceof DirectoryObjectImpl? this.createdOnBehalfOf as DirectoryObjectImpl: new DirectoryObjectImpl(this.createdOnBehalfOf)));
         }
         if(this.description){
             writer.writeStringValue("description", this.description);
@@ -1355,17 +1355,17 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-            writer.writeObjectValue<DriveImpl>("drive", (!this.drive || this.drive instanceof DriveImpl? this.drive : new DriveImpl(this.drive)));
+            writer.writeObjectValue<DriveImpl>("drive", (this.drive instanceof DriveImpl? this.drive as DriveImpl: new DriveImpl(this.drive)));
         }
         if(this.drives && this.drives.length != 0){        const drivesArrValue: DriveImpl[] = [];
         this.drives?.forEach(element => {
-            drivesArrValue.push((element instanceof DriveImpl? element:new DriveImpl(element)));
+            drivesArrValue.push((element instanceof DriveImpl? element as DriveImpl:new DriveImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveImpl>("drives", drivesArrValue);
         }
         if(this.events && this.events.length != 0){        const eventsArrValue: EventImpl[] = [];
         this.events?.forEach(element => {
-            eventsArrValue.push((element instanceof EventImpl? element:new EventImpl(element)));
+            eventsArrValue.push((element instanceof EventImpl? element as EventImpl:new EventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EventImpl>("events", eventsArrValue);
         }
@@ -1374,13 +1374,13 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.extensions && this.extensions.length != 0){        const extensionsArrValue: ExtensionImpl[] = [];
         this.extensions?.forEach(element => {
-            extensionsArrValue.push((element instanceof ExtensionImpl? element:new ExtensionImpl(element)));
+            extensionsArrValue.push((element instanceof ExtensionImpl? element as ExtensionImpl:new ExtensionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ExtensionImpl>("extensions", extensionsArrValue);
         }
         if(this.groupLifecyclePolicies && this.groupLifecyclePolicies.length != 0){        const groupLifecyclePoliciesArrValue: GroupLifecyclePolicyImpl[] = [];
         this.groupLifecyclePolicies?.forEach(element => {
-            groupLifecyclePoliciesArrValue.push((element instanceof GroupLifecyclePolicyImpl? element:new GroupLifecyclePolicyImpl(element)));
+            groupLifecyclePoliciesArrValue.push((element instanceof GroupLifecyclePolicyImpl? element as GroupLifecyclePolicyImpl:new GroupLifecyclePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupLifecyclePolicyImpl>("groupLifecyclePolicies", groupLifecyclePoliciesArrValue);
         }
@@ -1406,7 +1406,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
             writer.writeBooleanValue("isSubscribedByMail", this.isSubscribedByMail);
         }
         if(this.licenseProcessingState){
-            writer.writeObjectValue<LicenseProcessingStateImpl>("licenseProcessingState", (!this.licenseProcessingState || this.licenseProcessingState instanceof LicenseProcessingStateImpl? this.licenseProcessingState : new LicenseProcessingStateImpl(this.licenseProcessingState)));
+            writer.writeObjectValue<LicenseProcessingStateImpl>("licenseProcessingState", (this.licenseProcessingState instanceof LicenseProcessingStateImpl? this.licenseProcessingState as LicenseProcessingStateImpl: new LicenseProcessingStateImpl(this.licenseProcessingState)));
         }
         if(this.mail){
             writer.writeStringValue("mail", this.mail);
@@ -1419,13 +1419,13 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = [];
         this.memberOf?.forEach(element => {
-            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
         if(this.members && this.members.length != 0){        const membersArrValue: DirectoryObjectImpl[] = [];
         this.members?.forEach(element => {
-            membersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            membersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("members", membersArrValue);
         }
@@ -1437,12 +1437,12 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.membersWithLicenseErrors && this.membersWithLicenseErrors.length != 0){        const membersWithLicenseErrorsArrValue: DirectoryObjectImpl[] = [];
         this.membersWithLicenseErrors?.forEach(element => {
-            membersWithLicenseErrorsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            membersWithLicenseErrorsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("membersWithLicenseErrors", membersWithLicenseErrorsArrValue);
         }
         if(this.onenote){
-            writer.writeObjectValue<OnenoteImpl>("onenote", (!this.onenote || this.onenote instanceof OnenoteImpl? this.onenote : new OnenoteImpl(this.onenote)));
+            writer.writeObjectValue<OnenoteImpl>("onenote", (this.onenote instanceof OnenoteImpl? this.onenote as OnenoteImpl: new OnenoteImpl(this.onenote)));
         }
         if(this.onPremisesDomainName){
             writer.writeStringValue("onPremisesDomainName", this.onPremisesDomainName);
@@ -1455,7 +1455,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.onPremisesProvisioningErrors && this.onPremisesProvisioningErrors.length != 0){        const onPremisesProvisioningErrorsArrValue: OnPremisesProvisioningErrorImpl[] = [];
         this.onPremisesProvisioningErrors?.forEach(element => {
-            onPremisesProvisioningErrorsArrValue.push((element instanceof OnPremisesProvisioningErrorImpl? element:new OnPremisesProvisioningErrorImpl(element)));
+            onPremisesProvisioningErrorsArrValue.push((element instanceof OnPremisesProvisioningErrorImpl? element as OnPremisesProvisioningErrorImpl:new OnPremisesProvisioningErrorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnPremisesProvisioningErrorImpl>("onPremisesProvisioningErrors", onPremisesProvisioningErrorsArrValue);
         }
@@ -1470,27 +1470,27 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = [];
         this.owners?.forEach(element => {
-            ownersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            ownersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
         if(this.permissionGrants && this.permissionGrants.length != 0){        const permissionGrantsArrValue: ResourceSpecificPermissionGrantImpl[] = [];
         this.permissionGrants?.forEach(element => {
-            permissionGrantsArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element:new ResourceSpecificPermissionGrantImpl(element)));
+            permissionGrantsArrValue.push((element instanceof ResourceSpecificPermissionGrantImpl? element as ResourceSpecificPermissionGrantImpl:new ResourceSpecificPermissionGrantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrantImpl>("permissionGrants", permissionGrantsArrValue);
         }
         if(this.photo){
-            writer.writeObjectValue<ProfilePhotoImpl>("photo", (!this.photo || this.photo instanceof ProfilePhotoImpl? this.photo : new ProfilePhotoImpl(this.photo)));
+            writer.writeObjectValue<ProfilePhotoImpl>("photo", (this.photo instanceof ProfilePhotoImpl? this.photo as ProfilePhotoImpl: new ProfilePhotoImpl(this.photo)));
         }
         if(this.photos && this.photos.length != 0){        const photosArrValue: ProfilePhotoImpl[] = [];
         this.photos?.forEach(element => {
-            photosArrValue.push((element instanceof ProfilePhotoImpl? element:new ProfilePhotoImpl(element)));
+            photosArrValue.push((element instanceof ProfilePhotoImpl? element as ProfilePhotoImpl:new ProfilePhotoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("photos", photosArrValue);
         }
         if(this.planner){
-            writer.writeObjectValue<PlannerGroupImpl>("planner", (!this.planner || this.planner instanceof PlannerGroupImpl? this.planner : new PlannerGroupImpl(this.planner)));
+            writer.writeObjectValue<PlannerGroupImpl>("planner", (this.planner instanceof PlannerGroupImpl? this.planner as PlannerGroupImpl: new PlannerGroupImpl(this.planner)));
         }
         if(this.preferredDataLocation){
             writer.writeStringValue("preferredDataLocation", this.preferredDataLocation);
@@ -1503,7 +1503,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.rejectedSenders && this.rejectedSenders.length != 0){        const rejectedSendersArrValue: DirectoryObjectImpl[] = [];
         this.rejectedSenders?.forEach(element => {
-            rejectedSendersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            rejectedSendersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("rejectedSenders", rejectedSendersArrValue);
         }
@@ -1518,37 +1518,37 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         }
         if(this.settings && this.settings.length != 0){        const settingsArrValue: GroupSettingImpl[] = [];
         this.settings?.forEach(element => {
-            settingsArrValue.push((element instanceof GroupSettingImpl? element:new GroupSettingImpl(element)));
+            settingsArrValue.push((element instanceof GroupSettingImpl? element as GroupSettingImpl:new GroupSettingImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupSettingImpl>("settings", settingsArrValue);
         }
         if(this.sites && this.sites.length != 0){        const sitesArrValue: SiteImpl[] = [];
         this.sites?.forEach(element => {
-            sitesArrValue.push((element instanceof SiteImpl? element:new SiteImpl(element)));
+            sitesArrValue.push((element instanceof SiteImpl? element as SiteImpl:new SiteImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SiteImpl>("sites", sitesArrValue);
         }
         if(this.team){
-            writer.writeObjectValue<TeamImpl>("team", (!this.team || this.team instanceof TeamImpl? this.team : new TeamImpl(this.team)));
+            writer.writeObjectValue<TeamImpl>("team", (this.team instanceof TeamImpl? this.team as TeamImpl: new TeamImpl(this.team)));
         }
         if(this.theme){
             writer.writeStringValue("theme", this.theme);
         }
         if(this.threads && this.threads.length != 0){        const threadsArrValue: ConversationThreadImpl[] = [];
         this.threads?.forEach(element => {
-            threadsArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+            threadsArrValue.push((element instanceof ConversationThreadImpl? element as ConversationThreadImpl:new ConversationThreadImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationThreadImpl>("threads", threadsArrValue);
         }
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
         this.transitiveMemberOf?.forEach(element => {
-            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
         if(this.transitiveMembers && this.transitiveMembers.length != 0){        const transitiveMembersArrValue: DirectoryObjectImpl[] = [];
         this.transitiveMembers?.forEach(element => {
-            transitiveMembersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            transitiveMembersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMembers", transitiveMembersArrValue);
         }
@@ -1574,7 +1574,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const settingsArrValue: GroupSettingImpl[] = [];
             this.settings?.forEach(element => {
-                settingsArrValue.push((element instanceof GroupSettingImpl? element:new GroupSettingImpl(element)));
+                settingsArrValue.push((element instanceof GroupSettingImpl? element as GroupSettingImpl:new GroupSettingImpl(element)));
             });
             this._settings = settingsArrValue;
         }
@@ -1594,7 +1594,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const sitesArrValue: SiteImpl[] = [];
             this.sites?.forEach(element => {
-                sitesArrValue.push((element instanceof SiteImpl? element:new SiteImpl(element)));
+                sitesArrValue.push((element instanceof SiteImpl? element as SiteImpl:new SiteImpl(element)));
             });
             this._sites = sitesArrValue;
         }
@@ -1612,7 +1612,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
      */
     public set team(value: Team | undefined) {
         if(value) {
-            this._team = value instanceof TeamImpl? value : new TeamImpl(value);
+            this._team = value instanceof TeamImpl? value as TeamImpl: new TeamImpl(value);
         }
     };
     /**
@@ -1646,7 +1646,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const threadsArrValue: ConversationThreadImpl[] = [];
             this.threads?.forEach(element => {
-                threadsArrValue.push((element instanceof ConversationThreadImpl? element:new ConversationThreadImpl(element)));
+                threadsArrValue.push((element instanceof ConversationThreadImpl? element as ConversationThreadImpl:new ConversationThreadImpl(element)));
             });
             this._threads = threadsArrValue;
         }
@@ -1666,7 +1666,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
             this.transitiveMemberOf?.forEach(element => {
-                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._transitiveMemberOf = transitiveMemberOfArrValue;
         }
@@ -1686,7 +1686,7 @@ export class GroupImpl extends DirectoryObjectImpl implements Group {
         if(value) {
             const transitiveMembersArrValue: DirectoryObjectImpl[] = [];
             this.transitiveMembers?.forEach(element => {
-                transitiveMembersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                transitiveMembersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._transitiveMembers = transitiveMembersArrValue;
         }

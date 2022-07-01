@@ -73,7 +73,7 @@ export class BookingBusinessCollectionResponseImpl implements BookingBusinessCol
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingBusinessImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingBusinessImpl? element:new BookingBusinessImpl(element)));
+            valueArrValue.push((element instanceof BookingBusinessImpl? element as BookingBusinessImpl:new BookingBusinessImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingBusinessImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingBusinessCollectionResponseImpl implements BookingBusinessCol
         if(value) {
             const valueArrValue: BookingBusinessImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingBusinessImpl? element:new BookingBusinessImpl(element)));
+                valueArrValue.push((element instanceof BookingBusinessImpl? element as BookingBusinessImpl:new BookingBusinessImpl(element)));
             });
             this._value = valueArrValue;
         }

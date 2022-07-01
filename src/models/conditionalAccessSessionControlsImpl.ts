@@ -52,7 +52,7 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
      */
     public set applicationEnforcedRestrictions(value: ApplicationEnforcedRestrictionsSessionControl | undefined) {
         if(value) {
-            this._applicationEnforcedRestrictions = value instanceof ApplicationEnforcedRestrictionsSessionControlImpl? value : new ApplicationEnforcedRestrictionsSessionControlImpl(value);
+            this._applicationEnforcedRestrictions = value instanceof ApplicationEnforcedRestrictionsSessionControlImpl? value as ApplicationEnforcedRestrictionsSessionControlImpl: new ApplicationEnforcedRestrictionsSessionControlImpl(value);
         }
     };
     /**
@@ -68,7 +68,7 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
      */
     public set cloudAppSecurity(value: CloudAppSecuritySessionControl | undefined) {
         if(value) {
-            this._cloudAppSecurity = value instanceof CloudAppSecuritySessionControlImpl? value : new CloudAppSecuritySessionControlImpl(value);
+            this._cloudAppSecurity = value instanceof CloudAppSecuritySessionControlImpl? value as CloudAppSecuritySessionControlImpl: new CloudAppSecuritySessionControlImpl(value);
         }
     };
     /**
@@ -125,7 +125,7 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
      */
     public set persistentBrowser(value: PersistentBrowserSessionControl | undefined) {
         if(value) {
-            this._persistentBrowser = value instanceof PersistentBrowserSessionControlImpl? value : new PersistentBrowserSessionControlImpl(value);
+            this._persistentBrowser = value instanceof PersistentBrowserSessionControlImpl? value as PersistentBrowserSessionControlImpl: new PersistentBrowserSessionControlImpl(value);
         }
     };
     /**
@@ -135,19 +135,19 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.applicationEnforcedRestrictions){
-            writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControlImpl>("applicationEnforcedRestrictions", (!this.applicationEnforcedRestrictions || this.applicationEnforcedRestrictions instanceof ApplicationEnforcedRestrictionsSessionControlImpl? this.applicationEnforcedRestrictions : new ApplicationEnforcedRestrictionsSessionControlImpl(this.applicationEnforcedRestrictions)));
+            writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControlImpl>("applicationEnforcedRestrictions", (this.applicationEnforcedRestrictions instanceof ApplicationEnforcedRestrictionsSessionControlImpl? this.applicationEnforcedRestrictions as ApplicationEnforcedRestrictionsSessionControlImpl: new ApplicationEnforcedRestrictionsSessionControlImpl(this.applicationEnforcedRestrictions)));
         }
         if(this.cloudAppSecurity){
-            writer.writeObjectValue<CloudAppSecuritySessionControlImpl>("cloudAppSecurity", (!this.cloudAppSecurity || this.cloudAppSecurity instanceof CloudAppSecuritySessionControlImpl? this.cloudAppSecurity : new CloudAppSecuritySessionControlImpl(this.cloudAppSecurity)));
+            writer.writeObjectValue<CloudAppSecuritySessionControlImpl>("cloudAppSecurity", (this.cloudAppSecurity instanceof CloudAppSecuritySessionControlImpl? this.cloudAppSecurity as CloudAppSecuritySessionControlImpl: new CloudAppSecuritySessionControlImpl(this.cloudAppSecurity)));
         }
         if(this.disableResilienceDefaults){
             writer.writeBooleanValue("disableResilienceDefaults", this.disableResilienceDefaults);
         }
         if(this.persistentBrowser){
-            writer.writeObjectValue<PersistentBrowserSessionControlImpl>("persistentBrowser", (!this.persistentBrowser || this.persistentBrowser instanceof PersistentBrowserSessionControlImpl? this.persistentBrowser : new PersistentBrowserSessionControlImpl(this.persistentBrowser)));
+            writer.writeObjectValue<PersistentBrowserSessionControlImpl>("persistentBrowser", (this.persistentBrowser instanceof PersistentBrowserSessionControlImpl? this.persistentBrowser as PersistentBrowserSessionControlImpl: new PersistentBrowserSessionControlImpl(this.persistentBrowser)));
         }
         if(this.signInFrequency){
-            writer.writeObjectValue<SignInFrequencySessionControlImpl>("signInFrequency", (!this.signInFrequency || this.signInFrequency instanceof SignInFrequencySessionControlImpl? this.signInFrequency : new SignInFrequencySessionControlImpl(this.signInFrequency)));
+            writer.writeObjectValue<SignInFrequencySessionControlImpl>("signInFrequency", (this.signInFrequency instanceof SignInFrequencySessionControlImpl? this.signInFrequency as SignInFrequencySessionControlImpl: new SignInFrequencySessionControlImpl(this.signInFrequency)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -164,7 +164,7 @@ export class ConditionalAccessSessionControlsImpl implements ConditionalAccessSe
      */
     public set signInFrequency(value: SignInFrequencySessionControl | undefined) {
         if(value) {
-            this._signInFrequency = value instanceof SignInFrequencySessionControlImpl? value : new SignInFrequencySessionControlImpl(value);
+            this._signInFrequency = value instanceof SignInFrequencySessionControlImpl? value as SignInFrequencySessionControlImpl: new SignInFrequencySessionControlImpl(value);
         }
     };
 }

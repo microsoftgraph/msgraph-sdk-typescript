@@ -42,7 +42,7 @@ export class EventMessageResponseImpl extends EventMessageImpl implements EventM
      */
     public set proposedNewTime(value: TimeSlot | undefined) {
         if(value) {
-            this._proposedNewTime = value instanceof TimeSlotImpl? value : new TimeSlotImpl(value);
+            this._proposedNewTime = value instanceof TimeSlotImpl? value as TimeSlotImpl: new TimeSlotImpl(value);
         }
     };
     /**
@@ -69,7 +69,7 @@ export class EventMessageResponseImpl extends EventMessageImpl implements EventM
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.proposedNewTime){
-            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (!this.proposedNewTime || this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime : new TimeSlotImpl(this.proposedNewTime)));
+            writer.writeObjectValue<TimeSlotImpl>("proposedNewTime", (this.proposedNewTime instanceof TimeSlotImpl? this.proposedNewTime as TimeSlotImpl: new TimeSlotImpl(this.proposedNewTime)));
         }
         if(this.responseType){
             writer.writeEnumValue<ResponseType>("responseType", this.responseType);

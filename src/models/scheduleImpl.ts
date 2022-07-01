@@ -145,7 +145,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = [];
             this.offerShiftRequests?.forEach(element => {
-                offerShiftRequestsArrValue.push((element instanceof OfferShiftRequestImpl? element:new OfferShiftRequestImpl(element)));
+                offerShiftRequestsArrValue.push((element instanceof OfferShiftRequestImpl? element as OfferShiftRequestImpl:new OfferShiftRequestImpl(element)));
             });
             this._offerShiftRequests = offerShiftRequestsArrValue;
         }
@@ -181,7 +181,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = [];
             this.openShiftChangeRequests?.forEach(element => {
-                openShiftChangeRequestsArrValue.push((element instanceof OpenShiftChangeRequestImpl? element:new OpenShiftChangeRequestImpl(element)));
+                openShiftChangeRequestsArrValue.push((element instanceof OpenShiftChangeRequestImpl? element as OpenShiftChangeRequestImpl:new OpenShiftChangeRequestImpl(element)));
             });
             this._openShiftChangeRequests = openShiftChangeRequestsArrValue;
         }
@@ -201,7 +201,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const openShiftsArrValue: OpenShiftImpl[] = [];
             this.openShifts?.forEach(element => {
-                openShiftsArrValue.push((element instanceof OpenShiftImpl? element:new OpenShiftImpl(element)));
+                openShiftsArrValue.push((element instanceof OpenShiftImpl? element as OpenShiftImpl:new OpenShiftImpl(element)));
             });
             this._openShifts = openShiftsArrValue;
         }
@@ -269,7 +269,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const schedulingGroupsArrValue: SchedulingGroupImpl[] = [];
             this.schedulingGroups?.forEach(element => {
-                schedulingGroupsArrValue.push((element instanceof SchedulingGroupImpl? element:new SchedulingGroupImpl(element)));
+                schedulingGroupsArrValue.push((element instanceof SchedulingGroupImpl? element as SchedulingGroupImpl:new SchedulingGroupImpl(element)));
             });
             this._schedulingGroups = schedulingGroupsArrValue;
         }
@@ -286,7 +286,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         }
         if(this.offerShiftRequests && this.offerShiftRequests.length != 0){        const offerShiftRequestsArrValue: OfferShiftRequestImpl[] = [];
         this.offerShiftRequests?.forEach(element => {
-            offerShiftRequestsArrValue.push((element instanceof OfferShiftRequestImpl? element:new OfferShiftRequestImpl(element)));
+            offerShiftRequestsArrValue.push((element instanceof OfferShiftRequestImpl? element as OfferShiftRequestImpl:new OfferShiftRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("offerShiftRequests", offerShiftRequestsArrValue);
         }
@@ -295,13 +295,13 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         }
         if(this.openShiftChangeRequests && this.openShiftChangeRequests.length != 0){        const openShiftChangeRequestsArrValue: OpenShiftChangeRequestImpl[] = [];
         this.openShiftChangeRequests?.forEach(element => {
-            openShiftChangeRequestsArrValue.push((element instanceof OpenShiftChangeRequestImpl? element:new OpenShiftChangeRequestImpl(element)));
+            openShiftChangeRequestsArrValue.push((element instanceof OpenShiftChangeRequestImpl? element as OpenShiftChangeRequestImpl:new OpenShiftChangeRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OpenShiftChangeRequestImpl>("openShiftChangeRequests", openShiftChangeRequestsArrValue);
         }
         if(this.openShifts && this.openShifts.length != 0){        const openShiftsArrValue: OpenShiftImpl[] = [];
         this.openShifts?.forEach(element => {
-            openShiftsArrValue.push((element instanceof OpenShiftImpl? element:new OpenShiftImpl(element)));
+            openShiftsArrValue.push((element instanceof OpenShiftImpl? element as OpenShiftImpl:new OpenShiftImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OpenShiftImpl>("openShifts", openShiftsArrValue);
         }
@@ -316,19 +316,19 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         }
         if(this.schedulingGroups && this.schedulingGroups.length != 0){        const schedulingGroupsArrValue: SchedulingGroupImpl[] = [];
         this.schedulingGroups?.forEach(element => {
-            schedulingGroupsArrValue.push((element instanceof SchedulingGroupImpl? element:new SchedulingGroupImpl(element)));
+            schedulingGroupsArrValue.push((element instanceof SchedulingGroupImpl? element as SchedulingGroupImpl:new SchedulingGroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SchedulingGroupImpl>("schedulingGroups", schedulingGroupsArrValue);
         }
         if(this.shifts && this.shifts.length != 0){        const shiftsArrValue: ShiftImpl[] = [];
         this.shifts?.forEach(element => {
-            shiftsArrValue.push((element instanceof ShiftImpl? element:new ShiftImpl(element)));
+            shiftsArrValue.push((element instanceof ShiftImpl? element as ShiftImpl:new ShiftImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ShiftImpl>("shifts", shiftsArrValue);
         }
         if(this.swapShiftsChangeRequests && this.swapShiftsChangeRequests.length != 0){        const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = [];
         this.swapShiftsChangeRequests?.forEach(element => {
-            swapShiftsChangeRequestsArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element:new SwapShiftsChangeRequestImpl(element)));
+            swapShiftsChangeRequestsArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element as SwapShiftsChangeRequestImpl:new SwapShiftsChangeRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SwapShiftsChangeRequestImpl>("swapShiftsChangeRequests", swapShiftsChangeRequestsArrValue);
         }
@@ -340,13 +340,13 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         }
         if(this.timeOffReasons && this.timeOffReasons.length != 0){        const timeOffReasonsArrValue: TimeOffReasonImpl[] = [];
         this.timeOffReasons?.forEach(element => {
-            timeOffReasonsArrValue.push((element instanceof TimeOffReasonImpl? element:new TimeOffReasonImpl(element)));
+            timeOffReasonsArrValue.push((element instanceof TimeOffReasonImpl? element as TimeOffReasonImpl:new TimeOffReasonImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeOffReasonImpl>("timeOffReasons", timeOffReasonsArrValue);
         }
         if(this.timeOffRequests && this.timeOffRequests.length != 0){        const timeOffRequestsArrValue: TimeOffRequestImpl[] = [];
         this.timeOffRequests?.forEach(element => {
-            timeOffRequestsArrValue.push((element instanceof TimeOffRequestImpl? element:new TimeOffRequestImpl(element)));
+            timeOffRequestsArrValue.push((element instanceof TimeOffRequestImpl? element as TimeOffRequestImpl:new TimeOffRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeOffRequestImpl>("timeOffRequests", timeOffRequestsArrValue);
         }
@@ -355,7 +355,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         }
         if(this.timesOff && this.timesOff.length != 0){        const timesOffArrValue: TimeOffImpl[] = [];
         this.timesOff?.forEach(element => {
-            timesOffArrValue.push((element instanceof TimeOffImpl? element:new TimeOffImpl(element)));
+            timesOffArrValue.push((element instanceof TimeOffImpl? element as TimeOffImpl:new TimeOffImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TimeOffImpl>("timesOff", timesOffArrValue);
         }
@@ -381,7 +381,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const shiftsArrValue: ShiftImpl[] = [];
             this.shifts?.forEach(element => {
-                shiftsArrValue.push((element instanceof ShiftImpl? element:new ShiftImpl(element)));
+                shiftsArrValue.push((element instanceof ShiftImpl? element as ShiftImpl:new ShiftImpl(element)));
             });
             this._shifts = shiftsArrValue;
         }
@@ -401,7 +401,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const swapShiftsChangeRequestsArrValue: SwapShiftsChangeRequestImpl[] = [];
             this.swapShiftsChangeRequests?.forEach(element => {
-                swapShiftsChangeRequestsArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element:new SwapShiftsChangeRequestImpl(element)));
+                swapShiftsChangeRequestsArrValue.push((element instanceof SwapShiftsChangeRequestImpl? element as SwapShiftsChangeRequestImpl:new SwapShiftsChangeRequestImpl(element)));
             });
             this._swapShiftsChangeRequests = swapShiftsChangeRequestsArrValue;
         }
@@ -453,7 +453,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const timeOffReasonsArrValue: TimeOffReasonImpl[] = [];
             this.timeOffReasons?.forEach(element => {
-                timeOffReasonsArrValue.push((element instanceof TimeOffReasonImpl? element:new TimeOffReasonImpl(element)));
+                timeOffReasonsArrValue.push((element instanceof TimeOffReasonImpl? element as TimeOffReasonImpl:new TimeOffReasonImpl(element)));
             });
             this._timeOffReasons = timeOffReasonsArrValue;
         }
@@ -473,7 +473,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const timeOffRequestsArrValue: TimeOffRequestImpl[] = [];
             this.timeOffRequests?.forEach(element => {
-                timeOffRequestsArrValue.push((element instanceof TimeOffRequestImpl? element:new TimeOffRequestImpl(element)));
+                timeOffRequestsArrValue.push((element instanceof TimeOffRequestImpl? element as TimeOffRequestImpl:new TimeOffRequestImpl(element)));
             });
             this._timeOffRequests = timeOffRequestsArrValue;
         }
@@ -509,7 +509,7 @@ export class ScheduleImpl extends EntityImpl implements Schedule {
         if(value) {
             const timesOffArrValue: TimeOffImpl[] = [];
             this.timesOff?.forEach(element => {
-                timesOffArrValue.push((element instanceof TimeOffImpl? element:new TimeOffImpl(element)));
+                timesOffArrValue.push((element instanceof TimeOffImpl? element as TimeOffImpl:new TimeOffImpl(element)));
             });
             this._timesOff = timesOffArrValue;
         }

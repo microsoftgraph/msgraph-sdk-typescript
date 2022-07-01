@@ -73,7 +73,7 @@ export class IdentityApiConnectorCollectionResponseImpl implements IdentityApiCo
         }
         if(this.value && this.value.length != 0){        const valueArrValue: IdentityApiConnectorImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof IdentityApiConnectorImpl? element:new IdentityApiConnectorImpl(element)));
+            valueArrValue.push((element instanceof IdentityApiConnectorImpl? element as IdentityApiConnectorImpl:new IdentityApiConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentityApiConnectorImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class IdentityApiConnectorCollectionResponseImpl implements IdentityApiCo
         if(value) {
             const valueArrValue: IdentityApiConnectorImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof IdentityApiConnectorImpl? element:new IdentityApiConnectorImpl(element)));
+                valueArrValue.push((element instanceof IdentityApiConnectorImpl? element as IdentityApiConnectorImpl:new IdentityApiConnectorImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -17,7 +17,7 @@ import {PlannerTask} from './plannerTask';
 import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
     /** Number of checklist items with value set to false, representing incomplete items. */
     private _activeChecklistItemCount?: number | undefined;
@@ -98,7 +98,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set appliedCategories(value: PlannerAppliedCategories | undefined) {
         if(value) {
-            this._appliedCategories = value instanceof PlannerAppliedCategoriesImpl? value : new PlannerAppliedCategoriesImpl(value);
+            this._appliedCategories = value instanceof PlannerAppliedCategoriesImpl? value as PlannerAppliedCategoriesImpl: new PlannerAppliedCategoriesImpl(value);
         }
     };
     /**
@@ -114,7 +114,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set assignedToTaskBoardFormat(value: PlannerAssignedToTaskBoardTaskFormat | undefined) {
         if(value) {
-            this._assignedToTaskBoardFormat = value instanceof PlannerAssignedToTaskBoardTaskFormatImpl? value : new PlannerAssignedToTaskBoardTaskFormatImpl(value);
+            this._assignedToTaskBoardFormat = value instanceof PlannerAssignedToTaskBoardTaskFormatImpl? value as PlannerAssignedToTaskBoardTaskFormatImpl: new PlannerAssignedToTaskBoardTaskFormatImpl(value);
         }
     };
     /**
@@ -146,7 +146,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set assignments(value: PlannerAssignments | undefined) {
         if(value) {
-            this._assignments = value instanceof PlannerAssignmentsImpl? value : new PlannerAssignmentsImpl(value);
+            this._assignments = value instanceof PlannerAssignmentsImpl? value as PlannerAssignmentsImpl: new PlannerAssignmentsImpl(value);
         }
     };
     /**
@@ -178,7 +178,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set bucketTaskBoardFormat(value: PlannerBucketTaskBoardTaskFormat | undefined) {
         if(value) {
-            this._bucketTaskBoardFormat = value instanceof PlannerBucketTaskBoardTaskFormatImpl? value : new PlannerBucketTaskBoardTaskFormatImpl(value);
+            this._bucketTaskBoardFormat = value instanceof PlannerBucketTaskBoardTaskFormatImpl? value as PlannerBucketTaskBoardTaskFormatImpl: new PlannerBucketTaskBoardTaskFormatImpl(value);
         }
     };
     /**
@@ -210,7 +210,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set completedBy(value: IdentitySet | undefined) {
         if(value) {
-            this._completedBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._completedBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -290,7 +290,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set createdBy(value: IdentitySet | undefined) {
         if(value) {
-            this._createdBy = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdBy = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -322,7 +322,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set details(value: PlannerTaskDetails | undefined) {
         if(value) {
-            this._details = value instanceof PlannerTaskDetailsImpl? value : new PlannerTaskDetailsImpl(value);
+            this._details = value instanceof PlannerTaskDetailsImpl? value as PlannerTaskDetailsImpl: new PlannerTaskDetailsImpl(value);
         }
     };
     /**
@@ -483,7 +483,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
      */
     public set progressTaskBoardFormat(value: PlannerProgressTaskBoardTaskFormat | undefined) {
         if(value) {
-            this._progressTaskBoardFormat = value instanceof PlannerProgressTaskBoardTaskFormatImpl? value : new PlannerProgressTaskBoardTaskFormatImpl(value);
+            this._progressTaskBoardFormat = value instanceof PlannerProgressTaskBoardTaskFormatImpl? value as PlannerProgressTaskBoardTaskFormatImpl: new PlannerProgressTaskBoardTaskFormatImpl(value);
         }
     };
     /**
@@ -513,28 +513,28 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
             writer.writeNumberValue("activeChecklistItemCount", this.activeChecklistItemCount);
         }
         if(this.appliedCategories){
-            writer.writeObjectValue<PlannerAppliedCategoriesImpl>("appliedCategories", (!this.appliedCategories || this.appliedCategories instanceof PlannerAppliedCategoriesImpl? this.appliedCategories : new PlannerAppliedCategoriesImpl(this.appliedCategories)));
+            writer.writeObjectValue<PlannerAppliedCategoriesImpl>("appliedCategories", (this.appliedCategories instanceof PlannerAppliedCategoriesImpl? this.appliedCategories as PlannerAppliedCategoriesImpl: new PlannerAppliedCategoriesImpl(this.appliedCategories)));
         }
         if(this.assignedToTaskBoardFormat){
-            writer.writeObjectValue<PlannerAssignedToTaskBoardTaskFormatImpl>("assignedToTaskBoardFormat", (!this.assignedToTaskBoardFormat || this.assignedToTaskBoardFormat instanceof PlannerAssignedToTaskBoardTaskFormatImpl? this.assignedToTaskBoardFormat : new PlannerAssignedToTaskBoardTaskFormatImpl(this.assignedToTaskBoardFormat)));
+            writer.writeObjectValue<PlannerAssignedToTaskBoardTaskFormatImpl>("assignedToTaskBoardFormat", (this.assignedToTaskBoardFormat instanceof PlannerAssignedToTaskBoardTaskFormatImpl? this.assignedToTaskBoardFormat as PlannerAssignedToTaskBoardTaskFormatImpl: new PlannerAssignedToTaskBoardTaskFormatImpl(this.assignedToTaskBoardFormat)));
         }
         if(this.assigneePriority){
             writer.writeStringValue("assigneePriority", this.assigneePriority);
         }
         if(this.assignments){
-            writer.writeObjectValue<PlannerAssignmentsImpl>("assignments", (!this.assignments || this.assignments instanceof PlannerAssignmentsImpl? this.assignments : new PlannerAssignmentsImpl(this.assignments)));
+            writer.writeObjectValue<PlannerAssignmentsImpl>("assignments", (this.assignments instanceof PlannerAssignmentsImpl? this.assignments as PlannerAssignmentsImpl: new PlannerAssignmentsImpl(this.assignments)));
         }
         if(this.bucketId){
             writer.writeStringValue("bucketId", this.bucketId);
         }
         if(this.bucketTaskBoardFormat){
-            writer.writeObjectValue<PlannerBucketTaskBoardTaskFormatImpl>("bucketTaskBoardFormat", (!this.bucketTaskBoardFormat || this.bucketTaskBoardFormat instanceof PlannerBucketTaskBoardTaskFormatImpl? this.bucketTaskBoardFormat : new PlannerBucketTaskBoardTaskFormatImpl(this.bucketTaskBoardFormat)));
+            writer.writeObjectValue<PlannerBucketTaskBoardTaskFormatImpl>("bucketTaskBoardFormat", (this.bucketTaskBoardFormat instanceof PlannerBucketTaskBoardTaskFormatImpl? this.bucketTaskBoardFormat as PlannerBucketTaskBoardTaskFormatImpl: new PlannerBucketTaskBoardTaskFormatImpl(this.bucketTaskBoardFormat)));
         }
         if(this.checklistItemCount){
             writer.writeNumberValue("checklistItemCount", this.checklistItemCount);
         }
         if(this.completedBy){
-            writer.writeObjectValue<IdentitySetImpl>("completedBy", (!this.completedBy || this.completedBy instanceof IdentitySetImpl? this.completedBy : new IdentitySetImpl(this.completedBy)));
+            writer.writeObjectValue<IdentitySetImpl>("completedBy", (this.completedBy instanceof IdentitySetImpl? this.completedBy as IdentitySetImpl: new IdentitySetImpl(this.completedBy)));
         }
         if(this.completedDateTime){
             writer.writeDateValue("completedDateTime", this.completedDateTime);
@@ -543,13 +543,13 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
             writer.writeStringValue("conversationThreadId", this.conversationThreadId);
         }
         if(this.createdBy){
-            writer.writeObjectValue<IdentitySetImpl>("createdBy", (!this.createdBy || this.createdBy instanceof IdentitySetImpl? this.createdBy : new IdentitySetImpl(this.createdBy)));
+            writer.writeObjectValue<IdentitySetImpl>("createdBy", (this.createdBy instanceof IdentitySetImpl? this.createdBy as IdentitySetImpl: new IdentitySetImpl(this.createdBy)));
         }
         if(this.createdDateTime){
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.details){
-            writer.writeObjectValue<PlannerTaskDetailsImpl>("details", (!this.details || this.details instanceof PlannerTaskDetailsImpl? this.details : new PlannerTaskDetailsImpl(this.details)));
+            writer.writeObjectValue<PlannerTaskDetailsImpl>("details", (this.details instanceof PlannerTaskDetailsImpl? this.details as PlannerTaskDetailsImpl: new PlannerTaskDetailsImpl(this.details)));
         }
         if(this.dueDateTime){
             writer.writeDateValue("dueDateTime", this.dueDateTime);
@@ -573,7 +573,7 @@ export class PlannerTaskImpl extends EntityImpl implements PlannerTask {
             writer.writeNumberValue("priority", this.priority);
         }
         if(this.progressTaskBoardFormat){
-            writer.writeObjectValue<PlannerProgressTaskBoardTaskFormatImpl>("progressTaskBoardFormat", (!this.progressTaskBoardFormat || this.progressTaskBoardFormat instanceof PlannerProgressTaskBoardTaskFormatImpl? this.progressTaskBoardFormat : new PlannerProgressTaskBoardTaskFormatImpl(this.progressTaskBoardFormat)));
+            writer.writeObjectValue<PlannerProgressTaskBoardTaskFormatImpl>("progressTaskBoardFormat", (this.progressTaskBoardFormat instanceof PlannerProgressTaskBoardTaskFormatImpl? this.progressTaskBoardFormat as PlannerProgressTaskBoardTaskFormatImpl: new PlannerProgressTaskBoardTaskFormatImpl(this.progressTaskBoardFormat)));
         }
         if(this.referenceCount){
             writer.writeNumberValue("referenceCount", this.referenceCount);

@@ -107,7 +107,7 @@ export class CopyNotebookModelImpl implements CopyNotebookModel {
      */
     public set createdByIdentity(value: IdentitySet | undefined) {
         if(value) {
-            this._createdByIdentity = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._createdByIdentity = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -226,7 +226,7 @@ export class CopyNotebookModelImpl implements CopyNotebookModel {
      */
     public set lastModifiedByIdentity(value: IdentitySet | undefined) {
         if(value) {
-            this._lastModifiedByIdentity = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._lastModifiedByIdentity = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -258,7 +258,7 @@ export class CopyNotebookModelImpl implements CopyNotebookModel {
      */
     public set links(value: NotebookLinks | undefined) {
         if(value) {
-            this._links = value instanceof NotebookLinksImpl? value : new NotebookLinksImpl(value);
+            this._links = value instanceof NotebookLinksImpl? value as NotebookLinksImpl: new NotebookLinksImpl(value);
         }
     };
     /**
@@ -335,7 +335,7 @@ export class CopyNotebookModelImpl implements CopyNotebookModel {
             writer.writeStringValue("createdBy", this.createdBy);
         }
         if(this.createdByIdentity){
-            writer.writeObjectValue<IdentitySetImpl>("createdByIdentity", (!this.createdByIdentity || this.createdByIdentity instanceof IdentitySetImpl? this.createdByIdentity : new IdentitySetImpl(this.createdByIdentity)));
+            writer.writeObjectValue<IdentitySetImpl>("createdByIdentity", (this.createdByIdentity instanceof IdentitySetImpl? this.createdByIdentity as IdentitySetImpl: new IdentitySetImpl(this.createdByIdentity)));
         }
         if(this.createdTime){
             writer.writeDateValue("createdTime", this.createdTime);
@@ -353,13 +353,13 @@ export class CopyNotebookModelImpl implements CopyNotebookModel {
             writer.writeStringValue("lastModifiedBy", this.lastModifiedBy);
         }
         if(this.lastModifiedByIdentity){
-            writer.writeObjectValue<IdentitySetImpl>("lastModifiedByIdentity", (!this.lastModifiedByIdentity || this.lastModifiedByIdentity instanceof IdentitySetImpl? this.lastModifiedByIdentity : new IdentitySetImpl(this.lastModifiedByIdentity)));
+            writer.writeObjectValue<IdentitySetImpl>("lastModifiedByIdentity", (this.lastModifiedByIdentity instanceof IdentitySetImpl? this.lastModifiedByIdentity as IdentitySetImpl: new IdentitySetImpl(this.lastModifiedByIdentity)));
         }
         if(this.lastModifiedTime){
             writer.writeDateValue("lastModifiedTime", this.lastModifiedTime);
         }
         if(this.links){
-            writer.writeObjectValue<NotebookLinksImpl>("links", (!this.links || this.links instanceof NotebookLinksImpl? this.links : new NotebookLinksImpl(this.links)));
+            writer.writeObjectValue<NotebookLinksImpl>("links", (this.links instanceof NotebookLinksImpl? this.links as NotebookLinksImpl: new NotebookLinksImpl(this.links)));
         }
         if(this.name){
             writer.writeStringValue("name", this.name);

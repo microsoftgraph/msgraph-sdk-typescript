@@ -67,7 +67,7 @@ export class MailTipsImpl implements MailTips {
      */
     public set automaticReplies(value: AutomaticRepliesMailTips | undefined) {
         if(value) {
-            this._automaticReplies = value instanceof AutomaticRepliesMailTipsImpl? value : new AutomaticRepliesMailTipsImpl(value);
+            this._automaticReplies = value instanceof AutomaticRepliesMailTipsImpl? value as AutomaticRepliesMailTipsImpl: new AutomaticRepliesMailTipsImpl(value);
         }
     };
     /**
@@ -134,7 +134,7 @@ export class MailTipsImpl implements MailTips {
      */
     public set emailAddress(value: EmailAddress | undefined) {
         if(value) {
-            this._emailAddress = value instanceof EmailAddressImpl? value : new EmailAddressImpl(value);
+            this._emailAddress = value instanceof EmailAddressImpl? value as EmailAddressImpl: new EmailAddressImpl(value);
         }
     };
     /**
@@ -150,7 +150,7 @@ export class MailTipsImpl implements MailTips {
      */
     public set error_escaped(value: MailTipsError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof MailTipsErrorImpl? value : new MailTipsErrorImpl(value);
+            this._error_escaped = value instanceof MailTipsErrorImpl? value as MailTipsErrorImpl: new MailTipsErrorImpl(value);
         }
     };
     /**
@@ -268,7 +268,7 @@ export class MailTipsImpl implements MailTips {
         if(value) {
             const recipientSuggestionsArrValue: RecipientImpl[] = [];
             this.recipientSuggestions?.forEach(element => {
-                recipientSuggestionsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                recipientSuggestionsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._recipientSuggestions = recipientSuggestionsArrValue;
         }
@@ -280,7 +280,7 @@ export class MailTipsImpl implements MailTips {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.automaticReplies){
-            writer.writeObjectValue<AutomaticRepliesMailTipsImpl>("automaticReplies", (!this.automaticReplies || this.automaticReplies instanceof AutomaticRepliesMailTipsImpl? this.automaticReplies : new AutomaticRepliesMailTipsImpl(this.automaticReplies)));
+            writer.writeObjectValue<AutomaticRepliesMailTipsImpl>("automaticReplies", (this.automaticReplies instanceof AutomaticRepliesMailTipsImpl? this.automaticReplies as AutomaticRepliesMailTipsImpl: new AutomaticRepliesMailTipsImpl(this.automaticReplies)));
         }
         if(this.customMailTip){
             writer.writeStringValue("customMailTip", this.customMailTip);
@@ -289,10 +289,10 @@ export class MailTipsImpl implements MailTips {
             writer.writeBooleanValue("deliveryRestricted", this.deliveryRestricted);
         }
         if(this.emailAddress){
-            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (!this.emailAddress || this.emailAddress instanceof EmailAddressImpl? this.emailAddress : new EmailAddressImpl(this.emailAddress)));
+            writer.writeObjectValue<EmailAddressImpl>("emailAddress", (this.emailAddress instanceof EmailAddressImpl? this.emailAddress as EmailAddressImpl: new EmailAddressImpl(this.emailAddress)));
         }
         if(this.error_escaped){
-            writer.writeObjectValue<MailTipsErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof MailTipsErrorImpl? this.error_escaped : new MailTipsErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<MailTipsErrorImpl>("error", (this.error_escaped instanceof MailTipsErrorImpl? this.error_escaped as MailTipsErrorImpl: new MailTipsErrorImpl(this.error_escaped)));
         }
         if(this.externalMemberCount){
             writer.writeNumberValue("externalMemberCount", this.externalMemberCount);
@@ -311,7 +311,7 @@ export class MailTipsImpl implements MailTips {
         }
         if(this.recipientSuggestions && this.recipientSuggestions.length != 0){        const recipientSuggestionsArrValue: RecipientImpl[] = [];
         this.recipientSuggestions?.forEach(element => {
-            recipientSuggestionsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            recipientSuggestionsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("recipientSuggestions", recipientSuggestionsArrValue);
         }

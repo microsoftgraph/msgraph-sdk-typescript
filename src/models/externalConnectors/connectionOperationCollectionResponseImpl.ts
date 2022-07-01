@@ -73,7 +73,7 @@ export class ConnectionOperationCollectionResponseImpl implements ConnectionOper
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ConnectionOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ConnectionOperationImpl? element:new ConnectionOperationImpl(element)));
+            valueArrValue.push((element instanceof ConnectionOperationImpl? element as ConnectionOperationImpl:new ConnectionOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConnectionOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ConnectionOperationCollectionResponseImpl implements ConnectionOper
         if(value) {
             const valueArrValue: ConnectionOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ConnectionOperationImpl? element:new ConnectionOperationImpl(element)));
+                valueArrValue.push((element instanceof ConnectionOperationImpl? element as ConnectionOperationImpl:new ConnectionOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

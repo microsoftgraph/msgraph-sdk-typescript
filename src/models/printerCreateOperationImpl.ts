@@ -57,7 +57,7 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
      */
     public set printer(value: Printer | undefined) {
         if(value) {
-            this._printer = value instanceof PrinterImpl? value : new PrinterImpl(value);
+            this._printer = value instanceof PrinterImpl? value as PrinterImpl: new PrinterImpl(value);
         }
     };
     /**
@@ -71,7 +71,7 @@ export class PrinterCreateOperationImpl extends PrintOperationImpl implements Pr
             writer.writeStringValue("certificate", this.certificate);
         }
         if(this.printer){
-            writer.writeObjectValue<PrinterImpl>("printer", (!this.printer || this.printer instanceof PrinterImpl? this.printer : new PrinterImpl(this.printer)));
+            writer.writeObjectValue<PrinterImpl>("printer", (this.printer instanceof PrinterImpl? this.printer as PrinterImpl: new PrinterImpl(this.printer)));
         }
     };
 }

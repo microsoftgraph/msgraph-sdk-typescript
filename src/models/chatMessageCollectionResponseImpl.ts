@@ -73,7 +73,7 @@ export class ChatMessageCollectionResponseImpl implements ChatMessageCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ChatMessageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+            valueArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ChatMessageCollectionResponseImpl implements ChatMessageCollectionR
         if(value) {
             const valueArrValue: ChatMessageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+                valueArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
             });
             this._value = valueArrValue;
         }

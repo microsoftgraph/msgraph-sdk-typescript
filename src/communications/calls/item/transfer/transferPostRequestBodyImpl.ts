@@ -56,10 +56,10 @@ export class TransferPostRequestBodyImpl implements TransferPostRequestBody {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.transferee){
-            writer.writeObjectValue<ParticipantInfoImpl>("transferee", (!this.transferee || this.transferee instanceof ParticipantInfoImpl? this.transferee : new ParticipantInfoImpl(this.transferee)));
+            writer.writeObjectValue<ParticipantInfoImpl>("transferee", (this.transferee instanceof ParticipantInfoImpl? this.transferee as ParticipantInfoImpl: new ParticipantInfoImpl(this.transferee)));
         }
         if(this.transferTarget){
-            writer.writeObjectValue<InvitationParticipantInfoImpl>("transferTarget", (!this.transferTarget || this.transferTarget instanceof InvitationParticipantInfoImpl? this.transferTarget : new InvitationParticipantInfoImpl(this.transferTarget)));
+            writer.writeObjectValue<InvitationParticipantInfoImpl>("transferTarget", (this.transferTarget instanceof InvitationParticipantInfoImpl? this.transferTarget as InvitationParticipantInfoImpl: new InvitationParticipantInfoImpl(this.transferTarget)));
         }
         writer.writeAdditionalData(this.additionalData);
     };
@@ -76,7 +76,7 @@ export class TransferPostRequestBodyImpl implements TransferPostRequestBody {
      */
     public set transferee(value: ParticipantInfo | undefined) {
         if(value) {
-            this._transferee = value instanceof ParticipantInfoImpl? value : new ParticipantInfoImpl(value);
+            this._transferee = value instanceof ParticipantInfoImpl? value as ParticipantInfoImpl: new ParticipantInfoImpl(value);
         }
     };
     /**
@@ -92,7 +92,7 @@ export class TransferPostRequestBodyImpl implements TransferPostRequestBody {
      */
     public set transferTarget(value: InvitationParticipantInfo | undefined) {
         if(value) {
-            this._transferTarget = value instanceof InvitationParticipantInfoImpl? value : new InvitationParticipantInfoImpl(value);
+            this._transferTarget = value instanceof InvitationParticipantInfoImpl? value as InvitationParticipantInfoImpl: new InvitationParticipantInfoImpl(value);
         }
     };
 }

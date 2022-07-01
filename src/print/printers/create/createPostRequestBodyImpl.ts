@@ -51,7 +51,7 @@ export class CreatePostRequestBodyImpl implements CreatePostRequestBody {
      */
     public set certificateSigningRequest(value: PrintCertificateSigningRequest | undefined) {
         if(value) {
-            this._certificateSigningRequest = value instanceof PrintCertificateSigningRequestImpl? value : new PrintCertificateSigningRequestImpl(value);
+            this._certificateSigningRequest = value instanceof PrintCertificateSigningRequestImpl? value as PrintCertificateSigningRequestImpl: new PrintCertificateSigningRequestImpl(value);
         }
     };
     /**
@@ -186,7 +186,7 @@ export class CreatePostRequestBodyImpl implements CreatePostRequestBody {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.certificateSigningRequest){
-            writer.writeObjectValue<PrintCertificateSigningRequestImpl>("certificateSigningRequest", (!this.certificateSigningRequest || this.certificateSigningRequest instanceof PrintCertificateSigningRequestImpl? this.certificateSigningRequest : new PrintCertificateSigningRequestImpl(this.certificateSigningRequest)));
+            writer.writeObjectValue<PrintCertificateSigningRequestImpl>("certificateSigningRequest", (this.certificateSigningRequest instanceof PrintCertificateSigningRequestImpl? this.certificateSigningRequest as PrintCertificateSigningRequestImpl: new PrintCertificateSigningRequestImpl(this.certificateSigningRequest)));
         }
         if(this.connectorId){
             writer.writeStringValue("connectorId", this.connectorId);

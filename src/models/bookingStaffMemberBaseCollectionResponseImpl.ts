@@ -73,7 +73,7 @@ export class BookingStaffMemberBaseCollectionResponseImpl implements BookingStaf
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingStaffMemberBaseImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingStaffMemberBaseImpl? element:new BookingStaffMemberBaseImpl(element)));
+            valueArrValue.push((element instanceof BookingStaffMemberBaseImpl? element as BookingStaffMemberBaseImpl:new BookingStaffMemberBaseImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingStaffMemberBaseImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingStaffMemberBaseCollectionResponseImpl implements BookingStaf
         if(value) {
             const valueArrValue: BookingStaffMemberBaseImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingStaffMemberBaseImpl? element:new BookingStaffMemberBaseImpl(element)));
+                valueArrValue.push((element instanceof BookingStaffMemberBaseImpl? element as BookingStaffMemberBaseImpl:new BookingStaffMemberBaseImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class ThreatAssessmentResultCollectionResponseImpl implements ThreatAsses
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ThreatAssessmentResultImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+            valueArrValue.push((element instanceof ThreatAssessmentResultImpl? element as ThreatAssessmentResultImpl:new ThreatAssessmentResultImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ThreatAssessmentResultImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ThreatAssessmentResultCollectionResponseImpl implements ThreatAsses
         if(value) {
             const valueArrValue: ThreatAssessmentResultImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ThreatAssessmentResultImpl? element:new ThreatAssessmentResultImpl(element)));
+                valueArrValue.push((element instanceof ThreatAssessmentResultImpl? element as ThreatAssessmentResultImpl:new ThreatAssessmentResultImpl(element)));
             });
             this._value = valueArrValue;
         }

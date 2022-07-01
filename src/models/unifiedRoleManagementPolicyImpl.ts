@@ -89,7 +89,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         if(value) {
             const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = [];
             this.effectiveRules?.forEach(element => {
-                effectiveRulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element:new UnifiedRoleManagementPolicyRuleImpl(element)));
+                effectiveRulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element as UnifiedRoleManagementPolicyRuleImpl:new UnifiedRoleManagementPolicyRuleImpl(element)));
             });
             this._effectiveRules = effectiveRulesArrValue;
         }
@@ -140,7 +140,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
      */
     public set lastModifiedBy(value: Identity | undefined) {
         if(value) {
-            this._lastModifiedBy = value instanceof IdentityImpl? value : new IdentityImpl(value);
+            this._lastModifiedBy = value instanceof IdentityImpl? value as IdentityImpl: new IdentityImpl(value);
         }
     };
     /**
@@ -174,7 +174,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         if(value) {
             const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = [];
             this.rules?.forEach(element => {
-                rulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element:new UnifiedRoleManagementPolicyRuleImpl(element)));
+                rulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element as UnifiedRoleManagementPolicyRuleImpl:new UnifiedRoleManagementPolicyRuleImpl(element)));
             });
             this._rules = rulesArrValue;
         }
@@ -226,7 +226,7 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
         }
         if(this.effectiveRules && this.effectiveRules.length != 0){        const effectiveRulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = [];
         this.effectiveRules?.forEach(element => {
-            effectiveRulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element:new UnifiedRoleManagementPolicyRuleImpl(element)));
+            effectiveRulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element as UnifiedRoleManagementPolicyRuleImpl:new UnifiedRoleManagementPolicyRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("effectiveRules", effectiveRulesArrValue);
         }
@@ -234,14 +234,14 @@ export class UnifiedRoleManagementPolicyImpl extends EntityImpl implements Unifi
             writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
         }
         if(this.lastModifiedBy){
-            writer.writeObjectValue<IdentityImpl>("lastModifiedBy", (!this.lastModifiedBy || this.lastModifiedBy instanceof IdentityImpl? this.lastModifiedBy : new IdentityImpl(this.lastModifiedBy)));
+            writer.writeObjectValue<IdentityImpl>("lastModifiedBy", (this.lastModifiedBy instanceof IdentityImpl? this.lastModifiedBy as IdentityImpl: new IdentityImpl(this.lastModifiedBy)));
         }
         if(this.lastModifiedDateTime){
             writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         }
         if(this.rules && this.rules.length != 0){        const rulesArrValue: UnifiedRoleManagementPolicyRuleImpl[] = [];
         this.rules?.forEach(element => {
-            rulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element:new UnifiedRoleManagementPolicyRuleImpl(element)));
+            rulesArrValue.push((element instanceof UnifiedRoleManagementPolicyRuleImpl? element as UnifiedRoleManagementPolicyRuleImpl:new UnifiedRoleManagementPolicyRuleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyRuleImpl>("rules", rulesArrValue);
         }

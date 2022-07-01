@@ -153,7 +153,7 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
             writer.writeEnumValue<PromptLoginBehavior>("promptLoginBehavior", this.promptLoginBehavior);
         }
         if(this.signingCertificateUpdateStatus){
-            writer.writeObjectValue<SigningCertificateUpdateStatusImpl>("signingCertificateUpdateStatus", (!this.signingCertificateUpdateStatus || this.signingCertificateUpdateStatus instanceof SigningCertificateUpdateStatusImpl? this.signingCertificateUpdateStatus : new SigningCertificateUpdateStatusImpl(this.signingCertificateUpdateStatus)));
+            writer.writeObjectValue<SigningCertificateUpdateStatusImpl>("signingCertificateUpdateStatus", (this.signingCertificateUpdateStatus instanceof SigningCertificateUpdateStatusImpl? this.signingCertificateUpdateStatus as SigningCertificateUpdateStatusImpl: new SigningCertificateUpdateStatusImpl(this.signingCertificateUpdateStatus)));
         }
         if(this.signOutUri){
             writer.writeStringValue("signOutUri", this.signOutUri);
@@ -172,7 +172,7 @@ export class InternalDomainFederationImpl extends SamlOrWsFedProviderImpl implem
      */
     public set signingCertificateUpdateStatus(value: SigningCertificateUpdateStatus | undefined) {
         if(value) {
-            this._signingCertificateUpdateStatus = value instanceof SigningCertificateUpdateStatusImpl? value : new SigningCertificateUpdateStatusImpl(value);
+            this._signingCertificateUpdateStatus = value instanceof SigningCertificateUpdateStatusImpl? value as SigningCertificateUpdateStatusImpl: new SigningCertificateUpdateStatusImpl(value);
         }
     };
     /**

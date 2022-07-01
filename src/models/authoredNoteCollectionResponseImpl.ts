@@ -73,7 +73,7 @@ export class AuthoredNoteCollectionResponseImpl implements AuthoredNoteCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AuthoredNoteImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AuthoredNoteImpl? element:new AuthoredNoteImpl(element)));
+            valueArrValue.push((element instanceof AuthoredNoteImpl? element as AuthoredNoteImpl:new AuthoredNoteImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthoredNoteImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AuthoredNoteCollectionResponseImpl implements AuthoredNoteCollectio
         if(value) {
             const valueArrValue: AuthoredNoteImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AuthoredNoteImpl? element:new AuthoredNoteImpl(element)));
+                valueArrValue.push((element instanceof AuthoredNoteImpl? element as AuthoredNoteImpl:new AuthoredNoteImpl(element)));
             });
             this._value = valueArrValue;
         }

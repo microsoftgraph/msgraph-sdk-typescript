@@ -73,7 +73,7 @@ export class BaseItemCollectionResponseImpl implements BaseItemCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BaseItemImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BaseItemImpl? element:new BaseItemImpl(element)));
+            valueArrValue.push((element instanceof BaseItemImpl? element as BaseItemImpl:new BaseItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BaseItemImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BaseItemCollectionResponseImpl implements BaseItemCollectionRespons
         if(value) {
             const valueArrValue: BaseItemImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BaseItemImpl? element:new BaseItemImpl(element)));
+                valueArrValue.push((element instanceof BaseItemImpl? element as BaseItemImpl:new BaseItemImpl(element)));
             });
             this._value = valueArrValue;
         }

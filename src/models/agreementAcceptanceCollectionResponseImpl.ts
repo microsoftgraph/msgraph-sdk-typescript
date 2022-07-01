@@ -73,7 +73,7 @@ export class AgreementAcceptanceCollectionResponseImpl implements AgreementAccep
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AgreementAcceptanceImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AgreementAcceptanceImpl? element:new AgreementAcceptanceImpl(element)));
+            valueArrValue.push((element instanceof AgreementAcceptanceImpl? element as AgreementAcceptanceImpl:new AgreementAcceptanceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AgreementAcceptanceImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AgreementAcceptanceCollectionResponseImpl implements AgreementAccep
         if(value) {
             const valueArrValue: AgreementAcceptanceImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AgreementAcceptanceImpl? element:new AgreementAcceptanceImpl(element)));
+                valueArrValue.push((element instanceof AgreementAcceptanceImpl? element as AgreementAcceptanceImpl:new AgreementAcceptanceImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -73,7 +73,7 @@ export class RichLongRunningOperationCollectionResponseImpl implements RichLongR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RichLongRunningOperationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RichLongRunningOperationImpl? element:new RichLongRunningOperationImpl(element)));
+            valueArrValue.push((element instanceof RichLongRunningOperationImpl? element as RichLongRunningOperationImpl:new RichLongRunningOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RichLongRunningOperationCollectionResponseImpl implements RichLongR
         if(value) {
             const valueArrValue: RichLongRunningOperationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RichLongRunningOperationImpl? element:new RichLongRunningOperationImpl(element)));
+                valueArrValue.push((element instanceof RichLongRunningOperationImpl? element as RichLongRunningOperationImpl:new RichLongRunningOperationImpl(element)));
             });
             this._value = valueArrValue;
         }

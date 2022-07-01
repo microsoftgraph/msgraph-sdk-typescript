@@ -73,7 +73,7 @@ export class TermCollectionResponseImpl implements TermCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TermImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TermImpl? element:new TermImpl(element)));
+            valueArrValue.push((element instanceof TermImpl? element as TermImpl:new TermImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TermImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TermCollectionResponseImpl implements TermCollectionResponse {
         if(value) {
             const valueArrValue: TermImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TermImpl? element:new TermImpl(element)));
+                valueArrValue.push((element instanceof TermImpl? element as TermImpl:new TermImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -1,5 +1,5 @@
 export * from './refImpl'
 export * from './refRequestBuilderGetQueryParameters'
+export * from './refRequestBuilderGetRequestConfiguration'
 export * from './refRequestBuilderPostRequestConfiguration'
 export * from './ref'
-export * from './refRequestBuilderGetRequestConfiguration'

@@ -39,7 +39,7 @@ export class AndroidWorkProfileCustomConfigurationImpl extends DeviceConfigurati
         if(value) {
             const omaSettingsArrValue: OmaSettingImpl[] = [];
             this.omaSettings?.forEach(element => {
-                omaSettingsArrValue.push((element instanceof OmaSettingImpl? element:new OmaSettingImpl(element)));
+                omaSettingsArrValue.push((element instanceof OmaSettingImpl? element as OmaSettingImpl:new OmaSettingImpl(element)));
             });
             this._omaSettings = omaSettingsArrValue;
         }
@@ -53,7 +53,7 @@ export class AndroidWorkProfileCustomConfigurationImpl extends DeviceConfigurati
         super.serialize(writer);
         if(this.omaSettings && this.omaSettings.length != 0){        const omaSettingsArrValue: OmaSettingImpl[] = [];
         this.omaSettings?.forEach(element => {
-            omaSettingsArrValue.push((element instanceof OmaSettingImpl? element:new OmaSettingImpl(element)));
+            omaSettingsArrValue.push((element instanceof OmaSettingImpl? element as OmaSettingImpl:new OmaSettingImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OmaSettingImpl>("omaSettings", omaSettingsArrValue);
         }

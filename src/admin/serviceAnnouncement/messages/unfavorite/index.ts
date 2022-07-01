@@ -1,5 +1,5 @@
-export * from './unfavoritePostRequestBodyImpl'
 export * from './unfavoriteResponseImpl'
-export * from './unfavoriteResponse'
+export * from './unfavoritePostRequestBodyImpl'
 export * from './unfavoritePostRequestBody'
 export * from './unfavoriteRequestBuilderPostRequestConfiguration'
+export * from './unfavoriteResponse'

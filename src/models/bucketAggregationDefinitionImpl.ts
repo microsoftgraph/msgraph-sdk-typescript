@@ -122,7 +122,7 @@ export class BucketAggregationDefinitionImpl implements BucketAggregationDefinit
         if(value) {
             const rangesArrValue: BucketAggregationRangeImpl[] = [];
             this.ranges?.forEach(element => {
-                rangesArrValue.push((element instanceof BucketAggregationRangeImpl? element:new BucketAggregationRangeImpl(element)));
+                rangesArrValue.push((element instanceof BucketAggregationRangeImpl? element as BucketAggregationRangeImpl:new BucketAggregationRangeImpl(element)));
             });
             this._ranges = rangesArrValue;
         }
@@ -144,7 +144,7 @@ export class BucketAggregationDefinitionImpl implements BucketAggregationDefinit
         }
         if(this.ranges && this.ranges.length != 0){        const rangesArrValue: BucketAggregationRangeImpl[] = [];
         this.ranges?.forEach(element => {
-            rangesArrValue.push((element instanceof BucketAggregationRangeImpl? element:new BucketAggregationRangeImpl(element)));
+            rangesArrValue.push((element instanceof BucketAggregationRangeImpl? element as BucketAggregationRangeImpl:new BucketAggregationRangeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BucketAggregationRangeImpl>("ranges", rangesArrValue);
         }

@@ -83,7 +83,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const androidManagedAppProtectionsArrValue: AndroidManagedAppProtectionImpl[] = [];
             this.androidManagedAppProtections?.forEach(element => {
-                androidManagedAppProtectionsArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element:new AndroidManagedAppProtectionImpl(element)));
+                androidManagedAppProtectionsArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element as AndroidManagedAppProtectionImpl:new AndroidManagedAppProtectionImpl(element)));
             });
             this._androidManagedAppProtections = androidManagedAppProtectionsArrValue;
         }
@@ -128,7 +128,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const defaultManagedAppProtectionsArrValue: DefaultManagedAppProtectionImpl[] = [];
             this.defaultManagedAppProtections?.forEach(element => {
-                defaultManagedAppProtectionsArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element:new DefaultManagedAppProtectionImpl(element)));
+                defaultManagedAppProtectionsArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element as DefaultManagedAppProtectionImpl:new DefaultManagedAppProtectionImpl(element)));
             });
             this._defaultManagedAppProtections = defaultManagedAppProtectionsArrValue;
         }
@@ -174,7 +174,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const iosManagedAppProtectionsArrValue: IosManagedAppProtectionImpl[] = [];
             this.iosManagedAppProtections?.forEach(element => {
-                iosManagedAppProtectionsArrValue.push((element instanceof IosManagedAppProtectionImpl? element:new IosManagedAppProtectionImpl(element)));
+                iosManagedAppProtectionsArrValue.push((element instanceof IosManagedAppProtectionImpl? element as IosManagedAppProtectionImpl:new IosManagedAppProtectionImpl(element)));
             });
             this._iosManagedAppProtections = iosManagedAppProtectionsArrValue;
         }
@@ -210,7 +210,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const managedAppPoliciesArrValue: ManagedAppPolicyImpl[] = [];
             this.managedAppPolicies?.forEach(element => {
-                managedAppPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+                managedAppPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
             });
             this._managedAppPolicies = managedAppPoliciesArrValue;
         }
@@ -230,7 +230,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = [];
             this.managedAppRegistrations?.forEach(element => {
-                managedAppRegistrationsArrValue.push((element instanceof ManagedAppRegistrationImpl? element:new ManagedAppRegistrationImpl(element)));
+                managedAppRegistrationsArrValue.push((element instanceof ManagedAppRegistrationImpl? element as ManagedAppRegistrationImpl:new ManagedAppRegistrationImpl(element)));
             });
             this._managedAppRegistrations = managedAppRegistrationsArrValue;
         }
@@ -250,7 +250,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const managedAppStatusesArrValue: ManagedAppStatusImpl[] = [];
             this.managedAppStatuses?.forEach(element => {
-                managedAppStatusesArrValue.push((element instanceof ManagedAppStatusImpl? element:new ManagedAppStatusImpl(element)));
+                managedAppStatusesArrValue.push((element instanceof ManagedAppStatusImpl? element as ManagedAppStatusImpl:new ManagedAppStatusImpl(element)));
             });
             this._managedAppStatuses = managedAppStatusesArrValue;
         }
@@ -270,7 +270,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const managedEBooksArrValue: ManagedEBookImpl[] = [];
             this.managedEBooks?.forEach(element => {
-                managedEBooksArrValue.push((element instanceof ManagedEBookImpl? element:new ManagedEBookImpl(element)));
+                managedEBooksArrValue.push((element instanceof ManagedEBookImpl? element as ManagedEBookImpl:new ManagedEBookImpl(element)));
             });
             this._managedEBooks = managedEBooksArrValue;
         }
@@ -290,7 +290,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const mdmWindowsInformationProtectionPoliciesArrValue: MdmWindowsInformationProtectionPolicyImpl[] = [];
             this.mdmWindowsInformationProtectionPolicies?.forEach(element => {
-                mdmWindowsInformationProtectionPoliciesArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element:new MdmWindowsInformationProtectionPolicyImpl(element)));
+                mdmWindowsInformationProtectionPoliciesArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element as MdmWindowsInformationProtectionPolicyImpl:new MdmWindowsInformationProtectionPolicyImpl(element)));
             });
             this._mdmWindowsInformationProtectionPolicies = mdmWindowsInformationProtectionPoliciesArrValue;
         }
@@ -358,7 +358,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const mobileAppCategoriesArrValue: MobileAppCategoryImpl[] = [];
             this.mobileAppCategories?.forEach(element => {
-                mobileAppCategoriesArrValue.push((element instanceof MobileAppCategoryImpl? element:new MobileAppCategoryImpl(element)));
+                mobileAppCategoriesArrValue.push((element instanceof MobileAppCategoryImpl? element as MobileAppCategoryImpl:new MobileAppCategoryImpl(element)));
             });
             this._mobileAppCategories = mobileAppCategoriesArrValue;
         }
@@ -378,7 +378,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const mobileAppConfigurationsArrValue: ManagedDeviceMobileAppConfigurationImpl[] = [];
             this.mobileAppConfigurations?.forEach(element => {
-                mobileAppConfigurationsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationImpl? element:new ManagedDeviceMobileAppConfigurationImpl(element)));
+                mobileAppConfigurationsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationImpl? element as ManagedDeviceMobileAppConfigurationImpl:new ManagedDeviceMobileAppConfigurationImpl(element)));
             });
             this._mobileAppConfigurations = mobileAppConfigurationsArrValue;
         }
@@ -398,7 +398,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const mobileAppsArrValue: MobileAppImpl[] = [];
             this.mobileApps?.forEach(element => {
-                mobileAppsArrValue.push((element instanceof MobileAppImpl? element:new MobileAppImpl(element)));
+                mobileAppsArrValue.push((element instanceof MobileAppImpl? element as MobileAppImpl:new MobileAppImpl(element)));
             });
             this._mobileApps = mobileAppsArrValue;
         }
@@ -412,19 +412,19 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         super.serialize(writer);
         if(this.androidManagedAppProtections && this.androidManagedAppProtections.length != 0){        const androidManagedAppProtectionsArrValue: AndroidManagedAppProtectionImpl[] = [];
         this.androidManagedAppProtections?.forEach(element => {
-            androidManagedAppProtectionsArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element:new AndroidManagedAppProtectionImpl(element)));
+            androidManagedAppProtectionsArrValue.push((element instanceof AndroidManagedAppProtectionImpl? element as AndroidManagedAppProtectionImpl:new AndroidManagedAppProtectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AndroidManagedAppProtectionImpl>("androidManagedAppProtections", androidManagedAppProtectionsArrValue);
         }
         if(this.defaultManagedAppProtections && this.defaultManagedAppProtections.length != 0){        const defaultManagedAppProtectionsArrValue: DefaultManagedAppProtectionImpl[] = [];
         this.defaultManagedAppProtections?.forEach(element => {
-            defaultManagedAppProtectionsArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element:new DefaultManagedAppProtectionImpl(element)));
+            defaultManagedAppProtectionsArrValue.push((element instanceof DefaultManagedAppProtectionImpl? element as DefaultManagedAppProtectionImpl:new DefaultManagedAppProtectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DefaultManagedAppProtectionImpl>("defaultManagedAppProtections", defaultManagedAppProtectionsArrValue);
         }
         if(this.iosManagedAppProtections && this.iosManagedAppProtections.length != 0){        const iosManagedAppProtectionsArrValue: IosManagedAppProtectionImpl[] = [];
         this.iosManagedAppProtections?.forEach(element => {
-            iosManagedAppProtectionsArrValue.push((element instanceof IosManagedAppProtectionImpl? element:new IosManagedAppProtectionImpl(element)));
+            iosManagedAppProtectionsArrValue.push((element instanceof IosManagedAppProtectionImpl? element as IosManagedAppProtectionImpl:new IosManagedAppProtectionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosManagedAppProtectionImpl>("iosManagedAppProtections", iosManagedAppProtectionsArrValue);
         }
@@ -433,31 +433,31 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         }
         if(this.managedAppPolicies && this.managedAppPolicies.length != 0){        const managedAppPoliciesArrValue: ManagedAppPolicyImpl[] = [];
         this.managedAppPolicies?.forEach(element => {
-            managedAppPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element:new ManagedAppPolicyImpl(element)));
+            managedAppPoliciesArrValue.push((element instanceof ManagedAppPolicyImpl? element as ManagedAppPolicyImpl:new ManagedAppPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppPolicyImpl>("managedAppPolicies", managedAppPoliciesArrValue);
         }
         if(this.managedAppRegistrations && this.managedAppRegistrations.length != 0){        const managedAppRegistrationsArrValue: ManagedAppRegistrationImpl[] = [];
         this.managedAppRegistrations?.forEach(element => {
-            managedAppRegistrationsArrValue.push((element instanceof ManagedAppRegistrationImpl? element:new ManagedAppRegistrationImpl(element)));
+            managedAppRegistrationsArrValue.push((element instanceof ManagedAppRegistrationImpl? element as ManagedAppRegistrationImpl:new ManagedAppRegistrationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppRegistrationImpl>("managedAppRegistrations", managedAppRegistrationsArrValue);
         }
         if(this.managedAppStatuses && this.managedAppStatuses.length != 0){        const managedAppStatusesArrValue: ManagedAppStatusImpl[] = [];
         this.managedAppStatuses?.forEach(element => {
-            managedAppStatusesArrValue.push((element instanceof ManagedAppStatusImpl? element:new ManagedAppStatusImpl(element)));
+            managedAppStatusesArrValue.push((element instanceof ManagedAppStatusImpl? element as ManagedAppStatusImpl:new ManagedAppStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedAppStatusImpl>("managedAppStatuses", managedAppStatusesArrValue);
         }
         if(this.managedEBooks && this.managedEBooks.length != 0){        const managedEBooksArrValue: ManagedEBookImpl[] = [];
         this.managedEBooks?.forEach(element => {
-            managedEBooksArrValue.push((element instanceof ManagedEBookImpl? element:new ManagedEBookImpl(element)));
+            managedEBooksArrValue.push((element instanceof ManagedEBookImpl? element as ManagedEBookImpl:new ManagedEBookImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedEBookImpl>("managedEBooks", managedEBooksArrValue);
         }
         if(this.mdmWindowsInformationProtectionPolicies && this.mdmWindowsInformationProtectionPolicies.length != 0){        const mdmWindowsInformationProtectionPoliciesArrValue: MdmWindowsInformationProtectionPolicyImpl[] = [];
         this.mdmWindowsInformationProtectionPolicies?.forEach(element => {
-            mdmWindowsInformationProtectionPoliciesArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element:new MdmWindowsInformationProtectionPolicyImpl(element)));
+            mdmWindowsInformationProtectionPoliciesArrValue.push((element instanceof MdmWindowsInformationProtectionPolicyImpl? element as MdmWindowsInformationProtectionPolicyImpl:new MdmWindowsInformationProtectionPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicyImpl>("mdmWindowsInformationProtectionPolicies", mdmWindowsInformationProtectionPoliciesArrValue);
         }
@@ -472,37 +472,37 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         }
         if(this.mobileAppCategories && this.mobileAppCategories.length != 0){        const mobileAppCategoriesArrValue: MobileAppCategoryImpl[] = [];
         this.mobileAppCategories?.forEach(element => {
-            mobileAppCategoriesArrValue.push((element instanceof MobileAppCategoryImpl? element:new MobileAppCategoryImpl(element)));
+            mobileAppCategoriesArrValue.push((element instanceof MobileAppCategoryImpl? element as MobileAppCategoryImpl:new MobileAppCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("mobileAppCategories", mobileAppCategoriesArrValue);
         }
         if(this.mobileAppConfigurations && this.mobileAppConfigurations.length != 0){        const mobileAppConfigurationsArrValue: ManagedDeviceMobileAppConfigurationImpl[] = [];
         this.mobileAppConfigurations?.forEach(element => {
-            mobileAppConfigurationsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationImpl? element:new ManagedDeviceMobileAppConfigurationImpl(element)));
+            mobileAppConfigurationsArrValue.push((element instanceof ManagedDeviceMobileAppConfigurationImpl? element as ManagedDeviceMobileAppConfigurationImpl:new ManagedDeviceMobileAppConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationImpl>("mobileAppConfigurations", mobileAppConfigurationsArrValue);
         }
         if(this.mobileApps && this.mobileApps.length != 0){        const mobileAppsArrValue: MobileAppImpl[] = [];
         this.mobileApps?.forEach(element => {
-            mobileAppsArrValue.push((element instanceof MobileAppImpl? element:new MobileAppImpl(element)));
+            mobileAppsArrValue.push((element instanceof MobileAppImpl? element as MobileAppImpl:new MobileAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppImpl>("mobileApps", mobileAppsArrValue);
         }
         if(this.targetedManagedAppConfigurations && this.targetedManagedAppConfigurations.length != 0){        const targetedManagedAppConfigurationsArrValue: TargetedManagedAppConfigurationImpl[] = [];
         this.targetedManagedAppConfigurations?.forEach(element => {
-            targetedManagedAppConfigurationsArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element:new TargetedManagedAppConfigurationImpl(element)));
+            targetedManagedAppConfigurationsArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element as TargetedManagedAppConfigurationImpl:new TargetedManagedAppConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetedManagedAppConfigurationImpl>("targetedManagedAppConfigurations", targetedManagedAppConfigurationsArrValue);
         }
         if(this.vppTokens && this.vppTokens.length != 0){        const vppTokensArrValue: VppTokenImpl[] = [];
         this.vppTokens?.forEach(element => {
-            vppTokensArrValue.push((element instanceof VppTokenImpl? element:new VppTokenImpl(element)));
+            vppTokensArrValue.push((element instanceof VppTokenImpl? element as VppTokenImpl:new VppTokenImpl(element)));
         });
             writer.writeCollectionOfObjectValues<VppTokenImpl>("vppTokens", vppTokensArrValue);
         }
         if(this.windowsInformationProtectionPolicies && this.windowsInformationProtectionPolicies.length != 0){        const windowsInformationProtectionPoliciesArrValue: WindowsInformationProtectionPolicyImpl[] = [];
         this.windowsInformationProtectionPolicies?.forEach(element => {
-            windowsInformationProtectionPoliciesArrValue.push((element instanceof WindowsInformationProtectionPolicyImpl? element:new WindowsInformationProtectionPolicyImpl(element)));
+            windowsInformationProtectionPoliciesArrValue.push((element instanceof WindowsInformationProtectionPolicyImpl? element as WindowsInformationProtectionPolicyImpl:new WindowsInformationProtectionPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicyImpl>("windowsInformationProtectionPolicies", windowsInformationProtectionPoliciesArrValue);
         }
@@ -522,7 +522,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const targetedManagedAppConfigurationsArrValue: TargetedManagedAppConfigurationImpl[] = [];
             this.targetedManagedAppConfigurations?.forEach(element => {
-                targetedManagedAppConfigurationsArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element:new TargetedManagedAppConfigurationImpl(element)));
+                targetedManagedAppConfigurationsArrValue.push((element instanceof TargetedManagedAppConfigurationImpl? element as TargetedManagedAppConfigurationImpl:new TargetedManagedAppConfigurationImpl(element)));
             });
             this._targetedManagedAppConfigurations = targetedManagedAppConfigurationsArrValue;
         }
@@ -542,7 +542,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const vppTokensArrValue: VppTokenImpl[] = [];
             this.vppTokens?.forEach(element => {
-                vppTokensArrValue.push((element instanceof VppTokenImpl? element:new VppTokenImpl(element)));
+                vppTokensArrValue.push((element instanceof VppTokenImpl? element as VppTokenImpl:new VppTokenImpl(element)));
             });
             this._vppTokens = vppTokensArrValue;
         }
@@ -562,7 +562,7 @@ export class DeviceAppManagementImpl extends EntityImpl implements DeviceAppMana
         if(value) {
             const windowsInformationProtectionPoliciesArrValue: WindowsInformationProtectionPolicyImpl[] = [];
             this.windowsInformationProtectionPolicies?.forEach(element => {
-                windowsInformationProtectionPoliciesArrValue.push((element instanceof WindowsInformationProtectionPolicyImpl? element:new WindowsInformationProtectionPolicyImpl(element)));
+                windowsInformationProtectionPoliciesArrValue.push((element instanceof WindowsInformationProtectionPolicyImpl? element as WindowsInformationProtectionPolicyImpl:new WindowsInformationProtectionPolicyImpl(element)));
             });
             this._windowsInformationProtectionPolicies = windowsInformationProtectionPoliciesArrValue;
         }

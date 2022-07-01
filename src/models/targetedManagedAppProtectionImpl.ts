@@ -24,7 +24,7 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
         if(value) {
             const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
             this.assignments?.forEach(element => {
-                assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+                assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
             });
             this._assignments = assignmentsArrValue;
         }
@@ -73,7 +73,7 @@ export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl i
         super.serialize(writer);
         if(this.assignments && this.assignments.length != 0){        const assignmentsArrValue: TargetedManagedAppPolicyAssignmentImpl[] = [];
         this.assignments?.forEach(element => {
-            assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element:new TargetedManagedAppPolicyAssignmentImpl(element)));
+            assignmentsArrValue.push((element instanceof TargetedManagedAppPolicyAssignmentImpl? element as TargetedManagedAppPolicyAssignmentImpl:new TargetedManagedAppPolicyAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignmentImpl>("assignments", assignmentsArrValue);
         }

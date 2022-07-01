@@ -73,7 +73,7 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceManagementPartnerImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+            valueArrValue.push((element instanceof DeviceManagementPartnerImpl? element as DeviceManagementPartnerImpl:new DeviceManagementPartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceManagementPartnerCollectionResponseImpl implements DeviceMana
         if(value) {
             const valueArrValue: DeviceManagementPartnerImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+                valueArrValue.push((element instanceof DeviceManagementPartnerImpl? element as DeviceManagementPartnerImpl:new DeviceManagementPartnerImpl(element)));
             });
             this._value = valueArrValue;
         }

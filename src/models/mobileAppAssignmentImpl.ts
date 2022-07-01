@@ -63,10 +63,10 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
             writer.writeEnumValue<InstallIntent>("intent", this.intent);
         }
         if(this.settings){
-            writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", (!this.settings || this.settings instanceof MobileAppAssignmentSettingsImpl? this.settings : new MobileAppAssignmentSettingsImpl(this.settings)));
+            writer.writeObjectValue<MobileAppAssignmentSettingsImpl>("settings", (this.settings instanceof MobileAppAssignmentSettingsImpl? this.settings as MobileAppAssignmentSettingsImpl: new MobileAppAssignmentSettingsImpl(this.settings)));
         }
         if(this.target){
-            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (!this.target || this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target : new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
+            writer.writeObjectValue<DeviceAndAppManagementAssignmentTargetImpl>("target", (this.target instanceof DeviceAndAppManagementAssignmentTargetImpl? this.target as DeviceAndAppManagementAssignmentTargetImpl: new DeviceAndAppManagementAssignmentTargetImpl(this.target)));
         }
     };
     /**
@@ -82,7 +82,7 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
      */
     public set settings(value: MobileAppAssignmentSettings | undefined) {
         if(value) {
-            this._settings = value instanceof MobileAppAssignmentSettingsImpl? value : new MobileAppAssignmentSettingsImpl(value);
+            this._settings = value instanceof MobileAppAssignmentSettingsImpl? value as MobileAppAssignmentSettingsImpl: new MobileAppAssignmentSettingsImpl(value);
         }
     };
     /**
@@ -98,7 +98,7 @@ export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssi
      */
     public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
         if(value) {
-            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value : new DeviceAndAppManagementAssignmentTargetImpl(value);
+            this._target = value instanceof DeviceAndAppManagementAssignmentTargetImpl? value as DeviceAndAppManagementAssignmentTargetImpl: new DeviceAndAppManagementAssignmentTargetImpl(value);
         }
     };
 }

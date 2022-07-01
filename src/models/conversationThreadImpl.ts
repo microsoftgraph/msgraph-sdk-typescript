@@ -41,7 +41,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(value) {
             const ccRecipientsArrValue: RecipientImpl[] = [];
             this.ccRecipients?.forEach(element => {
-                ccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                ccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._ccRecipients = ccRecipientsArrValue;
         }
@@ -142,7 +142,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(value) {
             const postsArrValue: PostImpl[] = [];
             this.posts?.forEach(element => {
-                postsArrValue.push((element instanceof PostImpl? element:new PostImpl(element)));
+                postsArrValue.push((element instanceof PostImpl? element as PostImpl:new PostImpl(element)));
             });
             this._posts = postsArrValue;
         }
@@ -172,7 +172,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         super.serialize(writer);
         if(this.ccRecipients && this.ccRecipients.length != 0){        const ccRecipientsArrValue: RecipientImpl[] = [];
         this.ccRecipients?.forEach(element => {
-            ccRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            ccRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("ccRecipients", ccRecipientsArrValue);
         }
@@ -187,7 +187,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         }
         if(this.posts && this.posts.length != 0){        const postsArrValue: PostImpl[] = [];
         this.posts?.forEach(element => {
-            postsArrValue.push((element instanceof PostImpl? element:new PostImpl(element)));
+            postsArrValue.push((element instanceof PostImpl? element as PostImpl:new PostImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PostImpl>("posts", postsArrValue);
         }
@@ -199,7 +199,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         }
         if(this.toRecipients && this.toRecipients.length != 0){        const toRecipientsArrValue: RecipientImpl[] = [];
         this.toRecipients?.forEach(element => {
-            toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+            toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RecipientImpl>("toRecipients", toRecipientsArrValue);
         }
@@ -238,7 +238,7 @@ export class ConversationThreadImpl extends EntityImpl implements ConversationTh
         if(value) {
             const toRecipientsArrValue: RecipientImpl[] = [];
             this.toRecipients?.forEach(element => {
-                toRecipientsArrValue.push((element instanceof RecipientImpl? element:new RecipientImpl(element)));
+                toRecipientsArrValue.push((element instanceof RecipientImpl? element as RecipientImpl:new RecipientImpl(element)));
             });
             this._toRecipients = toRecipientsArrValue;
         }

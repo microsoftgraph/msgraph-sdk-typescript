@@ -43,7 +43,7 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
         if(value) {
             const detailsArrValue: KeyValuePairImpl[] = [];
             this.details?.forEach(element => {
-                detailsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+                detailsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
             });
             this._details = detailsArrValue;
         }
@@ -102,7 +102,7 @@ export class ServiceAnnouncementBaseImpl extends EntityImpl implements ServiceAn
         super.serialize(writer);
         if(this.details && this.details.length != 0){        const detailsArrValue: KeyValuePairImpl[] = [];
         this.details?.forEach(element => {
-            detailsArrValue.push((element instanceof KeyValuePairImpl? element:new KeyValuePairImpl(element)));
+            detailsArrValue.push((element instanceof KeyValuePairImpl? element as KeyValuePairImpl:new KeyValuePairImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyValuePairImpl>("details", detailsArrValue);
         }

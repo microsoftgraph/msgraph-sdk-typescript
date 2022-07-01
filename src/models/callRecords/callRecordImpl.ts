@@ -142,7 +142,7 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
      */
     public set organizer(value: IdentitySet | undefined) {
         if(value) {
-            this._organizer = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._organizer = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -160,7 +160,7 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
         if(value) {
             const participantsArrValue: IdentitySetImpl[] = [];
             this.participants?.forEach(element => {
-                participantsArrValue.push((element instanceof IdentitySetImpl? element:new IdentitySetImpl(element)));
+                participantsArrValue.push((element instanceof IdentitySetImpl? element as IdentitySetImpl:new IdentitySetImpl(element)));
             });
             this._participants = participantsArrValue;
         }
@@ -185,17 +185,17 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
             writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
         }
         if(this.organizer){
-            writer.writeObjectValue<IdentitySetImpl>("organizer", (!this.organizer || this.organizer instanceof IdentitySetImpl? this.organizer : new IdentitySetImpl(this.organizer)));
+            writer.writeObjectValue<IdentitySetImpl>("organizer", (this.organizer instanceof IdentitySetImpl? this.organizer as IdentitySetImpl: new IdentitySetImpl(this.organizer)));
         }
         if(this.participants && this.participants.length != 0){        const participantsArrValue: IdentitySetImpl[] = [];
         this.participants?.forEach(element => {
-            participantsArrValue.push((element instanceof IdentitySetImpl? element:new IdentitySetImpl(element)));
+            participantsArrValue.push((element instanceof IdentitySetImpl? element as IdentitySetImpl:new IdentitySetImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IdentitySetImpl>("participants", participantsArrValue);
         }
         if(this.sessions && this.sessions.length != 0){        const sessionsArrValue: SessionImpl[] = [];
         this.sessions?.forEach(element => {
-            sessionsArrValue.push((element instanceof SessionImpl? element:new SessionImpl(element)));
+            sessionsArrValue.push((element instanceof SessionImpl? element as SessionImpl:new SessionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SessionImpl>("sessions", sessionsArrValue);
         }
@@ -224,7 +224,7 @@ export class CallRecordImpl extends EntityImpl implements CallRecord {
         if(value) {
             const sessionsArrValue: SessionImpl[] = [];
             this.sessions?.forEach(element => {
-                sessionsArrValue.push((element instanceof SessionImpl? element:new SessionImpl(element)));
+                sessionsArrValue.push((element instanceof SessionImpl? element as SessionImpl:new SessionImpl(element)));
             });
             this._sessions = sessionsArrValue;
         }

@@ -73,7 +73,7 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DelegatedPermissionClassificationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element:new DelegatedPermissionClassificationImpl(element)));
+            valueArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element as DelegatedPermissionClassificationImpl:new DelegatedPermissionClassificationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DelegatedPermissionClassificationCollectionResponseImpl implements 
         if(value) {
             const valueArrValue: DelegatedPermissionClassificationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element:new DelegatedPermissionClassificationImpl(element)));
+                valueArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element as DelegatedPermissionClassificationImpl:new DelegatedPermissionClassificationImpl(element)));
             });
             this._value = valueArrValue;
         }

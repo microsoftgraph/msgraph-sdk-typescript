@@ -73,7 +73,7 @@ export class ShiftCollectionResponseImpl implements ShiftCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ShiftImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ShiftImpl? element:new ShiftImpl(element)));
+            valueArrValue.push((element instanceof ShiftImpl? element as ShiftImpl:new ShiftImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ShiftImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ShiftCollectionResponseImpl implements ShiftCollectionResponse {
         if(value) {
             const valueArrValue: ShiftImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ShiftImpl? element:new ShiftImpl(element)));
+                valueArrValue.push((element instanceof ShiftImpl? element as ShiftImpl:new ShiftImpl(element)));
             });
             this._value = valueArrValue;
         }

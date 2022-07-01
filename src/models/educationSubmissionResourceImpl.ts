@@ -58,7 +58,7 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
      */
     public set resource(value: EducationResource | undefined) {
         if(value) {
-            this._resource = value instanceof EducationResourceImpl? value : new EducationResourceImpl(value);
+            this._resource = value instanceof EducationResourceImpl? value as EducationResourceImpl: new EducationResourceImpl(value);
         }
     };
     /**
@@ -72,7 +72,7 @@ export class EducationSubmissionResourceImpl extends EntityImpl implements Educa
             writer.writeStringValue("assignmentResourceUrl", this.assignmentResourceUrl);
         }
         if(this.resource){
-            writer.writeObjectValue<EducationResourceImpl>("resource", (!this.resource || this.resource instanceof EducationResourceImpl? this.resource : new EducationResourceImpl(this.resource)));
+            writer.writeObjectValue<EducationResourceImpl>("resource", (this.resource instanceof EducationResourceImpl? this.resource as EducationResourceImpl: new EducationResourceImpl(this.resource)));
         }
     };
 }

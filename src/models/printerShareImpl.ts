@@ -51,7 +51,7 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
         if(value) {
             const allowedGroupsArrValue: GroupImpl[] = [];
             this.allowedGroups?.forEach(element => {
-                allowedGroupsArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+                allowedGroupsArrValue.push((element instanceof GroupImpl? element as GroupImpl:new GroupImpl(element)));
             });
             this._allowedGroups = allowedGroupsArrValue;
         }
@@ -71,7 +71,7 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
         if(value) {
             const allowedUsersArrValue: UserImpl[] = [];
             this.allowedUsers?.forEach(element => {
-                allowedUsersArrValue.push((element instanceof UserImpl? element:new UserImpl(element)));
+                allowedUsersArrValue.push((element instanceof UserImpl? element as UserImpl:new UserImpl(element)));
             });
             this._allowedUsers = allowedUsersArrValue;
         }
@@ -130,7 +130,7 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
      */
     public set printer(value: Printer | undefined) {
         if(value) {
-            this._printer = value instanceof PrinterImpl? value : new PrinterImpl(value);
+            this._printer = value instanceof PrinterImpl? value as PrinterImpl: new PrinterImpl(value);
         }
     };
     /**
@@ -145,13 +145,13 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
         }
         if(this.allowedGroups && this.allowedGroups.length != 0){        const allowedGroupsArrValue: GroupImpl[] = [];
         this.allowedGroups?.forEach(element => {
-            allowedGroupsArrValue.push((element instanceof GroupImpl? element:new GroupImpl(element)));
+            allowedGroupsArrValue.push((element instanceof GroupImpl? element as GroupImpl:new GroupImpl(element)));
         });
             writer.writeCollectionOfObjectValues<GroupImpl>("allowedGroups", allowedGroupsArrValue);
         }
         if(this.allowedUsers && this.allowedUsers.length != 0){        const allowedUsersArrValue: UserImpl[] = [];
         this.allowedUsers?.forEach(element => {
-            allowedUsersArrValue.push((element instanceof UserImpl? element:new UserImpl(element)));
+            allowedUsersArrValue.push((element instanceof UserImpl? element as UserImpl:new UserImpl(element)));
         });
             writer.writeCollectionOfObjectValues<UserImpl>("allowedUsers", allowedUsersArrValue);
         }
@@ -159,7 +159,7 @@ export class PrinterShareImpl extends PrinterBaseImpl implements PrinterShare {
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.printer){
-            writer.writeObjectValue<PrinterImpl>("printer", (!this.printer || this.printer instanceof PrinterImpl? this.printer : new PrinterImpl(this.printer)));
+            writer.writeObjectValue<PrinterImpl>("printer", (this.printer instanceof PrinterImpl? this.printer as PrinterImpl: new PrinterImpl(this.printer)));
         }
     };
 }

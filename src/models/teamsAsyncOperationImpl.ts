@@ -84,7 +84,7 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOpe
      */
     public set error_escaped(value: OperationError | undefined) {
         if(value) {
-            this._error_escaped = value instanceof OperationErrorImpl? value : new OperationErrorImpl(value);
+            this._error_escaped = value instanceof OperationErrorImpl? value as OperationErrorImpl: new OperationErrorImpl(value);
         }
     };
     /**
@@ -149,7 +149,7 @@ export class TeamsAsyncOperationImpl extends EntityImpl implements TeamsAsyncOpe
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.error_escaped){
-            writer.writeObjectValue<OperationErrorImpl>("error", (!this.error_escaped || this.error_escaped instanceof OperationErrorImpl? this.error_escaped : new OperationErrorImpl(this.error_escaped)));
+            writer.writeObjectValue<OperationErrorImpl>("error", (this.error_escaped instanceof OperationErrorImpl? this.error_escaped as OperationErrorImpl: new OperationErrorImpl(this.error_escaped)));
         }
         if(this.lastActionDateTime){
             writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);

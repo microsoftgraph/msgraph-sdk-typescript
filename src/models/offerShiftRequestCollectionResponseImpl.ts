@@ -73,7 +73,7 @@ export class OfferShiftRequestCollectionResponseImpl implements OfferShiftReques
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OfferShiftRequestImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OfferShiftRequestImpl? element:new OfferShiftRequestImpl(element)));
+            valueArrValue.push((element instanceof OfferShiftRequestImpl? element as OfferShiftRequestImpl:new OfferShiftRequestImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OfferShiftRequestImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OfferShiftRequestCollectionResponseImpl implements OfferShiftReques
         if(value) {
             const valueArrValue: OfferShiftRequestImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OfferShiftRequestImpl? element:new OfferShiftRequestImpl(element)));
+                valueArrValue.push((element instanceof OfferShiftRequestImpl? element as OfferShiftRequestImpl:new OfferShiftRequestImpl(element)));
             });
             this._value = valueArrValue;
         }

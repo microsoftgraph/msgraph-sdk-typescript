@@ -4,7 +4,7 @@ import {PlannerBucket} from './plannerBucket';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of application entities. */
 export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
     /** Name of the bucket. */
     private _name?: string | undefined;
@@ -103,7 +103,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         }
         if(this.tasks && this.tasks.length != 0){        const tasksArrValue: PlannerTaskImpl[] = [];
         this.tasks?.forEach(element => {
-            tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+            tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PlannerTaskImpl>("tasks", tasksArrValue);
         }
@@ -123,7 +123,7 @@ export class PlannerBucketImpl extends EntityImpl implements PlannerBucket {
         if(value) {
             const tasksArrValue: PlannerTaskImpl[] = [];
             this.tasks?.forEach(element => {
-                tasksArrValue.push((element instanceof PlannerTaskImpl? element:new PlannerTaskImpl(element)));
+                tasksArrValue.push((element instanceof PlannerTaskImpl? element as PlannerTaskImpl:new PlannerTaskImpl(element)));
             });
             this._tasks = tasksArrValue;
         }

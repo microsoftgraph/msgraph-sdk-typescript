@@ -127,7 +127,7 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
      */
     public set defaultUserRolePermissions(value: DefaultUserRolePermissions | undefined) {
         if(value) {
-            this._defaultUserRolePermissions = value instanceof DefaultUserRolePermissionsImpl? value : new DefaultUserRolePermissionsImpl(value);
+            this._defaultUserRolePermissions = value instanceof DefaultUserRolePermissionsImpl? value as DefaultUserRolePermissionsImpl: new DefaultUserRolePermissionsImpl(value);
         }
     };
     /**
@@ -184,7 +184,7 @@ export class AuthorizationPolicyImpl extends PolicyBaseImpl implements Authoriza
             writer.writeBooleanValue("blockMsolPowerShell", this.blockMsolPowerShell);
         }
         if(this.defaultUserRolePermissions){
-            writer.writeObjectValue<DefaultUserRolePermissionsImpl>("defaultUserRolePermissions", (!this.defaultUserRolePermissions || this.defaultUserRolePermissions instanceof DefaultUserRolePermissionsImpl? this.defaultUserRolePermissions : new DefaultUserRolePermissionsImpl(this.defaultUserRolePermissions)));
+            writer.writeObjectValue<DefaultUserRolePermissionsImpl>("defaultUserRolePermissions", (this.defaultUserRolePermissions instanceof DefaultUserRolePermissionsImpl? this.defaultUserRolePermissions as DefaultUserRolePermissionsImpl: new DefaultUserRolePermissionsImpl(this.defaultUserRolePermissions)));
         }
         if(this.guestUserRoleId){
             writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);

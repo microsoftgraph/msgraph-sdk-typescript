@@ -154,7 +154,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set applePushNotificationCertificate(value: ApplePushNotificationCertificate | undefined) {
         if(value) {
-            this._applePushNotificationCertificate = value instanceof ApplePushNotificationCertificateImpl? value : new ApplePushNotificationCertificateImpl(value);
+            this._applePushNotificationCertificate = value instanceof ApplePushNotificationCertificateImpl? value as ApplePushNotificationCertificateImpl: new ApplePushNotificationCertificateImpl(value);
         }
     };
     /**
@@ -172,7 +172,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = [];
             this.complianceManagementPartners?.forEach(element => {
-                complianceManagementPartnersArrValue.push((element instanceof ComplianceManagementPartnerImpl? element:new ComplianceManagementPartnerImpl(element)));
+                complianceManagementPartnersArrValue.push((element instanceof ComplianceManagementPartnerImpl? element as ComplianceManagementPartnerImpl:new ComplianceManagementPartnerImpl(element)));
             });
             this._complianceManagementPartners = complianceManagementPartnersArrValue;
         }
@@ -190,7 +190,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set conditionalAccessSettings(value: OnPremisesConditionalAccessSettings | undefined) {
         if(value) {
-            this._conditionalAccessSettings = value instanceof OnPremisesConditionalAccessSettingsImpl? value : new OnPremisesConditionalAccessSettingsImpl(value);
+            this._conditionalAccessSettings = value instanceof OnPremisesConditionalAccessSettingsImpl? value as OnPremisesConditionalAccessSettingsImpl: new OnPremisesConditionalAccessSettingsImpl(value);
         }
     };
     /**
@@ -250,7 +250,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const detectedAppsArrValue: DetectedAppImpl[] = [];
             this.detectedApps?.forEach(element => {
-                detectedAppsArrValue.push((element instanceof DetectedAppImpl? element:new DetectedAppImpl(element)));
+                detectedAppsArrValue.push((element instanceof DetectedAppImpl? element as DetectedAppImpl:new DetectedAppImpl(element)));
             });
             this._detectedApps = detectedAppsArrValue;
         }
@@ -270,7 +270,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const deviceCategoriesArrValue: DeviceCategoryImpl[] = [];
             this.deviceCategories?.forEach(element => {
-                deviceCategoriesArrValue.push((element instanceof DeviceCategoryImpl? element:new DeviceCategoryImpl(element)));
+                deviceCategoriesArrValue.push((element instanceof DeviceCategoryImpl? element as DeviceCategoryImpl:new DeviceCategoryImpl(element)));
             });
             this._deviceCategories = deviceCategoriesArrValue;
         }
@@ -290,7 +290,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = [];
             this.deviceCompliancePolicies?.forEach(element => {
-                deviceCompliancePoliciesArrValue.push((element instanceof DeviceCompliancePolicyImpl? element:new DeviceCompliancePolicyImpl(element)));
+                deviceCompliancePoliciesArrValue.push((element instanceof DeviceCompliancePolicyImpl? element as DeviceCompliancePolicyImpl:new DeviceCompliancePolicyImpl(element)));
             });
             this._deviceCompliancePolicies = deviceCompliancePoliciesArrValue;
         }
@@ -308,7 +308,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set deviceCompliancePolicyDeviceStateSummary(value: DeviceCompliancePolicyDeviceStateSummary | undefined) {
         if(value) {
-            this._deviceCompliancePolicyDeviceStateSummary = value instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? value : new DeviceCompliancePolicyDeviceStateSummaryImpl(value);
+            this._deviceCompliancePolicyDeviceStateSummary = value instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? value as DeviceCompliancePolicyDeviceStateSummaryImpl: new DeviceCompliancePolicyDeviceStateSummaryImpl(value);
         }
     };
     /**
@@ -326,7 +326,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = [];
             this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {
-                deviceCompliancePolicySettingStateSummariesArrValue.push((element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element:new DeviceCompliancePolicySettingStateSummaryImpl(element)));
+                deviceCompliancePolicySettingStateSummariesArrValue.push((element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element as DeviceCompliancePolicySettingStateSummaryImpl:new DeviceCompliancePolicySettingStateSummaryImpl(element)));
             });
             this._deviceCompliancePolicySettingStateSummaries = deviceCompliancePolicySettingStateSummariesArrValue;
         }
@@ -344,7 +344,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set deviceConfigurationDeviceStateSummaries(value: DeviceConfigurationDeviceStateSummary | undefined) {
         if(value) {
-            this._deviceConfigurationDeviceStateSummaries = value instanceof DeviceConfigurationDeviceStateSummaryImpl? value : new DeviceConfigurationDeviceStateSummaryImpl(value);
+            this._deviceConfigurationDeviceStateSummaries = value instanceof DeviceConfigurationDeviceStateSummaryImpl? value as DeviceConfigurationDeviceStateSummaryImpl: new DeviceConfigurationDeviceStateSummaryImpl(value);
         }
     };
     /**
@@ -362,7 +362,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = [];
             this.deviceConfigurations?.forEach(element => {
-                deviceConfigurationsArrValue.push((element instanceof DeviceConfigurationImpl? element:new DeviceConfigurationImpl(element)));
+                deviceConfigurationsArrValue.push((element instanceof DeviceConfigurationImpl? element as DeviceConfigurationImpl:new DeviceConfigurationImpl(element)));
             });
             this._deviceConfigurations = deviceConfigurationsArrValue;
         }
@@ -382,7 +382,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = [];
             this.deviceEnrollmentConfigurations?.forEach(element => {
-                deviceEnrollmentConfigurationsArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element:new DeviceEnrollmentConfigurationImpl(element)));
+                deviceEnrollmentConfigurationsArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element as DeviceEnrollmentConfigurationImpl:new DeviceEnrollmentConfigurationImpl(element)));
             });
             this._deviceEnrollmentConfigurations = deviceEnrollmentConfigurationsArrValue;
         }
@@ -402,7 +402,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = [];
             this.deviceManagementPartners?.forEach(element => {
-                deviceManagementPartnersArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+                deviceManagementPartnersArrValue.push((element instanceof DeviceManagementPartnerImpl? element as DeviceManagementPartnerImpl:new DeviceManagementPartnerImpl(element)));
             });
             this._deviceManagementPartners = deviceManagementPartnersArrValue;
         }
@@ -422,7 +422,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = [];
             this.exchangeConnectors?.forEach(element => {
-                exchangeConnectorsArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element:new DeviceManagementExchangeConnectorImpl(element)));
+                exchangeConnectorsArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element as DeviceManagementExchangeConnectorImpl:new DeviceManagementExchangeConnectorImpl(element)));
             });
             this._exchangeConnectors = exchangeConnectorsArrValue;
         }
@@ -485,7 +485,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
             this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
-                importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+                importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element as ImportedWindowsAutopilotDeviceIdentityImpl:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
             });
             this._importedWindowsAutopilotDeviceIdentities = importedWindowsAutopilotDeviceIdentitiesArrValue;
         }
@@ -519,7 +519,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set intuneBrand(value: IntuneBrand | undefined) {
         if(value) {
-            this._intuneBrand = value instanceof IntuneBrandImpl? value : new IntuneBrandImpl(value);
+            this._intuneBrand = value instanceof IntuneBrandImpl? value as IntuneBrandImpl: new IntuneBrandImpl(value);
         }
     };
     /**
@@ -537,7 +537,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = [];
             this.iosUpdateStatuses?.forEach(element => {
-                iosUpdateStatusesArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element:new IosUpdateDeviceStatusImpl(element)));
+                iosUpdateStatusesArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element as IosUpdateDeviceStatusImpl:new IosUpdateDeviceStatusImpl(element)));
             });
             this._iosUpdateStatuses = iosUpdateStatusesArrValue;
         }
@@ -555,7 +555,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set managedDeviceOverview(value: ManagedDeviceOverview | undefined) {
         if(value) {
-            this._managedDeviceOverview = value instanceof ManagedDeviceOverviewImpl? value : new ManagedDeviceOverviewImpl(value);
+            this._managedDeviceOverview = value instanceof ManagedDeviceOverviewImpl? value as ManagedDeviceOverviewImpl: new ManagedDeviceOverviewImpl(value);
         }
     };
     /**
@@ -573,7 +573,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const managedDevicesArrValue: ManagedDeviceImpl[] = [];
             this.managedDevices?.forEach(element => {
-                managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+                managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element as ManagedDeviceImpl:new ManagedDeviceImpl(element)));
             });
             this._managedDevices = managedDevicesArrValue;
         }
@@ -593,7 +593,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = [];
             this.mobileThreatDefenseConnectors?.forEach(element => {
-                mobileThreatDefenseConnectorsArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element:new MobileThreatDefenseConnectorImpl(element)));
+                mobileThreatDefenseConnectorsArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element as MobileThreatDefenseConnectorImpl:new MobileThreatDefenseConnectorImpl(element)));
             });
             this._mobileThreatDefenseConnectors = mobileThreatDefenseConnectorsArrValue;
         }
@@ -613,7 +613,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = [];
             this.notificationMessageTemplates?.forEach(element => {
-                notificationMessageTemplatesArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+                notificationMessageTemplatesArrValue.push((element instanceof NotificationMessageTemplateImpl? element as NotificationMessageTemplateImpl:new NotificationMessageTemplateImpl(element)));
             });
             this._notificationMessageTemplates = notificationMessageTemplatesArrValue;
         }
@@ -633,7 +633,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = [];
             this.remoteAssistancePartners?.forEach(element => {
-                remoteAssistancePartnersArrValue.push((element instanceof RemoteAssistancePartnerImpl? element:new RemoteAssistancePartnerImpl(element)));
+                remoteAssistancePartnersArrValue.push((element instanceof RemoteAssistancePartnerImpl? element as RemoteAssistancePartnerImpl:new RemoteAssistancePartnerImpl(element)));
             });
             this._remoteAssistancePartners = remoteAssistancePartnersArrValue;
         }
@@ -651,7 +651,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set reports(value: DeviceManagementReports | undefined) {
         if(value) {
-            this._reports = value instanceof DeviceManagementReportsImpl? value : new DeviceManagementReportsImpl(value);
+            this._reports = value instanceof DeviceManagementReportsImpl? value as DeviceManagementReportsImpl: new DeviceManagementReportsImpl(value);
         }
     };
     /**
@@ -669,7 +669,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const resourceOperationsArrValue: ResourceOperationImpl[] = [];
             this.resourceOperations?.forEach(element => {
-                resourceOperationsArrValue.push((element instanceof ResourceOperationImpl? element:new ResourceOperationImpl(element)));
+                resourceOperationsArrValue.push((element instanceof ResourceOperationImpl? element as ResourceOperationImpl:new ResourceOperationImpl(element)));
             });
             this._resourceOperations = resourceOperationsArrValue;
         }
@@ -689,7 +689,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = [];
             this.roleAssignments?.forEach(element => {
-                roleAssignmentsArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element:new DeviceAndAppManagementRoleAssignmentImpl(element)));
+                roleAssignmentsArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element as DeviceAndAppManagementRoleAssignmentImpl:new DeviceAndAppManagementRoleAssignmentImpl(element)));
             });
             this._roleAssignments = roleAssignmentsArrValue;
         }
@@ -709,7 +709,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const roleDefinitionsArrValue: RoleDefinitionImpl[] = [];
             this.roleDefinitions?.forEach(element => {
-                roleDefinitionsArrValue.push((element instanceof RoleDefinitionImpl? element:new RoleDefinitionImpl(element)));
+                roleDefinitionsArrValue.push((element instanceof RoleDefinitionImpl? element as RoleDefinitionImpl:new RoleDefinitionImpl(element)));
             });
             this._roleDefinitions = roleDefinitionsArrValue;
         }
@@ -722,74 +722,74 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applePushNotificationCertificate){
-            writer.writeObjectValue<ApplePushNotificationCertificateImpl>("applePushNotificationCertificate", (!this.applePushNotificationCertificate || this.applePushNotificationCertificate instanceof ApplePushNotificationCertificateImpl? this.applePushNotificationCertificate : new ApplePushNotificationCertificateImpl(this.applePushNotificationCertificate)));
+            writer.writeObjectValue<ApplePushNotificationCertificateImpl>("applePushNotificationCertificate", (this.applePushNotificationCertificate instanceof ApplePushNotificationCertificateImpl? this.applePushNotificationCertificate as ApplePushNotificationCertificateImpl: new ApplePushNotificationCertificateImpl(this.applePushNotificationCertificate)));
         }
         if(this.complianceManagementPartners && this.complianceManagementPartners.length != 0){        const complianceManagementPartnersArrValue: ComplianceManagementPartnerImpl[] = [];
         this.complianceManagementPartners?.forEach(element => {
-            complianceManagementPartnersArrValue.push((element instanceof ComplianceManagementPartnerImpl? element:new ComplianceManagementPartnerImpl(element)));
+            complianceManagementPartnersArrValue.push((element instanceof ComplianceManagementPartnerImpl? element as ComplianceManagementPartnerImpl:new ComplianceManagementPartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ComplianceManagementPartnerImpl>("complianceManagementPartners", complianceManagementPartnersArrValue);
         }
         if(this.conditionalAccessSettings){
-            writer.writeObjectValue<OnPremisesConditionalAccessSettingsImpl>("conditionalAccessSettings", (!this.conditionalAccessSettings || this.conditionalAccessSettings instanceof OnPremisesConditionalAccessSettingsImpl? this.conditionalAccessSettings : new OnPremisesConditionalAccessSettingsImpl(this.conditionalAccessSettings)));
+            writer.writeObjectValue<OnPremisesConditionalAccessSettingsImpl>("conditionalAccessSettings", (this.conditionalAccessSettings instanceof OnPremisesConditionalAccessSettingsImpl? this.conditionalAccessSettings as OnPremisesConditionalAccessSettingsImpl: new OnPremisesConditionalAccessSettingsImpl(this.conditionalAccessSettings)));
         }
         if(this.detectedApps && this.detectedApps.length != 0){        const detectedAppsArrValue: DetectedAppImpl[] = [];
         this.detectedApps?.forEach(element => {
-            detectedAppsArrValue.push((element instanceof DetectedAppImpl? element:new DetectedAppImpl(element)));
+            detectedAppsArrValue.push((element instanceof DetectedAppImpl? element as DetectedAppImpl:new DetectedAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DetectedAppImpl>("detectedApps", detectedAppsArrValue);
         }
         if(this.deviceCategories && this.deviceCategories.length != 0){        const deviceCategoriesArrValue: DeviceCategoryImpl[] = [];
         this.deviceCategories?.forEach(element => {
-            deviceCategoriesArrValue.push((element instanceof DeviceCategoryImpl? element:new DeviceCategoryImpl(element)));
+            deviceCategoriesArrValue.push((element instanceof DeviceCategoryImpl? element as DeviceCategoryImpl:new DeviceCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCategoryImpl>("deviceCategories", deviceCategoriesArrValue);
         }
         if(this.deviceCompliancePolicies && this.deviceCompliancePolicies.length != 0){        const deviceCompliancePoliciesArrValue: DeviceCompliancePolicyImpl[] = [];
         this.deviceCompliancePolicies?.forEach(element => {
-            deviceCompliancePoliciesArrValue.push((element instanceof DeviceCompliancePolicyImpl? element:new DeviceCompliancePolicyImpl(element)));
+            deviceCompliancePoliciesArrValue.push((element instanceof DeviceCompliancePolicyImpl? element as DeviceCompliancePolicyImpl:new DeviceCompliancePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicyImpl>("deviceCompliancePolicies", deviceCompliancePoliciesArrValue);
         }
         if(this.deviceCompliancePolicyDeviceStateSummary){
-            writer.writeObjectValue<DeviceCompliancePolicyDeviceStateSummaryImpl>("deviceCompliancePolicyDeviceStateSummary", (!this.deviceCompliancePolicyDeviceStateSummary || this.deviceCompliancePolicyDeviceStateSummary instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? this.deviceCompliancePolicyDeviceStateSummary : new DeviceCompliancePolicyDeviceStateSummaryImpl(this.deviceCompliancePolicyDeviceStateSummary)));
+            writer.writeObjectValue<DeviceCompliancePolicyDeviceStateSummaryImpl>("deviceCompliancePolicyDeviceStateSummary", (this.deviceCompliancePolicyDeviceStateSummary instanceof DeviceCompliancePolicyDeviceStateSummaryImpl? this.deviceCompliancePolicyDeviceStateSummary as DeviceCompliancePolicyDeviceStateSummaryImpl: new DeviceCompliancePolicyDeviceStateSummaryImpl(this.deviceCompliancePolicyDeviceStateSummary)));
         }
         if(this.deviceCompliancePolicySettingStateSummaries && this.deviceCompliancePolicySettingStateSummaries.length != 0){        const deviceCompliancePolicySettingStateSummariesArrValue: DeviceCompliancePolicySettingStateSummaryImpl[] = [];
         this.deviceCompliancePolicySettingStateSummaries?.forEach(element => {
-            deviceCompliancePolicySettingStateSummariesArrValue.push((element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element:new DeviceCompliancePolicySettingStateSummaryImpl(element)));
+            deviceCompliancePolicySettingStateSummariesArrValue.push((element instanceof DeviceCompliancePolicySettingStateSummaryImpl? element as DeviceCompliancePolicySettingStateSummaryImpl:new DeviceCompliancePolicySettingStateSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummaryImpl>("deviceCompliancePolicySettingStateSummaries", deviceCompliancePolicySettingStateSummariesArrValue);
         }
         if(this.deviceConfigurationDeviceStateSummaries){
-            writer.writeObjectValue<DeviceConfigurationDeviceStateSummaryImpl>("deviceConfigurationDeviceStateSummaries", (!this.deviceConfigurationDeviceStateSummaries || this.deviceConfigurationDeviceStateSummaries instanceof DeviceConfigurationDeviceStateSummaryImpl? this.deviceConfigurationDeviceStateSummaries : new DeviceConfigurationDeviceStateSummaryImpl(this.deviceConfigurationDeviceStateSummaries)));
+            writer.writeObjectValue<DeviceConfigurationDeviceStateSummaryImpl>("deviceConfigurationDeviceStateSummaries", (this.deviceConfigurationDeviceStateSummaries instanceof DeviceConfigurationDeviceStateSummaryImpl? this.deviceConfigurationDeviceStateSummaries as DeviceConfigurationDeviceStateSummaryImpl: new DeviceConfigurationDeviceStateSummaryImpl(this.deviceConfigurationDeviceStateSummaries)));
         }
         if(this.deviceConfigurations && this.deviceConfigurations.length != 0){        const deviceConfigurationsArrValue: DeviceConfigurationImpl[] = [];
         this.deviceConfigurations?.forEach(element => {
-            deviceConfigurationsArrValue.push((element instanceof DeviceConfigurationImpl? element:new DeviceConfigurationImpl(element)));
+            deviceConfigurationsArrValue.push((element instanceof DeviceConfigurationImpl? element as DeviceConfigurationImpl:new DeviceConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceConfigurationImpl>("deviceConfigurations", deviceConfigurationsArrValue);
         }
         if(this.deviceEnrollmentConfigurations && this.deviceEnrollmentConfigurations.length != 0){        const deviceEnrollmentConfigurationsArrValue: DeviceEnrollmentConfigurationImpl[] = [];
         this.deviceEnrollmentConfigurations?.forEach(element => {
-            deviceEnrollmentConfigurationsArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element:new DeviceEnrollmentConfigurationImpl(element)));
+            deviceEnrollmentConfigurationsArrValue.push((element instanceof DeviceEnrollmentConfigurationImpl? element as DeviceEnrollmentConfigurationImpl:new DeviceEnrollmentConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceEnrollmentConfigurationImpl>("deviceEnrollmentConfigurations", deviceEnrollmentConfigurationsArrValue);
         }
         if(this.deviceManagementPartners && this.deviceManagementPartners.length != 0){        const deviceManagementPartnersArrValue: DeviceManagementPartnerImpl[] = [];
         this.deviceManagementPartners?.forEach(element => {
-            deviceManagementPartnersArrValue.push((element instanceof DeviceManagementPartnerImpl? element:new DeviceManagementPartnerImpl(element)));
+            deviceManagementPartnersArrValue.push((element instanceof DeviceManagementPartnerImpl? element as DeviceManagementPartnerImpl:new DeviceManagementPartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementPartnerImpl>("deviceManagementPartners", deviceManagementPartnersArrValue);
         }
         if(this.exchangeConnectors && this.exchangeConnectors.length != 0){        const exchangeConnectorsArrValue: DeviceManagementExchangeConnectorImpl[] = [];
         this.exchangeConnectors?.forEach(element => {
-            exchangeConnectorsArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element:new DeviceManagementExchangeConnectorImpl(element)));
+            exchangeConnectorsArrValue.push((element instanceof DeviceManagementExchangeConnectorImpl? element as DeviceManagementExchangeConnectorImpl:new DeviceManagementExchangeConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnectorImpl>("exchangeConnectors", exchangeConnectorsArrValue);
         }
         if(this.importedWindowsAutopilotDeviceIdentities && this.importedWindowsAutopilotDeviceIdentities.length != 0){        const importedWindowsAutopilotDeviceIdentitiesArrValue: ImportedWindowsAutopilotDeviceIdentityImpl[] = [];
         this.importedWindowsAutopilotDeviceIdentities?.forEach(element => {
-            importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
+            importedWindowsAutopilotDeviceIdentitiesArrValue.push((element instanceof ImportedWindowsAutopilotDeviceIdentityImpl? element as ImportedWindowsAutopilotDeviceIdentityImpl:new ImportedWindowsAutopilotDeviceIdentityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentityImpl>("importedWindowsAutopilotDeviceIdentities", importedWindowsAutopilotDeviceIdentitiesArrValue);
         }
@@ -797,104 +797,104 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
             writer.writeStringValue("intuneAccountId", this.intuneAccountId);
         }
         if(this.intuneBrand){
-            writer.writeObjectValue<IntuneBrandImpl>("intuneBrand", (!this.intuneBrand || this.intuneBrand instanceof IntuneBrandImpl? this.intuneBrand : new IntuneBrandImpl(this.intuneBrand)));
+            writer.writeObjectValue<IntuneBrandImpl>("intuneBrand", (this.intuneBrand instanceof IntuneBrandImpl? this.intuneBrand as IntuneBrandImpl: new IntuneBrandImpl(this.intuneBrand)));
         }
         if(this.iosUpdateStatuses && this.iosUpdateStatuses.length != 0){        const iosUpdateStatusesArrValue: IosUpdateDeviceStatusImpl[] = [];
         this.iosUpdateStatuses?.forEach(element => {
-            iosUpdateStatusesArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element:new IosUpdateDeviceStatusImpl(element)));
+            iosUpdateStatusesArrValue.push((element instanceof IosUpdateDeviceStatusImpl? element as IosUpdateDeviceStatusImpl:new IosUpdateDeviceStatusImpl(element)));
         });
             writer.writeCollectionOfObjectValues<IosUpdateDeviceStatusImpl>("iosUpdateStatuses", iosUpdateStatusesArrValue);
         }
         if(this.managedDeviceOverview){
-            writer.writeObjectValue<ManagedDeviceOverviewImpl>("managedDeviceOverview", (!this.managedDeviceOverview || this.managedDeviceOverview instanceof ManagedDeviceOverviewImpl? this.managedDeviceOverview : new ManagedDeviceOverviewImpl(this.managedDeviceOverview)));
+            writer.writeObjectValue<ManagedDeviceOverviewImpl>("managedDeviceOverview", (this.managedDeviceOverview instanceof ManagedDeviceOverviewImpl? this.managedDeviceOverview as ManagedDeviceOverviewImpl: new ManagedDeviceOverviewImpl(this.managedDeviceOverview)));
         }
         if(this.managedDevices && this.managedDevices.length != 0){        const managedDevicesArrValue: ManagedDeviceImpl[] = [];
         this.managedDevices?.forEach(element => {
-            managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element:new ManagedDeviceImpl(element)));
+            managedDevicesArrValue.push((element instanceof ManagedDeviceImpl? element as ManagedDeviceImpl:new ManagedDeviceImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedDeviceImpl>("managedDevices", managedDevicesArrValue);
         }
         if(this.mobileThreatDefenseConnectors && this.mobileThreatDefenseConnectors.length != 0){        const mobileThreatDefenseConnectorsArrValue: MobileThreatDefenseConnectorImpl[] = [];
         this.mobileThreatDefenseConnectors?.forEach(element => {
-            mobileThreatDefenseConnectorsArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element:new MobileThreatDefenseConnectorImpl(element)));
+            mobileThreatDefenseConnectorsArrValue.push((element instanceof MobileThreatDefenseConnectorImpl? element as MobileThreatDefenseConnectorImpl:new MobileThreatDefenseConnectorImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileThreatDefenseConnectorImpl>("mobileThreatDefenseConnectors", mobileThreatDefenseConnectorsArrValue);
         }
         if(this.notificationMessageTemplates && this.notificationMessageTemplates.length != 0){        const notificationMessageTemplatesArrValue: NotificationMessageTemplateImpl[] = [];
         this.notificationMessageTemplates?.forEach(element => {
-            notificationMessageTemplatesArrValue.push((element instanceof NotificationMessageTemplateImpl? element:new NotificationMessageTemplateImpl(element)));
+            notificationMessageTemplatesArrValue.push((element instanceof NotificationMessageTemplateImpl? element as NotificationMessageTemplateImpl:new NotificationMessageTemplateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<NotificationMessageTemplateImpl>("notificationMessageTemplates", notificationMessageTemplatesArrValue);
         }
         if(this.remoteAssistancePartners && this.remoteAssistancePartners.length != 0){        const remoteAssistancePartnersArrValue: RemoteAssistancePartnerImpl[] = [];
         this.remoteAssistancePartners?.forEach(element => {
-            remoteAssistancePartnersArrValue.push((element instanceof RemoteAssistancePartnerImpl? element:new RemoteAssistancePartnerImpl(element)));
+            remoteAssistancePartnersArrValue.push((element instanceof RemoteAssistancePartnerImpl? element as RemoteAssistancePartnerImpl:new RemoteAssistancePartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RemoteAssistancePartnerImpl>("remoteAssistancePartners", remoteAssistancePartnersArrValue);
         }
         if(this.reports){
-            writer.writeObjectValue<DeviceManagementReportsImpl>("reports", (!this.reports || this.reports instanceof DeviceManagementReportsImpl? this.reports : new DeviceManagementReportsImpl(this.reports)));
+            writer.writeObjectValue<DeviceManagementReportsImpl>("reports", (this.reports instanceof DeviceManagementReportsImpl? this.reports as DeviceManagementReportsImpl: new DeviceManagementReportsImpl(this.reports)));
         }
         if(this.resourceOperations && this.resourceOperations.length != 0){        const resourceOperationsArrValue: ResourceOperationImpl[] = [];
         this.resourceOperations?.forEach(element => {
-            resourceOperationsArrValue.push((element instanceof ResourceOperationImpl? element:new ResourceOperationImpl(element)));
+            resourceOperationsArrValue.push((element instanceof ResourceOperationImpl? element as ResourceOperationImpl:new ResourceOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceOperationImpl>("resourceOperations", resourceOperationsArrValue);
         }
         if(this.roleAssignments && this.roleAssignments.length != 0){        const roleAssignmentsArrValue: DeviceAndAppManagementRoleAssignmentImpl[] = [];
         this.roleAssignments?.forEach(element => {
-            roleAssignmentsArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element:new DeviceAndAppManagementRoleAssignmentImpl(element)));
+            roleAssignmentsArrValue.push((element instanceof DeviceAndAppManagementRoleAssignmentImpl? element as DeviceAndAppManagementRoleAssignmentImpl:new DeviceAndAppManagementRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignmentImpl>("roleAssignments", roleAssignmentsArrValue);
         }
         if(this.roleDefinitions && this.roleDefinitions.length != 0){        const roleDefinitionsArrValue: RoleDefinitionImpl[] = [];
         this.roleDefinitions?.forEach(element => {
-            roleDefinitionsArrValue.push((element instanceof RoleDefinitionImpl? element:new RoleDefinitionImpl(element)));
+            roleDefinitionsArrValue.push((element instanceof RoleDefinitionImpl? element as RoleDefinitionImpl:new RoleDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RoleDefinitionImpl>("roleDefinitions", roleDefinitionsArrValue);
         }
         if(this.settings){
-            writer.writeObjectValue<DeviceManagementSettingsImpl>("settings", (!this.settings || this.settings instanceof DeviceManagementSettingsImpl? this.settings : new DeviceManagementSettingsImpl(this.settings)));
+            writer.writeObjectValue<DeviceManagementSettingsImpl>("settings", (this.settings instanceof DeviceManagementSettingsImpl? this.settings as DeviceManagementSettingsImpl: new DeviceManagementSettingsImpl(this.settings)));
         }
         if(this.softwareUpdateStatusSummary){
-            writer.writeObjectValue<SoftwareUpdateStatusSummaryImpl>("softwareUpdateStatusSummary", (!this.softwareUpdateStatusSummary || this.softwareUpdateStatusSummary instanceof SoftwareUpdateStatusSummaryImpl? this.softwareUpdateStatusSummary : new SoftwareUpdateStatusSummaryImpl(this.softwareUpdateStatusSummary)));
+            writer.writeObjectValue<SoftwareUpdateStatusSummaryImpl>("softwareUpdateStatusSummary", (this.softwareUpdateStatusSummary instanceof SoftwareUpdateStatusSummaryImpl? this.softwareUpdateStatusSummary as SoftwareUpdateStatusSummaryImpl: new SoftwareUpdateStatusSummaryImpl(this.softwareUpdateStatusSummary)));
         }
         if(this.subscriptionState){
             writer.writeEnumValue<DeviceManagementSubscriptionState>("subscriptionState", this.subscriptionState);
         }
         if(this.telecomExpenseManagementPartners && this.telecomExpenseManagementPartners.length != 0){        const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = [];
         this.telecomExpenseManagementPartners?.forEach(element => {
-            telecomExpenseManagementPartnersArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element:new TelecomExpenseManagementPartnerImpl(element)));
+            telecomExpenseManagementPartnersArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element as TelecomExpenseManagementPartnerImpl:new TelecomExpenseManagementPartnerImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartnerImpl>("telecomExpenseManagementPartners", telecomExpenseManagementPartnersArrValue);
         }
         if(this.termsAndConditions && this.termsAndConditions.length != 0){        const termsAndConditionsArrValue: TermsAndConditionsImpl[] = [];
         this.termsAndConditions?.forEach(element => {
-            termsAndConditionsArrValue.push((element instanceof TermsAndConditionsImpl? element:new TermsAndConditionsImpl(element)));
+            termsAndConditionsArrValue.push((element instanceof TermsAndConditionsImpl? element as TermsAndConditionsImpl:new TermsAndConditionsImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TermsAndConditionsImpl>("termsAndConditions", termsAndConditionsArrValue);
         }
         if(this.troubleshootingEvents && this.troubleshootingEvents.length != 0){        const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = [];
         this.troubleshootingEvents?.forEach(element => {
-            troubleshootingEventsArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element:new DeviceManagementTroubleshootingEventImpl(element)));
+            troubleshootingEventsArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element as DeviceManagementTroubleshootingEventImpl:new DeviceManagementTroubleshootingEventImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEventImpl>("troubleshootingEvents", troubleshootingEventsArrValue);
         }
         if(this.windowsAutopilotDeviceIdentities && this.windowsAutopilotDeviceIdentities.length != 0){        const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = [];
         this.windowsAutopilotDeviceIdentities?.forEach(element => {
-            windowsAutopilotDeviceIdentitiesArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element:new WindowsAutopilotDeviceIdentityImpl(element)));
+            windowsAutopilotDeviceIdentitiesArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element as WindowsAutopilotDeviceIdentityImpl:new WindowsAutopilotDeviceIdentityImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsAutopilotDeviceIdentityImpl>("windowsAutopilotDeviceIdentities", windowsAutopilotDeviceIdentitiesArrValue);
         }
         if(this.windowsInformationProtectionAppLearningSummaries && this.windowsInformationProtectionAppLearningSummaries.length != 0){        const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = [];
         this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {
-            windowsInformationProtectionAppLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element:new WindowsInformationProtectionAppLearningSummaryImpl(element)));
+            windowsInformationProtectionAppLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element as WindowsInformationProtectionAppLearningSummaryImpl:new WindowsInformationProtectionAppLearningSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLearningSummaryImpl>("windowsInformationProtectionAppLearningSummaries", windowsInformationProtectionAppLearningSummariesArrValue);
         }
         if(this.windowsInformationProtectionNetworkLearningSummaries && this.windowsInformationProtectionNetworkLearningSummaries.length != 0){        const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = [];
         this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {
-            windowsInformationProtectionNetworkLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
+            windowsInformationProtectionNetworkLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element as WindowsInformationProtectionNetworkLearningSummaryImpl:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummaryImpl>("windowsInformationProtectionNetworkLearningSummaries", windowsInformationProtectionNetworkLearningSummariesArrValue);
         }
@@ -912,7 +912,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set settings(value: DeviceManagementSettings | undefined) {
         if(value) {
-            this._settings = value instanceof DeviceManagementSettingsImpl? value : new DeviceManagementSettingsImpl(value);
+            this._settings = value instanceof DeviceManagementSettingsImpl? value as DeviceManagementSettingsImpl: new DeviceManagementSettingsImpl(value);
         }
     };
     /**
@@ -928,7 +928,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
      */
     public set softwareUpdateStatusSummary(value: SoftwareUpdateStatusSummary | undefined) {
         if(value) {
-            this._softwareUpdateStatusSummary = value instanceof SoftwareUpdateStatusSummaryImpl? value : new SoftwareUpdateStatusSummaryImpl(value);
+            this._softwareUpdateStatusSummary = value instanceof SoftwareUpdateStatusSummaryImpl? value as SoftwareUpdateStatusSummaryImpl: new SoftwareUpdateStatusSummaryImpl(value);
         }
     };
     /**
@@ -962,7 +962,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const telecomExpenseManagementPartnersArrValue: TelecomExpenseManagementPartnerImpl[] = [];
             this.telecomExpenseManagementPartners?.forEach(element => {
-                telecomExpenseManagementPartnersArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element:new TelecomExpenseManagementPartnerImpl(element)));
+                telecomExpenseManagementPartnersArrValue.push((element instanceof TelecomExpenseManagementPartnerImpl? element as TelecomExpenseManagementPartnerImpl:new TelecomExpenseManagementPartnerImpl(element)));
             });
             this._telecomExpenseManagementPartners = telecomExpenseManagementPartnersArrValue;
         }
@@ -982,7 +982,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const termsAndConditionsArrValue: TermsAndConditionsImpl[] = [];
             this.termsAndConditions?.forEach(element => {
-                termsAndConditionsArrValue.push((element instanceof TermsAndConditionsImpl? element:new TermsAndConditionsImpl(element)));
+                termsAndConditionsArrValue.push((element instanceof TermsAndConditionsImpl? element as TermsAndConditionsImpl:new TermsAndConditionsImpl(element)));
             });
             this._termsAndConditions = termsAndConditionsArrValue;
         }
@@ -1002,7 +1002,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const troubleshootingEventsArrValue: DeviceManagementTroubleshootingEventImpl[] = [];
             this.troubleshootingEvents?.forEach(element => {
-                troubleshootingEventsArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element:new DeviceManagementTroubleshootingEventImpl(element)));
+                troubleshootingEventsArrValue.push((element instanceof DeviceManagementTroubleshootingEventImpl? element as DeviceManagementTroubleshootingEventImpl:new DeviceManagementTroubleshootingEventImpl(element)));
             });
             this._troubleshootingEvents = troubleshootingEventsArrValue;
         }
@@ -1022,7 +1022,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const windowsAutopilotDeviceIdentitiesArrValue: WindowsAutopilotDeviceIdentityImpl[] = [];
             this.windowsAutopilotDeviceIdentities?.forEach(element => {
-                windowsAutopilotDeviceIdentitiesArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element:new WindowsAutopilotDeviceIdentityImpl(element)));
+                windowsAutopilotDeviceIdentitiesArrValue.push((element instanceof WindowsAutopilotDeviceIdentityImpl? element as WindowsAutopilotDeviceIdentityImpl:new WindowsAutopilotDeviceIdentityImpl(element)));
             });
             this._windowsAutopilotDeviceIdentities = windowsAutopilotDeviceIdentitiesArrValue;
         }
@@ -1042,7 +1042,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const windowsInformationProtectionAppLearningSummariesArrValue: WindowsInformationProtectionAppLearningSummaryImpl[] = [];
             this.windowsInformationProtectionAppLearningSummaries?.forEach(element => {
-                windowsInformationProtectionAppLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element:new WindowsInformationProtectionAppLearningSummaryImpl(element)));
+                windowsInformationProtectionAppLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionAppLearningSummaryImpl? element as WindowsInformationProtectionAppLearningSummaryImpl:new WindowsInformationProtectionAppLearningSummaryImpl(element)));
             });
             this._windowsInformationProtectionAppLearningSummaries = windowsInformationProtectionAppLearningSummariesArrValue;
         }
@@ -1062,7 +1062,7 @@ export class DeviceManagementImpl extends EntityImpl implements DeviceManagement
         if(value) {
             const windowsInformationProtectionNetworkLearningSummariesArrValue: WindowsInformationProtectionNetworkLearningSummaryImpl[] = [];
             this.windowsInformationProtectionNetworkLearningSummaries?.forEach(element => {
-                windowsInformationProtectionNetworkLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
+                windowsInformationProtectionNetworkLearningSummariesArrValue.push((element instanceof WindowsInformationProtectionNetworkLearningSummaryImpl? element as WindowsInformationProtectionNetworkLearningSummaryImpl:new WindowsInformationProtectionNetworkLearningSummaryImpl(element)));
             });
             this._windowsInformationProtectionNetworkLearningSummaries = windowsInformationProtectionNetworkLearningSummariesArrValue;
         }

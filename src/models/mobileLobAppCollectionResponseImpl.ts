@@ -73,7 +73,7 @@ export class MobileLobAppCollectionResponseImpl implements MobileLobAppCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileLobAppImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MobileLobAppImpl? element:new MobileLobAppImpl(element)));
+            valueArrValue.push((element instanceof MobileLobAppImpl? element as MobileLobAppImpl:new MobileLobAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileLobAppImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MobileLobAppCollectionResponseImpl implements MobileLobAppCollectio
         if(value) {
             const valueArrValue: MobileLobAppImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MobileLobAppImpl? element:new MobileLobAppImpl(element)));
+                valueArrValue.push((element instanceof MobileLobAppImpl? element as MobileLobAppImpl:new MobileLobAppImpl(element)));
             });
             this._value = valueArrValue;
         }

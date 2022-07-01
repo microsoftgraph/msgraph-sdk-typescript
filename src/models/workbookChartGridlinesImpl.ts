@@ -32,7 +32,7 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookCh
      */
     public set format(value: WorkbookChartGridlinesFormat | undefined) {
         if(value) {
-            this._format = value instanceof WorkbookChartGridlinesFormatImpl? value : new WorkbookChartGridlinesFormatImpl(value);
+            this._format = value instanceof WorkbookChartGridlinesFormatImpl? value as WorkbookChartGridlinesFormatImpl: new WorkbookChartGridlinesFormatImpl(value);
         }
     };
     /**
@@ -53,7 +53,7 @@ export class WorkbookChartGridlinesImpl extends EntityImpl implements WorkbookCh
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.format){
-            writer.writeObjectValue<WorkbookChartGridlinesFormatImpl>("format", (!this.format || this.format instanceof WorkbookChartGridlinesFormatImpl? this.format : new WorkbookChartGridlinesFormatImpl(this.format)));
+            writer.writeObjectValue<WorkbookChartGridlinesFormatImpl>("format", (this.format instanceof WorkbookChartGridlinesFormatImpl? this.format as WorkbookChartGridlinesFormatImpl: new WorkbookChartGridlinesFormatImpl(this.format)));
         }
         if(this.visible){
             writer.writeBooleanValue("visible", this.visible);

@@ -73,7 +73,7 @@ export class TeamsTabCollectionResponseImpl implements TeamsTabCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamsTabImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamsTabImpl? element:new TeamsTabImpl(element)));
+            valueArrValue.push((element instanceof TeamsTabImpl? element as TeamsTabImpl:new TeamsTabImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsTabImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamsTabCollectionResponseImpl implements TeamsTabCollectionRespons
         if(value) {
             const valueArrValue: TeamsTabImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamsTabImpl? element:new TeamsTabImpl(element)));
+                valueArrValue.push((element instanceof TeamsTabImpl? element as TeamsTabImpl:new TeamsTabImpl(element)));
             });
             this._value = valueArrValue;
         }

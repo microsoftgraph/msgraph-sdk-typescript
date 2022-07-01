@@ -40,7 +40,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
         if(value) {
             const overridesArrValue: InferenceClassificationOverrideImpl[] = [];
             this.overrides?.forEach(element => {
-                overridesArrValue.push((element instanceof InferenceClassificationOverrideImpl? element:new InferenceClassificationOverrideImpl(element)));
+                overridesArrValue.push((element instanceof InferenceClassificationOverrideImpl? element as InferenceClassificationOverrideImpl:new InferenceClassificationOverrideImpl(element)));
             });
             this._overrides = overridesArrValue;
         }
@@ -54,7 +54,7 @@ export class InferenceClassificationImpl extends EntityImpl implements Inference
         super.serialize(writer);
         if(this.overrides && this.overrides.length != 0){        const overridesArrValue: InferenceClassificationOverrideImpl[] = [];
         this.overrides?.forEach(element => {
-            overridesArrValue.push((element instanceof InferenceClassificationOverrideImpl? element:new InferenceClassificationOverrideImpl(element)));
+            overridesArrValue.push((element instanceof InferenceClassificationOverrideImpl? element as InferenceClassificationOverrideImpl:new InferenceClassificationOverrideImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InferenceClassificationOverrideImpl>("overrides", overridesArrValue);
         }

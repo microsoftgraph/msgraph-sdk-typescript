@@ -73,7 +73,7 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements BitlockerReco
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BitlockerRecoveryKeyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element:new BitlockerRecoveryKeyImpl(element)));
+            valueArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element as BitlockerRecoveryKeyImpl:new BitlockerRecoveryKeyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BitlockerRecoveryKeyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BitlockerRecoveryKeyCollectionResponseImpl implements BitlockerReco
         if(value) {
             const valueArrValue: BitlockerRecoveryKeyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element:new BitlockerRecoveryKeyImpl(element)));
+                valueArrValue.push((element instanceof BitlockerRecoveryKeyImpl? element as BitlockerRecoveryKeyImpl:new BitlockerRecoveryKeyImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -108,7 +108,7 @@ export class ParticipantInfoImpl implements ParticipantInfo {
      */
     public set identity(value: IdentitySet | undefined) {
         if(value) {
-            this._identity = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._identity = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -172,7 +172,7 @@ export class ParticipantInfoImpl implements ParticipantInfo {
             writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
         }
         if(this.identity){
-            writer.writeObjectValue<IdentitySetImpl>("identity", (!this.identity || this.identity instanceof IdentitySetImpl? this.identity : new IdentitySetImpl(this.identity)));
+            writer.writeObjectValue<IdentitySetImpl>("identity", (this.identity instanceof IdentitySetImpl? this.identity as IdentitySetImpl: new IdentitySetImpl(this.identity)));
         }
         if(this.languageId){
             writer.writeStringValue("languageId", this.languageId);

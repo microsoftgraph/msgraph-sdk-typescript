@@ -60,7 +60,7 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
         if(value) {
             const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = [];
             this.scheduledActionConfigurations?.forEach(element => {
-                scheduledActionConfigurationsArrValue.push((element instanceof DeviceComplianceActionItemImpl? element:new DeviceComplianceActionItemImpl(element)));
+                scheduledActionConfigurationsArrValue.push((element instanceof DeviceComplianceActionItemImpl? element as DeviceComplianceActionItemImpl:new DeviceComplianceActionItemImpl(element)));
             });
             this._scheduledActionConfigurations = scheduledActionConfigurationsArrValue;
         }
@@ -77,7 +77,7 @@ export class DeviceComplianceScheduledActionForRuleImpl extends EntityImpl imple
         }
         if(this.scheduledActionConfigurations && this.scheduledActionConfigurations.length != 0){        const scheduledActionConfigurationsArrValue: DeviceComplianceActionItemImpl[] = [];
         this.scheduledActionConfigurations?.forEach(element => {
-            scheduledActionConfigurationsArrValue.push((element instanceof DeviceComplianceActionItemImpl? element:new DeviceComplianceActionItemImpl(element)));
+            scheduledActionConfigurationsArrValue.push((element instanceof DeviceComplianceActionItemImpl? element as DeviceComplianceActionItemImpl:new DeviceComplianceActionItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceComplianceActionItemImpl>("scheduledActionConfigurations", scheduledActionConfigurationsArrValue);
         }

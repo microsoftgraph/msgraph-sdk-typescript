@@ -73,7 +73,7 @@ export class TokenIssuancePolicyCollectionResponseImpl implements TokenIssuanceP
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TokenIssuancePolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+            valueArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TokenIssuancePolicyCollectionResponseImpl implements TokenIssuanceP
         if(value) {
             const valueArrValue: TokenIssuancePolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+                valueArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

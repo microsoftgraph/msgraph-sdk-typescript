@@ -134,7 +134,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         if(value) {
             const recipientsArrValue: DriveRecipientImpl[] = [];
             this.recipients?.forEach(element => {
-                recipientsArrValue.push((element instanceof DriveRecipientImpl? element:new DriveRecipientImpl(element)));
+                recipientsArrValue.push((element instanceof DriveRecipientImpl? element as DriveRecipientImpl:new DriveRecipientImpl(element)));
             });
             this._recipients = recipientsArrValue;
         }
@@ -220,7 +220,7 @@ export class InvitePostRequestBodyImpl implements InvitePostRequestBody {
         }
         if(this.recipients && this.recipients.length != 0){        const recipientsArrValue: DriveRecipientImpl[] = [];
         this.recipients?.forEach(element => {
-            recipientsArrValue.push((element instanceof DriveRecipientImpl? element:new DriveRecipientImpl(element)));
+            recipientsArrValue.push((element instanceof DriveRecipientImpl? element as DriveRecipientImpl:new DriveRecipientImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DriveRecipientImpl>("recipients", recipientsArrValue);
         }

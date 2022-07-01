@@ -73,7 +73,7 @@ export class ProfilePhotoCollectionResponseImpl implements ProfilePhotoCollectio
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ProfilePhotoImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ProfilePhotoImpl? element:new ProfilePhotoImpl(element)));
+            valueArrValue.push((element instanceof ProfilePhotoImpl? element as ProfilePhotoImpl:new ProfilePhotoImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ProfilePhotoImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ProfilePhotoCollectionResponseImpl implements ProfilePhotoCollectio
         if(value) {
             const valueArrValue: ProfilePhotoImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ProfilePhotoImpl? element:new ProfilePhotoImpl(element)));
+                valueArrValue.push((element instanceof ProfilePhotoImpl? element as ProfilePhotoImpl:new ProfilePhotoImpl(element)));
             });
             this._value = valueArrValue;
         }

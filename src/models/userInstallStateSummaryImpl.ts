@@ -43,7 +43,7 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
         if(value) {
             const deviceStatesArrValue: DeviceInstallStateImpl[] = [];
             this.deviceStates?.forEach(element => {
-                deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element:new DeviceInstallStateImpl(element)));
+                deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element as DeviceInstallStateImpl:new DeviceInstallStateImpl(element)));
             });
             this._deviceStates = deviceStatesArrValue;
         }
@@ -118,7 +118,7 @@ export class UserInstallStateSummaryImpl extends EntityImpl implements UserInsta
         super.serialize(writer);
         if(this.deviceStates && this.deviceStates.length != 0){        const deviceStatesArrValue: DeviceInstallStateImpl[] = [];
         this.deviceStates?.forEach(element => {
-            deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element:new DeviceInstallStateImpl(element)));
+            deviceStatesArrValue.push((element instanceof DeviceInstallStateImpl? element as DeviceInstallStateImpl:new DeviceInstallStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("deviceStates", deviceStatesArrValue);
         }

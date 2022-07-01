@@ -73,7 +73,7 @@ export class PersonCollectionResponseImpl implements PersonCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PersonImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PersonImpl? element:new PersonImpl(element)));
+            valueArrValue.push((element instanceof PersonImpl? element as PersonImpl:new PersonImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PersonImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PersonCollectionResponseImpl implements PersonCollectionResponse {
         if(value) {
             const valueArrValue: PersonImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PersonImpl? element:new PersonImpl(element)));
+                valueArrValue.push((element instanceof PersonImpl? element as PersonImpl:new PersonImpl(element)));
             });
             this._value = valueArrValue;
         }

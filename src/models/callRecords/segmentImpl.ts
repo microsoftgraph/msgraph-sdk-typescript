@@ -36,7 +36,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
      */
     public set callee(value: Endpoint | undefined) {
         if(value) {
-            this._callee = value instanceof EndpointImpl? value : new EndpointImpl(value);
+            this._callee = value instanceof EndpointImpl? value as EndpointImpl: new EndpointImpl(value);
         }
     };
     /**
@@ -52,7 +52,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
      */
     public set caller(value: Endpoint | undefined) {
         if(value) {
-            this._caller = value instanceof EndpointImpl? value : new EndpointImpl(value);
+            this._caller = value instanceof EndpointImpl? value as EndpointImpl: new EndpointImpl(value);
         }
     };
     /**
@@ -97,7 +97,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
      */
     public set failureInfo(value: FailureInfo | undefined) {
         if(value) {
-            this._failureInfo = value instanceof FailureInfoImpl? value : new FailureInfoImpl(value);
+            this._failureInfo = value instanceof FailureInfoImpl? value as FailureInfoImpl: new FailureInfoImpl(value);
         }
     };
     /**
@@ -129,7 +129,7 @@ export class SegmentImpl extends EntityImpl implements Segment {
         if(value) {
             const mediaArrValue: MediaImpl[] = [];
             this.media?.forEach(element => {
-                mediaArrValue.push((element instanceof MediaImpl? element:new MediaImpl(element)));
+                mediaArrValue.push((element instanceof MediaImpl? element as MediaImpl:new MediaImpl(element)));
             });
             this._media = mediaArrValue;
         }
@@ -142,20 +142,20 @@ export class SegmentImpl extends EntityImpl implements Segment {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.callee){
-            writer.writeObjectValue<EndpointImpl>("callee", (!this.callee || this.callee instanceof EndpointImpl? this.callee : new EndpointImpl(this.callee)));
+            writer.writeObjectValue<EndpointImpl>("callee", (this.callee instanceof EndpointImpl? this.callee as EndpointImpl: new EndpointImpl(this.callee)));
         }
         if(this.caller){
-            writer.writeObjectValue<EndpointImpl>("caller", (!this.caller || this.caller instanceof EndpointImpl? this.caller : new EndpointImpl(this.caller)));
+            writer.writeObjectValue<EndpointImpl>("caller", (this.caller instanceof EndpointImpl? this.caller as EndpointImpl: new EndpointImpl(this.caller)));
         }
         if(this.endDateTime){
             writer.writeDateValue("endDateTime", this.endDateTime);
         }
         if(this.failureInfo){
-            writer.writeObjectValue<FailureInfoImpl>("failureInfo", (!this.failureInfo || this.failureInfo instanceof FailureInfoImpl? this.failureInfo : new FailureInfoImpl(this.failureInfo)));
+            writer.writeObjectValue<FailureInfoImpl>("failureInfo", (this.failureInfo instanceof FailureInfoImpl? this.failureInfo as FailureInfoImpl: new FailureInfoImpl(this.failureInfo)));
         }
         if(this.media && this.media.length != 0){        const mediaArrValue: MediaImpl[] = [];
         this.media?.forEach(element => {
-            mediaArrValue.push((element instanceof MediaImpl? element:new MediaImpl(element)));
+            mediaArrValue.push((element instanceof MediaImpl? element as MediaImpl:new MediaImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MediaImpl>("media", mediaArrValue);
         }

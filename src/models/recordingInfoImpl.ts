@@ -60,7 +60,7 @@ export class RecordingInfoImpl implements RecordingInfo {
      */
     public set initiator(value: IdentitySet | undefined) {
         if(value) {
-            this._initiator = value instanceof IdentitySetImpl? value : new IdentitySetImpl(value);
+            this._initiator = value instanceof IdentitySetImpl? value as IdentitySetImpl: new IdentitySetImpl(value);
         }
     };
     /**
@@ -86,7 +86,7 @@ export class RecordingInfoImpl implements RecordingInfo {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.initiator){
-            writer.writeObjectValue<IdentitySetImpl>("initiator", (!this.initiator || this.initiator instanceof IdentitySetImpl? this.initiator : new IdentitySetImpl(this.initiator)));
+            writer.writeObjectValue<IdentitySetImpl>("initiator", (this.initiator instanceof IdentitySetImpl? this.initiator as IdentitySetImpl: new IdentitySetImpl(this.initiator)));
         }
         if(this.recordingStatus){
             writer.writeEnumValue<RecordingStatus>("recordingStatus", this.recordingStatus);

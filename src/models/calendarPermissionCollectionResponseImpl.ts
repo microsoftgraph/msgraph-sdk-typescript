@@ -73,7 +73,7 @@ export class CalendarPermissionCollectionResponseImpl implements CalendarPermiss
         }
         if(this.value && this.value.length != 0){        const valueArrValue: CalendarPermissionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof CalendarPermissionImpl? element:new CalendarPermissionImpl(element)));
+            valueArrValue.push((element instanceof CalendarPermissionImpl? element as CalendarPermissionImpl:new CalendarPermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CalendarPermissionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class CalendarPermissionCollectionResponseImpl implements CalendarPermiss
         if(value) {
             const valueArrValue: CalendarPermissionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof CalendarPermissionImpl? element:new CalendarPermissionImpl(element)));
+                valueArrValue.push((element instanceof CalendarPermissionImpl? element as CalendarPermissionImpl:new CalendarPermissionImpl(element)));
             });
             this._value = valueArrValue;
         }

@@ -45,7 +45,7 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
      */
     public set accessPackage(value: AccessPackage | undefined) {
         if(value) {
-            this._accessPackage = value instanceof AccessPackageImpl? value : new AccessPackageImpl(value);
+            this._accessPackage = value instanceof AccessPackageImpl? value as AccessPackageImpl: new AccessPackageImpl(value);
         }
     };
     /**
@@ -61,7 +61,7 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
      */
     public set assignment(value: AccessPackageAssignment | undefined) {
         if(value) {
-            this._assignment = value instanceof AccessPackageAssignmentImpl? value : new AccessPackageAssignmentImpl(value);
+            this._assignment = value instanceof AccessPackageAssignmentImpl? value as AccessPackageAssignmentImpl: new AccessPackageAssignmentImpl(value);
         }
     };
     /**
@@ -142,7 +142,7 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
      */
     public set requestor(value: AccessPackageSubject | undefined) {
         if(value) {
-            this._requestor = value instanceof AccessPackageSubjectImpl? value : new AccessPackageSubjectImpl(value);
+            this._requestor = value instanceof AccessPackageSubjectImpl? value as AccessPackageSubjectImpl: new AccessPackageSubjectImpl(value);
         }
     };
     /**
@@ -174,7 +174,7 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
      */
     public set schedule(value: EntitlementManagementSchedule | undefined) {
         if(value) {
-            this._schedule = value instanceof EntitlementManagementScheduleImpl? value : new EntitlementManagementScheduleImpl(value);
+            this._schedule = value instanceof EntitlementManagementScheduleImpl? value as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(value);
         }
     };
     /**
@@ -185,10 +185,10 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.accessPackage){
-            writer.writeObjectValue<AccessPackageImpl>("accessPackage", (!this.accessPackage || this.accessPackage instanceof AccessPackageImpl? this.accessPackage : new AccessPackageImpl(this.accessPackage)));
+            writer.writeObjectValue<AccessPackageImpl>("accessPackage", (this.accessPackage instanceof AccessPackageImpl? this.accessPackage as AccessPackageImpl: new AccessPackageImpl(this.accessPackage)));
         }
         if(this.assignment){
-            writer.writeObjectValue<AccessPackageAssignmentImpl>("assignment", (!this.assignment || this.assignment instanceof AccessPackageAssignmentImpl? this.assignment : new AccessPackageAssignmentImpl(this.assignment)));
+            writer.writeObjectValue<AccessPackageAssignmentImpl>("assignment", (this.assignment instanceof AccessPackageAssignmentImpl? this.assignment as AccessPackageAssignmentImpl: new AccessPackageAssignmentImpl(this.assignment)));
         }
         if(this.completedDateTime){
             writer.writeDateValue("completedDateTime", this.completedDateTime);
@@ -197,13 +197,13 @@ export class AccessPackageAssignmentRequestImpl extends EntityImpl implements Ac
             writer.writeDateValue("createdDateTime", this.createdDateTime);
         }
         if(this.requestor){
-            writer.writeObjectValue<AccessPackageSubjectImpl>("requestor", (!this.requestor || this.requestor instanceof AccessPackageSubjectImpl? this.requestor : new AccessPackageSubjectImpl(this.requestor)));
+            writer.writeObjectValue<AccessPackageSubjectImpl>("requestor", (this.requestor instanceof AccessPackageSubjectImpl? this.requestor as AccessPackageSubjectImpl: new AccessPackageSubjectImpl(this.requestor)));
         }
         if(this.requestType){
             writer.writeEnumValue<AccessPackageRequestType>("requestType", this.requestType);
         }
         if(this.schedule){
-            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (!this.schedule || this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule : new EntitlementManagementScheduleImpl(this.schedule)));
+            writer.writeObjectValue<EntitlementManagementScheduleImpl>("schedule", (this.schedule instanceof EntitlementManagementScheduleImpl? this.schedule as EntitlementManagementScheduleImpl: new EntitlementManagementScheduleImpl(this.schedule)));
         }
         if(this.state){
             writer.writeEnumValue<AccessPackageRequestState>("state", this.state);

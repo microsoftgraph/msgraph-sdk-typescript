@@ -73,7 +73,7 @@ export class ContactCollectionResponseImpl implements ContactCollectionResponse 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ContactImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ContactImpl? element:new ContactImpl(element)));
+            valueArrValue.push((element instanceof ContactImpl? element as ContactImpl:new ContactImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContactImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ContactCollectionResponseImpl implements ContactCollectionResponse 
         if(value) {
             const valueArrValue: ContactImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ContactImpl? element:new ContactImpl(element)));
+                valueArrValue.push((element instanceof ContactImpl? element as ContactImpl:new ContactImpl(element)));
             });
             this._value = valueArrValue;
         }

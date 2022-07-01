@@ -137,7 +137,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
      */
     public set contentInfo(value: Json | undefined) {
         if(value) {
-            this._contentInfo = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._contentInfo = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
     /**
@@ -241,7 +241,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         if(value) {
             const historyItemsArrValue: ActivityHistoryItemImpl[] = [];
             this.historyItems?.forEach(element => {
-                historyItemsArrValue.push((element instanceof ActivityHistoryItemImpl? element:new ActivityHistoryItemImpl(element)));
+                historyItemsArrValue.push((element instanceof ActivityHistoryItemImpl? element as ActivityHistoryItemImpl:new ActivityHistoryItemImpl(element)));
             });
             this._historyItems = historyItemsArrValue;
         }
@@ -282,7 +282,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
             writer.writeStringValue("appDisplayName", this.appDisplayName);
         }
         if(this.contentInfo){
-            writer.writeObjectValue<JsonImpl>("contentInfo", (!this.contentInfo || this.contentInfo instanceof JsonImpl? this.contentInfo : new JsonImpl(this.contentInfo)));
+            writer.writeObjectValue<JsonImpl>("contentInfo", (this.contentInfo instanceof JsonImpl? this.contentInfo as JsonImpl: new JsonImpl(this.contentInfo)));
         }
         if(this.contentUrl){
             writer.writeStringValue("contentUrl", this.contentUrl);
@@ -298,7 +298,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
         }
         if(this.historyItems && this.historyItems.length != 0){        const historyItemsArrValue: ActivityHistoryItemImpl[] = [];
         this.historyItems?.forEach(element => {
-            historyItemsArrValue.push((element instanceof ActivityHistoryItemImpl? element:new ActivityHistoryItemImpl(element)));
+            historyItemsArrValue.push((element instanceof ActivityHistoryItemImpl? element as ActivityHistoryItemImpl:new ActivityHistoryItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ActivityHistoryItemImpl>("historyItems", historyItemsArrValue);
         }
@@ -312,7 +312,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
             writer.writeStringValue("userTimezone", this.userTimezone);
         }
         if(this.visualElements){
-            writer.writeObjectValue<VisualInfoImpl>("visualElements", (!this.visualElements || this.visualElements instanceof VisualInfoImpl? this.visualElements : new VisualInfoImpl(this.visualElements)));
+            writer.writeObjectValue<VisualInfoImpl>("visualElements", (this.visualElements instanceof VisualInfoImpl? this.visualElements as VisualInfoImpl: new VisualInfoImpl(this.visualElements)));
         }
     };
     /**
@@ -360,7 +360,7 @@ export class UserActivityImpl extends EntityImpl implements UserActivity {
      */
     public set visualElements(value: VisualInfo | undefined) {
         if(value) {
-            this._visualElements = value instanceof VisualInfoImpl? value : new VisualInfoImpl(value);
+            this._visualElements = value instanceof VisualInfoImpl? value as VisualInfoImpl: new VisualInfoImpl(value);
         }
     };
 }

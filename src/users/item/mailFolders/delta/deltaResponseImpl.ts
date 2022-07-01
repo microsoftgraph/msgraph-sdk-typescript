@@ -51,7 +51,7 @@ export class DeltaResponseImpl implements DeltaResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: MailFolderImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MailFolderImpl? element:new MailFolderImpl(element)));
+            valueArrValue.push((element instanceof MailFolderImpl? element as MailFolderImpl:new MailFolderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MailFolderImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class DeltaResponseImpl implements DeltaResponse {
         if(value) {
             const valueArrValue: MailFolderImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MailFolderImpl? element:new MailFolderImpl(element)));
+                valueArrValue.push((element instanceof MailFolderImpl? element as MailFolderImpl:new MailFolderImpl(element)));
             });
             this._value = valueArrValue;
         }

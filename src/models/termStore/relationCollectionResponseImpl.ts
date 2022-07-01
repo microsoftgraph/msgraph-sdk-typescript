@@ -73,7 +73,7 @@ export class RelationCollectionResponseImpl implements RelationCollectionRespons
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RelationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RelationImpl? element:new RelationImpl(element)));
+            valueArrValue.push((element instanceof RelationImpl? element as RelationImpl:new RelationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RelationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RelationCollectionResponseImpl implements RelationCollectionRespons
         if(value) {
             const valueArrValue: RelationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RelationImpl? element:new RelationImpl(element)));
+                valueArrValue.push((element instanceof RelationImpl? element as RelationImpl:new RelationImpl(element)));
             });
             this._value = valueArrValue;
         }

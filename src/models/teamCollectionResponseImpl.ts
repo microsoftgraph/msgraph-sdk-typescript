@@ -73,7 +73,7 @@ export class TeamCollectionResponseImpl implements TeamCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TeamImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TeamImpl? element:new TeamImpl(element)));
+            valueArrValue.push((element instanceof TeamImpl? element as TeamImpl:new TeamImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TeamCollectionResponseImpl implements TeamCollectionResponse {
         if(value) {
             const valueArrValue: TeamImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TeamImpl? element:new TeamImpl(element)));
+                valueArrValue.push((element instanceof TeamImpl? element as TeamImpl:new TeamImpl(element)));
             });
             this._value = valueArrValue;
         }

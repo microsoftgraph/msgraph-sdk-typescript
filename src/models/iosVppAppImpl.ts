@@ -41,7 +41,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
      */
     public set applicableDeviceType(value: IosDeviceType | undefined) {
         if(value) {
-            this._applicableDeviceType = value instanceof IosDeviceTypeImpl? value : new IosDeviceTypeImpl(value);
+            this._applicableDeviceType = value instanceof IosDeviceTypeImpl? value as IosDeviceTypeImpl: new IosDeviceTypeImpl(value);
         }
     };
     /**
@@ -124,7 +124,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
      */
     public set licensingType(value: VppLicensingType | undefined) {
         if(value) {
-            this._licensingType = value instanceof VppLicensingTypeImpl? value : new VppLicensingTypeImpl(value);
+            this._licensingType = value instanceof VppLicensingTypeImpl? value as VppLicensingTypeImpl: new VppLicensingTypeImpl(value);
         }
     };
     /**
@@ -151,7 +151,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.applicableDeviceType){
-            writer.writeObjectValue<IosDeviceTypeImpl>("applicableDeviceType", (!this.applicableDeviceType || this.applicableDeviceType instanceof IosDeviceTypeImpl? this.applicableDeviceType : new IosDeviceTypeImpl(this.applicableDeviceType)));
+            writer.writeObjectValue<IosDeviceTypeImpl>("applicableDeviceType", (this.applicableDeviceType instanceof IosDeviceTypeImpl? this.applicableDeviceType as IosDeviceTypeImpl: new IosDeviceTypeImpl(this.applicableDeviceType)));
         }
         if(this.appStoreUrl){
             writer.writeStringValue("appStoreUrl", this.appStoreUrl);
@@ -160,7 +160,7 @@ export class IosVppAppImpl extends MobileAppImpl implements IosVppApp {
             writer.writeStringValue("bundleId", this.bundleId);
         }
         if(this.licensingType){
-            writer.writeObjectValue<VppLicensingTypeImpl>("licensingType", (!this.licensingType || this.licensingType instanceof VppLicensingTypeImpl? this.licensingType : new VppLicensingTypeImpl(this.licensingType)));
+            writer.writeObjectValue<VppLicensingTypeImpl>("licensingType", (this.licensingType instanceof VppLicensingTypeImpl? this.licensingType as VppLicensingTypeImpl: new VppLicensingTypeImpl(this.licensingType)));
         }
         if(this.releaseDateTime){
             writer.writeDateValue("releaseDateTime", this.releaseDateTime);

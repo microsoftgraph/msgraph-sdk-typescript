@@ -57,7 +57,7 @@ export class ListImpl extends BaseItemImpl implements List {
         if(value) {
             const columnsArrValue: ColumnDefinitionImpl[] = [];
             this.columns?.forEach(element => {
-                columnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+                columnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
             });
             this._columns = columnsArrValue;
         }
@@ -94,7 +94,7 @@ export class ListImpl extends BaseItemImpl implements List {
         if(value) {
             const contentTypesArrValue: ContentTypeImpl[] = [];
             this.contentTypes?.forEach(element => {
-                contentTypesArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+                contentTypesArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
             });
             this._contentTypes = contentTypesArrValue;
         }
@@ -128,7 +128,7 @@ export class ListImpl extends BaseItemImpl implements List {
      */
     public set drive(value: Drive | undefined) {
         if(value) {
-            this._drive = value instanceof DriveImpl? value : new DriveImpl(value);
+            this._drive = value instanceof DriveImpl? value as DriveImpl: new DriveImpl(value);
         }
     };
     /**
@@ -164,7 +164,7 @@ export class ListImpl extends BaseItemImpl implements List {
         if(value) {
             const itemsArrValue: ListItemImpl[] = [];
             this.items?.forEach(element => {
-                itemsArrValue.push((element instanceof ListItemImpl? element:new ListItemImpl(element)));
+                itemsArrValue.push((element instanceof ListItemImpl? element as ListItemImpl:new ListItemImpl(element)));
             });
             this._items = itemsArrValue;
         }
@@ -182,7 +182,7 @@ export class ListImpl extends BaseItemImpl implements List {
      */
     public set list(value: ListInfo | undefined) {
         if(value) {
-            this._list = value instanceof ListInfoImpl? value : new ListInfoImpl(value);
+            this._list = value instanceof ListInfoImpl? value as ListInfoImpl: new ListInfoImpl(value);
         }
     };
     /**
@@ -200,7 +200,7 @@ export class ListImpl extends BaseItemImpl implements List {
         if(value) {
             const operationsArrValue: RichLongRunningOperationImpl[] = [];
             this.operations?.forEach(element => {
-                operationsArrValue.push((element instanceof RichLongRunningOperationImpl? element:new RichLongRunningOperationImpl(element)));
+                operationsArrValue.push((element instanceof RichLongRunningOperationImpl? element as RichLongRunningOperationImpl:new RichLongRunningOperationImpl(element)));
             });
             this._operations = operationsArrValue;
         }
@@ -214,13 +214,13 @@ export class ListImpl extends BaseItemImpl implements List {
         super.serialize(writer);
         if(this.columns && this.columns.length != 0){        const columnsArrValue: ColumnDefinitionImpl[] = [];
         this.columns?.forEach(element => {
-            columnsArrValue.push((element instanceof ColumnDefinitionImpl? element:new ColumnDefinitionImpl(element)));
+            columnsArrValue.push((element instanceof ColumnDefinitionImpl? element as ColumnDefinitionImpl:new ColumnDefinitionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ColumnDefinitionImpl>("columns", columnsArrValue);
         }
         if(this.contentTypes && this.contentTypes.length != 0){        const contentTypesArrValue: ContentTypeImpl[] = [];
         this.contentTypes?.forEach(element => {
-            contentTypesArrValue.push((element instanceof ContentTypeImpl? element:new ContentTypeImpl(element)));
+            contentTypesArrValue.push((element instanceof ContentTypeImpl? element as ContentTypeImpl:new ContentTypeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ContentTypeImpl>("contentTypes", contentTypesArrValue);
         }
@@ -228,34 +228,34 @@ export class ListImpl extends BaseItemImpl implements List {
             writer.writeStringValue("displayName", this.displayName);
         }
         if(this.drive){
-            writer.writeObjectValue<DriveImpl>("drive", (!this.drive || this.drive instanceof DriveImpl? this.drive : new DriveImpl(this.drive)));
+            writer.writeObjectValue<DriveImpl>("drive", (this.drive instanceof DriveImpl? this.drive as DriveImpl: new DriveImpl(this.drive)));
         }
         if(this.items && this.items.length != 0){        const itemsArrValue: ListItemImpl[] = [];
         this.items?.forEach(element => {
-            itemsArrValue.push((element instanceof ListItemImpl? element:new ListItemImpl(element)));
+            itemsArrValue.push((element instanceof ListItemImpl? element as ListItemImpl:new ListItemImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ListItemImpl>("items", itemsArrValue);
         }
         if(this.list){
-            writer.writeObjectValue<ListInfoImpl>("list", (!this.list || this.list instanceof ListInfoImpl? this.list : new ListInfoImpl(this.list)));
+            writer.writeObjectValue<ListInfoImpl>("list", (this.list instanceof ListInfoImpl? this.list as ListInfoImpl: new ListInfoImpl(this.list)));
         }
         if(this.operations && this.operations.length != 0){        const operationsArrValue: RichLongRunningOperationImpl[] = [];
         this.operations?.forEach(element => {
-            operationsArrValue.push((element instanceof RichLongRunningOperationImpl? element:new RichLongRunningOperationImpl(element)));
+            operationsArrValue.push((element instanceof RichLongRunningOperationImpl? element as RichLongRunningOperationImpl:new RichLongRunningOperationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RichLongRunningOperationImpl>("operations", operationsArrValue);
         }
         if(this.sharepointIds){
-            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (!this.sharepointIds || this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds : new SharepointIdsImpl(this.sharepointIds)));
+            writer.writeObjectValue<SharepointIdsImpl>("sharepointIds", (this.sharepointIds instanceof SharepointIdsImpl? this.sharepointIds as SharepointIdsImpl: new SharepointIdsImpl(this.sharepointIds)));
         }
         if(this.subscriptions && this.subscriptions.length != 0){        const subscriptionsArrValue: SubscriptionImpl[] = [];
         this.subscriptions?.forEach(element => {
-            subscriptionsArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+            subscriptionsArrValue.push((element instanceof SubscriptionImpl? element as SubscriptionImpl:new SubscriptionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SubscriptionImpl>("subscriptions", subscriptionsArrValue);
         }
         if(this.system){
-            writer.writeObjectValue<SystemFacetImpl>("system", (!this.system || this.system instanceof SystemFacetImpl? this.system : new SystemFacetImpl(this.system)));
+            writer.writeObjectValue<SystemFacetImpl>("system", (this.system instanceof SystemFacetImpl? this.system as SystemFacetImpl: new SystemFacetImpl(this.system)));
         }
     };
     /**
@@ -271,7 +271,7 @@ export class ListImpl extends BaseItemImpl implements List {
      */
     public set sharepointIds(value: SharepointIds | undefined) {
         if(value) {
-            this._sharepointIds = value instanceof SharepointIdsImpl? value : new SharepointIdsImpl(value);
+            this._sharepointIds = value instanceof SharepointIdsImpl? value as SharepointIdsImpl: new SharepointIdsImpl(value);
         }
     };
     /**
@@ -289,7 +289,7 @@ export class ListImpl extends BaseItemImpl implements List {
         if(value) {
             const subscriptionsArrValue: SubscriptionImpl[] = [];
             this.subscriptions?.forEach(element => {
-                subscriptionsArrValue.push((element instanceof SubscriptionImpl? element:new SubscriptionImpl(element)));
+                subscriptionsArrValue.push((element instanceof SubscriptionImpl? element as SubscriptionImpl:new SubscriptionImpl(element)));
             });
             this._subscriptions = subscriptionsArrValue;
         }
@@ -307,7 +307,7 @@ export class ListImpl extends BaseItemImpl implements List {
      */
     public set system(value: SystemFacet | undefined) {
         if(value) {
-            this._system = value instanceof SystemFacetImpl? value : new SystemFacetImpl(value);
+            this._system = value instanceof SystemFacetImpl? value as SystemFacetImpl: new SystemFacetImpl(value);
         }
     };
 }

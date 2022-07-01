@@ -63,11 +63,11 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
             writer.writeBooleanValue("canAccept", this.canAccept);
         }
         if(this.sharingMessageAction){
-            writer.writeObjectValue<CalendarSharingMessageActionImpl>("sharingMessageAction", (!this.sharingMessageAction || this.sharingMessageAction instanceof CalendarSharingMessageActionImpl? this.sharingMessageAction : new CalendarSharingMessageActionImpl(this.sharingMessageAction)));
+            writer.writeObjectValue<CalendarSharingMessageActionImpl>("sharingMessageAction", (this.sharingMessageAction instanceof CalendarSharingMessageActionImpl? this.sharingMessageAction as CalendarSharingMessageActionImpl: new CalendarSharingMessageActionImpl(this.sharingMessageAction)));
         }
         if(this.sharingMessageActions && this.sharingMessageActions.length != 0){        const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = [];
         this.sharingMessageActions?.forEach(element => {
-            sharingMessageActionsArrValue.push((element instanceof CalendarSharingMessageActionImpl? element:new CalendarSharingMessageActionImpl(element)));
+            sharingMessageActionsArrValue.push((element instanceof CalendarSharingMessageActionImpl? element as CalendarSharingMessageActionImpl:new CalendarSharingMessageActionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<CalendarSharingMessageActionImpl>("sharingMessageActions", sharingMessageActionsArrValue);
         }
@@ -88,7 +88,7 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
      */
     public set sharingMessageAction(value: CalendarSharingMessageAction | undefined) {
         if(value) {
-            this._sharingMessageAction = value instanceof CalendarSharingMessageActionImpl? value : new CalendarSharingMessageActionImpl(value);
+            this._sharingMessageAction = value instanceof CalendarSharingMessageActionImpl? value as CalendarSharingMessageActionImpl: new CalendarSharingMessageActionImpl(value);
         }
     };
     /**
@@ -106,7 +106,7 @@ export class CalendarSharingMessageImpl extends MessageImpl implements CalendarS
         if(value) {
             const sharingMessageActionsArrValue: CalendarSharingMessageActionImpl[] = [];
             this.sharingMessageActions?.forEach(element => {
-                sharingMessageActionsArrValue.push((element instanceof CalendarSharingMessageActionImpl? element:new CalendarSharingMessageActionImpl(element)));
+                sharingMessageActionsArrValue.push((element instanceof CalendarSharingMessageActionImpl? element as CalendarSharingMessageActionImpl:new CalendarSharingMessageActionImpl(element)));
             });
             this._sharingMessageActions = sharingMessageActionsArrValue;
         }

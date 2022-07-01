@@ -79,7 +79,7 @@ export class ChatMessageMentionImpl implements ChatMessageMention {
      */
     public set mentioned(value: ChatMessageMentionedIdentitySet | undefined) {
         if(value) {
-            this._mentioned = value instanceof ChatMessageMentionedIdentitySetImpl? value : new ChatMessageMentionedIdentitySetImpl(value);
+            this._mentioned = value instanceof ChatMessageMentionedIdentitySetImpl? value as ChatMessageMentionedIdentitySetImpl: new ChatMessageMentionedIdentitySetImpl(value);
         }
     };
     /**
@@ -108,7 +108,7 @@ export class ChatMessageMentionImpl implements ChatMessageMention {
             writer.writeNumberValue("id", this.id);
         }
         if(this.mentioned){
-            writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", (!this.mentioned || this.mentioned instanceof ChatMessageMentionedIdentitySetImpl? this.mentioned : new ChatMessageMentionedIdentitySetImpl(this.mentioned)));
+            writer.writeObjectValue<ChatMessageMentionedIdentitySetImpl>("mentioned", (this.mentioned instanceof ChatMessageMentionedIdentitySetImpl? this.mentioned as ChatMessageMentionedIdentitySetImpl: new ChatMessageMentionedIdentitySetImpl(this.mentioned)));
         }
         if(this.mentionText){
             writer.writeStringValue("mentionText", this.mentionText);

@@ -161,7 +161,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const addInsArrValue: AddInImpl[] = [];
             this.addIns?.forEach(element => {
-                addInsArrValue.push((element instanceof AddInImpl? element:new AddInImpl(element)));
+                addInsArrValue.push((element instanceof AddInImpl? element as AddInImpl:new AddInImpl(element)));
             });
             this._addIns = addInsArrValue;
         }
@@ -277,7 +277,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const appRoleAssignedToArrValue: AppRoleAssignmentImpl[] = [];
             this.appRoleAssignedTo?.forEach(element => {
-                appRoleAssignedToArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+                appRoleAssignedToArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
             });
             this._appRoleAssignedTo = appRoleAssignedToArrValue;
         }
@@ -313,7 +313,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = [];
             this.appRoleAssignments?.forEach(element => {
-                appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+                appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
             });
             this._appRoleAssignments = appRoleAssignmentsArrValue;
         }
@@ -333,7 +333,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const appRolesArrValue: AppRoleImpl[] = [];
             this.appRoles?.forEach(element => {
-                appRolesArrValue.push((element instanceof AppRoleImpl? element:new AppRoleImpl(element)));
+                appRolesArrValue.push((element instanceof AppRoleImpl? element as AppRoleImpl:new AppRoleImpl(element)));
             });
             this._appRoles = appRolesArrValue;
         }
@@ -353,7 +353,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = [];
             this.claimsMappingPolicies?.forEach(element => {
-                claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+                claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element as ClaimsMappingPolicyImpl:new ClaimsMappingPolicyImpl(element)));
             });
             this._claimsMappingPolicies = claimsMappingPoliciesArrValue;
         }
@@ -426,7 +426,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const createdObjectsArrValue: DirectoryObjectImpl[] = [];
             this.createdObjects?.forEach(element => {
-                createdObjectsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                createdObjectsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._createdObjects = createdObjectsArrValue;
         }
@@ -446,7 +446,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const delegatedPermissionClassificationsArrValue: DelegatedPermissionClassificationImpl[] = [];
             this.delegatedPermissionClassifications?.forEach(element => {
-                delegatedPermissionClassificationsArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element:new DelegatedPermissionClassificationImpl(element)));
+                delegatedPermissionClassificationsArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element as DelegatedPermissionClassificationImpl:new DelegatedPermissionClassificationImpl(element)));
             });
             this._delegatedPermissionClassifications = delegatedPermissionClassificationsArrValue;
         }
@@ -514,7 +514,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const endpointsArrValue: EndpointImpl[] = [];
             this.endpoints?.forEach(element => {
-                endpointsArrValue.push((element instanceof EndpointImpl? element:new EndpointImpl(element)));
+                endpointsArrValue.push((element instanceof EndpointImpl? element as EndpointImpl:new EndpointImpl(element)));
             });
             this._endpoints = endpointsArrValue;
         }
@@ -604,7 +604,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
             this.homeRealmDiscoveryPolicies?.forEach(element => {
-                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+                homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
             });
             this._homeRealmDiscoveryPolicies = homeRealmDiscoveryPoliciesArrValue;
         }
@@ -622,7 +622,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
      */
     public set info(value: InformationalUrl | undefined) {
         if(value) {
-            this._info = value instanceof InformationalUrlImpl? value : new InformationalUrlImpl(value);
+            this._info = value instanceof InformationalUrlImpl? value as InformationalUrlImpl: new InformationalUrlImpl(value);
         }
     };
     /**
@@ -640,7 +640,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const keyCredentialsArrValue: KeyCredentialImpl[] = [];
             this.keyCredentials?.forEach(element => {
-                keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element:new KeyCredentialImpl(element)));
+                keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element as KeyCredentialImpl:new KeyCredentialImpl(element)));
             });
             this._keyCredentials = keyCredentialsArrValue;
         }
@@ -692,7 +692,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const memberOfArrValue: DirectoryObjectImpl[] = [];
             this.memberOf?.forEach(element => {
-                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                memberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._memberOf = memberOfArrValue;
         }
@@ -744,7 +744,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const oauth2PermissionGrantsArrValue: OAuth2PermissionGrantImpl[] = [];
             this.oauth2PermissionGrants?.forEach(element => {
-                oauth2PermissionGrantsArrValue.push((element instanceof OAuth2PermissionGrantImpl? element:new OAuth2PermissionGrantImpl(element)));
+                oauth2PermissionGrantsArrValue.push((element instanceof OAuth2PermissionGrantImpl? element as OAuth2PermissionGrantImpl:new OAuth2PermissionGrantImpl(element)));
             });
             this._oauth2PermissionGrants = oauth2PermissionGrantsArrValue;
         }
@@ -764,7 +764,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = [];
             this.oauth2PermissionScopes?.forEach(element => {
-                oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element:new PermissionScopeImpl(element)));
+                oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element as PermissionScopeImpl:new PermissionScopeImpl(element)));
             });
             this._oauth2PermissionScopes = oauth2PermissionScopesArrValue;
         }
@@ -784,7 +784,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const ownedObjectsArrValue: DirectoryObjectImpl[] = [];
             this.ownedObjects?.forEach(element => {
-                ownedObjectsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                ownedObjectsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._ownedObjects = ownedObjectsArrValue;
         }
@@ -804,7 +804,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const ownersArrValue: DirectoryObjectImpl[] = [];
             this.owners?.forEach(element => {
-                ownersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                ownersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._owners = ownersArrValue;
         }
@@ -824,7 +824,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const passwordCredentialsArrValue: PasswordCredentialImpl[] = [];
             this.passwordCredentials?.forEach(element => {
-                passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element:new PasswordCredentialImpl(element)));
+                passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element as PasswordCredentialImpl:new PasswordCredentialImpl(element)));
             });
             this._passwordCredentials = passwordCredentialsArrValue;
         }
@@ -892,7 +892,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const resourceSpecificApplicationPermissionsArrValue: ResourceSpecificPermissionImpl[] = [];
             this.resourceSpecificApplicationPermissions?.forEach(element => {
-                resourceSpecificApplicationPermissionsArrValue.push((element instanceof ResourceSpecificPermissionImpl? element:new ResourceSpecificPermissionImpl(element)));
+                resourceSpecificApplicationPermissionsArrValue.push((element instanceof ResourceSpecificPermissionImpl? element as ResourceSpecificPermissionImpl:new ResourceSpecificPermissionImpl(element)));
             });
             this._resourceSpecificApplicationPermissions = resourceSpecificApplicationPermissionsArrValue;
         }
@@ -910,7 +910,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
      */
     public set samlSingleSignOnSettings(value: SamlSingleSignOnSettings | undefined) {
         if(value) {
-            this._samlSingleSignOnSettings = value instanceof SamlSingleSignOnSettingsImpl? value : new SamlSingleSignOnSettingsImpl(value);
+            this._samlSingleSignOnSettings = value instanceof SamlSingleSignOnSettingsImpl? value as SamlSingleSignOnSettingsImpl: new SamlSingleSignOnSettingsImpl(value);
         }
     };
     /**
@@ -925,7 +925,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.addIns && this.addIns.length != 0){        const addInsArrValue: AddInImpl[] = [];
         this.addIns?.forEach(element => {
-            addInsArrValue.push((element instanceof AddInImpl? element:new AddInImpl(element)));
+            addInsArrValue.push((element instanceof AddInImpl? element as AddInImpl:new AddInImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AddInImpl>("addIns", addInsArrValue);
         }
@@ -949,7 +949,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.appRoleAssignedTo && this.appRoleAssignedTo.length != 0){        const appRoleAssignedToArrValue: AppRoleAssignmentImpl[] = [];
         this.appRoleAssignedTo?.forEach(element => {
-            appRoleAssignedToArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+            appRoleAssignedToArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignedTo", appRoleAssignedToArrValue);
         }
@@ -958,31 +958,31 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.appRoleAssignments && this.appRoleAssignments.length != 0){        const appRoleAssignmentsArrValue: AppRoleAssignmentImpl[] = [];
         this.appRoleAssignments?.forEach(element => {
-            appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element:new AppRoleAssignmentImpl(element)));
+            appRoleAssignmentsArrValue.push((element instanceof AppRoleAssignmentImpl? element as AppRoleAssignmentImpl:new AppRoleAssignmentImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppRoleAssignmentImpl>("appRoleAssignments", appRoleAssignmentsArrValue);
         }
         if(this.appRoles && this.appRoles.length != 0){        const appRolesArrValue: AppRoleImpl[] = [];
         this.appRoles?.forEach(element => {
-            appRolesArrValue.push((element instanceof AppRoleImpl? element:new AppRoleImpl(element)));
+            appRolesArrValue.push((element instanceof AppRoleImpl? element as AppRoleImpl:new AppRoleImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AppRoleImpl>("appRoles", appRolesArrValue);
         }
         if(this.claimsMappingPolicies && this.claimsMappingPolicies.length != 0){        const claimsMappingPoliciesArrValue: ClaimsMappingPolicyImpl[] = [];
         this.claimsMappingPolicies?.forEach(element => {
-            claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element:new ClaimsMappingPolicyImpl(element)));
+            claimsMappingPoliciesArrValue.push((element instanceof ClaimsMappingPolicyImpl? element as ClaimsMappingPolicyImpl:new ClaimsMappingPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ClaimsMappingPolicyImpl>("claimsMappingPolicies", claimsMappingPoliciesArrValue);
         }
         if(this.createdObjects && this.createdObjects.length != 0){        const createdObjectsArrValue: DirectoryObjectImpl[] = [];
         this.createdObjects?.forEach(element => {
-            createdObjectsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            createdObjectsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("createdObjects", createdObjectsArrValue);
         }
         if(this.delegatedPermissionClassifications && this.delegatedPermissionClassifications.length != 0){        const delegatedPermissionClassificationsArrValue: DelegatedPermissionClassificationImpl[] = [];
         this.delegatedPermissionClassifications?.forEach(element => {
-            delegatedPermissionClassificationsArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element:new DelegatedPermissionClassificationImpl(element)));
+            delegatedPermissionClassificationsArrValue.push((element instanceof DelegatedPermissionClassificationImpl? element as DelegatedPermissionClassificationImpl:new DelegatedPermissionClassificationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DelegatedPermissionClassificationImpl>("delegatedPermissionClassifications", delegatedPermissionClassificationsArrValue);
         }
@@ -997,7 +997,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.endpoints && this.endpoints.length != 0){        const endpointsArrValue: EndpointImpl[] = [];
         this.endpoints?.forEach(element => {
-            endpointsArrValue.push((element instanceof EndpointImpl? element:new EndpointImpl(element)));
+            endpointsArrValue.push((element instanceof EndpointImpl? element as EndpointImpl:new EndpointImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EndpointImpl>("endpoints", endpointsArrValue);
         }
@@ -1006,16 +1006,16 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.homeRealmDiscoveryPolicies && this.homeRealmDiscoveryPolicies.length != 0){        const homeRealmDiscoveryPoliciesArrValue: HomeRealmDiscoveryPolicyImpl[] = [];
         this.homeRealmDiscoveryPolicies?.forEach(element => {
-            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element:new HomeRealmDiscoveryPolicyImpl(element)));
+            homeRealmDiscoveryPoliciesArrValue.push((element instanceof HomeRealmDiscoveryPolicyImpl? element as HomeRealmDiscoveryPolicyImpl:new HomeRealmDiscoveryPolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicyImpl>("homeRealmDiscoveryPolicies", homeRealmDiscoveryPoliciesArrValue);
         }
         if(this.info){
-            writer.writeObjectValue<InformationalUrlImpl>("info", (!this.info || this.info instanceof InformationalUrlImpl? this.info : new InformationalUrlImpl(this.info)));
+            writer.writeObjectValue<InformationalUrlImpl>("info", (this.info instanceof InformationalUrlImpl? this.info as InformationalUrlImpl: new InformationalUrlImpl(this.info)));
         }
         if(this.keyCredentials && this.keyCredentials.length != 0){        const keyCredentialsArrValue: KeyCredentialImpl[] = [];
         this.keyCredentials?.forEach(element => {
-            keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element:new KeyCredentialImpl(element)));
+            keyCredentialsArrValue.push((element instanceof KeyCredentialImpl? element as KeyCredentialImpl:new KeyCredentialImpl(element)));
         });
             writer.writeCollectionOfObjectValues<KeyCredentialImpl>("keyCredentials", keyCredentialsArrValue);
         }
@@ -1027,7 +1027,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.memberOf && this.memberOf.length != 0){        const memberOfArrValue: DirectoryObjectImpl[] = [];
         this.memberOf?.forEach(element => {
-            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            memberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("memberOf", memberOfArrValue);
         }
@@ -1039,31 +1039,31 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.oauth2PermissionGrants && this.oauth2PermissionGrants.length != 0){        const oauth2PermissionGrantsArrValue: OAuth2PermissionGrantImpl[] = [];
         this.oauth2PermissionGrants?.forEach(element => {
-            oauth2PermissionGrantsArrValue.push((element instanceof OAuth2PermissionGrantImpl? element:new OAuth2PermissionGrantImpl(element)));
+            oauth2PermissionGrantsArrValue.push((element instanceof OAuth2PermissionGrantImpl? element as OAuth2PermissionGrantImpl:new OAuth2PermissionGrantImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OAuth2PermissionGrantImpl>("oauth2PermissionGrants", oauth2PermissionGrantsArrValue);
         }
         if(this.oauth2PermissionScopes && this.oauth2PermissionScopes.length != 0){        const oauth2PermissionScopesArrValue: PermissionScopeImpl[] = [];
         this.oauth2PermissionScopes?.forEach(element => {
-            oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element:new PermissionScopeImpl(element)));
+            oauth2PermissionScopesArrValue.push((element instanceof PermissionScopeImpl? element as PermissionScopeImpl:new PermissionScopeImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PermissionScopeImpl>("oauth2PermissionScopes", oauth2PermissionScopesArrValue);
         }
         if(this.ownedObjects && this.ownedObjects.length != 0){        const ownedObjectsArrValue: DirectoryObjectImpl[] = [];
         this.ownedObjects?.forEach(element => {
-            ownedObjectsArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            ownedObjectsArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("ownedObjects", ownedObjectsArrValue);
         }
         if(this.owners && this.owners.length != 0){        const ownersArrValue: DirectoryObjectImpl[] = [];
         this.owners?.forEach(element => {
-            ownersArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            ownersArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("owners", ownersArrValue);
         }
         if(this.passwordCredentials && this.passwordCredentials.length != 0){        const passwordCredentialsArrValue: PasswordCredentialImpl[] = [];
         this.passwordCredentials?.forEach(element => {
-            passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element:new PasswordCredentialImpl(element)));
+            passwordCredentialsArrValue.push((element instanceof PasswordCredentialImpl? element as PasswordCredentialImpl:new PasswordCredentialImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PasswordCredentialImpl>("passwordCredentials", passwordCredentialsArrValue);
         }
@@ -1078,12 +1078,12 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.resourceSpecificApplicationPermissions && this.resourceSpecificApplicationPermissions.length != 0){        const resourceSpecificApplicationPermissionsArrValue: ResourceSpecificPermissionImpl[] = [];
         this.resourceSpecificApplicationPermissions?.forEach(element => {
-            resourceSpecificApplicationPermissionsArrValue.push((element instanceof ResourceSpecificPermissionImpl? element:new ResourceSpecificPermissionImpl(element)));
+            resourceSpecificApplicationPermissionsArrValue.push((element instanceof ResourceSpecificPermissionImpl? element as ResourceSpecificPermissionImpl:new ResourceSpecificPermissionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ResourceSpecificPermissionImpl>("resourceSpecificApplicationPermissions", resourceSpecificApplicationPermissionsArrValue);
         }
         if(this.samlSingleSignOnSettings){
-            writer.writeObjectValue<SamlSingleSignOnSettingsImpl>("samlSingleSignOnSettings", (!this.samlSingleSignOnSettings || this.samlSingleSignOnSettings instanceof SamlSingleSignOnSettingsImpl? this.samlSingleSignOnSettings : new SamlSingleSignOnSettingsImpl(this.samlSingleSignOnSettings)));
+            writer.writeObjectValue<SamlSingleSignOnSettingsImpl>("samlSingleSignOnSettings", (this.samlSingleSignOnSettings instanceof SamlSingleSignOnSettingsImpl? this.samlSingleSignOnSettings as SamlSingleSignOnSettingsImpl: new SamlSingleSignOnSettingsImpl(this.samlSingleSignOnSettings)));
         }
         if(this.servicePrincipalNames){
             writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalNames", this.servicePrincipalNames);
@@ -1102,19 +1102,19 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         }
         if(this.tokenIssuancePolicies && this.tokenIssuancePolicies.length != 0){        const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
         this.tokenIssuancePolicies?.forEach(element => {
-            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+            tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenIssuancePolicyImpl>("tokenIssuancePolicies", tokenIssuancePoliciesArrValue);
         }
         if(this.tokenLifetimePolicies && this.tokenLifetimePolicies.length != 0){        const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
         this.tokenLifetimePolicies?.forEach(element => {
-            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+            tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("tokenLifetimePolicies", tokenLifetimePoliciesArrValue);
         }
         if(this.transitiveMemberOf && this.transitiveMemberOf.length != 0){        const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
         this.transitiveMemberOf?.forEach(element => {
-            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+            transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DirectoryObjectImpl>("transitiveMemberOf", transitiveMemberOfArrValue);
         }
@@ -1214,7 +1214,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const tokenIssuancePoliciesArrValue: TokenIssuancePolicyImpl[] = [];
             this.tokenIssuancePolicies?.forEach(element => {
-                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element:new TokenIssuancePolicyImpl(element)));
+                tokenIssuancePoliciesArrValue.push((element instanceof TokenIssuancePolicyImpl? element as TokenIssuancePolicyImpl:new TokenIssuancePolicyImpl(element)));
             });
             this._tokenIssuancePolicies = tokenIssuancePoliciesArrValue;
         }
@@ -1234,7 +1234,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const tokenLifetimePoliciesArrValue: TokenLifetimePolicyImpl[] = [];
             this.tokenLifetimePolicies?.forEach(element => {
-                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+                tokenLifetimePoliciesArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
             });
             this._tokenLifetimePolicies = tokenLifetimePoliciesArrValue;
         }
@@ -1254,7 +1254,7 @@ export class ServicePrincipalImpl extends DirectoryObjectImpl implements Service
         if(value) {
             const transitiveMemberOfArrValue: DirectoryObjectImpl[] = [];
             this.transitiveMemberOf?.forEach(element => {
-                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element:new DirectoryObjectImpl(element)));
+                transitiveMemberOfArrValue.push((element instanceof DirectoryObjectImpl? element as DirectoryObjectImpl:new DirectoryObjectImpl(element)));
             });
             this._transitiveMemberOf = transitiveMemberOfArrValue;
         }

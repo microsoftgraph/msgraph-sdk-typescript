@@ -73,7 +73,7 @@ export class PostCollectionResponseImpl implements PostCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: PostImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof PostImpl? element:new PostImpl(element)));
+            valueArrValue.push((element instanceof PostImpl? element as PostImpl:new PostImpl(element)));
         });
             writer.writeCollectionOfObjectValues<PostImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class PostCollectionResponseImpl implements PostCollectionResponse {
         if(value) {
             const valueArrValue: PostImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof PostImpl? element:new PostImpl(element)));
+                valueArrValue.push((element instanceof PostImpl? element as PostImpl:new PostImpl(element)));
             });
             this._value = valueArrValue;
         }

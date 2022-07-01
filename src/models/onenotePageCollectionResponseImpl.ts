@@ -73,7 +73,7 @@ export class OnenotePageCollectionResponseImpl implements OnenotePageCollectionR
         }
         if(this.value && this.value.length != 0){        const valueArrValue: OnenotePageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+            valueArrValue.push((element instanceof OnenotePageImpl? element as OnenotePageImpl:new OnenotePageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<OnenotePageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class OnenotePageCollectionResponseImpl implements OnenotePageCollectionR
         if(value) {
             const valueArrValue: OnenotePageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof OnenotePageImpl? element:new OnenotePageImpl(element)));
+                valueArrValue.push((element instanceof OnenotePageImpl? element as OnenotePageImpl:new OnenotePageImpl(element)));
             });
             this._value = valueArrValue;
         }

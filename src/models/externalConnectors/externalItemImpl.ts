@@ -32,7 +32,7 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
         if(value) {
             const aclArrValue: AclImpl[] = [];
             this.acl?.forEach(element => {
-                aclArrValue.push((element instanceof AclImpl? element:new AclImpl(element)));
+                aclArrValue.push((element instanceof AclImpl? element as AclImpl:new AclImpl(element)));
             });
             this._acl = aclArrValue;
         }
@@ -60,7 +60,7 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
      */
     public set content(value: ExternalItemContent | undefined) {
         if(value) {
-            this._content = value instanceof ExternalItemContentImpl? value : new ExternalItemContentImpl(value);
+            this._content = value instanceof ExternalItemContentImpl? value as ExternalItemContentImpl: new ExternalItemContentImpl(value);
         }
     };
     /**
@@ -87,7 +87,7 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
      */
     public set properties(value: Properties | undefined) {
         if(value) {
-            this._properties = value instanceof PropertiesImpl? value : new PropertiesImpl(value);
+            this._properties = value instanceof PropertiesImpl? value as PropertiesImpl: new PropertiesImpl(value);
         }
     };
     /**
@@ -99,15 +99,15 @@ export class ExternalItemImpl extends EntityImpl implements ExternalItem {
         super.serialize(writer);
         if(this.acl && this.acl.length != 0){        const aclArrValue: AclImpl[] = [];
         this.acl?.forEach(element => {
-            aclArrValue.push((element instanceof AclImpl? element:new AclImpl(element)));
+            aclArrValue.push((element instanceof AclImpl? element as AclImpl:new AclImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AclImpl>("acl", aclArrValue);
         }
         if(this.content){
-            writer.writeObjectValue<ExternalItemContentImpl>("content", (!this.content || this.content instanceof ExternalItemContentImpl? this.content : new ExternalItemContentImpl(this.content)));
+            writer.writeObjectValue<ExternalItemContentImpl>("content", (this.content instanceof ExternalItemContentImpl? this.content as ExternalItemContentImpl: new ExternalItemContentImpl(this.content)));
         }
         if(this.properties){
-            writer.writeObjectValue<PropertiesImpl>("properties", (!this.properties || this.properties instanceof PropertiesImpl? this.properties : new PropertiesImpl(this.properties)));
+            writer.writeObjectValue<PropertiesImpl>("properties", (this.properties instanceof PropertiesImpl? this.properties as PropertiesImpl: new PropertiesImpl(this.properties)));
         }
     };
 }

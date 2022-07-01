@@ -51,7 +51,7 @@ export class AddResponseImpl implements AddResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ActionResultPartImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ActionResultPartImpl? element:new ActionResultPartImpl(element)));
+            valueArrValue.push((element instanceof ActionResultPartImpl? element as ActionResultPartImpl:new ActionResultPartImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ActionResultPartImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class AddResponseImpl implements AddResponse {
         if(value) {
             const valueArrValue: ActionResultPartImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ActionResultPartImpl? element:new ActionResultPartImpl(element)));
+                valueArrValue.push((element instanceof ActionResultPartImpl? element as ActionResultPartImpl:new ActionResultPartImpl(element)));
             });
             this._value = valueArrValue;
         }

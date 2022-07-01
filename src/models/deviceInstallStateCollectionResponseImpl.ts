@@ -73,7 +73,7 @@ export class DeviceInstallStateCollectionResponseImpl implements DeviceInstallSt
         }
         if(this.value && this.value.length != 0){        const valueArrValue: DeviceInstallStateImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof DeviceInstallStateImpl? element:new DeviceInstallStateImpl(element)));
+            valueArrValue.push((element instanceof DeviceInstallStateImpl? element as DeviceInstallStateImpl:new DeviceInstallStateImpl(element)));
         });
             writer.writeCollectionOfObjectValues<DeviceInstallStateImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class DeviceInstallStateCollectionResponseImpl implements DeviceInstallSt
         if(value) {
             const valueArrValue: DeviceInstallStateImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof DeviceInstallStateImpl? element:new DeviceInstallStateImpl(element)));
+                valueArrValue.push((element instanceof DeviceInstallStateImpl? element as DeviceInstallStateImpl:new DeviceInstallStateImpl(element)));
             });
             this._value = valueArrValue;
         }

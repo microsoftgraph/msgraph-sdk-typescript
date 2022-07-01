@@ -53,7 +53,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         if(value) {
             const appsArrValue: ManagedMobileAppImpl[] = [];
             this.apps?.forEach(element => {
-                appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+                appsArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
             });
             this._apps = appsArrValue;
         }
@@ -117,7 +117,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
      */
     public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | undefined) {
         if(value) {
-            this._deploymentSummary = value instanceof ManagedAppPolicyDeploymentSummaryImpl? value : new ManagedAppPolicyDeploymentSummaryImpl(value);
+            this._deploymentSummary = value instanceof ManagedAppPolicyDeploymentSummaryImpl? value as ManagedAppPolicyDeploymentSummaryImpl: new ManagedAppPolicyDeploymentSummaryImpl(value);
         }
     };
     /**
@@ -179,7 +179,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
         }
         if(this.apps && this.apps.length != 0){        const appsArrValue: ManagedMobileAppImpl[] = [];
         this.apps?.forEach(element => {
-            appsArrValue.push((element instanceof ManagedMobileAppImpl? element:new ManagedMobileAppImpl(element)));
+            appsArrValue.push((element instanceof ManagedMobileAppImpl? element as ManagedMobileAppImpl:new ManagedMobileAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ManagedMobileAppImpl>("apps", appsArrValue);
         }
@@ -190,7 +190,7 @@ export class IosManagedAppProtectionImpl extends TargetedManagedAppProtectionImp
             writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         }
         if(this.deploymentSummary){
-            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", (!this.deploymentSummary || this.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? this.deploymentSummary : new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary)));
+            writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryImpl>("deploymentSummary", (this.deploymentSummary instanceof ManagedAppPolicyDeploymentSummaryImpl? this.deploymentSummary as ManagedAppPolicyDeploymentSummaryImpl: new ManagedAppPolicyDeploymentSummaryImpl(this.deploymentSummary)));
         }
         if(this.faceIdBlocked){
             writer.writeBooleanValue("faceIdBlocked", this.faceIdBlocked);

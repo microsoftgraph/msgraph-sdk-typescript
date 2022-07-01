@@ -34,7 +34,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
         super.serialize(writer);
         if(this.teamsApps && this.teamsApps.length != 0){        const teamsAppsArrValue: TeamsAppImpl[] = [];
         this.teamsApps?.forEach(element => {
-            teamsAppsArrValue.push((element instanceof TeamsAppImpl? element:new TeamsAppImpl(element)));
+            teamsAppsArrValue.push((element instanceof TeamsAppImpl? element as TeamsAppImpl:new TeamsAppImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAppImpl>("teamsApps", teamsAppsArrValue);
         }
@@ -54,7 +54,7 @@ export class AppCatalogsImpl extends EntityImpl implements AppCatalogs {
         if(value) {
             const teamsAppsArrValue: TeamsAppImpl[] = [];
             this.teamsApps?.forEach(element => {
-                teamsAppsArrValue.push((element instanceof TeamsAppImpl? element:new TeamsAppImpl(element)));
+                teamsAppsArrValue.push((element instanceof TeamsAppImpl? element as TeamsAppImpl:new TeamsAppImpl(element)));
             });
             this._teamsApps = teamsAppsArrValue;
         }

@@ -56,7 +56,7 @@ export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow
             writer.writeNumberValue("index", this.index);
         }
         if(this.values){
-            writer.writeObjectValue<JsonImpl>("values", (!this.values || this.values instanceof JsonImpl? this.values : new JsonImpl(this.values)));
+            writer.writeObjectValue<JsonImpl>("values", (this.values instanceof JsonImpl? this.values as JsonImpl: new JsonImpl(this.values)));
         }
     };
     /**
@@ -72,7 +72,7 @@ export class WorkbookTableRowImpl extends EntityImpl implements WorkbookTableRow
      */
     public set values(value: Json | undefined) {
         if(value) {
-            this._values = value instanceof JsonImpl? value : new JsonImpl(value);
+            this._values = value instanceof JsonImpl? value as JsonImpl: new JsonImpl(value);
         }
     };
 }

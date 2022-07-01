@@ -73,7 +73,7 @@ export class RoomCollectionResponseImpl implements RoomCollectionResponse {
         }
         if(this.value && this.value.length != 0){        const valueArrValue: RoomImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof RoomImpl? element:new RoomImpl(element)));
+            valueArrValue.push((element instanceof RoomImpl? element as RoomImpl:new RoomImpl(element)));
         });
             writer.writeCollectionOfObjectValues<RoomImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class RoomCollectionResponseImpl implements RoomCollectionResponse {
         if(value) {
             const valueArrValue: RoomImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof RoomImpl? element:new RoomImpl(element)));
+                valueArrValue.push((element instanceof RoomImpl? element as RoomImpl:new RoomImpl(element)));
             });
             this._value = valueArrValue;
         }

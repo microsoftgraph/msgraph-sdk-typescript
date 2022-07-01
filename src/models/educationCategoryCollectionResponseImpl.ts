@@ -73,7 +73,7 @@ export class EducationCategoryCollectionResponseImpl implements EducationCategor
         }
         if(this.value && this.value.length != 0){        const valueArrValue: EducationCategoryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof EducationCategoryImpl? element:new EducationCategoryImpl(element)));
+            valueArrValue.push((element instanceof EducationCategoryImpl? element as EducationCategoryImpl:new EducationCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<EducationCategoryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class EducationCategoryCollectionResponseImpl implements EducationCategor
         if(value) {
             const valueArrValue: EducationCategoryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof EducationCategoryImpl? element:new EducationCategoryImpl(element)));
+                valueArrValue.push((element instanceof EducationCategoryImpl? element as EducationCategoryImpl:new EducationCategoryImpl(element)));
             });
             this._value = valueArrValue;
         }

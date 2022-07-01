@@ -41,7 +41,7 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
      */
     public set points(value: EducationAssignmentPointsGrade | undefined) {
         if(value) {
-            this._points = value instanceof EducationAssignmentPointsGradeImpl? value : new EducationAssignmentPointsGradeImpl(value);
+            this._points = value instanceof EducationAssignmentPointsGradeImpl? value as EducationAssignmentPointsGradeImpl: new EducationAssignmentPointsGradeImpl(value);
         }
     };
     /**
@@ -57,7 +57,7 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
      */
     public set publishedPoints(value: EducationAssignmentPointsGrade | undefined) {
         if(value) {
-            this._publishedPoints = value instanceof EducationAssignmentPointsGradeImpl? value : new EducationAssignmentPointsGradeImpl(value);
+            this._publishedPoints = value instanceof EducationAssignmentPointsGradeImpl? value as EducationAssignmentPointsGradeImpl: new EducationAssignmentPointsGradeImpl(value);
         }
     };
     /**
@@ -68,10 +68,10 @@ export class EducationPointsOutcomeImpl extends EducationOutcomeImpl implements 
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         if(this.points){
-            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("points", (!this.points || this.points instanceof EducationAssignmentPointsGradeImpl? this.points : new EducationAssignmentPointsGradeImpl(this.points)));
+            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("points", (this.points instanceof EducationAssignmentPointsGradeImpl? this.points as EducationAssignmentPointsGradeImpl: new EducationAssignmentPointsGradeImpl(this.points)));
         }
         if(this.publishedPoints){
-            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("publishedPoints", (!this.publishedPoints || this.publishedPoints instanceof EducationAssignmentPointsGradeImpl? this.publishedPoints : new EducationAssignmentPointsGradeImpl(this.publishedPoints)));
+            writer.writeObjectValue<EducationAssignmentPointsGradeImpl>("publishedPoints", (this.publishedPoints instanceof EducationAssignmentPointsGradeImpl? this.publishedPoints as EducationAssignmentPointsGradeImpl: new EducationAssignmentPointsGradeImpl(this.publishedPoints)));
         }
     };
 }

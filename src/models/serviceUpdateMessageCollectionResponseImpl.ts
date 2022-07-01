@@ -73,7 +73,7 @@ export class ServiceUpdateMessageCollectionResponseImpl implements ServiceUpdate
         }
         if(this.value && this.value.length != 0){        const valueArrValue: ServiceUpdateMessageImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ServiceUpdateMessageImpl? element:new ServiceUpdateMessageImpl(element)));
+            valueArrValue.push((element instanceof ServiceUpdateMessageImpl? element as ServiceUpdateMessageImpl:new ServiceUpdateMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ServiceUpdateMessageImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class ServiceUpdateMessageCollectionResponseImpl implements ServiceUpdate
         if(value) {
             const valueArrValue: ServiceUpdateMessageImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ServiceUpdateMessageImpl? element:new ServiceUpdateMessageImpl(element)));
+                valueArrValue.push((element instanceof ServiceUpdateMessageImpl? element as ServiceUpdateMessageImpl:new ServiceUpdateMessageImpl(element)));
             });
             this._value = valueArrValue;
         }

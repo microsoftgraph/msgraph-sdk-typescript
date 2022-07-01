@@ -73,7 +73,7 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
         }
         if(this.value && this.value.length != 0){        const valueArrValue: AuthenticationMethodConfigurationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element:new AuthenticationMethodConfigurationImpl(element)));
+            valueArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element as AuthenticationMethodConfigurationImpl:new AuthenticationMethodConfigurationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<AuthenticationMethodConfigurationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class AuthenticationMethodConfigurationCollectionResponseImpl implements 
         if(value) {
             const valueArrValue: AuthenticationMethodConfigurationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element:new AuthenticationMethodConfigurationImpl(element)));
+                valueArrValue.push((element instanceof AuthenticationMethodConfigurationImpl? element as AuthenticationMethodConfigurationImpl:new AuthenticationMethodConfigurationImpl(element)));
             });
             this._value = valueArrValue;
         }

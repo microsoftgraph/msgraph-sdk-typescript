@@ -39,7 +39,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessi
      */
     public set attachmentItem(value: AttachmentItem | undefined) {
         if(value) {
-            this._attachmentItem = value instanceof AttachmentItemImpl? value : new AttachmentItemImpl(value);
+            this._attachmentItem = value instanceof AttachmentItemImpl? value as AttachmentItemImpl: new AttachmentItemImpl(value);
         }
     };
     /**
@@ -66,7 +66,7 @@ export class CreateUploadSessionPostRequestBodyImpl implements CreateUploadSessi
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.attachmentItem){
-            writer.writeObjectValue<AttachmentItemImpl>("attachmentItem", (!this.attachmentItem || this.attachmentItem instanceof AttachmentItemImpl? this.attachmentItem : new AttachmentItemImpl(this.attachmentItem)));
+            writer.writeObjectValue<AttachmentItemImpl>("attachmentItem", (this.attachmentItem instanceof AttachmentItemImpl? this.attachmentItem as AttachmentItemImpl: new AttachmentItemImpl(this.attachmentItem)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

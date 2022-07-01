@@ -73,7 +73,7 @@ export class TokenLifetimePolicyCollectionResponseImpl implements TokenLifetimeP
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TokenLifetimePolicyImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+            valueArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TokenLifetimePolicyImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TokenLifetimePolicyCollectionResponseImpl implements TokenLifetimeP
         if(value) {
             const valueArrValue: TokenLifetimePolicyImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TokenLifetimePolicyImpl? element:new TokenLifetimePolicyImpl(element)));
+                valueArrValue.push((element instanceof TokenLifetimePolicyImpl? element as TokenLifetimePolicyImpl:new TokenLifetimePolicyImpl(element)));
             });
             this._value = valueArrValue;
         }

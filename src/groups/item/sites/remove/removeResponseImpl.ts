@@ -51,7 +51,7 @@ export class RemoveResponseImpl implements RemoveResponse {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: SiteImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof SiteImpl? element:new SiteImpl(element)));
+            valueArrValue.push((element instanceof SiteImpl? element as SiteImpl:new SiteImpl(element)));
         });
             writer.writeCollectionOfObjectValues<SiteImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class RemoveResponseImpl implements RemoveResponse {
         if(value) {
             const valueArrValue: SiteImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof SiteImpl? element:new SiteImpl(element)));
+                valueArrValue.push((element instanceof SiteImpl? element as SiteImpl:new SiteImpl(element)));
             });
             this._value = valueArrValue;
         }

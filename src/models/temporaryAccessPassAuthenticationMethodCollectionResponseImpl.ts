@@ -73,7 +73,7 @@ export class TemporaryAccessPassAuthenticationMethodCollectionResponseImpl imple
         }
         if(this.value && this.value.length != 0){        const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element:new TemporaryAccessPassAuthenticationMethodImpl(element)));
+            valueArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element as TemporaryAccessPassAuthenticationMethodImpl:new TemporaryAccessPassAuthenticationMethodImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethodImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class TemporaryAccessPassAuthenticationMethodCollectionResponseImpl imple
         if(value) {
             const valueArrValue: TemporaryAccessPassAuthenticationMethodImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element:new TemporaryAccessPassAuthenticationMethodImpl(element)));
+                valueArrValue.push((element instanceof TemporaryAccessPassAuthenticationMethodImpl? element as TemporaryAccessPassAuthenticationMethodImpl:new TemporaryAccessPassAuthenticationMethodImpl(element)));
             });
             this._value = valueArrValue;
         }

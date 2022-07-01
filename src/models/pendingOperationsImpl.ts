@@ -55,7 +55,7 @@ export class PendingOperationsImpl implements PendingOperations {
      */
     public set pendingContentUpdate(value: PendingContentUpdate | undefined) {
         if(value) {
-            this._pendingContentUpdate = value instanceof PendingContentUpdateImpl? value : new PendingContentUpdateImpl(value);
+            this._pendingContentUpdate = value instanceof PendingContentUpdateImpl? value as PendingContentUpdateImpl: new PendingContentUpdateImpl(value);
         }
     };
     /**
@@ -65,7 +65,7 @@ export class PendingOperationsImpl implements PendingOperations {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.pendingContentUpdate){
-            writer.writeObjectValue<PendingContentUpdateImpl>("pendingContentUpdate", (!this.pendingContentUpdate || this.pendingContentUpdate instanceof PendingContentUpdateImpl? this.pendingContentUpdate : new PendingContentUpdateImpl(this.pendingContentUpdate)));
+            writer.writeObjectValue<PendingContentUpdateImpl>("pendingContentUpdate", (this.pendingContentUpdate instanceof PendingContentUpdateImpl? this.pendingContentUpdate as PendingContentUpdateImpl: new PendingContentUpdateImpl(this.pendingContentUpdate)));
         }
         writer.writeAdditionalData(this.additionalData);
     };

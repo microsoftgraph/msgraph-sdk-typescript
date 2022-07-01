@@ -51,7 +51,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements
         if(!writer) throw new Error("writer cannot be undefined");
         if(this.value && this.value.length != 0){        const valueArrValue: ReminderImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof ReminderImpl? element:new ReminderImpl(element)));
+            valueArrValue.push((element instanceof ReminderImpl? element as ReminderImpl:new ReminderImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ReminderImpl>("value", valueArrValue);
         }
@@ -72,7 +72,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeResponseImpl implements
         if(value) {
             const valueArrValue: ReminderImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof ReminderImpl? element:new ReminderImpl(element)));
+                valueArrValue.push((element instanceof ReminderImpl? element as ReminderImpl:new ReminderImpl(element)));
             });
             this._value = valueArrValue;
         }

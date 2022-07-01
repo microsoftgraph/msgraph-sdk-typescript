@@ -73,7 +73,7 @@ export class MobileAppCategoryCollectionResponseImpl implements MobileAppCategor
         }
         if(this.value && this.value.length != 0){        const valueArrValue: MobileAppCategoryImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof MobileAppCategoryImpl? element:new MobileAppCategoryImpl(element)));
+            valueArrValue.push((element instanceof MobileAppCategoryImpl? element as MobileAppCategoryImpl:new MobileAppCategoryImpl(element)));
         });
             writer.writeCollectionOfObjectValues<MobileAppCategoryImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class MobileAppCategoryCollectionResponseImpl implements MobileAppCategor
         if(value) {
             const valueArrValue: MobileAppCategoryImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof MobileAppCategoryImpl? element:new MobileAppCategoryImpl(element)));
+                valueArrValue.push((element instanceof MobileAppCategoryImpl? element as MobileAppCategoryImpl:new MobileAppCategoryImpl(element)));
             });
             this._value = valueArrValue;
         }

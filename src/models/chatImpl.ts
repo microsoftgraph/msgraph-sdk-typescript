@@ -121,7 +121,7 @@ export class ChatImpl extends EntityImpl implements Chat {
         if(value) {
             const installedAppsArrValue: TeamsAppInstallationImpl[] = [];
             this.installedApps?.forEach(element => {
-                installedAppsArrValue.push((element instanceof TeamsAppInstallationImpl? element:new TeamsAppInstallationImpl(element)));
+                installedAppsArrValue.push((element instanceof TeamsAppInstallationImpl? element as TeamsAppInstallationImpl:new TeamsAppInstallationImpl(element)));
             });
             this._installedApps = installedAppsArrValue;
         }
@@ -157,7 +157,7 @@ export class ChatImpl extends EntityImpl implements Chat {
         if(value) {
             const membersArrValue: ConversationMemberImpl[] = [];
             this.members?.forEach(element => {
-                membersArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+                membersArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
             });
             this._members = membersArrValue;
         }
@@ -177,7 +177,7 @@ export class ChatImpl extends EntityImpl implements Chat {
         if(value) {
             const messagesArrValue: ChatMessageImpl[] = [];
             this.messages?.forEach(element => {
-                messagesArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+                messagesArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
             });
             this._messages = messagesArrValue;
         }
@@ -195,7 +195,7 @@ export class ChatImpl extends EntityImpl implements Chat {
      */
     public set onlineMeetingInfo(value: TeamworkOnlineMeetingInfo | undefined) {
         if(value) {
-            this._onlineMeetingInfo = value instanceof TeamworkOnlineMeetingInfoImpl? value : new TeamworkOnlineMeetingInfoImpl(value);
+            this._onlineMeetingInfo = value instanceof TeamworkOnlineMeetingInfoImpl? value as TeamworkOnlineMeetingInfoImpl: new TeamworkOnlineMeetingInfoImpl(value);
         }
     };
     /**
@@ -213,7 +213,7 @@ export class ChatImpl extends EntityImpl implements Chat {
         }
         if(this.installedApps && this.installedApps.length != 0){        const installedAppsArrValue: TeamsAppInstallationImpl[] = [];
         this.installedApps?.forEach(element => {
-            installedAppsArrValue.push((element instanceof TeamsAppInstallationImpl? element:new TeamsAppInstallationImpl(element)));
+            installedAppsArrValue.push((element instanceof TeamsAppInstallationImpl? element as TeamsAppInstallationImpl:new TeamsAppInstallationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsAppInstallationImpl>("installedApps", installedAppsArrValue);
         }
@@ -222,22 +222,22 @@ export class ChatImpl extends EntityImpl implements Chat {
         }
         if(this.members && this.members.length != 0){        const membersArrValue: ConversationMemberImpl[] = [];
         this.members?.forEach(element => {
-            membersArrValue.push((element instanceof ConversationMemberImpl? element:new ConversationMemberImpl(element)));
+            membersArrValue.push((element instanceof ConversationMemberImpl? element as ConversationMemberImpl:new ConversationMemberImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ConversationMemberImpl>("members", membersArrValue);
         }
         if(this.messages && this.messages.length != 0){        const messagesArrValue: ChatMessageImpl[] = [];
         this.messages?.forEach(element => {
-            messagesArrValue.push((element instanceof ChatMessageImpl? element:new ChatMessageImpl(element)));
+            messagesArrValue.push((element instanceof ChatMessageImpl? element as ChatMessageImpl:new ChatMessageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ChatMessageImpl>("messages", messagesArrValue);
         }
         if(this.onlineMeetingInfo){
-            writer.writeObjectValue<TeamworkOnlineMeetingInfoImpl>("onlineMeetingInfo", (!this.onlineMeetingInfo || this.onlineMeetingInfo instanceof TeamworkOnlineMeetingInfoImpl? this.onlineMeetingInfo : new TeamworkOnlineMeetingInfoImpl(this.onlineMeetingInfo)));
+            writer.writeObjectValue<TeamworkOnlineMeetingInfoImpl>("onlineMeetingInfo", (this.onlineMeetingInfo instanceof TeamworkOnlineMeetingInfoImpl? this.onlineMeetingInfo as TeamworkOnlineMeetingInfoImpl: new TeamworkOnlineMeetingInfoImpl(this.onlineMeetingInfo)));
         }
         if(this.tabs && this.tabs.length != 0){        const tabsArrValue: TeamsTabImpl[] = [];
         this.tabs?.forEach(element => {
-            tabsArrValue.push((element instanceof TeamsTabImpl? element:new TeamsTabImpl(element)));
+            tabsArrValue.push((element instanceof TeamsTabImpl? element as TeamsTabImpl:new TeamsTabImpl(element)));
         });
             writer.writeCollectionOfObjectValues<TeamsTabImpl>("tabs", tabsArrValue);
         }
@@ -266,7 +266,7 @@ export class ChatImpl extends EntityImpl implements Chat {
         if(value) {
             const tabsArrValue: TeamsTabImpl[] = [];
             this.tabs?.forEach(element => {
-                tabsArrValue.push((element instanceof TeamsTabImpl? element:new TeamsTabImpl(element)));
+                tabsArrValue.push((element instanceof TeamsTabImpl? element as TeamsTabImpl:new TeamsTabImpl(element)));
             });
             this._tabs = tabsArrValue;
         }

@@ -73,7 +73,7 @@ export class InvitationCollectionResponseImpl implements InvitationCollectionRes
         }
         if(this.value && this.value.length != 0){        const valueArrValue: InvitationImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof InvitationImpl? element:new InvitationImpl(element)));
+            valueArrValue.push((element instanceof InvitationImpl? element as InvitationImpl:new InvitationImpl(element)));
         });
             writer.writeCollectionOfObjectValues<InvitationImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class InvitationCollectionResponseImpl implements InvitationCollectionRes
         if(value) {
             const valueArrValue: InvitationImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof InvitationImpl? element:new InvitationImpl(element)));
+                valueArrValue.push((element instanceof InvitationImpl? element as InvitationImpl:new InvitationImpl(element)));
             });
             this._value = valueArrValue;
         }

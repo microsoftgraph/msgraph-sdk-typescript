@@ -73,7 +73,7 @@ export class BookingCustomQuestionCollectionResponseImpl implements BookingCusto
         }
         if(this.value && this.value.length != 0){        const valueArrValue: BookingCustomQuestionImpl[] = [];
         this.value?.forEach(element => {
-            valueArrValue.push((element instanceof BookingCustomQuestionImpl? element:new BookingCustomQuestionImpl(element)));
+            valueArrValue.push((element instanceof BookingCustomQuestionImpl? element as BookingCustomQuestionImpl:new BookingCustomQuestionImpl(element)));
         });
             writer.writeCollectionOfObjectValues<BookingCustomQuestionImpl>("value", valueArrValue);
         }
@@ -94,7 +94,7 @@ export class BookingCustomQuestionCollectionResponseImpl implements BookingCusto
         if(value) {
             const valueArrValue: BookingCustomQuestionImpl[] = [];
             this.value?.forEach(element => {
-                valueArrValue.push((element instanceof BookingCustomQuestionImpl? element:new BookingCustomQuestionImpl(element)));
+                valueArrValue.push((element instanceof BookingCustomQuestionImpl? element as BookingCustomQuestionImpl:new BookingCustomQuestionImpl(element)));
             });
             this._value = valueArrValue;
         }

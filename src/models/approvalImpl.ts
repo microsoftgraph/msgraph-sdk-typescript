@@ -34,7 +34,7 @@ export class ApprovalImpl extends EntityImpl implements Approval {
         super.serialize(writer);
         if(this.stages && this.stages.length != 0){        const stagesArrValue: ApprovalStageImpl[] = [];
         this.stages?.forEach(element => {
-            stagesArrValue.push((element instanceof ApprovalStageImpl? element:new ApprovalStageImpl(element)));
+            stagesArrValue.push((element instanceof ApprovalStageImpl? element as ApprovalStageImpl:new ApprovalStageImpl(element)));
         });
             writer.writeCollectionOfObjectValues<ApprovalStageImpl>("stages", stagesArrValue);
         }
@@ -54,7 +54,7 @@ export class ApprovalImpl extends EntityImpl implements Approval {
         if(value) {
             const stagesArrValue: ApprovalStageImpl[] = [];
             this.stages?.forEach(element => {
-                stagesArrValue.push((element instanceof ApprovalStageImpl? element:new ApprovalStageImpl(element)));
+                stagesArrValue.push((element instanceof ApprovalStageImpl? element as ApprovalStageImpl:new ApprovalStageImpl(element)));
             });
             this._stages = stagesArrValue;
         }
