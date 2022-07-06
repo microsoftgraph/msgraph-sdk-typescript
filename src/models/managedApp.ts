@@ -2,10 +2,11 @@ import {MobileApp} from './index';
 import {ManagedAppAvailability} from './managedAppAvailability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy. */
 export class ManagedApp extends MobileApp implements Parsable {
     /** The Application's availability. Possible values are: global, lineOfBusiness. */
     private _appAvailability?: ManagedAppAvailability | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The Application's version. */
     private _version?: string | undefined;
     /**
@@ -23,7 +24,7 @@ export class ManagedApp extends MobileApp implements Parsable {
         this._appAvailability = value;
     };
     /**
-     * Instantiates a new managedApp and sets the default values.
+     * Instantiates a new ManagedApp and sets the default values.
      */
     public constructor() {
         super();
@@ -35,8 +36,23 @@ export class ManagedApp extends MobileApp implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "appAvailability": n => { this.appAvailability = n.getEnumValue<ManagedAppAvailability>(ManagedAppAvailability); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "version": n => { this.version = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -46,6 +62,7 @@ export class ManagedApp extends MobileApp implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<ManagedAppAvailability>("appAvailability", this.appAvailability);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("version", this.version);
     };
     /**

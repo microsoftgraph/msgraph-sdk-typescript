@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class AudioRoutingGroup extends Entity implements Parsable {
     /** List of receiving participant ids. */
     private _receivers?: string[] | undefined;

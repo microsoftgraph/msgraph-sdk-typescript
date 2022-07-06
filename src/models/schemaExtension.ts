@@ -2,7 +2,6 @@ import {createExtensionSchemaPropertyFromDiscriminatorValue} from './createExten
 import {Entity, ExtensionSchemaProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of schemaExtension entities. */
 export class SchemaExtension extends Entity implements Parsable {
     /** Description for the schema extension. Supports $filter (eq). */
     private _description?: string | undefined;
@@ -10,12 +9,12 @@ export class SchemaExtension extends Entity implements Parsable {
     private _owner?: string | undefined;
     /** The collection of property names and types that make up the schema extension definition. */
     private _properties?: ExtensionSchemaProperty[] | undefined;
-    /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq). */
+    /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq). */
     private _status?: string | undefined;
-    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user. */
+    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user. */
     private _targetTypes?: string[] | undefined;
     /**
-     * Instantiates a new schemaExtension and sets the default values.
+     * Instantiates a new SchemaExtension and sets the default values.
      */
     public constructor() {
         super();
@@ -89,28 +88,28 @@ export class SchemaExtension extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("targetTypes", this.targetTypes);
     };
     /**
-     * Gets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).
+     * Gets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq).
      * @returns a string
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).
+     * Sets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq).
      * @param value Value to set for the status property.
      */
     public set status(value: string | undefined) {
         this._status = value;
     };
     /**
-     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
+     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.
      * @returns a string
      */
     public get targetTypes() {
         return this._targetTypes;
     };
     /**
-     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
+     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.
      * @param value Value to set for the targetTypes property.
      */
     public set targetTypes(value: string[] | undefined) {

@@ -2,7 +2,7 @@ import {createWorkbookChartAxisTitleFormatFromDiscriminatorValue} from './create
 import {Entity, WorkbookChartAxisTitleFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class WorkbookChartAxisTitle extends Entity implements Parsable {
     /** Represents the formatting of chart axis title. Read-only. */
     private _format?: WorkbookChartAxisTitleFormat | undefined;

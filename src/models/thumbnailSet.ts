@@ -2,7 +2,7 @@ import {createThumbnailFromDiscriminatorValue} from './createThumbnailFromDiscri
 import {Entity, Thumbnail} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ThumbnailSet extends Entity implements Parsable {
     /** A 1920x1920 scaled thumbnail. */
     private _large?: Thumbnail | undefined;

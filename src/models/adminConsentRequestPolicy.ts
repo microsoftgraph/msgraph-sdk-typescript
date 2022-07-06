@@ -2,7 +2,7 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {AccessReviewReviewerScope, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class AdminConsentRequestPolicy extends Entity implements Parsable {
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     private _isEnabled?: boolean | undefined;

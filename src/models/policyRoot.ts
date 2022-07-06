@@ -5,6 +5,7 @@ import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from './createA
 import {createAuthorizationPolicyFromDiscriminatorValue} from './createAuthorizationPolicyFromDiscriminatorValue';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
+import {createCrossTenantAccessPolicyFromDiscriminatorValue} from './createCrossTenantAccessPolicyFromDiscriminatorValue';
 import {createFeatureRolloutPolicyFromDiscriminatorValue} from './createFeatureRolloutPolicyFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue} from './createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue';
@@ -13,10 +14,9 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
+import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, CrossTenantAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class PolicyRoot extends Entity implements Parsable {
     /** The policy that controls the idle time out for web sessions for applications. */
     private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
@@ -32,6 +32,8 @@ export class PolicyRoot extends Entity implements Parsable {
     private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** The custom rules that define an access scenario. */
     private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
+    /** The custom rules that define an access scenario when interacting with external Azure AD tenants. */
+    private _crossTenantAccessPolicy?: CrossTenantAccessPolicy | undefined;
     /** The feature rollout policy associated with a directory object. */
     private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
     /** The policy to control Azure AD authentication behavior for federated users. */
@@ -147,10 +149,24 @@ export class PolicyRoot extends Entity implements Parsable {
         this._conditionalAccessPolicies = value;
     };
     /**
-     * Instantiates a new policyRoot and sets the default values.
+     * Instantiates a new PolicyRoot and sets the default values.
      */
     public constructor() {
         super();
+    };
+    /**
+     * Gets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * @returns a crossTenantAccessPolicy
+     */
+    public get crossTenantAccessPolicy() {
+        return this._crossTenantAccessPolicy;
+    };
+    /**
+     * Sets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * @param value Value to set for the crossTenantAccessPolicy property.
+     */
+    public set crossTenantAccessPolicy(value: CrossTenantAccessPolicy | undefined) {
+        this._crossTenantAccessPolicy = value;
     };
     /**
      * Gets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
@@ -179,6 +195,7 @@ export class PolicyRoot extends Entity implements Parsable {
             "authorizationPolicy": n => { this.authorizationPolicy = n.getObjectValue<AuthorizationPolicy>(createAuthorizationPolicyFromDiscriminatorValue); },
             "claimsMappingPolicies": n => { this.claimsMappingPolicies = n.getCollectionOfObjectValues<ClaimsMappingPolicy>(createClaimsMappingPolicyFromDiscriminatorValue); },
             "conditionalAccessPolicies": n => { this.conditionalAccessPolicies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
+            "crossTenantAccessPolicy": n => { this.crossTenantAccessPolicy = n.getObjectValue<CrossTenantAccessPolicy>(createCrossTenantAccessPolicyFromDiscriminatorValue); },
             "featureRolloutPolicies": n => { this.featureRolloutPolicies = n.getCollectionOfObjectValues<FeatureRolloutPolicy>(createFeatureRolloutPolicyFromDiscriminatorValue); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "identitySecurityDefaultsEnforcementPolicy": n => { this.identitySecurityDefaultsEnforcementPolicy = n.getObjectValue<IdentitySecurityDefaultsEnforcementPolicy>(createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue); },
@@ -273,6 +290,7 @@ export class PolicyRoot extends Entity implements Parsable {
         writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", this.authorizationPolicy);
         writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", this.claimsMappingPolicies);
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", this.conditionalAccessPolicies);
+        writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", this.crossTenantAccessPolicy);
         writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", this.featureRolloutPolicies);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", this.identitySecurityDefaultsEnforcementPolicy);

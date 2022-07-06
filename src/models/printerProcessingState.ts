@@ -1,4 +1,4 @@
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum PrinterProcessingState {
     Unknown = "unknown",
     Idle = "idle",

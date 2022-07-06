@@ -2,7 +2,6 @@ import {AuthenticationProtocol} from './authenticationProtocol';
 import {IdentityProviderBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable {
     /** Issuer URI of the federation server. */
     private _issuerUri?: string | undefined;
@@ -14,8 +13,10 @@ export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsabl
     private _preferredAuthenticationProtocol?: AuthenticationProtocol | undefined;
     /** Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available. */
     private _signingCertificate?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
-     * Instantiates a new samlOrWsFedProvider and sets the default values.
+     * Instantiates a new SamlOrWsFedProvider and sets the default values.
      */
     public constructor() {
         super();
@@ -31,6 +32,7 @@ export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsabl
             "passiveSignInUri": n => { this.passiveSignInUri = n.getStringValue(); },
             "preferredAuthenticationProtocol": n => { this.preferredAuthenticationProtocol = n.getEnumValue<AuthenticationProtocol>(AuthenticationProtocol); },
             "signingCertificate": n => { this.signingCertificate = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -60,6 +62,20 @@ export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsabl
      */
     public set metadataExchangeUri(value: string | undefined) {
         this._metadataExchangeUri = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the passiveSignInUri property value. URI that web-based clients are directed to when signing in to Azure Active Directory (Azure AD) services.
@@ -101,6 +117,7 @@ export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsabl
         writer.writeStringValue("passiveSignInUri", this.passiveSignInUri);
         writer.writeEnumValue<AuthenticationProtocol>("preferredAuthenticationProtocol", this.preferredAuthenticationProtocol);
         writer.writeStringValue("signingCertificate", this.signingCertificate);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the signingCertificate property value. Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available.

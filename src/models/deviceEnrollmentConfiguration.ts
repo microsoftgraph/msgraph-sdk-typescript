@@ -16,6 +16,8 @@ export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value. */
     private _priority?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The version of the device enrollment configuration */
     private _version?: number | undefined;
     /**
@@ -92,6 +94,7 @@ export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "priority": n => { this.priority = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "version": n => { this.version = n.getNumberValue(); },
         };
     };
@@ -108,6 +111,20 @@ export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the priority property value. Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
@@ -136,6 +153,7 @@ export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeNumberValue("priority", this.priority);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeNumberValue("version", this.version);
     };
     /**

@@ -2,7 +2,6 @@ import {createShiftActivityFromDiscriminatorValue} from './createShiftActivityFr
 import {ScheduleEntity, ShiftActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ShiftItem extends ScheduleEntity implements Parsable {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
     private _activities?: ShiftActivity[] | undefined;
@@ -10,6 +9,8 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
     private _displayName?: string | undefined;
     /** The shift notes for the shiftItem. */
     private _notes?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
      * @returns a shiftActivity
@@ -25,7 +26,7 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
         this._activities = value;
     };
     /**
-     * Instantiates a new shiftItem and sets the default values.
+     * Instantiates a new ShiftItem and sets the default values.
      */
     public constructor() {
         super();
@@ -53,6 +54,7 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
             "activities": n => { this.activities = n.getCollectionOfObjectValues<ShiftActivity>(createShiftActivityFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "notes": n => { this.notes = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -70,6 +72,20 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
         this._notes = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -79,5 +95,6 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
         writer.writeCollectionOfObjectValues<ShiftActivity>("activities", this.activities);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("notes", this.notes);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

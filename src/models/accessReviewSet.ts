@@ -3,14 +3,13 @@ import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from './crea
 import {AccessReviewHistoryDefinition, AccessReviewScheduleDefinition, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewSet extends Entity implements Parsable {
     /** Represents the template and scheduling for an access review. */
     private _definitions?: AccessReviewScheduleDefinition[] | undefined;
     /** Represents a collection of access review history data and the scopes used to collect that data. */
     private _historyDefinitions?: AccessReviewHistoryDefinition[] | undefined;
     /**
-     * Instantiates a new accessReviewSet and sets the default values.
+     * Instantiates a new AccessReviewSet and sets the default values.
      */
     public constructor() {
         super();

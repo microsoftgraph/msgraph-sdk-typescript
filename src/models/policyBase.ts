@@ -7,6 +7,8 @@ export class PolicyBase extends DirectoryObject implements Parsable {
     private _description?: string | undefined;
     /** Display name for this policy. Required. */
     private _displayName?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new policyBase and sets the default values.
      */
@@ -49,7 +51,22 @@ export class PolicyBase extends DirectoryObject implements Parsable {
         return {...super.getFieldDeserializers(),
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -60,5 +77,6 @@ export class PolicyBase extends DirectoryObject implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

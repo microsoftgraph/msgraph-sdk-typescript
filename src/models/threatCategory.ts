@@ -1,4 +1,4 @@
-/** Provides operations to manage the informationProtection singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ThreatCategory {
     Undefined = "undefined",
     Spam = "spam",

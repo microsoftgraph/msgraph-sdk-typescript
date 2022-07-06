@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ProvisioningAction {
     Other = "other",
     Create = "create",

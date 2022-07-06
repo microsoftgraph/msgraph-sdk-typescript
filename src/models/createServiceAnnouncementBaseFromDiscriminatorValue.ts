@@ -1,4 +1,4 @@
-import {ServiceAnnouncementBase} from './index';
+import {ServiceAnnouncementBase, ServiceHealthIssue, ServiceUpdateMessage} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ServiceAnnouncementBase {
@@ -8,8 +8,10 @@ export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: P
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.serviceAnnouncementBase":
-                    return new ServiceAnnouncementBase();
+                case "#microsoft.graph.serviceHealthIssue":
+                    return new ServiceHealthIssue();
+                case "#microsoft.graph.serviceUpdateMessage":
+                    return new ServiceUpdateMessage();
             }
         }
     }

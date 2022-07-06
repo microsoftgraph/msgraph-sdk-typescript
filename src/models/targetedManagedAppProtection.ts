@@ -2,12 +2,13 @@ import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './
 import {ManagedAppProtection, TargetedManagedAppPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups */
 export class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
     private _isAssigned?: boolean | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
      * @returns a targetedManagedAppPolicyAssignment
@@ -23,7 +24,7 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         this._assignments = value;
     };
     /**
-     * Instantiates a new targetedManagedAppProtection and sets the default values.
+     * Instantiates a new TargetedManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();
@@ -36,6 +37,7 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         return {...super.getFieldDeserializers(),
             "assignments": n => { this.assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue); },
             "isAssigned": n => { this.isAssigned = n.getBooleanValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -53,6 +55,20 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         this._isAssigned = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -61,5 +77,6 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", this.assignments);
         writer.writeBooleanValue("isAssigned", this.isAssigned);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

@@ -29,7 +29,7 @@ import {createWorkbookFromDiscriminatorValue} from './createWorkbookFromDiscrimi
 import {Audio, BaseItem, Bundle, Deleted, DriveItemVersion, File, FileSystemInfo, Folder, GeoCoordinates, Image, ItemAnalytics, ListItem, Malware, Package, PendingOperations, Permission, Photo, PublicationFacet, RemoteItem, Root, SearchResult, Shared, SharepointIds, SpecialFolder, Subscription, ThumbnailSet, Video, Workbook} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class DriveItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;

@@ -1,10 +1,12 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class OnenoteEntityBaseModel extends Entity implements Parsable {
     /** The endpoint where you can get details about the page. Read-only. */
     private _self?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new onenoteEntityBaseModel and sets the default values.
      */
@@ -18,7 +20,22 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "self": n => { this.self = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the self property value. The endpoint where you can get details about the page. Read-only.
@@ -42,5 +59,6 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("self", this.self);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

@@ -24,6 +24,8 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
     private _lastModifiedDateTime?: Date | undefined;
     /** the associated app. */
     private _targetedMobileApps?: string[] | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
     private _userStatuses?: ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
     /** App configuration user status summary. */
@@ -134,6 +136,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "targetedMobileApps": n => { this.targetedMobileApps = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userStatuses": n => { this.userStatuses = n.getCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>(createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue); },
             "userStatusSummary": n => { this.userStatusSummary = n.getObjectValue<ManagedDeviceMobileAppConfigurationUserSummary>(createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue); },
             "version": n => { this.version = n.getNumberValue(); },
@@ -154,6 +157,20 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -168,6 +185,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("targetedMobileApps", this.targetedMobileApps);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>("userStatuses", this.userStatuses);
         writer.writeObjectValue<ManagedDeviceMobileAppConfigurationUserSummary>("userStatusSummary", this.userStatusSummary);
         writer.writeNumberValue("version", this.version);

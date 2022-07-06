@@ -1,14 +1,13 @@
 import {OnenoteEntityBaseModel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable {
     /** The content stream */
     private _content?: string | undefined;
     /** The URL for downloading the content */
     private _contentUrl?: string | undefined;
     /**
-     * Instantiates a new onenoteResource and sets the default values.
+     * Instantiates a new OnenoteResource and sets the default values.
      */
     public constructor() {
         super();

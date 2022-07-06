@@ -1,4 +1,4 @@
-import {SignIn} from './index';
+import {RestrictedSignIn, SignIn} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createSignInFromDiscriminatorValue(parseNode: ParseNode | undefined) : SignIn {
@@ -8,8 +8,8 @@ export function createSignInFromDiscriminatorValue(parseNode: ParseNode | undefi
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.signIn":
-                    return new SignIn();
+                case "#microsoft.graph.restrictedSignIn":
+                    return new RestrictedSignIn();
             }
         }
     }

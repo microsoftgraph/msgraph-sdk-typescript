@@ -5,7 +5,7 @@ import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './cr
 import {ConditionalAccessConditionSet, ConditionalAccessGrantControls, ConditionalAccessSessionControls, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ConditionalAccessPolicy extends Entity implements Parsable {
     /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;

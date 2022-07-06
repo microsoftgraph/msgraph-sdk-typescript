@@ -5,7 +5,6 @@ import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedBrowserType} from './managedBrowserType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings for a specified set of apps */
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     /** Data storage locations where a user may store managed data. */
     private _allowedDataStorageLocations?: string[] | undefined;
@@ -61,6 +60,8 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     private _saveAsBlocked?: boolean | undefined;
     /** Indicates whether simplePin is blocked. */
     private _simplePinBlocked?: boolean | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
      * @returns a string
@@ -118,7 +119,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         this._allowedOutboundDataTransferDestinations = value;
     };
     /**
-     * Instantiates a new managedAppProtection and sets the default values.
+     * Instantiates a new ManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();
@@ -226,6 +227,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
             "printBlocked": n => { this.printBlocked = n.getBooleanValue(); },
             "saveAsBlocked": n => { this.saveAsBlocked = n.getBooleanValue(); },
             "simplePinBlocked": n => { this.simplePinBlocked = n.getBooleanValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -339,6 +341,20 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      */
     public set minimumWarningOsVersion(value: string | undefined) {
         this._minimumWarningOsVersion = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the organizationalCredentialsRequired property value. Indicates whether organizational credentials are required for app use.
@@ -500,6 +516,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         writer.writeBooleanValue("printBlocked", this.printBlocked);
         writer.writeBooleanValue("saveAsBlocked", this.saveAsBlocked);
         writer.writeBooleanValue("simplePinBlocked", this.simplePinBlocked);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the simplePinBlocked property value. Indicates whether simplePin is blocked.

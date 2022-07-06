@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class LongRunningOperation extends Entity implements Parsable {
     /** The createdDateTime property */
     private _createdDateTime?: Date | undefined;
@@ -14,6 +14,8 @@ export class LongRunningOperation extends Entity implements Parsable {
     private _status?: LongRunningOperationStatus | undefined;
     /** The statusDetail property */
     private _statusDetail?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new longRunningOperation and sets the default values.
      */
@@ -45,6 +47,7 @@ export class LongRunningOperation extends Entity implements Parsable {
             "resourceLocation": n => { this.resourceLocation = n.getStringValue(); },
             "status": n => { this.status = n.getEnumValue<LongRunningOperationStatus>(LongRunningOperationStatus); },
             "statusDetail": n => { this.statusDetail = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -60,6 +63,20 @@ export class LongRunningOperation extends Entity implements Parsable {
      */
     public set lastActionDateTime(value: Date | undefined) {
         this._lastActionDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the resourceLocation property value. The resourceLocation property
@@ -87,6 +104,7 @@ export class LongRunningOperation extends Entity implements Parsable {
         writer.writeStringValue("resourceLocation", this.resourceLocation);
         writer.writeEnumValue<LongRunningOperationStatus>("status", this.status);
         writer.writeStringValue("statusDetail", this.statusDetail);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. The status property

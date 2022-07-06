@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domainDnsRecord entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class DomainDnsRecord extends Entity implements Parsable {
     /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     private _isOptional?: boolean | undefined;
@@ -13,6 +13,8 @@ export class DomainDnsRecord extends Entity implements Parsable {
     private _supportedService?: string | undefined;
     /** Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable. */
     private _ttl?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new domainDnsRecord and sets the default values.
      */
@@ -30,6 +32,7 @@ export class DomainDnsRecord extends Entity implements Parsable {
             "recordType": n => { this.recordType = n.getStringValue(); },
             "supportedService": n => { this.supportedService = n.getStringValue(); },
             "ttl": n => { this.ttl = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -61,6 +64,20 @@ export class DomainDnsRecord extends Entity implements Parsable {
         this._label = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Gets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
      * @returns a string
      */
@@ -86,6 +103,7 @@ export class DomainDnsRecord extends Entity implements Parsable {
         writer.writeStringValue("recordType", this.recordType);
         writer.writeStringValue("supportedService", this.supportedService);
         writer.writeNumberValue("ttl", this.ttl);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.

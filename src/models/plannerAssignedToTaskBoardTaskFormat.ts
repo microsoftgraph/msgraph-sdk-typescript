@@ -2,7 +2,7 @@ import {createPlannerOrderHintsByAssigneeFromDiscriminatorValue} from './createP
 import {Entity, PlannerOrderHintsByAssignee} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PlannerAssignedToTaskBoardTaskFormat extends Entity implements Parsable {
     /** Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here. */
     private _orderHintsByAssignee?: PlannerOrderHintsByAssignee | undefined;

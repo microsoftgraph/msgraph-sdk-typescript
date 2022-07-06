@@ -2,14 +2,15 @@ import {Entity} from './index';
 import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlow extends Entity implements Parsable {
+    /** The type property */
+    private _type?: string | undefined;
     /** The userFlowType property */
     private _userFlowType?: UserFlowType | undefined;
     /** The userFlowTypeVersion property */
     private _userFlowTypeVersion?: number | undefined;
     /**
-     * Instantiates a new identityUserFlow and sets the default values.
+     * Instantiates a new IdentityUserFlow and sets the default values.
      */
     public constructor() {
         super();
@@ -20,9 +21,24 @@ export class IdentityUserFlow extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userFlowType": n => { this.userFlowType = n.getEnumValue<UserFlowType>(UserFlowType); },
             "userFlowTypeVersion": n => { this.userFlowTypeVersion = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -31,6 +47,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeEnumValue<UserFlowType>("userFlowType", this.userFlowType);
         writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
     };

@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RoleManagement implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Read-only. Nullable. */
+    /** The directory property */
     private _directory?: RbacApplication | undefined;
     /** Container for roles and assignments for entitlement management resources. */
     private _entitlementManagement?: RbacApplication | undefined;
@@ -30,14 +30,14 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the directory property value. Read-only. Nullable.
+     * Gets the directory property value. The directory property
      * @returns a rbacApplication
      */
     public get directory() {
         return this._directory;
     };
     /**
-     * Sets the directory property value. Read-only. Nullable.
+     * Sets the directory property value. The directory property
      * @param value Value to set for the directory property.
      */
     public set directory(value: RbacApplication | undefined) {

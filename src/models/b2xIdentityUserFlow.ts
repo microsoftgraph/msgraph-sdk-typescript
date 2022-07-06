@@ -6,7 +6,6 @@ import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from './creat
 import {IdentityProvider, IdentityProviderBase, IdentityUserFlow, IdentityUserFlowAttributeAssignment, UserFlowApiConnectorConfiguration, UserFlowLanguageConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
     /** Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
     private _apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
@@ -33,7 +32,7 @@ export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
         this._apiConnectorConfiguration = value;
     };
     /**
-     * Instantiates a new b2xIdentityUserFlow and sets the default values.
+     * Instantiates a new B2xIdentityUserFlow and sets the default values.
      */
     public constructor() {
         super();

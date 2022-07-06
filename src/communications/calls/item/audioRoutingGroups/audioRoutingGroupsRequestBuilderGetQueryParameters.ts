@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get audioRoutingGroups from communications */
 export class AudioRoutingGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

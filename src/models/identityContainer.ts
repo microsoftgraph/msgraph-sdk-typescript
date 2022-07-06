@@ -6,7 +6,6 @@ import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIde
 import {B2xIdentityUserFlow, ConditionalAccessRoot, Entity, IdentityApiConnector, IdentityProviderBase, IdentityUserFlowAttribute} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityContainer extends Entity implements Parsable {
     /** Represents entry point for API connectors. */
     private _apiConnectors?: IdentityApiConnector[] | undefined;
@@ -61,7 +60,7 @@ export class IdentityContainer extends Entity implements Parsable {
         this._conditionalAccess = value;
     };
     /**
-     * Instantiates a new identityContainer and sets the default values.
+     * Instantiates a new IdentityContainer and sets the default values.
      */
     public constructor() {
         super();

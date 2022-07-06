@@ -1,3 +1,5 @@
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue} from './createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue';
 import {SupportedTimeZonesWithTimeZoneStandardResponse} from './index';
 import {SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration} from './supportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration';
@@ -22,7 +24,7 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/outlook/microsoft.graph.supportedTimeZones(TimeZoneStandard='{TimeZoneStandard}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = timeZoneStandard
+        urlTplParams["TimeZoneStandard"] = timeZoneStandard
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -36,6 +38,7 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -52,6 +55,10 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SupportedTimeZonesWithTimeZoneStandardResponse>(requestInfo, createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SupportedTimeZonesWithTimeZoneStandardResponse>(requestInfo, createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

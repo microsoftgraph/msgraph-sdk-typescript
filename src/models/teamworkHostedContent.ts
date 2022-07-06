@@ -1,12 +1,14 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class TeamworkHostedContent extends Entity implements Parsable {
     /** Write only. Bytes for the hosted content (such as images). */
     private _contentBytes?: string | undefined;
     /** Write only. Content type, such as image/png, image/jpg. */
     private _contentType?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new teamworkHostedContent and sets the default values.
      */
@@ -49,7 +51,22 @@ export class TeamworkHostedContent extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "contentBytes": n => { this.contentBytes = n.getStringValue(); },
             "contentType": n => { this.contentType = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -60,5 +77,6 @@ export class TeamworkHostedContent extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("contentBytes", this.contentBytes);
         writer.writeStringValue("contentType", this.contentType);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

@@ -2,7 +2,6 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {IdentitySet, OnenoteEntitySchemaObjectModel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** Identity of the user, device, and application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;
@@ -12,8 +11,10 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
     private _lastModifiedBy?: IdentitySet | undefined;
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
-     * Instantiates a new onenoteEntityHierarchyModel and sets the default values.
+     * Instantiates a new OnenoteEntityHierarchyModel and sets the default values.
      */
     public constructor() {
         super();
@@ -56,6 +57,7 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -87,6 +89,20 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -97,5 +113,6 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

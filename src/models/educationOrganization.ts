@@ -2,7 +2,7 @@ import {EducationExternalSource} from './educationExternalSource';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class EducationOrganization extends Entity implements Parsable {
     /** Organization description. */
     private _description?: string | undefined;
@@ -12,6 +12,8 @@ export class EducationOrganization extends Entity implements Parsable {
     private _externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new educationOrganization and sets the default values.
      */
@@ -84,7 +86,22 @@ export class EducationOrganization extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "externalSource": n => { this.externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); },
             "externalSourceDetail": n => { this.externalSourceDetail = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -97,5 +114,6 @@ export class EducationOrganization extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

@@ -3,7 +3,7 @@ import {Entity, ResultInfo} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class CommsOperation extends Entity implements Parsable {
     /** Unique Client Context string. Max limit is 256 chars. */
     private _clientContext?: string | undefined;
@@ -11,6 +11,8 @@ export class CommsOperation extends Entity implements Parsable {
     private _resultInfo?: ResultInfo | undefined;
     /** Possible values are: notStarted, running, completed, failed. Read-only. */
     private _status?: OperationStatus | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
      * @returns a string
@@ -40,7 +42,22 @@ export class CommsOperation extends Entity implements Parsable {
             "clientContext": n => { this.clientContext = n.getStringValue(); },
             "resultInfo": n => { this.resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<OperationStatus>(OperationStatus); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the resultInfo property value. The result information. Read-only.
@@ -66,6 +83,7 @@ export class CommsOperation extends Entity implements Parsable {
         writer.writeStringValue("clientContext", this.clientContext);
         writer.writeObjectValue<ResultInfo>("resultInfo", this.resultInfo);
         writer.writeEnumValue<OperationStatus>("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.

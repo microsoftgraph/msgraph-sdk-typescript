@@ -32,6 +32,8 @@ export class ManagedEBook extends Entity implements Parsable {
     private _publishedDateTime?: Date | undefined;
     /** Publisher. */
     private _publisher?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The list of installation states for this eBook. */
     private _userStateSummary?: UserInstallStateSummary[] | undefined;
     /**
@@ -128,6 +130,7 @@ export class ManagedEBook extends Entity implements Parsable {
             "privacyInformationUrl": n => { this.privacyInformationUrl = n.getStringValue(); },
             "publishedDateTime": n => { this.publishedDateTime = n.getDateValue(); },
             "publisher": n => { this.publisher = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userStateSummary": n => { this.userStateSummary = n.getCollectionOfObjectValues<UserInstallStateSummary>(createUserInstallStateSummaryFromDiscriminatorValue); },
         };
     };
@@ -186,6 +189,20 @@ export class ManagedEBook extends Entity implements Parsable {
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the privacyInformationUrl property value. The privacy statement Url.
@@ -248,6 +265,7 @@ export class ManagedEBook extends Entity implements Parsable {
         writer.writeStringValue("privacyInformationUrl", this.privacyInformationUrl);
         writer.writeDateValue("publishedDateTime", this.publishedDateTime);
         writer.writeStringValue("publisher", this.publisher);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeCollectionOfObjectValues<UserInstallStateSummary>("userStateSummary", this.userStateSummary);
     };
     /**

@@ -3,7 +3,7 @@ import {createPublicationFacetFromDiscriminatorValue} from './createPublicationF
 import {Entity, IdentitySet, PublicationFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class BaseItemVersion extends Entity implements Parsable {
     /** Identity of the user which last modified the version. Read-only. */
     private _lastModifiedBy?: IdentitySet | undefined;
@@ -11,6 +11,8 @@ export class BaseItemVersion extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** Indicates the publication status of this particular version. Read-only. */
     private _publication?: PublicationFacet | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new baseItemVersion and sets the default values.
      */
@@ -26,6 +28,7 @@ export class BaseItemVersion extends Entity implements Parsable {
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "publication": n => { this.publication = n.getObjectValue<PublicationFacet>(createPublicationFacetFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -57,6 +60,20 @@ export class BaseItemVersion extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Gets the publication property value. Indicates the publication status of this particular version. Read-only.
      * @returns a publicationFacet
      */
@@ -80,5 +97,6 @@ export class BaseItemVersion extends Entity implements Parsable {
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeObjectValue<PublicationFacet>("publication", this.publication);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

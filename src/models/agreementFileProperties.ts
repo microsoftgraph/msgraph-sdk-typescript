@@ -18,6 +18,8 @@ export class AgreementFileProperties extends Entity implements Parsable {
     private _isMajorVersion?: boolean | undefined;
     /** The language of the agreement file in the format 'languagecode2-country/regioncode2'. 'languagecode2' is a lowercase two-letter code derived from ISO 639-1, while 'country/regioncode2' is derived from ISO 3166 and usually consists of two uppercase letters, or a BCP-47 language tag. For example, U.S. English is en-US. Read-only. */
     private _language?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new agreementFileProperties and sets the default values.
      */
@@ -93,6 +95,7 @@ export class AgreementFileProperties extends Entity implements Parsable {
             "isDefault": n => { this.isDefault = n.getBooleanValue(); },
             "isMajorVersion": n => { this.isMajorVersion = n.getBooleanValue(); },
             "language": n => { this.language = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -138,6 +141,20 @@ export class AgreementFileProperties extends Entity implements Parsable {
         this._language = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -151,5 +168,6 @@ export class AgreementFileProperties extends Entity implements Parsable {
         writer.writeBooleanValue("isDefault", this.isDefault);
         writer.writeBooleanValue("isMajorVersion", this.isMajorVersion);
         writer.writeStringValue("language", this.language);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

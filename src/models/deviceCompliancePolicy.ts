@@ -28,6 +28,8 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** The list of scheduled action for this rule */
     private _scheduledActionsForRule?: DeviceComplianceScheduledActionForRule[] | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** List of DeviceComplianceUserStatus. */
     private _userStatuses?: DeviceComplianceUserStatus[] | undefined;
     /** Device compliance users status overview */
@@ -153,6 +155,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "scheduledActionsForRule": n => { this.scheduledActionsForRule = n.getCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>(createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userStatuses": n => { this.userStatuses = n.getCollectionOfObjectValues<DeviceComplianceUserStatus>(createDeviceComplianceUserStatusFromDiscriminatorValue); },
             "userStatusOverview": n => { this.userStatusOverview = n.getObjectValue<DeviceComplianceUserOverview>(createDeviceComplianceUserOverviewFromDiscriminatorValue); },
             "version": n => { this.version = n.getNumberValue(); },
@@ -171,6 +174,20 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the scheduledActionsForRule property value. The list of scheduled action for this rule
@@ -202,6 +219,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("scheduledActionsForRule", this.scheduledActionsForRule);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeCollectionOfObjectValues<DeviceComplianceUserStatus>("userStatuses", this.userStatuses);
         writer.writeObjectValue<DeviceComplianceUserOverview>("userStatusOverview", this.userStatusOverview);
         writer.writeNumberValue("version", this.version);

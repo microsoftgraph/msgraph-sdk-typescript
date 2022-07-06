@@ -2,7 +2,6 @@ import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObje
 import {DirectoryObject, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class StsPolicy extends PolicyBase implements Parsable {
     /** The appliesTo property */
     private _appliesTo?: DirectoryObject[] | undefined;
@@ -10,6 +9,8 @@ export class StsPolicy extends PolicyBase implements Parsable {
     private _definition?: string[] | undefined;
     /** If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false. */
     private _isOrganizationDefault?: boolean | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the appliesTo property value. The appliesTo property
      * @returns a directoryObject
@@ -25,7 +26,7 @@ export class StsPolicy extends PolicyBase implements Parsable {
         this._appliesTo = value;
     };
     /**
-     * Instantiates a new stsPolicy and sets the default values.
+     * Instantiates a new StsPolicy and sets the default values.
      */
     public constructor() {
         super();
@@ -53,6 +54,7 @@ export class StsPolicy extends PolicyBase implements Parsable {
             "appliesTo": n => { this.appliesTo = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "definition": n => { this.definition = n.getCollectionOfPrimitiveValues<string>(); },
             "isOrganizationDefault": n => { this.isOrganizationDefault = n.getBooleanValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -70,6 +72,20 @@ export class StsPolicy extends PolicyBase implements Parsable {
         this._isOrganizationDefault = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -79,5 +95,6 @@ export class StsPolicy extends PolicyBase implements Parsable {
         writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", this.appliesTo);
         writer.writeCollectionOfPrimitiveValues<string>("definition", this.definition);
         writer.writeBooleanValue("isOrganizationDefault", this.isOrganizationDefault);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

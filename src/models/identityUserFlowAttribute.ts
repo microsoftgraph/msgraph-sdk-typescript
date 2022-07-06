@@ -3,7 +3,7 @@ import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class IdentityUserFlowAttribute extends Entity implements Parsable {
     /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime. */
     private _dataType?: IdentityUserFlowAttributeDataType | undefined;
@@ -11,6 +11,8 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
     private _description?: string | undefined;
     /** The display name of the user flow attribute. */
     private _displayName?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required. */
     private _userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
     /**
@@ -70,8 +72,23 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
             "dataType": n => { this.dataType = n.getEnumValue<IdentityUserFlowAttributeDataType>(IdentityUserFlowAttributeDataType); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userFlowAttributeType": n => { this.userFlowAttributeType = n.getEnumValue<IdentityUserFlowAttributeType>(IdentityUserFlowAttributeType); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -83,6 +100,7 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
         writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", this.dataType);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
     };
     /**

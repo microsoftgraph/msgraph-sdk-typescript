@@ -32,6 +32,8 @@ export class ManagedAppRegistration extends Entity implements Parsable {
     private _operations?: ManagedAppOperation[] | undefined;
     /** Operating System version */
     private _platformVersion?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The user Id to who this app registration belongs. */
     private _userId?: string | undefined;
     /** Version of the entity. */
@@ -173,6 +175,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
             "managementSdkVersion": n => { this.managementSdkVersion = n.getStringValue(); },
             "operations": n => { this.operations = n.getCollectionOfObjectValues<ManagedAppOperation>(createManagedAppOperationFromDiscriminatorValue); },
             "platformVersion": n => { this.platformVersion = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
             "version": n => { this.version = n.getStringValue(); },
         };
@@ -218,6 +221,20 @@ export class ManagedAppRegistration extends Entity implements Parsable {
      */
     public set managementSdkVersion(value: string | undefined) {
         this._managementSdkVersion = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the operations property value. Zero or more long running operations triggered on the app registration.
@@ -267,6 +284,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
         writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);
         writer.writeCollectionOfObjectValues<ManagedAppOperation>("operations", this.operations);
         writer.writeStringValue("platformVersion", this.platformVersion);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("userId", this.userId);
         writer.writeStringValue("version", this.version);
     };

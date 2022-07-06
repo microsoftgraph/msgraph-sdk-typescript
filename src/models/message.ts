@@ -11,7 +11,6 @@ import {Attachment, Extension, FollowupFlag, InternetMessageHeader, ItemBody, Mu
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Message extends OutlookItem implements Parsable {
     /** The fileAttachment and itemAttachment attachments for the message. */
     private _attachments?: Attachment[] | undefined;
@@ -69,6 +68,8 @@ export class Message extends OutlookItem implements Parsable {
     private _subject?: string | undefined;
     /** The toRecipients property */
     private _toRecipients?: Recipient[] | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The uniqueBody property */
     private _uniqueBody?: ItemBody | undefined;
     /** The webLink property */
@@ -144,7 +145,7 @@ export class Message extends OutlookItem implements Parsable {
         this._ccRecipients = value;
     };
     /**
-     * Instantiates a new message and sets the default values.
+     * Instantiates a new Message and sets the default values.
      */
     public constructor() {
         super();
@@ -253,6 +254,7 @@ export class Message extends OutlookItem implements Parsable {
             "singleValueExtendedProperties": n => { this.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(createSingleValueLegacyExtendedPropertyFromDiscriminatorValue); },
             "subject": n => { this.subject = n.getStringValue(); },
             "toRecipients": n => { this.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "uniqueBody": n => { this.uniqueBody = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
             "webLink": n => { this.webLink = n.getStringValue(); },
         };
@@ -398,6 +400,20 @@ export class Message extends OutlookItem implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Gets the parentFolderId property value. The parentFolderId property
      * @returns a string
      */
@@ -502,6 +518,7 @@ export class Message extends OutlookItem implements Parsable {
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
         writer.writeStringValue("subject", this.subject);
         writer.writeCollectionOfObjectValues<Recipient>("toRecipients", this.toRecipients);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeObjectValue<ItemBody>("uniqueBody", this.uniqueBody);
         writer.writeStringValue("webLink", this.webLink);
     };

@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class OutlookItem extends Entity implements Parsable {
     /** The categories associated with the item */
     private _categories?: string[] | undefined;
@@ -11,6 +11,8 @@ export class OutlookItem extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the categories property value. The categories associated with the item
      * @returns a string
@@ -69,6 +71,7 @@ export class OutlookItem extends Entity implements Parsable {
             "changeKey": n => { this.changeKey = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -86,6 +89,20 @@ export class OutlookItem extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -96,5 +113,6 @@ export class OutlookItem extends Entity implements Parsable {
         writer.writeStringValue("changeKey", this.changeKey);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum DeviceManagementExchangeAccessStateReason {
     /** No access state reason discovered from Exchange */
     None = "none",

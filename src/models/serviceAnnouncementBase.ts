@@ -14,6 +14,8 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
     private _startDateTime?: Date | undefined;
     /** The title of the service event. */
     private _title?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new serviceAnnouncementBase and sets the default values.
      */
@@ -59,6 +61,7 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "title": n => { this.title = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -76,6 +79,20 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -87,6 +104,7 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("title", this.title);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the startDateTime property value. The start time of the service event.

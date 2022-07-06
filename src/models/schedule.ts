@@ -11,7 +11,7 @@ import {Entity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, Scheduling
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Schedule extends Entity implements Parsable {
     /** Indicates whether the schedule is enabled for the team. Required. */
     private _enabled?: boolean | undefined;

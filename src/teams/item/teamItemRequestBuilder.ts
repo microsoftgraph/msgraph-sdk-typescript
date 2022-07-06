@@ -2,12 +2,16 @@ import {Team} from '../../models/';
 import {createTeamFromDiscriminatorValue} from '../../models/createTeamFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AllChannelsRequestBuilder} from './allChannels/allChannelsRequestBuilder';
+import {ChannelItemRequestBuilder as i4ecf66b2c8e1bf3c8c7a7b0017b4f2b862f9beca9ede97da6bb85af8d7276cee} from './allChannels/item/channelItemRequestBuilder';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
-import {ChannelItemRequestBuilder} from './channels/item/channelItemRequestBuilder';
+import {ChannelItemRequestBuilder as i7c9399ae0f5d61865cdb37e9a34d68be59e182ef83e2908a2aa6a5f1d28a734c} from './channels/item/channelItemRequestBuilder';
 import {CloneRequestBuilder} from './clone/cloneRequestBuilder';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {IncomingChannelsRequestBuilder} from './incomingChannels/incomingChannelsRequestBuilder';
+import {ChannelItemRequestBuilder as idb1b785070b90986b3ba07ecbf125db16034159c4904bc0f124a60070a3c70ae} from './incomingChannels/item/channelItemRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {TeamsAppInstallationItemRequestBuilder} from './installedApps/item/teamsAppInstallationItemRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
@@ -26,6 +30,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of team entities. */
 export class TeamItemRequestBuilder {
+    /** The allChannels property */
+    public get allChannels(): AllChannelsRequestBuilder {
+        return new AllChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The archive property */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,6 +53,10 @@ export class TeamItemRequestBuilder {
     /** The group property */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The incomingChannels property */
+    public get incomingChannels(): IncomingChannelsRequestBuilder {
+        return new IncomingChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The installedApps property */
     public get installedApps(): InstalledAppsRequestBuilder {
@@ -85,15 +97,26 @@ export class TeamItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.allChannels.item collection
+     * @param id Unique identifier of the item
+     * @returns a channelItemRequestBuilder
+     */
+    public allChannelsById(id: string) : i4ecf66b2c8e1bf3c8c7a7b0017b4f2b862f9beca9ede97da6bb85af8d7276cee {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["channel%2Did"] = id
+        return new i4ecf66b2c8e1bf3c8c7a7b0017b4f2b862f9beca9ede97da6bb85af8d7276cee(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.channels.item collection
      * @param id Unique identifier of the item
      * @returns a channelItemRequestBuilder
      */
-    public channelsById(id: string) : ChannelItemRequestBuilder {
+    public channelsById(id: string) : i7c9399ae0f5d61865cdb37e9a34d68be59e182ef83e2908a2aa6a5f1d28a734c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
-        return new ChannelItemRequestBuilder(urlTplParams, this.requestAdapter);
+        return new i7c9399ae0f5d61865cdb37e9a34d68be59e182ef83e2908a2aa6a5f1d28a734c(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TeamItemRequestBuilder and sets the default values.
@@ -125,7 +148,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of the specified [team](../resources/team.md).
+     * Retrieve the properties and relationships of the specified team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -134,6 +157,7 @@ export class TeamItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -142,7 +166,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of the specified [team](../resources/team.md).
+     * Update the properties of the specified team.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -176,7 +200,7 @@ export class TeamItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Retrieve the properties and relationships of the specified [team](../resources/team.md).
+     * Retrieve the properties and relationships of the specified team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
@@ -190,6 +214,17 @@ export class TeamItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.incomingChannels.item collection
+     * @param id Unique identifier of the item
+     * @returns a channelItemRequestBuilder
+     */
+    public incomingChannelsById(id: string) : idb1b785070b90986b3ba07ecbf125db16034159c4904bc0f124a60070a3c70ae {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["channel%2Did"] = id
+        return new idb1b785070b90986b3ba07ecbf125db16034159c4904bc0f124a60070a3c70ae(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.installedApps.item collection
@@ -225,7 +260,7 @@ export class TeamItemRequestBuilder {
         return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the properties of the specified [team](../resources/team.md).
+     * Update the properties of the specified team.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

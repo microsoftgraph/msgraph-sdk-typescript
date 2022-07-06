@@ -12,6 +12,8 @@ export class RoleAssignment extends Entity implements Parsable {
     private _resourceScopes?: string[] | undefined;
     /** Role definition this assignment is part of. */
     private _roleDefinition?: RoleDefinition | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new roleAssignment and sets the default values.
      */
@@ -56,7 +58,22 @@ export class RoleAssignment extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "resourceScopes": n => { this.resourceScopes = n.getCollectionOfPrimitiveValues<string>(); },
             "roleDefinition": n => { this.roleDefinition = n.getObjectValue<RoleDefinition>(createRoleDefinitionFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the resourceScopes property value. List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
@@ -97,5 +114,6 @@ export class RoleAssignment extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", this.resourceScopes);
         writer.writeObjectValue<RoleDefinition>("roleDefinition", this.roleDefinition);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

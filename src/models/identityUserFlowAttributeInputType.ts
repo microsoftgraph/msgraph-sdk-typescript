@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum IdentityUserFlowAttributeInputType {
     TextBox = "textBox",
     DateTimeDropdown = "dateTimeDropdown",

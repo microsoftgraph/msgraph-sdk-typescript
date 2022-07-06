@@ -2,14 +2,15 @@ import {createPrintOperationStatusFromDiscriminatorValue} from './createPrintOpe
 import {Entity, PrintOperationStatus} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintOperation extends Entity implements Parsable {
     /** The DateTimeOffset when the operation was created. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The status property */
     private _status?: PrintOperationStatus | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
-     * Instantiates a new printOperation and sets the default values.
+     * Instantiates a new PrintOperation and sets the default values.
      */
     public constructor() {
         super();
@@ -36,7 +37,22 @@ export class PrintOperation extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "status": n => { this.status = n.getObjectValue<PrintOperationStatus>(createPrintOperationStatusFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -47,6 +63,7 @@ export class PrintOperation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<PrintOperationStatus>("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. The status property

@@ -1,12 +1,11 @@
 import {PrintUsage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the reportRoot singleton. */
 export class PrintUsageByPrinter extends PrintUsage implements Parsable {
     /** The printerId property */
     private _printerId?: string | undefined;
     /**
-     * Instantiates a new printUsageByPrinter and sets the default values.
+     * Instantiates a new PrintUsageByPrinter and sets the default values.
      */
     public constructor() {
         super();

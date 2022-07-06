@@ -1,4 +1,4 @@
-import {ManagedApp} from './index';
+import {ManagedAndroidStoreApp, ManagedApp, ManagedIOSStoreApp, ManagedMobileLobApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedApp {
@@ -8,8 +8,12 @@ export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | un
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedApp":
-                    return new ManagedApp();
+                case "#microsoft.graph.managedAndroidStoreApp":
+                    return new ManagedAndroidStoreApp();
+                case "#microsoft.graph.managedIOSStoreApp":
+                    return new ManagedIOSStoreApp();
+                case "#microsoft.graph.managedMobileLobApp":
+                    return new ManagedMobileLobApp();
             }
         }
     }

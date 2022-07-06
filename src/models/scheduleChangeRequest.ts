@@ -3,7 +3,6 @@ import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable {
     /** The assignedTo property */
     private _assignedTo?: ScheduleChangeRequestActor | undefined;
@@ -21,6 +20,8 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
     private _senderUserId?: string | undefined;
     /** The state property */
     private _state?: ScheduleChangeState | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the assignedTo property value. The assignedTo property
      * @returns a scheduleChangeRequestActor
@@ -36,7 +37,7 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
         this._assignedTo = value;
     };
     /**
-     * Instantiates a new scheduleChangeRequest and sets the default values.
+     * Instantiates a new ScheduleChangeRequest and sets the default values.
      */
     public constructor() {
         super();
@@ -55,6 +56,7 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
             "senderMessage": n => { this.senderMessage = n.getStringValue(); },
             "senderUserId": n => { this.senderUserId = n.getStringValue(); },
             "state": n => { this.state = n.getEnumValue<ScheduleChangeState>(ScheduleChangeState); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -98,6 +100,20 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
      */
     public set managerUserId(value: string | undefined) {
         this._managerUserId = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the senderDateTime property value. The senderDateTime property
@@ -156,6 +172,7 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
         writer.writeStringValue("senderMessage", this.senderMessage);
         writer.writeStringValue("senderUserId", this.senderUserId);
         writer.writeEnumValue<ScheduleChangeState>("state", this.state);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the state property value. The state property

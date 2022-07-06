@@ -6,7 +6,7 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {Entity, Message, MessageRule, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class MailFolder extends Entity implements Parsable {
     /** The number of immediate child mailFolders in the current mailFolder. */
     private _childFolderCount?: number | undefined;
@@ -28,6 +28,8 @@ export class MailFolder extends Entity implements Parsable {
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /** The number of items in the mailFolder. */
     private _totalItemCount?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The number of items in the mailFolder marked as unread. */
     private _unreadItemCount?: number | undefined;
     /**
@@ -94,6 +96,7 @@ export class MailFolder extends Entity implements Parsable {
             "parentFolderId": n => { this.parentFolderId = n.getStringValue(); },
             "singleValueExtendedProperties": n => { this.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(createSingleValueLegacyExtendedPropertyFromDiscriminatorValue); },
             "totalItemCount": n => { this.totalItemCount = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "unreadItemCount": n => { this.unreadItemCount = n.getNumberValue(); },
         };
     };
@@ -154,6 +157,20 @@ export class MailFolder extends Entity implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Gets the parentFolderId property value. The unique identifier for the mailFolder's parent mailFolder.
      * @returns a string
      */
@@ -184,6 +201,7 @@ export class MailFolder extends Entity implements Parsable {
         writer.writeStringValue("parentFolderId", this.parentFolderId);
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
         writer.writeNumberValue("totalItemCount", this.totalItemCount);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeNumberValue("unreadItemCount", this.unreadItemCount);
     };
     /**

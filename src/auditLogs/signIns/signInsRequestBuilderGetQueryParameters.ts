@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get signIns from auditLogs */
 export class SignInsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

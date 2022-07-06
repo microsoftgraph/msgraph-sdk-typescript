@@ -8,7 +8,7 @@ import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ThreatAssessmentRequest extends Entity implements Parsable {
     /** The threat category. Possible values are: spam, phishing, malware. */
     private _category?: ThreatCategory | undefined;
@@ -26,6 +26,8 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
     private _results?: ThreatAssessmentResult[] | undefined;
     /** The assessment process status. Possible values are: pending, completed. */
     private _status?: ThreatAssessmentStatus | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the category property value. The threat category. Possible values are: spam, phishing, malware.
      * @returns a threatCategory
@@ -116,7 +118,22 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
             "requestSource": n => { this.requestSource = n.getEnumValue<ThreatAssessmentRequestSource>(ThreatAssessmentRequestSource); },
             "results": n => { this.results = n.getCollectionOfObjectValues<ThreatAssessmentResult>(createThreatAssessmentResultFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<ThreatAssessmentStatus>(ThreatAssessmentStatus); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
@@ -161,6 +178,7 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         writer.writeEnumValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
         writer.writeCollectionOfObjectValues<ThreatAssessmentResult>("results", this.results);
         writer.writeEnumValue<ThreatAssessmentStatus>("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. The assessment process status. Possible values are: pending, completed.

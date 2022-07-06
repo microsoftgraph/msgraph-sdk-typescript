@@ -11,6 +11,8 @@ export class ManagedAppPolicy extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** Last time the policy was modified. */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** Version of the entity. */
     private _version?: string | undefined;
     /**
@@ -71,6 +73,7 @@ export class ManagedAppPolicy extends Entity implements Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "version": n => { this.version = n.getStringValue(); },
         };
     };
@@ -89,6 +92,20 @@ export class ManagedAppPolicy extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -99,6 +116,7 @@ export class ManagedAppPolicy extends Entity implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("version", this.version);
     };
     /**

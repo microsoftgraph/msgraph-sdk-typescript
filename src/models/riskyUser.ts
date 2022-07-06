@@ -5,7 +5,6 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUser extends Entity implements Parsable {
     /** The activity related to user risk level change */
     private _history?: RiskyUserHistoryItem[] | undefined;
@@ -21,12 +20,14 @@ export class RiskyUser extends Entity implements Parsable {
     private _riskLevel?: RiskLevel | undefined;
     /** State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
     private _riskState?: RiskState | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** Risky user display name. */
     private _userDisplayName?: string | undefined;
     /** Risky user principal name. */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new riskyUser and sets the default values.
+     * Instantiates a new RiskyUser and sets the default values.
      */
     public constructor() {
         super();
@@ -44,6 +45,7 @@ export class RiskyUser extends Entity implements Parsable {
             "riskLastUpdatedDateTime": n => { this.riskLastUpdatedDateTime = n.getDateValue(); },
             "riskLevel": n => { this.riskLevel = n.getEnumValue<RiskLevel>(RiskLevel); },
             "riskState": n => { this.riskState = n.getEnumValue<RiskState>(RiskState); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
@@ -89,6 +91,20 @@ export class RiskyUser extends Entity implements Parsable {
      */
     public set isProcessing(value: boolean | undefined) {
         this._isProcessing = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the riskDetail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
@@ -160,6 +176,7 @@ export class RiskyUser extends Entity implements Parsable {
         writer.writeDateValue("riskLastUpdatedDateTime", this.riskLastUpdatedDateTime);
         writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
         writer.writeEnumValue<RiskState>("riskState", this.riskState);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };

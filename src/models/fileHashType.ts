@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum FileHashType {
     Unknown = "unknown",
     Sha1 = "sha1",

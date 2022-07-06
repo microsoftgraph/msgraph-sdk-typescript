@@ -9,7 +9,6 @@ import {ManagedAppPolicy, TargetedManagedAppPolicyAssignment, WindowsInformation
 import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection to configure detailed management settings */
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
     /** Navigation property to list of security groups targeted for policy. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
@@ -61,6 +60,8 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     private _rightsManagementServicesTemplateId?: string | undefined;
     /** Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary */
     private _smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection[] | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the assignments property value. Navigation property to list of security groups targeted for policy.
      * @returns a targetedManagedAppPolicyAssignment
@@ -90,7 +91,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         this._azureRightsManagementServicesAllowed = value;
     };
     /**
-     * Instantiates a new windowsInformationProtection and sets the default values.
+     * Instantiates a new WindowsInformationProtection and sets the default values.
      */
     public constructor() {
         super();
@@ -308,6 +309,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
             "revokeOnUnenrollDisabled": n => { this.revokeOnUnenrollDisabled = n.getBooleanValue(); },
             "rightsManagementServicesTemplateId": n => { this.rightsManagementServicesTemplateId = n.getStringValue(); },
             "smbAutoEncryptedFileExtensions": n => { this.smbAutoEncryptedFileExtensions = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -365,6 +367,20 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      */
     public set neutralDomainResources(value: WindowsInformationProtectionResourceCollection[] | undefined) {
         this._neutralDomainResources = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the protectedAppLockerFiles property value. Another way to input protected apps through xml files
@@ -468,6 +484,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         writer.writeBooleanValue("revokeOnUnenrollDisabled", this.revokeOnUnenrollDisabled);
         writer.writeStringValue("rightsManagementServicesTemplateId", this.rightsManagementServicesTemplateId);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", this.smbAutoEncryptedFileExtensions);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the smbAutoEncryptedFileExtensions property value. Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary

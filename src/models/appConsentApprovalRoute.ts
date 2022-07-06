@@ -2,7 +2,6 @@ import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentR
 import {AppConsentRequest, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AppConsentApprovalRoute extends Entity implements Parsable {
     /** A collection of userConsentRequest objects for a specific application. */
     private _appConsentRequests?: AppConsentRequest[] | undefined;
@@ -21,7 +20,7 @@ export class AppConsentApprovalRoute extends Entity implements Parsable {
         this._appConsentRequests = value;
     };
     /**
-     * Instantiates a new appConsentApprovalRoute and sets the default values.
+     * Instantiates a new AppConsentApprovalRoute and sets the default values.
      */
     public constructor() {
         super();

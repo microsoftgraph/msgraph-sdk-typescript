@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class WorkbookChartFont extends Entity implements Parsable {
     /** Represents the bold status of font. */
     private _bold?: boolean | undefined;

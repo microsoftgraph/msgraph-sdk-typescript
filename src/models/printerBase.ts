@@ -6,7 +6,7 @@ import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscrimi
 import {Entity, PrinterCapabilities, PrinterDefaults, PrinterLocation, PrinterStatus, PrintJob} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PrinterBase extends Entity implements Parsable {
     /** The capabilities of the printer/printerShare. */
     private _capabilities?: PrinterCapabilities | undefined;
@@ -26,6 +26,8 @@ export class PrinterBase extends Entity implements Parsable {
     private _model?: string | undefined;
     /** The status property */
     private _status?: PrinterStatus | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the capabilities property value. The capabilities of the printer/printerShare.
      * @returns a printerCapabilities
@@ -89,6 +91,7 @@ export class PrinterBase extends Entity implements Parsable {
             "manufacturer": n => { this.manufacturer = n.getStringValue(); },
             "model": n => { this.model = n.getStringValue(); },
             "status": n => { this.status = n.getObjectValue<PrinterStatus>(createPrinterStatusFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -162,6 +165,20 @@ export class PrinterBase extends Entity implements Parsable {
         this._model = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -177,6 +194,7 @@ export class PrinterBase extends Entity implements Parsable {
         writer.writeStringValue("manufacturer", this.manufacturer);
         writer.writeStringValue("model", this.model);
         writer.writeObjectValue<PrinterStatus>("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. The status property

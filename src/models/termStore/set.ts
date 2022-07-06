@@ -7,7 +7,7 @@ import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorVal
 import {Group, LocalizedName, Relation, Term} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Set extends Entity implements Parsable {
     /** Children terms of set in term [store]. */
     private _children?: Term[] | undefined;

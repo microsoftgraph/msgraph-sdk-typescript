@@ -20,6 +20,8 @@ export class Location implements AdditionalDataHolder, Parsable {
     private _locationType?: LocationType | undefined;
     /** Optional URI representing the location. */
     private _locationUri?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** For internal use only. */
     private _uniqueId?: string | undefined;
     /** For internal use only. */
@@ -98,6 +100,7 @@ export class Location implements AdditionalDataHolder, Parsable {
             "locationEmailAddress": n => { this.locationEmailAddress = n.getStringValue(); },
             "locationType": n => { this.locationType = n.getEnumValue<LocationType>(LocationType); },
             "locationUri": n => { this.locationUri = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "uniqueId": n => { this.uniqueId = n.getStringValue(); },
             "uniqueIdType": n => { this.uniqueIdType = n.getEnumValue<LocationUniqueIdType>(LocationUniqueIdType); },
         };
@@ -145,6 +148,20 @@ export class Location implements AdditionalDataHolder, Parsable {
         this._locationUri = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -156,6 +173,7 @@ export class Location implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("locationEmailAddress", this.locationEmailAddress);
         writer.writeEnumValue<LocationType>("locationType", this.locationType);
         writer.writeStringValue("locationUri", this.locationUri);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("uniqueId", this.uniqueId);
         writer.writeEnumValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
         writer.writeAdditionalData(this.additionalData);

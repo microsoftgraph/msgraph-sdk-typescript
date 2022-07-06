@@ -2,12 +2,13 @@ import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFrom
 import {KeyValuePair, ManagedAppPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped */
 export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable {
     /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service */
     private _customSettings?: KeyValuePair[] | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
-     * Instantiates a new managedAppConfiguration and sets the default values.
+     * Instantiates a new ManagedAppConfiguration and sets the default values.
      */
     public constructor() {
         super();
@@ -33,7 +34,22 @@ export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsabl
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "customSettings": n => { this.customSettings = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -43,5 +59,6 @@ export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", this.customSettings);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

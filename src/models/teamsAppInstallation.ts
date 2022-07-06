@@ -3,12 +3,14 @@ import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscrimi
 import {Entity, TeamsApp, TeamsAppDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed. */
     private _teamsApp?: TeamsApp | undefined;
     /** The details of this version of the app. */
     private _teamsAppDefinition?: TeamsAppDefinition | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new teamsAppInstallation and sets the default values.
      */
@@ -23,7 +25,22 @@ export class TeamsAppInstallation extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "teamsApp": n => { this.teamsApp = n.getObjectValue<TeamsApp>(createTeamsAppFromDiscriminatorValue); },
             "teamsAppDefinition": n => { this.teamsAppDefinition = n.getObjectValue<TeamsAppDefinition>(createTeamsAppDefinitionFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -34,6 +51,7 @@ export class TeamsAppInstallation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<TeamsApp>("teamsApp", this.teamsApp);
         writer.writeObjectValue<TeamsAppDefinition>("teamsAppDefinition", this.teamsAppDefinition);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the teamsApp property value. The app that is installed.

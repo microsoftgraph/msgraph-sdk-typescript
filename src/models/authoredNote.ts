@@ -3,7 +3,6 @@ import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscrimi
 import {Entity, Identity, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class AuthoredNote extends Entity implements Parsable {
     /** Identity information about the note's author. */
     private _author?: Identity | undefined;
@@ -26,7 +25,7 @@ export class AuthoredNote extends Entity implements Parsable {
         this._author = value;
     };
     /**
-     * Instantiates a new authoredNote and sets the default values.
+     * Instantiates a new AuthoredNote and sets the default values.
      */
     public constructor() {
         super();

@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the reportRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PrintUsage extends Entity implements Parsable {
     /** The completedBlackAndWhiteJobCount property */
     private _completedBlackAndWhiteJobCount?: number | undefined;
@@ -9,6 +9,8 @@ export class PrintUsage extends Entity implements Parsable {
     private _completedColorJobCount?: number | undefined;
     /** The incompleteJobCount property */
     private _incompleteJobCount?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The usageDate property */
     private _usageDate?: DateOnly | undefined;
     /**
@@ -54,6 +56,7 @@ export class PrintUsage extends Entity implements Parsable {
             "completedBlackAndWhiteJobCount": n => { this.completedBlackAndWhiteJobCount = n.getNumberValue(); },
             "completedColorJobCount": n => { this.completedColorJobCount = n.getNumberValue(); },
             "incompleteJobCount": n => { this.incompleteJobCount = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "usageDate": n => { this.usageDate = n.getDateOnlyValue(); },
         };
     };
@@ -72,6 +75,20 @@ export class PrintUsage extends Entity implements Parsable {
         this._incompleteJobCount = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -81,6 +98,7 @@ export class PrintUsage extends Entity implements Parsable {
         writer.writeNumberValue("completedBlackAndWhiteJobCount", this.completedBlackAndWhiteJobCount);
         writer.writeNumberValue("completedColorJobCount", this.completedColorJobCount);
         writer.writeNumberValue("incompleteJobCount", this.incompleteJobCount);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeDateOnlyValue("usageDate", this.usageDate);
     };
     /**

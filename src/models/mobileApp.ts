@@ -5,7 +5,6 @@ import {Entity, MimeContent, MobileAppAssignment, MobileAppCategory} from './ind
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract class containing the base properties for Intune mobile apps. */
 export class MobileApp extends Entity implements Parsable {
     /** The list of group assignments for this mobile app. */
     private _assignments?: MobileAppAssignment[] | undefined;
@@ -37,6 +36,8 @@ export class MobileApp extends Entity implements Parsable {
     private _publisher?: string | undefined;
     /** The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published. */
     private _publishingState?: MobileAppPublishingState | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the assignments property value. The list of group assignments for this mobile app.
      * @returns a mobileAppAssignment
@@ -66,7 +67,7 @@ export class MobileApp extends Entity implements Parsable {
         this._categories = value;
     };
     /**
-     * Instantiates a new mobileApp and sets the default values.
+     * Instantiates a new MobileApp and sets the default values.
      */
     public constructor() {
         super();
@@ -148,6 +149,7 @@ export class MobileApp extends Entity implements Parsable {
             "privacyInformationUrl": n => { this.privacyInformationUrl = n.getStringValue(); },
             "publisher": n => { this.publisher = n.getStringValue(); },
             "publishingState": n => { this.publishingState = n.getEnumValue<MobileAppPublishingState>(MobileAppPublishingState); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -219,6 +221,20 @@ export class MobileApp extends Entity implements Parsable {
      */
     public set notes(value: string | undefined) {
         this._notes = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the owner property value. The owner of the app.
@@ -298,5 +314,6 @@ export class MobileApp extends Entity implements Parsable {
         writer.writeStringValue("privacyInformationUrl", this.privacyInformationUrl);
         writer.writeStringValue("publisher", this.publisher);
         writer.writeEnumValue<MobileAppPublishingState>("publishingState", this.publishingState);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

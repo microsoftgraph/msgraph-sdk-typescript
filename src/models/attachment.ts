@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Attachment extends Entity implements Parsable {
     /** The MIME type. */
     private _contentType?: string | undefined;
@@ -13,6 +13,8 @@ export class Attachment extends Entity implements Parsable {
     private _name?: string | undefined;
     /** The length of the attachment in bytes. */
     private _size?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new attachment and sets the default values.
      */
@@ -44,6 +46,7 @@ export class Attachment extends Entity implements Parsable {
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "name": n => { this.name = n.getStringValue(); },
             "size": n => { this.size = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -89,6 +92,20 @@ export class Attachment extends Entity implements Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -100,6 +117,7 @@ export class Attachment extends Entity implements Parsable {
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("name", this.name);
         writer.writeNumberValue("size", this.size);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the size property value. The length of the attachment in bytes.

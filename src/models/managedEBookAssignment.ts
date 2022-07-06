@@ -9,6 +9,8 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
     private _installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new managedEBookAssignment and sets the default values.
      */
@@ -23,6 +25,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "installIntent": n => { this.installIntent = n.getEnumValue<InstallIntent>(InstallIntent); },
             "target": n => { this.target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -40,6 +43,20 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         this._installIntent = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -48,6 +65,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the target property value. The assignment target for eBook.

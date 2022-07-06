@@ -1,10 +1,12 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class DirectoryObject extends Entity implements Parsable {
     /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
     private _deletedDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new directoryObject and sets the default values.
      */
@@ -32,7 +34,22 @@ export class DirectoryObject extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "deletedDateTime": n => { this.deletedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -42,5 +59,6 @@ export class DirectoryObject extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeDateValue("deletedDateTime", this.deletedDateTime);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

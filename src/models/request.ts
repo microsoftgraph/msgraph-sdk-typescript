@@ -2,13 +2,13 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Request extends Entity implements Parsable {
     /** The identifier of the approval of the request. */
     private _approvalId?: string | undefined;
     /** The request completion date time. */
     private _completedDateTime?: Date | undefined;
-    /** The user who created this request. */
+    /** The principal that created the request. */
     private _createdBy?: IdentitySet | undefined;
     /** The request creation date time. */
     private _createdDateTime?: Date | undefined;
@@ -16,6 +16,8 @@ export class Request extends Entity implements Parsable {
     private _customData?: string | undefined;
     /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
     private _status?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the approvalId property value. The identifier of the approval of the request.
      * @returns a string
@@ -51,14 +53,14 @@ export class Request extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The user who created this request.
+     * Gets the createdBy property value. The principal that created the request.
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The user who created this request.
+     * Sets the createdBy property value. The principal that created the request.
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
@@ -104,7 +106,22 @@ export class Request extends Entity implements Parsable {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "customData": n => { this.customData = n.getStringValue(); },
             "status": n => { this.status = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -119,6 +136,7 @@ export class Request extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("customData", this.customData);
         writer.writeStringValue("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.

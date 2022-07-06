@@ -9,7 +9,7 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class SignIn extends Entity implements Parsable {
     /** The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     private _appDisplayName?: string | undefined;
@@ -51,6 +51,8 @@ export class SignIn extends Entity implements Parsable {
     private _riskState?: RiskState | undefined;
     /** The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property. */
     private _status?: SignInStatus | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** The display name of the user. Supports $filter (eq and startsWith operators only). */
     private _userDisplayName?: string | undefined;
     /** The identifier of the user. Supports $filter (eq operator only). */
@@ -201,6 +203,7 @@ export class SignIn extends Entity implements Parsable {
             "riskLevelDuringSignIn": n => { this.riskLevelDuringSignIn = n.getEnumValue<RiskLevel>(RiskLevel); },
             "riskState": n => { this.riskState = n.getEnumValue<RiskState>(RiskState); },
             "status": n => { this.status = n.getObjectValue<SignInStatus>(createSignInStatusFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
@@ -247,6 +250,20 @@ export class SignIn extends Entity implements Parsable {
      */
     public set location(value: SignInLocation | undefined) {
         this._location = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the resourceDisplayName property value. The name of the resource that the user signed in to. Supports $filter (eq operator only).
@@ -387,6 +404,7 @@ export class SignIn extends Entity implements Parsable {
         writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
         writer.writeEnumValue<RiskState>("riskState", this.riskState);
         writer.writeObjectValue<SignInStatus>("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userId", this.userId);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);

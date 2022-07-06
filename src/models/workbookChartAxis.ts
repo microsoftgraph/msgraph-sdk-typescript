@@ -5,7 +5,7 @@ import {createWorkbookChartGridlinesFromDiscriminatorValue} from './createWorkbo
 import {Entity, Json, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartGridlines} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class WorkbookChartAxis extends Entity implements Parsable {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     private _format?: WorkbookChartAxisFormat | undefined;

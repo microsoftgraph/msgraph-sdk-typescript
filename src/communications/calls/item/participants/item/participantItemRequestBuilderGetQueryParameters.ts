@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get participants from communications */
 export class ParticipantItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

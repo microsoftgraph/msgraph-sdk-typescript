@@ -7,7 +7,7 @@ import {createTeamworkOnlineMeetingInfoFromDiscriminatorValue} from './createTea
 import {ChatMessage, ConversationMember, Entity, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Chat extends Entity implements Parsable {
     /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
     private _chatType?: ChatType | undefined;

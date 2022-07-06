@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ProfilePhoto extends Entity implements Parsable {
     /** The height of the photo. Read-only. */
     private _height?: number | undefined;

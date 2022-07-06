@@ -5,6 +5,8 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ManagedAppStatus extends Entity implements Parsable {
     /** Friendly name of the status report. */
     private _displayName?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** Version of the entity. */
     private _version?: string | undefined;
     /**
@@ -34,8 +36,23 @@ export class ManagedAppStatus extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "version": n => { this.version = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -45,6 +62,7 @@ export class ManagedAppStatus extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("version", this.version);
     };
     /**

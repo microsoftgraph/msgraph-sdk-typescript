@@ -1,7 +1,6 @@
 import {ScheduleChangeRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _recipientActionDateTime?: Date | undefined;
@@ -11,8 +10,10 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     private _recipientUserId?: string | undefined;
     /** User id of the sender of the offer shift request. */
     private _senderShiftId?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
-     * Instantiates a new offerShiftRequest and sets the default values.
+     * Instantiates a new OfferShiftRequest and sets the default values.
      */
     public constructor() {
         super();
@@ -27,7 +28,22 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
             "recipientActionMessage": n => { this.recipientActionMessage = n.getStringValue(); },
             "recipientUserId": n => { this.recipientUserId = n.getStringValue(); },
             "senderShiftId": n => { this.senderShiftId = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the recipientActionDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -96,5 +112,6 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
         writer.writeStringValue("recipientActionMessage", this.recipientActionMessage);
         writer.writeStringValue("recipientUserId", this.recipientUserId);
         writer.writeStringValue("senderShiftId", this.senderShiftId);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

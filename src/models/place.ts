@@ -3,7 +3,6 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {Entity, OutlookGeoCoordinates, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of place entities. */
 export class Place extends Entity implements Parsable {
     /** The street address of the place. */
     private _address?: PhysicalAddress | undefined;
@@ -13,6 +12,8 @@ export class Place extends Entity implements Parsable {
     private _geoCoordinates?: OutlookGeoCoordinates | undefined;
     /** The phone number of the place. */
     private _phone?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the address property value. The street address of the place.
      * @returns a physicalAddress
@@ -28,7 +29,7 @@ export class Place extends Entity implements Parsable {
         this._address = value;
     };
     /**
-     * Instantiates a new place and sets the default values.
+     * Instantiates a new Place and sets the default values.
      */
     public constructor() {
         super();
@@ -71,7 +72,22 @@ export class Place extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "geoCoordinates": n => { this.geoCoordinates = n.getObjectValue<OutlookGeoCoordinates>(createOutlookGeoCoordinatesFromDiscriminatorValue); },
             "phone": n => { this.phone = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the phone property value. The phone number of the place.
@@ -98,5 +114,6 @@ export class Place extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<OutlookGeoCoordinates>("geoCoordinates", this.geoCoordinates);
         writer.writeStringValue("phone", this.phone);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

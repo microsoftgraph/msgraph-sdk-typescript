@@ -12,6 +12,7 @@ import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claim
 import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyItemRequestBuilder';
 import {ConditionalAccessPoliciesRequestBuilder} from './conditionalAccessPolicies/conditionalAccessPoliciesRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyItemRequestBuilder';
+import {CrossTenantAccessPolicyRequestBuilder} from './crossTenantAccessPolicy/crossTenantAccessPolicyRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilder} from './featureRolloutPolicies/featureRolloutPoliciesRequestBuilder';
 import {FeatureRolloutPolicyItemRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyItemRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
@@ -60,6 +61,10 @@ export class PoliciesRequestBuilder {
     /** The conditionalAccessPolicies property */
     public get conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
         return new ConditionalAccessPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The crossTenantAccessPolicy property */
+    public get crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
+        return new CrossTenantAccessPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The featureRolloutPolicies property */
     public get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
@@ -155,6 +160,7 @@ export class PoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

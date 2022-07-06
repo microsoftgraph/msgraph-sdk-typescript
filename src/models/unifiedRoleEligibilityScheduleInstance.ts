@@ -1,7 +1,7 @@
 import {UnifiedRoleScheduleInstanceBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable {
     /** Time that the roleEligibilityScheduleInstance will expire. */
     private _endDateTime?: Date | undefined;

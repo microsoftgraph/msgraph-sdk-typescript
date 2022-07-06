@@ -15,6 +15,8 @@ export class RoleDefinition extends Entity implements Parsable {
     private _roleAssignments?: RoleAssignment[] | undefined;
     /** List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission. */
     private _rolePermissions?: RolePermission[] | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new roleDefinition and sets the default values.
      */
@@ -60,6 +62,7 @@ export class RoleDefinition extends Entity implements Parsable {
             "isBuiltIn": n => { this.isBuiltIn = n.getBooleanValue(); },
             "roleAssignments": n => { this.roleAssignments = n.getCollectionOfObjectValues<RoleAssignment>(createRoleAssignmentFromDiscriminatorValue); },
             "rolePermissions": n => { this.rolePermissions = n.getCollectionOfObjectValues<RolePermission>(createRolePermissionFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -75,6 +78,20 @@ export class RoleDefinition extends Entity implements Parsable {
      */
     public set isBuiltIn(value: boolean | undefined) {
         this._isBuiltIn = value;
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the roleAssignments property value. List of Role assignments for this role definition.
@@ -116,5 +133,6 @@ export class RoleDefinition extends Entity implements Parsable {
         writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
         writer.writeCollectionOfObjectValues<RoleAssignment>("roleAssignments", this.roleAssignments);
         writer.writeCollectionOfObjectValues<RolePermission>("rolePermissions", this.rolePermissions);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

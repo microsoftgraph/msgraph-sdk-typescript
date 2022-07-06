@@ -2,12 +2,13 @@ import {AuthenticationMethodState} from './authenticationMethodState';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export class AuthenticationMethodConfiguration extends Entity implements Parsable {
     /** The state of the policy. Possible values are: enabled, disabled. */
     private _state?: AuthenticationMethodState | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
-     * Instantiates a new authenticationMethodConfiguration and sets the default values.
+     * Instantiates a new AuthenticationMethodConfiguration and sets the default values.
      */
     public constructor() {
         super();
@@ -19,7 +20,22 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "state": n => { this.state = n.getEnumValue<AuthenticationMethodState>(AuthenticationMethodState); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -29,6 +45,7 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the state property value. The state of the policy. Possible values are: enabled, disabled.

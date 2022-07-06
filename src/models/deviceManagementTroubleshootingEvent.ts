@@ -7,6 +7,8 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
     private _correlationId?: string | undefined;
     /** Time when the event occurred . */
     private _eventDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.
      */
@@ -49,7 +51,22 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         return {...super.getFieldDeserializers(),
             "correlationId": n => { this.correlationId = n.getStringValue(); },
             "eventDateTime": n => { this.eventDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -60,5 +77,6 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         super.serialize(writer);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeDateValue("eventDateTime", this.eventDateTime);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

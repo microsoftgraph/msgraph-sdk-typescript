@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the organizationalBranding singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class OrganizationalBrandingProperties extends Entity implements Parsable {
     /** Color that appears in place of the background image in low-bandwidth connections. We recommend that you use the primary color of your banner logo or your organization color. Specify this in hexadecimal format, for example, white is #FFFFFF. */
     private _backgroundColor?: string | undefined;
@@ -21,6 +21,8 @@ export class OrganizationalBrandingProperties extends Entity implements Parsable
     private _squareLogo?: string | undefined;
     /** A relative URL for the squareLogo property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only. */
     private _squareLogoRelativeUrl?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** A string that shows as the hint in the username textbox on the sign-in screen. This text must be a Unicode, without links or code, and can't exceed 64 characters. */
     private _usernameHintText?: string | undefined;
     /**
@@ -128,8 +130,23 @@ export class OrganizationalBrandingProperties extends Entity implements Parsable
             "signInPageText": n => { this.signInPageText = n.getStringValue(); },
             "squareLogo": n => { this.squareLogo = n.getStringValue(); },
             "squareLogoRelativeUrl": n => { this.squareLogoRelativeUrl = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "usernameHintText": n => { this.usernameHintText = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -147,6 +164,7 @@ export class OrganizationalBrandingProperties extends Entity implements Parsable
         writer.writeStringValue("signInPageText", this.signInPageText);
         writer.writeStringValue("squareLogo", this.squareLogo);
         writer.writeStringValue("squareLogoRelativeUrl", this.squareLogoRelativeUrl);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("usernameHintText", this.usernameHintText);
     };
     /**

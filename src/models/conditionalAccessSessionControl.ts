@@ -5,6 +5,8 @@ export class ConditionalAccessSessionControl implements AdditionalDataHolder, Pa
     private _additionalData: Record<string, unknown>;
     /** Specifies whether the session control is enabled. */
     private _isEnabled?: boolean | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -32,6 +34,7 @@ export class ConditionalAccessSessionControl implements AdditionalDataHolder, Pa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -49,12 +52,27 @@ export class ConditionalAccessSessionControl implements AdditionalDataHolder, Pa
         this._isEnabled = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isEnabled", this.isEnabled);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
 }

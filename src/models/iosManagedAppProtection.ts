@@ -4,7 +4,6 @@ import {ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppP
 import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device */
 export class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
     /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     private _appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
@@ -49,7 +48,7 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
         this._apps = value;
     };
     /**
-     * Instantiates a new iosManagedAppProtection and sets the default values.
+     * Instantiates a new IosManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();

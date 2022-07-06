@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class NamedLocation extends Entity implements Parsable {
     /** The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -9,6 +9,8 @@ export class NamedLocation extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** The Timestamp type represents last modified date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _modifiedDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new namedLocation and sets the default values.
      */
@@ -52,6 +54,7 @@ export class NamedLocation extends Entity implements Parsable {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "modifiedDateTime": n => { this.modifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -69,6 +72,20 @@ export class NamedLocation extends Entity implements Parsable {
         this._modifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -78,5 +95,6 @@ export class NamedLocation extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+        writer.writeStringValue("@odata.type", this.type);
     };
 }

@@ -2,7 +2,6 @@ import {createMobileAppContentFromDiscriminatorValue} from './createMobileAppCon
 import {ManagedApp, MobileAppContent} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract base class containing properties for all managed mobile line of business apps. */
 export class ManagedMobileLobApp extends ManagedApp implements Parsable {
     /** The internal committed content version. */
     private _committedContentVersion?: string | undefined;
@@ -12,6 +11,8 @@ export class ManagedMobileLobApp extends ManagedApp implements Parsable {
     private _fileName?: string | undefined;
     /** The total size, including all uploaded files. */
     private _size?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the committedContentVersion property value. The internal committed content version.
      * @returns a string
@@ -27,7 +28,7 @@ export class ManagedMobileLobApp extends ManagedApp implements Parsable {
         this._committedContentVersion = value;
     };
     /**
-     * Instantiates a new managedMobileLobApp and sets the default values.
+     * Instantiates a new ManagedMobileLobApp and sets the default values.
      */
     public constructor() {
         super();
@@ -70,7 +71,22 @@ export class ManagedMobileLobApp extends ManagedApp implements Parsable {
             "contentVersions": n => { this.contentVersions = n.getCollectionOfObjectValues<MobileAppContent>(createMobileAppContentFromDiscriminatorValue); },
             "fileName": n => { this.fileName = n.getStringValue(); },
             "size": n => { this.size = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -83,6 +99,7 @@ export class ManagedMobileLobApp extends ManagedApp implements Parsable {
         writer.writeCollectionOfObjectValues<MobileAppContent>("contentVersions", this.contentVersions);
         writer.writeStringValue("fileName", this.fileName);
         writer.writeNumberValue("size", this.size);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the size property value. The total size, including all uploaded files.

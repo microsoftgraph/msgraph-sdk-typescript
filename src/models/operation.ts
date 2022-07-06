@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Operation extends Entity implements Parsable {
     /** The start time of the operation. */
     private _createdDateTime?: Date | undefined;
@@ -10,6 +10,8 @@ export class Operation extends Entity implements Parsable {
     private _lastActionDateTime?: Date | undefined;
     /** Possible values are: notStarted, running, completed, failed. Read-only. */
     private _status?: OperationStatus | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Instantiates a new operation and sets the default values.
      */
@@ -39,6 +41,7 @@ export class Operation extends Entity implements Parsable {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "lastActionDateTime": n => { this.lastActionDateTime = n.getDateValue(); },
             "status": n => { this.status = n.getEnumValue<OperationStatus>(OperationStatus); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -56,6 +59,20 @@ export class Operation extends Entity implements Parsable {
         this._lastActionDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -65,6 +82,7 @@ export class Operation extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         writer.writeEnumValue<OperationStatus>("status", this.status);
+        writer.writeStringValue("@odata.type", this.type);
     };
     /**
      * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.

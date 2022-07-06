@@ -4,7 +4,7 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {Entity, IdentitySet, ItemReference, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class BaseItem extends Entity implements Parsable {
     /** Identity of the user, device, or application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;
@@ -26,6 +26,8 @@ export class BaseItem extends Entity implements Parsable {
     private _name?: string | undefined;
     /** Parent information, if the item has a parent. Read-write. */
     private _parentReference?: ItemReference | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** URL that displays the resource in the browser. Read-only. */
     private _webUrl?: string | undefined;
     /**
@@ -120,6 +122,7 @@ export class BaseItem extends Entity implements Parsable {
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "name": n => { this.name = n.getStringValue(); },
             "parentReference": n => { this.parentReference = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
@@ -180,6 +183,20 @@ export class BaseItem extends Entity implements Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Gets the parentReference property value. Parent information, if the item has a parent. Read-write.
      * @returns a itemReference
      */
@@ -210,6 +227,7 @@ export class BaseItem extends Entity implements Parsable {
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("name", this.name);
         writer.writeObjectValue<ItemReference>("parentReference", this.parentReference);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**

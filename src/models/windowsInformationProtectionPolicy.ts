@@ -2,7 +2,6 @@ import {WindowsInformationProtection} from './index';
 import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection without MDM */
 export class WindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {
     /** Offline interval before app data is wiped (days) */
     private _daysWithoutContactBeforeUnenroll?: number | undefined;
@@ -29,7 +28,7 @@ export class WindowsInformationProtectionPolicy extends WindowsInformationProtec
     /** Boolean value that sets Windows Hello for Business as a method for signing into Windows. */
     private _windowsHelloForBusinessBlocked?: boolean | undefined;
     /**
-     * Instantiates a new windowsInformationProtectionPolicy and sets the default values.
+     * Instantiates a new WindowsInformationProtectionPolicy and sets the default values.
      */
     public constructor() {
         super();

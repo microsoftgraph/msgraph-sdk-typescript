@@ -4,7 +4,7 @@ import {Entity, Extension, TodoTask} from './index';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class TodoTaskList extends Entity implements Parsable {
     /** The name of the task list. */
     private _displayName?: string | undefined;

@@ -1,5 +1,5 @@
 
-/** Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object. */
+/** Retrieve the properties and relationships of a servicePrincipal object. */
 export class ServicePrincipalItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

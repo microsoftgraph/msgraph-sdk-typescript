@@ -14,6 +14,8 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
     private _productName?: string | undefined;
     /** The publisher name */
     private _publisherName?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -87,7 +89,22 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
             "displayName": n => { this.displayName = n.getStringValue(); },
             "productName": n => { this.productName = n.getStringValue(); },
             "publisherName": n => { this.publisherName = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Gets the productName property value. The product name.
@@ -128,6 +145,7 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("productName", this.productName);
         writer.writeStringValue("publisherName", this.publisherName);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
 }

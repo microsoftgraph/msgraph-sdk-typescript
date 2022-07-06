@@ -1,4 +1,7 @@
+import {createTraceRouteHopFromDiscriminatorValue} from './createTraceRouteHopFromDiscriminatorValue';
+import {TraceRouteHop} from './index';
 import {NetworkConnectionType} from './networkConnectionType';
+import {NetworkTransportProtocol} from './networkTransportProtocol';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -22,6 +25,8 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     private _linkSpeed?: number | undefined;
     /** The media access control (MAC) address of the media endpoint's network device. */
     private _macAddress?: string | undefined;
+    /** Network protocol used for the transmission of stream. Possible values are: unknown, udp, tcp, unknownFutureValue. */
+    private _networkTransportProtocol?: NetworkTransportProtocol | undefined;
     /** Network port number used by media endpoint. */
     private _port?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received. */
@@ -36,6 +41,8 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     private _sentQualityEventRatio?: number | undefined;
     /** Subnet used for media stream by the media endpoint. */
     private _subnet?: string | undefined;
+    /** List of network trace route hops collected for this media stream.* */
+    private _traceRouteHops?: TraceRouteHop[] | undefined;
     /** WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue. */
     private _wifiBand?: WifiBand | undefined;
     /** Estimated remaining battery charge in percentage reported by the media endpoint. */
@@ -158,6 +165,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
             "ipAddress": n => { this.ipAddress = n.getStringValue(); },
             "linkSpeed": n => { this.linkSpeed = n.getNumberValue(); },
             "macAddress": n => { this.macAddress = n.getStringValue(); },
+            "networkTransportProtocol": n => { this.networkTransportProtocol = n.getEnumValue<NetworkTransportProtocol>(NetworkTransportProtocol); },
             "port": n => { this.port = n.getNumberValue(); },
             "receivedQualityEventRatio": n => { this.receivedQualityEventRatio = n.getNumberValue(); },
             "reflexiveIPAddress": n => { this.reflexiveIPAddress = n.getStringValue(); },
@@ -165,6 +173,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
             "relayPort": n => { this.relayPort = n.getNumberValue(); },
             "sentQualityEventRatio": n => { this.sentQualityEventRatio = n.getNumberValue(); },
             "subnet": n => { this.subnet = n.getStringValue(); },
+            "traceRouteHops": n => { this.traceRouteHops = n.getCollectionOfObjectValues<TraceRouteHop>(createTraceRouteHopFromDiscriminatorValue); },
             "wifiBand": n => { this.wifiBand = n.getEnumValue<WifiBand>(WifiBand); },
             "wifiBatteryCharge": n => { this.wifiBatteryCharge = n.getNumberValue(); },
             "wifiChannel": n => { this.wifiChannel = n.getNumberValue(); },
@@ -217,6 +226,20 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
      */
     public set macAddress(value: string | undefined) {
         this._macAddress = value;
+    };
+    /**
+     * Gets the networkTransportProtocol property value. Network protocol used for the transmission of stream. Possible values are: unknown, udp, tcp, unknownFutureValue.
+     * @returns a networkTransportProtocol
+     */
+    public get networkTransportProtocol() {
+        return this._networkTransportProtocol;
+    };
+    /**
+     * Sets the networkTransportProtocol property value. Network protocol used for the transmission of stream. Possible values are: unknown, udp, tcp, unknownFutureValue.
+     * @param value Value to set for the networkTransportProtocol property.
+     */
+    public set networkTransportProtocol(value: NetworkTransportProtocol | undefined) {
+        this._networkTransportProtocol = value;
     };
     /**
      * Gets the port property value. Network port number used by media endpoint.
@@ -316,6 +339,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("ipAddress", this.ipAddress);
         writer.writeNumberValue("linkSpeed", this.linkSpeed);
         writer.writeStringValue("macAddress", this.macAddress);
+        writer.writeEnumValue<NetworkTransportProtocol>("networkTransportProtocol", this.networkTransportProtocol);
         writer.writeNumberValue("port", this.port);
         writer.writeNumberValue("receivedQualityEventRatio", this.receivedQualityEventRatio);
         writer.writeStringValue("reflexiveIPAddress", this.reflexiveIPAddress);
@@ -323,6 +347,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("relayPort", this.relayPort);
         writer.writeNumberValue("sentQualityEventRatio", this.sentQualityEventRatio);
         writer.writeStringValue("subnet", this.subnet);
+        writer.writeCollectionOfObjectValues<TraceRouteHop>("traceRouteHops", this.traceRouteHops);
         writer.writeEnumValue<WifiBand>("wifiBand", this.wifiBand);
         writer.writeNumberValue("wifiBatteryCharge", this.wifiBatteryCharge);
         writer.writeNumberValue("wifiChannel", this.wifiChannel);
@@ -347,6 +372,20 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
      */
     public set subnet(value: string | undefined) {
         this._subnet = value;
+    };
+    /**
+     * Gets the traceRouteHops property value. List of network trace route hops collected for this media stream.*
+     * @returns a traceRouteHop
+     */
+    public get traceRouteHops() {
+        return this._traceRouteHops;
+    };
+    /**
+     * Sets the traceRouteHops property value. List of network trace route hops collected for this media stream.*
+     * @param value Value to set for the traceRouteHops property.
+     */
+    public set traceRouteHops(value: TraceRouteHop[] | undefined) {
+        this._traceRouteHops = value;
     };
     /**
      * Gets the wifiBand property value. WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue.
