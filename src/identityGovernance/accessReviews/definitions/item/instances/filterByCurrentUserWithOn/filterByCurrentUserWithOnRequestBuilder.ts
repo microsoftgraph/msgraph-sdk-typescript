@@ -1,3 +1,5 @@
+import {ODataError} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createFilterByCurrentUserWithOnResponseFromDiscriminatorValue} from './createFilterByCurrentUserWithOnResponseFromDiscriminatorValue';
 import {FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration} from './filterByCurrentUserWithOnRequestBuilderGetRequestConfiguration';
 import {FilterByCurrentUserWithOnResponse} from './index';
@@ -22,7 +24,7 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/microsoft.graph.filterByCurrentUser(on='{on}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = on
+        urlTplParams["on"] = on
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -36,6 +38,7 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -52,6 +55,10 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<FilterByCurrentUserWithOnResponse>(requestInfo, createFilterByCurrentUserWithOnResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<FilterByCurrentUserWithOnResponse>(requestInfo, createFilterByCurrentUserWithOnResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

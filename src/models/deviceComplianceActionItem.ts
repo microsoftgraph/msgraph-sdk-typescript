@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Scheduled Action Configuration */
 export class DeviceComplianceActionItem extends Entity implements Parsable {
-    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
+    /** Scheduled Action Type Enum */
     private _actionType?: DeviceComplianceActionType | undefined;
     /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
     private _gracePeriodHours?: number | undefined;
@@ -13,14 +13,14 @@ export class DeviceComplianceActionItem extends Entity implements Parsable {
     /** What notification Message template to use */
     private _notificationTemplateId?: string | undefined;
     /**
-     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Gets the actionType property value. Scheduled Action Type Enum
      * @returns a deviceComplianceActionType
      */
     public get actionType() {
         return this._actionType;
     };
     /**
-     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Sets the actionType property value. Scheduled Action Type Enum
      * @param value Value to set for the actionType property.
      */
     public set actionType(value: DeviceComplianceActionType | undefined) {

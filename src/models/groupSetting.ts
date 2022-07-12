@@ -2,7 +2,7 @@ import {createSettingValueFromDiscriminatorValue} from './createSettingValueFrom
 import {Entity, SettingValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class GroupSetting extends Entity implements Parsable {
     /** Display name of this group of settings, which comes from the associated template. */
     private _displayName?: string | undefined;

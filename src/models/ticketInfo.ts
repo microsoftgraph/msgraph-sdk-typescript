@@ -3,9 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TicketInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Ticket number meta data */
+    /** The ticket number. */
     private _ticketNumber?: string | undefined;
-    /** Ticket system meta data */
+    /** The description of the ticket system. */
     private _ticketSystem?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -48,28 +48,28 @@ export class TicketInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the ticketNumber property value. Ticket number meta data
+     * Gets the ticketNumber property value. The ticket number.
      * @returns a string
      */
     public get ticketNumber() {
         return this._ticketNumber;
     };
     /**
-     * Sets the ticketNumber property value. Ticket number meta data
+     * Sets the ticketNumber property value. The ticket number.
      * @param value Value to set for the ticketNumber property.
      */
     public set ticketNumber(value: string | undefined) {
         this._ticketNumber = value;
     };
     /**
-     * Gets the ticketSystem property value. Ticket system meta data
+     * Gets the ticketSystem property value. The description of the ticket system.
      * @returns a string
      */
     public get ticketSystem() {
         return this._ticketSystem;
     };
     /**
-     * Sets the ticketSystem property value. Ticket system meta data
+     * Sets the ticketSystem property value. The description of the ticket system.
      * @param value Value to set for the ticketSystem property.
      */
     public set ticketSystem(value: string | undefined) {

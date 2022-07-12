@@ -5,6 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './authenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodItemRequestBuilderPatchRequestConfiguration';
+import {ResetPasswordRequestBuilder} from './resetPassword/resetPasswordRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the methods property of the microsoft.graph.authentication entity. */
@@ -13,6 +14,10 @@ export class AuthenticationMethodItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The resetPassword property */
+    public get resetPassword(): ResetPasswordRequestBuilder {
+        return new ResetPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
@@ -54,6 +59,7 @@ export class AuthenticationMethodItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

@@ -2,16 +2,38 @@ import {DirectoryObjectCollectionResponse} from '../../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
+import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
+import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
+import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the members property of the microsoft.graph.directoryRole entity. */
 export class MembersRequestBuilder {
+    /** The application property */
+    public get application(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The device property */
+    public get device(): DeviceRequestBuilder {
+        return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The group property */
+    public get group(): GroupRequestBuilder {
+        return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The orgContact property */
+    public get orgContact(): OrgContactRequestBuilder {
+        return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
@@ -21,8 +43,16 @@ export class MembersRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The servicePrincipal property */
+    public get servicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /** The user property */
+    public get user(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -46,6 +76,7 @@ export class MembersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

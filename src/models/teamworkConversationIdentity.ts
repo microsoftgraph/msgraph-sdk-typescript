@@ -2,12 +2,11 @@ import {Identity} from './index';
 import {TeamworkConversationIdentityType} from './teamworkConversationIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class TeamworkConversationIdentity extends Identity implements Parsable {
     /** Type of conversation. Possible values are: team, channel, and chat. */
     private _conversationIdentityType?: TeamworkConversationIdentityType | undefined;
     /**
-     * Instantiates a new teamworkConversationIdentity and sets the default values.
+     * Instantiates a new TeamworkConversationIdentity and sets the default values.
      */
     public constructor() {
         super();

@@ -1,12 +1,11 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the solutionsRoot singleton. */
 export class BookingCurrency extends Entity implements Parsable {
     /** The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $. */
     private _symbol?: string | undefined;
     /**
-     * Instantiates a new bookingCurrency and sets the default values.
+     * Instantiates a new BookingCurrency and sets the default values.
      */
     public constructor() {
         super();

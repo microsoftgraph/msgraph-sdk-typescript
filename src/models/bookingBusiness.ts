@@ -9,7 +9,6 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {BookingAppointment, BookingCustomerBase, BookingCustomQuestion, BookingSchedulingPolicy, BookingService, BookingStaffMemberBase, BookingWorkHours, Entity, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents a Microsot Bookings Business. */
 export class BookingBusiness extends Entity implements Parsable {
     /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
     private _address?: PhysicalAddress | undefined;
@@ -116,7 +115,7 @@ export class BookingBusiness extends Entity implements Parsable {
         this._calendarView = value;
     };
     /**
-     * Instantiates a new bookingBusiness and sets the default values.
+     * Instantiates a new BookingBusiness and sets the default values.
      */
     public constructor() {
         super();

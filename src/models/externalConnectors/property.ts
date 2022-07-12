@@ -18,7 +18,7 @@ export class Property implements AdditionalDataHolder, Parsable {
     private _labels?: string[] | undefined;
     /** The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required. */
     private _name?: string | undefined;
-    /** The data type of the property. Possible values are: string, int64, double, dateTime, boolean, stringCollection, int64Collection, doubleCollection, dateTimeCollection, unknownFutureValue. Required. */
+    /** The type property */
     private _type?: PropertyType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -171,14 +171,14 @@ export class Property implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The data type of the property. Possible values are: string, int64, double, dateTime, boolean, stringCollection, int64Collection, doubleCollection, dateTimeCollection, unknownFutureValue. Required.
+     * Gets the type property value. The type property
      * @returns a propertyType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The data type of the property. Possible values are: string, int64, double, dateTime, boolean, stringCollection, int64Collection, doubleCollection, dateTimeCollection, unknownFutureValue. Required.
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: PropertyType | undefined) {

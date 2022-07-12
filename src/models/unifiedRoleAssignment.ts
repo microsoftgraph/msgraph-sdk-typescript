@@ -4,7 +4,7 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnified
 import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the admin singleton. */
 export class UnifiedRoleAssignment extends Entity implements Parsable {
     /** Details of the app specific scope when the assignment scope is app specific. Containment entity. */
     private _appScope?: AppScope | undefined;

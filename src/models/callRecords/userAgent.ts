@@ -7,6 +7,8 @@ export class UserAgent implements AdditionalDataHolder, Parsable {
     private _applicationVersion?: string | undefined;
     /** User-agent header value reported by this endpoint. */
     private _headerValue?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,6 +42,7 @@ export class UserAgent implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.callRecords.userAgent";
     };
     /**
      * The deserialization information for the current model
@@ -49,6 +52,7 @@ export class UserAgent implements AdditionalDataHolder, Parsable {
         return {
             "applicationVersion": n => { this.applicationVersion = n.getStringValue(); },
             "headerValue": n => { this.headerValue = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -66,6 +70,20 @@ export class UserAgent implements AdditionalDataHolder, Parsable {
         this._headerValue = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -73,6 +91,7 @@ export class UserAgent implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("applicationVersion", this.applicationVersion);
         writer.writeStringValue("headerValue", this.headerValue);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -14,7 +14,7 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
     private _prefixFilter?: string | undefined;
     /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional. */
     private _ranges?: BucketAggregationRange[] | undefined;
-    /** The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required. */
+    /** The sortBy property */
     private _sortBy?: BucketAggregationSortProperty | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -119,14 +119,14 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sortBy property value. The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
+     * Gets the sortBy property value. The sortBy property
      * @returns a bucketAggregationSortProperty
      */
     public get sortBy() {
         return this._sortBy;
     };
     /**
-     * Sets the sortBy property value. The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
+     * Sets the sortBy property value. The sortBy property
      * @param value Value to set for the sortBy property.
      */
     public set sortBy(value: BucketAggregationSortProperty | undefined) {

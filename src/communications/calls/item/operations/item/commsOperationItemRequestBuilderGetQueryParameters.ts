@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get operations from communications */
 export class CommsOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

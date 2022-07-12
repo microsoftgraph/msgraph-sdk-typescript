@@ -7,9 +7,9 @@ import {createTeamworkOnlineMeetingInfoFromDiscriminatorValue} from './createTea
 import {ChatMessage, ConversationMember, Entity, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class Chat extends Entity implements Parsable {
-    /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
+    /** The chatType property */
     private _chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -32,14 +32,14 @@ export class Chat extends Entity implements Parsable {
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
-     * Gets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
+     * Gets the chatType property value. The chatType property
      * @returns a chatType
      */
     public get chatType() {
         return this._chatType;
     };
     /**
-     * Sets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
+     * Sets the chatType property value. The chatType property
      * @param value Value to set for the chatType property.
      */
     public set chatType(value: ChatType | undefined) {

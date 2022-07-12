@@ -3,7 +3,7 @@ import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsable {
-    /** The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend. */
+    /** The action property */
     private _action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
@@ -14,14 +14,14 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
     /** The element to update. Must be the #<data-id> or the generated {id} of the element, or the body or title keyword. */
     private _target?: string | undefined;
     /**
-     * Gets the action property value. The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
+     * Gets the action property value. The action property
      * @returns a onenotePatchActionType
      */
     public get action() {
         return this._action;
     };
     /**
-     * Sets the action property value. The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
+     * Sets the action property value. The action property
      * @param value Value to set for the action property.
      */
     public set action(value: OnenotePatchActionType | undefined) {

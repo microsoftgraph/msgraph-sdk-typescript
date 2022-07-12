@@ -1,3 +1,5 @@
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetTeamsUserActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getTeamsUserActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -20,7 +22,7 @@ export class GetTeamsUserActivityUserDetailWithDateRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getTeamsUserActivityUserDetail(date={date})";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = date
+        urlTplParams["date"] = date
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -50,6 +52,10 @@ export class GetTeamsUserActivityUserDetailWithDateRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

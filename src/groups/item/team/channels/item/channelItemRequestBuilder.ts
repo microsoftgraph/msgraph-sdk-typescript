@@ -6,6 +6,7 @@ import {ChannelItemRequestBuilderDeleteRequestConfiguration} from './channelItem
 import {ChannelItemRequestBuilderGetRequestConfiguration} from './channelItemRequestBuilderGetRequestConfiguration';
 import {ChannelItemRequestBuilderPatchRequestConfiguration} from './channelItemRequestBuilderPatchRequestConfiguration';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
+import {DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder} from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName/doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
@@ -13,6 +14,8 @@ import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequ
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailRequestBuilder';
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
+import {SharedWithChannelTeamInfoItemRequestBuilder} from './sharedWithTeams/item/sharedWithChannelTeamInfoItemRequestBuilder';
+import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -47,6 +50,10 @@ export class ChannelItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The sharedWithTeams property */
+    public get sharedWithTeams(): SharedWithTeamsRequestBuilder {
+        return new SharedWithTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The tabs property */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -92,6 +99,7 @@ export class ChannelItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -132,6 +140,13 @@ export class ChannelItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Provides operations to call the doesUserHaveAccess method.
+     * @returns a doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder
+     */
+    public doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName() : DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder {
+        return new DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * The collection of channels and messages associated with the team.
@@ -187,6 +202,17 @@ export class ChannelItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.channels.item.sharedWithTeams.item collection
+     * @param id Unique identifier of the item
+     * @returns a sharedWithChannelTeamInfoItemRequestBuilder
+     */
+    public sharedWithTeamsById(id: string) : SharedWithChannelTeamInfoItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sharedWithChannelTeamInfo%2Did"] = id
+        return new SharedWithChannelTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.channels.item.tabs.item collection

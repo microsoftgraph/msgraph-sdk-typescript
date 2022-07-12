@@ -39,7 +39,7 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
         this._application = value;
     };
     /**
-     * Instantiates a new ApplicationServicePrincipal and sets the default values.
+     * Instantiates a new applicationServicePrincipal and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

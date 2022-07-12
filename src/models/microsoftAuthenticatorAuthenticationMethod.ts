@@ -2,7 +2,6 @@ import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminato
 import {AuthenticationMethod, Device} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
     private _createdDateTime?: Date | undefined;
@@ -15,7 +14,7 @@ export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMe
     /** Numerical version of this instance of the Authenticator app. */
     private _phoneAppVersion?: string | undefined;
     /**
-     * Instantiates a new microsoftAuthenticatorAuthenticationMethod and sets the default values.
+     * Instantiates a new MicrosoftAuthenticatorAuthenticationMethod and sets the default values.
      */
     public constructor() {
         super();

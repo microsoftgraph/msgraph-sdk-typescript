@@ -24,7 +24,7 @@ export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsa
         this._additionalData = value;
     };
     /**
-     * Instantiates a new MeetingTimeSuggestionsResult and sets the default values.
+     * Instantiates a new meetingTimeSuggestionsResult and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

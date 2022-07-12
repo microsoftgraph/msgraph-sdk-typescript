@@ -35,7 +35,7 @@ export class MobileApp extends Entity implements Parsable {
     private _privacyInformationUrl?: string | undefined;
     /** The publisher of the app. */
     private _publisher?: string | undefined;
-    /** The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published. */
+    /** Indicates the publishing state of an app. */
     private _publishingState?: MobileAppPublishingState | undefined;
     /**
      * Gets the assignments property value. The list of group assignments for this mobile app.
@@ -70,6 +70,7 @@ export class MobileApp extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.mobileApp";
     };
     /**
      * Gets the createdDateTime property value. The date and time the app was created.
@@ -263,14 +264,14 @@ export class MobileApp extends Entity implements Parsable {
         this._publisher = value;
     };
     /**
-     * Gets the publishingState property value. The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.
+     * Gets the publishingState property value. Indicates the publishing state of an app.
      * @returns a mobileAppPublishingState
      */
     public get publishingState() {
         return this._publishingState;
     };
     /**
-     * Sets the publishingState property value. The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.
+     * Sets the publishingState property value. Indicates the publishing state of an app.
      * @param value Value to set for the publishingState property.
      */
     public set publishingState(value: MobileAppPublishingState | undefined) {

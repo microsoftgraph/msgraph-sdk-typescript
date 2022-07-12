@@ -4,7 +4,7 @@ import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTri
 import {Entity, PrintTaskDefinition, PrintTaskStatus, PrintTaskTrigger} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the admin singleton. */
 export class PrintTask extends Entity implements Parsable {
     /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;

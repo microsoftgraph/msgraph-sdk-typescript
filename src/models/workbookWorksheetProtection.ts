@@ -2,7 +2,6 @@ import {createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue} from './
 import {Entity, WorkbookWorksheetProtectionOptions} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookWorksheetProtection extends Entity implements Parsable {
     /** Sheet protection options. Read-only. */
     private _options?: WorkbookWorksheetProtectionOptions | undefined;

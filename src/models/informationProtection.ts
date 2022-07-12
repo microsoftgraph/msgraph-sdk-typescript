@@ -3,7 +3,6 @@ import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThrea
 import {Bitlocker, Entity, ThreatAssessmentRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton. */
 export class InformationProtection extends Entity implements Parsable {
     /** The bitlocker property */
     private _bitlocker?: Bitlocker | undefined;
@@ -24,7 +23,7 @@ export class InformationProtection extends Entity implements Parsable {
         this._bitlocker = value;
     };
     /**
-     * Instantiates a new informationProtection and sets the default values.
+     * Instantiates a new InformationProtection and sets the default values.
      */
     public constructor() {
         super();

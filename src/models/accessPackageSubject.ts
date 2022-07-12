@@ -3,7 +3,6 @@ import {createConnectedOrganizationFromDiscriminatorValue} from './createConnect
 import {ConnectedOrganization, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageSubject extends Entity implements Parsable {
     /** The connected organization of the subject. Read-only. Nullable. */
     private _connectedOrganization?: ConnectedOrganization | undefined;

@@ -21,7 +21,7 @@ import {createVulnerabilityStateFromDiscriminatorValue} from './createVulnerabil
 import {AlertDetection, AlertHistoryState, AlertTrigger, CloudAppSecurityState, Entity, FileSecurityState, HostSecurityState, InvestigationSecurityState, MalwareState, MessageSecurityState, NetworkConnection, Process, RegistryKeyState, SecurityResource, SecurityVendorInformation, UriClickSecurityState, UserSecurityState, VulnerabilityState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the admin singleton. */
 export class Alert extends Entity implements Parsable {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
     private _activityGroupName?: string | undefined;
@@ -81,11 +81,11 @@ export class Alert extends Entity implements Parsable {
     private _registryKeyStates?: RegistryKeyState[] | undefined;
     /** Resources related to current alert. For example, for some alerts this can have the Azure Resource value. */
     private _securityResources?: SecurityResource[] | undefined;
-    /** Alert severity - set by vendor/provider. Possible values are: unknown, informational, low, medium, high. Required. */
+    /** The severity property */
     private _severity?: AlertSeverity | undefined;
     /** Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc. */
     private _sourceMaterials?: string[] | undefined;
-    /** Alert lifecycle status (stage). Possible values are: unknown, newAlert, inProgress, resolved. (supports update). Required. */
+    /** The status property */
     private _status?: AlertStatus | undefined;
     /** User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update). */
     private _tags?: string[] | undefined;
@@ -608,14 +608,14 @@ export class Alert extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", this.vulnerabilityStates);
     };
     /**
-     * Gets the severity property value. Alert severity - set by vendor/provider. Possible values are: unknown, informational, low, medium, high. Required.
+     * Gets the severity property value. The severity property
      * @returns a alertSeverity
      */
     public get severity() {
         return this._severity;
     };
     /**
-     * Sets the severity property value. Alert severity - set by vendor/provider. Possible values are: unknown, informational, low, medium, high. Required.
+     * Sets the severity property value. The severity property
      * @param value Value to set for the severity property.
      */
     public set severity(value: AlertSeverity | undefined) {
@@ -636,14 +636,14 @@ export class Alert extends Entity implements Parsable {
         this._sourceMaterials = value;
     };
     /**
-     * Gets the status property value. Alert lifecycle status (stage). Possible values are: unknown, newAlert, inProgress, resolved. (supports update). Required.
+     * Gets the status property value. The status property
      * @returns a alertStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Alert lifecycle status (stage). Possible values are: unknown, newAlert, inProgress, resolved. (supports update). Required.
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: AlertStatus | undefined) {

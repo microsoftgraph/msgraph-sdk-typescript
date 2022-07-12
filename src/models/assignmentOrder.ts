@@ -20,7 +20,7 @@ export class AssignmentOrder implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new AssignmentOrder and sets the default values.
+     * Instantiates a new assignmentOrder and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

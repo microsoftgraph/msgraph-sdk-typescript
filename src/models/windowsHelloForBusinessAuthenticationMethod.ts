@@ -3,7 +3,6 @@ import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminato
 import {AuthenticationMethod, Device} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WindowsHelloForBusinessAuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** The date and time that this Windows Hello for Business key was registered. */
     private _createdDateTime?: Date | undefined;
@@ -14,7 +13,7 @@ export class WindowsHelloForBusinessAuthenticationMethod extends AuthenticationM
     /** Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown. */
     private _keyStrength?: AuthenticationMethodKeyStrength | undefined;
     /**
-     * Instantiates a new windowsHelloForBusinessAuthenticationMethod and sets the default values.
+     * Instantiates a new WindowsHelloForBusinessAuthenticationMethod and sets the default values.
      */
     public constructor() {
         super();

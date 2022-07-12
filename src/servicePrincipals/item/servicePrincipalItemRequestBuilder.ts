@@ -19,6 +19,8 @@ import {DelegatedPermissionClassificationsRequestBuilder} from './delegatedPermi
 import {DelegatedPermissionClassificationItemRequestBuilder} from './delegatedPermissionClassifications/item/delegatedPermissionClassificationItemRequestBuilder';
 import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
 import {EndpointItemRequestBuilder} from './endpoints/item/endpointItemRequestBuilder';
+import {FederatedIdentityCredentialsRequestBuilder} from './federatedIdentityCredentials/federatedIdentityCredentialsRequestBuilder';
+import {FederatedIdentityCredentialItemRequestBuilder} from './federatedIdentityCredentials/item/federatedIdentityCredentialItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
@@ -90,6 +92,10 @@ export class ServicePrincipalItemRequestBuilder {
     /** The endpoints property */
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The federatedIdentityCredentials property */
+    public get federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
+        return new FederatedIdentityCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The getMemberGroups property */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
@@ -196,7 +202,7 @@ export class ServicePrincipalItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Delete a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -223,7 +229,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new i1d7e157474e1ab4e17b5fdee6e05a3fb5390ff68bd17fbf2159d14e6b8a51ff2(urlTplParams, this.requestAdapter);
     };
     /**
-     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Retrieve the properties and relationships of a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -232,6 +238,7 @@ export class ServicePrincipalItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -240,7 +247,7 @@ export class ServicePrincipalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
+     * Update the properties of servicePrincipal object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -270,7 +277,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Delete a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -296,7 +303,18 @@ export class ServicePrincipalItemRequestBuilder {
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.federatedIdentityCredentials.item collection
+     * @param id Unique identifier of the item
+     * @returns a federatedIdentityCredentialItemRequestBuilder
+     */
+    public federatedIdentityCredentialsById(id: string) : FederatedIdentityCredentialItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["federatedIdentityCredential%2Did"] = id
+        return new FederatedIdentityCredentialItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Retrieve the properties and relationships of a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
@@ -367,7 +385,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new i30d914c048be2ddd2cdee4e8211ef3882c63920bbe3a801be8a05c4c3c5535a6(urlTplParams, this.requestAdapter);
     };
     /**
-     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
+     * Update the properties of servicePrincipal object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

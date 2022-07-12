@@ -11,6 +11,12 @@ import {AuthenticationMethodItemRequestBuilder} from './methods/item/authenticat
 import {MethodsRequestBuilder} from './methods/methodsRequestBuilder';
 import {MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder} from './microsoftAuthenticatorMethods/item/microsoftAuthenticatorAuthenticationMethodItemRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
+import {LongRunningOperationItemRequestBuilder} from './operations/item/longRunningOperationItemRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {PasswordAuthenticationMethodItemRequestBuilder} from './passwordMethods/item/passwordAuthenticationMethodItemRequestBuilder';
+import {PasswordMethodsRequestBuilder} from './passwordMethods/passwordMethodsRequestBuilder';
+import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './temporaryAccessPassMethods/item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
+import {TemporaryAccessPassMethodsRequestBuilder} from './temporaryAccessPassMethods/temporaryAccessPassMethodsRequestBuilder';
 import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -29,10 +35,22 @@ export class AuthenticationRequestBuilder {
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The operations property */
+    public get operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The passwordMethods property */
+    public get passwordMethods(): PasswordMethodsRequestBuilder {
+        return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The temporaryAccessPassMethods property */
+    public get temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
+        return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /** The windowsHelloForBusinessMethods property */
@@ -69,7 +87,7 @@ export class AuthenticationRequestBuilder {
         return requestInfo;
     };
     /**
-     * TODO: Add Description
+     * The authentication methods that are supported for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -78,6 +96,7 @@ export class AuthenticationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -131,7 +150,7 @@ export class AuthenticationRequestBuilder {
         return new Fido2AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * TODO: Add Description
+     * The authentication methods that are supported for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
@@ -169,6 +188,28 @@ export class AuthenticationRequestBuilder {
         return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.operations.item collection
+     * @param id Unique identifier of the item
+     * @returns a longRunningOperationItemRequestBuilder
+     */
+    public operationsById(id: string) : LongRunningOperationItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["longRunningOperation%2Did"] = id
+        return new LongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.passwordMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a passwordAuthenticationMethodItemRequestBuilder
+     */
+    public passwordMethodsById(id: string) : PasswordAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["passwordAuthenticationMethod%2Did"] = id
+        return new PasswordAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Update the navigation property authentication in me
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -184,6 +225,17 @@ export class AuthenticationRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.temporaryAccessPassMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a temporaryAccessPassAuthenticationMethodItemRequestBuilder
+     */
+    public temporaryAccessPassMethodsById(id: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["temporaryAccessPassAuthenticationMethod%2Did"] = id
+        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.windowsHelloForBusinessMethods.item collection

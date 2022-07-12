@@ -1,15 +1,15 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton. */
 export class IdentityProviderBase extends Entity implements Parsable {
     /** The display name of the identity provider. */
     private _displayName?: string | undefined;
     /**
-     * Instantiates a new identityProviderBase and sets the default values.
+     * Instantiates a new IdentityProviderBase and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.identityProviderBase";
     };
     /**
      * Gets the displayName property value. The display name of the identity provider.

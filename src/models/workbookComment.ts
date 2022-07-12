@@ -2,13 +2,13 @@ import {createWorkbookCommentReplyFromDiscriminatorValue} from './createWorkbook
 import {Entity, WorkbookCommentReply} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookComment extends Entity implements Parsable {
     /** The content of the comment. */
     private _content?: string | undefined;
     /** Indicates the type for the comment. */
     private _contentType?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The replies property */
     private _replies?: WorkbookCommentReply[] | undefined;
     /**
      * Instantiates a new workbookComment and sets the default values.
@@ -56,14 +56,14 @@ export class WorkbookComment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the replies property value. Read-only. Nullable.
+     * Gets the replies property value. The replies property
      * @returns a workbookCommentReply
      */
     public get replies() {
         return this._replies;
     };
     /**
-     * Sets the replies property value. Read-only. Nullable.
+     * Sets the replies property value. The replies property
      * @param value Value to set for the replies property.
      */
     public set replies(value: WorkbookCommentReply[] | undefined) {

@@ -24,7 +24,7 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new ItemPreviewInfo and sets the default values.
+     * Instantiates a new itemPreviewInfo and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

@@ -8,7 +8,6 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, WorkbookApplication, WorkbookComment, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookTable, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Workbook extends Entity implements Parsable {
     /** The application property */
     private _application?: WorkbookApplication | undefined;

@@ -37,6 +37,7 @@ export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.deviceEnrollmentConfiguration";
     };
     /**
      * Gets the createdDateTime property value. Created date time in UTC of the device enrollment configuration

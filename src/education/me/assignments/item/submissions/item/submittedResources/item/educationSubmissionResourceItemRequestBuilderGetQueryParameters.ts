@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get submittedResources from education */
 export class EducationSubmissionResourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

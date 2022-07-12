@@ -7,8 +7,11 @@ import {ApplicationRequestBuilder} from './application/applicationRequestBuilder
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeletedItemsRequestBuilderGetRequestConfiguration} from './deletedItemsRequestBuilderGetRequestConfiguration';
 import {DeletedItemsRequestBuilderPostRequestConfiguration} from './deletedItemsRequestBuilderPostRequestConfiguration';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deletedItems property of the microsoft.graph.directory entity. */
@@ -20,6 +23,14 @@ export class DeletedItemsRequestBuilder {
     /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getAvailableExtensionProperties property */
+    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+        return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getByIds property */
+    public get getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The group property */
     public get group(): GroupRequestBuilder {
@@ -34,6 +45,10 @@ export class DeletedItemsRequestBuilder {
     /** The user property */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The validateProperties property */
+    public get validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new DeletedItemsRequestBuilder and sets the default values.
@@ -58,6 +73,7 @@ export class DeletedItemsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -77,6 +93,7 @@ export class DeletedItemsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);

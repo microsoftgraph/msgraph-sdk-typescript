@@ -1,4 +1,4 @@
-import {ManagedAppPolicy} from './index';
+import {ManagedAppConfiguration, ManagedAppPolicy, ManagedAppProtection, WindowsInformationProtection} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedAppPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppPolicy {
@@ -8,8 +8,12 @@ export function createManagedAppPolicyFromDiscriminatorValue(parseNode: ParseNod
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedAppPolicy":
-                    return new ManagedAppPolicy();
+                case "#microsoft.graph.managedAppConfiguration":
+                    return new ManagedAppConfiguration();
+                case "#microsoft.graph.managedAppProtection":
+                    return new ManagedAppProtection();
+                case "#microsoft.graph.windowsInformationProtection":
+                    return new WindowsInformationProtection();
             }
         }
     }

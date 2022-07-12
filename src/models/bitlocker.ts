@@ -2,12 +2,11 @@ import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlocke
 import {BitlockerRecoveryKey, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton. */
 export class Bitlocker extends Entity implements Parsable {
     /** The recovery keys associated with the bitlocker entity. */
     private _recoveryKeys?: BitlockerRecoveryKey[] | undefined;
     /**
-     * Instantiates a new bitlocker and sets the default values.
+     * Instantiates a new Bitlocker and sets the default values.
      */
     public constructor() {
         super();

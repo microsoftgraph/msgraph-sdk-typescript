@@ -1,5 +1,5 @@
 
-/** Represents access package assignment requests created by or on behalf of a user. */
+/** Access package assignment requests created by or on behalf of a subject. */
 export class AssignmentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

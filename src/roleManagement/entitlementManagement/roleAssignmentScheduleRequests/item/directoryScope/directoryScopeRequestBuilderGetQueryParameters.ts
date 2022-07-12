@@ -1,5 +1,5 @@
 
-/** Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. */
+/** The directory object that is the scope of the assignment. Read-only. Supports $expand. */
 export class DirectoryScopeRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

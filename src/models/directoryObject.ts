@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class DirectoryObject extends Entity implements Parsable {
     /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
     private _deletedDateTime?: Date | undefined;
@@ -10,6 +9,7 @@ export class DirectoryObject extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.directoryObject";
     };
     /**
      * Gets the deletedDateTime property value. Date and time when this object was deleted. Always null when the object hasn't been deleted.

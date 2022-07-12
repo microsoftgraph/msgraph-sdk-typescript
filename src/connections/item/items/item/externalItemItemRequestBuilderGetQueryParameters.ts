@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get items from connections */
 export class ExternalItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

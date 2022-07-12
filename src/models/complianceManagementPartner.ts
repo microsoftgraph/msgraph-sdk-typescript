@@ -21,7 +21,7 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
     private _macOsEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
     /** Partner onboarded for Mac devices. */
     private _macOsOnboarded?: boolean | undefined;
-    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
+    /** Partner state of this tenant. */
     private _partnerState?: DeviceManagementPartnerTenantState | undefined;
     /**
      * Gets the androidEnrollmentAssignments property value. User groups which enroll Android devices through partner.
@@ -159,14 +159,14 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
         this._macOsOnboarded = value;
     };
     /**
-     * Gets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @returns a deviceManagementPartnerTenantState
      */
     public get partnerState() {
         return this._partnerState;
     };
     /**
-     * Sets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      * @param value Value to set for the partnerState property.
      */
     public set partnerState(value: DeviceManagementPartnerTenantState | undefined) {

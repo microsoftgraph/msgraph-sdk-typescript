@@ -3,23 +3,23 @@ import {createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue} from './cre
 import {Entity, Identity, UnifiedRoleManagementPolicyRule} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class UnifiedRoleManagementPolicy extends Entity implements Parsable {
     /** Description for the policy. */
     private _description?: string | undefined;
     /** Display name for the policy. */
     private _displayName?: string | undefined;
-    /** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. */
+    /** The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand. */
     private _effectiveRules?: UnifiedRoleManagementPolicyRule[] | undefined;
-    /** This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory. */
+    /** This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne). */
     private _isOrganizationDefault?: boolean | undefined;
     /** The identity who last modified the role setting. */
     private _lastModifiedBy?: Identity | undefined;
     /** The time when the role setting was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The collection of rules like approval rules and expiration rules. */
+    /** The collection of rules like approval rules and expiration rules. Supports $expand. */
     private _rules?: UnifiedRoleManagementPolicyRule[] | undefined;
-    /** The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
+    /** The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
     private _scopeId?: string | undefined;
     /** The type of the scope where the policy is created. One of Directory, DirectoryRole. Required. */
     private _scopeType?: string | undefined;
@@ -58,14 +58,14 @@ export class UnifiedRoleManagementPolicy extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the effectiveRules property value. Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.
+     * Gets the effectiveRules property value. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      * @returns a unifiedRoleManagementPolicyRule
      */
     public get effectiveRules() {
         return this._effectiveRules;
     };
     /**
-     * Sets the effectiveRules property value. Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.
+     * Sets the effectiveRules property value. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      * @param value Value to set for the effectiveRules property.
      */
     public set effectiveRules(value: UnifiedRoleManagementPolicyRule[] | undefined) {
@@ -89,14 +89,14 @@ export class UnifiedRoleManagementPolicy extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the isOrganizationDefault property value. This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.
+     * Gets the isOrganizationDefault property value. This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
      * @returns a boolean
      */
     public get isOrganizationDefault() {
         return this._isOrganizationDefault;
     };
     /**
-     * Sets the isOrganizationDefault property value. This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.
+     * Sets the isOrganizationDefault property value. This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
      * @param value Value to set for the isOrganizationDefault property.
      */
     public set isOrganizationDefault(value: boolean | undefined) {
@@ -131,28 +131,28 @@ export class UnifiedRoleManagementPolicy extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the rules property value. The collection of rules like approval rules and expiration rules.
+     * Gets the rules property value. The collection of rules like approval rules and expiration rules. Supports $expand.
      * @returns a unifiedRoleManagementPolicyRule
      */
     public get rules() {
         return this._rules;
     };
     /**
-     * Sets the rules property value. The collection of rules like approval rules and expiration rules.
+     * Sets the rules property value. The collection of rules like approval rules and expiration rules. Supports $expand.
      * @param value Value to set for the rules property.
      */
     public set rules(value: UnifiedRoleManagementPolicyRule[] | undefined) {
         this._rules = value;
     };
     /**
-     * Gets the scopeId property value. The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+     * Gets the scopeId property value. The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
      * @returns a string
      */
     public get scopeId() {
         return this._scopeId;
     };
     /**
-     * Sets the scopeId property value. The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+     * Sets the scopeId property value. The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
      * @param value Value to set for the scopeId property.
      */
     public set scopeId(value: string | undefined) {

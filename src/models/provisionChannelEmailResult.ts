@@ -20,7 +20,7 @@ export class ProvisionChannelEmailResult implements AdditionalDataHolder, Parsab
         this._additionalData = value;
     };
     /**
-     * Instantiates a new ProvisionChannelEmailResult and sets the default values.
+     * Instantiates a new provisionChannelEmailResult and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Subscription extends Entity implements Parsable {
     /** Optional. Identifier of the application used to create the subscription. Read-only. */
     private _applicationId?: string | undefined;

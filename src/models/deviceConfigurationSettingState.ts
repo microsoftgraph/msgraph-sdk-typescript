@@ -21,7 +21,7 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
     private _settingName?: string | undefined;
     /** Contributing policies */
     private _sources?: SettingSource[] | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** UserEmail */
     private _userEmail?: string | undefined;
@@ -190,14 +190,14 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
         this._sources = value;
     };
     /**
-     * Gets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the state property value. The state property
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

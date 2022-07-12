@@ -1,5 +1,5 @@
 
-/** Access package assignment policies. */
+/** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
 export class AssignmentPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

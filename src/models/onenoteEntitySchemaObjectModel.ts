@@ -1,15 +1,15 @@
 import {OnenoteEntityBaseModel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements Parsable {
     /** The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
     /**
-     * Instantiates a new onenoteEntitySchemaObjectModel and sets the default values.
+     * Instantiates a new OnenoteEntitySchemaObjectModel and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.onenoteEntitySchemaObjectModel";
     };
     /**
      * Gets the createdDateTime property value. The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.

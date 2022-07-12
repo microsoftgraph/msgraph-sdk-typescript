@@ -8,7 +8,6 @@ import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorVal
 import {LocalizedDescription, LocalizedLabel, Relation, Set} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Term extends Entity implements Parsable {
     /** Children of current term. */
     private _children?: Term[] | undefined;

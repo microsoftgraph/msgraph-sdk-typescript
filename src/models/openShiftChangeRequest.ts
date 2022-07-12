@@ -1,12 +1,11 @@
 import {ScheduleChangeRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OpenShiftChangeRequest extends ScheduleChangeRequest implements Parsable {
     /** ID for the open shift. */
     private _openShiftId?: string | undefined;
     /**
-     * Instantiates a new openShiftChangeRequest and sets the default values.
+     * Instantiates a new OpenShiftChangeRequest and sets the default values.
      */
     public constructor() {
         super();

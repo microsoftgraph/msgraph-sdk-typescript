@@ -1,4 +1,4 @@
-import {Extension} from './index';
+import {Extension, OpenTypeExtension} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) : Extension {
@@ -8,8 +8,8 @@ export function createExtensionFromDiscriminatorValue(parseNode: ParseNode | und
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.extension":
-                    return new Extension();
+                case "#microsoft.graph.openTypeExtension":
+                    return new OpenTypeExtension();
             }
         }
     }

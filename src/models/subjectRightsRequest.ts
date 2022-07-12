@@ -9,10 +9,8 @@ import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorVal
 import {DataSubjectType} from './dataSubjectType';
 import {AuthoredNote, DataSubject, Entity, Identity, IdentitySet, SubjectRightsRequestDetail, SubjectRightsRequestHistory, SubjectRightsRequestStageDetail, Team} from './index';
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
-import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequest extends Entity implements Parsable {
     /** Identity that the request is assigned to. */
     private _assignedTo?: Identity | undefined;
@@ -50,8 +48,6 @@ export class SubjectRightsRequest extends Entity implements Parsable {
     private _status?: SubjectRightsRequestStatus | undefined;
     /** Information about the Microsoft Teams team that was created for the request. */
     private _team?: Team | undefined;
-    /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue. */
-    private _type?: SubjectRightsRequestType | undefined;
     /**
      * Gets the assignedTo property value. Identity that the request is assigned to.
      * @returns a identity
@@ -81,7 +77,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._closedDateTime = value;
     };
     /**
-     * Instantiates a new subjectRightsRequest and sets the default values.
+     * Instantiates a new SubjectRightsRequest and sets the default values.
      */
     public constructor() {
         super();
@@ -194,7 +190,6 @@ export class SubjectRightsRequest extends Entity implements Parsable {
             "stages": n => { this.stages = n.getCollectionOfObjectValues<SubjectRightsRequestStageDetail>(createSubjectRightsRequestStageDetailFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<SubjectRightsRequestStatus>(SubjectRightsRequestStatus); },
             "team": n => { this.team = n.getObjectValue<Team>(createTeamFromDiscriminatorValue); },
-            "type": n => { this.type = n.getEnumValue<SubjectRightsRequestType>(SubjectRightsRequestType); },
         };
     };
     /**
@@ -320,7 +315,6 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetail>("stages", this.stages);
         writer.writeEnumValue<SubjectRightsRequestStatus>("status", this.status);
         writer.writeObjectValue<Team>("team", this.team);
-        writer.writeEnumValue<SubjectRightsRequestType>("type", this.type);
     };
     /**
      * Gets the stages property value. Information about the different stages for the request.
@@ -363,19 +357,5 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      */
     public set team(value: Team | undefined) {
         this._team = value;
-    };
-    /**
-     * Gets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
-     * @returns a subjectRightsRequestType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: SubjectRightsRequestType | undefined) {
-        this._type = value;
     };
 }

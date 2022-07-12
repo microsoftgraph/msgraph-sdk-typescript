@@ -45,6 +45,8 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     private _remoteIPAddress?: string | undefined;
     /** The remote media port. */
     private _remotePort?: number | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -162,6 +164,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.teleconferenceDeviceMediaQuality";
     };
     /**
      * The deserialization information for the current model
@@ -190,6 +193,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
             "outboundPackets": n => { this.outboundPackets = n.getNumberValue(); },
             "remoteIPAddress": n => { this.remoteIPAddress = n.getStringValue(); },
             "remotePort": n => { this.remotePort = n.getNumberValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -347,6 +351,20 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
         this._networkLinkSpeedInBytes = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Gets the outboundPackets property value. The total number of the outbound packets.
      * @returns a int64
      */
@@ -415,6 +433,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
         writer.writeNumberValue("outboundPackets", this.outboundPackets);
         writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
         writer.writeNumberValue("remotePort", this.remotePort);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Contains properties used to assign a eBook to a group. */
 export class ManagedEBookAssignment extends Entity implements Parsable {
-    /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
+    /** Possible values for the install intent chosen by the admin. */
     private _installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
@@ -14,6 +14,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.managedEBookAssignment";
     };
     /**
      * The deserialization information for the current model
@@ -26,14 +27,14 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Gets the installIntent property value. Possible values for the install intent chosen by the admin.
      * @returns a installIntent
      */
     public get installIntent() {
         return this._installIntent;
     };
     /**
-     * Sets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Sets the installIntent property value. Possible values for the install intent chosen by the admin.
      * @param value Value to set for the installIntent property.
      */
     public set installIntent(value: InstallIntent | undefined) {

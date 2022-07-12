@@ -3,7 +3,7 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, Json, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookNamedItem extends Entity implements Parsable {
     /** Represents the comment associated with this name. */
     private _comment?: string | undefined;
@@ -11,8 +11,6 @@ export class WorkbookNamedItem extends Entity implements Parsable {
     private _name?: string | undefined;
     /** Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only. */
     private _scope?: string | undefined;
-    /** Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only. */
-    private _type?: string | undefined;
     /** Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only. */
     private _value?: Json | undefined;
     /** Specifies whether the object is visible or not. */
@@ -48,7 +46,6 @@ export class WorkbookNamedItem extends Entity implements Parsable {
             "comment": n => { this.comment = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
             "scope": n => { this.scope = n.getStringValue(); },
-            "type": n => { this.type = n.getStringValue(); },
             "value": n => { this.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
             "visible": n => { this.visible = n.getBooleanValue(); },
             "worksheet": n => { this.worksheet = n.getObjectValue<WorkbookWorksheet>(createWorkbookWorksheetFromDiscriminatorValue); },
@@ -92,24 +89,9 @@ export class WorkbookNamedItem extends Entity implements Parsable {
         writer.writeStringValue("comment", this.comment);
         writer.writeStringValue("name", this.name);
         writer.writeStringValue("scope", this.scope);
-        writer.writeStringValue("type", this.type);
         writer.writeObjectValue<Json>("value", this.value);
         writer.writeBooleanValue("visible", this.visible);
         writer.writeObjectValue<WorkbookWorksheet>("worksheet", this.worksheet);
-    };
-    /**
-     * Gets the type property value. Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.
-     * @returns a string
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: string | undefined) {
-        this._type = value;
     };
     /**
      * Gets the value property value. Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only.

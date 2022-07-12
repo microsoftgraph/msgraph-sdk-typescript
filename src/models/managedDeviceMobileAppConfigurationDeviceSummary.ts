@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties, inherited properties and actions for an MDM mobile app configuration device status summary. */
 export class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements Parsable {
     /** Version of the policy for that overview */
     private _configurationVersion?: number | undefined;

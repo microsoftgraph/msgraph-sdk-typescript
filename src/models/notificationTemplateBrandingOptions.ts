@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum NotificationTemplateBrandingOptions {
     /** No Branding. */
     None = "none",

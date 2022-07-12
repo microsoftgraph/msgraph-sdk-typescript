@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get directoryAudits from auditLogs */
 export class DirectoryAuditItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

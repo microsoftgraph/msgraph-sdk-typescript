@@ -1,10 +1,9 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the updateRecordingStatus method. */
 export class UpdateRecordingStatusOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new updateRecordingStatusOperation and sets the default values.
+     * Instantiates a new UpdateRecordingStatusOperation and sets the default values.
      */
     public constructor() {
         super();

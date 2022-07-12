@@ -3,7 +3,6 @@ import {createDefaultUserRolePermissionsFromDiscriminatorValue} from './createDe
 import {DefaultUserRolePermissions, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AuthorizationPolicy extends PolicyBase implements Parsable {
     /** Indicates whether users can sign up for email based subscriptions. */
     private _allowedToSignUpEmailBasedSubscriptions?: boolean | undefined;
@@ -90,7 +89,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
         this._blockMsolPowerShell = value;
     };
     /**
-     * Instantiates a new authorizationPolicy and sets the default values.
+     * Instantiates a new AuthorizationPolicy and sets the default values.
      */
     public constructor() {
         super();

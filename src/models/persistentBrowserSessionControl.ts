@@ -2,12 +2,11 @@ import {ConditionalAccessSessionControl} from './index';
 import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class PersistentBrowserSessionControl extends ConditionalAccessSessionControl implements Parsable {
     /** Possible values are: always, never. */
     private _mode?: PersistentBrowserSessionMode | undefined;
     /**
-     * Instantiates a new persistentBrowserSessionControl and sets the default values.
+     * Instantiates a new PersistentBrowserSessionControl and sets the default values.
      */
     public constructor() {
         super();

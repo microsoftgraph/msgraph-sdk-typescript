@@ -2,6 +2,8 @@ import {UserTeamwork} from '../../../models/';
 import {createUserTeamworkFromDiscriminatorValue} from '../../../models/createUserTeamworkFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AssociatedTeamsRequestBuilder} from './associatedTeams/associatedTeamsRequestBuilder';
+import {AssociatedTeamInfoItemRequestBuilder} from './associatedTeams/item/associatedTeamInfoItemRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {UserScopeTeamsAppInstallationItemRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationItemRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
@@ -12,6 +14,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the teamwork property of the microsoft.graph.user entity. */
 export class TeamworkRequestBuilder {
+    /** The associatedTeams property */
+    public get associatedTeams(): AssociatedTeamsRequestBuilder {
+        return new AssociatedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The installedApps property */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -26,6 +32,17 @@ export class TeamworkRequestBuilder {
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.teamwork.associatedTeams.item collection
+     * @param id Unique identifier of the item
+     * @returns a associatedTeamInfoItemRequestBuilder
+     */
+    public associatedTeamsById(id: string) : AssociatedTeamInfoItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["associatedTeamInfo%2Did"] = id
+        return new AssociatedTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TeamworkRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -65,6 +82,7 @@ export class TeamworkRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

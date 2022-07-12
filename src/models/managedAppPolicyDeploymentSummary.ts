@@ -2,7 +2,6 @@ import {createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue} fro
 import {Entity, ManagedAppPolicyDeploymentSummaryPerApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
 export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsable {
     /** Not yet documented */
     private _configurationDeployedUserCount?: number | undefined;

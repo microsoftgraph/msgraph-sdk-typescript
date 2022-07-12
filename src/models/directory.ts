@@ -4,7 +4,6 @@ import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentity
 import {AdministrativeUnit, DirectoryObject, Entity, IdentityProviderBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton. */
 export class Directory extends Entity implements Parsable {
     /** Conceptual container for user and group directory objects. */
     private _administrativeUnits?: AdministrativeUnit[] | undefined;
@@ -27,7 +26,7 @@ export class Directory extends Entity implements Parsable {
         this._administrativeUnits = value;
     };
     /**
-     * Instantiates a new directory and sets the default values.
+     * Instantiates a new Directory and sets the default values.
      */
     public constructor() {
         super();

@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationDeviceOverview extends Entity implements Parsable {
     /** Version of the policy for that overview */
     private _configurationVersion?: number | undefined;

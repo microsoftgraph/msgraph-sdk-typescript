@@ -2,14 +2,13 @@ import {createPermissionGrantConditionSetFromDiscriminatorValue} from './createP
 import {PermissionGrantConditionSet, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class PermissionGrantPolicy extends PolicyBase implements Parsable {
     /** Condition sets which are excluded in this permission grant policy. Automatically expanded on GET. */
     private _excludes?: PermissionGrantConditionSet[] | undefined;
     /** Condition sets which are included in this permission grant policy. Automatically expanded on GET. */
     private _includes?: PermissionGrantConditionSet[] | undefined;
     /**
-     * Instantiates a new permissionGrantPolicy and sets the default values.
+     * Instantiates a new PermissionGrantPolicy and sets the default values.
      */
     public constructor() {
         super();

@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class BookingWorkHours implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. */
+    /** The day property */
     private _day?: DayOfWeek | undefined;
     /** A list of start/end times during a day. */
     private _timeSlots?: BookingWorkTimeSlot[] | undefined;
@@ -32,14 +32,14 @@ export class BookingWorkHours implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the day property value. The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Gets the day property value. The day property
      * @returns a dayOfWeek
      */
     public get day() {
         return this._day;
     };
     /**
-     * Sets the day property value. The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Sets the day property value. The day property
      * @param value Value to set for the day property.
      */
     public set day(value: DayOfWeek | undefined) {

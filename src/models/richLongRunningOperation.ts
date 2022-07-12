@@ -2,7 +2,6 @@ import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDi
 import {LongRunningOperation, PublicError} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class RichLongRunningOperation extends LongRunningOperation implements Parsable {
     /** Error due to which the operation failed. */
     private _error_escaped?: PublicError | undefined;
@@ -10,10 +9,8 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
     private _percentageComplete?: number | undefined;
     /** A unique identifier for the result. */
     private _resourceId?: string | undefined;
-    /** Type of the operation. */
-    private _type?: string | undefined;
     /**
-     * Instantiates a new richLongRunningOperation and sets the default values.
+     * Instantiates a new RichLongRunningOperation and sets the default values.
      */
     public constructor() {
         super();
@@ -41,7 +38,6 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
             "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
             "percentageComplete": n => { this.percentageComplete = n.getNumberValue(); },
             "resourceId": n => { this.resourceId = n.getStringValue(); },
-            "type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -82,20 +78,5 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
         writer.writeObjectValue<PublicError>("error", this.error_escaped);
         writer.writeNumberValue("percentageComplete", this.percentageComplete);
         writer.writeStringValue("resourceId", this.resourceId);
-        writer.writeStringValue("type", this.type);
-    };
-    /**
-     * Gets the type property value. Type of the operation.
-     * @returns a string
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. Type of the operation.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: string | undefined) {
-        this._type = value;
     };
 }

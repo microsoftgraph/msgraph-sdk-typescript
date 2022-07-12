@@ -10,9 +10,9 @@ export class DeviceManagementExportJob extends Entity implements Parsable {
     private _expirationDateTime?: Date | undefined;
     /** Filters applied on the report */
     private _filter?: string | undefined;
-    /** Format of the exported report. Possible values are: csv, pdf. */
+    /** Possible values for the file format of a report */
     private _format?: DeviceManagementReportFileFormat | undefined;
-    /** Configures how the requested export job is localized. Possible values are: localizedValuesAsAdditionalColumn, replaceLocalizableValues. */
+    /** Configures how the requested export job is localized */
     private _localizationType?: DeviceManagementExportJobLocalizationType | undefined;
     /** Name of the report */
     private _reportName?: string | undefined;
@@ -22,7 +22,7 @@ export class DeviceManagementExportJob extends Entity implements Parsable {
     private _select?: string[] | undefined;
     /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. */
     private _snapshotId?: string | undefined;
-    /** Status of the export job. Possible values are: unknown, notStarted, inProgress, completed, failed. */
+    /** Possible statuses associated with a generated report */
     private _status?: DeviceManagementReportStatus | undefined;
     /** Temporary location of the exported report */
     private _url?: string | undefined;
@@ -61,14 +61,14 @@ export class DeviceManagementExportJob extends Entity implements Parsable {
         this._filter = value;
     };
     /**
-     * Gets the format property value. Format of the exported report. Possible values are: csv, pdf.
+     * Gets the format property value. Possible values for the file format of a report
      * @returns a deviceManagementReportFileFormat
      */
     public get format() {
         return this._format;
     };
     /**
-     * Sets the format property value. Format of the exported report. Possible values are: csv, pdf.
+     * Sets the format property value. Possible values for the file format of a report
      * @param value Value to set for the format property.
      */
     public set format(value: DeviceManagementReportFileFormat | undefined) {
@@ -93,14 +93,14 @@ export class DeviceManagementExportJob extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the localizationType property value. Configures how the requested export job is localized. Possible values are: localizedValuesAsAdditionalColumn, replaceLocalizableValues.
+     * Gets the localizationType property value. Configures how the requested export job is localized
      * @returns a deviceManagementExportJobLocalizationType
      */
     public get localizationType() {
         return this._localizationType;
     };
     /**
-     * Sets the localizationType property value. Configures how the requested export job is localized. Possible values are: localizedValuesAsAdditionalColumn, replaceLocalizableValues.
+     * Sets the localizationType property value. Configures how the requested export job is localized
      * @param value Value to set for the localizationType property.
      */
     public set localizationType(value: DeviceManagementExportJobLocalizationType | undefined) {
@@ -181,14 +181,14 @@ export class DeviceManagementExportJob extends Entity implements Parsable {
         this._snapshotId = value;
     };
     /**
-     * Gets the status property value. Status of the export job. Possible values are: unknown, notStarted, inProgress, completed, failed.
+     * Gets the status property value. Possible statuses associated with a generated report
      * @returns a deviceManagementReportStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Status of the export job. Possible values are: unknown, notStarted, inProgress, completed, failed.
+     * Sets the status property value. Possible statuses associated with a generated report
      * @param value Value to set for the status property.
      */
     public set status(value: DeviceManagementReportStatus | undefined) {

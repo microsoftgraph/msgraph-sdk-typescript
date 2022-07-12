@@ -2,9 +2,8 @@ import {createRequestScheduleFromDiscriminatorValue} from './createRequestSchedu
 import {RequestSchedule, UnifiedRoleScheduleBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements Parsable {
-    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
+    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. Supports $filter (eq). */
     private _memberType?: string | undefined;
     /** The schedule object of the eligible role assignment request. */
     private _scheduleInfo?: RequestSchedule | undefined;
@@ -25,14 +24,14 @@ export class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase impl
         };
     };
     /**
-     * Gets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
+     * Gets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. Supports $filter (eq).
      * @returns a string
      */
     public get memberType() {
         return this._memberType;
     };
     /**
-     * Sets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
+     * Sets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. Supports $filter (eq).
      * @param value Value to set for the memberType property.
      */
     public set memberType(value: string | undefined) {

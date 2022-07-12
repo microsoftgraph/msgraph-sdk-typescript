@@ -5,7 +5,6 @@ import {NotebookLinks, OnenoteEntityHierarchyModel, OnenoteSection, SectionGroup
 import {OnenoteUserRole} from './onenoteUserRole';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default notebook. Read-only. */
     private _isDefault?: boolean | undefined;
@@ -24,7 +23,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
     /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only. */
     private _userRole?: OnenoteUserRole | undefined;
     /**
-     * Instantiates a new notebook and sets the default values.
+     * Instantiates a new Notebook and sets the default values.
      */
     public constructor() {
         super();

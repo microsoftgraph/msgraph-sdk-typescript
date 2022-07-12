@@ -5,31 +5,30 @@ import {createSignInFromDiscriminatorValue} from './createSignInFromDiscriminato
 import {DirectoryAudit, Entity, ProvisioningObjectSummary, RestrictedSignIn, SignIn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogRoot extends Entity implements Parsable {
-    /** Read-only. Nullable. */
+    /** The directoryAudits property */
     private _directoryAudits?: DirectoryAudit[] | undefined;
     /** The provisioning property */
     private _provisioning?: ProvisioningObjectSummary[] | undefined;
     /** The restrictedSignIns property */
     private _restrictedSignIns?: RestrictedSignIn[] | undefined;
-    /** Read-only. Nullable. */
+    /** The signIns property */
     private _signIns?: SignIn[] | undefined;
     /**
-     * Instantiates a new auditLogRoot and sets the default values.
+     * Instantiates a new AuditLogRoot and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the directoryAudits property value. Read-only. Nullable.
+     * Gets the directoryAudits property value. The directoryAudits property
      * @returns a directoryAudit
      */
     public get directoryAudits() {
         return this._directoryAudits;
     };
     /**
-     * Sets the directoryAudits property value. Read-only. Nullable.
+     * Sets the directoryAudits property value. The directoryAudits property
      * @param value Value to set for the directoryAudits property.
      */
     public set directoryAudits(value: DirectoryAudit[] | undefined) {
@@ -88,14 +87,14 @@ export class AuditLogRoot extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<SignIn>("signIns", this.signIns);
     };
     /**
-     * Gets the signIns property value. Read-only. Nullable.
+     * Gets the signIns property value. The signIns property
      * @returns a signIn
      */
     public get signIns() {
         return this._signIns;
     };
     /**
-     * Sets the signIns property value. Read-only. Nullable.
+     * Sets the signIns property value. The signIns property
      * @param value Value to set for the signIns property.
      */
     public set signIns(value: SignIn[] | undefined) {

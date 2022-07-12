@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of orgContact entities. */
+/** Provides operations to manage the admin singleton. */
 export enum PhoneType {
     Home = "home",
     Business = "business",

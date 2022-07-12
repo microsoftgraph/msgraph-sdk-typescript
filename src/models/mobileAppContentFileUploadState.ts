@@ -1,4 +1,4 @@
-/** Casts the previous resource to managedMobileLobApp. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum MobileAppContentFileUploadState {
     Success = "success",
     TransientError = "transientError",

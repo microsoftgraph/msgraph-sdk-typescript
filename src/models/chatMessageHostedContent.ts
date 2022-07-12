@@ -1,10 +1,9 @@
 import {TeamworkHostedContent} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageHostedContent extends TeamworkHostedContent implements Parsable {
     /**
-     * Instantiates a new chatMessageHostedContent and sets the default values.
+     * Instantiates a new ChatMessageHostedContent and sets the default values.
      */
     public constructor() {
         super();

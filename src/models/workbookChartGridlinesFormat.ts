@@ -2,7 +2,6 @@ import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkb
 import {Entity, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartGridlinesFormat extends Entity implements Parsable {
     /** Represents chart line formatting. Read-only. */
     private _line?: WorkbookChartLineFormat | undefined;

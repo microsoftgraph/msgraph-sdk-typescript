@@ -2,7 +2,6 @@ import {createSettingTemplateValueFromDiscriminatorValue} from './createSettingT
 import {DirectoryObject, SettingTemplateValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of groupSettingTemplate entities. */
 export class GroupSettingTemplate extends DirectoryObject implements Parsable {
     /** Description of the template. */
     private _description?: string | undefined;
@@ -11,7 +10,7 @@ export class GroupSettingTemplate extends DirectoryObject implements Parsable {
     /** Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template. */
     private _values?: SettingTemplateValue[] | undefined;
     /**
-     * Instantiates a new groupSettingTemplate and sets the default values.
+     * Instantiates a new GroupSettingTemplate and sets the default values.
      */
     public constructor() {
         super();

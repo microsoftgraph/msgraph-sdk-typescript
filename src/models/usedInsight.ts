@@ -5,7 +5,7 @@ import {createUsageDetailsFromDiscriminatorValue} from './createUsageDetailsFrom
 import {Entity, ResourceReference, ResourceVisualization, UsageDetails} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class UsedInsight extends Entity implements Parsable {
     /** Information about when the item was last viewed or modified by the user. Read only. */
     private _lastUsed?: UsageDetails | undefined;
