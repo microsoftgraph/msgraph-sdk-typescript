@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The unique identifier for the application. */
+    /** The unique identifier for the client application. */
     private _appId?: string | undefined;
     /** The unique identifier for the oauth2PermissionScopes the application requires. */
     private _delegatedPermissionIds?: string[] | undefined;
@@ -22,14 +22,14 @@ export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
         this._additionalData = value;
     };
     /**
-     * Gets the appId property value. The unique identifier for the application.
+     * Gets the appId property value. The unique identifier for the client application.
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The unique identifier for the application.
+     * Sets the appId property value. The unique identifier for the client application.
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {

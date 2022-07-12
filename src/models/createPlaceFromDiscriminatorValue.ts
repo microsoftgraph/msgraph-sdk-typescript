@@ -1,4 +1,4 @@
-import {Place} from './index';
+import {Place, Room, RoomList} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createPlaceFromDiscriminatorValue(parseNode: ParseNode | undefined) : Place {
@@ -8,8 +8,10 @@ export function createPlaceFromDiscriminatorValue(parseNode: ParseNode | undefin
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.place":
-                    return new Place();
+                case "#microsoft.graph.room":
+                    return new Room();
+                case "#microsoft.graph.roomList":
+                    return new RoomList();
             }
         }
     }

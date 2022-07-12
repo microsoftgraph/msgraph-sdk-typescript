@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SyncPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The syncType property */
+    /** The type of Exchange Connector sync requested. */
     private _syncType?: DeviceManagementExchangeConnectorSyncType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -46,14 +46,14 @@ export class SyncPostRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the syncType property value. The syncType property
+     * Gets the syncType property value. The type of Exchange Connector sync requested.
      * @returns a deviceManagementExchangeConnectorSyncType
      */
     public get syncType() {
         return this._syncType;
     };
     /**
-     * Sets the syncType property value. The syncType property
+     * Sets the syncType property value. The type of Exchange Connector sync requested.
      * @param value Value to set for the syncType property.
      */
     public set syncType(value: DeviceManagementExchangeConnectorSyncType | undefined) {

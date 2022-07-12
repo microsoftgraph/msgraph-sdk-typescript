@@ -12,7 +12,7 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
     private _emailAddress?: string | undefined;
     /** Mobile phone number of the contact. */
     private _mobilePhone?: string | undefined;
-    /** Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue. */
+    /** The relationship property */
     private _relationship?: ContactRelationship | undefined;
     /**
      * Gets the accessConsent property value. Indicates whether the user has been consented to access student data.
@@ -104,14 +104,14 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         this._mobilePhone = value;
     };
     /**
-     * Gets the relationship property value. Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+     * Gets the relationship property value. The relationship property
      * @returns a contactRelationship
      */
     public get relationship() {
         return this._relationship;
     };
     /**
-     * Sets the relationship property value. Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+     * Sets the relationship property value. The relationship property
      * @param value Value to set for the relationship property.
      */
     public set relationship(value: ContactRelationship | undefined) {

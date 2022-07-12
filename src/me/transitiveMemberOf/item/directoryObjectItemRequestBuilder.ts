@@ -57,7 +57,7 @@ export class DirectoryObjectItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get transitiveMemberOf from me
+     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,6 +66,7 @@ export class DirectoryObjectItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -74,7 +75,7 @@ export class DirectoryObjectItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get transitiveMemberOf from me
+     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObject

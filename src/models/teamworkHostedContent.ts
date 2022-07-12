@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class TeamworkHostedContent extends Entity implements Parsable {
     /** Write only. Bytes for the hosted content (such as images). */
     private _contentBytes?: string | undefined;
@@ -12,6 +12,7 @@ export class TeamworkHostedContent extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.teamworkHostedContent";
     };
     /**
      * Gets the contentBytes property value. Write only. Bytes for the hosted content (such as images).

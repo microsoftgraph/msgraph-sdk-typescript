@@ -1,4 +1,4 @@
-import {DomainDnsRecord} from './index';
+import {DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : DomainDnsRecord {
@@ -8,8 +8,16 @@ export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.domainDnsRecord":
-                    return new DomainDnsRecord();
+                case "#microsoft.graph.domainDnsCnameRecord":
+                    return new DomainDnsCnameRecord();
+                case "#microsoft.graph.domainDnsMxRecord":
+                    return new DomainDnsMxRecord();
+                case "#microsoft.graph.domainDnsSrvRecord":
+                    return new DomainDnsSrvRecord();
+                case "#microsoft.graph.domainDnsTxtRecord":
+                    return new DomainDnsTxtRecord();
+                case "#microsoft.graph.domainDnsUnavailableRecord":
+                    return new DomainDnsUnavailableRecord();
             }
         }
     }

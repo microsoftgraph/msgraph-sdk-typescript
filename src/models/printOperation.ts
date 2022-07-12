@@ -2,17 +2,17 @@ import {createPrintOperationStatusFromDiscriminatorValue} from './createPrintOpe
 import {Entity, PrintOperationStatus} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintOperation extends Entity implements Parsable {
     /** The DateTimeOffset when the operation was created. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The status property */
     private _status?: PrintOperationStatus | undefined;
     /**
-     * Instantiates a new printOperation and sets the default values.
+     * Instantiates a new PrintOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.printOperation";
     };
     /**
      * Gets the createdDateTime property value. The DateTimeOffset when the operation was created. Read-only.

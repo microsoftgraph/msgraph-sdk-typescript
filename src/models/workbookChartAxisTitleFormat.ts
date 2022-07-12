@@ -2,7 +2,6 @@ import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookCha
 import {Entity, WorkbookChartFont} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
     private _font?: WorkbookChartFont | undefined;

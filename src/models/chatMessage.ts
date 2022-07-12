@@ -13,7 +13,7 @@ import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscrimi
 import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class ChatMessage extends Entity implements Parsable {
     /** References to attached objects like files, tabs, meetings etc. */
     private _attachments?: ChatMessageAttachment[] | undefined;
@@ -35,7 +35,7 @@ export class ChatMessage extends Entity implements Parsable {
     private _from?: ChatMessageFromIdentitySet | undefined;
     /** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
     private _hostedContents?: ChatMessageHostedContent[] | undefined;
-    /** The importance of the chat message. The possible values are: normal, high, urgent. */
+    /** The importance property */
     private _importance?: ChatMessageImportance | undefined;
     /** Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null. */
     private _lastEditedDateTime?: Date | undefined;
@@ -45,7 +45,7 @@ export class ChatMessage extends Entity implements Parsable {
     private _locale?: string | undefined;
     /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag. */
     private _mentions?: ChatMessageMention[] | undefined;
-    /** The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage. */
+    /** The messageType property */
     private _messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
     private _policyViolation?: ChatMessagePolicyViolation | undefined;
@@ -239,14 +239,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._hostedContents = value;
     };
     /**
-     * Gets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Gets the importance property value. The importance property
      * @returns a chatMessageImportance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Sets the importance property value. The importance property
      * @param value Value to set for the importance property.
      */
     public set importance(value: ChatMessageImportance | undefined) {
@@ -309,14 +309,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._mentions = value;
     };
     /**
-     * Gets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Gets the messageType property value. The messageType property
      * @returns a chatMessageType
      */
     public get messageType() {
         return this._messageType;
     };
     /**
-     * Sets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Sets the messageType property value. The messageType property
      * @param value Value to set for the messageType property.
      */
     public set messageType(value: ChatMessageType | undefined) {

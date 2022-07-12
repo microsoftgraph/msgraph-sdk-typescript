@@ -4,7 +4,7 @@ import {Set} from './index';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Group extends Entity implements Parsable {
     /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;

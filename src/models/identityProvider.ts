@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the admin singleton. */
 export class IdentityProvider extends Entity implements Parsable {
     /** The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable. */
     private _clientId?: string | undefined;
@@ -9,8 +9,6 @@ export class IdentityProvider extends Entity implements Parsable {
     private _clientSecret?: string | undefined;
     /** The display name of the identity provider. Not nullable. */
     private _name?: string | undefined;
-    /** The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable. */
-    private _type?: string | undefined;
     /**
      * Gets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
      * @returns a string
@@ -54,7 +52,6 @@ export class IdentityProvider extends Entity implements Parsable {
             "clientId": n => { this.clientId = n.getStringValue(); },
             "clientSecret": n => { this.clientSecret = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
-            "type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -81,20 +78,5 @@ export class IdentityProvider extends Entity implements Parsable {
         writer.writeStringValue("clientId", this.clientId);
         writer.writeStringValue("clientSecret", this.clientSecret);
         writer.writeStringValue("name", this.name);
-        writer.writeStringValue("type", this.type);
-    };
-    /**
-     * Gets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
-     * @returns a string
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: string | undefined) {
-        this._type = value;
     };
 }

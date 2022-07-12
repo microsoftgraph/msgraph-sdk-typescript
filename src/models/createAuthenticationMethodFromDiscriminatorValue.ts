@@ -1,4 +1,4 @@
-import {AuthenticationMethod} from './index';
+import {AuthenticationMethod, Fido2AuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethod, PasswordAuthenticationMethod, TemporaryAccessPassAuthenticationMethod, WindowsHelloForBusinessAuthenticationMethod} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethod {
@@ -8,8 +8,16 @@ export function createAuthenticationMethodFromDiscriminatorValue(parseNode: Pars
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.authenticationMethod":
-                    return new AuthenticationMethod();
+                case "#microsoft.graph.fido2AuthenticationMethod":
+                    return new Fido2AuthenticationMethod();
+                case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod":
+                    return new MicrosoftAuthenticatorAuthenticationMethod();
+                case "#microsoft.graph.passwordAuthenticationMethod":
+                    return new PasswordAuthenticationMethod();
+                case "#microsoft.graph.temporaryAccessPassAuthenticationMethod":
+                    return new TemporaryAccessPassAuthenticationMethod();
+                case "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod":
+                    return new WindowsHelloForBusinessAuthenticationMethod();
             }
         }
     }

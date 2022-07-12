@@ -6,7 +6,7 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDetails, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class PlannerPlan extends Entity implements Parsable {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     private _buckets?: PlannerBucket[] | undefined;

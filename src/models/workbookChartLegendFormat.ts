@@ -3,7 +3,6 @@ import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookCha
 import {Entity, WorkbookChartFill, WorkbookChartFont} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartLegendFormat extends Entity implements Parsable {
     /** Represents the fill format of an object, which includes background formating information. Read-only. */
     private _fill?: WorkbookChartFill | undefined;

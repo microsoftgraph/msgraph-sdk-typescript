@@ -6,7 +6,6 @@ import {createWorkbookWorksheetProtectionFromDiscriminatorValue} from './createW
 import {Entity, WorkbookChart, WorkbookNamedItem, WorkbookPivotTable, WorkbookTable, WorkbookWorksheetProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookWorksheet extends Entity implements Parsable {
     /** Returns collection of charts that are part of the worksheet. Read-only. */
     private _charts?: WorkbookChart[] | undefined;

@@ -24,7 +24,7 @@ export class UploadSession implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new UploadSession and sets the default values.
+     * Instantiates a new uploadSession and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

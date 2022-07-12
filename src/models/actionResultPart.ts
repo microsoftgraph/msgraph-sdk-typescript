@@ -7,6 +7,8 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The error that occurred, if any, during the course of the bulk operation. */
     private _error_escaped?: PublicError | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.actionResultPart";
     };
     /**
      * Gets the error property value. The error that occurred, if any, during the course of the bulk operation.
@@ -48,7 +51,22 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -57,6 +75,7 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<PublicError>("error", this.error_escaped);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
 }

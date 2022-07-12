@@ -9,7 +9,7 @@ export class ServiceHealth extends Entity implements Parsable {
     private _issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
     private _service?: string | undefined;
-    /** Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values. */
+    /** The status property */
     private _status?: ServiceHealthStatus | undefined;
     /**
      * Instantiates a new serviceHealth and sets the default values.
@@ -68,14 +68,14 @@ export class ServiceHealth extends Entity implements Parsable {
         this._service = value;
     };
     /**
-     * Gets the status property value. Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * Gets the status property value. The status property
      * @returns a serviceHealthStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: ServiceHealthStatus | undefined) {

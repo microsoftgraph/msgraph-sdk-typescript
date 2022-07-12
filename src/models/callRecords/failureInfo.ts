@@ -6,7 +6,7 @@ export class FailureInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Classification of why a call or portion of a call failed. */
     private _reason?: string | undefined;
-    /** The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue. */
+    /** The stage property */
     private _stage?: FailureStage | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -63,14 +63,14 @@ export class FailureInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.
+     * Gets the stage property value. The stage property
      * @returns a failureStage
      */
     public get stage() {
         return this._stage;
     };
     /**
-     * Sets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.
+     * Sets the stage property value. The stage property
      * @param value Value to set for the stage property.
      */
     public set stage(value: FailureStage | undefined) {

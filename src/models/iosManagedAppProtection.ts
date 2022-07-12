@@ -4,9 +4,8 @@ import {ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppP
 import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device */
 export class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
-    /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
+    /** Represents the level to which app data is encrypted for managed apps */
     private _appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
@@ -21,14 +20,14 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
     /** Versions less than the specified version will block the managed app from accessing company data. */
     private _minimumRequiredSdkVersion?: string | undefined;
     /**
-     * Gets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * Gets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      * @returns a managedAppDataEncryptionType
      */
     public get appDataEncryptionType() {
         return this._appDataEncryptionType;
     };
     /**
-     * Sets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * Sets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      * @param value Value to set for the appDataEncryptionType property.
      */
     public set appDataEncryptionType(value: ManagedAppDataEncryptionType | undefined) {
@@ -49,7 +48,7 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
         this._apps = value;
     };
     /**
-     * Instantiates a new iosManagedAppProtection and sets the default values.
+     * Instantiates a new IosManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();

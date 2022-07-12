@@ -12,7 +12,6 @@ import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatterned
 import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
 import {createResponseStatusFromDiscriminatorValue} from './createResponseStatusFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {EventType} from './eventType';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {Importance} from './importance';
 import {Attachment, Attendee, Calendar, DateTimeTimeZone, Extension, ItemBody, Location, MultiValueLegacyExtendedProperty, OnlineMeetingInfo, OutlookItem, PatternedRecurrence, Recipient, ResponseStatus, SingleValueLegacyExtendedProperty} from './index';
@@ -20,7 +19,6 @@ import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {Sensitivity} from './sensitivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Event extends OutlookItem implements Parsable {
     /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
     private _allowNewTimeProposals?: boolean | undefined;
@@ -102,8 +100,6 @@ export class Event extends OutlookItem implements Parsable {
     private _subject?: string | undefined;
     /** The transactionId property */
     private _transactionId?: string | undefined;
-    /** The type property */
-    private _type?: EventType | undefined;
     /** The webLink property */
     private _webLink?: string | undefined;
     /**
@@ -191,7 +187,7 @@ export class Event extends OutlookItem implements Parsable {
         this._calendar = value;
     };
     /**
-     * Instantiates a new event and sets the default values.
+     * Instantiates a new Event and sets the default values.
      */
     public constructor() {
         super();
@@ -270,7 +266,6 @@ export class Event extends OutlookItem implements Parsable {
             "start": n => { this.start = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "subject": n => { this.subject = n.getStringValue(); },
             "transactionId": n => { this.transactionId = n.getStringValue(); },
-            "type": n => { this.type = n.getEnumValue<EventType>(EventType); },
             "webLink": n => { this.webLink = n.getStringValue(); },
         };
     };
@@ -685,7 +680,6 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
         writer.writeStringValue("subject", this.subject);
         writer.writeStringValue("transactionId", this.transactionId);
-        writer.writeEnumValue<EventType>("type", this.type);
         writer.writeStringValue("webLink", this.webLink);
     };
     /**
@@ -771,20 +765,6 @@ export class Event extends OutlookItem implements Parsable {
      */
     public set transactionId(value: string | undefined) {
         this._transactionId = value;
-    };
-    /**
-     * Gets the type property value. The type property
-     * @returns a eventType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. The type property
-     * @param value Value to set for the type property.
-     */
-    public set type(value: EventType | undefined) {
-        this._type = value;
     };
     /**
      * Gets the webLink property value. The webLink property
